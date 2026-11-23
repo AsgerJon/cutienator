@@ -61,9 +61,8 @@ class QPointerEvent(QInputEvent):
   What has no ritual
   ------------------
 
-  10 of the 30 functions Qt declares: 3 protected; 2 forbidden; 2 takes or
-  gives a type that cannot be passed yet; 1 declared and nowhere to be found;
-  1 a template; 1 private.
+  10 of the 30 functions Qt declares: 5 takes or gives a type that cannot be
+  passed yet; 2 declared and nowhere to be found; 2 forbidden; 1 a template.
 
   What to expect
   --------------

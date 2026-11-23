@@ -67,8 +67,9 @@ class QDataWidgetMapper(QObject):
   What has no ritual
   ------------------
 
-  9 of the 39 functions Qt declares: 3 private; 2 takes or gives a type that
-  cannot be passed yet; 2 forbidden; 1 a template; 1 a signal.
+  9 of the 39 functions Qt declares: 4 takes or gives a type that cannot be
+  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found;
+  1 a signal.
 
   What to expect
   --------------

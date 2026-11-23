@@ -107,9 +107,9 @@ class QGraphicsView(QAbstractScrollArea):
   What has no ritual
   ------------------
 
-  11 of the 119 functions Qt declares: 3 private; 2 takes or gives a type
-  that cannot be passed yet; 2 protected; 2 forbidden; 1 a template; 1 a
-  signal.
+  11 of the 119 functions Qt declares: 6 takes or gives a type that cannot be
+  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found;
+  1 a signal.
 
   What to expect
   --------------
@@ -2363,10 +2363,10 @@ class QGraphicsView(QAbstractScrollArea):
       object.
     """
     #  void QGraphicsView::setupViewport(QWidget *widget)
-    self.uglySide.call(
-        'ritual_own_ZN13QGraphicsView13setupViewportEP7QWidget',
-        self._addressOf(widget),
-    )
+    ritual = 'ritual_ZN13QGraphicsView13setupViewportEP7QWidget'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN13QGraphicsView13setupViewportEP7QWidget'
+    self.uglySide.call(ritual, self._addressOf(widget))
 
   @overload(QEvent)
   @overload(NoneType)
@@ -2384,10 +2384,10 @@ class QGraphicsView(QAbstractScrollArea):
       object.
     """
     #  bool QGraphicsView::event(QEvent *event)
-    return self.uglySide.call(
-        'ritual_own_ZN13QGraphicsView5eventEP6QEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN13QGraphicsView5eventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN13QGraphicsView5eventEP6QEvent'
+    return self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QEvent)
   @overload(NoneType)
@@ -2405,10 +2405,10 @@ class QGraphicsView(QAbstractScrollArea):
       object.
     """
     #  bool QGraphicsView::viewportEvent(QEvent *event)
-    return self.uglySide.call(
-        'ritual_own_ZN13QGraphicsView13viewportEventEP6QEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN13QGraphicsView13viewportEventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN13QGraphicsView13viewportEventEP6QEvent'
+    return self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QContextMenuEvent)
   @overload(NoneType)
@@ -2428,11 +2428,13 @@ class QGraphicsView(QAbstractScrollArea):
       object.
     """
     #  void QGraphicsView::contextMenuEvent(QContextMenuEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN13QGraphicsView16contextMenuEventEP17QContextMenuEven'
-        't',
-        self._addressOf(event),
-    )
+    ritual = (
+        'ritual_ZN13QGraphicsView16contextMenuEventEP17QContextMenuEvent')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN13QGraphicsView16contextMenuEventEP17QContextMenuEv'
+          'ent')
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QDragEnterEvent)
   @overload(NoneType)
@@ -2450,10 +2452,11 @@ class QGraphicsView(QAbstractScrollArea):
       object.
     """
     #  void QGraphicsView::dragEnterEvent(QDragEnterEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN13QGraphicsView14dragEnterEventEP15QDragEnterEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN13QGraphicsView14dragEnterEventEP15QDragEnterEvent'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN13QGraphicsView14dragEnterEventEP15QDragEnterEvent')
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QDragLeaveEvent)
   @overload(NoneType)
@@ -2471,10 +2474,11 @@ class QGraphicsView(QAbstractScrollArea):
       object.
     """
     #  void QGraphicsView::dragLeaveEvent(QDragLeaveEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN13QGraphicsView14dragLeaveEventEP15QDragLeaveEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN13QGraphicsView14dragLeaveEventEP15QDragLeaveEvent'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN13QGraphicsView14dragLeaveEventEP15QDragLeaveEvent')
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QDragMoveEvent)
   @overload(NoneType)
@@ -2492,10 +2496,11 @@ class QGraphicsView(QAbstractScrollArea):
       object.
     """
     #  void QGraphicsView::dragMoveEvent(QDragMoveEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN13QGraphicsView13dragMoveEventEP14QDragMoveEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN13QGraphicsView13dragMoveEventEP14QDragMoveEvent'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN13QGraphicsView13dragMoveEventEP14QDragMoveEvent')
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QDropEvent)
   @overload(NoneType)
@@ -2513,10 +2518,10 @@ class QGraphicsView(QAbstractScrollArea):
       object.
     """
     #  void QGraphicsView::dropEvent(QDropEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN13QGraphicsView9dropEventEP10QDropEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN13QGraphicsView9dropEventEP10QDropEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN13QGraphicsView9dropEventEP10QDropEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QFocusEvent)
   @overload(NoneType)
@@ -2534,10 +2539,10 @@ class QGraphicsView(QAbstractScrollArea):
       object.
     """
     #  void QGraphicsView::focusInEvent(QFocusEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN13QGraphicsView12focusInEventEP11QFocusEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN13QGraphicsView12focusInEventEP11QFocusEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN13QGraphicsView12focusInEventEP11QFocusEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(bool)
   def focusNextPrevChild(self, next: bool) -> bool:
@@ -2554,9 +2559,10 @@ class QGraphicsView(QAbstractScrollArea):
       Passed on as it is.
     """
     #  bool QGraphicsView::focusNextPrevChild(bool next)
-    return self.uglySide.call(
-        'ritual_own_ZN13QGraphicsView18focusNextPrevChildEb', next,
-    )
+    ritual = 'ritual_ZN13QGraphicsView18focusNextPrevChildEb'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN13QGraphicsView18focusNextPrevChildEb'
+    return self.uglySide.call(ritual, next)
 
   @overload(QFocusEvent)
   @overload(NoneType)
@@ -2574,10 +2580,10 @@ class QGraphicsView(QAbstractScrollArea):
       object.
     """
     #  void QGraphicsView::focusOutEvent(QFocusEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN13QGraphicsView13focusOutEventEP11QFocusEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN13QGraphicsView13focusOutEventEP11QFocusEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN13QGraphicsView13focusOutEventEP11QFocusEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QKeyEvent)
   @overload(NoneType)
@@ -2595,10 +2601,10 @@ class QGraphicsView(QAbstractScrollArea):
       object.
     """
     #  void QGraphicsView::keyPressEvent(QKeyEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN13QGraphicsView13keyPressEventEP9QKeyEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN13QGraphicsView13keyPressEventEP9QKeyEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN13QGraphicsView13keyPressEventEP9QKeyEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QKeyEvent)
   @overload(NoneType)
@@ -2616,10 +2622,10 @@ class QGraphicsView(QAbstractScrollArea):
       object.
     """
     #  void QGraphicsView::keyReleaseEvent(QKeyEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN13QGraphicsView15keyReleaseEventEP9QKeyEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN13QGraphicsView15keyReleaseEventEP9QKeyEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN13QGraphicsView15keyReleaseEventEP9QKeyEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QMouseEvent)
   @overload(NoneType)
@@ -2639,10 +2645,12 @@ class QGraphicsView(QAbstractScrollArea):
       object.
     """
     #  void QGraphicsView::mouseDoubleClickEvent(QMouseEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN13QGraphicsView21mouseDoubleClickEventEP11QMouseEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN13QGraphicsView21mouseDoubleClickEventEP11QMouseEvent'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN13QGraphicsView21mouseDoubleClickEventEP11QMouseEve'
+          'nt')
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QMouseEvent)
   @overload(NoneType)
@@ -2660,10 +2668,10 @@ class QGraphicsView(QAbstractScrollArea):
       object.
     """
     #  void QGraphicsView::mousePressEvent(QMouseEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN13QGraphicsView15mousePressEventEP11QMouseEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN13QGraphicsView15mousePressEventEP11QMouseEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN13QGraphicsView15mousePressEventEP11QMouseEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QMouseEvent)
   @overload(NoneType)
@@ -2681,10 +2689,10 @@ class QGraphicsView(QAbstractScrollArea):
       object.
     """
     #  void QGraphicsView::mouseMoveEvent(QMouseEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN13QGraphicsView14mouseMoveEventEP11QMouseEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN13QGraphicsView14mouseMoveEventEP11QMouseEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN13QGraphicsView14mouseMoveEventEP11QMouseEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QMouseEvent)
   @overload(NoneType)
@@ -2703,10 +2711,11 @@ class QGraphicsView(QAbstractScrollArea):
       object.
     """
     #  void QGraphicsView::mouseReleaseEvent(QMouseEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN13QGraphicsView17mouseReleaseEventEP11QMouseEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN13QGraphicsView17mouseReleaseEventEP11QMouseEvent'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN13QGraphicsView17mouseReleaseEventEP11QMouseEvent')
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QWheelEvent)
   @overload(NoneType)
@@ -2724,10 +2733,10 @@ class QGraphicsView(QAbstractScrollArea):
       object.
     """
     #  void QGraphicsView::wheelEvent(QWheelEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN13QGraphicsView10wheelEventEP11QWheelEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN13QGraphicsView10wheelEventEP11QWheelEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN13QGraphicsView10wheelEventEP11QWheelEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QPaintEvent)
   @overload(NoneType)
@@ -2745,10 +2754,10 @@ class QGraphicsView(QAbstractScrollArea):
       object.
     """
     #  void QGraphicsView::paintEvent(QPaintEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN13QGraphicsView10paintEventEP11QPaintEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN13QGraphicsView10paintEventEP11QPaintEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN13QGraphicsView10paintEventEP11QPaintEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QResizeEvent)
   @overload(NoneType)
@@ -2766,10 +2775,10 @@ class QGraphicsView(QAbstractScrollArea):
       object.
     """
     #  void QGraphicsView::resizeEvent(QResizeEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN13QGraphicsView11resizeEventEP12QResizeEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN13QGraphicsView11resizeEventEP12QResizeEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN13QGraphicsView11resizeEventEP12QResizeEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(int, int)
   def scrollContentsBy(self, dx: int, dy: int) -> None:
@@ -2789,9 +2798,10 @@ class QGraphicsView(QAbstractScrollArea):
       Passed on as it is.
     """
     #  void QGraphicsView::scrollContentsBy(int dx, int dy)
-    self.uglySide.call(
-        'ritual_own_ZN13QGraphicsView16scrollContentsByEii', dx, dy,
-    )
+    ritual = 'ritual_ZN13QGraphicsView16scrollContentsByEii'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN13QGraphicsView16scrollContentsByEii'
+    self.uglySide.call(ritual, dx, dy)
 
   @overload(QShowEvent)
   @overload(NoneType)
@@ -2809,10 +2819,10 @@ class QGraphicsView(QAbstractScrollArea):
       object.
     """
     #  void QGraphicsView::showEvent(QShowEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN13QGraphicsView9showEventEP10QShowEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN13QGraphicsView9showEventEP10QShowEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN13QGraphicsView9showEventEP10QShowEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QInputMethodEvent)
   @overload(NoneType)
@@ -2832,11 +2842,13 @@ class QGraphicsView(QAbstractScrollArea):
       object.
     """
     #  void QGraphicsView::inputMethodEvent(QInputMethodEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN13QGraphicsView16inputMethodEventEP17QInputMethodEven'
-        't',
-        self._addressOf(event),
-    )
+    ritual = (
+        'ritual_ZN13QGraphicsView16inputMethodEventEP17QInputMethodEvent')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN13QGraphicsView16inputMethodEventEP17QInputMethodEv'
+          'ent')
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QPainter, QRectF)
   @overload(NoneType, QRectF)
@@ -2864,10 +2876,11 @@ class QGraphicsView(QAbstractScrollArea):
     """
     #  void QGraphicsView::drawBackground(QPainter *painter, const QRectF
     #      &rect)
-    self.uglySide.call(
-        'ritual_own_ZN13QGraphicsView14drawBackgroundEP8QPainterRK6QRectF',
-        self._addressOf(painter), self._valueOf(rect),
-    )
+    ritual = 'ritual_ZN13QGraphicsView14drawBackgroundEP8QPainterRK6QRectF'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN13QGraphicsView14drawBackgroundEP8QPainterRK6QRectF')
+    self.uglySide.call(ritual, self._addressOf(painter), self._valueOf(rect))
 
   @overload(QPainter, QRectF)
   @overload(NoneType, QRectF)
@@ -2895,10 +2908,11 @@ class QGraphicsView(QAbstractScrollArea):
     """
     #  void QGraphicsView::drawForeground(QPainter *painter, const QRectF
     #      &rect)
-    self.uglySide.call(
-        'ritual_own_ZN13QGraphicsView14drawForegroundEP8QPainterRK6QRectF',
-        self._addressOf(painter), self._valueOf(rect),
-    )
+    ritual = 'ritual_ZN13QGraphicsView14drawForegroundEP8QPainterRK6QRectF'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN13QGraphicsView14drawForegroundEP8QPainterRK6QRectF')
+    self.uglySide.call(ritual, self._addressOf(painter), self._valueOf(rect))
 
 
 #  Qt's 'QList<QGraphicsView *>': the list of QGraphicsView, which

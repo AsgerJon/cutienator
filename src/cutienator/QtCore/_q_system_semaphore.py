@@ -47,8 +47,8 @@ class QSystemSemaphore(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  5 of the 21 functions Qt declares: 2 forbidden; 1 declared and nowhere to
-  be found; 1 a template; 1 private.
+  5 of the 21 functions Qt declares: 2 declared and nowhere to be found; 2
+  forbidden; 1 a template.
 
   What to expect
   --------------

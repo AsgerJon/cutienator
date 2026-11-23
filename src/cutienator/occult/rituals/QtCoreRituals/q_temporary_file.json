@@ -34,6 +34,9 @@
     "ritual_ZN14QTemporaryFile16createNativeFileERK7QString": [
       "address", "text"
     ],
+    "ritual_ZN14QTemporaryFile4openE6QFlagsIN13QIODeviceBase12OpenModeFlagEE": [
+      "bool", "address", "int"
+    ],
     "ritual_take_QTemporaryFile": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK14QTemporaryFile8fileNameEv": ["text", "address"],
     "ritual_own_ZN14QTemporaryFile4openE6QFlagsIN13QIODeviceBase12OpenModeFlagEE": [

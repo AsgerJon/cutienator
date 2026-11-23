@@ -61,9 +61,8 @@ class QDataStream(QIODeviceBase):
   What has no ritual
   ------------------
 
-  48 of the 73 functions Qt declares: 39 takes or gives a type that cannot be
-  passed yet; 4 private; 2 a template; 2 forbidden; 1 declared and nowhere to
-  be found.
+  48 of the 73 functions Qt declares: 42 takes or gives a type that cannot be
+  passed yet; 2 declared and nowhere to be found; 2 a template; 2 forbidden.
 
   What to expect
   --------------

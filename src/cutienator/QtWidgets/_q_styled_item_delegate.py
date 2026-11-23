@@ -70,8 +70,8 @@ class QStyledItemDelegate(QAbstractItemDelegate):
   What has no ritual
   ------------------
 
-  8 of the 24 functions Qt declares: 3 private; 2 takes or gives a type that
-  cannot be passed yet; 2 forbidden; 1 a template.
+  8 of the 24 functions Qt declares: 4 takes or gives a type that cannot be
+  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found.
 
   What to expect
   --------------
@@ -652,11 +652,14 @@ class QStyledItemDelegate(QAbstractItemDelegate):
     """
     #  void QStyledItemDelegate::initStyleOption(QStyleOptionViewItem
     #      *option, const QModelIndex &index) const
-    self.uglySide.call(
-        'ritual_own_ZNK19QStyledItemDelegate15initStyleOptionEP20QStyleOpti'
-        'onViewItemRK11QModelIndex',
-        self._addressOf(option), self._valueOf(index),
-    )
+    ritual = (
+        'ritual_ZNK19QStyledItemDelegate15initStyleOptionEP20QStyleOptionVi'
+        'ewItemRK11QModelIndex')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK19QStyledItemDelegate15initStyleOptionEP20QStyleOp'
+          'tionViewItemRK11QModelIndex')
+    self.uglySide.call(ritual, self._addressOf(option), self._valueOf(index))
 
   @overload(QObject, QEvent)
   @overload(QObject, NoneType)
@@ -686,9 +689,13 @@ class QStyledItemDelegate(QAbstractItemDelegate):
       object.
     """
     #  bool QStyledItemDelegate::eventFilter(QObject *object, QEvent *event)
+    ritual = 'ritual_ZN19QStyledItemDelegate11eventFilterEP7QObjectP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN19QStyledItemDelegate11eventFilterEP7QObjectP6QEven'
+          't')
     return self.uglySide.call(
-        'ritual_own_ZN19QStyledItemDelegate11eventFilterEP7QObjectP6QEvent',
-        self._addressOf(object), self._addressOf(event),
+        ritual, self._addressOf(object), self._addressOf(event),
     )
 
   @overload(QEvent, QAbstractItemModel, QStyleOptionViewItem, QModelIndex)
@@ -732,9 +739,15 @@ class QStyledItemDelegate(QAbstractItemDelegate):
     #  bool QStyledItemDelegate::editorEvent(QEvent *event,
     #      QAbstractItemModel *model, const QStyleOptionViewItem &option,
     #      const QModelIndex &index)
+    ritual = (
+        'ritual_ZN19QStyledItemDelegate11editorEventEP6QEventP18QAbstractIt'
+        'emModelRK20QStyleOptionViewItemRK11QModelIndex')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN19QStyledItemDelegate11editorEventEP6QEventP18QAbst'
+          'ractItemModelRK20QStyleOptionViewItemRK11QModelIndex')
     return self.uglySide.call(
-        'ritual_own_ZN19QStyledItemDelegate11editorEventEP6QEventP18QAbstra'
-        'ctItemModelRK20QStyleOptionViewItemRK11QModelIndex',
+        ritual,
         self._addressOf(event), self._addressOf(model),
         self._valueOf(option), self._valueOf(index),
     )

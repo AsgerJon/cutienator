@@ -59,8 +59,7 @@ class QIconEngine(CuteMixin, metaclass=MetaCute):
   ------------------
 
   6 of the 18 functions Qt declares: 3 takes or gives a type that cannot be
-  passed yet; 1 the class is abstract, so C++ cannot make one; 1 protected; 1
-  forbidden.
+  passed yet; 2 the class is abstract, so C++ cannot make one; 1 forbidden.
 
   What to expect
   --------------

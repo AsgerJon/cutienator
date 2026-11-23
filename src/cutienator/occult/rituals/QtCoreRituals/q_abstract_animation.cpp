@@ -349,6 +349,41 @@ void ritual_ZN18QAbstractAnimation14setCurrentTimeEi(
   self->setCurrentTime(msecs);
 }
 
+//  bool QAbstractAnimation::event(QEvent *event)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN18QAbstractAnimation5eventEP6QEvent(
+    QAbstractAnimation *self,
+    QEvent *event) {
+  return self->event(event);
+}
+
+//  void QAbstractAnimation::updateCurrentTime(int currentTime)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QAbstractAnimation17updateCurrentTimeEi(
+    QAbstractAnimation *self,
+    int currentTime) {
+  self->updateCurrentTime(currentTime);
+}
+
+//  void QAbstractAnimation::updateState(QAbstractAnimation::State newState,
+//      QAbstractAnimation::State oldState)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QAbstractAnimation11updateStateENS_5StateES0_(
+    QAbstractAnimation *self,
+    QAbstractAnimation::State newState,
+    QAbstractAnimation::State oldState) {
+  self->updateState(newState, oldState);
+}
+
+//  void QAbstractAnimation::updateDirection(QAbstractAnimation::Direction
+//      direction)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QAbstractAnimation15updateDirectionENS_9DirectionE(
+    QAbstractAnimation *self,
+    QAbstractAnimation::Direction direction) {
+  self->updateDirection(direction);
+}
+
 //  a Python function taken by a CuteQAbstractAnimation, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT

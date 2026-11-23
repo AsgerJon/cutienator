@@ -252,6 +252,14 @@ void ritual_ZN19QGraphicsBlurEffect12setBlurHintsE6QFlagsINS_8BlurHintEE(
   self->setBlurHints(QFlags<QGraphicsBlurEffect::BlurHint>::fromInt(hints));
 }
 
+//  void QGraphicsBlurEffect::draw(QPainter *painter)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QGraphicsBlurEffect4drawEP8QPainter(
+    QGraphicsBlurEffect *self,
+    QPainter *painter) {
+  self->draw(painter);
+}
+
 //  a Python function taken by a CuteQGraphicsBlurEffect, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT

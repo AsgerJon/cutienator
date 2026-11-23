@@ -22,6 +22,12 @@
     "ritual_ZNK19QAbstractTableModel5flagsERK11QModelIndex": [
       "int", "address", "address"
     ],
+    "ritual_ZNK19QAbstractTableModel6parentERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK19QAbstractTableModel11hasChildrenERK11QModelIndex": [
+      "bool", "address", "address"
+    ],
     "ritual_take_QAbstractTableModel": [
       "bool", "address", "chars", "address"
     ],
@@ -36,6 +42,12 @@
     ],
     "ritual_own_ZNK19QAbstractTableModel5flagsERK11QModelIndex": [
       "int", "address", "address"
+    ],
+    "ritual_own_ZNK19QAbstractTableModel6parentERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZNK19QAbstractTableModel11hasChildrenERK11QModelIndex": [
+      "bool", "address", "address"
     ]
   }
 }

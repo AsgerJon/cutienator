@@ -15,7 +15,7 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
-from . import QSysInfo
+from . import Qt, QSysInfo
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from . import QByteArray, QByteArrayView
@@ -39,16 +39,20 @@ class QUuid(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QUuid that has a ritual and that Python can call so
-  far, 16 names in all: 'fromString', 'toString', 'toByteArray', 'toBytes',
+  far, 17 names in all: 'fromString', 'toString', 'toByteArray', 'toBytes',
   'toRfc4122', 'fromRfc4122', '__eq__', '__ne__', '__lt__', '__gt__',
   '__le__', '__ge__', 'createUuid', 'createUuidV5', 'createUuidV3',
-  'createUuidV7'. It can be made from Python, in 4 ways; see '__init__'.
+  'createUuidV7', 'isKnownVersion'. It can be made from Python, in 5 ways;
+  see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'bool QUuid::isNull(Qt::Disambiguated_t a0) const': names
     'Qt::Disambiguated_t', which has no cute class yet.
+  - Qt's 'Qt::strong_ordering QUuid::compareThreeWay_helper(const QUuid &lhs,
+    const QUuid &rhs)': gives 'Qt::strong_ordering', which has no cute class
+    yet.
   - Qt's 'Variant QUuid::variant(Qt::Disambiguated_t a0) const': names
     'Qt::Disambiguated_t', which has no cute class yet.
   - Qt's 'Version QUuid::version(Qt::Disambiguated_t a0) const': names
@@ -59,8 +63,8 @@ class QUuid(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  6 of the 30 functions Qt declares: 3 private; 2 a template; 1 takes or
-  gives a type that cannot be passed yet.
+  3 of the 30 functions Qt declares: 2 a template; 1 takes or gives a type
+  that cannot be passed yet.
 
   What to expect
   --------------
@@ -367,6 +371,25 @@ class QUuid(CuteMixin, metaclass=MetaCute):
     #  QUuid QUuid::createUuidV7()
     address = Rituals.call('ritual_ZN5QUuid12createUuidV7Ev')
     return QUuid._cuteOwning(address)
+
+  @staticmethod
+  @overload(Version)
+  def isKnownVersion(v: Version) -> bool:
+    """
+    Calls Qt's 'bool QUuid::isKnownVersion(Version v)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/quuid.html#isKnownVersion
+
+    Parameters
+    ----------
+
+    v : Version
+      Passed on as its number.
+    """
+    #  bool QUuid::isKnownVersion(Version v)
+    return Rituals.call(
+        'ritual_ZN5QUuid14isKnownVersionENS_7VersionE', v.value,
+    )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -680,6 +703,25 @@ class QUuid(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(Qt.Initialization)
+  def __init__(self, a0: Qt.Initialization) -> None:
+    """
+    Notes what was given, for Qt's 'QUuid::QUuid(Qt::Initialization a0)',
+    which is called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/quuid.html#QUuid
+
+    Parameters
+    ----------
+
+    a0 : Qt.Initialization
+      Passed on as its number.
+    """
+    #  QUuid::QUuid(Qt::Initialization a0)
+    self._noteCreation(QUuid, lambda: Rituals.call(
+        'ritual_ZN5QUuidC1EN2Qt14InitializationE', a0.value,
+    ))
 
   @overload()
   def __init__(self) -> None:

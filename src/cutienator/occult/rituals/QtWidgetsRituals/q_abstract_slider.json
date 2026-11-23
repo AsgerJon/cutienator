@@ -59,6 +59,28 @@
     "ritual_ZN15QAbstractSlider8setRangeEii": [
       "nothing", "address", "int", "int"
     ],
+    "ritual_ZN15QAbstractSlider5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN15QAbstractSlider15setRepeatActionENS_12SliderActionEii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZNK15QAbstractSlider12repeatActionEv": ["int", "address"],
+    "ritual_ZN15QAbstractSlider12sliderChangeENS_12SliderChangeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN15QAbstractSlider13keyPressEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QAbstractSlider10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QAbstractSlider10wheelEventEP11QWheelEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QAbstractSlider11changeEventEP6QEvent": [
+      "nothing", "address", "address"
+    ],
     "ritual_take_QAbstractSlider": ["bool", "address", "chars", "address"],
     "ritual_own_ZN15QAbstractSlider5eventEP6QEvent": [
       "bool", "address", "address"

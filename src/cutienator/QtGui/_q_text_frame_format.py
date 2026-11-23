@@ -48,7 +48,7 @@ class QTextFrameFormat(QTextFormat):
   'setBottomMargin', 'bottomMargin', 'setLeftMargin', 'leftMargin',
   'setRightMargin', 'rightMargin', 'setPadding', 'padding', 'setWidth',
   'width', 'setHeight', 'height', 'setPageBreakPolicy', 'pageBreakPolicy'. It
-  can be made from Python, in 1 way; see '__init__'.
+  can be made from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -59,8 +59,8 @@ class QTextFrameFormat(QTextFormat):
   What has no ritual
   ------------------
 
-  3 of the 34 functions Qt declares: 2 takes or gives a type that cannot be
-  passed yet; 1 protected.
+  2 of the 34 functions Qt declares: 2 takes or gives a type that cannot be
+  passed yet.
 
   What to expect
   --------------
@@ -618,6 +618,27 @@ class QTextFrameFormat(QTextFormat):
     #  QTextFrameFormat::QTextFrameFormat()
     self._noteCreation(QTextFrameFormat, lambda: Rituals.call(
         'ritual_ZN16QTextFrameFormatC1Ev',
+    ))
+
+  @overload(QTextFormat)
+  def __init__(self, fmt: QTextFormat) -> None:
+    """
+    Notes what was given, for Qt's 'QTextFrameFormat::QTextFrameFormat(const
+    QTextFormat &fmt)', which is called at the first use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qtextframeformat.html#QTextFrameFormat
+
+    Parameters
+    ----------
+
+    fmt : QTextFormat
+      Passed on as a value: Qt reads the C++ QTextFormat, which stays
+      Python's own.
+    """
+    #  QTextFrameFormat::QTextFrameFormat(const QTextFormat &fmt)
+    self._noteCreation(QTextFrameFormat, lambda: Rituals.call(
+        'ritual_ZN16QTextFrameFormatC1ERK11QTextFormat', self._valueOf(fmt),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -57,8 +57,9 @@ class QSequentialAnimationGroup(QAnimationGroup):
   What has no ritual
   ------------------
 
-  11 of the 23 functions Qt declares: 3 takes or gives a type that cannot be
-  passed yet; 3 private; 2 forbidden; 1 a template; 1 a signal; 1 protected.
+  11 of the 23 functions Qt declares: 6 takes or gives a type that cannot be
+  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found;
+  1 a signal.
 
   What to expect
   --------------
@@ -346,10 +347,10 @@ class QSequentialAnimationGroup(QAnimationGroup):
       object.
     """
     #  bool QSequentialAnimationGroup::event(QEvent *event)
-    return self.uglySide.call(
-        'ritual_own_ZN25QSequentialAnimationGroup5eventEP6QEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN25QSequentialAnimationGroup5eventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN25QSequentialAnimationGroup5eventEP6QEvent'
+    return self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(int)
   def updateCurrentTime(self, a0: int) -> None:
@@ -366,9 +367,11 @@ class QSequentialAnimationGroup(QAnimationGroup):
       Passed on as it is.
     """
     #  void QSequentialAnimationGroup::updateCurrentTime(int a0)
-    self.uglySide.call(
-        'ritual_own_ZN25QSequentialAnimationGroup17updateCurrentTimeEi', a0,
-    )
+    ritual = 'ritual_ZN25QSequentialAnimationGroup17updateCurrentTimeEi'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN25QSequentialAnimationGroup17updateCurrentTimeEi')
+    self.uglySide.call(ritual, a0)
 
   @overload(QAbstractAnimation.State, QAbstractAnimation.State)
   def updateState(
@@ -395,11 +398,14 @@ class QSequentialAnimationGroup(QAnimationGroup):
     """
     #  void QSequentialAnimationGroup::updateState(QAbstractAnimation::State
     #      newState, QAbstractAnimation::State oldState)
-    self.uglySide.call(
-        'ritual_own_ZN25QSequentialAnimationGroup11updateStateEN18QAbstract'
-        'Animation5StateES1_',
-        newState.value, oldState.value,
-    )
+    ritual = (
+        'ritual_ZN25QSequentialAnimationGroup11updateStateEN18QAbstractAnim'
+        'ation5StateES1_')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN25QSequentialAnimationGroup11updateStateEN18QAbstra'
+          'ctAnimation5StateES1_')
+    self.uglySide.call(ritual, newState.value, oldState.value)
 
   @overload(QAbstractAnimation.Direction)
   def updateDirection(self, direction: QAbstractAnimation.Direction) -> None:
@@ -419,8 +425,11 @@ class QSequentialAnimationGroup(QAnimationGroup):
     """
     #  void QSequentialAnimationGroup::updateDirection(QAbstractAnimation::
     #      Direction direction)
-    self.uglySide.call(
-        'ritual_own_ZN25QSequentialAnimationGroup15updateDirectionEN18QAbst'
-        'ractAnimation9DirectionE',
-        direction.value,
-    )
+    ritual = (
+        'ritual_ZN25QSequentialAnimationGroup15updateDirectionEN18QAbstract'
+        'Animation9DirectionE')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN25QSequentialAnimationGroup15updateDirectionEN18QAb'
+          'stractAnimation9DirectionE')
+    self.uglySide.call(ritual, direction.value)

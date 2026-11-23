@@ -211,6 +211,23 @@ QList<QGlyphRun> *ritual_ZNK9QTextLine9glyphRunsEii(
   return new QList<QGlyphRun>(self->glyphRuns(from, length));
 }
 
+//  void QTextLine::layout_helper(int numGlyphs)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QTextLine13layout_helperEi(QTextLine *self, int numGlyphs) {
+  self->layout_helper(numGlyphs);
+}
+
+//  void QTextLine::draw_internal(QPainter *p, const QPointF &pos, const
+//      QTextLayout::FormatRange *selection) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK9QTextLine13draw_internalEP8QPainterRK7QPointFPKN11QTextLayout11FormatRangeE(
+    const QTextLine *self,
+    QPainter *p,
+    const QPointF *pos,
+    const QTextLayout::FormatRange *selection) {
+  self->draw_internal(p, *pos, selection);
+}
+
 //  QTextLine::~QTextLine()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN9QTextLineD1Ev(QTextLine *self) {

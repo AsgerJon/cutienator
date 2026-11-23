@@ -59,9 +59,9 @@ class QPointingDevice(QInputDevice):
   What has no ritual
   ------------------
 
-  13 of the 26 functions Qt declares: 4 forbidden; 3 takes or gives a type
-  that cannot be passed yet; 3 private; 1 a template; 1 a signal; 1
-  protected.
+  13 of the 26 functions Qt declares: 6 takes or gives a type that cannot be
+  passed yet; 4 forbidden; 1 a template; 1 declared and nowhere to be found;
+  1 a signal.
 
   What to expect
   --------------

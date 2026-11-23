@@ -13,6 +13,7 @@
 #include <QtCore/qlatin1stringview.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qjsonvalue.h>
+#include <QtCore/qcompare.h>
 
 //  QCborValueConstRef::QCborValueConstRef(const QCborValueConstRef &a0)
 extern "C" Q_DECL_EXPORT
@@ -384,6 +385,35 @@ QString *ritual_ZNK18QCborValueConstRef20toDiagnosticNotationE6QFlagsIN10QCborVa
           QFlags<QCborValue::DiagnosticNotationOption>::fromInt(opt)));
 }
 
+//  QCborValue QCborValueConstRef::concrete() const
+extern "C" Q_DECL_EXPORT
+QCborValue *ritual_ZNK18QCborValueConstRef8concreteEv(
+    const QCborValueConstRef *self) {
+  return new QCborValue(self->concrete());
+}
+
+//  bool QCborValueConstRef::comparesEqual_helper(QCborValueConstRef lhs,
+//      QCborValueConstRef rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN18QCborValueConstRef20comparesEqual_helperES_S_(
+    const QCborValueConstRef *lhs,
+    const QCborValueConstRef *rhs) {
+  return QCborValueConstRef::comparesEqual_helper(*lhs, *rhs);
+}
+
+//  Qt::strong_ordering
+//      QCborValueConstRef::compareThreeWay_helper(QCborValueConstRef lhs,
+//      QCborValueConstRef rhs)
+extern "C" Q_DECL_EXPORT
+Qt::strong_ordering *ritual_ZN18QCborValueConstRef22compareThreeWay_helperES_S_(
+    const QCborValueConstRef *lhs,
+    const QCborValueConstRef *rhs) {
+  return new Qt::strong_ordering(
+      QCborValueConstRef::compareThreeWay_helper(
+          *lhs,
+          *rhs));
+}
+
 //  bool operator==(const QCborValueConstRef &lhs, const QCborValueConstRef
 //      &rhs)
 extern "C" Q_DECL_EXPORT
@@ -436,6 +466,28 @@ bool ritual_ZgeRK18QCborValueConstRefS1_(
     const QCborValueConstRef *lhs,
     const QCborValueConstRef *rhs) {
   return operator>=(*lhs, *rhs);
+}
+
+//  bool QCborValueConstRef::comparesEqual_helper(QCborValueConstRef lhs,
+//      const QCborValue &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN18QCborValueConstRef20comparesEqual_helperES_RK10QCborValue(
+    const QCborValueConstRef *lhs,
+    const QCborValue *rhs) {
+  return QCborValueConstRef::comparesEqual_helper(*lhs, *rhs);
+}
+
+//  Qt::strong_ordering
+//      QCborValueConstRef::compareThreeWay_helper(QCborValueConstRef lhs,
+//      const QCborValue &rhs)
+extern "C" Q_DECL_EXPORT
+Qt::strong_ordering *ritual_ZN18QCborValueConstRef22compareThreeWay_helperES_RK10QCborValue(
+    const QCborValueConstRef *lhs,
+    const QCborValue *rhs) {
+  return new Qt::strong_ordering(
+      QCborValueConstRef::compareThreeWay_helper(
+          *lhs,
+          *rhs));
 }
 
 //  bool operator==(const QCborValueConstRef &lhs, const QCborValue &rhs)
@@ -532,6 +584,90 @@ bool ritual_ZgeRK10QCborValueRK18QCborValueConstRef(
     const QCborValue *lhs,
     const QCborValueConstRef *rhs) {
   return operator>=(*lhs, *rhs);
+}
+
+//  QCborValue QCborValueConstRef::concrete(QCborValueConstRef that)
+extern "C" Q_DECL_EXPORT
+QCborValue *ritual_ZN18QCborValueConstRef8concreteES_(
+    const QCborValueConstRef *that) {
+  return new QCborValue(QCborValueConstRef::concrete(*that));
+}
+
+//  QCborValue::Type QCborValueConstRef::concreteType(QCborValueConstRef
+//      that)
+extern "C" Q_DECL_EXPORT
+QCborValue::Type ritual_ZN18QCborValueConstRef12concreteTypeES_(
+    const QCborValueConstRef *that) {
+  return QCborValueConstRef::concreteType(*that);
+}
+
+//  bool QCborValueConstRef::concreteBoolean(QCborValueConstRef that, bool
+//      defaultValue)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN18QCborValueConstRef15concreteBooleanES_b(
+    const QCborValueConstRef *that,
+    bool defaultValue) {
+  return QCborValueConstRef::concreteBoolean(*that, defaultValue);
+}
+
+//  double QCborValueConstRef::concreteDouble(QCborValueConstRef that, double
+//      defaultValue)
+extern "C" Q_DECL_EXPORT
+double ritual_ZN18QCborValueConstRef14concreteDoubleES_d(
+    const QCborValueConstRef *that,
+    double defaultValue) {
+  return QCborValueConstRef::concreteDouble(*that, defaultValue);
+}
+
+//  qint64 QCborValueConstRef::concreteIntegral(QCborValueConstRef that,
+//      qint64 defaultValue)
+extern "C" Q_DECL_EXPORT
+qint64 ritual_ZN18QCborValueConstRef16concreteIntegralES_x(
+    const QCborValueConstRef *that,
+    qint64 defaultValue) {
+  return QCborValueConstRef::concreteIntegral(*that, defaultValue);
+}
+
+//  QByteArray QCborValueConstRef::concreteByteArray(QCborValueConstRef that,
+//      const QByteArray &defaultValue)
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZN18QCborValueConstRef17concreteByteArrayES_RK10QByteArray(
+    const QCborValueConstRef *that,
+    const QByteArray *defaultValue) {
+  return new QByteArray(
+      QCborValueConstRef::concreteByteArray(
+          *that,
+          *defaultValue));
+}
+
+//  QString QCborValueConstRef::concreteString(QCborValueConstRef that, const
+//      QString &defaultValue)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN18QCborValueConstRef14concreteStringES_RK7QString(
+    const QCborValueConstRef *that,
+    const QString *defaultValue) {
+  return new QString(
+      QCborValueConstRef::concreteString(
+          *that,
+          *defaultValue));
+}
+
+//  QAnyStringView QCborValueConstRef::concreteStringView(QCborValueConstRef
+//      that, QAnyStringView defaultValue)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN18QCborValueConstRef18concreteStringViewES_14QAnyStringView(
+    const QCborValueConstRef *that,
+    const QString *defaultValue) {
+  return new QString(
+      QCborValueConstRef::concreteStringView(
+          *that,
+          QAnyStringView(*defaultValue)).toString());
+}
+
+//  QCborValueConstRef::QCborValueConstRef()
+extern "C" Q_DECL_EXPORT
+QCborValueConstRef *ritual_ZN18QCborValueConstRefC1Ev() {
+  return new QCborValueConstRef();
 }
 
 //  QCborValueConstRef::~QCborValueConstRef()

@@ -895,6 +895,20 @@ void ritual_ZN13QErrorMessage11showMessageERK7QStringS2_(
   self->showMessage(*message, *type);
 }
 
+//  void QErrorMessage::done(int a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QErrorMessage4doneEi(QErrorMessage *self, int a0) {
+  self->done(a0);
+}
+
+//  void QErrorMessage::changeEvent(QEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QErrorMessage11changeEventEP6QEvent(
+    QErrorMessage *self,
+    QEvent *e) {
+  self->changeEvent(e);
+}
+
 //  a Python function taken by a CuteQErrorMessage, for the function named by
 //      the key
 extern "C" Q_DECL_EXPORT

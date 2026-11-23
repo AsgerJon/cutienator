@@ -28,6 +28,9 @@
     "ritual_ZNK14QTextTableCellneERKS_": ["bool", "address", "address"],
     "ritual_ZNK14QTextTableCell5beginEv": ["address", "address"],
     "ritual_ZNK14QTextTableCell3endEv": ["address", "address"],
-    "ritual_ZNK14QTextTableCell20tableCellFormatIndexEv": ["int", "address"]
+    "ritual_ZNK14QTextTableCell20tableCellFormatIndexEv": ["int", "address"],
+    "ritual_ZN14QTextTableCellC1EPK10QTextTablei": [
+      "address", "address", "int"
+    ]
   }
 }

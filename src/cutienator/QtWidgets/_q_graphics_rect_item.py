@@ -59,11 +59,18 @@ class QGraphicsRectItem(QAbstractGraphicsShapeItem):
 
   - Qt's 'QGraphicsRectItem::~QGraphicsRectItem()': the destructor: Python
     never removes a C++ QGraphicsRectItem.
+  - Qt's 'bool QGraphicsRectItem::supportsExtension(Extension extension)
+    const': names the enum 'QGraphicsItem::Extension', whose class cannot be
+    named here.
+  - Qt's 'void QGraphicsRectItem::setExtension(Extension extension, const
+    QVariant &variant)': names the enum 'QGraphicsItem::Extension', whose
+    class cannot be named here.
 
   What has no ritual
   ------------------
 
-  6 of the 21 functions Qt declares: 2 protected; 2 forbidden; 2 private.
+  4 of the 21 functions Qt declares: 2 forbidden; 2 takes or gives a type
+  that cannot be passed yet.
 
   What to expect
   --------------
@@ -265,10 +272,10 @@ class QGraphicsRectItem(QAbstractGraphicsShapeItem):
       A new cute QVariant around the copy Qt gave back. Python owns it.
     """
     #  QVariant QGraphicsRectItem::extension(const QVariant &variant) const
-    address = self.uglySide.call(
-        'ritual_own_ZNK17QGraphicsRectItem9extensionERK8QVariant',
-        self._valueOf(variant),
-    )
+    ritual = 'ritual_ZNK17QGraphicsRectItem9extensionERK8QVariant'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK17QGraphicsRectItem9extensionERK8QVariant'
+    address = self.uglySide.call(ritual, self._valueOf(variant))
     from ..QtCore import QVariant
     return QVariant._cuteOwning(address)
 

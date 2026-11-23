@@ -14,6 +14,18 @@
     "ritual_ZN23QParallelAnimationGroupC1EP7QObject": ["address", "address"],
     "ritual_ZN23QParallelAnimationGroupD1Ev": ["nothing", "address"],
     "ritual_ZNK23QParallelAnimationGroup8durationEv": ["int", "address"],
+    "ritual_ZN23QParallelAnimationGroup5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN23QParallelAnimationGroup17updateCurrentTimeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN23QParallelAnimationGroup11updateStateEN18QAbstractAnimation5StateES1_": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN23QParallelAnimationGroup15updateDirectionEN18QAbstractAnimation9DirectionE": [
+      "nothing", "address", "int"
+    ],
     "ritual_take_QParallelAnimationGroup": [
       "bool", "address", "chars", "address"
     ],

@@ -7,6 +7,9 @@
 #include <QtCore/qsize.h>
 #include <QtCore/qrect.h>
 #include <QtGui/qpixmap.h>
+#include <QtCore/qvariant.h>
+#include <QtGui/qpalette.h>
+#include <QtGui/qfont.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 
@@ -532,6 +535,169 @@ void ritual_ZN13QItemDelegate20setItemEditorFactoryEP18QItemEditorFactory(
     QItemDelegate *self,
     QItemEditorFactory *factory) {
   self->setItemEditorFactory(factory);
+}
+
+//  void QItemDelegate::drawDisplay(QPainter *painter, const
+//      QStyleOptionViewItem &option, const QRect &rect, const QString &text)
+//      const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK13QItemDelegate11drawDisplayEP8QPainterRK20QStyleOptionViewItemRK5QRectRK7QString(
+    const QItemDelegate *self,
+    QPainter *painter,
+    const QStyleOptionViewItem *option,
+    const QRect *rect,
+    const QString *text) {
+  self->drawDisplay(painter, *option, *rect, *text);
+}
+
+//  void QItemDelegate::drawDecoration(QPainter *painter, const
+//      QStyleOptionViewItem &option, const QRect &rect, const QPixmap
+//      &pixmap) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK13QItemDelegate14drawDecorationEP8QPainterRK20QStyleOptionViewItemRK5QRectRK7QPixmap(
+    const QItemDelegate *self,
+    QPainter *painter,
+    const QStyleOptionViewItem *option,
+    const QRect *rect,
+    const QPixmap *pixmap) {
+  self->drawDecoration(painter, *option, *rect, *pixmap);
+}
+
+//  void QItemDelegate::drawFocus(QPainter *painter, const
+//      QStyleOptionViewItem &option, const QRect &rect) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK13QItemDelegate9drawFocusEP8QPainterRK20QStyleOptionViewItemRK5QRect(
+    const QItemDelegate *self,
+    QPainter *painter,
+    const QStyleOptionViewItem *option,
+    const QRect *rect) {
+  self->drawFocus(painter, *option, *rect);
+}
+
+//  void QItemDelegate::drawCheck(QPainter *painter, const
+//      QStyleOptionViewItem &option, const QRect &rect, Qt::CheckState
+//      state) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK13QItemDelegate9drawCheckEP8QPainterRK20QStyleOptionViewItemRK5QRectN2Qt10CheckStateE(
+    const QItemDelegate *self,
+    QPainter *painter,
+    const QStyleOptionViewItem *option,
+    const QRect *rect,
+    Qt::CheckState state) {
+  self->drawCheck(painter, *option, *rect, state);
+}
+
+//  void QItemDelegate::drawBackground(QPainter *painter, const
+//      QStyleOptionViewItem &option, const QModelIndex &index) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK13QItemDelegate14drawBackgroundEP8QPainterRK20QStyleOptionViewItemRK11QModelIndex(
+    const QItemDelegate *self,
+    QPainter *painter,
+    const QStyleOptionViewItem *option,
+    const QModelIndex *index) {
+  self->drawBackground(painter, *option, *index);
+}
+
+//  void QItemDelegate::doLayout(const QStyleOptionViewItem &option, QRect
+//      *checkRect, QRect *iconRect, QRect *textRect, bool hint) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK13QItemDelegate8doLayoutERK20QStyleOptionViewItemP5QRectS4_S4_b(
+    const QItemDelegate *self,
+    const QStyleOptionViewItem *option,
+    QRect *checkRect,
+    QRect *iconRect,
+    QRect *textRect,
+    bool hint) {
+  self->doLayout(*option, checkRect, iconRect, textRect, hint);
+}
+
+//  QRect QItemDelegate::rect(const QStyleOptionViewItem &option, const
+//      QModelIndex &index, int role) const
+extern "C" Q_DECL_EXPORT
+QRect *ritual_ZNK13QItemDelegate4rectERK20QStyleOptionViewItemRK11QModelIndexi(
+    const QItemDelegate *self,
+    const QStyleOptionViewItem *option,
+    const QModelIndex *index,
+    int role) {
+  return new QRect(self->rect(*option, *index, role));
+}
+
+//  bool QItemDelegate::eventFilter(QObject *object, QEvent *event)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN13QItemDelegate11eventFilterEP7QObjectP6QEvent(
+    QItemDelegate *self,
+    QObject *object,
+    QEvent *event) {
+  return self->eventFilter(object, event);
+}
+
+//  bool QItemDelegate::editorEvent(QEvent *event, QAbstractItemModel *model,
+//      const QStyleOptionViewItem &option, const QModelIndex &index)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN13QItemDelegate11editorEventEP6QEventP18QAbstractItemModelRK20QStyleOptionViewItemRK11QModelIndex(
+    QItemDelegate *self,
+    QEvent *event,
+    QAbstractItemModel *model,
+    const QStyleOptionViewItem *option,
+    const QModelIndex *index) {
+  return self->editorEvent(event, model, *option, *index);
+}
+
+//  QStyleOptionViewItem QItemDelegate::setOptions(const QModelIndex &index,
+//      const QStyleOptionViewItem &option) const
+extern "C" Q_DECL_EXPORT
+QStyleOptionViewItem *ritual_ZNK13QItemDelegate10setOptionsERK11QModelIndexRK20QStyleOptionViewItem(
+    const QItemDelegate *self,
+    const QModelIndex *index,
+    const QStyleOptionViewItem *option) {
+  return new QStyleOptionViewItem(self->setOptions(*index, *option));
+}
+
+//  QPixmap QItemDelegate::decoration(const QStyleOptionViewItem &option,
+//      const QVariant &variant) const
+extern "C" Q_DECL_EXPORT
+QPixmap *ritual_ZNK13QItemDelegate10decorationERK20QStyleOptionViewItemRK8QVariant(
+    const QItemDelegate *self,
+    const QStyleOptionViewItem *option,
+    const QVariant *variant) {
+  return new QPixmap(self->decoration(*option, *variant));
+}
+
+//  QPixmap QItemDelegate::selectedPixmap(const QPixmap &pixmap, const
+//      QPalette &palette, bool enabled)
+extern "C" Q_DECL_EXPORT
+QPixmap *ritual_ZN13QItemDelegate14selectedPixmapERK7QPixmapRK8QPaletteb(
+    const QPixmap *pixmap,
+    const QPalette *palette,
+    bool enabled) {
+  return new QPixmap(
+      QItemDelegate::selectedPixmap(
+          *pixmap,
+          *palette,
+          enabled));
+}
+
+//  QRect QItemDelegate::doCheck(const QStyleOptionViewItem &option, const
+//      QRect &bounding, const QVariant &variant) const
+extern "C" Q_DECL_EXPORT
+QRect *ritual_ZNK13QItemDelegate7doCheckERK20QStyleOptionViewItemRK5QRectRK8QVariant(
+    const QItemDelegate *self,
+    const QStyleOptionViewItem *option,
+    const QRect *bounding,
+    const QVariant *variant) {
+  return new QRect(self->doCheck(*option, *bounding, *variant));
+}
+
+//  QRect QItemDelegate::textRectangle(QPainter *painter, const QRect &rect,
+//      const QFont &font, const QString &text) const
+extern "C" Q_DECL_EXPORT
+QRect *ritual_ZNK13QItemDelegate13textRectangleEP8QPainterRK5QRectRK5QFontRK7QString(
+    const QItemDelegate *self,
+    QPainter *painter,
+    const QRect *rect,
+    const QFont *font,
+    const QString *text) {
+  return new QRect(self->textRectangle(painter, *rect, *font, *text));
 }
 
 //  a Python function taken by a CuteQItemDelegate, for the function named by

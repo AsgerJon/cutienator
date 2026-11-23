@@ -39,12 +39,13 @@ class QDate(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QDate that has a ritual and that Python can call so
-  far, 28 names in all: 'isNull', 'isValid', 'year', 'month', 'day',
+  far, 32 names in all: 'isNull', 'isValid', 'year', 'month', 'day',
   'dayOfWeek', 'dayOfYear', 'daysInMonth', 'daysInYear', 'startOfDay',
   'endOfDay', 'toString', 'setDate', 'addDays', 'addMonths', 'addYears',
   'daysTo', 'currentDate', 'fromString', 'isLeapYear', 'fromJulianDay',
-  'toJulianDay', '__eq__', '__ne__', '__lt__', '__gt__', '__le__', '__ge__'.
-  It can be made from Python, in 3 ways; see '__init__'.
+  'toJulianDay', 'nullJd', 'minJd', 'maxJd', 'unixEpochJd', '__eq__',
+  '__ne__', '__lt__', '__gt__', '__le__', '__ge__'. It can be made from
+  Python, in 4 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -90,8 +91,8 @@ class QDate(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  11 of the 74 functions Qt declares: 6 takes or gives a type that cannot be
-  passed yet; 5 private.
+  6 of the 74 functions Qt declares: 6 takes or gives a type that cannot be
+  passed yet.
 
   What to expect
   --------------
@@ -319,6 +320,46 @@ class QDate(CuteMixin, metaclass=MetaCute):
     #  QDate QDate::fromJulianDay(qint64 jd_)
     address = Rituals.call('ritual_ZN5QDate13fromJulianDayEx', jd_)
     return QDate._cuteOwning(address)
+
+  @staticmethod
+  def nullJd() -> int:
+    """
+    Calls Qt's 'qint64 QDate::nullJd()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdate.html#nullJd
+    """
+    #  qint64 QDate::nullJd()
+    return Rituals.call('ritual_ZN5QDate6nullJdEv')
+
+  @staticmethod
+  def minJd() -> int:
+    """
+    Calls Qt's 'qint64 QDate::minJd()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdate.html#minJd
+    """
+    #  qint64 QDate::minJd()
+    return Rituals.call('ritual_ZN5QDate5minJdEv')
+
+  @staticmethod
+  def maxJd() -> int:
+    """
+    Calls Qt's 'qint64 QDate::maxJd()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdate.html#maxJd
+    """
+    #  qint64 QDate::maxJd()
+    return Rituals.call('ritual_ZN5QDate5maxJdEv')
+
+  @staticmethod
+  def unixEpochJd() -> int:
+    """
+    Calls Qt's 'qint64 QDate::unixEpochJd()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdate.html#unixEpochJd
+    """
+    #  qint64 QDate::unixEpochJd()
+    return Rituals.call('ritual_ZN5QDate11unixEpochJdEv')
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1215,6 +1256,25 @@ class QDate(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(int)
+  def __init__(self, julianDay: int) -> None:
+    """
+    Notes what was given, for Qt's 'QDate::QDate(qint64 julianDay)', which is
+    called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdate.html#QDate
+
+    Parameters
+    ----------
+
+    julianDay : int
+      Passed on as it is.
+    """
+    #  QDate::QDate(qint64 julianDay)
+    self._noteCreation(QDate, lambda: Rituals.call(
+        'ritual_ZN5QDateC1Ex', julianDay,
+    ))
 
   @overload()
   def __init__(self) -> None:

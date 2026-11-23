@@ -42,7 +42,7 @@ class QLocale(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QLocale that has a ritual and that Python can call
-  so far, 59 names in all: 'language', 'script', 'country', 'name',
+  so far, 60 names in all: 'language', 'script', 'country', 'name',
   'bcp47Name', 'nativeLanguageName', 'nativeTerritoryName',
   'nativeCountryName', 'toString', 'dateFormat', 'timeFormat',
   'dateTimeFormat', 'toTime', 'toDate', 'toDateTime', 'decimalPoint',
@@ -55,8 +55,8 @@ class QLocale(CuteMixin, metaclass=MetaCute):
   'codeToCountry', 'scriptToCode', 'codeToScript', 'languageToString',
   'territoryToString', 'countryToString', 'scriptToString', 'setDefault',
   'c', 'system', 'matchingLocales', 'setNumberOptions', 'numberOptions',
-  'quoteString', 'createSeparatedList', '__eq__', '__ne__'. It can be made
-  from Python, in 5 ways; see '__init__'.
+  'quoteString', 'createSeparatedList', 'equals', '__eq__', '__ne__'. It can
+  be made from Python, in 5 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -159,8 +159,8 @@ class QLocale(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  24 of the 147 functions Qt declares: 19 takes or gives a type that cannot
-  be passed yet; 3 private; 1 declared and nowhere to be found; 1 a template.
+  23 of the 147 functions Qt declares: 20 takes or gives a type that cannot
+  be passed yet; 2 declared and nowhere to be found; 1 a template.
 
   What to expect
   --------------
@@ -3188,6 +3188,25 @@ class QLocale(CuteMixin, metaclass=MetaCute):
     return self.uglySide.call(
         'ritual_ZNK7QLocale19createSeparatedListERK5QListI7QStringE',
         self._valueOf(strl),
+    )
+
+  @overload(THIS)
+  def equals(self, other: QLocale) -> bool:
+    """
+    Calls Qt's 'bool QLocale::equals(const QLocale &other) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlocale.html#equals
+
+    Parameters
+    ----------
+
+    other : QLocale
+      Passed on as a value: Qt reads the C++ QLocale, which stays Python's
+      own.
+    """
+    #  bool QLocale::equals(const QLocale &other) const
+    return self.uglySide.call(
+        'ritual_ZNK7QLocale6equalsERKS_', self._valueOf(other),
     )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -1029,6 +1029,106 @@ void ritual_ZN15QAbstractButton10setCheckedEb(
   self->setChecked(a0);
 }
 
+//  bool QAbstractButton::hitButton(const QPoint &pos) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK15QAbstractButton9hitButtonERK6QPoint(
+    const QAbstractButton *self,
+    const QPoint *pos) {
+  return self->hitButton(*pos);
+}
+
+//  void QAbstractButton::checkStateSet()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAbstractButton13checkStateSetEv(QAbstractButton *self) {
+  self->checkStateSet();
+}
+
+//  void QAbstractButton::nextCheckState()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAbstractButton14nextCheckStateEv(QAbstractButton *self) {
+  self->nextCheckState();
+}
+
+//  bool QAbstractButton::event(QEvent *e)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN15QAbstractButton5eventEP6QEvent(
+    QAbstractButton *self,
+    QEvent *e) {
+  return self->event(e);
+}
+
+//  void QAbstractButton::keyPressEvent(QKeyEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAbstractButton13keyPressEventEP9QKeyEvent(
+    QAbstractButton *self,
+    QKeyEvent *e) {
+  self->keyPressEvent(e);
+}
+
+//  void QAbstractButton::keyReleaseEvent(QKeyEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAbstractButton15keyReleaseEventEP9QKeyEvent(
+    QAbstractButton *self,
+    QKeyEvent *e) {
+  self->keyReleaseEvent(e);
+}
+
+//  void QAbstractButton::mousePressEvent(QMouseEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAbstractButton15mousePressEventEP11QMouseEvent(
+    QAbstractButton *self,
+    QMouseEvent *e) {
+  self->mousePressEvent(e);
+}
+
+//  void QAbstractButton::mouseReleaseEvent(QMouseEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAbstractButton17mouseReleaseEventEP11QMouseEvent(
+    QAbstractButton *self,
+    QMouseEvent *e) {
+  self->mouseReleaseEvent(e);
+}
+
+//  void QAbstractButton::mouseMoveEvent(QMouseEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAbstractButton14mouseMoveEventEP11QMouseEvent(
+    QAbstractButton *self,
+    QMouseEvent *e) {
+  self->mouseMoveEvent(e);
+}
+
+//  void QAbstractButton::focusInEvent(QFocusEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAbstractButton12focusInEventEP11QFocusEvent(
+    QAbstractButton *self,
+    QFocusEvent *e) {
+  self->focusInEvent(e);
+}
+
+//  void QAbstractButton::focusOutEvent(QFocusEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAbstractButton13focusOutEventEP11QFocusEvent(
+    QAbstractButton *self,
+    QFocusEvent *e) {
+  self->focusOutEvent(e);
+}
+
+//  void QAbstractButton::changeEvent(QEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAbstractButton11changeEventEP6QEvent(
+    QAbstractButton *self,
+    QEvent *e) {
+  self->changeEvent(e);
+}
+
+//  void QAbstractButton::timerEvent(QTimerEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAbstractButton10timerEventEP11QTimerEvent(
+    QAbstractButton *self,
+    QTimerEvent *e) {
+  self->timerEvent(e);
+}
+
 //  a Python function taken by a CuteQAbstractButton, for the function named
 //      by the key
 extern "C" Q_DECL_EXPORT

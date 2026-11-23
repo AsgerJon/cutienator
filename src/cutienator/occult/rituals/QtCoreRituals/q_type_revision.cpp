@@ -94,6 +94,12 @@ bool ritual_ZgeRK13QTypeRevisionS1_(
   return operator>=(*lhs, *rhs);
 }
 
+//  QTypeRevision::QTypeRevision(quint8 major, quint8 minor)
+extern "C" Q_DECL_EXPORT
+QTypeRevision *ritual_ZN13QTypeRevisionC1Ehh(quint8 major, quint8 minor) {
+  return new QTypeRevision(major, minor);
+}
+
 //  QTypeRevision::~QTypeRevision()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QTypeRevisionD1Ev(QTypeRevision *self) {

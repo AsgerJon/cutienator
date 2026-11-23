@@ -102,9 +102,9 @@ class QComboBox(QWidget):
   What has no ritual
   ------------------
 
-  16 of the 105 functions Qt declares: 7 a signal; 3 private; 2 takes or
-  gives a type that cannot be passed yet; 2 forbidden; 1 a template; 1
-  protected.
+  16 of the 105 functions Qt declares: 7 a signal; 5 takes or gives a type
+  that cannot be passed yet; 2 forbidden; 1 a template; 1 declared and
+  nowhere to be found.
 
   What to expect
   --------------
@@ -1718,10 +1718,10 @@ class QComboBox(QWidget):
       object.
     """
     #  void QComboBox::focusInEvent(QFocusEvent *e)
-    self.uglySide.call(
-        'ritual_own_ZN9QComboBox12focusInEventEP11QFocusEvent',
-        self._addressOf(e),
-    )
+    ritual = 'ritual_ZN9QComboBox12focusInEventEP11QFocusEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QComboBox12focusInEventEP11QFocusEvent'
+    self.uglySide.call(ritual, self._addressOf(e))
 
   @overload(QFocusEvent)
   @overload(NoneType)
@@ -1739,10 +1739,10 @@ class QComboBox(QWidget):
       object.
     """
     #  void QComboBox::focusOutEvent(QFocusEvent *e)
-    self.uglySide.call(
-        'ritual_own_ZN9QComboBox13focusOutEventEP11QFocusEvent',
-        self._addressOf(e),
-    )
+    ritual = 'ritual_ZN9QComboBox13focusOutEventEP11QFocusEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QComboBox13focusOutEventEP11QFocusEvent'
+    self.uglySide.call(ritual, self._addressOf(e))
 
   @overload(QEvent)
   @overload(NoneType)
@@ -1760,9 +1760,10 @@ class QComboBox(QWidget):
       object.
     """
     #  void QComboBox::changeEvent(QEvent *e)
-    self.uglySide.call(
-        'ritual_own_ZN9QComboBox11changeEventEP6QEvent', self._addressOf(e),
-    )
+    ritual = 'ritual_ZN9QComboBox11changeEventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QComboBox11changeEventEP6QEvent'
+    self.uglySide.call(ritual, self._addressOf(e))
 
   @overload(QResizeEvent)
   @overload(NoneType)
@@ -1780,10 +1781,10 @@ class QComboBox(QWidget):
       object.
     """
     #  void QComboBox::resizeEvent(QResizeEvent *e)
-    self.uglySide.call(
-        'ritual_own_ZN9QComboBox11resizeEventEP12QResizeEvent',
-        self._addressOf(e),
-    )
+    ritual = 'ritual_ZN9QComboBox11resizeEventEP12QResizeEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QComboBox11resizeEventEP12QResizeEvent'
+    self.uglySide.call(ritual, self._addressOf(e))
 
   @overload(QPaintEvent)
   @overload(NoneType)
@@ -1801,10 +1802,10 @@ class QComboBox(QWidget):
       object.
     """
     #  void QComboBox::paintEvent(QPaintEvent *e)
-    self.uglySide.call(
-        'ritual_own_ZN9QComboBox10paintEventEP11QPaintEvent',
-        self._addressOf(e),
-    )
+    ritual = 'ritual_ZN9QComboBox10paintEventEP11QPaintEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QComboBox10paintEventEP11QPaintEvent'
+    self.uglySide.call(ritual, self._addressOf(e))
 
   @overload(QShowEvent)
   @overload(NoneType)
@@ -1822,10 +1823,10 @@ class QComboBox(QWidget):
       object.
     """
     #  void QComboBox::showEvent(QShowEvent *e)
-    self.uglySide.call(
-        'ritual_own_ZN9QComboBox9showEventEP10QShowEvent',
-        self._addressOf(e),
-    )
+    ritual = 'ritual_ZN9QComboBox9showEventEP10QShowEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QComboBox9showEventEP10QShowEvent'
+    self.uglySide.call(ritual, self._addressOf(e))
 
   @overload(QHideEvent)
   @overload(NoneType)
@@ -1843,10 +1844,10 @@ class QComboBox(QWidget):
       object.
     """
     #  void QComboBox::hideEvent(QHideEvent *e)
-    self.uglySide.call(
-        'ritual_own_ZN9QComboBox9hideEventEP10QHideEvent',
-        self._addressOf(e),
-    )
+    ritual = 'ritual_ZN9QComboBox9hideEventEP10QHideEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QComboBox9hideEventEP10QHideEvent'
+    self.uglySide.call(ritual, self._addressOf(e))
 
   @overload(QMouseEvent)
   @overload(NoneType)
@@ -1864,10 +1865,10 @@ class QComboBox(QWidget):
       object.
     """
     #  void QComboBox::mousePressEvent(QMouseEvent *e)
-    self.uglySide.call(
-        'ritual_own_ZN9QComboBox15mousePressEventEP11QMouseEvent',
-        self._addressOf(e),
-    )
+    ritual = 'ritual_ZN9QComboBox15mousePressEventEP11QMouseEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QComboBox15mousePressEventEP11QMouseEvent'
+    self.uglySide.call(ritual, self._addressOf(e))
 
   @overload(QMouseEvent)
   @overload(NoneType)
@@ -1885,10 +1886,10 @@ class QComboBox(QWidget):
       object.
     """
     #  void QComboBox::mouseReleaseEvent(QMouseEvent *e)
-    self.uglySide.call(
-        'ritual_own_ZN9QComboBox17mouseReleaseEventEP11QMouseEvent',
-        self._addressOf(e),
-    )
+    ritual = 'ritual_ZN9QComboBox17mouseReleaseEventEP11QMouseEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QComboBox17mouseReleaseEventEP11QMouseEvent'
+    self.uglySide.call(ritual, self._addressOf(e))
 
   @overload(QKeyEvent)
   @overload(NoneType)
@@ -1906,10 +1907,10 @@ class QComboBox(QWidget):
       object.
     """
     #  void QComboBox::keyPressEvent(QKeyEvent *e)
-    self.uglySide.call(
-        'ritual_own_ZN9QComboBox13keyPressEventEP9QKeyEvent',
-        self._addressOf(e),
-    )
+    ritual = 'ritual_ZN9QComboBox13keyPressEventEP9QKeyEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QComboBox13keyPressEventEP9QKeyEvent'
+    self.uglySide.call(ritual, self._addressOf(e))
 
   @overload(QKeyEvent)
   @overload(NoneType)
@@ -1927,10 +1928,10 @@ class QComboBox(QWidget):
       object.
     """
     #  void QComboBox::keyReleaseEvent(QKeyEvent *e)
-    self.uglySide.call(
-        'ritual_own_ZN9QComboBox15keyReleaseEventEP9QKeyEvent',
-        self._addressOf(e),
-    )
+    ritual = 'ritual_ZN9QComboBox15keyReleaseEventEP9QKeyEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QComboBox15keyReleaseEventEP9QKeyEvent'
+    self.uglySide.call(ritual, self._addressOf(e))
 
   @overload(QWheelEvent)
   @overload(NoneType)
@@ -1948,10 +1949,10 @@ class QComboBox(QWidget):
       object.
     """
     #  void QComboBox::wheelEvent(QWheelEvent *e)
-    self.uglySide.call(
-        'ritual_own_ZN9QComboBox10wheelEventEP11QWheelEvent',
-        self._addressOf(e),
-    )
+    ritual = 'ritual_ZN9QComboBox10wheelEventEP11QWheelEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QComboBox10wheelEventEP11QWheelEvent'
+    self.uglySide.call(ritual, self._addressOf(e))
 
   @overload(QContextMenuEvent)
   @overload(NoneType)
@@ -1969,10 +1970,11 @@ class QComboBox(QWidget):
       object.
     """
     #  void QComboBox::contextMenuEvent(QContextMenuEvent *e)
-    self.uglySide.call(
-        'ritual_own_ZN9QComboBox16contextMenuEventEP17QContextMenuEvent',
-        self._addressOf(e),
-    )
+    ritual = 'ritual_ZN9QComboBox16contextMenuEventEP17QContextMenuEvent'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN9QComboBox16contextMenuEventEP17QContextMenuEvent')
+    self.uglySide.call(ritual, self._addressOf(e))
 
   @overload(QInputMethodEvent)
   @overload(NoneType)
@@ -1990,10 +1992,11 @@ class QComboBox(QWidget):
       object.
     """
     #  void QComboBox::inputMethodEvent(QInputMethodEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN9QComboBox16inputMethodEventEP17QInputMethodEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN9QComboBox16inputMethodEventEP17QInputMethodEvent'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN9QComboBox16inputMethodEventEP17QInputMethodEvent')
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QStyleOptionComboBox)
   @overload(NoneType)
@@ -2012,7 +2015,9 @@ class QComboBox(QWidget):
       object.
     """
     #  void QComboBox::initStyleOption(QStyleOptionComboBox *option) const
-    self.uglySide.call(
-        'ritual_own_ZNK9QComboBox15initStyleOptionEP20QStyleOptionComboBox',
-        self._addressOf(option),
-    )
+    ritual = 'ritual_ZNK9QComboBox15initStyleOptionEP20QStyleOptionComboBox'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK9QComboBox15initStyleOptionEP20QStyleOptionComboBo'
+          'x')
+    self.uglySide.call(ritual, self._addressOf(option))

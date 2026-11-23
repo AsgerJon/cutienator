@@ -47,15 +47,15 @@ class QMatrix4x4(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QMatrix4x4 that has a ritual and that Python can
-  call so far, 40 names in all: '__call__', 'column', 'setColumn', 'row',
+  call so far, 41 names in all: '__call__', 'column', 'setColumn', 'row',
   'setRow', 'isAffine', 'isIdentity', 'setToIdentity', 'fill', 'determinant',
   'transposed', '__iadd__', '__isub__', '__imul__', '__itruediv__', '__eq__',
   '__ne__', '__add__', '__sub__', '__mul__', '__rmul__', '__neg__',
   '__truediv__', 'scale', 'translate', 'rotate', 'ortho', 'frustum',
   'perspective', 'lookAt', 'viewport', 'flipCoordinates', 'toTransform',
   'map', 'mapVector', 'mapRect', 'optimize', '__rlshift__',
-  'projectedRotate', 'flags'. It can be made from Python, in 4 ways; see
-  '__init__'.
+  'projectedRotate', 'flags', 'orthonormalInverse'. It can be made from
+  Python, in 4 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -66,15 +66,17 @@ class QMatrix4x4(CuteMixin, metaclass=MetaCute):
     to change where it is.
   - Qt's 'QVariant QMatrix4x4::operator QVariant() const': an operator Python
     has no name for.
+  - Qt's 'void QMatrix4x4::toGenericMatrix_impl(float *dst, int n, int m)
+    const': takes a number to change where it is.
   - Qt's 'QMatrix4x4::~QMatrix4x4()': the destructor: Python removes its C++
     QMatrix4x4 by it, and has no other use for it.
 
   What has no ritual
   ------------------
 
-  13 of the 85 functions Qt declares: 7 takes or gives a type that cannot be
-  passed yet; 2 a template; 2 private; 1 written with the class 'QVector3D',
-  which declares it as well and stands first in it; 1 written with the class
+  11 of the 85 functions Qt declares: 7 takes or gives a type that cannot be
+  passed yet; 2 a template; 1 written with the class 'QVector3D', which
+  declares it as well and stands first in it; 1 written with the class
   'QVector4D', which declares it as well and stands first in it.
 
   What to expect
@@ -479,6 +481,24 @@ class QMatrix4x4(CuteMixin, metaclass=MetaCute):
     return QMatrix4x4.Flags(self.uglySide.call(
         'ritual_ZNK10QMatrix4x45flagsEv',
     ))
+
+  def orthonormalInverse(self) -> QMatrix4x4:
+    """
+    Calls Qt's 'QMatrix4x4 QMatrix4x4::orthonormalInverse() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmatrix4x4.html#orthonormalInverse
+
+    Returns
+    -------
+
+    QMatrix4x4
+      A new cute QMatrix4x4 around the copy Qt gave back. Python owns it.
+    """
+    #  QMatrix4x4 QMatrix4x4::orthonormalInverse() const
+    address = self.uglySide.call(
+        'ritual_ZNK10QMatrix4x418orthonormalInverseEv',
+    )
+    return QMatrix4x4._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -16,6 +16,12 @@ QStyleOptionGroupBox *ritual_ZN20QStyleOptionGroupBoxC1ERKS_(
   return new QStyleOptionGroupBox(*other);
 }
 
+//  QStyleOptionGroupBox::QStyleOptionGroupBox(int version)
+extern "C" Q_DECL_EXPORT
+QStyleOptionGroupBox *ritual_ZN20QStyleOptionGroupBoxC1Ei(int version) {
+  return new QStyleOptionGroupBox(version);
+}
+
 //  QStyleOptionGroupBox::~QStyleOptionGroupBox()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QStyleOptionGroupBoxD1Ev(QStyleOptionGroupBox *self) {

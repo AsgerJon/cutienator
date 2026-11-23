@@ -56,9 +56,9 @@ class QAnimationGroup(QAbstractAnimation):
   What has no ritual
   ------------------
 
-  10 of the 22 functions Qt declares: 3 private; 2 takes or gives a type that
-  cannot be passed yet; 2 forbidden; 1 a template; 1 the class is abstract,
-  so C++ cannot make one; 1 protected.
+  10 of the 22 functions Qt declares: 4 takes or gives a type that cannot be
+  passed yet; 2 the class is abstract, so C++ cannot make one; 2 forbidden; 1
+  a template; 1 declared and nowhere to be found.
 
   What to expect
   --------------
@@ -394,7 +394,7 @@ class QAnimationGroup(QAbstractAnimation):
       object.
     """
     #  bool QAnimationGroup::event(QEvent *event)
-    return self.uglySide.call(
-        'ritual_own_ZN15QAnimationGroup5eventEP6QEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN15QAnimationGroup5eventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN15QAnimationGroup5eventEP6QEvent'
+    return self.uglySide.call(ritual, self._addressOf(event))

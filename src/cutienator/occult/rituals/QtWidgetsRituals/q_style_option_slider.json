@@ -6,6 +6,7 @@
   "rows": {
     "ritual_ZN18QStyleOptionSliderC1Ev": ["address"],
     "ritual_ZN18QStyleOptionSliderC1ERKS_": ["address", "address"],
+    "ritual_ZN18QStyleOptionSliderC1Ei": ["address", "int"],
     "ritual_ZN18QStyleOptionSliderD1Ev": ["nothing", "address"]
   }
 }

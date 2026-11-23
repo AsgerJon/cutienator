@@ -60,6 +60,12 @@ QList<QString> *ritual_ZN12QLibraryInfo23platformPluginArgumentsERK7QString(
           *platformName));
 }
 
+//  QLibraryInfo::QLibraryInfo()
+extern "C" Q_DECL_EXPORT
+QLibraryInfo *ritual_ZN12QLibraryInfoC1Ev() {
+  return new QLibraryInfo();
+}
+
 //  QLibraryInfo::~QLibraryInfo()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN12QLibraryInfoD1Ev(QLibraryInfo *self) {

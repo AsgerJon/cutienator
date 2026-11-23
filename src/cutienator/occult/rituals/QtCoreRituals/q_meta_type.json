@@ -66,6 +66,22 @@
     "ritual_ZN9QMetaType18unregisterMetaTypeES_": ["nothing", "address"],
     "ritual_ZN9QMetaType5ifaceEv": ["address", "address"],
     "ritual_ZNK9QMetaType5ifaceEv": ["address", "address"],
+    "ritual_ZN9QMetaType22isDefaultConstructibleEPKN9QtPrivate18QMetaTypeInterfaceE": [
+      "bool", "address"
+    ],
+    "ritual_ZN9QMetaType19isCopyConstructibleEPKN9QtPrivate18QMetaTypeInterfaceE": [
+      "bool", "address"
+    ],
+    "ritual_ZN9QMetaType19isMoveConstructibleEPKN9QtPrivate18QMetaTypeInterfaceE": [
+      "bool", "address"
+    ],
+    "ritual_ZN9QMetaType14isDestructibleEPKN9QtPrivate18QMetaTypeInterfaceE": [
+      "bool", "address"
+    ],
+    "ritual_ZN9QMetaType14registerHelperEPKN9QtPrivate18QMetaTypeInterfaceE": [
+      "int", "address"
+    ],
+    "ritual_ZNK9QMetaType14registerHelperEv": ["int", "address"],
     "ritual_ZN9QMetaTypeD1Ev": ["nothing", "address"]
   }
 }

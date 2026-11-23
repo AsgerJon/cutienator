@@ -262,6 +262,14 @@ bool ritual_ZN15QGraphicsLayout28instantInvalidatePropagationEv() {
   return QGraphicsLayout::instantInvalidatePropagation();
 }
 
+//  void QGraphicsLayout::addChildLayoutItem(QGraphicsLayoutItem *layoutItem)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QGraphicsLayout18addChildLayoutItemEP19QGraphicsLayoutItem(
+    QGraphicsLayout *self,
+    QGraphicsLayoutItem *layoutItem) {
+  self->addChildLayoutItem(layoutItem);
+}
+
 //  a Python function taken by a CuteQGraphicsLayout, for the function named
 //      by the key
 extern "C" Q_DECL_EXPORT

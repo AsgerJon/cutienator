@@ -238,6 +238,14 @@ QPaintEngine *ritual_ZNK8QPicture11paintEngineEv(const QPicture *self) {
   return self->paintEngine();
 }
 
+//  int QPicture::metric(PaintDeviceMetric m) const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK8QPicture6metricEN12QPaintDevice17PaintDeviceMetricE(
+    const QPicture *self,
+    QPaintDevice::PaintDeviceMetric m) {
+  return self->metric(m);
+}
+
 //  a Python function taken by a CuteQPicture, for the function named by the
 //      key
 extern "C" Q_DECL_EXPORT

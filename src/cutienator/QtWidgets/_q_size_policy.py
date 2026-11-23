@@ -31,14 +31,14 @@ class QSizePolicy(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QSizePolicy that has a ritual and that Python can
-  call so far, 21 names in all: 'horizontalPolicy', 'verticalPolicy',
+  call so far, 22 names in all: 'horizontalPolicy', 'verticalPolicy',
   'controlType', 'setHorizontalPolicy', 'setVerticalPolicy',
   'setControlType', 'expandingDirections', 'setHeightForWidth',
   'hasHeightForWidth', 'setWidthForHeight', 'hasWidthForHeight', '__eq__',
   '__ne__', 'horizontalStretch', 'verticalStretch', 'setHorizontalStretch',
   'setVerticalStretch', 'retainSizeWhenHidden', 'setRetainSizeWhenHidden',
-  'transpose', 'transposed'. It can be made from Python, in 2 ways; see
-  '__init__'.
+  'transpose', 'transposed', 'toControlTypeFieldValue'. It can be made from
+  Python, in 3 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -51,8 +51,8 @@ class QSizePolicy(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  8 of the 33 functions Qt declares: 4 private; 2 takes or gives a type that
-  cannot be passed yet; 1 declared and nowhere to be found; 1 a template.
+  6 of the 33 functions Qt declares: 3 takes or gives a type that cannot be
+  passed yet; 2 declared and nowhere to be found; 1 a template.
 
   What to expect
   --------------
@@ -123,6 +123,28 @@ class QSizePolicy(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  @overload(ControlType)
+  def toControlTypeFieldValue(type: ControlType) -> int:
+    """
+    Calls Qt's 'quint32 QSizePolicy::toControlTypeFieldValue(ControlType
+    type)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qsizepolicy.html#toControlTypeFieldValue
+
+    Parameters
+    ----------
+
+    type : ControlType
+      Passed on as its number.
+    """
+    #  quint32 QSizePolicy::toControlTypeFieldValue(ControlType type)
+    return Rituals.call(
+        'ritual_ZN11QSizePolicy23toControlTypeFieldValueENS_11ControlTypeE',
+        type.value,
+    )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -548,6 +570,25 @@ class QSizePolicy(CuteMixin, metaclass=MetaCute):
     self._noteCreation(QSizePolicy, lambda: Rituals.call(
         'ritual_ZN11QSizePolicyC1ENS_6PolicyES0_NS_11ControlTypeE',
         horizontal.value, vertical.value, type.value,
+    ))
+
+  @overload(int)
+  def __init__(self, i: int) -> None:
+    """
+    Notes what was given, for Qt's 'QSizePolicy::QSizePolicy(int i)', which
+    is called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qsizepolicy.html#QSizePolicy
+
+    Parameters
+    ----------
+
+    i : int
+      Passed on as it is.
+    """
+    #  QSizePolicy::QSizePolicy(int i)
+    self._noteCreation(QSizePolicy, lambda: Rituals.call(
+        'ritual_ZN11QSizePolicyC1Ei', i,
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

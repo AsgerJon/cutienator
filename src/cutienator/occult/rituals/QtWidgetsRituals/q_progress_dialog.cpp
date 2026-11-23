@@ -1072,6 +1072,44 @@ void ritual_ZN15QProgressDialog18setMinimumDurationEi(
   self->setMinimumDuration(ms);
 }
 
+//  void QProgressDialog::resizeEvent(QResizeEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QProgressDialog11resizeEventEP12QResizeEvent(
+    QProgressDialog *self,
+    QResizeEvent *event) {
+  self->resizeEvent(event);
+}
+
+//  void QProgressDialog::closeEvent(QCloseEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QProgressDialog10closeEventEP11QCloseEvent(
+    QProgressDialog *self,
+    QCloseEvent *event) {
+  self->closeEvent(event);
+}
+
+//  void QProgressDialog::changeEvent(QEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QProgressDialog11changeEventEP6QEvent(
+    QProgressDialog *self,
+    QEvent *event) {
+  self->changeEvent(event);
+}
+
+//  void QProgressDialog::showEvent(QShowEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QProgressDialog9showEventEP10QShowEvent(
+    QProgressDialog *self,
+    QShowEvent *event) {
+  self->showEvent(event);
+}
+
+//  void QProgressDialog::forceShow()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QProgressDialog9forceShowEv(QProgressDialog *self) {
+  self->forceShow();
+}
+
 //  a Python function taken by a CuteQProgressDialog, for the function named
 //      by the key
 extern "C" Q_DECL_EXPORT

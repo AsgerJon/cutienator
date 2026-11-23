@@ -4,6 +4,7 @@
     "QtCore/qdatetime.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN5QDateC1Ex": ["address", "long long"],
     "ritual_ZN5QDateC1Ev": ["address"],
     "ritual_ZN5QDateC1Eiii": ["address", "int", "int", "int"],
     "ritual_ZN5QDateC1Eiii9QCalendar": [
@@ -108,6 +109,10 @@
     "ritual_ZN5QDate10isLeapYearEi": ["bool", "int"],
     "ritual_ZN5QDate13fromJulianDayEx": ["address", "long long"],
     "ritual_ZNK5QDate11toJulianDayEv": ["long long", "address"],
+    "ritual_ZN5QDate6nullJdEv": ["long long"],
+    "ritual_ZN5QDate5minJdEv": ["long long"],
+    "ritual_ZN5QDate5maxJdEv": ["long long"],
+    "ritual_ZN5QDate11unixEpochJdEv": ["long long"],
     "ritual_ZeqRK5QDateS1_": ["bool", "address", "address"],
     "ritual_ZneRK5QDateS1_": ["bool", "address", "address"],
     "ritual_ZltRK5QDateS1_": ["bool", "address", "address"],

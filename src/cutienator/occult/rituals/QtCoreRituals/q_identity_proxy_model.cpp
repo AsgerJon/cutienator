@@ -1045,6 +1045,22 @@ bool ritual_ZNK19QIdentityProxyModel23handleSourceDataChangesEv(
   return self->handleSourceDataChanges();
 }
 
+//  void QIdentityProxyModel::setHandleSourceLayoutChanges(bool a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QIdentityProxyModel28setHandleSourceLayoutChangesEb(
+    QIdentityProxyModel *self,
+    bool a0) {
+  self->setHandleSourceLayoutChanges(a0);
+}
+
+//  void QIdentityProxyModel::setHandleSourceDataChanges(bool a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QIdentityProxyModel26setHandleSourceDataChangesEb(
+    QIdentityProxyModel *self,
+    bool a0) {
+  self->setHandleSourceDataChanges(a0);
+}
+
 //  a Python function taken by a CuteQIdentityProxyModel, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT

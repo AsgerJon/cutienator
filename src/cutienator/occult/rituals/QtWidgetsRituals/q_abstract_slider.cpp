@@ -969,6 +969,72 @@ void ritual_ZN15QAbstractSlider8setRangeEii(
   self->setRange(min, max);
 }
 
+//  bool QAbstractSlider::event(QEvent *e)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN15QAbstractSlider5eventEP6QEvent(
+    QAbstractSlider *self,
+    QEvent *e) {
+  return self->event(e);
+}
+
+//  void QAbstractSlider::setRepeatAction(SliderAction action, int
+//      thresholdTime, int repeatTime)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAbstractSlider15setRepeatActionENS_12SliderActionEii(
+    QAbstractSlider *self,
+    QAbstractSlider::SliderAction action,
+    int thresholdTime,
+    int repeatTime) {
+  self->setRepeatAction(action, thresholdTime, repeatTime);
+}
+
+//  SliderAction QAbstractSlider::repeatAction() const
+extern "C" Q_DECL_EXPORT
+QAbstractSlider::SliderAction ritual_ZNK15QAbstractSlider12repeatActionEv(
+    const QAbstractSlider *self) {
+  return self->repeatAction();
+}
+
+//  void QAbstractSlider::sliderChange(SliderChange change)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAbstractSlider12sliderChangeENS_12SliderChangeE(
+    QAbstractSlider *self,
+    QAbstractSlider::SliderChange change) {
+  self->sliderChange(change);
+}
+
+//  void QAbstractSlider::keyPressEvent(QKeyEvent *ev)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAbstractSlider13keyPressEventEP9QKeyEvent(
+    QAbstractSlider *self,
+    QKeyEvent *ev) {
+  self->keyPressEvent(ev);
+}
+
+//  void QAbstractSlider::timerEvent(QTimerEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAbstractSlider10timerEventEP11QTimerEvent(
+    QAbstractSlider *self,
+    QTimerEvent *a0) {
+  self->timerEvent(a0);
+}
+
+//  void QAbstractSlider::wheelEvent(QWheelEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAbstractSlider10wheelEventEP11QWheelEvent(
+    QAbstractSlider *self,
+    QWheelEvent *e) {
+  self->wheelEvent(e);
+}
+
+//  void QAbstractSlider::changeEvent(QEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAbstractSlider11changeEventEP6QEvent(
+    QAbstractSlider *self,
+    QEvent *e) {
+  self->changeEvent(e);
+}
+
 //  a Python function taken by a CuteQAbstractSlider, for the function named
 //      by the key
 extern "C" Q_DECL_EXPORT

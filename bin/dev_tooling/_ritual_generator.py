@@ -748,7 +748,7 @@ class RitualGenerator:
       name = virtual['name']
       if name in self.__qt_own_virtuals__ or name.startswith('operator'):
         continue
-      if nearest['access'] == 'private' or nearest['final']:
+      if nearest['final']:
         continue
       if 'mangledName' not in root['member']:
         continue
@@ -807,7 +807,7 @@ class RitualGenerator:
         continue
       if name in self.__qt_own_virtuals__ or name.startswith('operator'):
         continue
-      if nearest['access'] == 'private' or nearest['final']:
+      if nearest['final']:
         continue
       functionType = root['member']['type']['qualType']
       gives, taken, words = self._splitFunctionType(functionType)
@@ -2471,6 +2471,12 @@ class RitualGenerator:
     Gives the reason a function gets no ritual, in words, or '' when
     nothing stands in the way of writing it.
 
+    That C++ marks a function 'private' or 'protected' is no such
+    reason. C++ means by it that only the class itself, or a class
+    built on it, may call the function. cutienator does not care: the
+    rituals are compiled with '-fno-access-control', which turns that
+    rule of the compiler off, and every function Qt has is taken.
+
     That Qt has marked a function as deprecated is no such reason. It
     gets its ritual like any other, and the compiler then passes on
     Qt's own notice of it, as 'Use territory() instead'. That notice
@@ -2478,10 +2484,6 @@ class RitualGenerator:
     """
     if member.get('explicitlyDeleted'):
       return 'forbidden: Qt declares it only to forbid its use'
-    if access == 'private':
-      return 'private: only Qt itself may call it'
-    if access == 'protected':
-      return 'protected: only a subclass may call it'
     if member['name'] in signals:
       return 'a signal'
     if plan['kind'] == 'constructor' and abstract:

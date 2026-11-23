@@ -245,6 +245,21 @@ const QMetaObject *ritual_ZNK13QMetaProperty19enclosingMetaObjectEv(
   return self->enclosingMetaObject();
 }
 
+//  int QMetaProperty::registerPropertyType() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK13QMetaProperty20registerPropertyTypeEv(
+    const QMetaProperty *self) {
+  return self->registerPropertyType();
+}
+
+//  QMetaProperty::QMetaProperty(const QMetaObject *mobj, int index)
+extern "C" Q_DECL_EXPORT
+QMetaProperty *ritual_ZN13QMetaPropertyC1EPK11QMetaObjecti(
+    const QMetaObject *mobj,
+    int index) {
+  return new QMetaProperty(mobj, index);
+}
+
 //  QMetaProperty::~QMetaProperty()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QMetaPropertyD1Ev(QMetaProperty *self) {

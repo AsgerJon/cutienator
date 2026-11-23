@@ -20,6 +20,12 @@ QString *ritual_ZN15QSessionManager2trEPKcS1_i(
   return new QString(QSessionManager::tr(s, c, n));
 }
 
+//  QSessionManager::~QSessionManager()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QSessionManagerD1Ev(QSessionManager *self) {
+  delete self;
+}
+
 //  QString QSessionManager::sessionId() const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK15QSessionManager9sessionIdEv(

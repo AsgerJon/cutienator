@@ -14,6 +14,7 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
+from . import QStringList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -35,10 +36,11 @@ class QResource(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QResource that has a ritual and that Python can call
-  so far, 13 names in all: 'setFileName', 'fileName', 'absoluteFilePath',
+  so far, 16 names in all: 'setFileName', 'fileName', 'absoluteFilePath',
   'setLocale', 'locale', 'isValid', 'compressionAlgorithm', 'size',
   'uncompressedSize', 'uncompressedData', 'lastModified', 'registerResource',
-  'unregisterResource'. It can be made from Python, in 1 way; see '__init__'.
+  'unregisterResource', 'isDir', 'isFile', 'children'. It can be made from
+  Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -49,8 +51,8 @@ class QResource(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  8 of the 23 functions Qt declares: 3 takes or gives a type that cannot be
-  passed yet; 3 protected; 2 private.
+  5 of the 23 functions Qt declares: 5 takes or gives a type that cannot be
+  passed yet.
 
   What to expect
   --------------
@@ -281,6 +283,40 @@ class QResource(CuteMixin, metaclass=MetaCute):
     address = self.uglySide.call('ritual_ZNK9QResource12lastModifiedEv')
     from . import QDateTime
     return QDateTime._cuteOwning(address)
+
+  def isDir(self) -> bool:
+    """
+    Calls Qt's 'bool QResource::isDir() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qresource.html#isDir
+    """
+    #  bool QResource::isDir() const
+    return self.uglySide.call('ritual_ZNK9QResource5isDirEv')
+
+  def isFile(self) -> bool:
+    """
+    Calls Qt's 'bool QResource::isFile() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qresource.html#isFile
+    """
+    #  bool QResource::isFile() const
+    return self.uglySide.call('ritual_ZNK9QResource6isFileEv')
+
+  def children(self) -> QStringList:
+    """
+    Calls Qt's 'QStringList QResource::children() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qresource.html#children
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QResource::children() const
+    address = self.uglySide.call('ritual_ZNK9QResource8childrenEv')
+    return QStringList._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -217,6 +217,14 @@ void ritual_ZN15QSocketNotifier10setEnabledEb(
   self->setEnabled(a0);
 }
 
+//  bool QSocketNotifier::event(QEvent *a0)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN15QSocketNotifier5eventEP6QEvent(
+    QSocketNotifier *self,
+    QEvent *a0) {
+  return self->event(a0);
+}
+
 //  a Python function taken by a CuteQSocketNotifier, for the function named
 //      by the key
 extern "C" Q_DECL_EXPORT

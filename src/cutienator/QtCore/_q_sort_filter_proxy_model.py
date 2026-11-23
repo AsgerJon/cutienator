@@ -49,7 +49,7 @@ class QSortFilterProxyModel(QAbstractProxyModel):
   -----------
 
   Every function of Qt's QSortFilterProxyModel that has a ritual and that
-  Python can call so far, 60 names in all: 'metaObject', 'tr',
+  Python can call so far, 65 names in all: 'metaObject', 'tr',
   'setSourceModel', 'mapToSource', 'mapFromSource', 'mapSelectionToSource',
   'mapSelectionFromSource', 'filterRegularExpression', 'filterKeyColumn',
   'setFilterKeyColumn', 'filterCaseSensitivity', 'setFilterCaseSensitivity',
@@ -59,13 +59,15 @@ class QSortFilterProxyModel(QAbstractProxyModel):
   'setFilterRole', 'isRecursiveFilteringEnabled',
   'setRecursiveFilteringEnabled', 'autoAcceptChildRows',
   'setAutoAcceptChildRows', 'setFilterRegularExpression',
-  'setFilterWildcard', 'setFilterFixedString', 'invalidate', 'index',
-  'parent', 'sibling', 'rowCount', 'columnCount', 'hasChildren', 'data',
-  'setData', 'headerData', 'setHeaderData', 'mimeData', 'dropMimeData',
-  'insertRows', 'insertColumns', 'removeRows', 'removeColumns', 'fetchMore',
-  'canFetchMore', 'flags', 'buddy', 'match', 'span', 'sort', 'mimeTypes',
-  'supportedDropActions', 'filterAcceptsRow', 'filterAcceptsColumn',
-  'lessThan'. It can be made from Python, in 1 way; see '__init__'.
+  'setFilterWildcard', 'setFilterFixedString', 'invalidate',
+  'filterAcceptsRow', 'filterAcceptsColumn', 'lessThan', 'beginFilterChange',
+  'endFilterChange', 'invalidateFilter', 'invalidateRowsFilter',
+  'invalidateColumnsFilter', 'index', 'parent', 'sibling', 'rowCount',
+  'columnCount', 'hasChildren', 'data', 'setData', 'headerData',
+  'setHeaderData', 'mimeData', 'dropMimeData', 'insertRows', 'insertColumns',
+  'removeRows', 'removeColumns', 'fetchMore', 'canFetchMore', 'flags',
+  'buddy', 'match', 'span', 'sort', 'mimeTypes', 'supportedDropActions'. It
+  can be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -76,8 +78,9 @@ class QSortFilterProxyModel(QAbstractProxyModel):
   What has no ritual
   ------------------
 
-  32 of the 95 functions Qt declares: 12 takes or gives a type that cannot be
-  passed yet; 8 a signal; 6 protected; 3 private; 2 forbidden; 1 a template.
+  27 of the 95 functions Qt declares: 15 takes or gives a type that cannot be
+  passed yet; 8 a signal; 2 forbidden; 1 a template; 1 declared and nowhere
+  to be found.
 
   What to expect
   --------------
@@ -577,6 +580,113 @@ class QSortFilterProxyModel(QAbstractProxyModel):
     #  bool QSortFilterProxyModel::autoAcceptChildRows() const
     return self.uglySide.call(
         'ritual_ZNK21QSortFilterProxyModel19autoAcceptChildRowsEv',
+    )
+
+  @overload(int, QModelIndex)
+  def filterAcceptsRow(
+      self,
+      source_row: int,
+      source_parent: QModelIndex,
+  ) -> bool:
+    """
+    Calls Qt's 'bool QSortFilterProxyModel::filterAcceptsRow(int source_row,
+    const QModelIndex &source_parent) const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qsortfilterproxymodel.html#filterAcceptsRow
+
+    Parameters
+    ----------
+
+    source_row : int
+      Passed on as it is.
+
+    source_parent : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+    """
+    #  bool QSortFilterProxyModel::filterAcceptsRow(int source_row, const
+    #      QModelIndex &source_parent) const
+    ritual = (
+        'ritual_ZNK21QSortFilterProxyModel16filterAcceptsRowEiRK11QModelInd'
+        'ex')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK21QSortFilterProxyModel16filterAcceptsRowEiRK11QMo'
+          'delIndex')
+    return self.uglySide.call(
+        ritual, source_row, self._valueOf(source_parent),
+    )
+
+  @overload(int, QModelIndex)
+  def filterAcceptsColumn(
+      self,
+      source_column: int,
+      source_parent: QModelIndex,
+  ) -> bool:
+    """
+    Calls Qt's 'bool QSortFilterProxyModel::filterAcceptsColumn(int
+    source_column, const QModelIndex &source_parent) const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qsortfilterproxymodel.html#filterAcceptsColumn
+
+    Parameters
+    ----------
+
+    source_column : int
+      Passed on as it is.
+
+    source_parent : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+    """
+    #  bool QSortFilterProxyModel::filterAcceptsColumn(int source_column,
+    #      const QModelIndex &source_parent) const
+    ritual = (
+        'ritual_ZNK21QSortFilterProxyModel19filterAcceptsColumnEiRK11QModel'
+        'Index')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK21QSortFilterProxyModel19filterAcceptsColumnEiRK11'
+          'QModelIndex')
+    return self.uglySide.call(
+        ritual, source_column, self._valueOf(source_parent),
+    )
+
+  @overload(QModelIndex, QModelIndex)
+  def lessThan(
+      self,
+      source_left: QModelIndex,
+      source_right: QModelIndex,
+  ) -> bool:
+    """
+    Calls Qt's 'bool QSortFilterProxyModel::lessThan(const QModelIndex
+    &source_left, const QModelIndex &source_right) const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qsortfilterproxymodel.html#lessThan
+
+    Parameters
+    ----------
+
+    source_left : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+
+    source_right : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+    """
+    #  bool QSortFilterProxyModel::lessThan(const QModelIndex &source_left,
+    #      const QModelIndex &source_right) const
+    ritual = 'ritual_ZNK21QSortFilterProxyModel8lessThanERK11QModelIndexS2_'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK21QSortFilterProxyModel8lessThanERK11QModelIndexS2'
+          '_')
+    return self.uglySide.call(
+        ritual, self._valueOf(source_left), self._valueOf(source_right),
     )
 
   @overload(int, int)
@@ -1103,99 +1213,6 @@ class QSortFilterProxyModel(QAbstractProxyModel):
           'ritual_own_ZNK21QSortFilterProxyModel20supportedDropActionsEv')
     return Qt.DropActions(self.uglySide.call(ritual))
 
-  @overload(int, QModelIndex)
-  def filterAcceptsRow(
-      self,
-      source_row: int,
-      source_parent: QModelIndex,
-  ) -> bool:
-    """
-    Calls Qt's 'bool QSortFilterProxyModel::filterAcceptsRow(int source_row,
-    const QModelIndex &source_parent) const'.
-
-    Qt's own words:
-    https://doc.qt.io/qt-6/qsortfilterproxymodel.html#filterAcceptsRow
-
-    Parameters
-    ----------
-
-    source_row : int
-      Passed on as it is.
-
-    source_parent : QModelIndex
-      Passed on as a value: Qt reads the C++ QModelIndex, which stays
-      Python's own.
-    """
-    #  bool QSortFilterProxyModel::filterAcceptsRow(int source_row, const
-    #      QModelIndex &source_parent) const
-    return self.uglySide.call(
-        'ritual_own_ZNK21QSortFilterProxyModel16filterAcceptsRowEiRK11QMode'
-        'lIndex',
-        source_row, self._valueOf(source_parent),
-    )
-
-  @overload(int, QModelIndex)
-  def filterAcceptsColumn(
-      self,
-      source_column: int,
-      source_parent: QModelIndex,
-  ) -> bool:
-    """
-    Calls Qt's 'bool QSortFilterProxyModel::filterAcceptsColumn(int
-    source_column, const QModelIndex &source_parent) const'.
-
-    Qt's own words:
-    https://doc.qt.io/qt-6/qsortfilterproxymodel.html#filterAcceptsColumn
-
-    Parameters
-    ----------
-
-    source_column : int
-      Passed on as it is.
-
-    source_parent : QModelIndex
-      Passed on as a value: Qt reads the C++ QModelIndex, which stays
-      Python's own.
-    """
-    #  bool QSortFilterProxyModel::filterAcceptsColumn(int source_column,
-    #      const QModelIndex &source_parent) const
-    return self.uglySide.call(
-        'ritual_own_ZNK21QSortFilterProxyModel19filterAcceptsColumnEiRK11QM'
-        'odelIndex',
-        source_column, self._valueOf(source_parent),
-    )
-
-  @overload(QModelIndex, QModelIndex)
-  def lessThan(
-      self,
-      source_left: QModelIndex,
-      source_right: QModelIndex,
-  ) -> bool:
-    """
-    Calls Qt's 'bool QSortFilterProxyModel::lessThan(const QModelIndex
-    &source_left, const QModelIndex &source_right) const'.
-
-    Qt's own words:
-    https://doc.qt.io/qt-6/qsortfilterproxymodel.html#lessThan
-
-    Parameters
-    ----------
-
-    source_left : QModelIndex
-      Passed on as a value: Qt reads the C++ QModelIndex, which stays
-      Python's own.
-
-    source_right : QModelIndex
-      Passed on as a value: Qt reads the C++ QModelIndex, which stays
-      Python's own.
-    """
-    #  bool QSortFilterProxyModel::lessThan(const QModelIndex &source_left,
-    #      const QModelIndex &source_right) const
-    return self.uglySide.call(
-        'ritual_own_ZNK21QSortFilterProxyModel8lessThanERK11QModelIndexS2_',
-        self._valueOf(source_left), self._valueOf(source_right),
-    )
-
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1660,6 +1677,81 @@ class QSortFilterProxyModel(QAbstractProxyModel):
     """
     #  void QSortFilterProxyModel::invalidate()
     self.uglySide.call('ritual_ZN21QSortFilterProxyModel10invalidateEv')
+
+  def beginFilterChange(self) -> None:
+    """
+    Calls Qt's 'void QSortFilterProxyModel::beginFilterChange()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qsortfilterproxymodel.html#beginFilterChange
+    """
+    #  void QSortFilterProxyModel::beginFilterChange()
+    self.uglySide.call(
+        'ritual_ZN21QSortFilterProxyModel17beginFilterChangeEv',
+    )
+
+  @overload()
+  @overload(Directions)
+  def endFilterChange(
+      self,
+      directions: Directions = Directions.Both,
+  ) -> None:
+    """
+    Calls Qt's 'void QSortFilterProxyModel::endFilterChange(Directions
+    directions)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qsortfilterproxymodel.html#endFilterChange
+
+    Parameters
+    ----------
+
+    directions : Directions
+      Passed on as its number. May be left out, as in Qt: it is then
+      Directions.Both.
+    """
+    #  void QSortFilterProxyModel::endFilterChange(Directions directions)
+    self.uglySide.call(
+        'ritual_ZN21QSortFilterProxyModel15endFilterChangeE6QFlagsINS_9Dire'
+        'ctionEE',
+        directions.value,
+    )
+
+  def invalidateFilter(self) -> None:
+    """
+    Calls Qt's 'void QSortFilterProxyModel::invalidateFilter()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qsortfilterproxymodel.html#invalidateFilter
+    """
+    #  void QSortFilterProxyModel::invalidateFilter()
+    self.uglySide.call(
+        'ritual_ZN21QSortFilterProxyModel16invalidateFilterEv',
+    )
+
+  def invalidateRowsFilter(self) -> None:
+    """
+    Calls Qt's 'void QSortFilterProxyModel::invalidateRowsFilter()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qsortfilterproxymodel.html#invalidateRowsFilter
+    """
+    #  void QSortFilterProxyModel::invalidateRowsFilter()
+    self.uglySide.call(
+        'ritual_ZN21QSortFilterProxyModel20invalidateRowsFilterEv',
+    )
+
+  def invalidateColumnsFilter(self) -> None:
+    """
+    Calls Qt's 'void QSortFilterProxyModel::invalidateColumnsFilter()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qsortfilterproxymodel.html#invalidateColumnsFilter
+    """
+    #  void QSortFilterProxyModel::invalidateColumnsFilter()
+    self.uglySide.call(
+        'ritual_ZN21QSortFilterProxyModel23invalidateColumnsFilterEv',
+    )
 
   @overload(QMimeData, Qt.DropAction, int, int, QModelIndex)
   @overload(NoneType, Qt.DropAction, int, int, QModelIndex)

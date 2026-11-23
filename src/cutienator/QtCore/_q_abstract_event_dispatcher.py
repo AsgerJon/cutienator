@@ -62,9 +62,9 @@ class QAbstractEventDispatcher(QObject):
   What has no ritual
   ------------------
 
-  16 of the 35 functions Qt declares: 8 takes or gives a type that cannot be
-  passed yet; 3 private; 2 a signal; 1 a template; 1 the class is abstract,
-  so C++ cannot make one; 1 protected.
+  16 of the 35 functions Qt declares: 10 takes or gives a type that cannot be
+  passed yet; 2 the class is abstract, so C++ cannot make one; 2 a signal; 1
+  a template; 1 declared and nowhere to be found.
 
   What to expect
   --------------

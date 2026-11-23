@@ -52,7 +52,7 @@ class QTreeWidgetItem(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QTreeWidgetItem that has a ritual and that Python
-  can call so far, 55 names in all: 'clone', 'treeWidget', 'setSelected',
+  can call so far, 59 names in all: 'clone', 'treeWidget', 'setSelected',
   'isSelected', 'setHidden', 'isHidden', 'setExpanded', 'isExpanded',
   'setFirstColumnSpanned', 'isFirstColumnSpanned', 'setDisabled',
   'isDisabled', 'setChildIndicatorPolicy', 'childIndicatorPolicy', 'flags',
@@ -63,8 +63,9 @@ class QTreeWidgetItem(CuteMixin, metaclass=MetaCute):
   'setCheckState', 'sizeHint', 'setSizeHint', 'data', 'setData', '__lt__',
   'parent', 'child', 'childCount', 'columnCount', 'indexOfChild', 'addChild',
   'insertChild', 'removeChild', 'takeChild', 'addChildren', 'insertChildren',
-  'takeChildren', 'type', 'sortChildren'. It can be made from Python, in 8
-  ways; see '__init__'.
+  'takeChildren', 'type', 'sortChildren', 'emitDataChanged',
+  'childrenCheckState', 'itemChanged', 'executePendingSort'. It can be made
+  from Python, in 8 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -82,8 +83,8 @@ class QTreeWidgetItem(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  9 of the 76 functions Qt declares: 5 private; 3 takes or gives a type that
-  cannot be passed yet; 1 protected.
+  4 of the 76 functions Qt declares: 4 takes or gives a type that cannot be
+  passed yet.
 
   What to expect
   --------------
@@ -712,6 +713,34 @@ class QTreeWidgetItem(CuteMixin, metaclass=MetaCute):
     """
     #  int QTreeWidgetItem::type() const
     return self.uglySide.call('ritual_ZNK15QTreeWidgetItem4typeEv')
+
+  @overload(int)
+  def childrenCheckState(self, column: int) -> QVariant:
+    """
+    Calls Qt's 'QVariant QTreeWidgetItem::childrenCheckState(int column)
+    const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qtreewidgetitem.html#childrenCheckState
+
+    Parameters
+    ----------
+
+    column : int
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QVariant
+      A new cute QVariant around the copy Qt gave back. Python owns it.
+    """
+    #  QVariant QTreeWidgetItem::childrenCheckState(int column) const
+    address = self.uglySide.call(
+        'ritual_ZNK15QTreeWidgetItem18childrenCheckStateEi', column,
+    )
+    from ..QtCore import QVariant
+    return QVariant._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1674,6 +1703,67 @@ class QTreeWidgetItem(CuteMixin, metaclass=MetaCute):
         'ritual_ZN15QTreeWidgetItem12sortChildrenEiN2Qt9SortOrderE',
         column, order.value,
     )
+
+  @overload(int, Qt.SortOrder, bool)
+  def sortChildren(
+      self,
+      column: int,
+      order: Qt.SortOrder,
+      climb: bool,
+  ) -> None:
+    """
+    Calls Qt's 'void QTreeWidgetItem::sortChildren(int column, Qt::SortOrder
+    order, bool climb)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtreewidgetitem.html#sortChildren
+
+    Parameters
+    ----------
+
+    column : int
+      Passed on as it is.
+
+    order : Qt.SortOrder
+      Passed on as its number.
+
+    climb : bool
+      Passed on as it is.
+    """
+    #  void QTreeWidgetItem::sortChildren(int column, Qt::SortOrder order,
+    #      bool climb)
+    self.uglySide.call(
+        'ritual_ZN15QTreeWidgetItem12sortChildrenEiN2Qt9SortOrderEb',
+        column, order.value, climb,
+    )
+
+  def emitDataChanged(self) -> None:
+    """
+    Calls Qt's 'void QTreeWidgetItem::emitDataChanged()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qtreewidgetitem.html#emitDataChanged
+    """
+    #  void QTreeWidgetItem::emitDataChanged()
+    self.uglySide.call('ritual_ZN15QTreeWidgetItem15emitDataChangedEv')
+
+  def itemChanged(self) -> None:
+    """
+    Calls Qt's 'void QTreeWidgetItem::itemChanged()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtreewidgetitem.html#itemChanged
+    """
+    #  void QTreeWidgetItem::itemChanged()
+    self.uglySide.call('ritual_ZN15QTreeWidgetItem11itemChangedEv')
+
+  def executePendingSort(self) -> None:
+    """
+    Calls Qt's 'void QTreeWidgetItem::executePendingSort() const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qtreewidgetitem.html#executePendingSort
+    """
+    #  void QTreeWidgetItem::executePendingSort() const
+    self.uglySide.call('ritual_ZNK15QTreeWidgetItem18executePendingSortEv')
 
 
 #  Qt's 'QList<QTreeWidgetItem *>': the list of QTreeWidgetItem, which

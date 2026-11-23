@@ -45,11 +45,17 @@ class QSessionManager(QObject):
   'setManagerProperty', 'isPhase2', 'requestPhase2'. None can be made from
   Python: one comes out of a function of another class that gives one back.
 
+  What has a ritual and is left out, and why
+  ------------------------------------------
+
+  - Qt's 'QSessionManager::~QSessionManager()': the destructor: Python never
+    removes a C++ QSessionManager.
+
   What has no ritual
   ------------------
 
-  8 of the 26 functions Qt declares: 5 private; 2 takes or gives a type that
-  cannot be passed yet; 1 a template.
+  7 of the 26 functions Qt declares: 5 takes or gives a type that cannot be
+  passed yet; 1 a template; 1 declared and nowhere to be found.
 
   What to expect
   --------------

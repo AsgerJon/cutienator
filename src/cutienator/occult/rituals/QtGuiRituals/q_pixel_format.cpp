@@ -3,6 +3,24 @@
 #include <QtGui/qpixelformat.h>
 #include <QtCore/qdebug.h>
 
+//  uchar QPixelFormat::get(Field offset, FieldWidth width) const
+extern "C" Q_DECL_EXPORT
+uchar ritual_ZNK12QPixelFormat3getENS_5FieldENS_10FieldWidthE(
+    const QPixelFormat *self,
+    QPixelFormat::Field offset,
+    QPixelFormat::FieldWidth width) {
+  return self->get(offset, width);
+}
+
+//  quint64 QPixelFormat::set(Field offset, FieldWidth width, uchar value)
+extern "C" Q_DECL_EXPORT
+quint64 ritual_ZN12QPixelFormat3setENS_5FieldENS_10FieldWidthEh(
+    QPixelFormat::Field offset,
+    QPixelFormat::FieldWidth width,
+    uchar value) {
+  return QPixelFormat::set(offset, width, value);
+}
+
 //  QPixelFormat::QPixelFormat()
 extern "C" Q_DECL_EXPORT
 QPixelFormat *ritual_ZN12QPixelFormatC1Ev() {
@@ -182,6 +200,22 @@ QPixelFormat::YUVLayout ritual_ZNK12QPixelFormat9yuvLayoutEv(
 extern "C" Q_DECL_EXPORT
 uchar ritual_ZNK12QPixelFormat7subEnumEv(const QPixelFormat *self) {
   return self->subEnum();
+}
+
+//  ByteOrder QPixelFormat::resolveByteOrder(ByteOrder bo)
+extern "C" Q_DECL_EXPORT
+QPixelFormat::ByteOrder ritual_ZN12QPixelFormat16resolveByteOrderENS_9ByteOrderE(
+    QPixelFormat::ByteOrder bo) {
+  return QPixelFormat::resolveByteOrder(bo);
+}
+
+//  ByteOrder QPixelFormat::resolveByteOrder(ByteOrder bo, TypeInterpretation
+//      ti)
+extern "C" Q_DECL_EXPORT
+QPixelFormat::ByteOrder ritual_ZN12QPixelFormat16resolveByteOrderENS_9ByteOrderENS_18TypeInterpretationE(
+    QPixelFormat::ByteOrder bo,
+    QPixelFormat::TypeInterpretation ti) {
+  return QPixelFormat::resolveByteOrder(bo, ti);
 }
 
 //  bool operator==(QPixelFormat fmt1, QPixelFormat fmt2)

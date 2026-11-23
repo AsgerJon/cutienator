@@ -26,6 +26,15 @@
       "nothing", "address", "text", "int", "address"
     ],
     "ritual_ZN13QSplashScreen12clearMessageEv": ["nothing", "address"],
+    "ritual_ZN13QSplashScreen5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN13QSplashScreen12drawContentsEP8QPainter": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QSplashScreen15mousePressEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
     "ritual_take_QSplashScreen": ["bool", "address", "chars", "address"],
     "ritual_own_ZN13QSplashScreen5eventEP6QEvent": [
       "bool", "address", "address"

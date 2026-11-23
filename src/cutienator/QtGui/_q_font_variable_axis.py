@@ -18,7 +18,7 @@ from ..QtCore import QList
 from . import QFont
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from ..QtCore import QDebug
+  from ..QtCore import QByteArray, QDebug
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -39,10 +39,10 @@ class QFontVariableAxis(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QFontVariableAxis that has a ritual and that Python
-  can call so far, 11 names in all: 'tag', 'setTag', 'name', 'setName',
+  can call so far, 12 names in all: 'tag', 'setTag', 'name', 'setName',
   'minimumValue', 'setMinimumValue', 'maximumValue', 'setMaximumValue',
-  'defaultValue', 'setDefaultValue', '__rlshift__'. It can be made from
-  Python, in 2 ways; see '__init__'.
+  'defaultValue', 'setDefaultValue', 'tagString', '__rlshift__'. It can be
+  made from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -53,8 +53,8 @@ class QFontVariableAxis(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  11 of the 25 functions Qt declares: 5 private; 4 takes or gives a type that
-  cannot be passed yet; 1 declared and nowhere to be found; 1 a template.
+  10 of the 25 functions Qt declares: 6 takes or gives a type that cannot be
+  passed yet; 3 declared and nowhere to be found; 1 a template.
 
   What to expect
   --------------
@@ -165,6 +165,23 @@ class QFontVariableAxis(CuteMixin, metaclass=MetaCute):
     return self.uglySide.call(
         'ritual_ZNK17QFontVariableAxis12defaultValueEv',
     )
+
+  def tagString(self) -> QByteArray:
+    """
+    Calls Qt's 'QByteArray QFontVariableAxis::tagString() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfontvariableaxis.html#tagString
+
+    Returns
+    -------
+
+    QByteArray
+      A new cute QByteArray around the copy Qt gave back. Python owns it.
+    """
+    #  QByteArray QFontVariableAxis::tagString() const
+    address = self.uglySide.call('ritual_ZNK17QFontVariableAxis9tagStringEv')
+    from ..QtCore import QByteArray
+    return QByteArray._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

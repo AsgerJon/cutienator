@@ -71,3 +71,9 @@ extern "C" Q_DECL_EXPORT
 QList<QColor> *ritual_ZNK9QColormap8colormapEv(const QColormap *self) {
   return new QList<QColor>(self->colormap());
 }
+
+//  QColormap::QColormap()
+extern "C" Q_DECL_EXPORT
+QColormap *ritual_ZN9QColormapC1Ev() {
+  return new QColormap();
+}

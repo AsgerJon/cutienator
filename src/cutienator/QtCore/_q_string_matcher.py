@@ -44,9 +44,9 @@ class QStringMatcher(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QStringMatcher that has a ritual and that Python can
-  call so far, 6 names in all: 'setPattern', 'setCaseSensitivity', 'indexIn',
-  'pattern', 'patternView', 'caseSensitivity'. It can be made from Python, in
-  4 ways; see '__init__'.
+  call so far, 7 names in all: 'updateSkipTable', 'setPattern',
+  'setCaseSensitivity', 'indexIn', 'pattern', 'patternView',
+  'caseSensitivity'. It can be made from Python, in 4 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -64,8 +64,8 @@ class QStringMatcher(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  2 of the 16 functions Qt declares: 1 private; 1 takes or gives a type that
-  cannot be passed yet.
+  1 of the 16 functions Qt declares: 1 takes or gives a type that cannot be
+  passed yet.
 
   What to expect
   --------------
@@ -397,3 +397,13 @@ class QStringMatcher(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def updateSkipTable(self) -> None:
+    """
+    Calls Qt's 'void QStringMatcher::updateSkipTable()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qstringmatcher.html#updateSkipTable
+    """
+    #  void QStringMatcher::updateSkipTable()
+    self.uglySide.call('ritual_ZN14QStringMatcher15updateSkipTableEv')

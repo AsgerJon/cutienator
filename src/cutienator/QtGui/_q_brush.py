@@ -44,10 +44,11 @@ class QBrush(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QBrush that has a ritual and that Python can call so
-  far, 15 names in all: 'style', 'setStyle', 'transform', 'setTransform',
+  far, 19 names in all: 'style', 'setStyle', 'transform', 'setTransform',
   'texture', 'setTexture', 'textureImage', 'setTextureImage', 'color',
-  'setColor', 'gradient', 'isOpaque', '__eq__', '__ne__', 'isDetached'. It
-  can be made from Python, in 10 ways; see '__init__'.
+  'setColor', 'gradient', 'isOpaque', '__eq__', '__ne__',
+  'doCompareEqualColor', 'doCompareEqualStyle', 'detach', 'init',
+  'isDetached'. It can be made from Python, in 10 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -66,8 +67,8 @@ class QBrush(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  19 of the 51 functions Qt declares: 15 takes or gives a type that cannot be
-  passed yet; 4 private.
+  15 of the 51 functions Qt declares: 15 takes or gives a type that cannot be
+  passed yet.
 
   What to expect
   --------------
@@ -221,6 +222,44 @@ class QBrush(CuteMixin, metaclass=MetaCute):
     """
     #  bool QBrush::isOpaque() const
     return self.uglySide.call('ritual_ZNK6QBrush8isOpaqueEv')
+
+  @overload(QColor)
+  def doCompareEqualColor(self, rhs: QColor) -> bool:
+    """
+    Calls Qt's 'bool QBrush::doCompareEqualColor(QColor rhs) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbrush.html#doCompareEqualColor
+
+    Parameters
+    ----------
+
+    rhs : QColor
+      Passed on as a value: Qt reads the C++ QColor, which stays Python's
+      own.
+    """
+    #  bool QBrush::doCompareEqualColor(QColor rhs) const
+    return self.uglySide.call(
+        'ritual_ZNK6QBrush19doCompareEqualColorE6QColor', self._valueOf(rhs),
+    )
+
+  @overload(Qt.BrushStyle)
+  def doCompareEqualStyle(self, rhs: Qt.BrushStyle) -> bool:
+    """
+    Calls Qt's 'bool QBrush::doCompareEqualStyle(Qt::BrushStyle rhs) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbrush.html#doCompareEqualStyle
+
+    Parameters
+    ----------
+
+    rhs : Qt.BrushStyle
+      Passed on as its number.
+    """
+    #  bool QBrush::doCompareEqualStyle(Qt::BrushStyle rhs) const
+    return self.uglySide.call(
+        'ritual_ZNK6QBrush19doCompareEqualStyleEN2Qt10BrushStyleE',
+        rhs.value,
+    )
 
   def isDetached(self) -> bool:
     """
@@ -688,3 +727,44 @@ class QBrush(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(Qt.BrushStyle)
+  def detach(self, newStyle: Qt.BrushStyle) -> None:
+    """
+    Calls Qt's 'void QBrush::detach(Qt::BrushStyle newStyle)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbrush.html#detach
+
+    Parameters
+    ----------
+
+    newStyle : Qt.BrushStyle
+      Passed on as its number.
+    """
+    #  void QBrush::detach(Qt::BrushStyle newStyle)
+    self.uglySide.call(
+        'ritual_ZN6QBrush6detachEN2Qt10BrushStyleE', newStyle.value,
+    )
+
+  @overload(QColor, Qt.BrushStyle)
+  def init(self, color: QColor, bs: Qt.BrushStyle) -> None:
+    """
+    Calls Qt's 'void QBrush::init(const QColor &color, Qt::BrushStyle bs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbrush.html#init
+
+    Parameters
+    ----------
+
+    color : QColor
+      Passed on as a value: Qt reads the C++ QColor, which stays Python's
+      own.
+
+    bs : Qt.BrushStyle
+      Passed on as its number.
+    """
+    #  void QBrush::init(const QColor &color, Qt::BrushStyle bs)
+    self.uglySide.call(
+        'ritual_ZN6QBrush4initERK6QColorN2Qt10BrushStyleE',
+        self._valueOf(color), bs.value,
+    )

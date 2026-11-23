@@ -58,8 +58,8 @@ class QGraphicsRotation(QGraphicsTransform):
   What has no ritual
   ------------------
 
-  9 of the 21 functions Qt declares: 3 private; 3 a signal; 2 takes or gives
-  a type that cannot be passed yet; 1 a template.
+  9 of the 21 functions Qt declares: 4 takes or gives a type that cannot be
+  passed yet; 3 a signal; 1 a template; 1 declared and nowhere to be found.
 
   What to expect
   --------------

@@ -1066,6 +1066,88 @@ void ritual_ZN6QLabel5clearEv(QLabel *self) {
   self->clear();
 }
 
+//  bool QLabel::event(QEvent *e)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN6QLabel5eventEP6QEvent(QLabel *self, QEvent *e) {
+  return self->event(e);
+}
+
+//  void QLabel::keyPressEvent(QKeyEvent *ev)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QLabel13keyPressEventEP9QKeyEvent(
+    QLabel *self,
+    QKeyEvent *ev) {
+  self->keyPressEvent(ev);
+}
+
+//  void QLabel::paintEvent(QPaintEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QLabel10paintEventEP11QPaintEvent(
+    QLabel *self,
+    QPaintEvent *a0) {
+  self->paintEvent(a0);
+}
+
+//  void QLabel::changeEvent(QEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QLabel11changeEventEP6QEvent(QLabel *self, QEvent *a0) {
+  self->changeEvent(a0);
+}
+
+//  void QLabel::mousePressEvent(QMouseEvent *ev)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QLabel15mousePressEventEP11QMouseEvent(
+    QLabel *self,
+    QMouseEvent *ev) {
+  self->mousePressEvent(ev);
+}
+
+//  void QLabel::mouseMoveEvent(QMouseEvent *ev)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QLabel14mouseMoveEventEP11QMouseEvent(
+    QLabel *self,
+    QMouseEvent *ev) {
+  self->mouseMoveEvent(ev);
+}
+
+//  void QLabel::mouseReleaseEvent(QMouseEvent *ev)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QLabel17mouseReleaseEventEP11QMouseEvent(
+    QLabel *self,
+    QMouseEvent *ev) {
+  self->mouseReleaseEvent(ev);
+}
+
+//  void QLabel::contextMenuEvent(QContextMenuEvent *ev)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QLabel16contextMenuEventEP17QContextMenuEvent(
+    QLabel *self,
+    QContextMenuEvent *ev) {
+  self->contextMenuEvent(ev);
+}
+
+//  void QLabel::focusInEvent(QFocusEvent *ev)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QLabel12focusInEventEP11QFocusEvent(
+    QLabel *self,
+    QFocusEvent *ev) {
+  self->focusInEvent(ev);
+}
+
+//  void QLabel::focusOutEvent(QFocusEvent *ev)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QLabel13focusOutEventEP11QFocusEvent(
+    QLabel *self,
+    QFocusEvent *ev) {
+  self->focusOutEvent(ev);
+}
+
+//  bool QLabel::focusNextPrevChild(bool next)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN6QLabel18focusNextPrevChildEb(QLabel *self, bool next) {
+  return self->focusNextPrevChild(next);
+}
+
 //  a Python function taken by a CuteQLabel, for the function named by the
 //      key
 extern "C" Q_DECL_EXPORT

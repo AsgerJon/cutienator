@@ -3,6 +3,7 @@
 #include <QtGui/qtextobject.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  Only a class built on QTextBlockGroup may call these functions of it.
@@ -200,6 +201,50 @@ QString *ritual_ZN15QTextBlockGroup2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QTextBlockGroup::tr(s, c, n));
+}
+
+//  QTextBlockGroup::QTextBlockGroup(QTextDocument *doc)
+extern "C" Q_DECL_EXPORT
+QTextBlockGroup *ritual_ZN15QTextBlockGroupC1EP13QTextDocument(
+    QTextDocument *doc) {
+  return new CuteQTextBlockGroup(doc);
+}
+
+//  QTextBlockGroup::~QTextBlockGroup()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QTextBlockGroupD1Ev(QTextBlockGroup *self) {
+  delete self;
+}
+
+//  void QTextBlockGroup::blockInserted(const QTextBlock &block)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QTextBlockGroup13blockInsertedERK10QTextBlock(
+    QTextBlockGroup *self,
+    const QTextBlock *block) {
+  self->blockInserted(*block);
+}
+
+//  void QTextBlockGroup::blockRemoved(const QTextBlock &block)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QTextBlockGroup12blockRemovedERK10QTextBlock(
+    QTextBlockGroup *self,
+    const QTextBlock *block) {
+  self->blockRemoved(*block);
+}
+
+//  void QTextBlockGroup::blockFormatChanged(const QTextBlock &block)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QTextBlockGroup18blockFormatChangedERK10QTextBlock(
+    QTextBlockGroup *self,
+    const QTextBlock *block) {
+  self->blockFormatChanged(*block);
+}
+
+//  QList<QTextBlock> QTextBlockGroup::blockList() const
+extern "C" Q_DECL_EXPORT
+QList<QTextBlock> *ritual_ZNK15QTextBlockGroup9blockListEv(
+    const QTextBlockGroup *self) {
+  return new QList<QTextBlock>(self->blockList());
 }
 
 //  a Python function taken by a CuteQTextBlockGroup, for the function named

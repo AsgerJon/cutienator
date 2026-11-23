@@ -17,12 +17,13 @@ from ..occult import Rituals
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from . import QOpenGLContext
+  from . import QOpenGLContext, QOpenGLFunctionsPrivate
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
   QOpenGLContext = WAIT['QOpenGLContext']
+  QOpenGLFunctionsPrivate = WAIT['QOpenGLFunctionsPrivate']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -42,7 +43,7 @@ class QOpenGLFunctions(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QOpenGLFunctions that has a ritual and that Python
-  can call so far, 73 names in all: 'openGLFeatures', 'hasOpenGLFeature',
+  can call so far, 74 names in all: 'openGLFeatures', 'hasOpenGLFeature',
   'initializeOpenGLFunctions', 'glBindTexture', 'glBlendFunc', 'glClear',
   'glClearColor', 'glClearStencil', 'glColorMask', 'glCopyTexImage2D',
   'glCopyTexSubImage2D', 'glCullFace', 'glDepthFunc', 'glDepthMask',
@@ -62,8 +63,8 @@ class QOpenGLFunctions(CuteMixin, metaclass=MetaCute):
   'glUniform1f', 'glUniform1i', 'glUniform2f', 'glUniform2i', 'glUniform3f',
   'glUniform3i', 'glUniform4f', 'glUniform4i', 'glUseProgram',
   'glValidateProgram', 'glVertexAttrib1f', 'glVertexAttrib2f',
-  'glVertexAttrib3f', 'glVertexAttrib4f'. It can be made from Python, in 2
-  ways; see '__init__'.
+  'glVertexAttrib3f', 'glVertexAttrib4f', 'isInitialized'. It can be made
+  from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -74,8 +75,8 @@ class QOpenGLFunctions(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  73 of the 149 functions Qt declares: 72 takes or gives a type that cannot
-  be passed yet; 1 protected.
+  72 of the 149 functions Qt declares: 72 takes or gives a type that cannot
+  be passed yet.
 
   What to expect
   --------------
@@ -125,6 +126,31 @@ class QOpenGLFunctions(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  @overload(QOpenGLFunctionsPrivate)
+  @overload(NoneType)
+  def isInitialized(d: Optional[QOpenGLFunctionsPrivate]) -> bool:
+    """
+    Calls Qt's 'bool QOpenGLFunctions::isInitialized(const
+    QOpenGLFunctionsPrivate *d)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qopenglfunctions.html#isInitialized
+
+    Parameters
+    ----------
+
+    d : Optional[QOpenGLFunctionsPrivate]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QOpenGLFunctions::isInitialized(const QOpenGLFunctionsPrivate *d)
+    return Rituals.call(
+        'ritual_ZN16QOpenGLFunctions13isInitializedEPK23QOpenGLFunctionsPri'
+        'vate',
+        CuteMixin._addressOf(d),
+    )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

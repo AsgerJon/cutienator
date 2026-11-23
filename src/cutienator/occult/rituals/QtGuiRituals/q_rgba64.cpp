@@ -2,6 +2,12 @@
 //  QtGui/qrgba64.h, Qt 6.12.0. Changes made here are lost.
 #include <QtGui/qrgba64.h>
 
+//  QRgba64::QRgba64(quint64 c)
+extern "C" Q_DECL_EXPORT
+QRgba64 *ritual_ZN7QRgba64C1Ey(quint64 c) {
+  return new QRgba64(c);
+}
+
 //  QRgba64::QRgba64()
 extern "C" Q_DECL_EXPORT
 QRgba64 *ritual_ZN7QRgba64C1Ev() {
@@ -154,6 +160,36 @@ QRgba64 *ritual_ZNK7QRgba6415unpremultipliedEv(const QRgba64 *self) {
 extern "C" Q_DECL_EXPORT
 quint64 ritual_ZNK7QRgba64cvyEv(const QRgba64 *self) {
   return self->operator quint64();
+}
+
+//  quint64 QRgba64::alphaMask()
+extern "C" Q_DECL_EXPORT
+quint64 ritual_ZN7QRgba649alphaMaskEv() {
+  return QRgba64::alphaMask();
+}
+
+//  quint8 QRgba64::div_257_floor(uint x)
+extern "C" Q_DECL_EXPORT
+quint8 ritual_ZN7QRgba6413div_257_floorEj(uint x) {
+  return QRgba64::div_257_floor(x);
+}
+
+//  quint8 QRgba64::div_257(quint16 x)
+extern "C" Q_DECL_EXPORT
+quint8 ritual_ZN7QRgba647div_257Et(quint16 x) {
+  return QRgba64::div_257(x);
+}
+
+//  QRgba64 QRgba64::unpremultiplied_32bit() const
+extern "C" Q_DECL_EXPORT
+QRgba64 *ritual_ZNK7QRgba6421unpremultiplied_32bitEv(const QRgba64 *self) {
+  return new QRgba64(self->unpremultiplied_32bit());
+}
+
+//  QRgba64 QRgba64::unpremultiplied_64bit() const
+extern "C" Q_DECL_EXPORT
+QRgba64 *ritual_ZNK7QRgba6421unpremultiplied_64bitEv(const QRgba64 *self) {
+  return new QRgba64(self->unpremultiplied_64bit());
 }
 
 //  QRgba64::~QRgba64()

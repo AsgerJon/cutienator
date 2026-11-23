@@ -16,6 +16,12 @@ QStyleOptionSpinBox *ritual_ZN19QStyleOptionSpinBoxC1ERKS_(
   return new QStyleOptionSpinBox(*other);
 }
 
+//  QStyleOptionSpinBox::QStyleOptionSpinBox(int version)
+extern "C" Q_DECL_EXPORT
+QStyleOptionSpinBox *ritual_ZN19QStyleOptionSpinBoxC1Ei(int version) {
+  return new QStyleOptionSpinBox(version);
+}
+
 //  QStyleOptionSpinBox::~QStyleOptionSpinBox()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QStyleOptionSpinBoxD1Ev(QStyleOptionSpinBox *self) {

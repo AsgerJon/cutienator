@@ -75,9 +75,9 @@ class QGuiApplication(QCoreApplication):
   What has no ritual
   ------------------
 
-  28 of the 83 functions Qt declares: 14 a signal; 4 takes or gives a type
-  that cannot be passed yet; 3 private; 3 protected; 2 a template; 2
-  forbidden.
+  28 of the 83 functions Qt declares: 14 a signal; 9 takes or gives a type
+  that cannot be passed yet; 2 a template; 2 forbidden; 1 declared and
+  nowhere to be found.
 
   What to expect
   --------------
@@ -1187,6 +1187,7 @@ class QGuiApplication(QCoreApplication):
       object.
     """
     #  bool QGuiApplication::event(QEvent *a0)
-    return self.uglySide.call(
-        'ritual_own_ZN15QGuiApplication5eventEP6QEvent', self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN15QGuiApplication5eventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN15QGuiApplication5eventEP6QEvent'
+    return self.uglySide.call(ritual, self._addressOf(a0))

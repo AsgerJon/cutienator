@@ -55,14 +55,18 @@ class QMetaSequence(QMetaContainer):
     *QMetaSequence::iface() const': gives
     'QtMetaContainerPrivate::QMetaSequenceInterface', which has no cute class
     yet.
+  - Qt's 'const QtMetaContainerPrivate::QMetaSequenceInterface
+    *QMetaSequence::d() const': gives
+    'QtMetaContainerPrivate::QMetaSequenceInterface', which has no cute class
+    yet.
   - Qt's 'QMetaSequence::~QMetaSequence()': the destructor: Python removes
     its C++ QMetaSequence by it, and has no other use for it.
 
   What has no ritual
   ------------------
 
-  16 of the 38 functions Qt declares: 14 takes or gives a type that cannot be
-  passed yet; 1 a template; 1 private.
+  15 of the 38 functions Qt declares: 14 takes or gives a type that cannot be
+  passed yet; 1 a template.
 
   What to expect
   --------------

@@ -26,6 +26,13 @@ qreal ritual_ZN24QStyleOptionGraphicsItem26levelOfDetailFromTransformERK10QTrans
       *worldTransform);
 }
 
+//  QStyleOptionGraphicsItem::QStyleOptionGraphicsItem(int version)
+extern "C" Q_DECL_EXPORT
+QStyleOptionGraphicsItem *ritual_ZN24QStyleOptionGraphicsItemC1Ei(
+    int version) {
+  return new QStyleOptionGraphicsItem(version);
+}
+
 //  QStyleOptionGraphicsItem::~QStyleOptionGraphicsItem()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN24QStyleOptionGraphicsItemD1Ev(

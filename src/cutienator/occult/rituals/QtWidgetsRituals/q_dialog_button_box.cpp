@@ -962,6 +962,22 @@ QKeySequence *ritual_ZN16QDialogButtonBox22standardButtonShortcutENS_14StandardB
   return new QKeySequence(QDialogButtonBox::standardButtonShortcut(button));
 }
 
+//  void QDialogButtonBox::changeEvent(QEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QDialogButtonBox11changeEventEP6QEvent(
+    QDialogButtonBox *self,
+    QEvent *event) {
+  self->changeEvent(event);
+}
+
+//  bool QDialogButtonBox::event(QEvent *event)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN16QDialogButtonBox5eventEP6QEvent(
+    QDialogButtonBox *self,
+    QEvent *event) {
+  return self->event(event);
+}
+
 //  a Python function taken by a CuteQDialogButtonBox, for the function named
 //      by the key
 extern "C" Q_DECL_EXPORT

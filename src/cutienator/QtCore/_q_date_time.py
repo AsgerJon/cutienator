@@ -43,7 +43,7 @@ class QDateTime(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QDateTime that has a ritual and that Python can call
-  so far, 47 names in all: 'isNull', 'isValid', 'date', 'time', 'timeSpec',
+  so far, 48 names in all: 'isNull', 'isValid', 'date', 'time', 'timeSpec',
   'offsetFromUtc', 'timeRepresentation', 'timeZone', 'timeZoneAbbreviation',
   'isDaylightTime', 'toMSecsSinceEpoch', 'toSecsSinceEpoch', 'setDate',
   'setTime', 'setTimeSpec', 'setOffsetFromUtc', 'setTimeZone',
@@ -52,9 +52,9 @@ class QDateTime(CuteMixin, metaclass=MetaCute):
   'toLocalTime', 'toUTC', 'toOffsetFromUtc', 'toTimeZone', 'daysTo',
   'secsTo', 'msecsTo', 'currentDateTime', 'currentDateTimeUtc', 'fromString',
   'fromMSecsSinceEpoch', 'fromSecsSinceEpoch', 'currentMSecsSinceEpoch',
-  'currentSecsSinceEpoch', '__eq__', '__ne__', '__lt__', '__gt__', '__le__',
-  '__ge__', '__rlshift__'. It can be made from Python, in 5 ways; see
-  '__init__'.
+  'currentSecsSinceEpoch', 'equals', '__eq__', '__ne__', '__lt__', '__gt__',
+  '__le__', '__ge__', '__rlshift__'. It can be made from Python, in 5 ways;
+  see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -98,8 +98,8 @@ class QDateTime(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  15 of the 87 functions Qt declares: 14 takes or gives a type that cannot be
-  passed yet; 1 private.
+  14 of the 87 functions Qt declares: 14 takes or gives a type that cannot be
+  passed yet.
 
   What to expect
   --------------
@@ -1128,6 +1128,25 @@ class QDateTime(CuteMixin, metaclass=MetaCute):
     #  qint64 QDateTime::msecsTo(const QDateTime &a0) const
     return self.uglySide.call(
         'ritual_ZNK9QDateTime7msecsToERKS_', self._valueOf(a0),
+    )
+
+  @overload(THIS)
+  def equals(self, other: QDateTime) -> bool:
+    """
+    Calls Qt's 'bool QDateTime::equals(const QDateTime &other) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdatetime.html#equals
+
+    Parameters
+    ----------
+
+    other : QDateTime
+      Passed on as a value: Qt reads the C++ QDateTime, which stays Python's
+      own.
+    """
+    #  bool QDateTime::equals(const QDateTime &other) const
+    return self.uglySide.call(
+        'ritual_ZNK9QDateTime6equalsERKS_', self._valueOf(other),
     )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -65,8 +65,9 @@ class QKeySequenceEdit(QWidget):
   What has no ritual
   ------------------
 
-  11 of the 30 functions Qt declares: 3 private; 2 takes or gives a type that
-  cannot be passed yet; 2 a signal; 2 forbidden; 1 a template; 1 protected.
+  11 of the 30 functions Qt declares: 5 takes or gives a type that cannot be
+  passed yet; 2 a signal; 2 forbidden; 1 a template; 1 declared and nowhere
+  to be found.
 
   What to expect
   --------------
@@ -449,10 +450,10 @@ class QKeySequenceEdit(QWidget):
       object.
     """
     #  bool QKeySequenceEdit::event(QEvent *a0)
-    return self.uglySide.call(
-        'ritual_own_ZN16QKeySequenceEdit5eventEP6QEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN16QKeySequenceEdit5eventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN16QKeySequenceEdit5eventEP6QEvent'
+    return self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QKeyEvent)
   @overload(NoneType)
@@ -471,10 +472,10 @@ class QKeySequenceEdit(QWidget):
       object.
     """
     #  void QKeySequenceEdit::keyPressEvent(QKeyEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN16QKeySequenceEdit13keyPressEventEP9QKeyEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN16QKeySequenceEdit13keyPressEventEP9QKeyEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN16QKeySequenceEdit13keyPressEventEP9QKeyEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QKeyEvent)
   @overload(NoneType)
@@ -493,10 +494,10 @@ class QKeySequenceEdit(QWidget):
       object.
     """
     #  void QKeySequenceEdit::keyReleaseEvent(QKeyEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN16QKeySequenceEdit15keyReleaseEventEP9QKeyEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN16QKeySequenceEdit15keyReleaseEventEP9QKeyEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN16QKeySequenceEdit15keyReleaseEventEP9QKeyEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QTimerEvent)
   @overload(NoneType)
@@ -514,10 +515,10 @@ class QKeySequenceEdit(QWidget):
       object.
     """
     #  void QKeySequenceEdit::timerEvent(QTimerEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN16QKeySequenceEdit10timerEventEP11QTimerEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN16QKeySequenceEdit10timerEventEP11QTimerEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN16QKeySequenceEdit10timerEventEP11QTimerEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QFocusEvent)
   @overload(NoneType)
@@ -536,7 +537,8 @@ class QKeySequenceEdit(QWidget):
       object.
     """
     #  void QKeySequenceEdit::focusOutEvent(QFocusEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN16QKeySequenceEdit13focusOutEventEP11QFocusEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN16QKeySequenceEdit13focusOutEventEP11QFocusEvent'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN16QKeySequenceEdit13focusOutEventEP11QFocusEvent')
+    self.uglySide.call(ritual, self._addressOf(a0))

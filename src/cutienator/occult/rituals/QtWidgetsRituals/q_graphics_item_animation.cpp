@@ -367,6 +367,22 @@ void ritual_ZN22QGraphicsItemAnimation7setStepEd(
   self->setStep(x);
 }
 
+//  void QGraphicsItemAnimation::beforeAnimationStep(qreal step)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QGraphicsItemAnimation19beforeAnimationStepEd(
+    QGraphicsItemAnimation *self,
+    qreal step) {
+  self->beforeAnimationStep(step);
+}
+
+//  void QGraphicsItemAnimation::afterAnimationStep(qreal step)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QGraphicsItemAnimation18afterAnimationStepEd(
+    QGraphicsItemAnimation *self,
+    qreal step) {
+  self->afterAnimationStep(step);
+}
+
 //  a Python function taken by a CuteQGraphicsItemAnimation, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT

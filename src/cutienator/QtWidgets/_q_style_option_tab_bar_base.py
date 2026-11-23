@@ -34,7 +34,7 @@ class QStyleOptionTabBarBase(QStyleOption):
   -----------
 
   No function of Qt's QStyleOptionTabBarBase yet. It can be made from Python,
-  in 2 ways; see '__init__'.
+  in 3 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -46,8 +46,8 @@ class QStyleOptionTabBarBase(QStyleOption):
   What has no ritual
   ------------------
 
-  2 of the 5 functions Qt declares: 1 takes or gives a type that cannot be
-  passed yet; 1 protected.
+  1 of the 5 functions Qt declares: 1 takes or gives a type that cannot be
+  passed yet.
 
   What to expect
   --------------
@@ -163,6 +163,27 @@ class QStyleOptionTabBarBase(QStyleOption):
     #      QStyleOptionTabBarBase &other)
     self._noteCreation(QStyleOptionTabBarBase, lambda: Rituals.call(
         'ritual_ZN22QStyleOptionTabBarBaseC1ERKS_', self._valueOf(other),
+    ))
+
+  @overload(int)
+  def __init__(self, version: int) -> None:
+    """
+    Notes what was given, for Qt's
+    'QStyleOptionTabBarBase::QStyleOptionTabBarBase(int version)', which is
+    called at the first use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qstyleoptiontabbarbase.html#QStyleOptionTabBarBase
+
+    Parameters
+    ----------
+
+    version : int
+      Passed on as it is.
+    """
+    #  QStyleOptionTabBarBase::QStyleOptionTabBarBase(int version)
+    self._noteCreation(QStyleOptionTabBarBase, lambda: Rituals.call(
+        'ritual_ZN22QStyleOptionTabBarBaseC1Ei', version,
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -10,6 +10,31 @@
     "ritual_ZN9QSizeGripD1Ev": ["nothing", "address"],
     "ritual_ZNK9QSizeGrip8sizeHintEv": ["address", "address"],
     "ritual_ZN9QSizeGrip10setVisibleEb": ["nothing", "address", "bool"],
+    "ritual_ZN9QSizeGrip10paintEventEP11QPaintEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QSizeGrip15mousePressEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QSizeGrip14mouseMoveEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QSizeGrip17mouseReleaseEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QSizeGrip9moveEventEP10QMoveEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QSizeGrip9showEventEP10QShowEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QSizeGrip9hideEventEP10QHideEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QSizeGrip11eventFilterEP7QObjectP6QEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN9QSizeGrip5eventEP6QEvent": ["bool", "address", "address"],
     "ritual_take_QSizeGrip": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK9QSizeGrip8sizeHintEv": ["address", "address"],
     "ritual_own_ZN9QSizeGrip10setVisibleEb": ["nothing", "address", "bool"],

@@ -139,6 +139,14 @@ bool ritual_ZneRK16QMetaAssociationS1_(
   return operator!=(*lhs, *rhs);
 }
 
+//  const QtMetaContainerPrivate::QMetaAssociationInterface
+//      *QMetaAssociation::d() const
+extern "C" Q_DECL_EXPORT
+const QtMetaContainerPrivate::QMetaAssociationInterface *ritual_ZNK16QMetaAssociation1dEv(
+    const QMetaAssociation *self) {
+  return self->d();
+}
+
 //  QMetaAssociation::~QMetaAssociation()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QMetaAssociationD1Ev(QMetaAssociation *self) {

@@ -53,8 +53,9 @@ class QDoubleValidator(QValidator):
   What has no ritual
   ------------------
 
-  14 of the 29 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 4 a signal; 3 private; 2 forbidden; 1 a template.
+  14 of the 29 functions Qt declares: 6 takes or gives a type that cannot be
+  passed yet; 4 a signal; 2 forbidden; 1 a template; 1 declared and nowhere
+  to be found.
 
   What to expect
   --------------

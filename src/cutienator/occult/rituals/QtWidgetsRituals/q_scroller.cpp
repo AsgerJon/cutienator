@@ -196,6 +196,18 @@ void ritual_ZN9QScroller18resendPrepareEventEv(QScroller *self) {
   self->resendPrepareEvent();
 }
 
+//  QScroller::QScroller(QObject *target)
+extern "C" Q_DECL_EXPORT
+QScroller *ritual_ZN9QScrollerC1EP7QObject(QObject *target) {
+  return new QScroller(target);
+}
+
+//  QScroller::~QScroller()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QScrollerD1Ev(QScroller *self) {
+  delete self;
+}
+
 //  QList<QScroller *>::QList()
 extern "C" Q_DECL_EXPORT
 QList<QScroller *> *ritual_list_make_QScroller_ptr() {

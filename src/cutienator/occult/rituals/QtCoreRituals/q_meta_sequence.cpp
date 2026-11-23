@@ -150,6 +150,14 @@ bool ritual_ZneRK13QMetaSequenceS1_(
   return operator!=(*lhs, *rhs);
 }
 
+//  const QtMetaContainerPrivate::QMetaSequenceInterface *QMetaSequence::d()
+//      const
+extern "C" Q_DECL_EXPORT
+const QtMetaContainerPrivate::QMetaSequenceInterface *ritual_ZNK13QMetaSequence1dEv(
+    const QMetaSequence *self) {
+  return self->d();
+}
+
 //  QMetaSequence::~QMetaSequence()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QMetaSequenceD1Ev(QMetaSequence *self) {

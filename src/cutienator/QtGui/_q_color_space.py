@@ -41,13 +41,13 @@ class QColorSpace(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QColorSpace that has a ritual and that Python can
-  call so far, 23 names in all: 'primaries', 'transferFunction', 'gamma',
+  call so far, 24 names in all: 'primaries', 'transferFunction', 'gamma',
   'description', 'setDescription', 'setTransferFunction',
   'withTransferFunction', 'setPrimaries', 'setWhitePoint', 'whitePoint',
   'setPrimaryPoints', 'primaryPoints', 'transformModel', 'colorModel',
   'detach', 'isValid', 'isValidTarget', '__eq__', '__ne__', 'fromIccProfile',
-  'iccProfile', 'transformationToColorSpace', '__rlshift__'. It can be made
-  from Python, in 8 ways; see '__init__'.
+  'iccProfile', 'transformationToColorSpace', 'equals', '__rlshift__'. It can
+  be made from Python, in 8 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -60,8 +60,8 @@ class QColorSpace(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  16 of the 50 functions Qt declares: 12 takes or gives a type that cannot be
-  passed yet; 2 private; 1 declared and nowhere to be found; 1 a template.
+  15 of the 50 functions Qt declares: 12 takes or gives a type that cannot be
+  passed yet; 2 declared and nowhere to be found; 1 a template.
 
   What to expect
   --------------
@@ -567,6 +567,25 @@ class QColorSpace(CuteMixin, metaclass=MetaCute):
     )
     from . import QColorTransform
     return QColorTransform._cuteOwning(address)
+
+  @overload(THIS)
+  def equals(self, other: QColorSpace) -> bool:
+    """
+    Calls Qt's 'bool QColorSpace::equals(const QColorSpace &other) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcolorspace.html#equals
+
+    Parameters
+    ----------
+
+    other : QColorSpace
+      Passed on as a value: Qt reads the C++ QColorSpace, which stays
+      Python's own.
+    """
+    #  bool QColorSpace::equals(const QColorSpace &other) const
+    return self.uglySide.call(
+        'ritual_ZNK11QColorSpace6equalsERKS_', self._valueOf(other),
+    )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -556,7 +556,8 @@ class Build:
 
     Paths
       A 'Tuple[str, ...]', one argument per entry: 'clang++', then
-      '-std=c++17' and '-O2', as for a ritual file;
+      '-std=c++17', '-O2' and '-fno-access-control', as for a ritual
+      file;
       what the system adds for the compiler, as for a ritual file;
       '-I' with the folder of Qt's headers;
       '-fpch-instantiate-templates', so the templates the headers use
@@ -583,7 +584,7 @@ class Build:
     system = System.getHere()
     qtFolder = self.getQtSharedObjectFolder()
     return (
-        'clang++', '-std=c++17', '-O2',
+        'clang++', '-std=c++17', '-O2', '-fno-access-control',
         *system.getCompilerFlags(qtFolder),
         '-I%s' % self.getQtHeaderFolder(),
         '-fpch-instantiate-templates', '-x', 'c++-header',
@@ -616,6 +617,10 @@ class Build:
       A 'Tuple[str, ...]', one argument per entry: 'clang++', then
       '-std=c++17', the standard the headers were read by;
       '-O2', so the compiler tidies the result;
+      '-fno-access-control', so the compiler lets a ritual call a
+      function C++ marks 'private' or 'protected'. C++ means by those
+      that only the class itself, or a class built on it, may call the
+      function; cutienator takes every function Qt has;
       '-c', to make an object file and join nothing yet;
       what the system adds for the compiler, which on Linux is '-fPIC'
       and the two '-fvisibility' flags. 'getCompilerFlags' of 'Linux',
@@ -642,7 +647,7 @@ class Build:
     system = System.getHere()
     qtFolder = self.getQtSharedObjectFolder()
     return (
-        'clang++', '-std=c++17', '-O2', '-c',
+        'clang++', '-std=c++17', '-O2', '-fno-access-control', '-c',
         *system.getCompilerFlags(qtFolder),
         '-I%s' % self.getQtHeaderFolder(),
         '-include-pch', self.getPrecompiledHeaderFile(), ritualFile,

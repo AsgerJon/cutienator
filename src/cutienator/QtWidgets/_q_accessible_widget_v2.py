@@ -50,11 +50,17 @@ class QAccessibleWidgetV2(QAccessibleWidget, QAccessibleAttributesInterface):
   Python can call so far, 1 name in all: 'attributeValue'. It can be made
   from Python, in 2 ways; see '__init__'.
 
+  What has a ritual and is left out, and why
+  ------------------------------------------
+
+  - Qt's 'QAccessibleWidgetV2::~QAccessibleWidgetV2()': the destructor:
+    Python never removes a C++ QAccessibleWidgetV2.
+
   What has no ritual
   ------------------
 
-  5 of the 8 functions Qt declares: 2 takes or gives a type that cannot be
-  passed yet; 2 forbidden; 1 protected.
+  4 of the 8 functions Qt declares: 2 takes or gives a type that cannot be
+  passed yet; 2 forbidden.
 
   What to expect
   --------------

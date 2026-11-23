@@ -3,6 +3,9 @@
 #include <QtGui/qsyntaxhighlighter.h>
 #include <QtCore/qstring.h>
 #include <QtGui/qtextobject.h>
+#include <QtGui/qtextformat.h>
+#include <QtGui/qcolor.h>
+#include <QtGui/qfont.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 
@@ -195,6 +198,100 @@ void ritual_ZN18QSyntaxHighlighter16rehighlightBlockERK10QTextBlock(
     QSyntaxHighlighter *self,
     const QTextBlock *block) {
   self->rehighlightBlock(*block);
+}
+
+//  void QSyntaxHighlighter::highlightBlock(const QString &text)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QSyntaxHighlighter14highlightBlockERK7QString(
+    QSyntaxHighlighter *self,
+    const QString *text) {
+  self->highlightBlock(*text);
+}
+
+//  void QSyntaxHighlighter::setFormat(int start, int count, const
+//      QTextCharFormat &format)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QSyntaxHighlighter9setFormatEiiRK15QTextCharFormat(
+    QSyntaxHighlighter *self,
+    int start,
+    int count,
+    const QTextCharFormat *format) {
+  self->setFormat(start, count, *format);
+}
+
+//  void QSyntaxHighlighter::setFormat(int start, int count, const QColor
+//      &color)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QSyntaxHighlighter9setFormatEiiRK6QColor(
+    QSyntaxHighlighter *self,
+    int start,
+    int count,
+    const QColor *color) {
+  self->setFormat(start, count, *color);
+}
+
+//  void QSyntaxHighlighter::setFormat(int start, int count, const QFont
+//      &font)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QSyntaxHighlighter9setFormatEiiRK5QFont(
+    QSyntaxHighlighter *self,
+    int start,
+    int count,
+    const QFont *font) {
+  self->setFormat(start, count, *font);
+}
+
+//  QTextCharFormat QSyntaxHighlighter::format(int pos) const
+extern "C" Q_DECL_EXPORT
+QTextCharFormat *ritual_ZNK18QSyntaxHighlighter6formatEi(
+    const QSyntaxHighlighter *self,
+    int pos) {
+  return new QTextCharFormat(self->format(pos));
+}
+
+//  int QSyntaxHighlighter::previousBlockState() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK18QSyntaxHighlighter18previousBlockStateEv(
+    const QSyntaxHighlighter *self) {
+  return self->previousBlockState();
+}
+
+//  int QSyntaxHighlighter::currentBlockState() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK18QSyntaxHighlighter17currentBlockStateEv(
+    const QSyntaxHighlighter *self) {
+  return self->currentBlockState();
+}
+
+//  void QSyntaxHighlighter::setCurrentBlockState(int newState)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QSyntaxHighlighter20setCurrentBlockStateEi(
+    QSyntaxHighlighter *self,
+    int newState) {
+  self->setCurrentBlockState(newState);
+}
+
+//  void QSyntaxHighlighter::setCurrentBlockUserData(QTextBlockUserData
+//      *data)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QSyntaxHighlighter23setCurrentBlockUserDataEP18QTextBlockUserData(
+    QSyntaxHighlighter *self,
+    QTextBlockUserData *data) {
+  self->setCurrentBlockUserData(data);
+}
+
+//  QTextBlockUserData *QSyntaxHighlighter::currentBlockUserData() const
+extern "C" Q_DECL_EXPORT
+QTextBlockUserData *ritual_ZNK18QSyntaxHighlighter20currentBlockUserDataEv(
+    const QSyntaxHighlighter *self) {
+  return self->currentBlockUserData();
+}
+
+//  QTextBlock QSyntaxHighlighter::currentBlock() const
+extern "C" Q_DECL_EXPORT
+QTextBlock *ritual_ZNK18QSyntaxHighlighter12currentBlockEv(
+    const QSyntaxHighlighter *self) {
+  return new QTextBlock(self->currentBlock());
 }
 
 //  a Python function taken by a CuteQSyntaxHighlighter, for the function

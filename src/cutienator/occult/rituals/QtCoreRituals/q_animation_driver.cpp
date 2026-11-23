@@ -259,6 +259,25 @@ qint64 ritual_ZNK16QAnimationDriver7elapsedEv(const QAnimationDriver *self) {
   return self->elapsed();
 }
 
+//  void QAnimationDriver::advanceAnimation()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QAnimationDriver16advanceAnimationEv(
+    QAnimationDriver *self) {
+  self->advanceAnimation();
+}
+
+//  void QAnimationDriver::start()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QAnimationDriver5startEv(QAnimationDriver *self) {
+  self->start();
+}
+
+//  void QAnimationDriver::stop()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QAnimationDriver4stopEv(QAnimationDriver *self) {
+  self->stop();
+}
+
 //  a Python function taken by a CuteQAnimationDriver, for the function named
 //      by the key
 extern "C" Q_DECL_EXPORT

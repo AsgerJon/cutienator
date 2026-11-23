@@ -1440,6 +1440,26 @@ void ritual_ZN11QFileDialog15saveFileContentERK10QByteArrayRK7QStringP7QWidget(
   QFileDialog::saveFileContent(*fileContent, *fileNameHint, parent);
 }
 
+//  void QFileDialog::done(int result)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QFileDialog4doneEi(QFileDialog *self, int result) {
+  self->done(result);
+}
+
+//  void QFileDialog::accept()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QFileDialog6acceptEv(QFileDialog *self) {
+  self->accept();
+}
+
+//  void QFileDialog::changeEvent(QEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QFileDialog11changeEventEP6QEvent(
+    QFileDialog *self,
+    QEvent *e) {
+  self->changeEvent(e);
+}
+
 //  a Python function taken by a CuteQFileDialog, for the function named by
 //      the key
 extern "C" Q_DECL_EXPORT

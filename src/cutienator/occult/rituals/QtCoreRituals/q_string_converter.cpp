@@ -1,8 +1,41 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/qstringconverter_base.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qstringconverter.h>
+#include <QtCore/qanystringview.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qlist.h>
+
+//  QStringConverter::QStringConverter()
+extern "C" Q_DECL_EXPORT
+QStringConverter *ritual_ZN16QStringConverterC1Ev() {
+  return new QStringConverter();
+}
+
+//  QStringConverter::QStringConverter(Encoding encoding, Flags f)
+extern "C" Q_DECL_EXPORT
+QStringConverter *ritual_ZN16QStringConverterC1ENS_8EncodingE6QFlagsIN20QStringConverterBase4FlagEE(
+    QStringConverter::Encoding encoding,
+    int f) {
+  return new QStringConverter(
+      encoding,
+      QFlags<QStringConverterBase::Flag>::fromInt(f));
+}
+
+//  QStringConverter::QStringConverter(QAnyStringView name, Flags f)
+extern "C" Q_DECL_EXPORT
+QStringConverter *ritual_ZN16QStringConverterC1E14QAnyStringView6QFlagsIN20QStringConverterBase4FlagEE(
+    const QString *name,
+    int f) {
+  return new QStringConverter(
+      QAnyStringView(*name),
+      QFlags<QStringConverterBase::Flag>::fromInt(f));
+}
+
+//  QStringConverter::~QStringConverter()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QStringConverterD1Ev(QStringConverter *self) {
+  delete self;
+}
 
 //  bool QStringConverter::isValid() const
 extern "C" Q_DECL_EXPORT

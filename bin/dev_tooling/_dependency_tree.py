@@ -1205,8 +1205,9 @@ class DependencyTree:
   def _collectTypes(self, classRecord: Record) -> Tuple[Set[str], Set[str]]:
     """
     Gives the types the functions of a class take, and the types they
-    give back, each as C++ writes it. Private functions, forbidden
-    functions and templates are left out.
+    give back, each as C++ writes it. Forbidden functions and
+    templates are left out. Private functions are not: a ritual calls
+    them like any other.
     """
     taken, given = set(), set()  # type: Set[str], Set[str]
     access = 'public'
@@ -1217,7 +1218,7 @@ class DependencyTree:
       if kind == 'AccessSpecDecl':
         access = member['access']
         continue
-      if kind not in self.__function_kinds__ or access == 'private':
+      if kind not in self.__function_kinds__:
         continue
       if member.get('isImplicit') or member.get('explicitlyDeleted'):
         continue

@@ -121,6 +121,21 @@
       "nothing", "address", "address"
     ],
     "ritual_ZN11QTreeWidget5clearEv": ["nothing", "address"],
+    "ritual_ZN11QTreeWidget5eventEP6QEvent": ["bool", "address", "address"],
+    "ritual_ZNK11QTreeWidget9mimeTypesEv": ["address", "address"],
+    "ritual_ZNK11QTreeWidget8mimeDataERK5QListIP15QTreeWidgetItemE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN11QTreeWidget12dropMimeDataEP15QTreeWidgetItemiPK9QMimeDataN2Qt10DropActionE": [
+      "bool", "address", "address", "int", "address", "int"
+    ],
+    "ritual_ZNK11QTreeWidget20supportedDropActionsEv": ["int", "address"],
+    "ritual_ZN11QTreeWidget9dropEventEP10QDropEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QTreeWidget8setModelEP18QAbstractItemModel": [
+      "nothing", "address", "address"
+    ],
     "ritual_take_QTreeWidget": ["bool", "address", "chars", "address"],
     "ritual_own_ZN11QTreeWidget17setSelectionModelEP19QItemSelectionModel": [
       "nothing", "address", "address"
@@ -135,6 +150,9 @@
       "int", "address"
     ],
     "ritual_own_ZN11QTreeWidget9dropEventEP10QDropEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN11QTreeWidget8setModelEP18QAbstractItemModel": [
       "nothing", "address", "address"
     ]
   }

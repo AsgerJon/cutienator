@@ -166,6 +166,12 @@ QOpenGLContextGroup *ritual_ZN19QOpenGLContextGroup19currentContextGroupEv() {
   return QOpenGLContextGroup::currentContextGroup();
 }
 
+//  QOpenGLContextGroup::QOpenGLContextGroup()
+extern "C" Q_DECL_EXPORT
+QOpenGLContextGroup *ritual_ZN19QOpenGLContextGroupC1Ev() {
+  return new CuteQOpenGLContextGroup();
+}
+
 //  a Python function taken by a CuteQOpenGLContextGroup, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT

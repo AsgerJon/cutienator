@@ -101,9 +101,9 @@ class QFileDialog(QDialog):
   What has no ritual
   ------------------
 
-  19 of the 86 functions Qt declares: 9 a signal; 3 takes or gives a type
-  that cannot be passed yet; 3 private; 2 forbidden; 1 a template; 1
-  protected.
+  19 of the 86 functions Qt declares: 9 a signal; 6 takes or gives a type
+  that cannot be passed yet; 2 forbidden; 1 a template; 1 declared and
+  nowhere to be found.
 
   What to expect
   --------------
@@ -1500,7 +1500,10 @@ class QFileDialog(QDialog):
       Passed on as it is.
     """
     #  void QFileDialog::done(int result)
-    self.uglySide.call('ritual_own_ZN11QFileDialog4doneEi', result)
+    ritual = 'ritual_ZN11QFileDialog4doneEi'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QFileDialog4doneEi'
+    self.uglySide.call(ritual, result)
 
   def accept(self) -> None:
     """
@@ -1509,7 +1512,10 @@ class QFileDialog(QDialog):
     Qt's own words: https://doc.qt.io/qt-6/qfiledialog.html#accept
     """
     #  void QFileDialog::accept()
-    self.uglySide.call('ritual_own_ZN11QFileDialog6acceptEv')
+    ritual = 'ritual_ZN11QFileDialog6acceptEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QFileDialog6acceptEv'
+    self.uglySide.call(ritual)
 
   @overload(QEvent)
   @overload(NoneType)
@@ -1527,7 +1533,7 @@ class QFileDialog(QDialog):
       object.
     """
     #  void QFileDialog::changeEvent(QEvent *e)
-    self.uglySide.call(
-        'ritual_own_ZN11QFileDialog11changeEventEP6QEvent',
-        self._addressOf(e),
-    )
+    ritual = 'ritual_ZN11QFileDialog11changeEventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QFileDialog11changeEventEP6QEvent'
+    self.uglySide.call(ritual, self._addressOf(e))

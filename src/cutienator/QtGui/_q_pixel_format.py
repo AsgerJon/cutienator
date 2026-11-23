@@ -38,25 +38,30 @@ class QPixelFormat(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QPixelFormat that has a ritual and that Python can
-  call so far, 25 names in all: 'colorModel', 'channelCount', 'redSize',
+  call so far, 26 names in all: 'colorModel', 'channelCount', 'redSize',
   'greenSize', 'blueSize', 'cyanSize', 'magentaSize', 'yellowSize',
   'blackSize', 'hueSize', 'saturationSize', 'lightnessSize',
   'brightnessSize', 'alphaSize', 'bitsPerPixel', 'alphaUsage',
   'alphaPosition', 'premultiplied', 'typeInterpretation', 'byteOrder',
-  'yuvLayout', 'subEnum', '__eq__', '__ne__', '__rlshift__'. It can be made
-  from Python, in 2 ways; see '__init__'.
+  'yuvLayout', 'subEnum', 'resolveByteOrder', '__eq__', '__ne__',
+  '__rlshift__'. It can be made from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'uchar QPixelFormat::get(Field offset, FieldWidth width) const':
+    names the enum 'QPixelFormat::Field', whose class cannot be named here.
+  - Qt's 'quint64 QPixelFormat::set(Field offset, FieldWidth width, uchar
+    value)': names the enum 'QPixelFormat::Field', whose class cannot be
+    named here.
   - Qt's 'QPixelFormat::~QPixelFormat()': the destructor: Python removes its
     C++ QPixelFormat by it, and has no other use for it.
 
   What has no ritual
   ------------------
 
-  7 of the 35 functions Qt declares: 5 private; 1 declared and nowhere to be
-  found; 1 a template.
+  3 of the 35 functions Qt declares: 2 declared and nowhere to be found; 1 a
+  template.
 
   What to expect
   --------------
@@ -165,6 +170,65 @@ class QPixelFormat(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  @overload(ByteOrder)
+  def resolveByteOrder(bo: ByteOrder) -> ByteOrder:
+    """
+    Calls Qt's 'ByteOrder QPixelFormat::resolveByteOrder(ByteOrder bo)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpixelformat.html#resolveByteOrder
+
+    Parameters
+    ----------
+
+    bo : ByteOrder
+      Passed on as its number.
+
+    Returns
+    -------
+
+    ByteOrder
+      The member standing for the number Qt gave back. For a number Qt gives
+      no name it is the member without a name that 'ByteOrder(number)' gives.
+    """
+    #  ByteOrder QPixelFormat::resolveByteOrder(ByteOrder bo)
+    return QPixelFormat.ByteOrder(Rituals.call(
+        'ritual_ZN12QPixelFormat16resolveByteOrderENS_9ByteOrderE', bo.value,
+    ))
+
+  @staticmethod
+  @overload(ByteOrder, TypeInterpretation)
+  def resolveByteOrder(bo: ByteOrder, ti: TypeInterpretation) -> ByteOrder:
+    """
+    Calls Qt's 'ByteOrder QPixelFormat::resolveByteOrder(ByteOrder bo,
+    TypeInterpretation ti)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpixelformat.html#resolveByteOrder
+
+    Parameters
+    ----------
+
+    bo : ByteOrder
+      Passed on as its number.
+
+    ti : TypeInterpretation
+      Passed on as its number.
+
+    Returns
+    -------
+
+    ByteOrder
+      The member standing for the number Qt gave back. For a number Qt gives
+      no name it is the member without a name that 'ByteOrder(number)' gives.
+    """
+    #  ByteOrder QPixelFormat::resolveByteOrder(ByteOrder bo,
+    #      TypeInterpretation ti)
+    return QPixelFormat.ByteOrder(Rituals.call(
+        'ritual_ZN12QPixelFormat16resolveByteOrderENS_9ByteOrderENS_18TypeI'
+        'nterpretationE',
+        bo.value, ti.value,
+    ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -64,8 +64,8 @@ class QPicture(QPaintDevice):
   What has no ritual
   ------------------
 
-  10 of the 29 functions Qt declares: 6 takes or gives a type that cannot be
-  passed yet; 3 private; 1 protected.
+  10 of the 29 functions Qt declares: 10 takes or gives a type that cannot be
+  passed yet.
 
   What to expect
   --------------
@@ -230,10 +230,12 @@ class QPicture(QPaintDevice):
       Passed on as its number.
     """
     #  int QPicture::metric(PaintDeviceMetric m) const
-    return self.uglySide.call(
-        'ritual_own_ZNK8QPicture6metricEN12QPaintDevice17PaintDeviceMetricE',
-        m.value,
-    )
+    ritual = 'ritual_ZNK8QPicture6metricEN12QPaintDevice17PaintDeviceMetricE'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK8QPicture6metricEN12QPaintDevice17PaintDeviceMetri'
+          'cE')
+    return self.uglySide.call(ritual, m.value)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

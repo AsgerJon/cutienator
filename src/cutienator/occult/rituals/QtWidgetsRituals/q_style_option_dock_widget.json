@@ -6,6 +6,7 @@
   "rows": {
     "ritual_ZN22QStyleOptionDockWidgetC1Ev": ["address"],
     "ritual_ZN22QStyleOptionDockWidgetC1ERKS_": ["address", "address"],
+    "ritual_ZN22QStyleOptionDockWidgetC1Ei": ["address", "int"],
     "ritual_ZN22QStyleOptionDockWidgetD1Ev": ["nothing", "address"]
   }
 }

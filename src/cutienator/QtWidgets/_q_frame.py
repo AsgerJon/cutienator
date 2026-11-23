@@ -21,7 +21,7 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QEvent, QMetaObject, QRect, QSize
-  from ..QtGui import QPaintEvent
+  from ..QtGui import QPaintEvent, QPainter
   from . import QStyleOptionFrame
 else:
   #  The cute classes this file names and is not built on. Each is brought in
@@ -29,6 +29,7 @@ else:
   #  see 'WAIT'.
   QEvent = WAIT['QEvent']
   QPaintEvent = WAIT['QPaintEvent']
+  QPainter = WAIT['QPainter']
   QRect = WAIT['QRect']
   QStyleOptionFrame = WAIT['QStyleOptionFrame']
 
@@ -49,12 +50,12 @@ class QFrame(QWidget):
   -----------
 
   Every function of Qt's QFrame that has a ritual and that Python can call so
-  far, 20 names in all: 'metaObject', 'tr', 'frameStyle', 'setFrameStyle',
+  far, 21 names in all: 'metaObject', 'tr', 'frameStyle', 'setFrameStyle',
   'frameWidth', 'sizeHint', 'frameShape', 'setFrameShape', 'frameShadow',
   'setFrameShadow', 'lineWidth', 'setLineWidth', 'midLineWidth',
   'setMidLineWidth', 'frameRect', 'setFrameRect', 'event', 'paintEvent',
-  'changeEvent', 'initStyleOption'. It can be made from Python, in 1 way; see
-  '__init__'.
+  'changeEvent', 'drawFrame', 'initStyleOption'. It can be made from Python,
+  in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -65,8 +66,8 @@ class QFrame(QWidget):
   What has no ritual
   ------------------
 
-  10 of the 32 functions Qt declares: 3 private; 2 takes or gives a type that
-  cannot be passed yet; 2 protected; 2 forbidden; 1 a template.
+  9 of the 32 functions Qt declares: 5 takes or gives a type that cannot be
+  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found.
 
   What to expect
   --------------
@@ -511,9 +512,10 @@ class QFrame(QWidget):
       object.
     """
     #  bool QFrame::event(QEvent *e)
-    return self.uglySide.call(
-        'ritual_own_ZN6QFrame5eventEP6QEvent', self._addressOf(e),
-    )
+    ritual = 'ritual_ZN6QFrame5eventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN6QFrame5eventEP6QEvent'
+    return self.uglySide.call(ritual, self._addressOf(e))
 
   @overload(QPaintEvent)
   @overload(NoneType)
@@ -531,10 +533,10 @@ class QFrame(QWidget):
       object.
     """
     #  void QFrame::paintEvent(QPaintEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN6QFrame10paintEventEP11QPaintEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN6QFrame10paintEventEP11QPaintEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN6QFrame10paintEventEP11QPaintEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QEvent)
   @overload(NoneType)
@@ -552,8 +554,29 @@ class QFrame(QWidget):
       object.
     """
     #  void QFrame::changeEvent(QEvent *a0)
+    ritual = 'ritual_ZN6QFrame11changeEventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN6QFrame11changeEventEP6QEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
+
+  @overload(QPainter)
+  @overload(NoneType)
+  def drawFrame(self, a0: Optional[QPainter]) -> None:
+    """
+    Calls Qt's 'void QFrame::drawFrame(QPainter *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qframe.html#drawFrame
+
+    Parameters
+    ----------
+
+    a0 : Optional[QPainter]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QFrame::drawFrame(QPainter *a0)
     self.uglySide.call(
-        'ritual_own_ZN6QFrame11changeEventEP6QEvent', self._addressOf(a0),
+        'ritual_ZN6QFrame9drawFrameEP8QPainter', self._addressOf(a0),
     )
 
   @overload(QStyleOptionFrame)
@@ -573,7 +596,7 @@ class QFrame(QWidget):
       object.
     """
     #  void QFrame::initStyleOption(QStyleOptionFrame *option) const
-    self.uglySide.call(
-        'ritual_own_ZNK6QFrame15initStyleOptionEP17QStyleOptionFrame',
-        self._addressOf(option),
-    )
+    ritual = 'ritual_ZNK6QFrame15initStyleOptionEP17QStyleOptionFrame'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK6QFrame15initStyleOptionEP17QStyleOptionFrame'
+    self.uglySide.call(ritual, self._addressOf(option))

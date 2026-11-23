@@ -1142,6 +1142,128 @@ void ritual_ZN5QMenu18setToolTipsVisibleEb(QMenu *self, bool visible) {
   self->setToolTipsVisible(visible);
 }
 
+//  int QMenu::columnCount() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK5QMenu11columnCountEv(const QMenu *self) {
+  return self->columnCount();
+}
+
+//  void QMenu::changeEvent(QEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN5QMenu11changeEventEP6QEvent(QMenu *self, QEvent *a0) {
+  self->changeEvent(a0);
+}
+
+//  void QMenu::keyPressEvent(QKeyEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN5QMenu13keyPressEventEP9QKeyEvent(QMenu *self, QKeyEvent *a0) {
+  self->keyPressEvent(a0);
+}
+
+//  void QMenu::mouseReleaseEvent(QMouseEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN5QMenu17mouseReleaseEventEP11QMouseEvent(
+    QMenu *self,
+    QMouseEvent *a0) {
+  self->mouseReleaseEvent(a0);
+}
+
+//  void QMenu::mousePressEvent(QMouseEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN5QMenu15mousePressEventEP11QMouseEvent(
+    QMenu *self,
+    QMouseEvent *a0) {
+  self->mousePressEvent(a0);
+}
+
+//  void QMenu::mouseMoveEvent(QMouseEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN5QMenu14mouseMoveEventEP11QMouseEvent(
+    QMenu *self,
+    QMouseEvent *a0) {
+  self->mouseMoveEvent(a0);
+}
+
+//  void QMenu::wheelEvent(QWheelEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN5QMenu10wheelEventEP11QWheelEvent(
+    QMenu *self,
+    QWheelEvent *a0) {
+  self->wheelEvent(a0);
+}
+
+//  void QMenu::enterEvent(QEnterEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN5QMenu10enterEventEP11QEnterEvent(
+    QMenu *self,
+    QEnterEvent *a0) {
+  self->enterEvent(a0);
+}
+
+//  void QMenu::leaveEvent(QEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN5QMenu10leaveEventEP6QEvent(QMenu *self, QEvent *a0) {
+  self->leaveEvent(a0);
+}
+
+//  void QMenu::hideEvent(QHideEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN5QMenu9hideEventEP10QHideEvent(QMenu *self, QHideEvent *a0) {
+  self->hideEvent(a0);
+}
+
+//  void QMenu::paintEvent(QPaintEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN5QMenu10paintEventEP11QPaintEvent(
+    QMenu *self,
+    QPaintEvent *a0) {
+  self->paintEvent(a0);
+}
+
+//  void QMenu::actionEvent(QActionEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN5QMenu11actionEventEP12QActionEvent(
+    QMenu *self,
+    QActionEvent *a0) {
+  self->actionEvent(a0);
+}
+
+//  void QMenu::timerEvent(QTimerEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN5QMenu10timerEventEP11QTimerEvent(
+    QMenu *self,
+    QTimerEvent *a0) {
+  self->timerEvent(a0);
+}
+
+//  bool QMenu::event(QEvent *a0)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN5QMenu5eventEP6QEvent(QMenu *self, QEvent *a0) {
+  return self->event(a0);
+}
+
+//  bool QMenu::focusNextPrevChild(bool next)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN5QMenu18focusNextPrevChildEb(QMenu *self, bool next) {
+  return self->focusNextPrevChild(next);
+}
+
+//  void QMenu::initStyleOption(QStyleOptionMenuItem *option, const QAction
+//      *action) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK5QMenu15initStyleOptionEP20QStyleOptionMenuItemPK7QAction(
+    const QMenu *self,
+    QStyleOptionMenuItem *option,
+    const QAction *action) {
+  self->initStyleOption(option, action);
+}
+
+//  void QMenu::internalDelayedPopup()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN5QMenu20internalDelayedPopupEv(QMenu *self) {
+  self->internalDelayedPopup();
+}
+
 //  a Python function taken by a CuteQMenu, for the function named by the key
 extern "C" Q_DECL_EXPORT
 bool ritual_take_QMenu(QMenu *self, const char *key, void *call) {

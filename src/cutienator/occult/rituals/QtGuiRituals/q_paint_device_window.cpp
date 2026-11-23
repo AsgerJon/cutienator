@@ -52,6 +52,45 @@ void ritual_ZN18QPaintDeviceWindow6updateEv(QPaintDeviceWindow *self) {
   self->update();
 }
 
+//  void QPaintDeviceWindow::exposeEvent(QExposeEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QPaintDeviceWindow11exposeEventEP12QExposeEvent(
+    QPaintDeviceWindow *self,
+    QExposeEvent *a0) {
+  self->exposeEvent(a0);
+}
+
+//  void QPaintDeviceWindow::paintEvent(QPaintEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QPaintDeviceWindow10paintEventEP11QPaintEvent(
+    QPaintDeviceWindow *self,
+    QPaintEvent *event) {
+  self->paintEvent(event);
+}
+
+//  int QPaintDeviceWindow::metric(PaintDeviceMetric metric) const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK18QPaintDeviceWindow6metricEN12QPaintDevice17PaintDeviceMetricE(
+    const QPaintDeviceWindow *self,
+    QPaintDevice::PaintDeviceMetric metric) {
+  return self->metric(metric);
+}
+
+//  bool QPaintDeviceWindow::event(QEvent *event)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN18QPaintDeviceWindow5eventEP6QEvent(
+    QPaintDeviceWindow *self,
+    QEvent *event) {
+  return self->event(event);
+}
+
+//  QPaintEngine *QPaintDeviceWindow::paintEngine() const
+extern "C" Q_DECL_EXPORT
+QPaintEngine *ritual_ZNK18QPaintDeviceWindow11paintEngineEv(
+    const QPaintDeviceWindow *self) {
+  return self->paintEngine();
+}
+
 //  QPaintDeviceWindow as the QPaintDevice it is built on
 extern "C" Q_DECL_EXPORT
 QPaintDevice *ritual_cast_QPaintDeviceWindow_QPaintDevice(
@@ -93,4 +132,11 @@ bool ritual_own_ZN18QPaintDeviceWindow5eventEP6QEvent(
     QEvent *event) {
   return static_cast<OwnQPaintDeviceWindow *>(self)->OwnQPaintDeviceWindow::event(
       event);
+}
+
+//  QPaintEngine *QPaintDeviceWindow::paintEngine() const
+extern "C" Q_DECL_EXPORT
+QPaintEngine *ritual_own_ZNK18QPaintDeviceWindow11paintEngineEv(
+    const QPaintDeviceWindow *self) {
+  return self->QPaintDeviceWindow::paintEngine();
 }

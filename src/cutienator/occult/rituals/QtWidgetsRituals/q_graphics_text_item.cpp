@@ -967,6 +967,190 @@ QTextCursor *ritual_ZNK17QGraphicsTextItem10textCursorEv(
   return new QTextCursor(self->textCursor());
 }
 
+//  bool QGraphicsTextItem::sceneEvent(QEvent *event)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN17QGraphicsTextItem10sceneEventEP6QEvent(
+    QGraphicsTextItem *self,
+    QEvent *event) {
+  return self->sceneEvent(event);
+}
+
+//  void QGraphicsTextItem::mousePressEvent(QGraphicsSceneMouseEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QGraphicsTextItem15mousePressEventEP24QGraphicsSceneMouseEvent(
+    QGraphicsTextItem *self,
+    QGraphicsSceneMouseEvent *event) {
+  self->mousePressEvent(event);
+}
+
+//  void QGraphicsTextItem::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QGraphicsTextItem14mouseMoveEventEP24QGraphicsSceneMouseEvent(
+    QGraphicsTextItem *self,
+    QGraphicsSceneMouseEvent *event) {
+  self->mouseMoveEvent(event);
+}
+
+//  void QGraphicsTextItem::mouseReleaseEvent(QGraphicsSceneMouseEvent
+//      *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QGraphicsTextItem17mouseReleaseEventEP24QGraphicsSceneMouseEvent(
+    QGraphicsTextItem *self,
+    QGraphicsSceneMouseEvent *event) {
+  self->mouseReleaseEvent(event);
+}
+
+//  void QGraphicsTextItem::mouseDoubleClickEvent(QGraphicsSceneMouseEvent
+//      *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QGraphicsTextItem21mouseDoubleClickEventEP24QGraphicsSceneMouseEvent(
+    QGraphicsTextItem *self,
+    QGraphicsSceneMouseEvent *event) {
+  self->mouseDoubleClickEvent(event);
+}
+
+//  void QGraphicsTextItem::contextMenuEvent(QGraphicsSceneContextMenuEvent
+//      *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QGraphicsTextItem16contextMenuEventEP30QGraphicsSceneContextMenuEvent(
+    QGraphicsTextItem *self,
+    QGraphicsSceneContextMenuEvent *event) {
+  self->contextMenuEvent(event);
+}
+
+//  void QGraphicsTextItem::keyPressEvent(QKeyEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QGraphicsTextItem13keyPressEventEP9QKeyEvent(
+    QGraphicsTextItem *self,
+    QKeyEvent *event) {
+  self->keyPressEvent(event);
+}
+
+//  void QGraphicsTextItem::keyReleaseEvent(QKeyEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QGraphicsTextItem15keyReleaseEventEP9QKeyEvent(
+    QGraphicsTextItem *self,
+    QKeyEvent *event) {
+  self->keyReleaseEvent(event);
+}
+
+//  void QGraphicsTextItem::focusInEvent(QFocusEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QGraphicsTextItem12focusInEventEP11QFocusEvent(
+    QGraphicsTextItem *self,
+    QFocusEvent *event) {
+  self->focusInEvent(event);
+}
+
+//  void QGraphicsTextItem::focusOutEvent(QFocusEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QGraphicsTextItem13focusOutEventEP11QFocusEvent(
+    QGraphicsTextItem *self,
+    QFocusEvent *event) {
+  self->focusOutEvent(event);
+}
+
+//  void QGraphicsTextItem::dragEnterEvent(QGraphicsSceneDragDropEvent
+//      *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QGraphicsTextItem14dragEnterEventEP27QGraphicsSceneDragDropEvent(
+    QGraphicsTextItem *self,
+    QGraphicsSceneDragDropEvent *event) {
+  self->dragEnterEvent(event);
+}
+
+//  void QGraphicsTextItem::dragLeaveEvent(QGraphicsSceneDragDropEvent
+//      *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QGraphicsTextItem14dragLeaveEventEP27QGraphicsSceneDragDropEvent(
+    QGraphicsTextItem *self,
+    QGraphicsSceneDragDropEvent *event) {
+  self->dragLeaveEvent(event);
+}
+
+//  void QGraphicsTextItem::dragMoveEvent(QGraphicsSceneDragDropEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QGraphicsTextItem13dragMoveEventEP27QGraphicsSceneDragDropEvent(
+    QGraphicsTextItem *self,
+    QGraphicsSceneDragDropEvent *event) {
+  self->dragMoveEvent(event);
+}
+
+//  void QGraphicsTextItem::dropEvent(QGraphicsSceneDragDropEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QGraphicsTextItem9dropEventEP27QGraphicsSceneDragDropEvent(
+    QGraphicsTextItem *self,
+    QGraphicsSceneDragDropEvent *event) {
+  self->dropEvent(event);
+}
+
+//  void QGraphicsTextItem::inputMethodEvent(QInputMethodEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QGraphicsTextItem16inputMethodEventEP17QInputMethodEvent(
+    QGraphicsTextItem *self,
+    QInputMethodEvent *event) {
+  self->inputMethodEvent(event);
+}
+
+//  void QGraphicsTextItem::hoverEnterEvent(QGraphicsSceneHoverEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QGraphicsTextItem15hoverEnterEventEP24QGraphicsSceneHoverEvent(
+    QGraphicsTextItem *self,
+    QGraphicsSceneHoverEvent *event) {
+  self->hoverEnterEvent(event);
+}
+
+//  void QGraphicsTextItem::hoverMoveEvent(QGraphicsSceneHoverEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QGraphicsTextItem14hoverMoveEventEP24QGraphicsSceneHoverEvent(
+    QGraphicsTextItem *self,
+    QGraphicsSceneHoverEvent *event) {
+  self->hoverMoveEvent(event);
+}
+
+//  void QGraphicsTextItem::hoverLeaveEvent(QGraphicsSceneHoverEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QGraphicsTextItem15hoverLeaveEventEP24QGraphicsSceneHoverEvent(
+    QGraphicsTextItem *self,
+    QGraphicsSceneHoverEvent *event) {
+  self->hoverLeaveEvent(event);
+}
+
+//  QVariant QGraphicsTextItem::inputMethodQuery(Qt::InputMethodQuery query)
+//      const
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZNK17QGraphicsTextItem16inputMethodQueryEN2Qt16InputMethodQueryE(
+    const QGraphicsTextItem *self,
+    Qt::InputMethodQuery query) {
+  return new QVariant(self->inputMethodQuery(query));
+}
+
+//  bool QGraphicsTextItem::supportsExtension(Extension extension) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK17QGraphicsTextItem17supportsExtensionEN13QGraphicsItem9ExtensionE(
+    const QGraphicsTextItem *self,
+    QGraphicsItem::Extension extension) {
+  return self->supportsExtension(extension);
+}
+
+//  void QGraphicsTextItem::setExtension(Extension extension, const QVariant
+//      &variant)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QGraphicsTextItem12setExtensionEN13QGraphicsItem9ExtensionERK8QVariant(
+    QGraphicsTextItem *self,
+    QGraphicsItem::Extension extension,
+    const QVariant *variant) {
+  self->setExtension(extension, *variant);
+}
+
+//  QVariant QGraphicsTextItem::extension(const QVariant &variant) const
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZNK17QGraphicsTextItem9extensionERK8QVariant(
+    const QGraphicsTextItem *self,
+    const QVariant *variant) {
+  return new QVariant(self->extension(*variant));
+}
+
 //  a Python function taken by a CuteQGraphicsTextItem, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT

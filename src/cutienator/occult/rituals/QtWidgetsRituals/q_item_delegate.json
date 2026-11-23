@@ -34,6 +34,49 @@
     "ritual_ZN13QItemDelegate20setItemEditorFactoryEP18QItemEditorFactory": [
       "nothing", "address", "address"
     ],
+    "ritual_ZNK13QItemDelegate11drawDisplayEP8QPainterRK20QStyleOptionViewItemRK5QRectRK7QString": [
+      "nothing", "address", "address", "address", "address", "text"
+    ],
+    "ritual_ZNK13QItemDelegate14drawDecorationEP8QPainterRK20QStyleOptionViewItemRK5QRectRK7QPixmap": [
+      "nothing", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK13QItemDelegate9drawFocusEP8QPainterRK20QStyleOptionViewItemRK5QRect": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK13QItemDelegate9drawCheckEP8QPainterRK20QStyleOptionViewItemRK5QRectN2Qt10CheckStateE": [
+      "nothing", "address", "address", "address", "address", "int"
+    ],
+    "ritual_ZNK13QItemDelegate14drawBackgroundEP8QPainterRK20QStyleOptionViewItemRK11QModelIndex": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK13QItemDelegate8doLayoutERK20QStyleOptionViewItemP5QRectS4_S4_b": [
+      "nothing", "address", "address", "address", "address", "address",
+      "bool"
+    ],
+    "ritual_ZNK13QItemDelegate4rectERK20QStyleOptionViewItemRK11QModelIndexi": [
+      "address", "address", "address", "address", "int"
+    ],
+    "ritual_ZN13QItemDelegate11eventFilterEP7QObjectP6QEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN13QItemDelegate11editorEventEP6QEventP18QAbstractItemModelRK20QStyleOptionViewItemRK11QModelIndex": [
+      "bool", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK13QItemDelegate10setOptionsERK11QModelIndexRK20QStyleOptionViewItem": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK13QItemDelegate10decorationERK20QStyleOptionViewItemRK8QVariant": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN13QItemDelegate14selectedPixmapERK7QPixmapRK8QPaletteb": [
+      "address", "address", "address", "bool"
+    ],
+    "ritual_ZNK13QItemDelegate7doCheckERK20QStyleOptionViewItemRK5QRectRK8QVariant": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK13QItemDelegate13textRectangleEP8QPainterRK5QRectRK5QFontRK7QString": [
+      "address", "address", "address", "address", "address", "text"
+    ],
     "ritual_take_QItemDelegate": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK13QItemDelegate5paintEP8QPainterRK20QStyleOptionViewItemRK11QModelIndex": [
       "nothing", "address", "address", "address", "address"

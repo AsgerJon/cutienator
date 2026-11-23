@@ -39,6 +39,9 @@
     "ritual_ZNK9QMimeData9hasFormatERK7QString": ["bool", "address", "text"],
     "ritual_ZNK9QMimeData7formatsEv": ["address", "address"],
     "ritual_ZN9QMimeData5clearEv": ["nothing", "address"],
+    "ritual_ZNK9QMimeData12retrieveDataERK7QString9QMetaType": [
+      "address", "address", "text", "address"
+    ],
     "ritual_take_QMimeData": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK9QMimeData9hasFormatERK7QString": [
       "bool", "address", "text"

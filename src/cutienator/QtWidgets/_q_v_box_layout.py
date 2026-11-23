@@ -56,7 +56,7 @@ class QVBoxLayout(QBoxLayout):
   ------------------
 
   6 of the 11 functions Qt declares: 2 takes or gives a type that cannot be
-  passed yet; 2 forbidden; 1 a template; 1 private.
+  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found.
 
   What to expect
   --------------

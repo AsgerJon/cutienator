@@ -20,6 +20,14 @@
     "ritual_ZN19QBasicReadWriteLock11lock_sharedEv": ["nothing", "address"],
     "ritual_ZN19QBasicReadWriteLock8try_lockEv": ["bool", "address"],
     "ritual_ZN19QBasicReadWriteLock15try_lock_sharedEv": ["bool", "address"],
-    "ritual_ZN19QBasicReadWriteLock13unlock_sharedEv": ["nothing", "address"]
+    "ritual_ZN19QBasicReadWriteLock13unlock_sharedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QBasicReadWriteLock22tryLockForReadInternalE14QDeadlineTimerj": [
+      "bool", "address", "address", "unsigned int"
+    ],
+    "ritual_ZN19QBasicReadWriteLock23tryLockForWriteInternalE14QDeadlineTimerj": [
+      "bool", "address", "address", "unsigned int"
+    ]
   }
 }

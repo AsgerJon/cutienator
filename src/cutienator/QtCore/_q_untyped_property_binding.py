@@ -45,8 +45,8 @@ class QUntypedPropertyBinding(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  6 of the 12 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 1 a template; 1 private.
+  6 of the 12 functions Qt declares: 5 takes or gives a type that cannot be
+  passed yet; 1 a template.
 
   What to expect
   --------------

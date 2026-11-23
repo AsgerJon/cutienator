@@ -26,3 +26,10 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN16QEventLoopLockerD1Ev(QEventLoopLocker *self) {
   delete self;
 }
+
+//  Type QEventLoopLocker::type() const
+extern "C" Q_DECL_EXPORT
+QEventLoopLocker::Type ritual_ZNK16QEventLoopLocker4typeEv(
+    const QEventLoopLocker *self) {
+  return self->type();
+}

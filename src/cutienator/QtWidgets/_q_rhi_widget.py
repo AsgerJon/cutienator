@@ -48,13 +48,14 @@ class QRhiWidget(QWidget):
   -----------
 
   Every function of Qt's QRhiWidget that has a ritual and that Python can
-  call so far, 19 names in all: 'metaObject', 'tr', 'api', 'setApi',
+  call so far, 21 names in all: 'metaObject', 'tr', 'api', 'setApi',
   'isDebugLayerEnabled', 'setDebugLayerEnabled', 'sampleCount',
   'setSampleCount', 'colorBufferFormat', 'setColorBufferFormat',
   'fixedColorBufferSize', 'setFixedColorBufferSize',
   'isMirrorVerticallyEnabled', 'setMirrorVertically', 'grabFramebuffer',
-  'releaseResources', 'resizeEvent', 'paintEvent', 'event'. It can be made
-  from Python, in 1 way; see '__init__'.
+  'isAutoRenderTargetEnabled', 'setAutoRenderTarget', 'releaseResources',
+  'resizeEvent', 'paintEvent', 'event'. It can be made from Python, in 1 way;
+  see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -65,8 +66,8 @@ class QRhiWidget(QWidget):
   What has no ritual
   ------------------
 
-  23 of the 45 functions Qt declares: 11 protected; 6 a signal; 3 private; 2
-  takes or gives a type that cannot be passed yet; 1 a template.
+  21 of the 45 functions Qt declares: 13 takes or gives a type that cannot be
+  passed yet; 6 a signal; 1 a template; 1 declared and nowhere to be found.
 
   What to expect
   --------------
@@ -331,6 +332,18 @@ class QRhiWidget(QWidget):
     from ..QtGui import QImage
     return QImage._cuteOwning(address)
 
+  def isAutoRenderTargetEnabled(self) -> bool:
+    """
+    Calls Qt's 'bool QRhiWidget::isAutoRenderTargetEnabled() const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qrhiwidget.html#isAutoRenderTargetEnabled
+    """
+    #  bool QRhiWidget::isAutoRenderTargetEnabled() const
+    return self.uglySide.call(
+        'ritual_ZNK10QRhiWidget25isAutoRenderTargetEnabledEv',
+    )
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -467,6 +480,25 @@ class QRhiWidget(QWidget):
         'ritual_ZN10QRhiWidget19setMirrorVerticallyEb', enabled,
     )
 
+  @overload(bool)
+  def setAutoRenderTarget(self, enabled: bool) -> None:
+    """
+    Calls Qt's 'void QRhiWidget::setAutoRenderTarget(bool enabled)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qrhiwidget.html#setAutoRenderTarget
+
+    Parameters
+    ----------
+
+    enabled : bool
+      Passed on as it is.
+    """
+    #  void QRhiWidget::setAutoRenderTarget(bool enabled)
+    self.uglySide.call(
+        'ritual_ZN10QRhiWidget19setAutoRenderTargetEb', enabled,
+    )
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -539,7 +571,10 @@ class QRhiWidget(QWidget):
     Qt's own words: https://doc.qt.io/qt-6/qrhiwidget.html#releaseResources
     """
     #  void QRhiWidget::releaseResources()
-    self.uglySide.call('ritual_own_ZN10QRhiWidget16releaseResourcesEv')
+    ritual = 'ritual_ZN10QRhiWidget16releaseResourcesEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN10QRhiWidget16releaseResourcesEv'
+    self.uglySide.call(ritual)
 
   @overload(QResizeEvent)
   @overload(NoneType)
@@ -557,10 +592,10 @@ class QRhiWidget(QWidget):
       object.
     """
     #  void QRhiWidget::resizeEvent(QResizeEvent *e)
-    self.uglySide.call(
-        'ritual_own_ZN10QRhiWidget11resizeEventEP12QResizeEvent',
-        self._addressOf(e),
-    )
+    ritual = 'ritual_ZN10QRhiWidget11resizeEventEP12QResizeEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN10QRhiWidget11resizeEventEP12QResizeEvent'
+    self.uglySide.call(ritual, self._addressOf(e))
 
   @overload(QPaintEvent)
   @overload(NoneType)
@@ -578,10 +613,10 @@ class QRhiWidget(QWidget):
       object.
     """
     #  void QRhiWidget::paintEvent(QPaintEvent *e)
-    self.uglySide.call(
-        'ritual_own_ZN10QRhiWidget10paintEventEP11QPaintEvent',
-        self._addressOf(e),
-    )
+    ritual = 'ritual_ZN10QRhiWidget10paintEventEP11QPaintEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN10QRhiWidget10paintEventEP11QPaintEvent'
+    self.uglySide.call(ritual, self._addressOf(e))
 
   @overload(QEvent)
   @overload(NoneType)
@@ -599,6 +634,7 @@ class QRhiWidget(QWidget):
       object.
     """
     #  bool QRhiWidget::event(QEvent *e)
-    return self.uglySide.call(
-        'ritual_own_ZN10QRhiWidget5eventEP6QEvent', self._addressOf(e),
-    )
+    ritual = 'ritual_ZN10QRhiWidget5eventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN10QRhiWidget5eventEP6QEvent'
+    return self.uglySide.call(ritual, self._addressOf(e))

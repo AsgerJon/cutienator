@@ -16,6 +16,12 @@ QStyleOptionSizeGrip *ritual_ZN20QStyleOptionSizeGripC1ERKS_(
   return new QStyleOptionSizeGrip(*other);
 }
 
+//  QStyleOptionSizeGrip::QStyleOptionSizeGrip(int version)
+extern "C" Q_DECL_EXPORT
+QStyleOptionSizeGrip *ritual_ZN20QStyleOptionSizeGripC1Ei(int version) {
+  return new QStyleOptionSizeGrip(version);
+}
+
 //  QStyleOptionSizeGrip::~QStyleOptionSizeGrip()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QStyleOptionSizeGripD1Ev(QStyleOptionSizeGrip *self) {

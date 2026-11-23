@@ -39,8 +39,8 @@ class QBitRef(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  3 of the 6 functions Qt declares: 2 takes or gives a type that cannot be
-  passed yet; 1 private.
+  3 of the 6 functions Qt declares: 3 takes or gives a type that cannot be
+  passed yet.
 
   What to expect
   --------------

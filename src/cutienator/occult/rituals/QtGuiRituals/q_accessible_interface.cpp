@@ -282,6 +282,12 @@ public:
   }
 };
 
+//  QAccessibleInterface::~QAccessibleInterface()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QAccessibleInterfaceD1Ev(QAccessibleInterface *self) {
+  delete self;
+}
+
 //  bool QAccessibleInterface::isValid() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK20QAccessibleInterface7isValidEv(

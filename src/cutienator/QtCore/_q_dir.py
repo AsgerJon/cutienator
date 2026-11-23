@@ -57,8 +57,8 @@ class QDir(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  15 of the 80 functions Qt declares: 8 takes or gives a type that cannot be
-  passed yet; 4 a template; 2 private; 1 protected.
+  15 of the 80 functions Qt declares: 11 takes or gives a type that cannot be
+  passed yet; 4 a template.
 
   What to expect
   --------------

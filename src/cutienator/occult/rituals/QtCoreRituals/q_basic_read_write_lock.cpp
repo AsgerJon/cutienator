@@ -91,3 +91,23 @@ void ritual_ZN19QBasicReadWriteLock13unlock_sharedEv(
     QBasicReadWriteLock *self) {
   self->unlock_shared();
 }
+
+//  bool QBasicReadWriteLock::tryLockForReadInternal(QDeadlineTimer timeout,
+//      unsigned int tsanFlags)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN19QBasicReadWriteLock22tryLockForReadInternalE14QDeadlineTimerj(
+    QBasicReadWriteLock *self,
+    const QDeadlineTimer *timeout,
+    unsigned int tsanFlags) {
+  return self->tryLockForReadInternal(*timeout, tsanFlags);
+}
+
+//  bool QBasicReadWriteLock::tryLockForWriteInternal(QDeadlineTimer timeout,
+//      unsigned int tsanFlags)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN19QBasicReadWriteLock23tryLockForWriteInternalE14QDeadlineTimerj(
+    QBasicReadWriteLock *self,
+    const QDeadlineTimer *timeout,
+    unsigned int tsanFlags) {
+  return self->tryLockForWriteInternal(*timeout, tsanFlags);
+}

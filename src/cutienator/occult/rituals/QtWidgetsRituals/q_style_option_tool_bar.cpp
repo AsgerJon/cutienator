@@ -16,6 +16,12 @@ QStyleOptionToolBar *ritual_ZN19QStyleOptionToolBarC1ERKS_(
   return new QStyleOptionToolBar(*other);
 }
 
+//  QStyleOptionToolBar::QStyleOptionToolBar(int version)
+extern "C" Q_DECL_EXPORT
+QStyleOptionToolBar *ritual_ZN19QStyleOptionToolBarC1Ei(int version) {
+  return new QStyleOptionToolBar(version);
+}
+
 //  QStyleOptionToolBar::~QStyleOptionToolBar()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QStyleOptionToolBarD1Ev(QStyleOptionToolBar *self) {

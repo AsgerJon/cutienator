@@ -29,9 +29,9 @@ class QDirListing(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QDirListing that has a ritual and that Python can
-  call so far, 6 names in all: 'iteratorPath', 'iteratorFlags',
-  'nameFilters', 'end', 'cend', 'constEnd'. It can be made from Python, in 2
-  ways; see '__init__'.
+  call so far, 7 names in all: 'iteratorPath', 'iteratorFlags',
+  'nameFilters', 'end', 'cend', 'constEnd', 'next'. It can be made from
+  Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -42,9 +42,8 @@ class QDirListing(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  12 of the 21 functions Qt declares: 6 takes or gives a type that cannot be
-  passed yet; 2 private; 2 forbidden; 1 declared and nowhere to be found; 1 a
-  template.
+  11 of the 21 functions Qt declares: 6 takes or gives a type that cannot be
+  passed yet; 2 declared and nowhere to be found; 2 forbidden; 1 a template.
 
   What to expect
   --------------
@@ -670,7 +669,8 @@ class QDirListing(CuteMixin, metaclass=MetaCute):
     What exists
     -----------
 
-    No function of Qt's QDirListing::const_iterator yet. It can be made from
+    Every function of Qt's QDirListing::const_iterator that has a ritual and
+    that Python can call so far, 1 name in all: 'atEnd'. It can be made from
     Python, in 1 way; see '__init__'.
 
     What has a ritual and is left out, and why
@@ -682,8 +682,8 @@ class QDirListing(CuteMixin, metaclass=MetaCute):
     What has no ritual
     ------------------
 
-    13 of the 15 functions Qt declares: 9 takes or gives a type that cannot
-    be passed yet; 2 forbidden; 2 private.
+    12 of the 15 functions Qt declares: 10 takes or gives a type that cannot
+    be passed yet; 2 forbidden.
 
     What to expect
     --------------
@@ -721,6 +721,18 @@ class QDirListing(CuteMixin, metaclass=MetaCute):
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    def atEnd(self) -> bool:
+      """
+      Calls Qt's 'bool QDirListing::const_iterator::atEnd() const'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qdirlisting-const_iterator.html#atEnd
+      """
+      #  bool QDirListing::const_iterator::atEnd() const
+      return self.uglySide.call(
+          'ritual_ZNK11QDirListing14const_iterator5atEndEv',
+      )
 
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -939,6 +951,34 @@ class QDirListing(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  @overload(DirEntry)
+  def next(a0: DirEntry) -> DirEntry:
+    """
+    Calls Qt's 'DirEntry QDirListing::next(DirEntry a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdirlisting.html#next
+
+    Parameters
+    ----------
+
+    a0 : DirEntry
+      Passed on as a value: Qt reads the C++ QDirListing::DirEntry, which
+      stays Python's own.
+
+    Returns
+    -------
+
+    DirEntry
+      A new cute QDirListing::DirEntry around the copy Qt gave back. Python
+      owns it.
+    """
+    #  DirEntry QDirListing::next(DirEntry a0)
+    address = Rituals.call(
+        'ritual_ZN11QDirListing4nextENS_8DirEntryE', CuteMixin._valueOf(a0),
+    )
+    return QDirListing.DirEntry._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

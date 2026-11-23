@@ -7,6 +7,7 @@
 #include <QtCore/qmargins.h>
 #include <QtGui/qicon.h>
 #include <QtCore/qvariant.h>
+#include <QtCore/qrect.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 
@@ -1271,6 +1272,140 @@ QMenu *ritual_ZN9QLineEdit25createStandardContextMenuEv(QLineEdit *self) {
   return self->createStandardContextMenu();
 }
 
+//  void QLineEdit::mousePressEvent(QMouseEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QLineEdit15mousePressEventEP11QMouseEvent(
+    QLineEdit *self,
+    QMouseEvent *a0) {
+  self->mousePressEvent(a0);
+}
+
+//  void QLineEdit::mouseMoveEvent(QMouseEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QLineEdit14mouseMoveEventEP11QMouseEvent(
+    QLineEdit *self,
+    QMouseEvent *a0) {
+  self->mouseMoveEvent(a0);
+}
+
+//  void QLineEdit::mouseReleaseEvent(QMouseEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QLineEdit17mouseReleaseEventEP11QMouseEvent(
+    QLineEdit *self,
+    QMouseEvent *a0) {
+  self->mouseReleaseEvent(a0);
+}
+
+//  void QLineEdit::mouseDoubleClickEvent(QMouseEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QLineEdit21mouseDoubleClickEventEP11QMouseEvent(
+    QLineEdit *self,
+    QMouseEvent *a0) {
+  self->mouseDoubleClickEvent(a0);
+}
+
+//  void QLineEdit::keyPressEvent(QKeyEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QLineEdit13keyPressEventEP9QKeyEvent(
+    QLineEdit *self,
+    QKeyEvent *a0) {
+  self->keyPressEvent(a0);
+}
+
+//  void QLineEdit::keyReleaseEvent(QKeyEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QLineEdit15keyReleaseEventEP9QKeyEvent(
+    QLineEdit *self,
+    QKeyEvent *a0) {
+  self->keyReleaseEvent(a0);
+}
+
+//  void QLineEdit::focusInEvent(QFocusEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QLineEdit12focusInEventEP11QFocusEvent(
+    QLineEdit *self,
+    QFocusEvent *a0) {
+  self->focusInEvent(a0);
+}
+
+//  void QLineEdit::focusOutEvent(QFocusEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QLineEdit13focusOutEventEP11QFocusEvent(
+    QLineEdit *self,
+    QFocusEvent *a0) {
+  self->focusOutEvent(a0);
+}
+
+//  void QLineEdit::paintEvent(QPaintEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QLineEdit10paintEventEP11QPaintEvent(
+    QLineEdit *self,
+    QPaintEvent *a0) {
+  self->paintEvent(a0);
+}
+
+//  void QLineEdit::dragEnterEvent(QDragEnterEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QLineEdit14dragEnterEventEP15QDragEnterEvent(
+    QLineEdit *self,
+    QDragEnterEvent *a0) {
+  self->dragEnterEvent(a0);
+}
+
+//  void QLineEdit::dragMoveEvent(QDragMoveEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QLineEdit13dragMoveEventEP14QDragMoveEvent(
+    QLineEdit *self,
+    QDragMoveEvent *e) {
+  self->dragMoveEvent(e);
+}
+
+//  void QLineEdit::dragLeaveEvent(QDragLeaveEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QLineEdit14dragLeaveEventEP15QDragLeaveEvent(
+    QLineEdit *self,
+    QDragLeaveEvent *e) {
+  self->dragLeaveEvent(e);
+}
+
+//  void QLineEdit::dropEvent(QDropEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QLineEdit9dropEventEP10QDropEvent(
+    QLineEdit *self,
+    QDropEvent *a0) {
+  self->dropEvent(a0);
+}
+
+//  void QLineEdit::changeEvent(QEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QLineEdit11changeEventEP6QEvent(QLineEdit *self, QEvent *a0) {
+  self->changeEvent(a0);
+}
+
+//  void QLineEdit::contextMenuEvent(QContextMenuEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QLineEdit16contextMenuEventEP17QContextMenuEvent(
+    QLineEdit *self,
+    QContextMenuEvent *a0) {
+  self->contextMenuEvent(a0);
+}
+
+//  void QLineEdit::inputMethodEvent(QInputMethodEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QLineEdit16inputMethodEventEP17QInputMethodEvent(
+    QLineEdit *self,
+    QInputMethodEvent *a0) {
+  self->inputMethodEvent(a0);
+}
+
+//  void QLineEdit::initStyleOption(QStyleOptionFrame *option) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK9QLineEdit15initStyleOptionEP17QStyleOptionFrame(
+    const QLineEdit *self,
+    QStyleOptionFrame *option) {
+  self->initStyleOption(option);
+}
+
 //  QVariant QLineEdit::inputMethodQuery(Qt::InputMethodQuery a0) const
 extern "C" Q_DECL_EXPORT
 QVariant *ritual_ZNK9QLineEdit16inputMethodQueryEN2Qt16InputMethodQueryE(
@@ -1301,6 +1436,12 @@ void ritual_ZN9QLineEdit10timerEventEP11QTimerEvent(
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN9QLineEdit5eventEP6QEvent(QLineEdit *self, QEvent *a0) {
   return self->event(a0);
+}
+
+//  QRect QLineEdit::cursorRect() const
+extern "C" Q_DECL_EXPORT
+QRect *ritual_ZNK9QLineEdit10cursorRectEv(const QLineEdit *self) {
+  return new QRect(self->cursorRect());
 }
 
 //  a Python function taken by a CuteQLineEdit, for the function named by the

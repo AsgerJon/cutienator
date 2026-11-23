@@ -11,6 +11,98 @@
     "ritual_ZN19QRangeModelImplBase17getImplementationEPK11QRangeModel": [
       "address", "address"
     ],
-    "ritual_ZN19QRangeModelImplBase22roleNamesForSimpleTypeEv": ["address"]
+    "ritual_ZN19QRangeModelImplBaseC1EP11QRangeModel": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QRangeModelImplBase19persistentIndexListEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QRangeModelImplBase21changePersistentIndexERK11QModelIndexS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN19QRangeModelImplBase15beginResetModelEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QRangeModelImplBase13endResetModelEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QRangeModelImplBase18beginInsertColumnsERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN19QRangeModelImplBase16endInsertColumnsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QRangeModelImplBase18beginRemoveColumnsERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN19QRangeModelImplBase16endRemoveColumnsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QRangeModelImplBase16beginMoveColumnsERK11QModelIndexiiS2_i": [
+      "bool", "address", "address", "int", "int", "address", "int"
+    ],
+    "ritual_ZN19QRangeModelImplBase14endMoveColumnsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QRangeModelImplBase15beginInsertRowsERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN19QRangeModelImplBase13endInsertRowsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QRangeModelImplBase15beginRemoveRowsERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN19QRangeModelImplBase13endRemoveRowsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QRangeModelImplBase13beginMoveRowsERK11QModelIndexiiS2_i": [
+      "bool", "address", "address", "int", "int", "address", "int"
+    ],
+    "ritual_ZN19QRangeModelImplBase11endMoveRowsEv": ["nothing", "address"],
+    "ritual_ZN19QRangeModelImplBase17beginLayoutChangeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QRangeModelImplBase15endLayoutChangeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK19QRangeModelImplBase17autoConnectPolicyEv": [
+      "int", "address"
+    ],
+    "ritual_ZN19QRangeModelImplBase11compareDataERK8QVariantS2_PK9QCollator": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN19QRangeModelImplBase22roleNamesForSimpleTypeEv": ["address"],
+    "ritual_ZN19QRangeModelImplBase16columnPropertiesERK11QMetaObject": [
+      "address", "address"
+    ],
+    "ritual_ZN19QRangeModelImplBase15connectPropertyERK11QModelIndexPK7QObjectPN18QRangeModelDetails18AutoConnectContextEiRK13QMetaProperty": [
+      "bool", "address", "address", "address", "int", "address"
+    ],
+    "ritual_ZN19QRangeModelImplBase20connectPropertyConstERK11QModelIndexPK7QObjectPN18QRangeModelDetails18AutoConnectContextEiRK13QMetaProperty": [
+      "bool", "address", "address", "address", "int", "address"
+    ],
+    "ritual_ZN19QRangeModelImplBase17connectPropertiesERK11QModelIndexPK7QObjectPN18QRangeModelDetails18AutoConnectContextERK5QHashIi13QMetaPropertyE": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZN19QRangeModelImplBase22connectPropertiesConstERK11QModelIndexPK7QObjectPN18QRangeModelDetails18AutoConnectContextERK5QHashIi13QMetaPropertyE": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK19QRangeModelImplBase8sortRoleEv": ["int", "address"],
+    "ritual_ZNK19QRangeModelImplBase12sortCollatorEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QRangeModelImplBase17convertMatchValueERK8QVariant6QFlagsIN2Qt9MatchFlagEE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN19QRangeModelImplBase10matchValueERK7QStringRK8QVariant6QFlagsIN2Qt9MatchFlagEE": [
+      "bool", "text", "address", "int"
+    ],
+    "ritual_ZN19QRangeModelImplBase10matchValueERK8QVariantS2_6QFlagsIN2Qt9MatchFlagEE": [
+      "bool", "address", "address", "int"
+    ],
+    "ritual_ZN19QRangeModelImplBase14dropDataOnItemEPK9QMimeDataRK11QModelIndex": [
+      "bool", "address", "address", "address"
+    ]
   }
 }

@@ -54,15 +54,16 @@ class QPaintEngine(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QPaintEngine that has a ritual and that Python can
-  call so far, 32 names in all: 'isActive', 'setActive', 'begin', 'end',
+  call so far, 34 names in all: 'isActive', 'setActive', 'begin', 'end',
   'updateState', 'drawRects', 'drawLines', 'drawEllipse', 'drawPath',
   'drawPoints', 'drawPolygon', 'drawPixmap', 'drawTextItem',
   'drawTiledPixmap', 'drawImage', 'setPaintDevice', 'paintDevice',
   'setSystemClip', 'systemClip', 'setSystemRect', 'systemRect',
   'coordinateOffset', 'type', 'testDirty', 'setDirty', 'clearDirty',
   'hasFeature', 'painter', 'syncState', 'isExtended', 'createPixmap',
-  'createPixmapFromImage'. None can be made from Python: one comes out of a
-  function of another class that gives one back.
+  'createPixmapFromImage', 'setAutoDestruct', 'autoDestruct'. None can be
+  made from Python: one comes out of a function of another class that gives
+  one back.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -75,8 +76,8 @@ class QPaintEngine(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  8 of the 47 functions Qt declares: 4 private; 2 forbidden; 1 the class is
-  abstract, so C++ cannot make one; 1 protected.
+  6 of the 47 functions Qt declares: 2 takes or gives a type that cannot be
+  passed yet; 2 the class is abstract, so C++ cannot make one; 2 forbidden.
 
   What to expect
   --------------
@@ -527,6 +528,15 @@ class QPaintEngine(CuteMixin, metaclass=MetaCute):
     #  bool QPaintEngine::isExtended() const
     return self.uglySide.call('ritual_ZNK12QPaintEngine10isExtendedEv')
 
+  def autoDestruct(self) -> bool:
+    """
+    Calls Qt's 'bool QPaintEngine::autoDestruct() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpaintengine.html#autoDestruct
+    """
+    #  bool QPaintEngine::autoDestruct() const
+    return self.uglySide.call('ritual_ZNK12QPaintEngine12autoDestructEv')
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -623,6 +633,24 @@ class QPaintEngine(CuteMixin, metaclass=MetaCute):
     #  void QPaintEngine::setDirty(DirtyFlags df)
     self.uglySide.call(
         'ritual_ZN12QPaintEngine8setDirtyE6QFlagsINS_9DirtyFlagEE', df.value,
+    )
+
+  @overload(bool)
+  def setAutoDestruct(self, autoDestr: bool) -> None:
+    """
+    Calls Qt's 'void QPaintEngine::setAutoDestruct(bool autoDestr)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpaintengine.html#setAutoDestruct
+
+    Parameters
+    ----------
+
+    autoDestr : bool
+      Passed on as it is.
+    """
+    #  void QPaintEngine::setAutoDestruct(bool autoDestr)
+    self.uglySide.call(
+        'ritual_ZN12QPaintEngine15setAutoDestructEb', autoDestr,
     )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

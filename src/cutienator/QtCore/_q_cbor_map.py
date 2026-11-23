@@ -43,12 +43,12 @@ class QCborMap(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QCborMap that has a ritual and that Python can call
-  so far, 25 names in all: 'toCborValue', 'size', 'isEmpty', 'clear', 'keys',
+  so far, 27 names in all: 'toCborValue', 'size', 'isEmpty', 'clear', 'keys',
   'value', '__getitem__', 'take', 'remove', 'contains', 'compare', 'extract',
   'empty', 'fromVariantMap', 'fromVariantHash', 'fromJsonObject',
-  'toVariantMap', 'toVariantHash', 'toJsonObject', '__eq__', '__ne__',
-  '__lt__', '__gt__', '__le__', '__ge__'. It can be made from Python, in 2
-  ways; see '__init__'.
+  'toVariantMap', 'toVariantHash', 'toJsonObject', 'detach', '__eq__',
+  '__ne__', '__lt__', '__gt__', '__le__', '__ge__', 'comparesEqual_helper'.
+  It can be made from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -66,6 +66,9 @@ class QCborMap(CuteMixin, metaclass=MetaCute):
   - Qt's 'QCborValueRef QCborMap::operator[](const QCborValue &key)': takes
     in Python what 'const QCborValue QCborMap::operator[](const QCborValue
     &key) const' takes.
+  - Qt's 'Qt::strong_ordering QCborMap::compareThreeWay_helper(const QCborMap
+    &lhs, const QCborValue &rhs)': gives 'Qt::strong_ordering', which has no
+    cute class yet.
   - Qt's 'bool operator==(const QCborValue &lhs, const QCborMap &rhs)': takes
     in Python what 'bool operator==(const QCborMap &lhs, const QCborValue
     &rhs)' takes.
@@ -84,6 +87,9 @@ class QCborMap(CuteMixin, metaclass=MetaCute):
   - Qt's 'bool operator>=(const QCborValue &lhs, const QCborMap &rhs)': takes
     in Python what 'bool operator<=(const QCborMap &lhs, const QCborValue
     &rhs)' takes.
+  - Qt's 'Qt::strong_ordering QCborMap::compareThreeWay_helper(const QCborMap
+    &lhs, QCborValueConstRef rhs)': gives 'Qt::strong_ordering', which has no
+    cute class yet.
   - Qt's 'bool operator==(const QCborValueConstRef &lhs, const QCborMap
     &rhs)': takes in Python what 'bool operator==(const QCborMap &lhs, const
     QCborValueConstRef &rhs)' takes.
@@ -106,9 +112,9 @@ class QCborMap(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  51 of the 123 functions Qt declares: 41 takes or gives a type that cannot
-  be passed yet; 6 private; 2 a template; 2 can only be called on a value
-  about to be thrown away.
+  46 of the 123 functions Qt declares: 41 takes or gives a type that cannot
+  be passed yet; 2 a template; 2 can only be called on a value about to be
+  thrown away; 1 declared and nowhere to be found.
 
   What to expect
   --------------
@@ -138,10 +144,10 @@ class QCborMap(CuteMixin, metaclass=MetaCute):
     -----------
 
     Every function of Qt's QCborMap::ConstIterator that has a ritual and that
-    Python can call so far, 13 names in all: 'key', 'keyRef', 'value',
-    '__iadd__', '__isub__', '__add__', '__sub__', '__eq__', '__ne__',
-    '__lt__', '__gt__', '__le__', '__ge__'. It can be made from Python, in 2
-    ways; see '__init__'.
+    Python can call so far, 14 names in all: 'key', 'keyRef', 'value',
+    '__iadd__', '__isub__', '__add__', '__sub__', 'comparesEqual_helper',
+    '__eq__', '__ne__', '__lt__', '__gt__', '__le__', '__ge__'. It can be
+    made from Python, in 3 ways; see '__init__'.
 
     What has a ritual and is left out, and why
     ------------------------------------------
@@ -155,12 +161,16 @@ class QCborMap(CuteMixin, metaclass=MetaCute):
       operator Python has no name for.
     - Qt's 'ConstIterator QCborMap::ConstIterator::operator--(int a0)': an
       operator Python has no name for.
+    - Qt's 'Qt::strong_ordering
+      QCborMap::ConstIterator::compareThreeWay_helper(const ConstIterator
+      &lhs, const ConstIterator &rhs)': gives 'Qt::strong_ordering', which
+      has no cute class yet.
 
     What has no ritual
     ------------------
 
-    9 of the 29 functions Qt declares: 5 takes or gives a type that cannot be
-    passed yet; 4 private.
+    6 of the 29 functions Qt declares: 6 takes or gives a type that cannot be
+    passed yet.
 
     What to expect
     --------------
@@ -176,9 +186,46 @@ class QCborMap(CuteMixin, metaclass=MetaCute):
       ritual made for Python, in a new cute QCborMap::ConstIterator.
     """
 
+    #  The cute classes this class names and is not built on. Each waits
+    #  until it is made; see 'WAIT'. A type checker reads the imports at the
+    #  top of the file instead.
+    if not TYPE_CHECKING:
+      QCborValueConstRef = WAIT['QCborValueConstRef']
+
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    @staticmethod
+    @overload(THIS, THIS)
+    def comparesEqual_helper(
+        lhs: QCborMap.ConstIterator,
+        rhs: QCborMap.ConstIterator,
+    ) -> bool:
+      """
+      Calls Qt's 'bool QCborMap::ConstIterator::comparesEqual_helper(const
+      ConstIterator &lhs, const ConstIterator &rhs)'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qcbormap-constiterator.html#comparesEqual_helper
+
+      Parameters
+      ----------
+
+      lhs : QCborMap.ConstIterator
+        Passed on as a value: Qt reads the C++ QCborMap::ConstIterator, which
+        stays Python's own.
+
+      rhs : QCborMap.ConstIterator
+        Passed on as a value: Qt reads the C++ QCborMap::ConstIterator, which
+        stays Python's own.
+      """
+      #  bool QCborMap::ConstIterator::comparesEqual_helper(const
+      #      ConstIterator &lhs, const ConstIterator &rhs)
+      return Rituals.call(
+          'ritual_ZN8QCborMap13ConstIterator20comparesEqual_helperERKS0_S2_',
+          CuteMixin._valueOf(lhs), CuteMixin._valueOf(rhs),
+      )
 
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -620,6 +667,29 @@ class QCborMap(CuteMixin, metaclass=MetaCute):
     #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+    @overload(QCborValueConstRef)
+    def __init__(self, it: QCborValueConstRef) -> None:
+      """
+      Notes what was given, for Qt's
+      'QCborMap::ConstIterator::ConstIterator(QCborValueConstRef it)', which
+      is called at the first use.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qcbormap-constiterator.html#ConstIterator
+
+      Parameters
+      ----------
+
+      it : QCborValueConstRef
+        Passed on as a value: Qt reads the C++ QCborValueConstRef, which
+        stays Python's own.
+      """
+      #  QCborMap::ConstIterator::ConstIterator(QCborValueConstRef it)
+      self._noteCreation(QCborMap.ConstIterator, lambda: Rituals.call(
+          'ritual_ZN8QCborMap13ConstIteratorC1E18QCborValueConstRef',
+          self._valueOf(it),
+      ))
+
     @overload()
     def __init__(self) -> None:
       """
@@ -690,10 +760,10 @@ class QCborMap(CuteMixin, metaclass=MetaCute):
     -----------
 
     Every function of Qt's QCborMap::Iterator that has a ritual and that
-    Python can call so far, 13 names in all: 'key', 'keyRef', 'value',
-    '__iadd__', '__isub__', '__add__', '__sub__', '__eq__', '__ne__',
-    '__lt__', '__gt__', '__le__', '__ge__'. It can be made from Python, in 2
-    ways; see '__init__'.
+    Python can call so far, 14 names in all: 'key', 'keyRef', 'value',
+    '__iadd__', '__isub__', '__add__', '__sub__', 'comparesEqual_helper',
+    '__eq__', '__ne__', '__lt__', '__gt__', '__le__', '__ge__'. It can be
+    made from Python, in 2 ways; see '__init__'.
 
     What has a ritual and is left out, and why
     ------------------------------------------
@@ -708,6 +778,18 @@ class QCborMap(CuteMixin, metaclass=MetaCute):
       Python has no name for.
     - Qt's 'Iterator QCborMap::Iterator::operator--(int a0)': an operator
       Python has no name for.
+    - Qt's 'bool QCborMap::Iterator::comparesEqual_helper(const Iterator
+      &lhs, const ConstIterator &rhs)': names 'QCborMap::ConstIterator',
+      which stands beside this class inside 'QCborMap' and cannot be named
+      from here.
+    - Qt's 'Qt::strong_ordering
+      QCborMap::Iterator::compareThreeWay_helper(const Iterator &lhs, const
+      Iterator &rhs)': gives 'Qt::strong_ordering', which has no cute class
+      yet.
+    - Qt's 'Qt::strong_ordering
+      QCborMap::Iterator::compareThreeWay_helper(const Iterator &lhs, const
+      ConstIterator &rhs)': names 'QCborMap::ConstIterator', which stands
+      beside this class inside 'QCborMap' and cannot be named from here.
     - Qt's 'bool operator==(const Iterator &lhs, const ConstIterator &rhs)':
       names 'QCborMap::ConstIterator', which stands beside this class inside
       'QCborMap' and cannot be named from here.
@@ -748,8 +830,8 @@ class QCborMap(CuteMixin, metaclass=MetaCute):
     What has no ritual
     ------------------
 
-    10 of the 43 functions Qt declares: 5 private; 5 takes or gives a type
-    that cannot be passed yet.
+    6 of the 43 functions Qt declares: 6 takes or gives a type that cannot be
+    passed yet.
 
     What to expect
     --------------
@@ -768,6 +850,37 @@ class QCborMap(CuteMixin, metaclass=MetaCute):
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    @staticmethod
+    @overload(THIS, THIS)
+    def comparesEqual_helper(
+        lhs: QCborMap.Iterator,
+        rhs: QCborMap.Iterator,
+    ) -> bool:
+      """
+      Calls Qt's 'bool QCborMap::Iterator::comparesEqual_helper(const
+      Iterator &lhs, const Iterator &rhs)'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qcbormap-iterator.html#comparesEqual_helper
+
+      Parameters
+      ----------
+
+      lhs : QCborMap.Iterator
+        Passed on as a value: Qt reads the C++ QCborMap::Iterator, which
+        stays Python's own.
+
+      rhs : QCborMap.Iterator
+        Passed on as a value: Qt reads the C++ QCborMap::Iterator, which
+        stays Python's own.
+      """
+      #  bool QCborMap::Iterator::comparesEqual_helper(const Iterator &lhs,
+      #      const Iterator &rhs)
+      return Rituals.call(
+          'ritual_ZN8QCborMap8Iterator20comparesEqual_helperERKS0_S2_',
+          CuteMixin._valueOf(lhs), CuteMixin._valueOf(rhs),
+      )
 
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1323,6 +1436,60 @@ class QCborMap(CuteMixin, metaclass=MetaCute):
         CuteMixin._valueOf(o),
     )
     return QCborMap._cuteOwning(address)
+
+  @staticmethod
+  @overload(THIS, QCborValue)
+  def comparesEqual_helper(lhs: QCborMap, rhs: QCborValue) -> bool:
+    """
+    Calls Qt's 'bool QCborMap::comparesEqual_helper(const QCborMap &lhs,
+    const QCborValue &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcbormap.html#comparesEqual_helper
+
+    Parameters
+    ----------
+
+    lhs : QCborMap
+      Passed on as a value: Qt reads the C++ QCborMap, which stays Python's
+      own.
+
+    rhs : QCborValue
+      Passed on as a value: Qt reads the C++ QCborValue, which stays Python's
+      own.
+    """
+    #  bool QCborMap::comparesEqual_helper(const QCborMap &lhs, const
+    #      QCborValue &rhs)
+    return Rituals.call(
+        'ritual_ZN8QCborMap20comparesEqual_helperERKS_RK10QCborValue',
+        CuteMixin._valueOf(lhs), CuteMixin._valueOf(rhs),
+    )
+
+  @staticmethod
+  @overload(THIS, QCborValueConstRef)
+  def comparesEqual_helper(lhs: QCborMap, rhs: QCborValueConstRef) -> bool:
+    """
+    Calls Qt's 'bool QCborMap::comparesEqual_helper(const QCborMap &lhs,
+    QCborValueConstRef rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcbormap.html#comparesEqual_helper
+
+    Parameters
+    ----------
+
+    lhs : QCborMap
+      Passed on as a value: Qt reads the C++ QCborMap, which stays Python's
+      own.
+
+    rhs : QCborValueConstRef
+      Passed on as a value: Qt reads the C++ QCborValueConstRef, which stays
+      Python's own.
+    """
+    #  bool QCborMap::comparesEqual_helper(const QCborMap &lhs,
+    #      QCborValueConstRef rhs)
+    return Rituals.call(
+        'ritual_ZN8QCborMap20comparesEqual_helperERKS_18QCborValueConstRef',
+        CuteMixin._valueOf(lhs), CuteMixin._valueOf(rhs),
+    )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -2479,3 +2646,20 @@ class QCborMap(CuteMixin, metaclass=MetaCute):
     )
     from . import QCborValue
     return QCborValue._cuteOwning(address)
+
+  @overload()
+  @overload(int)
+  def detach(self, reserve: int = 0) -> None:
+    """
+    Calls Qt's 'void QCborMap::detach(qsizetype reserve)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcbormap.html#detach
+
+    Parameters
+    ----------
+
+    reserve : int
+      Passed on as it is. May be left out, as in Qt: it is then 0.
+    """
+    #  void QCborMap::detach(qsizetype reserve)
+    self.uglySide.call('ritual_ZN8QCborMap6detachEx', reserve)

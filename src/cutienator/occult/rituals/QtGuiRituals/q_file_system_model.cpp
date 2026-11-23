@@ -1159,6 +1159,22 @@ bool ritual_ZN16QFileSystemModel6removeERK11QModelIndex(
   return self->remove(*index);
 }
 
+//  void QFileSystemModel::timerEvent(QTimerEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QFileSystemModel10timerEventEP11QTimerEvent(
+    QFileSystemModel *self,
+    QTimerEvent *event) {
+  self->timerEvent(event);
+}
+
+//  bool QFileSystemModel::event(QEvent *event)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN16QFileSystemModel5eventEP6QEvent(
+    QFileSystemModel *self,
+    QEvent *event) {
+  return self->event(event);
+}
+
 //  a Python function taken by a CuteQFileSystemModel, for the function named
 //      by the key
 extern "C" Q_DECL_EXPORT

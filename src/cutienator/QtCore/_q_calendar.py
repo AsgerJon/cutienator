@@ -58,8 +58,8 @@ class QCalendar(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  3 of the 35 functions Qt declares: 1 declared and nowhere to be found; 1 a
-  template; 1 private.
+  3 of the 35 functions Qt declares: 2 declared and nowhere to be found; 1 a
+  template.
 
   What to expect
   --------------
@@ -107,20 +107,22 @@ class QCalendar(CuteMixin, metaclass=MetaCute):
     -----------
 
     Every function of Qt's QCalendar::SystemId that has a ritual and that
-    Python can call so far, 1 name in all: 'isValid'. It can be made from
-    Python, in 1 way; see '__init__'.
+    Python can call so far, 2 names in all: 'isInEnum', 'isValid'. It can be
+    made from Python, in 2 ways; see '__init__'.
 
     What has a ritual and is left out, and why
     ------------------------------------------
 
+    - Qt's 'QCalendar::SystemId::SystemId(QCalendar::System e)': names the
+      enum 'QCalendar::System', whose class cannot be named here.
     - Qt's 'QCalendar::SystemId::~SystemId()': the destructor: Python removes
       its C++ QCalendar::SystemId by it, and has no other use for it.
 
     What has no ritual
     ------------------
 
-    4 of the 7 functions Qt declares: 3 private; 1 takes or gives a type that
-    cannot be passed yet.
+    1 of the 7 functions Qt declares: 1 takes or gives a type that cannot be
+    passed yet.
 
     What to expect
     --------------
@@ -165,6 +167,15 @@ class QCalendar(CuteMixin, metaclass=MetaCute):
     #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+    def isInEnum(self) -> bool:
+      """
+      Calls Qt's 'bool QCalendar::SystemId::isInEnum() const'.
+
+      Qt's own words: https://doc.qt.io/qt-6/qcalendar-systemid.html#isInEnum
+      """
+      #  bool QCalendar::SystemId::isInEnum() const
+      return self.uglySide.call('ritual_ZNK9QCalendar8SystemId8isInEnumEv')
+
     def isValid(self) -> bool:
       """
       Calls Qt's 'bool QCalendar::SystemId::isValid() const'.
@@ -189,6 +200,25 @@ class QCalendar(CuteMixin, metaclass=MetaCute):
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    @overload(int)
+    def __init__(self, i: int) -> None:
+      """
+      Notes what was given, for Qt's 'QCalendar::SystemId::SystemId(size_t
+      i)', which is called at the first use.
+
+      Qt's own words: https://doc.qt.io/qt-6/qcalendar-systemid.html#SystemId
+
+      Parameters
+      ----------
+
+      i : int
+        Passed on as it is.
+      """
+      #  QCalendar::SystemId::SystemId(size_t i)
+      self._noteCreation(QCalendar.SystemId, lambda: Rituals.call(
+          'ritual_ZN9QCalendar8SystemIdC1Em', i,
+      ))
 
     @overload()
     def __init__(self) -> None:

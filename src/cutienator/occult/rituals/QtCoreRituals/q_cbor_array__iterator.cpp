@@ -2,6 +2,7 @@
 //  QtCore/qcborarray.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qcborarray.h>
 #include <QtCore/qcborvalue.h>
+#include <QtCore/qcompare.h>
 
 //  QCborArray::Iterator::Iterator()
 extern "C" Q_DECL_EXPORT
@@ -99,6 +100,48 @@ qsizetype ritual_ZNK10QCborArray8IteratormiES0_(
     const QCborArray::Iterator *self,
     const QCborArray::Iterator *j) {
   return self->operator-(*j);
+}
+
+//  bool QCborArray::Iterator::comparesEqual_helper(const Iterator &lhs,
+//      const Iterator &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN10QCborArray8Iterator20comparesEqual_helperERKS0_S2_(
+    const QCborArray::Iterator *lhs,
+    const QCborArray::Iterator *rhs) {
+  return QCborArray::Iterator::comparesEqual_helper(*lhs, *rhs);
+}
+
+//  bool QCborArray::Iterator::comparesEqual_helper(const Iterator &lhs,
+//      const ConstIterator &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN10QCborArray8Iterator20comparesEqual_helperERKS0_RKNS_13ConstIteratorE(
+    const QCborArray::Iterator *lhs,
+    const QCborArray::ConstIterator *rhs) {
+  return QCborArray::Iterator::comparesEqual_helper(*lhs, *rhs);
+}
+
+//  Qt::strong_ordering QCborArray::Iterator::compareThreeWay_helper(const
+//      Iterator &lhs, const Iterator &rhs)
+extern "C" Q_DECL_EXPORT
+Qt::strong_ordering *ritual_ZN10QCborArray8Iterator22compareThreeWay_helperERKS0_S2_(
+    const QCborArray::Iterator *lhs,
+    const QCborArray::Iterator *rhs) {
+  return new Qt::strong_ordering(
+      QCborArray::Iterator::compareThreeWay_helper(
+          *lhs,
+          *rhs));
+}
+
+//  Qt::strong_ordering QCborArray::Iterator::compareThreeWay_helper(const
+//      Iterator &lhs, const ConstIterator &rhs)
+extern "C" Q_DECL_EXPORT
+Qt::strong_ordering *ritual_ZN10QCborArray8Iterator22compareThreeWay_helperERKS0_RKNS_13ConstIteratorE(
+    const QCborArray::Iterator *lhs,
+    const QCborArray::ConstIterator *rhs) {
+  return new Qt::strong_ordering(
+      QCborArray::Iterator::compareThreeWay_helper(
+          *lhs,
+          *rhs));
 }
 
 //  bool operator==(const Iterator &lhs, const Iterator &rhs)

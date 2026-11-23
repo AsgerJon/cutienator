@@ -5,6 +5,8 @@
 #include <QtCore/qvariant.h>
 #include <QtCore/qsize.h>
 #include <QtCore/qbytearray.h>
+#include <QtCore/qcompare.h>
+#include <QtCore/qcollator.h>
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <QtCore/qmap.h>
@@ -1182,6 +1184,228 @@ bool ritual_ZN18QAbstractItemModel6submitEv(QAbstractItemModel *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18QAbstractItemModel6revertEv(QAbstractItemModel *self) {
   self->revert();
+}
+
+//  void QAbstractItemModel::resetInternalData()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QAbstractItemModel17resetInternalDataEv(
+    QAbstractItemModel *self) {
+  self->resetInternalData();
+}
+
+//  QModelIndex QAbstractItemModel::createIndex(int row, int column, quintptr
+//      id) const
+extern "C" Q_DECL_EXPORT
+QModelIndex *ritual_ZNK18QAbstractItemModel11createIndexEiiy(
+    const QAbstractItemModel *self,
+    int row,
+    int column,
+    quintptr id) {
+  return new QModelIndex(self->createIndex(row, column, id));
+}
+
+//  void QAbstractItemModel::beginInsertRows(const QModelIndex &parent, int
+//      first, int last)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QAbstractItemModel15beginInsertRowsERK11QModelIndexii(
+    QAbstractItemModel *self,
+    const QModelIndex *parent,
+    int first,
+    int last) {
+  self->beginInsertRows(*parent, first, last);
+}
+
+//  void QAbstractItemModel::endInsertRows()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QAbstractItemModel13endInsertRowsEv(
+    QAbstractItemModel *self) {
+  self->endInsertRows();
+}
+
+//  void QAbstractItemModel::beginRemoveRows(const QModelIndex &parent, int
+//      first, int last)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QAbstractItemModel15beginRemoveRowsERK11QModelIndexii(
+    QAbstractItemModel *self,
+    const QModelIndex *parent,
+    int first,
+    int last) {
+  self->beginRemoveRows(*parent, first, last);
+}
+
+//  void QAbstractItemModel::endRemoveRows()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QAbstractItemModel13endRemoveRowsEv(
+    QAbstractItemModel *self) {
+  self->endRemoveRows();
+}
+
+//  bool QAbstractItemModel::beginMoveRows(const QModelIndex &sourceParent,
+//      int sourceFirst, int sourceLast, const QModelIndex
+//      &destinationParent, int destinationRow)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN18QAbstractItemModel13beginMoveRowsERK11QModelIndexiiS2_i(
+    QAbstractItemModel *self,
+    const QModelIndex *sourceParent,
+    int sourceFirst,
+    int sourceLast,
+    const QModelIndex *destinationParent,
+    int destinationRow) {
+  return self->beginMoveRows(
+      *sourceParent,
+      sourceFirst,
+      sourceLast,
+      *destinationParent,
+      destinationRow);
+}
+
+//  void QAbstractItemModel::endMoveRows()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QAbstractItemModel11endMoveRowsEv(QAbstractItemModel *self) {
+  self->endMoveRows();
+}
+
+//  void QAbstractItemModel::beginInsertColumns(const QModelIndex &parent,
+//      int first, int last)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QAbstractItemModel18beginInsertColumnsERK11QModelIndexii(
+    QAbstractItemModel *self,
+    const QModelIndex *parent,
+    int first,
+    int last) {
+  self->beginInsertColumns(*parent, first, last);
+}
+
+//  void QAbstractItemModel::endInsertColumns()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QAbstractItemModel16endInsertColumnsEv(
+    QAbstractItemModel *self) {
+  self->endInsertColumns();
+}
+
+//  void QAbstractItemModel::beginRemoveColumns(const QModelIndex &parent,
+//      int first, int last)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QAbstractItemModel18beginRemoveColumnsERK11QModelIndexii(
+    QAbstractItemModel *self,
+    const QModelIndex *parent,
+    int first,
+    int last) {
+  self->beginRemoveColumns(*parent, first, last);
+}
+
+//  void QAbstractItemModel::endRemoveColumns()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QAbstractItemModel16endRemoveColumnsEv(
+    QAbstractItemModel *self) {
+  self->endRemoveColumns();
+}
+
+//  bool QAbstractItemModel::beginMoveColumns(const QModelIndex
+//      &sourceParent, int sourceFirst, int sourceLast, const QModelIndex
+//      &destinationParent, int destinationColumn)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN18QAbstractItemModel16beginMoveColumnsERK11QModelIndexiiS2_i(
+    QAbstractItemModel *self,
+    const QModelIndex *sourceParent,
+    int sourceFirst,
+    int sourceLast,
+    const QModelIndex *destinationParent,
+    int destinationColumn) {
+  return self->beginMoveColumns(
+      *sourceParent,
+      sourceFirst,
+      sourceLast,
+      *destinationParent,
+      destinationColumn);
+}
+
+//  void QAbstractItemModel::endMoveColumns()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QAbstractItemModel14endMoveColumnsEv(
+    QAbstractItemModel *self) {
+  self->endMoveColumns();
+}
+
+//  void QAbstractItemModel::beginResetModel()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QAbstractItemModel15beginResetModelEv(
+    QAbstractItemModel *self) {
+  self->beginResetModel();
+}
+
+//  void QAbstractItemModel::endResetModel()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QAbstractItemModel13endResetModelEv(
+    QAbstractItemModel *self) {
+  self->endResetModel();
+}
+
+//  void QAbstractItemModel::changePersistentIndex(const QModelIndex &from,
+//      const QModelIndex &to)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QAbstractItemModel21changePersistentIndexERK11QModelIndexS2_(
+    QAbstractItemModel *self,
+    const QModelIndex *from,
+    const QModelIndex *to) {
+  self->changePersistentIndex(*from, *to);
+}
+
+//  void QAbstractItemModel::changePersistentIndexList(const QModelIndexList
+//      &from, const QModelIndexList &to)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QAbstractItemModel25changePersistentIndexListERK5QListI11QModelIndexES4_(
+    QAbstractItemModel *self,
+    const QList<QModelIndex> *from,
+    const QList<QModelIndex> *to) {
+  self->changePersistentIndexList(*from, *to);
+}
+
+//  QModelIndexList QAbstractItemModel::persistentIndexList() const
+extern "C" Q_DECL_EXPORT
+QList<QModelIndex> *ritual_ZNK18QAbstractItemModel19persistentIndexListEv(
+    const QAbstractItemModel *self) {
+  return new QList<QModelIndex>(self->persistentIndexList());
+}
+
+//  Qt::weak_ordering QAbstractItemModel::compareData(const QVariant &left,
+//      const QVariant &right)
+extern "C" Q_DECL_EXPORT
+Qt::weak_ordering *ritual_ZN18QAbstractItemModel11compareDataERK8QVariantS2_(
+    const QVariant *left,
+    const QVariant *right) {
+  return new Qt::weak_ordering(
+      QAbstractItemModel::compareData(
+          *left,
+          *right));
+}
+
+//  Qt::weak_ordering QAbstractItemModel::compareData(const QVariant &left,
+//      const QVariant &right, const QCollator &collator)
+extern "C" Q_DECL_EXPORT
+Qt::weak_ordering *ritual_ZN18QAbstractItemModel11compareDataERK8QVariantS2_RK9QCollator(
+    const QVariant *left,
+    const QVariant *right,
+    const QCollator *collator) {
+  return new Qt::weak_ordering(
+      QAbstractItemModel::compareData(
+          *left,
+          *right,
+          *collator));
+}
+
+//  Qt::weak_ordering QAbstractItemModel::compareDataImpl(const QVariant
+//      &left, const QVariant &right, const QCollator *collator)
+extern "C" Q_DECL_EXPORT
+Qt::weak_ordering *ritual_ZN18QAbstractItemModel15compareDataImplERK8QVariantS2_PK9QCollator(
+    const QVariant *left,
+    const QVariant *right,
+    const QCollator *collator) {
+  return new Qt::weak_ordering(
+      QAbstractItemModel::compareDataImpl(
+          *left,
+          *right,
+          collator));
 }
 
 //  a Python function taken by a CuteQAbstractItemModel, for the function

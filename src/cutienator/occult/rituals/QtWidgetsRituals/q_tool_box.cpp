@@ -997,6 +997,38 @@ void ritual_ZN8QToolBox16setCurrentWidgetEP7QWidget(
   self->setCurrentWidget(widget);
 }
 
+//  bool QToolBox::event(QEvent *e)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN8QToolBox5eventEP6QEvent(QToolBox *self, QEvent *e) {
+  return self->event(e);
+}
+
+//  void QToolBox::itemInserted(int index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QToolBox12itemInsertedEi(QToolBox *self, int index) {
+  self->itemInserted(index);
+}
+
+//  void QToolBox::itemRemoved(int index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QToolBox11itemRemovedEi(QToolBox *self, int index) {
+  self->itemRemoved(index);
+}
+
+//  void QToolBox::showEvent(QShowEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QToolBox9showEventEP10QShowEvent(
+    QToolBox *self,
+    QShowEvent *e) {
+  self->showEvent(e);
+}
+
+//  void QToolBox::changeEvent(QEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QToolBox11changeEventEP6QEvent(QToolBox *self, QEvent *a0) {
+  self->changeEvent(a0);
+}
+
 //  a Python function taken by a CuteQToolBox, for the function named by the
 //      key
 extern "C" Q_DECL_EXPORT

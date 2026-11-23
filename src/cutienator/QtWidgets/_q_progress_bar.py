@@ -66,8 +66,9 @@ class QProgressBar(QWidget):
   What has no ritual
   ------------------
 
-  9 of the 40 functions Qt declares: 3 private; 2 takes or gives a type that
-  cannot be passed yet; 2 forbidden; 1 a template; 1 a signal.
+  9 of the 40 functions Qt declares: 4 takes or gives a type that cannot be
+  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found;
+  1 a signal.
 
   What to expect
   --------------
@@ -655,9 +656,10 @@ class QProgressBar(QWidget):
       object.
     """
     #  bool QProgressBar::event(QEvent *e)
-    return self.uglySide.call(
-        'ritual_own_ZN12QProgressBar5eventEP6QEvent', self._addressOf(e),
-    )
+    ritual = 'ritual_ZN12QProgressBar5eventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN12QProgressBar5eventEP6QEvent'
+    return self.uglySide.call(ritual, self._addressOf(e))
 
   @overload(QPaintEvent)
   @overload(NoneType)
@@ -675,10 +677,10 @@ class QProgressBar(QWidget):
       object.
     """
     #  void QProgressBar::paintEvent(QPaintEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN12QProgressBar10paintEventEP11QPaintEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN12QProgressBar10paintEventEP11QPaintEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN12QProgressBar10paintEventEP11QPaintEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QStyleOptionProgressBar)
   @overload(NoneType)
@@ -701,8 +703,11 @@ class QProgressBar(QWidget):
     """
     #  void QProgressBar::initStyleOption(QStyleOptionProgressBar *option)
     #      const
-    self.uglySide.call(
-        'ritual_own_ZNK12QProgressBar15initStyleOptionEP23QStyleOptionProgr'
-        'essBar',
-        self._addressOf(option),
-    )
+    ritual = (
+        'ritual_ZNK12QProgressBar15initStyleOptionEP23QStyleOptionProgressB'
+        'ar')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK12QProgressBar15initStyleOptionEP23QStyleOptionPro'
+          'gressBar')
+    self.uglySide.call(ritual, self._addressOf(option))

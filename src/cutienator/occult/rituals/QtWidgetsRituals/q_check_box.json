@@ -19,6 +19,21 @@
     "ritual_ZN9QCheckBox13setCheckStateEN2Qt10CheckStateE": [
       "nothing", "address", "int"
     ],
+    "ritual_ZN9QCheckBox5eventEP6QEvent": ["bool", "address", "address"],
+    "ritual_ZNK9QCheckBox9hitButtonERK6QPoint": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN9QCheckBox13checkStateSetEv": ["nothing", "address"],
+    "ritual_ZN9QCheckBox14nextCheckStateEv": ["nothing", "address"],
+    "ritual_ZN9QCheckBox10paintEventEP11QPaintEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QCheckBox14mouseMoveEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9QCheckBox15initStyleOptionEP18QStyleOptionButton": [
+      "nothing", "address", "address"
+    ],
     "ritual_take_QCheckBox": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK9QCheckBox8sizeHintEv": ["address", "address"],
     "ritual_own_ZNK9QCheckBox15minimumSizeHintEv": ["address", "address"],

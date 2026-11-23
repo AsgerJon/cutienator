@@ -5,6 +5,8 @@
     "lost."
   ],
   "rows": {
+    "ritual_ZN21QOpenGLExtraFunctions6d_funcEv": ["address", "address"],
+    "ritual_ZNK21QOpenGLExtraFunctions6d_funcEv": ["address", "address"],
     "ritual_ZN21QOpenGLExtraFunctionsC1Ev": ["address"],
     "ritual_ZN21QOpenGLExtraFunctionsC1EP14QOpenGLContext": [
       "address", "address"
@@ -252,6 +254,9 @@
     "ritual_ZN21QOpenGLExtraFunctions25glTexStorage3DMultisampleEjijiiih": [
       "nothing", "address", "unsigned int", "int", "unsigned int", "int",
       "int", "int", "unsigned char"
+    ],
+    "ritual_ZN21QOpenGLExtraFunctions13isInitializedEPK28QOpenGLExtraFunctionsPrivate": [
+      "bool", "address"
     ]
   }
 }

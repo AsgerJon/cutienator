@@ -923,6 +923,22 @@ void ritual_ZNK18QCommandLinkButton15initStyleOptionEP18QStyleOptionButton(
   self->initStyleOption(option);
 }
 
+//  bool QCommandLinkButton::event(QEvent *e)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN18QCommandLinkButton5eventEP6QEvent(
+    QCommandLinkButton *self,
+    QEvent *e) {
+  return self->event(e);
+}
+
+//  void QCommandLinkButton::paintEvent(QPaintEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QCommandLinkButton10paintEventEP11QPaintEvent(
+    QCommandLinkButton *self,
+    QPaintEvent *a0) {
+  self->paintEvent(a0);
+}
+
 //  a Python function taken by a CuteQCommandLinkButton, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT

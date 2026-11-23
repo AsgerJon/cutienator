@@ -71,8 +71,7 @@ class QIcon(CuteMixin, metaclass=MetaCute):
   ------------------
 
   12 of the 52 functions Qt declares: 7 takes or gives a type that cannot be
-  passed yet; 2 forbidden; 1 declared and nowhere to be found; 1 a template;
-  1 private.
+  passed yet; 2 declared and nowhere to be found; 2 forbidden; 1 a template.
 
   What to expect
   --------------

@@ -48,7 +48,7 @@ class QCborValueConstRef(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QCborValueConstRef that has a ritual and that Python
-  can call so far, 45 names in all: 'type', 'isInteger', 'isByteArray',
+  can call so far, 54 names in all: 'type', 'isInteger', 'isByteArray',
   'isString', 'isArray', 'isMap', 'isTag', 'isFalse', 'isTrue', 'isBool',
   'isNull', 'isUndefined', 'isDouble', 'isDateTime', 'isUrl',
   'isRegularExpression', 'isUuid', 'isInvalid', 'isContainer',
@@ -56,8 +56,11 @@ class QCborValueConstRef(CuteMixin, metaclass=MetaCute):
   'toByteArray', 'toString', 'toStringView', 'toDateTime', 'toUrl',
   'toRegularExpression', 'toUuid', 'toArray', 'toMap', '__getitem__',
   'compare', 'toVariant', 'toJsonValue', 'toCbor', 'toDiagnosticNotation',
-  '__eq__', '__ne__', '__lt__', '__gt__', '__le__', '__ge__'. It can be made
-  from Python, in 1 way; see '__init__'.
+  'concrete', 'comparesEqual_helper', '__eq__', '__ne__', '__lt__', '__gt__',
+  '__le__', '__ge__', 'concreteType', 'concreteBoolean', 'concreteDouble',
+  'concreteIntegral', 'concreteByteArray', 'concreteString',
+  'concreteStringView'. It can be made from Python, in 2 ways; see
+  '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -71,6 +74,14 @@ class QCborValueConstRef(CuteMixin, metaclass=MetaCute):
     cannot be named here.
   - Qt's 'QCborTag QCborValueConstRef::tag(QCborTag defaultValue) const':
     names the enum 'QCborTag', whose class cannot be named here.
+  - Qt's 'Qt::strong_ordering
+    QCborValueConstRef::compareThreeWay_helper(QCborValueConstRef lhs,
+    QCborValueConstRef rhs)': gives 'Qt::strong_ordering', which has no cute
+    class yet.
+  - Qt's 'Qt::strong_ordering
+    QCborValueConstRef::compareThreeWay_helper(QCborValueConstRef lhs, const
+    QCborValue &rhs)': gives 'Qt::strong_ordering', which has no cute class
+    yet.
   - Qt's 'bool operator==(const QCborValue &lhs, const QCborValueConstRef
     &rhs)': takes in Python what 'bool operator==(const QCborValueConstRef
     &lhs, const QCborValue &rhs)' takes.
@@ -95,8 +106,8 @@ class QCborValueConstRef(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  17 of the 84 functions Qt declares: 15 protected; 1 forbidden; 1 takes or
-  gives a type that cannot be passed yet.
+  3 of the 84 functions Qt declares: 2 takes or gives a type that cannot be
+  passed yet; 1 forbidden.
 
   What to expect
   --------------
@@ -115,6 +126,291 @@ class QCborValueConstRef(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  @overload(THIS, THIS)
+  def comparesEqual_helper(
+      lhs: QCborValueConstRef,
+      rhs: QCborValueConstRef,
+  ) -> bool:
+    """
+    Calls Qt's 'bool
+    QCborValueConstRef::comparesEqual_helper(QCborValueConstRef lhs,
+    QCborValueConstRef rhs)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qcborvalueconstref.html#comparesEqual_helper
+
+    Parameters
+    ----------
+
+    lhs : QCborValueConstRef
+      Passed on as a value: Qt reads the C++ QCborValueConstRef, which stays
+      Python's own.
+
+    rhs : QCborValueConstRef
+      Passed on as a value: Qt reads the C++ QCborValueConstRef, which stays
+      Python's own.
+    """
+    #  bool QCborValueConstRef::comparesEqual_helper(QCborValueConstRef lhs,
+    #      QCborValueConstRef rhs)
+    return Rituals.call(
+        'ritual_ZN18QCborValueConstRef20comparesEqual_helperES_S_',
+        CuteMixin._valueOf(lhs), CuteMixin._valueOf(rhs),
+    )
+
+  @staticmethod
+  @overload(THIS, QCborValue)
+  def comparesEqual_helper(lhs: QCborValueConstRef, rhs: QCborValue) -> bool:
+    """
+    Calls Qt's 'bool
+    QCborValueConstRef::comparesEqual_helper(QCborValueConstRef lhs, const
+    QCborValue &rhs)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qcborvalueconstref.html#comparesEqual_helper
+
+    Parameters
+    ----------
+
+    lhs : QCborValueConstRef
+      Passed on as a value: Qt reads the C++ QCborValueConstRef, which stays
+      Python's own.
+
+    rhs : QCborValue
+      Passed on as a value: Qt reads the C++ QCborValue, which stays Python's
+      own.
+    """
+    #  bool QCborValueConstRef::comparesEqual_helper(QCborValueConstRef lhs,
+    #      const QCborValue &rhs)
+    return Rituals.call(
+        'ritual_ZN18QCborValueConstRef20comparesEqual_helperES_RK10QCborVal'
+        'ue',
+        CuteMixin._valueOf(lhs), CuteMixin._valueOf(rhs),
+    )
+
+  @staticmethod
+  @overload(THIS)
+  def concreteType(that: QCborValueConstRef) -> QCborValue.Type:
+    """
+    Calls Qt's 'QCborValue::Type
+    QCborValueConstRef::concreteType(QCborValueConstRef that)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qcborvalueconstref.html#concreteType
+
+    Parameters
+    ----------
+
+    that : QCborValueConstRef
+      Passed on as a value: Qt reads the C++ QCborValueConstRef, which stays
+      Python's own.
+
+    Returns
+    -------
+
+    QCborValue.Type
+      The member standing for the number Qt gave back. For a number Qt gives
+      no name it is the member without a name that 'QCborValue.Type(number)'
+      gives.
+    """
+    #  QCborValue::Type QCborValueConstRef::concreteType(QCborValueConstRef
+    #      that)
+    return QCborValue.Type(Rituals.call(
+        'ritual_ZN18QCborValueConstRef12concreteTypeES_',
+        CuteMixin._valueOf(that),
+    ))
+
+  @staticmethod
+  @overload(THIS, bool)
+  def concreteBoolean(that: QCborValueConstRef, defaultValue: bool) -> bool:
+    """
+    Calls Qt's 'bool QCborValueConstRef::concreteBoolean(QCborValueConstRef
+    that, bool defaultValue)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qcborvalueconstref.html#concreteBoolean
+
+    Parameters
+    ----------
+
+    that : QCborValueConstRef
+      Passed on as a value: Qt reads the C++ QCborValueConstRef, which stays
+      Python's own.
+
+    defaultValue : bool
+      Passed on as it is.
+    """
+    #  bool QCborValueConstRef::concreteBoolean(QCborValueConstRef that, bool
+    #      defaultValue)
+    return Rituals.call(
+        'ritual_ZN18QCborValueConstRef15concreteBooleanES_b',
+        CuteMixin._valueOf(that), defaultValue,
+    )
+
+  @staticmethod
+  @overload(THIS, float)
+  def concreteDouble(that: QCborValueConstRef, defaultValue: float) -> float:
+    """
+    Calls Qt's 'double QCborValueConstRef::concreteDouble(QCborValueConstRef
+    that, double defaultValue)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qcborvalueconstref.html#concreteDouble
+
+    Parameters
+    ----------
+
+    that : QCborValueConstRef
+      Passed on as a value: Qt reads the C++ QCborValueConstRef, which stays
+      Python's own.
+
+    defaultValue : float
+      Passed on as it is.
+    """
+    #  double QCborValueConstRef::concreteDouble(QCborValueConstRef that,
+    #      double defaultValue)
+    return Rituals.call(
+        'ritual_ZN18QCborValueConstRef14concreteDoubleES_d',
+        CuteMixin._valueOf(that), defaultValue,
+    )
+
+  @staticmethod
+  @overload(THIS, int)
+  def concreteIntegral(that: QCborValueConstRef, defaultValue: int) -> int:
+    """
+    Calls Qt's 'qint64
+    QCborValueConstRef::concreteIntegral(QCborValueConstRef that, qint64
+    defaultValue)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qcborvalueconstref.html#concreteIntegral
+
+    Parameters
+    ----------
+
+    that : QCborValueConstRef
+      Passed on as a value: Qt reads the C++ QCborValueConstRef, which stays
+      Python's own.
+
+    defaultValue : int
+      Passed on as it is.
+    """
+    #  qint64 QCborValueConstRef::concreteIntegral(QCborValueConstRef that,
+    #      qint64 defaultValue)
+    return Rituals.call(
+        'ritual_ZN18QCborValueConstRef16concreteIntegralES_x',
+        CuteMixin._valueOf(that), defaultValue,
+    )
+
+  @staticmethod
+  @overload(THIS, QByteArray)
+  def concreteByteArray(
+      that: QCborValueConstRef,
+      defaultValue: QByteArray,
+  ) -> QByteArray:
+    """
+    Calls Qt's 'QByteArray
+    QCborValueConstRef::concreteByteArray(QCborValueConstRef that, const
+    QByteArray &defaultValue)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qcborvalueconstref.html#concreteByteArray
+
+    Parameters
+    ----------
+
+    that : QCborValueConstRef
+      Passed on as a value: Qt reads the C++ QCborValueConstRef, which stays
+      Python's own.
+
+    defaultValue : QByteArray
+      Passed on as a value: Qt reads the C++ QByteArray, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QByteArray
+      A new cute QByteArray around the copy Qt gave back. Python owns it.
+    """
+    #  QByteArray QCborValueConstRef::concreteByteArray(QCborValueConstRef
+    #      that, const QByteArray &defaultValue)
+    address = Rituals.call(
+        'ritual_ZN18QCborValueConstRef17concreteByteArrayES_RK10QByteArray',
+        CuteMixin._valueOf(that), CuteMixin._valueOf(defaultValue),
+    )
+    from . import QByteArray
+    return QByteArray._cuteOwning(address)
+
+  @staticmethod
+  @overload(THIS, str)
+  def concreteString(that: QCborValueConstRef, defaultValue: str) -> str:
+    """
+    Calls Qt's 'QString QCborValueConstRef::concreteString(QCborValueConstRef
+    that, const QString &defaultValue)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qcborvalueconstref.html#concreteString
+
+    Parameters
+    ----------
+
+    that : QCborValueConstRef
+      Passed on as a value: Qt reads the C++ QCborValueConstRef, which stays
+      Python's own.
+
+    defaultValue : str
+      Passed on as it is: a QString is made of it for the call.
+
+    Returns
+    -------
+
+    str
+      The text Qt gave back.
+    """
+    #  QString QCborValueConstRef::concreteString(QCborValueConstRef that,
+    #      const QString &defaultValue)
+    return Rituals.call(
+        'ritual_ZN18QCborValueConstRef14concreteStringES_RK7QString',
+        CuteMixin._valueOf(that), defaultValue,
+    )
+
+  @staticmethod
+  @overload(THIS, str)
+  def concreteStringView(that: QCborValueConstRef, defaultValue: str) -> str:
+    """
+    Calls Qt's 'QAnyStringView
+    QCborValueConstRef::concreteStringView(QCborValueConstRef that,
+    QAnyStringView defaultValue)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qcborvalueconstref.html#concreteStringView
+
+    Parameters
+    ----------
+
+    that : QCborValueConstRef
+      Passed on as a value: Qt reads the C++ QCborValueConstRef, which stays
+      Python's own.
+
+    defaultValue : str
+      Passed on as it is: a QString is made of it for the call.
+
+    Returns
+    -------
+
+    str
+      The text Qt gave back.
+    """
+    #  QAnyStringView
+    #      QCborValueConstRef::concreteStringView(QCborValueConstRef that,
+    #      QAnyStringView defaultValue)
+    return Rituals.call(
+        'ritual_ZN18QCborValueConstRef18concreteStringViewES_14QAnyStringVi'
+        'ew',
+        CuteMixin._valueOf(that), defaultValue,
+    )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -905,6 +1201,52 @@ class QCborValueConstRef(CuteMixin, metaclass=MetaCute):
         opt.value,
     )
 
+  @overload()
+  def concrete(self) -> QCborValue:
+    """
+    Calls Qt's 'QCborValue QCborValueConstRef::concrete() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcborvalueconstref.html#concrete
+
+    Returns
+    -------
+
+    QCborValue
+      A new cute QCborValue around the copy Qt gave back. Python owns it.
+    """
+    #  QCborValue QCborValueConstRef::concrete() const
+    address = self.uglySide.call('ritual_ZNK18QCborValueConstRef8concreteEv')
+    return QCborValue._cuteOwning(address)
+
+  @staticmethod
+  @overload(THIS)
+  def concrete(that: QCborValueConstRef) -> QCborValue:
+    """
+    Calls Qt's 'QCborValue QCborValueConstRef::concrete(QCborValueConstRef
+    that)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcborvalueconstref.html#concrete
+
+    Parameters
+    ----------
+
+    that : QCborValueConstRef
+      Passed on as a value: Qt reads the C++ QCborValueConstRef, which stays
+      Python's own.
+
+    Returns
+    -------
+
+    QCborValue
+      A new cute QCborValue around the copy Qt gave back. Python owns it.
+    """
+    #  QCborValue QCborValueConstRef::concrete(QCborValueConstRef that)
+    address = Rituals.call(
+        'ritual_ZN18QCborValueConstRef8concreteES_',
+        CuteMixin._valueOf(that),
+    )
+    return QCborValue._cuteOwning(address)
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1333,6 +1675,21 @@ class QCborValueConstRef(CuteMixin, metaclass=MetaCute):
     #  QCborValueConstRef::QCborValueConstRef(const QCborValueConstRef &a0)
     self._noteCreation(QCborValueConstRef, lambda: Rituals.call(
         'ritual_ZN18QCborValueConstRefC1ERKS_', self._valueOf(a0),
+    ))
+
+  @overload()
+  def __init__(self) -> None:
+    """
+    Notes what was given, for Qt's
+    'QCborValueConstRef::QCborValueConstRef()', which is called at the first
+    use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qcborvalueconstref.html#QCborValueConstRef
+    """
+    #  QCborValueConstRef::QCborValueConstRef()
+    self._noteCreation(QCborValueConstRef, lambda: Rituals.call(
+        'ritual_ZN18QCborValueConstRefC1Ev',
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

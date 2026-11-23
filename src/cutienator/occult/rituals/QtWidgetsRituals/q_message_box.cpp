@@ -1566,6 +1566,52 @@ QPixmap *ritual_ZN11QMessageBox12standardIconENS_4IconE(
   return new QPixmap(QMessageBox::standardIcon(icon));
 }
 
+//  bool QMessageBox::event(QEvent *e)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN11QMessageBox5eventEP6QEvent(QMessageBox *self, QEvent *e) {
+  return self->event(e);
+}
+
+//  void QMessageBox::resizeEvent(QResizeEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QMessageBox11resizeEventEP12QResizeEvent(
+    QMessageBox *self,
+    QResizeEvent *event) {
+  self->resizeEvent(event);
+}
+
+//  void QMessageBox::showEvent(QShowEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QMessageBox9showEventEP10QShowEvent(
+    QMessageBox *self,
+    QShowEvent *event) {
+  self->showEvent(event);
+}
+
+//  void QMessageBox::closeEvent(QCloseEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QMessageBox10closeEventEP11QCloseEvent(
+    QMessageBox *self,
+    QCloseEvent *event) {
+  self->closeEvent(event);
+}
+
+//  void QMessageBox::keyPressEvent(QKeyEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QMessageBox13keyPressEventEP9QKeyEvent(
+    QMessageBox *self,
+    QKeyEvent *event) {
+  self->keyPressEvent(event);
+}
+
+//  void QMessageBox::changeEvent(QEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QMessageBox11changeEventEP6QEvent(
+    QMessageBox *self,
+    QEvent *event) {
+  self->changeEvent(event);
+}
+
 //  a Python function taken by a CuteQMessageBox, for the function named by
 //      the key
 extern "C" Q_DECL_EXPORT

@@ -15,6 +15,19 @@
       "nothing", "address", "address"
     ],
     "ritual_ZN18QPaintDeviceWindow6updateEv": ["nothing", "address"],
+    "ritual_ZN18QPaintDeviceWindow11exposeEventEP12QExposeEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QPaintDeviceWindow10paintEventEP11QPaintEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QPaintDeviceWindow6metricEN12QPaintDevice17PaintDeviceMetricE": [
+      "int", "address", "int"
+    ],
+    "ritual_ZN18QPaintDeviceWindow5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK18QPaintDeviceWindow11paintEngineEv": ["address", "address"],
     "ritual_cast_QPaintDeviceWindow_QPaintDevice": ["address", "address"],
     "ritual_own_ZN18QPaintDeviceWindow11exposeEventEP12QExposeEvent": [
       "nothing", "address", "address"
@@ -27,6 +40,9 @@
     ],
     "ritual_own_ZN18QPaintDeviceWindow5eventEP6QEvent": [
       "bool", "address", "address"
+    ],
+    "ritual_own_ZNK18QPaintDeviceWindow11paintEngineEv": [
+      "address", "address"
     ]
   }
 }

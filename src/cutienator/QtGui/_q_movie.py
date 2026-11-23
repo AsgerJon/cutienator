@@ -66,8 +66,9 @@ class QMovie(QObject):
   What has no ritual
   ------------------
 
-  17 of the 54 functions Qt declares: 7 a signal; 4 takes or gives a type
-  that cannot be passed yet; 3 private; 2 forbidden; 1 a template.
+  17 of the 54 functions Qt declares: 7 a signal; 6 takes or gives a type
+  that cannot be passed yet; 2 forbidden; 1 a template; 1 declared and
+  nowhere to be found.
 
   What to expect
   --------------

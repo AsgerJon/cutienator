@@ -51,7 +51,14 @@
     "ritual_ZN9QPageSize10sizePixelsENS_10PageSizeIdEi": [
       "address", "int", "int"
     ],
+    "ritual_ZNK9QPageSize6equalsERKS_": ["bool", "address", "address"],
     "ritual_ZeqRK9QPageSizeS1_": ["bool", "address", "address"],
-    "ritual_ZneRK9QPageSizeS1_": ["bool", "address", "address"]
+    "ritual_ZneRK9QPageSizeS1_": ["bool", "address", "address"],
+    "ritual_ZN9QPageSizeC1ERK7QStringRK5QSizeS2_": [
+      "address", "text", "address", "text"
+    ],
+    "ritual_ZN9QPageSizeC1EiRK5QSizeRK7QString": [
+      "address", "int", "address", "text"
+    ]
   }
 }

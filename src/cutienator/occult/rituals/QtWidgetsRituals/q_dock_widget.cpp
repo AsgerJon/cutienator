@@ -937,6 +937,46 @@ QAction *ritual_ZNK11QDockWidget16toggleViewActionEv(
   return self->toggleViewAction();
 }
 
+//  void QDockWidget::changeEvent(QEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QDockWidget11changeEventEP6QEvent(
+    QDockWidget *self,
+    QEvent *event) {
+  self->changeEvent(event);
+}
+
+//  void QDockWidget::closeEvent(QCloseEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QDockWidget10closeEventEP11QCloseEvent(
+    QDockWidget *self,
+    QCloseEvent *event) {
+  self->closeEvent(event);
+}
+
+//  void QDockWidget::paintEvent(QPaintEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QDockWidget10paintEventEP11QPaintEvent(
+    QDockWidget *self,
+    QPaintEvent *event) {
+  self->paintEvent(event);
+}
+
+//  bool QDockWidget::event(QEvent *event)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN11QDockWidget5eventEP6QEvent(
+    QDockWidget *self,
+    QEvent *event) {
+  return self->event(event);
+}
+
+//  void QDockWidget::initStyleOption(QStyleOptionDockWidget *option) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK11QDockWidget15initStyleOptionEP22QStyleOptionDockWidget(
+    const QDockWidget *self,
+    QStyleOptionDockWidget *option) {
+  self->initStyleOption(option);
+}
+
 //  a Python function taken by a CuteQDockWidget, for the function named by
 //      the key
 extern "C" Q_DECL_EXPORT

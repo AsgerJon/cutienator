@@ -8,6 +8,13 @@
     "ritual_ZN11QBasicMutex4lockEv": ["nothing", "address"],
     "ritual_ZN11QBasicMutex6unlockEv": ["nothing", "address"],
     "ritual_ZN11QBasicMutex7tryLockEv": ["bool", "address"],
-    "ritual_ZN11QBasicMutex8try_lockEv": ["bool", "address"]
+    "ritual_ZN11QBasicMutex8try_lockEv": ["bool", "address"],
+    "ritual_ZN11QBasicMutex11fastTryLockEv": ["bool", "address"],
+    "ritual_ZN11QBasicMutex12lockInternalEv": ["nothing", "address"],
+    "ritual_ZN11QBasicMutex12lockInternalE14QDeadlineTimer": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN11QBasicMutex12lockInternalEi": ["bool", "address", "int"],
+    "ritual_ZN11QBasicMutex14unlockInternalEv": ["nothing", "address"]
   }
 }

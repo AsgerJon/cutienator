@@ -13,14 +13,14 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, CuteFlags, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt
+from ..QtCore import Qt, QMetaType
 from . import QAbstractSpinBox, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QCalendar, QDate, QDateTime, QEvent, QMetaObject
-  from ..QtCore import QSize, QTime, QTimeZone
+  from ..QtCore import QSize, QTime, QTimeZone, QVariant
   from ..QtGui import QFocusEvent, QKeyEvent, QMouseEvent, QPaintEvent
   from ..QtGui import QWheelEvent
   from . import QCalendarWidget, QStyleOptionSpinBox
@@ -40,6 +40,7 @@ else:
   QStyleOptionSpinBox = WAIT['QStyleOptionSpinBox']
   QTime = WAIT['QTime']
   QTimeZone = WAIT['QTimeZone']
+  QVariant = WAIT['QVariant']
   QWheelEvent = WAIT['QWheelEvent']
 
 #  The class of None, for a signature that takes None in the place of an
@@ -75,7 +76,7 @@ class QDateTimeEdit(QAbstractSpinBox):
   'event', 'setDateTime', 'setDate', 'setTime', 'keyPressEvent',
   'wheelEvent', 'focusInEvent', 'focusNextPrevChild', 'dateTimeFromText',
   'textFromDateTime', 'stepEnabled', 'mousePressEvent', 'paintEvent',
-  'initStyleOption'. It can be made from Python, in 4 ways; see '__init__'.
+  'initStyleOption'. It can be made from Python, in 5 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -86,8 +87,9 @@ class QDateTimeEdit(QAbstractSpinBox):
   What has no ritual
   ------------------
 
-  14 of the 83 functions Qt declares: 3 private; 3 a signal; 3 protected; 2
-  takes or gives a type that cannot be passed yet; 2 forbidden; 1 a template.
+  13 of the 83 functions Qt declares: 6 takes or gives a type that cannot be
+  passed yet; 3 a signal; 2 forbidden; 1 a template; 1 declared and nowhere
+  to be found.
 
   What to expect
   --------------
@@ -641,9 +643,10 @@ class QDateTimeEdit(QAbstractSpinBox):
       A new cute QDateTime around the copy Qt gave back. Python owns it.
     """
     #  QDateTime QDateTimeEdit::dateTimeFromText(const QString &text) const
-    address = self.uglySide.call(
-        'ritual_own_ZNK13QDateTimeEdit16dateTimeFromTextERK7QString', text,
-    )
+    ritual = 'ritual_ZNK13QDateTimeEdit16dateTimeFromTextERK7QString'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK13QDateTimeEdit16dateTimeFromTextERK7QString'
+    address = self.uglySide.call(ritual, text)
     from ..QtCore import QDateTime
     return QDateTime._cuteOwning(address)
 
@@ -670,10 +673,10 @@ class QDateTimeEdit(QAbstractSpinBox):
       The text Qt gave back.
     """
     #  QString QDateTimeEdit::textFromDateTime(const QDateTime &dt) const
-    return self.uglySide.call(
-        'ritual_own_ZNK13QDateTimeEdit16textFromDateTimeERK9QDateTime',
-        self._valueOf(dt),
-    )
+    ritual = 'ritual_ZNK13QDateTimeEdit16textFromDateTimeERK9QDateTime'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK13QDateTimeEdit16textFromDateTimeERK9QDateTime'
+    return self.uglySide.call(ritual, self._valueOf(dt))
 
   def stepEnabled(self) -> QAbstractSpinBox.StepEnabled:
     """
@@ -688,9 +691,10 @@ class QDateTimeEdit(QAbstractSpinBox):
       The value standing for the combination Qt gave back.
     """
     #  StepEnabled QDateTimeEdit::stepEnabled() const
-    return QAbstractSpinBox.StepEnabled(self.uglySide.call(
-        'ritual_own_ZNK13QDateTimeEdit11stepEnabledEv',
-    ))
+    ritual = 'ritual_ZNK13QDateTimeEdit11stepEnabledEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK13QDateTimeEdit11stepEnabledEv'
+    return QAbstractSpinBox.StepEnabled(self.uglySide.call(ritual))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1239,6 +1243,43 @@ class QDateTimeEdit(QAbstractSpinBox):
         self._valueOf(t), self._addressOf(parent),
     ))
 
+  @overload(QVariant, QMetaType.Type)
+  @overload(QVariant, QMetaType.Type, QWidget)
+  @overload(QVariant, QMetaType.Type, NoneType)
+  def __init__(
+      self,
+      val: QVariant,
+      parserType: QMetaType.Type,
+      parent: Optional[QWidget] = None,
+  ) -> None:
+    """
+    Notes what was given, for Qt's 'QDateTimeEdit::QDateTimeEdit(const
+    QVariant &val, QMetaType::Type parserType, QWidget *parent)', which is
+    called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdatetimeedit.html#QDateTimeEdit
+
+    Parameters
+    ----------
+
+    val : QVariant
+      Passed on as a value: Qt reads the C++ QVariant, which stays Python's
+      own.
+
+    parserType : QMetaType.Type
+      Passed on as its number.
+
+    parent : Optional[QWidget]
+      Passed on as the address of its C++ object. None is passed on as no
+      object. May be left out, as in Qt: it is then None.
+    """
+    #  QDateTimeEdit::QDateTimeEdit(const QVariant &val, QMetaType::Type
+    #      parserType, QWidget *parent)
+    self._noteCreation(QDateTimeEdit, lambda: Rituals.call(
+        'ritual_ZN13QDateTimeEditC1ERK8QVariantN9QMetaType4TypeEP7QWidget',
+        self._valueOf(val), parserType.value, self._addressOf(parent),
+    ))
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1387,10 +1428,10 @@ class QDateTimeEdit(QAbstractSpinBox):
       object.
     """
     #  void QDateTimeEdit::keyPressEvent(QKeyEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN13QDateTimeEdit13keyPressEventEP9QKeyEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN13QDateTimeEdit13keyPressEventEP9QKeyEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN13QDateTimeEdit13keyPressEventEP9QKeyEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QWheelEvent)
   @overload(NoneType)
@@ -1408,10 +1449,10 @@ class QDateTimeEdit(QAbstractSpinBox):
       object.
     """
     #  void QDateTimeEdit::wheelEvent(QWheelEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN13QDateTimeEdit10wheelEventEP11QWheelEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN13QDateTimeEdit10wheelEventEP11QWheelEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN13QDateTimeEdit10wheelEventEP11QWheelEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QFocusEvent)
   @overload(NoneType)
@@ -1429,10 +1470,10 @@ class QDateTimeEdit(QAbstractSpinBox):
       object.
     """
     #  void QDateTimeEdit::focusInEvent(QFocusEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN13QDateTimeEdit12focusInEventEP11QFocusEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN13QDateTimeEdit12focusInEventEP11QFocusEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN13QDateTimeEdit12focusInEventEP11QFocusEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(bool)
   def focusNextPrevChild(self, next: bool) -> bool:
@@ -1449,9 +1490,10 @@ class QDateTimeEdit(QAbstractSpinBox):
       Passed on as it is.
     """
     #  bool QDateTimeEdit::focusNextPrevChild(bool next)
-    return self.uglySide.call(
-        'ritual_own_ZN13QDateTimeEdit18focusNextPrevChildEb', next,
-    )
+    ritual = 'ritual_ZN13QDateTimeEdit18focusNextPrevChildEb'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN13QDateTimeEdit18focusNextPrevChildEb'
+    return self.uglySide.call(ritual, next)
 
   @overload(QMouseEvent)
   @overload(NoneType)
@@ -1469,10 +1511,10 @@ class QDateTimeEdit(QAbstractSpinBox):
       object.
     """
     #  void QDateTimeEdit::mousePressEvent(QMouseEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN13QDateTimeEdit15mousePressEventEP11QMouseEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN13QDateTimeEdit15mousePressEventEP11QMouseEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN13QDateTimeEdit15mousePressEventEP11QMouseEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QPaintEvent)
   @overload(NoneType)
@@ -1490,10 +1532,10 @@ class QDateTimeEdit(QAbstractSpinBox):
       object.
     """
     #  void QDateTimeEdit::paintEvent(QPaintEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN13QDateTimeEdit10paintEventEP11QPaintEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN13QDateTimeEdit10paintEventEP11QPaintEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN13QDateTimeEdit10paintEventEP11QPaintEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QStyleOptionSpinBox)
   @overload(NoneType)
@@ -1512,8 +1554,10 @@ class QDateTimeEdit(QAbstractSpinBox):
       object.
     """
     #  void QDateTimeEdit::initStyleOption(QStyleOptionSpinBox *option) const
-    self.uglySide.call(
-        'ritual_own_ZNK13QDateTimeEdit15initStyleOptionEP19QStyleOptionSpin'
-        'Box',
-        self._addressOf(option),
-    )
+    ritual = (
+        'ritual_ZNK13QDateTimeEdit15initStyleOptionEP19QStyleOptionSpinBox')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK13QDateTimeEdit15initStyleOptionEP19QStyleOptionSp'
+          'inBox')
+    self.uglySide.call(ritual, self._addressOf(option))

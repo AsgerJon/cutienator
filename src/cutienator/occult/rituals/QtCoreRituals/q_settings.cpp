@@ -435,6 +435,12 @@ void ritual_ZN9QSettings7setPathENS_6FormatENS_5ScopeERK7QString(
   QSettings::setPath(format, scope, *path);
 }
 
+//  bool QSettings::event(QEvent *event)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN9QSettings5eventEP6QEvent(QSettings *self, QEvent *event) {
+  return self->event(event);
+}
+
 //  a Python function taken by a CuteQSettings, for the function named by the
 //      key
 extern "C" Q_DECL_EXPORT

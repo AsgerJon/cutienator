@@ -47,12 +47,13 @@ class QTextLine(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QTextLine that has a ritual and that Python can call
-  so far, 25 names in all: 'isValid', 'rect', 'x', 'y', 'width', 'ascent',
+  so far, 27 names in all: 'isValid', 'rect', 'x', 'y', 'width', 'ascent',
   'descent', 'height', 'leading', 'setLeadingIncluded', 'leadingIncluded',
   'naturalTextWidth', 'horizontalAdvance', 'naturalTextRect', 'cursorToX',
   'xToCursor', 'setLineWidth', 'setNumColumns', 'setPosition', 'position',
-  'textStart', 'textLength', 'lineNumber', 'draw', 'glyphRuns'. It can be
-  made from Python, in 1 way; see '__init__'.
+  'textStart', 'textLength', 'lineNumber', 'draw', 'glyphRuns',
+  'layout_helper', 'draw_internal'. It can be made from Python, in 1 way; see
+  '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -65,7 +66,8 @@ class QTextLine(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  3 of the 33 functions Qt declares: 3 private.
+  1 of the 33 functions Qt declares: 1 takes or gives a type that cannot be
+  passed yet.
 
   What to expect
   --------------
@@ -588,4 +590,59 @@ class QTextLine(CuteMixin, metaclass=MetaCute):
     self.uglySide.call(
         'ritual_ZNK9QTextLine4drawEP8QPainterRK7QPointF',
         self._addressOf(painter), self._valueOf(position),
+    )
+
+  @overload(int)
+  def layout_helper(self, numGlyphs: int) -> None:
+    """
+    Calls Qt's 'void QTextLine::layout_helper(int numGlyphs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextline.html#layout_helper
+
+    Parameters
+    ----------
+
+    numGlyphs : int
+      Passed on as it is.
+    """
+    #  void QTextLine::layout_helper(int numGlyphs)
+    self.uglySide.call('ritual_ZN9QTextLine13layout_helperEi', numGlyphs)
+
+  @overload(QPainter, QPointF, QTextLayout.FormatRange)
+  @overload(QPainter, QPointF, NoneType)
+  @overload(NoneType, QPointF, QTextLayout.FormatRange)
+  @overload(NoneType, QPointF, NoneType)
+  def draw_internal(
+      self,
+      p: Optional[QPainter],
+      pos: QPointF,
+      selection: Optional[QTextLayout.FormatRange],
+  ) -> None:
+    """
+    Calls Qt's 'void QTextLine::draw_internal(QPainter *p, const QPointF
+    &pos, const QTextLayout::FormatRange *selection) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextline.html#draw_internal
+
+    Parameters
+    ----------
+
+    p : Optional[QPainter]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    pos : QPointF
+      Passed on as a value: Qt reads the C++ QPointF, which stays Python's
+      own.
+
+    selection : Optional[QTextLayout.FormatRange]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QTextLine::draw_internal(QPainter *p, const QPointF &pos, const
+    #      QTextLayout::FormatRange *selection) const
+    self.uglySide.call(
+        'ritual_ZNK9QTextLine13draw_internalEP8QPainterRK7QPointFPKN11QText'
+        'Layout11FormatRangeE',
+        self._addressOf(p), self._valueOf(pos), self._addressOf(selection),
     )

@@ -451,6 +451,16 @@ void ritual_ZN19QItemSelectionModel17clearCurrentIndexEv(
   self->clearCurrentIndex();
 }
 
+//  void QItemSelectionModel::emitSelectionChanged(const QItemSelection
+//      &newSelection, const QItemSelection &oldSelection)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QItemSelectionModel20emitSelectionChangedERK14QItemSelectionS2_(
+    QItemSelectionModel *self,
+    const QItemSelection *newSelection,
+    const QItemSelection *oldSelection) {
+  self->emitSelectionChanged(*newSelection, *oldSelection);
+}
+
 //  a Python function taken by a CuteQItemSelectionModel, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT

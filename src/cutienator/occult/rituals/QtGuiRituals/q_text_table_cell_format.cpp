@@ -301,6 +301,13 @@ void ritual_ZN20QTextTableCellFormat14setBorderBrushERK6QBrush(
   self->setBorderBrush(*brush);
 }
 
+//  QTextTableCellFormat::QTextTableCellFormat(const QTextFormat &fmt)
+extern "C" Q_DECL_EXPORT
+QTextTableCellFormat *ritual_ZN20QTextTableCellFormatC1ERK11QTextFormat(
+    const QTextFormat *fmt) {
+  return new QTextTableCellFormat(*fmt);
+}
+
 //  QTextTableCellFormat::~QTextTableCellFormat()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QTextTableCellFormatD1Ev(QTextTableCellFormat *self) {

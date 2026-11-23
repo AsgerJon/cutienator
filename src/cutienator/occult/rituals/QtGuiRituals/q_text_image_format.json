@@ -27,6 +27,7 @@
     ],
     "ritual_ZN16QTextImageFormat10setQualityEv": ["nothing", "address"],
     "ritual_ZNK16QTextImageFormat7qualityEv": ["int", "address"],
+    "ritual_ZN16QTextImageFormatC1ERK11QTextFormat": ["address", "address"],
     "ritual_ZN16QTextImageFormatD1Ev": ["nothing", "address"]
   }
 }

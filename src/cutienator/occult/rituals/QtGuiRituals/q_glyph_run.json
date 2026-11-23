@@ -42,6 +42,7 @@
     ],
     "ritual_ZNK9QGlyphRun12sourceStringEv": ["text", "address"],
     "ritual_ZNK9QGlyphRun7isEmptyEv": ["bool", "address"],
+    "ritual_ZN9QGlyphRun6detachEv": ["nothing", "address"],
     "ritual_list_make_QGlyphRun": ["address"],
     "ritual_list_add_QGlyphRun": ["nothing", "address", "address"],
     "ritual_list_size_QGlyphRun": ["long long", "address"],

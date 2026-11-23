@@ -46,7 +46,7 @@ class QFutureInterfaceBase(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QFutureInterfaceBase that has a ritual and that
-  Python can call so far, 52 names in all: 'reportStarted', 'reportFinished',
+  Python can call so far, 61 names in all: 'reportStarted', 'reportFinished',
   'reportCanceled', 'reportException', 'reportResultsReady', 'setRunnable',
   'setThreadPool', 'threadPool', 'setFilterMode', 'setProgressRange',
   'progressMinimum', 'progressMaximum', 'isProgressUpdateNeeded',
@@ -60,7 +60,10 @@ class QFutureInterfaceBase(CuteMixin, metaclass=MetaCute):
   'setSuspended', 'toggleSuspended', 'reportSuspended', 'setThrottled',
   'waitForFinished', 'waitForNextResult', 'waitForResult', 'waitForResume',
   'suspendIfRequested', 'hasException', '__eq__', '__ne__',
-  'isChainCanceled'. It can be made from Python, in 2 ways; see '__init__'.
+  'isChainCanceled', 'refT', 'derefT', 'reset', 'rethrowPossibleException',
+  'cleanContinuation', 'runContinuation', 'setLaunchAsync', 'launchAsync',
+  'isRunningOrPending'. It can be made from Python, in 2 ways; see
+  '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -71,12 +74,17 @@ class QFutureInterfaceBase(CuteMixin, metaclass=MetaCute):
   - Qt's 'const QtPrivate::ResultStoreBase
     &QFutureInterfaceBase::resultStoreBase() const': gives
     'QtPrivate::ResultStoreBase', which has no cute class yet.
+  - Qt's 'void QFutureInterfaceBase::cancel(CancelMode mode)': names the enum
+    'QFutureInterfaceBase::CancelMode', whose class cannot be named here.
+  - Qt's 'void QFutureInterfaceBase::cancelChain(CancelMode mode)': names the
+    enum 'QFutureInterfaceBase::CancelMode', whose class cannot be named
+    here.
 
   What has no ritual
   ------------------
 
-  22 of the 78 functions Qt declares: 13 protected; 8 takes or gives a type
-  that cannot be passed yet; 1 a template.
+  11 of the 78 functions Qt declares: 10 takes or gives a type that cannot be
+  passed yet; 1 a template.
 
   What to expect
   --------------
@@ -423,6 +431,48 @@ class QFutureInterfaceBase(CuteMixin, metaclass=MetaCute):
         'ritual_ZNK20QFutureInterfaceBase15isChainCanceledEv',
     )
 
+  def refT(self) -> bool:
+    """
+    Calls Qt's 'bool QFutureInterfaceBase::refT() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfutureinterfacebase.html#refT
+    """
+    #  bool QFutureInterfaceBase::refT() const
+    return self.uglySide.call('ritual_ZNK20QFutureInterfaceBase4refTEv')
+
+  def derefT(self) -> bool:
+    """
+    Calls Qt's 'bool QFutureInterfaceBase::derefT() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfutureinterfacebase.html#derefT
+    """
+    #  bool QFutureInterfaceBase::derefT() const
+    return self.uglySide.call('ritual_ZNK20QFutureInterfaceBase6derefTEv')
+
+  def launchAsync(self) -> bool:
+    """
+    Calls Qt's 'bool QFutureInterfaceBase::launchAsync() const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qfutureinterfacebase.html#launchAsync
+    """
+    #  bool QFutureInterfaceBase::launchAsync() const
+    return self.uglySide.call(
+        'ritual_ZNK20QFutureInterfaceBase11launchAsyncEv',
+    )
+
+  def isRunningOrPending(self) -> bool:
+    """
+    Calls Qt's 'bool QFutureInterfaceBase::isRunningOrPending() const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qfutureinterfacebase.html#isRunningOrPending
+    """
+    #  bool QFutureInterfaceBase::isRunningOrPending() const
+    return self.uglySide.call(
+        'ritual_ZNK20QFutureInterfaceBase18isRunningOrPendingEv',
+    )
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -659,6 +709,25 @@ class QFutureInterfaceBase(CuteMixin, metaclass=MetaCute):
     #  void QFutureInterfaceBase::setThrottled(bool enable)
     self.uglySide.call(
         'ritual_ZN20QFutureInterfaceBase12setThrottledEb', enable,
+    )
+
+  @overload(bool)
+  def setLaunchAsync(self, value: bool) -> None:
+    """
+    Calls Qt's 'void QFutureInterfaceBase::setLaunchAsync(bool value)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qfutureinterfacebase.html#setLaunchAsync
+
+    Parameters
+    ----------
+
+    value : bool
+      Passed on as it is.
+    """
+    #  void QFutureInterfaceBase::setLaunchAsync(bool value)
+    self.uglySide.call(
+        'ritual_ZN20QFutureInterfaceBase14setLaunchAsyncEb', value,
     )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1011,3 +1080,46 @@ class QFutureInterfaceBase(CuteMixin, metaclass=MetaCute):
     self.uglySide.call(
         'ritual_ZN20QFutureInterfaceBase18suspendIfRequestedEv',
     )
+
+  def reset(self) -> None:
+    """
+    Calls Qt's 'void QFutureInterfaceBase::reset()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfutureinterfacebase.html#reset
+    """
+    #  void QFutureInterfaceBase::reset()
+    self.uglySide.call('ritual_ZN20QFutureInterfaceBase5resetEv')
+
+  def rethrowPossibleException(self) -> None:
+    """
+    Calls Qt's 'void QFutureInterfaceBase::rethrowPossibleException()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qfutureinterfacebase.html#rethrowPossibleException
+    """
+    #  void QFutureInterfaceBase::rethrowPossibleException()
+    self.uglySide.call(
+        'ritual_ZN20QFutureInterfaceBase24rethrowPossibleExceptionEv',
+    )
+
+  def cleanContinuation(self) -> None:
+    """
+    Calls Qt's 'void QFutureInterfaceBase::cleanContinuation()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qfutureinterfacebase.html#cleanContinuation
+    """
+    #  void QFutureInterfaceBase::cleanContinuation()
+    self.uglySide.call(
+        'ritual_ZN20QFutureInterfaceBase17cleanContinuationEv',
+    )
+
+  def runContinuation(self) -> None:
+    """
+    Calls Qt's 'void QFutureInterfaceBase::runContinuation() const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qfutureinterfacebase.html#runContinuation
+    """
+    #  void QFutureInterfaceBase::runContinuation() const
+    self.uglySide.call('ritual_ZNK20QFutureInterfaceBase15runContinuationEv')

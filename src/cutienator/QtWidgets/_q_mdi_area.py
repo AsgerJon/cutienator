@@ -75,8 +75,9 @@ class QMdiArea(QAbstractScrollArea):
   What has no ritual
   ------------------
 
-  9 of the 55 functions Qt declares: 3 private; 2 takes or gives a type that
-  cannot be passed yet; 2 forbidden; 1 a template; 1 a signal.
+  9 of the 55 functions Qt declares: 4 takes or gives a type that cannot be
+  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found;
+  1 a signal.
 
   What to expect
   --------------
@@ -839,10 +840,10 @@ class QMdiArea(QAbstractScrollArea):
       object.
     """
     #  void QMdiArea::setupViewport(QWidget *viewport)
-    self.uglySide.call(
-        'ritual_own_ZN8QMdiArea13setupViewportEP7QWidget',
-        self._addressOf(viewport),
-    )
+    ritual = 'ritual_ZN8QMdiArea13setupViewportEP7QWidget'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN8QMdiArea13setupViewportEP7QWidget'
+    self.uglySide.call(ritual, self._addressOf(viewport))
 
   @overload(QEvent)
   @overload(NoneType)
@@ -860,9 +861,10 @@ class QMdiArea(QAbstractScrollArea):
       object.
     """
     #  bool QMdiArea::event(QEvent *event)
-    return self.uglySide.call(
-        'ritual_own_ZN8QMdiArea5eventEP6QEvent', self._addressOf(event),
-    )
+    ritual = 'ritual_ZN8QMdiArea5eventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN8QMdiArea5eventEP6QEvent'
+    return self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QObject, QEvent)
   @overload(QObject, NoneType)
@@ -890,9 +892,11 @@ class QMdiArea(QAbstractScrollArea):
       object.
     """
     #  bool QMdiArea::eventFilter(QObject *object, QEvent *event)
+    ritual = 'ritual_ZN8QMdiArea11eventFilterEP7QObjectP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN8QMdiArea11eventFilterEP7QObjectP6QEvent'
     return self.uglySide.call(
-        'ritual_own_ZN8QMdiArea11eventFilterEP7QObjectP6QEvent',
-        self._addressOf(object), self._addressOf(event),
+        ritual, self._addressOf(object), self._addressOf(event),
     )
 
   @overload(QPaintEvent)
@@ -911,10 +915,10 @@ class QMdiArea(QAbstractScrollArea):
       object.
     """
     #  void QMdiArea::paintEvent(QPaintEvent *paintEvent)
-    self.uglySide.call(
-        'ritual_own_ZN8QMdiArea10paintEventEP11QPaintEvent',
-        self._addressOf(paintEvent),
-    )
+    ritual = 'ritual_ZN8QMdiArea10paintEventEP11QPaintEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN8QMdiArea10paintEventEP11QPaintEvent'
+    self.uglySide.call(ritual, self._addressOf(paintEvent))
 
   @overload(QChildEvent)
   @overload(NoneType)
@@ -932,10 +936,10 @@ class QMdiArea(QAbstractScrollArea):
       object.
     """
     #  void QMdiArea::childEvent(QChildEvent *childEvent)
-    self.uglySide.call(
-        'ritual_own_ZN8QMdiArea10childEventEP11QChildEvent',
-        self._addressOf(childEvent),
-    )
+    ritual = 'ritual_ZN8QMdiArea10childEventEP11QChildEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN8QMdiArea10childEventEP11QChildEvent'
+    self.uglySide.call(ritual, self._addressOf(childEvent))
 
   @overload(QResizeEvent)
   @overload(NoneType)
@@ -953,10 +957,10 @@ class QMdiArea(QAbstractScrollArea):
       object.
     """
     #  void QMdiArea::resizeEvent(QResizeEvent *resizeEvent)
-    self.uglySide.call(
-        'ritual_own_ZN8QMdiArea11resizeEventEP12QResizeEvent',
-        self._addressOf(resizeEvent),
-    )
+    ritual = 'ritual_ZN8QMdiArea11resizeEventEP12QResizeEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN8QMdiArea11resizeEventEP12QResizeEvent'
+    self.uglySide.call(ritual, self._addressOf(resizeEvent))
 
   @overload(QTimerEvent)
   @overload(NoneType)
@@ -974,10 +978,10 @@ class QMdiArea(QAbstractScrollArea):
       object.
     """
     #  void QMdiArea::timerEvent(QTimerEvent *timerEvent)
-    self.uglySide.call(
-        'ritual_own_ZN8QMdiArea10timerEventEP11QTimerEvent',
-        self._addressOf(timerEvent),
-    )
+    ritual = 'ritual_ZN8QMdiArea10timerEventEP11QTimerEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN8QMdiArea10timerEventEP11QTimerEvent'
+    self.uglySide.call(ritual, self._addressOf(timerEvent))
 
   @overload(QShowEvent)
   @overload(NoneType)
@@ -995,10 +999,10 @@ class QMdiArea(QAbstractScrollArea):
       object.
     """
     #  void QMdiArea::showEvent(QShowEvent *showEvent)
-    self.uglySide.call(
-        'ritual_own_ZN8QMdiArea9showEventEP10QShowEvent',
-        self._addressOf(showEvent),
-    )
+    ritual = 'ritual_ZN8QMdiArea9showEventEP10QShowEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN8QMdiArea9showEventEP10QShowEvent'
+    self.uglySide.call(ritual, self._addressOf(showEvent))
 
   @overload(QEvent)
   @overload(NoneType)
@@ -1016,10 +1020,10 @@ class QMdiArea(QAbstractScrollArea):
       object.
     """
     #  bool QMdiArea::viewportEvent(QEvent *event)
-    return self.uglySide.call(
-        'ritual_own_ZN8QMdiArea13viewportEventEP6QEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN8QMdiArea13viewportEventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN8QMdiArea13viewportEventEP6QEvent'
+    return self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(int, int)
   def scrollContentsBy(self, dx: int, dy: int) -> None:
@@ -1038,4 +1042,7 @@ class QMdiArea(QAbstractScrollArea):
       Passed on as it is.
     """
     #  void QMdiArea::scrollContentsBy(int dx, int dy)
-    self.uglySide.call('ritual_own_ZN8QMdiArea16scrollContentsByEii', dx, dy)
+    ritual = 'ritual_ZN8QMdiArea16scrollContentsByEii'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN8QMdiArea16scrollContentsByEii'
+    self.uglySide.call(ritual, dx, dy)

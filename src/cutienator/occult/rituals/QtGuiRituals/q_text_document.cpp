@@ -913,6 +913,23 @@ void ritual_ZN13QTextDocument11setModifiedEb(QTextDocument *self, bool m) {
   self->setModified(m);
 }
 
+//  QTextObject *QTextDocument::createObject(const QTextFormat &f)
+extern "C" Q_DECL_EXPORT
+QTextObject *ritual_ZN13QTextDocument12createObjectERK11QTextFormat(
+    QTextDocument *self,
+    const QTextFormat *f) {
+  return self->createObject(*f);
+}
+
+//  QVariant QTextDocument::loadResource(int type, const QUrl &name)
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZN13QTextDocument12loadResourceEiRK4QUrl(
+    QTextDocument *self,
+    int type,
+    const QUrl *name) {
+  return new QVariant(self->loadResource(type, *name));
+}
+
 //  a Python function taken by a CuteQTextDocument, for the function named by
 //      the key
 extern "C" Q_DECL_EXPORT

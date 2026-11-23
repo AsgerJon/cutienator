@@ -74,6 +74,7 @@
     "ritual_ZNK11QPageLayout15paintRectPixelsEi": [
       "address", "address", "int"
     ],
+    "ritual_ZNK11QPageLayout6equalsERKS_": ["bool", "address", "address"],
     "ritual_ZeqRK11QPageLayoutS1_": ["bool", "address", "address"],
     "ritual_ZneRK11QPageLayoutS1_": ["bool", "address", "address"]
   }

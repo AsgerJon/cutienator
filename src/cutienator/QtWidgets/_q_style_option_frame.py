@@ -33,7 +33,7 @@ class QStyleOptionFrame(QStyleOption):
   What exists
   -----------
 
-  No function of Qt's QStyleOptionFrame yet. It can be made from Python, in 2
+  No function of Qt's QStyleOptionFrame yet. It can be made from Python, in 3
   ways; see '__init__'.
 
   What has a ritual and is left out, and why
@@ -45,8 +45,8 @@ class QStyleOptionFrame(QStyleOption):
   What has no ritual
   ------------------
 
-  2 of the 5 functions Qt declares: 1 takes or gives a type that cannot be
-  passed yet; 1 protected.
+  1 of the 5 functions Qt declares: 1 takes or gives a type that cannot be
+  passed yet.
 
   What to expect
   --------------
@@ -173,6 +173,26 @@ class QStyleOptionFrame(QStyleOption):
     #  QStyleOptionFrame::QStyleOptionFrame(const QStyleOptionFrame &other)
     self._noteCreation(QStyleOptionFrame, lambda: Rituals.call(
         'ritual_ZN17QStyleOptionFrameC1ERKS_', self._valueOf(other),
+    ))
+
+  @overload(int)
+  def __init__(self, version: int) -> None:
+    """
+    Notes what was given, for Qt's 'QStyleOptionFrame::QStyleOptionFrame(int
+    version)', which is called at the first use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qstyleoptionframe.html#QStyleOptionFrame
+
+    Parameters
+    ----------
+
+    version : int
+      Passed on as it is.
+    """
+    #  QStyleOptionFrame::QStyleOptionFrame(int version)
+    self._noteCreation(QStyleOptionFrame, lambda: Rituals.call(
+        'ritual_ZN17QStyleOptionFrameC1Ei', version,
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -519,6 +519,53 @@ void ritual_ZN16QCoreApplication4exitEi(int retcode) {
   QCoreApplication::exit(retcode);
 }
 
+//  bool QCoreApplication::event(QEvent *a0)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN16QCoreApplication5eventEP6QEvent(
+    QCoreApplication *self,
+    QEvent *a0) {
+  return self->event(a0);
+}
+
+//  bool QCoreApplication::sendSpontaneousEvent(QObject *receiver, QEvent
+//      *event)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN16QCoreApplication20sendSpontaneousEventEP7QObjectP6QEvent(
+    QObject *receiver,
+    QEvent *event) {
+  return QCoreApplication::sendSpontaneousEvent(receiver, event);
+}
+
+//  bool QCoreApplication::notifyInternal2(QObject *receiver, QEvent *a1)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN16QCoreApplication15notifyInternal2EP7QObjectP6QEvent(
+    QObject *receiver,
+    QEvent *a1) {
+  return QCoreApplication::notifyInternal2(receiver, a1);
+}
+
+//  bool QCoreApplication::forwardEvent(QObject *receiver, QEvent *event,
+//      QEvent *originatingEvent)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN16QCoreApplication12forwardEventEP7QObjectP6QEventS3_(
+    QObject *receiver,
+    QEvent *event,
+    QEvent *originatingEvent) {
+  return QCoreApplication::forwardEvent(receiver, event, originatingEvent);
+}
+
+//  void QCoreApplication::requestPermissionImpl(const QPermission
+//      &permission, QtPrivate::QSlotObjectBase *slotObj, const QObject
+//      *context)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QCoreApplication21requestPermissionImplERK11QPermissionPN9QtPrivate15QSlotObjectBaseEPK7QObject(
+    QCoreApplication *self,
+    const QPermission *permission,
+    QtPrivate::QSlotObjectBase *slotObj,
+    const QObject *context) {
+  self->requestPermissionImpl(*permission, slotObj, context);
+}
+
 //  a Python function taken by a CuteQCoreApplication, for the function named
 //      by the key
 extern "C" Q_DECL_EXPORT

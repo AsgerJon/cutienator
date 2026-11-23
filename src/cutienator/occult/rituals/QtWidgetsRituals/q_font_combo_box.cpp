@@ -951,6 +951,14 @@ void ritual_ZN13QFontComboBox14setCurrentFontERK5QFont(
   self->setCurrentFont(*f);
 }
 
+//  bool QFontComboBox::event(QEvent *e)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN13QFontComboBox5eventEP6QEvent(
+    QFontComboBox *self,
+    QEvent *e) {
+  return self->event(e);
+}
+
 //  a Python function taken by a CuteQFontComboBox, for the function named by
 //      the key
 extern "C" Q_DECL_EXPORT

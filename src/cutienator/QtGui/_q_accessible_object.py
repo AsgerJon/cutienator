@@ -35,11 +35,17 @@ class QAccessibleObject(QAccessibleInterface):
   'childAt'. None can be made from Python: one comes out of a function of
   another class that gives one back.
 
+  What has a ritual and is left out, and why
+  ------------------------------------------
+
+  - Qt's 'QAccessibleObject::~QAccessibleObject()': the destructor: Python
+    never removes a C++ QAccessibleObject.
+
   What has no ritual
   ------------------
 
-  4 of the 9 functions Qt declares: 2 forbidden; 1 the class is abstract, so
-  C++ cannot make one; 1 protected.
+  3 of the 9 functions Qt declares: 2 forbidden; 1 the class is abstract, so
+  C++ cannot make one.
 
   What to expect
   --------------

@@ -2,6 +2,20 @@
 //  QtGui/qopenglextrafunctions.h, Qt 6.12.0. Changes made here are lost.
 #include <QtGui/qopenglextrafunctions.h>
 
+//  QOpenGLExtraFunctionsPrivate *QOpenGLExtraFunctions::d_func()
+extern "C" Q_DECL_EXPORT
+QOpenGLExtraFunctionsPrivate *ritual_ZN21QOpenGLExtraFunctions6d_funcEv(
+    QOpenGLExtraFunctions *self) {
+  return self->d_func();
+}
+
+//  const QOpenGLExtraFunctionsPrivate *QOpenGLExtraFunctions::d_func() const
+extern "C" Q_DECL_EXPORT
+const QOpenGLExtraFunctionsPrivate *ritual_ZNK21QOpenGLExtraFunctions6d_funcEv(
+    const QOpenGLExtraFunctions *self) {
+  return self->d_func();
+}
+
 //  QOpenGLExtraFunctions::QOpenGLExtraFunctions()
 extern "C" Q_DECL_EXPORT
 QOpenGLExtraFunctions *ritual_ZN21QOpenGLExtraFunctionsC1Ev() {
@@ -925,4 +939,12 @@ void ritual_ZN21QOpenGLExtraFunctions25glTexStorage3DMultisampleEjijiiih(
       height,
       depth,
       fixedsamplelocations);
+}
+
+//  bool QOpenGLExtraFunctions::isInitialized(const
+//      QOpenGLExtraFunctionsPrivate *d)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN21QOpenGLExtraFunctions13isInitializedEPK28QOpenGLExtraFunctionsPrivate(
+    const QOpenGLExtraFunctionsPrivate *d) {
+  return QOpenGLExtraFunctions::isInitialized(d);
 }

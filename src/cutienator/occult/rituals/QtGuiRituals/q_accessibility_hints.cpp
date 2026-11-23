@@ -179,6 +179,14 @@ Qt::MotionPreference ritual_ZNK19QAccessibilityHints16motionPreferenceEv(
   return self->motionPreference();
 }
 
+//  bool QAccessibilityHints::event(QEvent *event)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN19QAccessibilityHints5eventEP6QEvent(
+    QAccessibilityHints *self,
+    QEvent *event) {
+  return self->event(event);
+}
+
 //  a Python function taken by a CuteQAccessibilityHints, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT

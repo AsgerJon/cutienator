@@ -56,7 +56,7 @@ class QEasingCurve(CuteMixin, metaclass=MetaCute):
   ------------------
 
   11 of the 30 functions Qt declares: 8 takes or gives a type that cannot be
-  passed yet; 1 declared and nowhere to be found; 1 a template; 1 private.
+  passed yet; 2 declared and nowhere to be found; 1 a template.
 
   What to expect
   --------------

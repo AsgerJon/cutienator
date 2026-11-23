@@ -138,6 +138,51 @@
     "ritual_ZN9QComboBox14setCurrentTextERK7QString": [
       "nothing", "address", "text"
     ],
+    "ritual_ZN9QComboBox12focusInEventEP11QFocusEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QComboBox13focusOutEventEP11QFocusEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QComboBox11changeEventEP6QEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QComboBox11resizeEventEP12QResizeEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QComboBox10paintEventEP11QPaintEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QComboBox9showEventEP10QShowEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QComboBox9hideEventEP10QHideEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QComboBox15mousePressEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QComboBox17mouseReleaseEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QComboBox13keyPressEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QComboBox15keyReleaseEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QComboBox10wheelEventEP11QWheelEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QComboBox16contextMenuEventEP17QContextMenuEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QComboBox16inputMethodEventEP17QInputMethodEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9QComboBox15initStyleOptionEP20QStyleOptionComboBox": [
+      "nothing", "address", "address"
+    ],
     "ritual_take_QComboBox": ["bool", "address", "chars", "address"],
     "ritual_own_ZN9QComboBox8setModelEP18QAbstractItemModel": [
       "nothing", "address", "address"

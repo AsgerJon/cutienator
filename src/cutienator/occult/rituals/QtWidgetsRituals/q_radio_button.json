@@ -13,6 +13,19 @@
     "ritual_ZN12QRadioButtonD1Ev": ["nothing", "address"],
     "ritual_ZNK12QRadioButton8sizeHintEv": ["address", "address"],
     "ritual_ZNK12QRadioButton15minimumSizeHintEv": ["address", "address"],
+    "ritual_ZN12QRadioButton5eventEP6QEvent": ["bool", "address", "address"],
+    "ritual_ZNK12QRadioButton9hitButtonERK6QPoint": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN12QRadioButton10paintEventEP11QPaintEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QRadioButton14mouseMoveEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12QRadioButton15initStyleOptionEP18QStyleOptionButton": [
+      "nothing", "address", "address"
+    ],
     "ritual_take_QRadioButton": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK12QRadioButton8sizeHintEv": ["address", "address"],
     "ritual_own_ZNK12QRadioButton15minimumSizeHintEv": [

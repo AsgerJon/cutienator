@@ -17,6 +17,35 @@
     "ritual_ZN18QSyntaxHighlighter16rehighlightBlockERK10QTextBlock": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN18QSyntaxHighlighter14highlightBlockERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN18QSyntaxHighlighter9setFormatEiiRK15QTextCharFormat": [
+      "nothing", "address", "int", "int", "address"
+    ],
+    "ritual_ZN18QSyntaxHighlighter9setFormatEiiRK6QColor": [
+      "nothing", "address", "int", "int", "address"
+    ],
+    "ritual_ZN18QSyntaxHighlighter9setFormatEiiRK5QFont": [
+      "nothing", "address", "int", "int", "address"
+    ],
+    "ritual_ZNK18QSyntaxHighlighter6formatEi": ["address", "address", "int"],
+    "ritual_ZNK18QSyntaxHighlighter18previousBlockStateEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK18QSyntaxHighlighter17currentBlockStateEv": [
+      "int", "address"
+    ],
+    "ritual_ZN18QSyntaxHighlighter20setCurrentBlockStateEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18QSyntaxHighlighter23setCurrentBlockUserDataEP18QTextBlockUserData": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QSyntaxHighlighter20currentBlockUserDataEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18QSyntaxHighlighter12currentBlockEv": ["address", "address"],
     "ritual_take_QSyntaxHighlighter": ["bool", "address", "chars", "address"]
   }
 }

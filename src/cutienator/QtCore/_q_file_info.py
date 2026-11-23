@@ -61,8 +61,8 @@ class QFileInfo(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  24 of the 88 functions Qt declares: 19 takes or gives a type that cannot be
-  passed yet; 3 a template; 2 private.
+  24 of the 88 functions Qt declares: 21 takes or gives a type that cannot be
+  passed yet; 3 a template.
 
   What to expect
   --------------

@@ -8,6 +8,7 @@
     "ritual_ZN15QSessionManager2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN15QSessionManagerD1Ev": ["nothing", "address"],
     "ritual_ZNK15QSessionManager9sessionIdEv": ["text", "address"],
     "ritual_ZNK15QSessionManager10sessionKeyEv": ["text", "address"],
     "ritual_ZN15QSessionManager17allowsInteractionEv": ["bool", "address"],

@@ -45,15 +45,17 @@ class QObject(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QObject that has a ritual and that Python can call
-  so far, 35 names in all: 'metaObject', 'tr', 'event', 'eventFilter',
+  so far, 41 names in all: 'metaObject', 'tr', 'event', 'eventFilter',
   'objectName', 'setObjectName', 'isWidgetType', 'isWindowType',
   'isQuickItemType', 'isQmlExposed', 'signalsBlocked', 'blockSignals',
   'thread', 'startTimer', 'killTimer', 'children', 'setParent',
   'installEventFilter', 'removeEventFilter', 'connect', 'disconnect',
   'dumpObjectTree', 'dumpObjectInfo', 'setProperty', 'property',
   'dynamicPropertyNames', 'bindingStorage', 'parent', 'inherits',
-  'deleteLater', 'timerEvent', 'childEvent', 'customEvent', 'connectNotify',
-  'disconnectNotify'. It can be made from Python, in 1 way; see '__init__'.
+  'deleteLater', 'sender', 'senderSignalIndex', 'receivers',
+  'isSignalConnected', 'timerEvent', 'childEvent', 'customEvent',
+  'connectNotify', 'disconnectNotify', 'doSetObjectName', 'doSetProperty'. It
+  can be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -68,8 +70,9 @@ class QObject(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  34 of the 80 functions Qt declares: 11 a template; 7 takes or gives a type
-  that cannot be passed yet; 7 private; 5 protected; 2 a signal; 2 forbidden.
+  28 of the 80 functions Qt declares: 12 takes or gives a type that cannot be
+  passed yet; 11 a template; 2 a signal; 2 forbidden; 1 declared and nowhere
+  to be found.
 
   What to expect
   --------------
@@ -827,6 +830,72 @@ class QObject(CuteMixin, metaclass=MetaCute):
         'ritual_ZNK7QObject8inheritsEPKc', self._bytesOf(classname),
     )
 
+  def sender(self) -> Optional[QObject]:
+    """
+    Calls Qt's 'QObject *QObject::sender() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qobject.html#sender
+
+    Returns
+    -------
+
+    Optional[QObject]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QObject *QObject::sender() const
+    address = self.uglySide.call('ritual_ZNK7QObject6senderEv')
+    return QObject._cuteAt(address)
+
+  def senderSignalIndex(self) -> int:
+    """
+    Calls Qt's 'int QObject::senderSignalIndex() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qobject.html#senderSignalIndex
+    """
+    #  int QObject::senderSignalIndex() const
+    return self.uglySide.call('ritual_ZNK7QObject17senderSignalIndexEv')
+
+  @overload(str)
+  @overload(NoneType)
+  def receivers(self, signal: Optional[str]) -> int:
+    """
+    Calls Qt's 'int QObject::receivers(const char *signal) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qobject.html#receivers
+
+    Parameters
+    ----------
+
+    signal : Optional[str]
+      Passed on as the bytes of the text. None is passed on as no text.
+    """
+    #  int QObject::receivers(const char *signal) const
+    return self.uglySide.call(
+        'ritual_ZNK7QObject9receiversEPKc', self._bytesOf(signal),
+    )
+
+  @overload(QMetaMethod)
+  def isSignalConnected(self, signal: QMetaMethod) -> bool:
+    """
+    Calls Qt's 'bool QObject::isSignalConnected(const QMetaMethod &signal)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qobject.html#isSignalConnected
+
+    Parameters
+    ----------
+
+    signal : QMetaMethod
+      Passed on as a value: Qt reads the C++ QMetaMethod, which stays
+      Python's own.
+    """
+    #  bool QObject::isSignalConnected(const QMetaMethod &signal) const
+    return self.uglySide.call(
+        'ritual_ZNK7QObject17isSignalConnectedERK11QMetaMethod',
+        self._valueOf(signal),
+    )
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1181,10 +1250,10 @@ class QObject(CuteMixin, metaclass=MetaCute):
       object.
     """
     #  void QObject::timerEvent(QTimerEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN7QObject10timerEventEP11QTimerEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN7QObject10timerEventEP11QTimerEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QObject10timerEventEP11QTimerEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QChildEvent)
   @overload(NoneType)
@@ -1202,10 +1271,10 @@ class QObject(CuteMixin, metaclass=MetaCute):
       object.
     """
     #  void QObject::childEvent(QChildEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN7QObject10childEventEP11QChildEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN7QObject10childEventEP11QChildEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QObject10childEventEP11QChildEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QEvent)
   @overload(NoneType)
@@ -1223,10 +1292,10 @@ class QObject(CuteMixin, metaclass=MetaCute):
       object.
     """
     #  void QObject::customEvent(QEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN7QObject11customEventEP6QEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN7QObject11customEventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QObject11customEventEP6QEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QMetaMethod)
   def connectNotify(self, signal: QMetaMethod) -> None:
@@ -1243,10 +1312,10 @@ class QObject(CuteMixin, metaclass=MetaCute):
       Python's own.
     """
     #  void QObject::connectNotify(const QMetaMethod &signal)
-    self.uglySide.call(
-        'ritual_own_ZN7QObject13connectNotifyERK11QMetaMethod',
-        self._valueOf(signal),
-    )
+    ritual = 'ritual_ZN7QObject13connectNotifyERK11QMetaMethod'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QObject13connectNotifyERK11QMetaMethod'
+    self.uglySide.call(ritual, self._valueOf(signal))
 
   @overload(QMetaMethod)
   def disconnectNotify(self, signal: QMetaMethod) -> None:
@@ -1263,9 +1332,62 @@ class QObject(CuteMixin, metaclass=MetaCute):
       Python's own.
     """
     #  void QObject::disconnectNotify(const QMetaMethod &signal)
-    self.uglySide.call(
-        'ritual_own_ZN7QObject16disconnectNotifyERK11QMetaMethod',
-        self._valueOf(signal),
+    ritual = 'ritual_ZN7QObject16disconnectNotifyERK11QMetaMethod'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QObject16disconnectNotifyERK11QMetaMethod'
+    self.uglySide.call(ritual, self._valueOf(signal))
+
+  @overload(str)
+  def doSetObjectName(self, name: str) -> None:
+    """
+    Calls Qt's 'void QObject::doSetObjectName(const QString &name)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qobject.html#doSetObjectName
+
+    Parameters
+    ----------
+
+    name : str
+      Passed on as it is: a QString is made of it for the call.
+    """
+    #  void QObject::doSetObjectName(const QString &name)
+    self.uglySide.call('ritual_ZN7QObject15doSetObjectNameERK7QString', name)
+
+  @overload(str, QVariant, QVariant)
+  @overload(str, QVariant, NoneType)
+  @overload(NoneType, QVariant, QVariant)
+  @overload(NoneType, QVariant, NoneType)
+  def doSetProperty(
+      self,
+      name: Optional[str],
+      value: QVariant,
+      rvalue: Optional[QVariant],
+  ) -> bool:
+    """
+    Calls Qt's 'bool QObject::doSetProperty(const char *name, const QVariant
+    &value, QVariant *rvalue)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qobject.html#doSetProperty
+
+    Parameters
+    ----------
+
+    name : Optional[str]
+      Passed on as the bytes of the text. None is passed on as no text.
+
+    value : QVariant
+      Passed on as a value: Qt reads the C++ QVariant, which stays Python's
+      own.
+
+    rvalue : Optional[QVariant]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QObject::doSetProperty(const char *name, const QVariant &value,
+    #      QVariant *rvalue)
+    return self.uglySide.call(
+        'ritual_ZN7QObject13doSetPropertyEPKcRK8QVariantPS2_',
+        self._bytesOf(name), self._valueOf(value), self._addressOf(rvalue),
     )
 
 

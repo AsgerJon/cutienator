@@ -14,7 +14,7 @@ from worktoy.dispatch import overload
 from ..cute import WAIT
 from ..occult import Rituals
 from ..QtCore import Qt, QList
-from . import QTextFrameFormat
+from . import QTextFormat, QTextFrameFormat
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from . import QTextLength
@@ -46,18 +46,13 @@ class QTextTableFormat(QTextFrameFormat):
   'clearColumnWidthConstraints', 'cellSpacing', 'setCellSpacing',
   'cellPadding', 'setCellPadding', 'setAlignment', 'alignment',
   'setHeaderRowCount', 'headerRowCount', 'setBorderCollapse',
-  'borderCollapse'. It can be made from Python, in 1 way; see '__init__'.
+  'borderCollapse'. It can be made from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QTextTableFormat::~QTextTableFormat()': the destructor: Python
     removes its C++ QTextTableFormat by it, and has no other use for it.
-
-  What has no ritual
-  ------------------
-
-  1 of the 19 functions Qt declares: 1 protected.
 
   What to expect
   --------------
@@ -370,6 +365,27 @@ class QTextTableFormat(QTextFrameFormat):
     #  QTextTableFormat::QTextTableFormat()
     self._noteCreation(QTextTableFormat, lambda: Rituals.call(
         'ritual_ZN16QTextTableFormatC1Ev',
+    ))
+
+  @overload(QTextFormat)
+  def __init__(self, fmt: QTextFormat) -> None:
+    """
+    Notes what was given, for Qt's 'QTextTableFormat::QTextTableFormat(const
+    QTextFormat &fmt)', which is called at the first use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qtexttableformat.html#QTextTableFormat
+
+    Parameters
+    ----------
+
+    fmt : QTextFormat
+      Passed on as a value: Qt reads the C++ QTextFormat, which stays
+      Python's own.
+    """
+    #  QTextTableFormat::QTextTableFormat(const QTextFormat &fmt)
+    self._noteCreation(QTextTableFormat, lambda: Rituals.call(
+        'ritual_ZN16QTextTableFormatC1ERK11QTextFormat', self._valueOf(fmt),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

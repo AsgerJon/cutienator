@@ -2,6 +2,7 @@
 //  QtCore/qcbormap.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qcbormap.h>
 #include <QtCore/qcborvalue.h>
+#include <QtCore/qcompare.h>
 
 //  QCborMap::Iterator::Iterator()
 extern "C" Q_DECL_EXPORT
@@ -106,6 +107,48 @@ qsizetype ritual_ZNK8QCborMap8IteratormiES0_(
     const QCborMap::Iterator *self,
     const QCborMap::Iterator *j) {
   return self->operator-(*j);
+}
+
+//  bool QCborMap::Iterator::comparesEqual_helper(const Iterator &lhs, const
+//      Iterator &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN8QCborMap8Iterator20comparesEqual_helperERKS0_S2_(
+    const QCborMap::Iterator *lhs,
+    const QCborMap::Iterator *rhs) {
+  return QCborMap::Iterator::comparesEqual_helper(*lhs, *rhs);
+}
+
+//  bool QCborMap::Iterator::comparesEqual_helper(const Iterator &lhs, const
+//      ConstIterator &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN8QCborMap8Iterator20comparesEqual_helperERKS0_RKNS_13ConstIteratorE(
+    const QCborMap::Iterator *lhs,
+    const QCborMap::ConstIterator *rhs) {
+  return QCborMap::Iterator::comparesEqual_helper(*lhs, *rhs);
+}
+
+//  Qt::strong_ordering QCborMap::Iterator::compareThreeWay_helper(const
+//      Iterator &lhs, const Iterator &rhs)
+extern "C" Q_DECL_EXPORT
+Qt::strong_ordering *ritual_ZN8QCborMap8Iterator22compareThreeWay_helperERKS0_S2_(
+    const QCborMap::Iterator *lhs,
+    const QCborMap::Iterator *rhs) {
+  return new Qt::strong_ordering(
+      QCborMap::Iterator::compareThreeWay_helper(
+          *lhs,
+          *rhs));
+}
+
+//  Qt::strong_ordering QCborMap::Iterator::compareThreeWay_helper(const
+//      Iterator &lhs, const ConstIterator &rhs)
+extern "C" Q_DECL_EXPORT
+Qt::strong_ordering *ritual_ZN8QCborMap8Iterator22compareThreeWay_helperERKS0_RKNS_13ConstIteratorE(
+    const QCborMap::Iterator *lhs,
+    const QCborMap::ConstIterator *rhs) {
+  return new Qt::strong_ordering(
+      QCborMap::Iterator::compareThreeWay_helper(
+          *lhs,
+          *rhs));
 }
 
 //  bool operator==(const Iterator &lhs, const Iterator &rhs)

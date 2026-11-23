@@ -45,8 +45,8 @@ class QTreeWidgetItemIterator(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QTreeWidgetItemIterator that has a ritual and that
-  Python can call so far, 2 names in all: '__iadd__', '__isub__'. It can be
-  made from Python, in 3 ways; see '__init__'.
+  Python can call so far, 3 names in all: '__iadd__', '__isub__',
+  'matchesFlags'. It can be made from Python, in 3 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -66,8 +66,8 @@ class QTreeWidgetItemIterator(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  6 of the 15 functions Qt declares: 3 takes or gives a type that cannot be
-  passed yet; 3 private.
+  5 of the 15 functions Qt declares: 5 takes or gives a type that cannot be
+  passed yet.
 
   What to expect
   --------------
@@ -144,6 +144,31 @@ class QTreeWidgetItemIterator(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(QTreeWidgetItem)
+  @overload(NoneType)
+  def matchesFlags(self, item: Optional[QTreeWidgetItem]) -> bool:
+    """
+    Calls Qt's 'bool QTreeWidgetItemIterator::matchesFlags(const
+    QTreeWidgetItem *item) const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qtreewidgetitemiterator.html#matchesFlags
+
+    Parameters
+    ----------
+
+    item : Optional[QTreeWidgetItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QTreeWidgetItemIterator::matchesFlags(const QTreeWidgetItem
+    #      *item) const
+    return self.uglySide.call(
+        'ritual_ZNK23QTreeWidgetItemIterator12matchesFlagsEPK15QTreeWidgetI'
+        'tem',
+        self._addressOf(item),
+    )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

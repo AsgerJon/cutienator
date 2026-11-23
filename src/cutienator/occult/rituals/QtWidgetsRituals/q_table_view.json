@@ -102,6 +102,73 @@
       "nothing", "address", "int", "int"
     ],
     "ritual_ZN10QTableView11setShowGridEb": ["nothing", "address", "bool"],
+    "ritual_ZN10QTableView8rowMovedEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZN10QTableView11columnMovedEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZN10QTableView10rowResizedEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZN10QTableView13columnResizedEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZN10QTableView15rowCountChangedEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN10QTableView18columnCountChangedEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN10QTableView16scrollContentsByEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK10QTableView18initViewItemOptionEP20QStyleOptionViewItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QTableView10paintEventEP11QPaintEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QTableView10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QTableView9dropEventEP10QDropEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10QTableView16horizontalOffsetEv": ["int", "address"],
+    "ritual_ZNK10QTableView14verticalOffsetEv": ["int", "address"],
+    "ritual_ZN10QTableView10moveCursorEN17QAbstractItemView12CursorActionE6QFlagsIN2Qt16KeyboardModifierEE": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZN10QTableView12setSelectionERK5QRect6QFlagsIN19QItemSelectionModel13SelectionFlagEE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZNK10QTableView24visualRegionForSelectionERK14QItemSelection": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK10QTableView15selectedIndexesEv": ["address", "address"],
+    "ritual_ZN10QTableView16updateGeometriesEv": ["nothing", "address"],
+    "ritual_ZNK10QTableView16viewportSizeHintEv": ["address", "address"],
+    "ritual_ZNK10QTableView14sizeHintForRowEi": ["int", "address", "int"],
+    "ritual_ZNK10QTableView17sizeHintForColumnEi": ["int", "address", "int"],
+    "ritual_ZN10QTableView23verticalScrollbarActionEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10QTableView25horizontalScrollbarActionEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK10QTableView13isIndexHiddenERK11QModelIndex": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN10QTableView16selectionChangedERK14QItemSelectionS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN10QTableView14currentChangedERK11QModelIndexS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK10QTableView11visualIndexERK11QModelIndex": [
+      "int", "address", "address"
+    ],
     "ritual_take_QTableView": ["bool", "address", "chars", "address"],
     "ritual_own_ZN10QTableView8setModelEP18QAbstractItemModel": [
       "nothing", "address", "address"

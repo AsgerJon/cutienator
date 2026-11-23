@@ -9,6 +9,7 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
+from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
 from worktoy.keenum import Kee
 
@@ -58,16 +59,16 @@ class QStyle(QObject):
   -----------
 
   Every function of Qt's QStyle that has a ritual and that Python can call so
-  far, 31 names in all: 'metaObject', 'tr', 'name', 'polish', 'unpolish',
+  far, 33 names in all: 'metaObject', 'tr', 'name', 'polish', 'unpolish',
   'itemTextRect', 'itemPixmapRect', 'drawItemText', 'drawItemPixmap',
   'standardPalette', 'drawPrimitive', 'drawControl', 'subElementRect',
   'drawComplexControl', 'hitTestComplexControl', 'subControlRect',
   'pixelMetric', 'sizeFromContents', 'styleHint', 'standardPixmap',
   'standardIcon', 'generatedIconPixmap', 'visualRect', 'visualPos',
   'sliderPositionFromValue', 'sliderValueFromPosition', 'visualAlignment',
-  'alignedRect', 'layoutSpacing', 'combinedLayoutSpacing', 'proxy'. None can
-  be made from Python: one comes out of a function of another class that
-  gives one back.
+  'alignedRect', 'layoutSpacing', 'combinedLayoutSpacing', 'proxy',
+  'setName', 'setProxy'. None can be made from Python: one comes out of a
+  function of another class that gives one back.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -78,9 +79,9 @@ class QStyle(QObject):
   What has no ritual
   ------------------
 
-  13 of the 47 functions Qt declares: 5 private; 3 takes or gives a type that
-  cannot be passed yet; 2 forbidden; 1 a template; 1 protected; 1 the class
-  is abstract, so C++ cannot make one.
+  11 of the 47 functions Qt declares: 5 takes or gives a type that cannot be
+  passed yet; 2 the class is abstract, so C++ cannot make one; 2 forbidden; 1
+  a template; 1 declared and nowhere to be found.
 
   What to expect
   --------------
@@ -2039,6 +2040,42 @@ class QStyle(QObject):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(str)
+  def setName(self, name: str) -> None:
+    """
+    Calls Qt's 'void QStyle::setName(const QString &name)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qstyle.html#setName
+
+    Parameters
+    ----------
+
+    name : str
+      Passed on as it is: a QString is made of it for the call.
+    """
+    #  void QStyle::setName(const QString &name)
+    self.uglySide.call('ritual_ZN6QStyle7setNameERK7QString', name)
+
+  @overload(THIS)
+  @overload(NoneType)
+  def setProxy(self, style: Optional[QStyle]) -> None:
+    """
+    Calls Qt's 'void QStyle::setProxy(QStyle *style)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qstyle.html#setProxy
+
+    Parameters
+    ----------
+
+    style : Optional[QStyle]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QStyle::setProxy(QStyle *style)
+    self.uglySide.call(
+        'ritual_ZN6QStyle8setProxyEPS_', self._addressOf(style),
+    )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

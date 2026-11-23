@@ -51,14 +51,14 @@ class QProgressDialog(QDialog):
   -----------
 
   Every function of Qt's QProgressDialog that has a ritual and that Python
-  can call so far, 30 names in all: 'metaObject', 'tr', 'setLabel',
+  can call so far, 31 names in all: 'metaObject', 'tr', 'setLabel',
   'setCancelButton', 'setBar', 'wasCanceled', 'minimum', 'maximum', 'value',
   'sizeHint', 'labelText', 'minimumDuration', 'setAutoReset', 'autoReset',
   'setAutoClose', 'autoClose', 'open', 'cancel', 'reset', 'setMaximum',
   'setMinimum', 'setRange', 'setValue', 'setLabelText',
   'setCancelButtonText', 'setMinimumDuration', 'resizeEvent', 'closeEvent',
-  'changeEvent', 'showEvent'. It can be made from Python, in 2 ways; see
-  '__init__'.
+  'changeEvent', 'showEvent', 'forceShow'. It can be made from Python, in 2
+  ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -69,8 +69,9 @@ class QProgressDialog(QDialog):
   What has no ritual
   ------------------
 
-  10 of the 43 functions Qt declares: 3 private; 2 takes or gives a type that
-  cannot be passed yet; 2 forbidden; 1 a template; 1 a signal; 1 protected.
+  9 of the 43 functions Qt declares: 4 takes or gives a type that cannot be
+  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found;
+  1 a signal.
 
   What to expect
   --------------
@@ -689,10 +690,10 @@ class QProgressDialog(QDialog):
       object.
     """
     #  void QProgressDialog::resizeEvent(QResizeEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN15QProgressDialog11resizeEventEP12QResizeEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN15QProgressDialog11resizeEventEP12QResizeEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN15QProgressDialog11resizeEventEP12QResizeEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QCloseEvent)
   @overload(NoneType)
@@ -710,10 +711,10 @@ class QProgressDialog(QDialog):
       object.
     """
     #  void QProgressDialog::closeEvent(QCloseEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN15QProgressDialog10closeEventEP11QCloseEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN15QProgressDialog10closeEventEP11QCloseEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN15QProgressDialog10closeEventEP11QCloseEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QEvent)
   @overload(NoneType)
@@ -731,10 +732,10 @@ class QProgressDialog(QDialog):
       object.
     """
     #  void QProgressDialog::changeEvent(QEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN15QProgressDialog11changeEventEP6QEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN15QProgressDialog11changeEventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN15QProgressDialog11changeEventEP6QEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QShowEvent)
   @overload(NoneType)
@@ -752,7 +753,16 @@ class QProgressDialog(QDialog):
       object.
     """
     #  void QProgressDialog::showEvent(QShowEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN15QProgressDialog9showEventEP10QShowEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN15QProgressDialog9showEventEP10QShowEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN15QProgressDialog9showEventEP10QShowEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
+
+  def forceShow(self) -> None:
+    """
+    Calls Qt's 'void QProgressDialog::forceShow()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qprogressdialog.html#forceShow
+    """
+    #  void QProgressDialog::forceShow()
+    self.uglySide.call('ritual_ZN15QProgressDialog9forceShowEv')

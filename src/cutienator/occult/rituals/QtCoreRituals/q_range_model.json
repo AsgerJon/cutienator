@@ -129,6 +129,14 @@
     "ritual_ZN11QRangeModel20setAutoConnectPolicyENS_17AutoConnectPolicyE": [
       "nothing", "address", "int"
     ],
+    "ritual_ZN11QRangeModel17resetInternalDataEv": ["nothing", "address"],
+    "ritual_ZN11QRangeModel5eventEP6QEvent": ["bool", "address", "address"],
+    "ritual_ZN11QRangeModel11eventFilterEP7QObjectP6QEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN11QRangeModelC1EP19QRangeModelImplBaseP7QObject": [
+      "address", "address", "address"
+    ],
     "ritual_take_QRangeModel": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK11QRangeModel5flagsERK11QModelIndex": [
       "int", "address", "address"

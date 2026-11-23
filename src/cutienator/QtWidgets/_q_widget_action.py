@@ -13,7 +13,7 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from ..QtCore import QObject
+from ..QtCore import QList, QObject
 from ..QtGui import QAction
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
@@ -45,10 +45,10 @@ class QWidgetAction(QAction):
   -----------
 
   Every function of Qt's QWidgetAction that has a ritual and that Python can
-  call so far, 10 names in all: 'metaObject', 'tr', 'setDefaultWidget',
+  call so far, 11 names in all: 'metaObject', 'tr', 'setDefaultWidget',
   'defaultWidget', 'requestWidget', 'releaseWidget', 'event', 'eventFilter',
-  'createWidget', 'deleteWidget'. It can be made from Python, in 1 way; see
-  '__init__'.
+  'createWidget', 'deleteWidget', 'createdWidgets'. It can be made from
+  Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -59,8 +59,8 @@ class QWidgetAction(QAction):
   What has no ritual
   ------------------
 
-  9 of the 21 functions Qt declares: 3 private; 2 takes or gives a type that
-  cannot be passed yet; 2 forbidden; 1 a template; 1 protected.
+  8 of the 21 functions Qt declares: 4 takes or gives a type that cannot be
+  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found.
 
   What to expect
   --------------
@@ -209,6 +209,25 @@ class QWidgetAction(QAction):
     from . import QWidget
     return QWidget._cuteAt(address)
 
+  def createdWidgets(self) -> QList[QWidget]:
+    """
+    Calls Qt's 'QList<QWidget *> QWidgetAction::createdWidgets() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwidgetaction.html#createdWidgets
+
+    Returns
+    -------
+
+    QList[QWidget]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QWidget *> QWidgetAction::createdWidgets() const
+    address = self.uglySide.call(
+        'ritual_ZNK13QWidgetAction14createdWidgetsEv',
+    )
+    from . import QWidget
+    return QList[QWidget]._cuteOwning(address)
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -355,9 +374,10 @@ class QWidgetAction(QAction):
       object.
     """
     #  bool QWidgetAction::event(QEvent *a0)
-    return self.uglySide.call(
-        'ritual_own_ZN13QWidgetAction5eventEP6QEvent', self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN13QWidgetAction5eventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN13QWidgetAction5eventEP6QEvent'
+    return self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QObject, QEvent)
   @overload(QObject, NoneType)
@@ -381,9 +401,11 @@ class QWidgetAction(QAction):
       object.
     """
     #  bool QWidgetAction::eventFilter(QObject *a0, QEvent *a1)
+    ritual = 'ritual_ZN13QWidgetAction11eventFilterEP7QObjectP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN13QWidgetAction11eventFilterEP7QObjectP6QEvent'
     return self.uglySide.call(
-        'ritual_own_ZN13QWidgetAction11eventFilterEP7QObjectP6QEvent',
-        self._addressOf(a0), self._addressOf(a1),
+        ritual, self._addressOf(a0), self._addressOf(a1),
     )
 
   @overload(QWidget)
@@ -409,10 +431,10 @@ class QWidgetAction(QAction):
       no object.
     """
     #  QWidget *QWidgetAction::createWidget(QWidget *parent)
-    address = self.uglySide.call(
-        'ritual_own_ZN13QWidgetAction12createWidgetEP7QWidget',
-        self._addressOf(parent),
-    )
+    ritual = 'ritual_ZN13QWidgetAction12createWidgetEP7QWidget'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN13QWidgetAction12createWidgetEP7QWidget'
+    address = self.uglySide.call(ritual, self._addressOf(parent))
     from . import QWidget
     return QWidget._cuteAt(address)
 
@@ -432,7 +454,7 @@ class QWidgetAction(QAction):
       object.
     """
     #  void QWidgetAction::deleteWidget(QWidget *widget)
-    self.uglySide.call(
-        'ritual_own_ZN13QWidgetAction12deleteWidgetEP7QWidget',
-        self._addressOf(widget),
-    )
+    ritual = 'ritual_ZN13QWidgetAction12deleteWidgetEP7QWidget'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN13QWidgetAction12deleteWidgetEP7QWidget'
+    self.uglySide.call(ritual, self._addressOf(widget))

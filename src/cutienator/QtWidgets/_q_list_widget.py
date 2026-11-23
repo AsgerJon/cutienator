@@ -19,14 +19,15 @@ from . import QAbstractItemView, QListView, QWidget
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from ..QtCore import QEvent, QMetaObject, QMimeData, QModelIndex, QPoint
-  from ..QtCore import QRect
+  from ..QtCore import QAbstractItemModel, QEvent, QMetaObject, QMimeData
+  from ..QtCore import QModelIndex, QPoint, QRect
   from ..QtGui import QDropEvent
   from . import QListWidgetItem
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
+  QAbstractItemModel = WAIT['QAbstractItemModel']
   QDropEvent = WAIT['QDropEvent']
   QEvent = WAIT['QEvent']
   QListWidgetItem = WAIT['QListWidgetItem']
@@ -51,7 +52,7 @@ class QListWidget(QListView):
   -----------
 
   Every function of Qt's QListWidget that has a ritual and that Python can
-  call so far, 40 names in all: 'metaObject', 'tr', 'setSelectionModel',
+  call so far, 44 names in all: 'metaObject', 'tr', 'setSelectionModel',
   'item', 'row', 'insertItem', 'insertItems', 'addItem', 'addItems',
   'takeItem', 'count', 'currentItem', 'setCurrentItem', 'currentRow',
   'setCurrentRow', 'itemAt', 'visualItemRect', 'sortItems',
@@ -59,9 +60,10 @@ class QListWidget(QListView):
   'openPersistentEditor', 'closePersistentEditor', 'isPersistentEditorOpen',
   'itemWidget', 'setItemWidget', 'removeItemWidget', 'selectedItems',
   'findItems', 'items', 'indexFromItem', 'itemFromIndex',
-  'setSupportedDragActions', 'supportedDragActions', 'scrollToItem', 'clear',
-  'dropEvent', 'event', 'dropMimeData', 'supportedDropActions'. It can be
-  made from Python, in 1 way; see '__init__'.
+  'setSupportedDragActions', 'supportedDragActions', 'dropEvent',
+  'scrollToItem', 'clear', 'event', 'mimeTypes', 'mimeData', 'dropMimeData',
+  'supportedDropActions', 'setModel', 'sortOrder'. It can be made from
+  Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -72,9 +74,9 @@ class QListWidget(QListView):
   What has no ritual
   ------------------
 
-  22 of the 69 functions Qt declares: 10 a signal; 5 private; 2 takes or
-  gives a type that cannot be passed yet; 2 protected; 2 forbidden; 1 a
-  template.
+  18 of the 69 functions Qt declares: 10 a signal; 4 takes or gives a type
+  that cannot be passed yet; 2 forbidden; 1 a template; 1 declared and
+  nowhere to be found.
 
   What to expect
   --------------
@@ -611,6 +613,54 @@ class QListWidget(QListView):
         'ritual_ZNK11QListWidget20supportedDragActionsEv',
     ))
 
+  def mimeTypes(self) -> QStringList:
+    """
+    Calls Qt's 'QStringList QListWidget::mimeTypes() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlistwidget.html#mimeTypes
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QListWidget::mimeTypes() const
+    address = self.uglySide.call('ritual_ZNK11QListWidget9mimeTypesEv')
+    return QStringList._cuteOwning(address)
+
+  @overload(QList[QListWidgetItem])
+  def mimeData(self, items: QList[QListWidgetItem]) -> Optional[QMimeData]:
+    """
+    Calls Qt's 'QMimeData *QListWidget::mimeData(const QList<QListWidgetItem
+    *> &items) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlistwidget.html#mimeData
+
+    Parameters
+    ----------
+
+    items : QList[QListWidgetItem]
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+
+    Returns
+    -------
+
+    Optional[QMimeData]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QMimeData *QListWidget::mimeData(const QList<QListWidgetItem *>
+    #      &items) const
+    address = self.uglySide.call(
+        'ritual_ZNK11QListWidget8mimeDataERK5QListIP15QListWidgetItemE',
+        self._valueOf(items),
+    )
+    from ..QtCore import QMimeData
+    return QMimeData._cuteAt(address)
+
   def supportedDropActions(self) -> Qt.DropActions:
     """
     Calls Qt's 'Qt::DropActions QListWidget::supportedDropActions() const'.
@@ -625,8 +675,28 @@ class QListWidget(QListView):
       The value standing for the combination Qt gave back.
     """
     #  Qt::DropActions QListWidget::supportedDropActions() const
-    return Qt.DropActions(self.uglySide.call(
-        'ritual_own_ZNK11QListWidget20supportedDropActionsEv',
+    ritual = 'ritual_ZNK11QListWidget20supportedDropActionsEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QListWidget20supportedDropActionsEv'
+    return Qt.DropActions(self.uglySide.call(ritual))
+
+  def sortOrder(self) -> Qt.SortOrder:
+    """
+    Calls Qt's 'Qt::SortOrder QListWidget::sortOrder() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlistwidget.html#sortOrder
+
+    Returns
+    -------
+
+    Qt.SortOrder
+      The member standing for the number Qt gave back. For a number Qt gives
+      no name it is the member without a name that 'Qt.SortOrder(number)'
+      gives.
+    """
+    #  Qt::SortOrder QListWidget::sortOrder() const
+    return Qt.SortOrder(self.uglySide.call(
+        'ritual_ZNK11QListWidget9sortOrderEv',
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -829,6 +899,27 @@ class QListWidget(QListView):
         'ActionEE',
         actions.value,
     )
+
+  @overload(QAbstractItemModel)
+  @overload(NoneType)
+  def setModel(self, model: Optional[QAbstractItemModel]) -> None:
+    """
+    Calls Qt's 'void QListWidget::setModel(QAbstractItemModel *model)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlistwidget.html#setModel
+
+    Parameters
+    ----------
+
+    model : Optional[QAbstractItemModel]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QListWidget::setModel(QAbstractItemModel *model)
+    ritual = 'ritual_ZN11QListWidget8setModelEP18QAbstractItemModel'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QListWidget8setModelEP18QAbstractItemModel'
+    self.uglySide.call(ritual, self._addressOf(model))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1149,6 +1240,27 @@ class QListWidget(QListView):
         self._addressOf(item),
     )
 
+  @overload(QDropEvent)
+  @overload(NoneType)
+  def dropEvent(self, event: Optional[QDropEvent]) -> None:
+    """
+    Calls Qt's 'void QListWidget::dropEvent(QDropEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlistwidget.html#dropEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QDropEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QListWidget::dropEvent(QDropEvent *event)
+    ritual = 'ritual_ZN11QListWidget9dropEventEP10QDropEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QListWidget9dropEventEP10QDropEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
+
   @overload(QListWidgetItem)
   @overload(NoneType)
   @overload(QListWidgetItem, QAbstractItemView.ScrollHint)
@@ -1193,27 +1305,6 @@ class QListWidget(QListView):
     #  void QListWidget::clear()
     self.uglySide.call('ritual_ZN11QListWidget5clearEv')
 
-  @overload(QDropEvent)
-  @overload(NoneType)
-  def dropEvent(self, event: Optional[QDropEvent]) -> None:
-    """
-    Calls Qt's 'void QListWidget::dropEvent(QDropEvent *event)'.
-
-    Qt's own words: https://doc.qt.io/qt-6/qlistwidget.html#dropEvent
-
-    Parameters
-    ----------
-
-    event : Optional[QDropEvent]
-      Passed on as the address of its C++ object. None is passed on as no
-      object.
-    """
-    #  void QListWidget::dropEvent(QDropEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN11QListWidget9dropEventEP10QDropEvent',
-        self._addressOf(event),
-    )
-
   @overload(QEvent)
   @overload(NoneType)
   def event(self, e: Optional[QEvent]) -> bool:
@@ -1230,9 +1321,10 @@ class QListWidget(QListView):
       object.
     """
     #  bool QListWidget::event(QEvent *e)
-    return self.uglySide.call(
-        'ritual_own_ZN11QListWidget5eventEP6QEvent', self._addressOf(e),
-    )
+    ritual = 'ritual_ZN11QListWidget5eventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QListWidget5eventEP6QEvent'
+    return self.uglySide.call(ritual, self._addressOf(e))
 
   @overload(int, QMimeData, Qt.DropAction)
   @overload(int, NoneType, Qt.DropAction)
@@ -1263,8 +1355,13 @@ class QListWidget(QListView):
     """
     #  bool QListWidget::dropMimeData(int index, const QMimeData *data,
     #      Qt::DropAction action)
+    ritual = (
+        'ritual_ZN11QListWidget12dropMimeDataEiPK9QMimeDataN2Qt10DropAction'
+        'E')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN11QListWidget12dropMimeDataEiPK9QMimeDataN2Qt10Drop'
+          'ActionE')
     return self.uglySide.call(
-        'ritual_own_ZN11QListWidget12dropMimeDataEiPK9QMimeDataN2Qt10DropAc'
-        'tionE',
-        index, self._addressOf(data), action.value,
+        ritual, index, self._addressOf(data), action.value,
     )

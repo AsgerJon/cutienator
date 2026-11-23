@@ -28,3 +28,10 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN18QPainterStateGuard7restoreEv(QPainterStateGuard *self) {
   self->restore();
 }
+
+//  void QPainterStateGuard::verifyPainter()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QPainterStateGuard13verifyPainterEv(
+    QPainterStateGuard *self) {
+  self->verifyPainter();
+}

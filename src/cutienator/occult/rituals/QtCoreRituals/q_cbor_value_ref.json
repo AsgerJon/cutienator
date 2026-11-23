@@ -90,6 +90,17 @@
     "ritual_ZN13QCborValueRef20toDiagnosticNotationE6QFlagsIN10QCborValue24DiagnosticNotationOptionEE": [
       "text", "address", "int"
     ],
+    "ritual_ZN13QCborValueRef8concreteES_": ["address", "address"],
+    "ritual_ZNK13QCborValueRef8concreteEv": ["address", "address"],
+    "ritual_ZN13QCborValueRef12concreteTypeES_": ["int", "address"],
+    "ritual_ZNK13QCborValueRef12concreteTypeEv": ["int", "address"],
+    "ritual_ZN13QCborValueRefC1Ev": ["address"],
+    "ritual_ZN13QCborValueRef6assignES_RK10QCborValue": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QCborValueRef6assignES_S_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN13QCborValueRefD1Ev": ["nothing", "address"]
   }
 }

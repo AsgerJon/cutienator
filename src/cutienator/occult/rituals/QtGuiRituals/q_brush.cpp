@@ -187,6 +187,14 @@ bool ritual_ZNK6QBrushneERKS_(const QBrush *self, const QBrush *b) {
   return self->operator!=(*b);
 }
 
+//  bool QBrush::doCompareEqualColor(QColor rhs) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK6QBrush19doCompareEqualColorE6QColor(
+    const QBrush *self,
+    const QColor *rhs) {
+  return self->doCompareEqualColor(*rhs);
+}
+
 //  bool operator==(const QBrush &lhs, const QColor &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZeqRK6QBrushRK6QColor(const QBrush *lhs, const QColor *rhs) {
@@ -209,6 +217,31 @@ bool ritual_ZeqRK6QColorRK6QBrush(const QColor *lhs, const QBrush *rhs) {
 extern "C" Q_DECL_EXPORT
 bool ritual_ZneRK6QColorRK6QBrush(const QColor *lhs, const QBrush *rhs) {
   return operator!=(*lhs, *rhs);
+}
+
+//  bool QBrush::doCompareEqualStyle(Qt::BrushStyle rhs) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK6QBrush19doCompareEqualStyleEN2Qt10BrushStyleE(
+    const QBrush *self,
+    Qt::BrushStyle rhs) {
+  return self->doCompareEqualStyle(rhs);
+}
+
+//  void QBrush::detach(Qt::BrushStyle newStyle)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QBrush6detachEN2Qt10BrushStyleE(
+    QBrush *self,
+    Qt::BrushStyle newStyle) {
+  self->detach(newStyle);
+}
+
+//  void QBrush::init(const QColor &color, Qt::BrushStyle bs)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QBrush4initERK6QColorN2Qt10BrushStyleE(
+    QBrush *self,
+    const QColor *color,
+    Qt::BrushStyle bs) {
+  self->init(*color, bs);
 }
 
 //  bool QBrush::isDetached() const

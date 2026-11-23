@@ -1561,6 +1561,209 @@ bool ritual_ZN15QGraphicsWidget5closeEv(QGraphicsWidget *self) {
   return self->close();
 }
 
+//  void QGraphicsWidget::initStyleOption(QStyleOption *option) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK15QGraphicsWidget15initStyleOptionEP12QStyleOption(
+    const QGraphicsWidget *self,
+    QStyleOption *option) {
+  self->initStyleOption(option);
+}
+
+//  QSizeF QGraphicsWidget::sizeHint(Qt::SizeHint which, const QSizeF
+//      &constraint) const
+extern "C" Q_DECL_EXPORT
+QSizeF *ritual_ZNK15QGraphicsWidget8sizeHintEN2Qt8SizeHintERK6QSizeF(
+    const QGraphicsWidget *self,
+    Qt::SizeHint which,
+    const QSizeF *constraint) {
+  return new QSizeF(self->sizeHint(which, *constraint));
+}
+
+//  void QGraphicsWidget::updateGeometry()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QGraphicsWidget14updateGeometryEv(QGraphicsWidget *self) {
+  self->updateGeometry();
+}
+
+//  QVariant QGraphicsWidget::itemChange(GraphicsItemChange change, const
+//      QVariant &value)
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZN15QGraphicsWidget10itemChangeEN13QGraphicsItem18GraphicsItemChangeERK8QVariant(
+    QGraphicsWidget *self,
+    QGraphicsItem::GraphicsItemChange change,
+    const QVariant *value) {
+  return new QVariant(self->itemChange(change, *value));
+}
+
+//  QVariant QGraphicsWidget::propertyChange(const QString &propertyName,
+//      const QVariant &value)
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZN15QGraphicsWidget14propertyChangeERK7QStringRK8QVariant(
+    QGraphicsWidget *self,
+    const QString *propertyName,
+    const QVariant *value) {
+  return new QVariant(self->propertyChange(*propertyName, *value));
+}
+
+//  bool QGraphicsWidget::sceneEvent(QEvent *event)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN15QGraphicsWidget10sceneEventEP6QEvent(
+    QGraphicsWidget *self,
+    QEvent *event) {
+  return self->sceneEvent(event);
+}
+
+//  bool QGraphicsWidget::windowFrameEvent(QEvent *e)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN15QGraphicsWidget16windowFrameEventEP6QEvent(
+    QGraphicsWidget *self,
+    QEvent *e) {
+  return self->windowFrameEvent(e);
+}
+
+//  Qt::WindowFrameSection QGraphicsWidget::windowFrameSectionAt(const
+//      QPointF &pos) const
+extern "C" Q_DECL_EXPORT
+Qt::WindowFrameSection ritual_ZNK15QGraphicsWidget20windowFrameSectionAtERK7QPointF(
+    const QGraphicsWidget *self,
+    const QPointF *pos) {
+  return self->windowFrameSectionAt(*pos);
+}
+
+//  bool QGraphicsWidget::event(QEvent *event)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN15QGraphicsWidget5eventEP6QEvent(
+    QGraphicsWidget *self,
+    QEvent *event) {
+  return self->event(event);
+}
+
+//  void QGraphicsWidget::changeEvent(QEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QGraphicsWidget11changeEventEP6QEvent(
+    QGraphicsWidget *self,
+    QEvent *event) {
+  self->changeEvent(event);
+}
+
+//  void QGraphicsWidget::closeEvent(QCloseEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QGraphicsWidget10closeEventEP11QCloseEvent(
+    QGraphicsWidget *self,
+    QCloseEvent *event) {
+  self->closeEvent(event);
+}
+
+//  void QGraphicsWidget::focusInEvent(QFocusEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QGraphicsWidget12focusInEventEP11QFocusEvent(
+    QGraphicsWidget *self,
+    QFocusEvent *event) {
+  self->focusInEvent(event);
+}
+
+//  bool QGraphicsWidget::focusNextPrevChild(bool next)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN15QGraphicsWidget18focusNextPrevChildEb(
+    QGraphicsWidget *self,
+    bool next) {
+  return self->focusNextPrevChild(next);
+}
+
+//  void QGraphicsWidget::focusOutEvent(QFocusEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QGraphicsWidget13focusOutEventEP11QFocusEvent(
+    QGraphicsWidget *self,
+    QFocusEvent *event) {
+  self->focusOutEvent(event);
+}
+
+//  void QGraphicsWidget::hideEvent(QHideEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QGraphicsWidget9hideEventEP10QHideEvent(
+    QGraphicsWidget *self,
+    QHideEvent *event) {
+  self->hideEvent(event);
+}
+
+//  void QGraphicsWidget::moveEvent(QGraphicsSceneMoveEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QGraphicsWidget9moveEventEP23QGraphicsSceneMoveEvent(
+    QGraphicsWidget *self,
+    QGraphicsSceneMoveEvent *event) {
+  self->moveEvent(event);
+}
+
+//  void QGraphicsWidget::polishEvent()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QGraphicsWidget11polishEventEv(QGraphicsWidget *self) {
+  self->polishEvent();
+}
+
+//  void QGraphicsWidget::resizeEvent(QGraphicsSceneResizeEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QGraphicsWidget11resizeEventEP25QGraphicsSceneResizeEvent(
+    QGraphicsWidget *self,
+    QGraphicsSceneResizeEvent *event) {
+  self->resizeEvent(event);
+}
+
+//  void QGraphicsWidget::showEvent(QShowEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QGraphicsWidget9showEventEP10QShowEvent(
+    QGraphicsWidget *self,
+    QShowEvent *event) {
+  self->showEvent(event);
+}
+
+//  void QGraphicsWidget::hoverMoveEvent(QGraphicsSceneHoverEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QGraphicsWidget14hoverMoveEventEP24QGraphicsSceneHoverEvent(
+    QGraphicsWidget *self,
+    QGraphicsSceneHoverEvent *event) {
+  self->hoverMoveEvent(event);
+}
+
+//  void QGraphicsWidget::hoverLeaveEvent(QGraphicsSceneHoverEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QGraphicsWidget15hoverLeaveEventEP24QGraphicsSceneHoverEvent(
+    QGraphicsWidget *self,
+    QGraphicsSceneHoverEvent *event) {
+  self->hoverLeaveEvent(event);
+}
+
+//  void QGraphicsWidget::grabMouseEvent(QEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QGraphicsWidget14grabMouseEventEP6QEvent(
+    QGraphicsWidget *self,
+    QEvent *event) {
+  self->grabMouseEvent(event);
+}
+
+//  void QGraphicsWidget::ungrabMouseEvent(QEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QGraphicsWidget16ungrabMouseEventEP6QEvent(
+    QGraphicsWidget *self,
+    QEvent *event) {
+  self->ungrabMouseEvent(event);
+}
+
+//  void QGraphicsWidget::grabKeyboardEvent(QEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QGraphicsWidget17grabKeyboardEventEP6QEvent(
+    QGraphicsWidget *self,
+    QEvent *event) {
+  self->grabKeyboardEvent(event);
+}
+
+//  void QGraphicsWidget::ungrabKeyboardEvent(QEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QGraphicsWidget19ungrabKeyboardEventEP6QEvent(
+    QGraphicsWidget *self,
+    QEvent *event) {
+  self->ungrabKeyboardEvent(event);
+}
+
 //  QGraphicsWidget as the QGraphicsLayoutItem it is built on
 extern "C" Q_DECL_EXPORT
 QGraphicsLayoutItem *ritual_cast_QGraphicsWidget_QGraphicsLayoutItem(

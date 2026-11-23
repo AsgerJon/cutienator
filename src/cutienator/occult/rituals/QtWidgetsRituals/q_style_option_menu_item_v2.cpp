@@ -16,6 +16,12 @@ QStyleOptionMenuItemV2 *ritual_ZN22QStyleOptionMenuItemV2C1ERKS_(
   return new QStyleOptionMenuItemV2(*other);
 }
 
+//  QStyleOptionMenuItemV2::QStyleOptionMenuItemV2(int version)
+extern "C" Q_DECL_EXPORT
+QStyleOptionMenuItemV2 *ritual_ZN22QStyleOptionMenuItemV2C1Ei(int version) {
+  return new QStyleOptionMenuItemV2(version);
+}
+
 //  QStyleOptionMenuItemV2::~QStyleOptionMenuItemV2()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN22QStyleOptionMenuItemV2D1Ev(QStyleOptionMenuItemV2 *self) {

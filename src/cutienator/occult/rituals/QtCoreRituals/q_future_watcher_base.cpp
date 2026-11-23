@@ -3,6 +3,7 @@
 #include <QtCore/qfuturewatcher.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qfutureinterface.h>
 
 //  Only a class built on QFutureWatcherBase may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
@@ -179,6 +180,45 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN18QFutureWatcherBase12togglePausedEv(
     QFutureWatcherBase *self) {
   self->togglePaused();
+}
+
+//  void QFutureWatcherBase::connectNotify(const QMetaMethod &signal)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QFutureWatcherBase13connectNotifyERK11QMetaMethod(
+    QFutureWatcherBase *self,
+    const QMetaMethod *signal) {
+  self->connectNotify(*signal);
+}
+
+//  void QFutureWatcherBase::disconnectNotify(const QMetaMethod &signal)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QFutureWatcherBase16disconnectNotifyERK11QMetaMethod(
+    QFutureWatcherBase *self,
+    const QMetaMethod *signal) {
+  self->disconnectNotify(*signal);
+}
+
+//  void QFutureWatcherBase::connectOutputInterface()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QFutureWatcherBase22connectOutputInterfaceEv(
+    QFutureWatcherBase *self) {
+  self->connectOutputInterface();
+}
+
+//  void QFutureWatcherBase::disconnectOutputInterface(bool
+//      pendingAssignment)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QFutureWatcherBase25disconnectOutputInterfaceEb(
+    QFutureWatcherBase *self,
+    bool pendingAssignment) {
+  self->disconnectOutputInterface(pendingAssignment);
+}
+
+//  const QFutureInterfaceBase &QFutureWatcherBase::futureInterface() const
+extern "C" Q_DECL_EXPORT
+QFutureInterfaceBase *ritual_ZNK18QFutureWatcherBase15futureInterfaceEv(
+    const QFutureWatcherBase *self) {
+  return new QFutureInterfaceBase(self->futureInterface());
 }
 
 //  bool QFutureWatcherBase::event(QEvent *event)

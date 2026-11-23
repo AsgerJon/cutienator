@@ -859,6 +859,46 @@ bool ritual_ZN7QSlider5eventEP6QEvent(QSlider *self, QEvent *event) {
   return self->event(event);
 }
 
+//  void QSlider::paintEvent(QPaintEvent *ev)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QSlider10paintEventEP11QPaintEvent(
+    QSlider *self,
+    QPaintEvent *ev) {
+  self->paintEvent(ev);
+}
+
+//  void QSlider::mousePressEvent(QMouseEvent *ev)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QSlider15mousePressEventEP11QMouseEvent(
+    QSlider *self,
+    QMouseEvent *ev) {
+  self->mousePressEvent(ev);
+}
+
+//  void QSlider::mouseReleaseEvent(QMouseEvent *ev)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QSlider17mouseReleaseEventEP11QMouseEvent(
+    QSlider *self,
+    QMouseEvent *ev) {
+  self->mouseReleaseEvent(ev);
+}
+
+//  void QSlider::mouseMoveEvent(QMouseEvent *ev)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QSlider14mouseMoveEventEP11QMouseEvent(
+    QSlider *self,
+    QMouseEvent *ev) {
+  self->mouseMoveEvent(ev);
+}
+
+//  void QSlider::initStyleOption(QStyleOptionSlider *option) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK7QSlider15initStyleOptionEP18QStyleOptionSlider(
+    const QSlider *self,
+    QStyleOptionSlider *option) {
+  self->initStyleOption(option);
+}
+
 //  a Python function taken by a CuteQSlider, for the function named by the
 //      key
 extern "C" Q_DECL_EXPORT

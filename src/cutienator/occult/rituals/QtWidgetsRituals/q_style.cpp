@@ -949,6 +949,18 @@ const QStyle *ritual_ZNK6QStyle5proxyEv(const QStyle *self) {
   return self->proxy();
 }
 
+//  void QStyle::setName(const QString &name)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QStyle7setNameERK7QString(QStyle *self, const QString *name) {
+  self->setName(*name);
+}
+
+//  void QStyle::setProxy(QStyle *style)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QStyle8setProxyEPS_(QStyle *self, QStyle *style) {
+  self->setProxy(style);
+}
+
 //  a Python function taken by a CuteQStyle, for the function named by the
 //      key
 extern "C" Q_DECL_EXPORT

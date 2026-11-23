@@ -990,6 +990,30 @@ int ritual_ZNK11QFormLayout8rowCountEv(const QFormLayout *self) {
   return self->rowCount();
 }
 
+//  void QFormLayout::resetFieldGrowthPolicy()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QFormLayout22resetFieldGrowthPolicyEv(QFormLayout *self) {
+  self->resetFieldGrowthPolicy();
+}
+
+//  void QFormLayout::resetRowWrapPolicy()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QFormLayout18resetRowWrapPolicyEv(QFormLayout *self) {
+  self->resetRowWrapPolicy();
+}
+
+//  void QFormLayout::resetLabelAlignment()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QFormLayout19resetLabelAlignmentEv(QFormLayout *self) {
+  self->resetLabelAlignment();
+}
+
+//  void QFormLayout::resetFormAlignment()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QFormLayout18resetFormAlignmentEv(QFormLayout *self) {
+  self->resetFormAlignment();
+}
+
 //  a Python function taken by a CuteQFormLayout, for the function named by
 //      the key
 extern "C" Q_DECL_EXPORT

@@ -232,6 +232,13 @@ bool ritual_ZgeRK14QDeadlineTimerS1_(
   return operator>=(*lhs, *rhs);
 }
 
+//  qint64 QDeadlineTimer::rawRemainingTimeNSecs() const
+extern "C" Q_DECL_EXPORT
+qint64 ritual_ZNK14QDeadlineTimer21rawRemainingTimeNSecsEv(
+    const QDeadlineTimer *self) {
+  return self->rawRemainingTimeNSecs();
+}
+
 //  QDeadlineTimer::~QDeadlineTimer()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14QDeadlineTimerD1Ev(QDeadlineTimer *self) {

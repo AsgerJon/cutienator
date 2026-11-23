@@ -42,8 +42,8 @@ class QCollatorSortKey(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  6 of the 15 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 1 forbidden; 1 protected.
+  6 of the 15 functions Qt declares: 5 takes or gives a type that cannot be
+  passed yet; 1 forbidden.
 
   What to expect
   --------------

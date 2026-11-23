@@ -47,6 +47,9 @@
       "address", "address", "int"
     ],
     "ritual_ZN21QGraphicsAnchorLayout10invalidateEv": ["nothing", "address"],
+    "ritual_ZNK21QGraphicsAnchorLayout8sizeHintEN2Qt8SizeHintERK6QSizeF": [
+      "address", "address", "int", "address"
+    ],
     "ritual_take_QGraphicsAnchorLayout": [
       "bool", "address", "chars", "address"
     ],

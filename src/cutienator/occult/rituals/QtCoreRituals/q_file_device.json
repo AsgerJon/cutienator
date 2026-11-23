@@ -30,6 +30,11 @@
     "ritual_ZN11QFileDevice11setFileTimeERK9QDateTimeNS_8FileTimeE": [
       "bool", "address", "address", "int"
     ],
+    "ritual_ZN11QFileDeviceC1Ev": ["address"],
+    "ritual_ZN11QFileDeviceC1EP7QObject": ["address", "address"],
+    "ritual_ZN11QFileDevice9writeDataEPKcx": [
+      "long long", "address", "chars", "long long"
+    ],
     "ritual_take_QFileDevice": ["bool", "address", "chars", "address"],
     "ritual_own_ZN11QFileDevice5closeEv": ["nothing", "address"],
     "ritual_own_ZNK11QFileDevice12isSequentialEv": ["bool", "address"],

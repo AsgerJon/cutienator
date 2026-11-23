@@ -133,3 +133,9 @@ bool ritual_ZNK11QStaticTextneERKS_(
     const QStaticText *a0) {
   return self->operator!=(*a0);
 }
+
+//  void QStaticText::detach()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QStaticText6detachEv(QStaticText *self) {
+  self->detach();
+}

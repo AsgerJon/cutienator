@@ -45,7 +45,7 @@ class QMetaType(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QMetaType that has a ritual and that Python can call
-  so far, 33 names in all: 'type', 'typeName', 'sizeOf', 'typeFlags',
+  so far, 34 names in all: 'type', 'typeName', 'sizeOf', 'typeFlags',
   'metaObjectForType', 'isRegistered', 'registerType', 'id', 'rawId',
   'alignOf', 'flags', 'metaObject', 'name', 'isDefaultConstructible',
   'isCopyConstructible', 'isMoveConstructible', 'isDestructible',
@@ -54,8 +54,8 @@ class QMetaType(CuteMixin, metaclass=MetaCute):
   'hasRegisteredDebugStreamOperator', 'canConvert', 'canView',
   'hasRegisteredConverterFunction', 'hasRegisteredMutableViewFunction',
   'unregisterConverterFunction', 'unregisterMutableViewFunction',
-  'unregisterMetaType'. It can be made from Python, in 2 ways; see
-  '__init__'.
+  'unregisterMetaType', 'registerHelper'. It can be made from Python, in 2
+  ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -70,14 +70,29 @@ class QMetaType(CuteMixin, metaclass=MetaCute):
     'QtPrivate::QMetaTypeInterface', which has no cute class yet.
   - Qt's 'const QtPrivate::QMetaTypeInterface *QMetaType::iface() const':
     gives 'QtPrivate::QMetaTypeInterface', which has no cute class yet.
+  - Qt's 'bool QMetaType::isDefaultConstructible(const
+    QtPrivate::QMetaTypeInterface *a0)': names
+    'QtPrivate::QMetaTypeInterface', which has no cute class yet.
+  - Qt's 'bool QMetaType::isCopyConstructible(const
+    QtPrivate::QMetaTypeInterface *a0)': names
+    'QtPrivate::QMetaTypeInterface', which has no cute class yet.
+  - Qt's 'bool QMetaType::isMoveConstructible(const
+    QtPrivate::QMetaTypeInterface *a0)': names
+    'QtPrivate::QMetaTypeInterface', which has no cute class yet.
+  - Qt's 'bool QMetaType::isDestructible(const QtPrivate::QMetaTypeInterface
+    *a0)': names 'QtPrivate::QMetaTypeInterface', which has no cute class
+    yet.
+  - Qt's 'int QMetaType::registerHelper(const QtPrivate::QMetaTypeInterface
+    *iface)': names 'QtPrivate::QMetaTypeInterface', which has no cute class
+    yet.
   - Qt's 'QMetaType::~QMetaType()': the destructor: Python removes its C++
     QMetaType by it, and has no other use for it.
 
   What has no ritual
   ------------------
 
-  43 of the 86 functions Qt declares: 25 takes or gives a type that cannot be
-  passed yet; 12 a template; 6 private.
+  37 of the 86 functions Qt declares: 25 takes or gives a type that cannot be
+  passed yet; 12 a template.
 
   What to expect
   --------------
@@ -808,6 +823,15 @@ class QMetaType(CuteMixin, metaclass=MetaCute):
     return Rituals.call(
         'ritual_ZN9QMetaType32hasRegisteredDebugStreamOperatorEi', typeId,
     )
+
+  def registerHelper(self) -> int:
+    """
+    Calls Qt's 'int QMetaType::registerHelper() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmetatype.html#registerHelper
+    """
+    #  int QMetaType::registerHelper() const
+    return self.uglySide.call('ritual_ZNK9QMetaType14registerHelperEv')
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

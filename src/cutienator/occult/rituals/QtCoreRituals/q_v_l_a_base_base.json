@@ -4,6 +4,11 @@
     "QtCore/qvarlengtharray.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN12QVLABaseBaseC1Ev": ["address"],
+    "ritual_ZN12QVLABaseBaseD1Ev": ["nothing", "address"],
+    "ritual_ZNK12QVLABaseBase6verifyExx": [
+      "nothing", "address", "long long", "long long"
+    ],
     "ritual_ZNK12QVLABaseBase8capacityEv": ["long long", "address"],
     "ritual_ZNK12QVLABaseBase4sizeEv": ["long long", "address"],
     "ritual_ZNK12QVLABaseBase5emptyEv": ["bool", "address"]

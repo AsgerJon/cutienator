@@ -63,7 +63,7 @@ class QFontDatabase(CuteMixin, metaclass=MetaCute):
   ------------------
 
   8 of the 40 functions Qt declares: 5 takes or gives a type that cannot be
-  passed yet; 1 declared and nowhere to be found; 1 a template; 1 private.
+  passed yet; 2 declared and nowhere to be found; 1 a template.
 
   What to expect
   --------------

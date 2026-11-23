@@ -1126,6 +1126,73 @@ void ritual_ZN21QSortFilterProxyModel10invalidateEv(
   self->invalidate();
 }
 
+//  bool QSortFilterProxyModel::filterAcceptsRow(int source_row, const
+//      QModelIndex &source_parent) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK21QSortFilterProxyModel16filterAcceptsRowEiRK11QModelIndex(
+    const QSortFilterProxyModel *self,
+    int source_row,
+    const QModelIndex *source_parent) {
+  return self->filterAcceptsRow(source_row, *source_parent);
+}
+
+//  bool QSortFilterProxyModel::filterAcceptsColumn(int source_column, const
+//      QModelIndex &source_parent) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK21QSortFilterProxyModel19filterAcceptsColumnEiRK11QModelIndex(
+    const QSortFilterProxyModel *self,
+    int source_column,
+    const QModelIndex *source_parent) {
+  return self->filterAcceptsColumn(source_column, *source_parent);
+}
+
+//  bool QSortFilterProxyModel::lessThan(const QModelIndex &source_left,
+//      const QModelIndex &source_right) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK21QSortFilterProxyModel8lessThanERK11QModelIndexS2_(
+    const QSortFilterProxyModel *self,
+    const QModelIndex *source_left,
+    const QModelIndex *source_right) {
+  return self->lessThan(*source_left, *source_right);
+}
+
+//  void QSortFilterProxyModel::beginFilterChange()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QSortFilterProxyModel17beginFilterChangeEv(
+    QSortFilterProxyModel *self) {
+  self->beginFilterChange();
+}
+
+//  void QSortFilterProxyModel::endFilterChange(Directions directions)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QSortFilterProxyModel15endFilterChangeE6QFlagsINS_9DirectionEE(
+    QSortFilterProxyModel *self,
+    int directions) {
+  self->endFilterChange(
+      QFlags<QSortFilterProxyModel::Direction>::fromInt(directions));
+}
+
+//  void QSortFilterProxyModel::invalidateFilter()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QSortFilterProxyModel16invalidateFilterEv(
+    QSortFilterProxyModel *self) {
+  self->invalidateFilter();
+}
+
+//  void QSortFilterProxyModel::invalidateRowsFilter()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QSortFilterProxyModel20invalidateRowsFilterEv(
+    QSortFilterProxyModel *self) {
+  self->invalidateRowsFilter();
+}
+
+//  void QSortFilterProxyModel::invalidateColumnsFilter()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QSortFilterProxyModel23invalidateColumnsFilterEv(
+    QSortFilterProxyModel *self) {
+  self->invalidateColumnsFilter();
+}
+
 //  QModelIndex QSortFilterProxyModel::index(int row, int column, const
 //      QModelIndex &parent) const
 extern "C" Q_DECL_EXPORT

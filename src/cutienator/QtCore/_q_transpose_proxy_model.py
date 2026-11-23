@@ -59,8 +59,8 @@ class QTransposeProxyModel(QAbstractProxyModel):
   What has no ritual
   ------------------
 
-  9 of the 32 functions Qt declares: 3 private; 2 takes or gives a type that
-  cannot be passed yet; 2 forbidden; 1 a template; 1 protected.
+  9 of the 32 functions Qt declares: 5 takes or gives a type that cannot be
+  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found.
 
   What to expect
   --------------

@@ -14,7 +14,7 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteFlags, CuteNum, WAIT
 from ..occult import Rituals
-from . import QIODevice
+from . import QIODevice, QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -43,11 +43,11 @@ class QFileDevice(QIODevice):
   -----------
 
   Every function of Qt's QFileDevice that has a ritual and that Python can
-  call so far, 18 names in all: 'metaObject', 'tr', 'error', 'unsetError',
+  call so far, 19 names in all: 'metaObject', 'tr', 'error', 'unsetError',
   'close', 'isSequential', 'handle', 'fileName', 'pos', 'seek', 'atEnd',
   'flush', 'size', 'resize', 'permissions', 'setPermissions', 'fileTime',
-  'setFileTime'. None can be made from Python: one comes out of a function of
-  another class that gives one back.
+  'setFileTime', 'writeData'. It can be made from Python, in 2 ways; see
+  '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -60,8 +60,8 @@ class QFileDevice(QIODevice):
   What has no ritual
   ------------------
 
-  15 of the 35 functions Qt declares: 6 protected; 3 takes or gives a type
-  that cannot be passed yet; 3 private; 2 forbidden; 1 a template.
+  12 of the 35 functions Qt declares: 8 takes or gives a type that cannot be
+  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found.
 
   What to expect
   --------------
@@ -483,6 +483,40 @@ class QFileDevice(QIODevice):
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @overload()
+  def __init__(self) -> None:
+    """
+    Notes what was given, for Qt's 'QFileDevice::QFileDevice()', which is
+    called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfiledevice.html#QFileDevice
+    """
+    #  QFileDevice::QFileDevice()
+    self._noteCreation(QFileDevice, lambda: Rituals.call(
+        'ritual_ZN11QFileDeviceC1Ev',
+    ))
+
+  @overload(QObject)
+  @overload(NoneType)
+  def __init__(self, parent: Optional[QObject]) -> None:
+    """
+    Notes what was given, for Qt's 'QFileDevice::QFileDevice(QObject
+    *parent)', which is called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfiledevice.html#QFileDevice
+
+    Parameters
+    ----------
+
+    parent : Optional[QObject]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  QFileDevice::QFileDevice(QObject *parent)
+    self._noteCreation(QFileDevice, lambda: Rituals.call(
+        'ritual_ZN11QFileDeviceC1EP7QObject', self._addressOf(parent),
+    ))
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -570,3 +604,25 @@ class QFileDevice(QIODevice):
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZN11QFileDevice6resizeEx'
     return self.uglySide.call(ritual, sz)
+
+  @overload(str, int)
+  @overload(NoneType, int)
+  def writeData(self, data: Optional[str], len: int) -> int:
+    """
+    Calls Qt's 'qint64 QFileDevice::writeData(const char *data, qint64 len)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfiledevice.html#writeData
+
+    Parameters
+    ----------
+
+    data : Optional[str]
+      Passed on as the bytes of the text. None is passed on as no text.
+
+    len : int
+      Passed on as it is.
+    """
+    #  qint64 QFileDevice::writeData(const char *data, qint64 len)
+    return self.uglySide.call(
+        'ritual_ZN11QFileDevice9writeDataEPKcx', self._bytesOf(data), len,
+    )

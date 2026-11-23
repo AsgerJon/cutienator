@@ -43,9 +43,10 @@ class QAbstractListModel(QAbstractItemModel):
   -----------
 
   Every function of Qt's QAbstractListModel that has a ritual and that Python
-  can call so far, 6 names in all: 'metaObject', 'tr', 'index', 'sibling',
-  'dropMimeData', 'flags'. None can be made from Python: one comes out of a
-  function of another class that gives one back.
+  can call so far, 9 names in all: 'metaObject', 'tr', 'index', 'sibling',
+  'dropMimeData', 'flags', 'parent', 'columnCount', 'hasChildren'. None can
+  be made from Python: one comes out of a function of another class that
+  gives one back.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -56,9 +57,9 @@ class QAbstractListModel(QAbstractItemModel):
   What has no ritual
   ------------------
 
-  13 of the 20 functions Qt declares: 6 private; 2 takes or gives a type that
-  cannot be passed yet; 2 forbidden; 1 a template; 1 the class is abstract,
-  so C++ cannot make one; 1 protected.
+  10 of the 20 functions Qt declares: 4 takes or gives a type that cannot be
+  passed yet; 2 the class is abstract, so C++ cannot make one; 2 forbidden; 1
+  a template; 1 declared and nowhere to be found.
 
   What to expect
   --------------
@@ -278,6 +279,81 @@ class QAbstractListModel(QAbstractItemModel):
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZNK18QAbstractListModel5flagsERK11QModelIndex'
     return Qt.ItemFlags(self.uglySide.call(ritual, self._valueOf(index)))
+
+  @overload(QModelIndex)
+  def parent(self, child: QModelIndex) -> QModelIndex:
+    """
+    Calls Qt's 'QModelIndex QAbstractListModel::parent(const QModelIndex
+    &child) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qabstractlistmodel.html#parent
+
+    Parameters
+    ----------
+
+    child : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+
+    Returns
+    -------
+
+    QModelIndex
+      A new cute QModelIndex around the copy Qt gave back. Python owns it.
+    """
+    #  QModelIndex QAbstractListModel::parent(const QModelIndex &child) const
+    ritual = 'ritual_ZNK18QAbstractListModel6parentERK11QModelIndex'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK18QAbstractListModel6parentERK11QModelIndex'
+    address = self.uglySide.call(ritual, self._valueOf(child))
+    from . import QModelIndex
+    return QModelIndex._cuteOwning(address)
+
+  @overload(QModelIndex)
+  def columnCount(self, parent: QModelIndex) -> int:
+    """
+    Calls Qt's 'int QAbstractListModel::columnCount(const QModelIndex
+    &parent) const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractlistmodel.html#columnCount
+
+    Parameters
+    ----------
+
+    parent : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+    """
+    #  int QAbstractListModel::columnCount(const QModelIndex &parent) const
+    ritual = 'ritual_ZNK18QAbstractListModel11columnCountERK11QModelIndex'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK18QAbstractListModel11columnCountERK11QModelIndex')
+    return self.uglySide.call(ritual, self._valueOf(parent))
+
+  @overload(QModelIndex)
+  def hasChildren(self, parent: QModelIndex) -> bool:
+    """
+    Calls Qt's 'bool QAbstractListModel::hasChildren(const QModelIndex
+    &parent) const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractlistmodel.html#hasChildren
+
+    Parameters
+    ----------
+
+    parent : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+    """
+    #  bool QAbstractListModel::hasChildren(const QModelIndex &parent) const
+    ritual = 'ritual_ZNK18QAbstractListModel11hasChildrenERK11QModelIndex'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK18QAbstractListModel11hasChildrenERK11QModelIndex')
+    return self.uglySide.call(ritual, self._valueOf(parent))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

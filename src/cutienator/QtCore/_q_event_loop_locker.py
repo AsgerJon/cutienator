@@ -46,12 +46,14 @@ class QEventLoopLocker(CuteMixin, metaclass=MetaCute):
 
   - Qt's 'QEventLoopLocker::~QEventLoopLocker()': the destructor: Python
     never removes a C++ QEventLoopLocker.
+  - Qt's 'Type QEventLoopLocker::type() const': gives the enum
+    'QEventLoopLocker::Type', whose class cannot be named here.
 
   What has no ritual
   ------------------
 
-  9 of the 13 functions Qt declares: 3 takes or gives a type that cannot be
-  passed yet; 3 private; 2 forbidden; 1 a template.
+  8 of the 13 functions Qt declares: 4 takes or gives a type that cannot be
+  passed yet; 2 forbidden; 1 declared and nowhere to be found; 1 a template.
 
   What to expect
   --------------

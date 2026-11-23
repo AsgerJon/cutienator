@@ -61,8 +61,8 @@ class QScrollArea(QAbstractScrollArea):
   What has no ritual
   ------------------
 
-  9 of the 29 functions Qt declares: 3 private; 2 takes or gives a type that
-  cannot be passed yet; 2 forbidden; 1 a template; 1 protected.
+  9 of the 29 functions Qt declares: 5 takes or gives a type that cannot be
+  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found.
 
   What to expect
   --------------
@@ -246,9 +246,10 @@ class QScrollArea(QAbstractScrollArea):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QScrollArea::viewportSizeHint() const
-    address = self.uglySide.call(
-        'ritual_own_ZNK11QScrollArea16viewportSizeHintEv',
-    )
+    ritual = 'ritual_ZNK11QScrollArea16viewportSizeHintEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QScrollArea16viewportSizeHintEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
@@ -498,9 +499,10 @@ class QScrollArea(QAbstractScrollArea):
       object.
     """
     #  bool QScrollArea::event(QEvent *a0)
-    return self.uglySide.call(
-        'ritual_own_ZN11QScrollArea5eventEP6QEvent', self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN11QScrollArea5eventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QScrollArea5eventEP6QEvent'
+    return self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QObject, QEvent)
   @overload(QObject, NoneType)
@@ -524,9 +526,11 @@ class QScrollArea(QAbstractScrollArea):
       object.
     """
     #  bool QScrollArea::eventFilter(QObject *a0, QEvent *a1)
+    ritual = 'ritual_ZN11QScrollArea11eventFilterEP7QObjectP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QScrollArea11eventFilterEP7QObjectP6QEvent'
     return self.uglySide.call(
-        'ritual_own_ZN11QScrollArea11eventFilterEP7QObjectP6QEvent',
-        self._addressOf(a0), self._addressOf(a1),
+        ritual, self._addressOf(a0), self._addressOf(a1),
     )
 
   @overload(QResizeEvent)
@@ -545,10 +549,10 @@ class QScrollArea(QAbstractScrollArea):
       object.
     """
     #  void QScrollArea::resizeEvent(QResizeEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN11QScrollArea11resizeEventEP12QResizeEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN11QScrollArea11resizeEventEP12QResizeEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QScrollArea11resizeEventEP12QResizeEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(int, int)
   def scrollContentsBy(self, dx: int, dy: int) -> None:
@@ -567,6 +571,7 @@ class QScrollArea(QAbstractScrollArea):
       Passed on as it is.
     """
     #  void QScrollArea::scrollContentsBy(int dx, int dy)
-    self.uglySide.call(
-        'ritual_own_ZN11QScrollArea16scrollContentsByEii', dx, dy,
-    )
+    ritual = 'ritual_ZN11QScrollArea16scrollContentsByEii'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QScrollArea16scrollContentsByEii'
+    self.uglySide.call(ritual, dx, dy)

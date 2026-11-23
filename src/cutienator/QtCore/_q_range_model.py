@@ -21,7 +21,8 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from . import QByteArray, QCollator, QEvent, QMetaObject, QMimeData
-  from . import QModelIndex, QModelRoleDataSpan, QSize, QVariant
+  from . import QModelIndex, QModelRoleDataSpan, QRangeModelImplBase, QSize
+  from . import QVariant
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -32,6 +33,7 @@ else:
   QMimeData = WAIT['QMimeData']
   QModelIndex = WAIT['QModelIndex']
   QModelRoleDataSpan = WAIT['QModelRoleDataSpan']
+  QRangeModelImplBase = WAIT['QRangeModelImplBase']
   QVariant = WAIT['QVariant']
 
 #  The class of None, for a signature that takes None in the place of an
@@ -64,8 +66,7 @@ class QRangeModel(QAbstractItemModel):
   'resetSupportedDragActions', 'supportedDropActions',
   'setSupportedDropActions', 'resetSupportedDropActions',
   'autoConnectPolicy', 'setAutoConnectPolicy', 'resetInternalData', 'event',
-  'eventFilter'. None can be made from Python: one comes out of a function of
-  another class that gives one back.
+  'eventFilter'. It can be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -76,8 +77,9 @@ class QRangeModel(QAbstractItemModel):
   What has no ritual
   ------------------
 
-  20 of the 74 functions Qt declares: 6 a signal; 4 a template; 4 private; 4
-  forbidden; 2 takes or gives a type that cannot be passed yet.
+  19 of the 74 functions Qt declares: 6 a signal; 4 takes or gives a type
+  that cannot be passed yet; 4 a template; 4 forbidden; 1 declared and
+  nowhere to be found.
 
   What to expect
   --------------
@@ -1131,6 +1133,39 @@ class QRangeModel(QAbstractItemModel):
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @overload(QRangeModelImplBase, QObject)
+  @overload(QRangeModelImplBase, NoneType)
+  @overload(NoneType, QObject)
+  @overload(NoneType, NoneType)
+  def __init__(
+      self,
+      impl: Optional[QRangeModelImplBase],
+      parent: Optional[QObject],
+  ) -> None:
+    """
+    Notes what was given, for Qt's
+    'QRangeModel::QRangeModel(QRangeModelImplBase *impl, QObject *parent)',
+    which is called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qrangemodel.html#QRangeModel
+
+    Parameters
+    ----------
+
+    impl : Optional[QRangeModelImplBase]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    parent : Optional[QObject]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  QRangeModel::QRangeModel(QRangeModelImplBase *impl, QObject *parent)
+    self._noteCreation(QRangeModel, lambda: Rituals.call(
+        'ritual_ZN11QRangeModelC1EP19QRangeModelImplBaseP7QObject',
+        self._addressOf(impl), self._addressOf(parent),
+    ))
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1600,7 +1635,10 @@ class QRangeModel(QAbstractItemModel):
     Qt's own words: https://doc.qt.io/qt-6/qrangemodel.html#resetInternalData
     """
     #  void QRangeModel::resetInternalData()
-    self.uglySide.call('ritual_own_ZN11QRangeModel17resetInternalDataEv')
+    ritual = 'ritual_ZN11QRangeModel17resetInternalDataEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QRangeModel17resetInternalDataEv'
+    self.uglySide.call(ritual)
 
   @overload(QEvent)
   @overload(NoneType)
@@ -1618,9 +1656,10 @@ class QRangeModel(QAbstractItemModel):
       object.
     """
     #  bool QRangeModel::event(QEvent *a0)
-    return self.uglySide.call(
-        'ritual_own_ZN11QRangeModel5eventEP6QEvent', self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN11QRangeModel5eventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QRangeModel5eventEP6QEvent'
+    return self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QObject, QEvent)
   @overload(QObject, NoneType)
@@ -1644,7 +1683,9 @@ class QRangeModel(QAbstractItemModel):
       object.
     """
     #  bool QRangeModel::eventFilter(QObject *a0, QEvent *a1)
+    ritual = 'ritual_ZN11QRangeModel11eventFilterEP7QObjectP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QRangeModel11eventFilterEP7QObjectP6QEvent'
     return self.uglySide.call(
-        'ritual_own_ZN11QRangeModel11eventFilterEP7QObjectP6QEvent',
-        self._addressOf(a0), self._addressOf(a1),
+        ritual, self._addressOf(a0), self._addressOf(a1),
     )

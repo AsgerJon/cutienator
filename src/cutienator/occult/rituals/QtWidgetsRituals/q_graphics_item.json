@@ -390,6 +390,87 @@
     "ritual_ZN13QGraphicsItem22removeSceneEventFilterEPS_": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN13QGraphicsItem16updateMicroFocusEv": ["nothing", "address"],
+    "ritual_ZN13QGraphicsItem16sceneEventFilterEPS_P6QEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN13QGraphicsItem10sceneEventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN13QGraphicsItem16contextMenuEventEP30QGraphicsSceneContextMenuEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QGraphicsItem14dragEnterEventEP27QGraphicsSceneDragDropEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QGraphicsItem14dragLeaveEventEP27QGraphicsSceneDragDropEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QGraphicsItem13dragMoveEventEP27QGraphicsSceneDragDropEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QGraphicsItem9dropEventEP27QGraphicsSceneDragDropEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QGraphicsItem12focusInEventEP11QFocusEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QGraphicsItem13focusOutEventEP11QFocusEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QGraphicsItem15hoverEnterEventEP24QGraphicsSceneHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QGraphicsItem14hoverMoveEventEP24QGraphicsSceneHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QGraphicsItem15hoverLeaveEventEP24QGraphicsSceneHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QGraphicsItem13keyPressEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QGraphicsItem15keyReleaseEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QGraphicsItem15mousePressEventEP24QGraphicsSceneMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QGraphicsItem14mouseMoveEventEP24QGraphicsSceneMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QGraphicsItem17mouseReleaseEventEP24QGraphicsSceneMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QGraphicsItem21mouseDoubleClickEventEP24QGraphicsSceneMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QGraphicsItem10wheelEventEP24QGraphicsSceneWheelEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QGraphicsItem16inputMethodEventEP17QInputMethodEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QGraphicsItem16inputMethodQueryEN2Qt16InputMethodQueryE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN13QGraphicsItem10itemChangeENS_18GraphicsItemChangeERK8QVariant": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_ZNK13QGraphicsItem17supportsExtensionENS_9ExtensionE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN13QGraphicsItem12setExtensionENS_9ExtensionERK8QVariant": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZNK13QGraphicsItem9extensionERK8QVariant": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN13QGraphicsItem10addToIndexEv": ["nothing", "address"],
+    "ritual_ZN13QGraphicsItem15removeFromIndexEv": ["nothing", "address"],
+    "ritual_ZN13QGraphicsItem21prepareGeometryChangeEv": [
+      "nothing", "address"
+    ],
     "ritual_take_QGraphicsItem": ["bool", "address", "chars", "address"],
     "ritual_own_ZN13QGraphicsItem7advanceEi": ["nothing", "address", "int"],
     "ritual_own_ZNK13QGraphicsItem5shapeEv": ["address", "address"],

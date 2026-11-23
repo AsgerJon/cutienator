@@ -12,7 +12,7 @@ from typing import TYPE_CHECKING
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
 
-from ..cute import WAIT
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
 from . import QCborValue, QCborValueConstRef
 
@@ -51,15 +51,15 @@ class QCborValueRef(QCborValueConstRef):
   -----------
 
   Every function of Qt's QCborValueRef that has a ritual and that Python can
-  call so far, 38 names in all: '__getitem__', 'type', 'isInteger',
+  call so far, 41 names in all: '__getitem__', 'type', 'isInteger',
   'isByteArray', 'isString', 'isArray', 'isMap', 'isTag', 'isFalse',
   'isTrue', 'isBool', 'isNull', 'isUndefined', 'isDouble', 'isDateTime',
   'isUrl', 'isRegularExpression', 'isUuid', 'isInvalid', 'isContainer',
   'isSimpleType', 'taggedValue', 'toInteger', 'toBool', 'toDouble',
   'toByteArray', 'toString', 'toDateTime', 'toUrl', 'toRegularExpression',
   'toUuid', 'toArray', 'toMap', 'compare', 'toVariant', 'toJsonValue',
-  'toCbor', 'toDiagnosticNotation'. It can be made from Python, in 1 way; see
-  '__init__'.
+  'toCbor', 'toDiagnosticNotation', 'concrete', 'concreteType', 'assign'. It
+  can be made from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -88,8 +88,8 @@ class QCborValueRef(QCborValueConstRef):
   What has no ritual
   ------------------
 
-  14 of the 65 functions Qt declares: 9 private; 5 takes or gives a type that
-  cannot be passed yet.
+  7 of the 65 functions Qt declares: 7 takes or gives a type that cannot be
+  passed yet.
 
   What to expect
   --------------
@@ -108,6 +108,154 @@ class QCborValueRef(QCborValueConstRef):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  @overload(THIS)
+  def concrete(that: QCborValueRef) -> QCborValue:
+    """
+    Calls Qt's 'QCborValue QCborValueRef::concrete(QCborValueRef that)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcborvalueref.html#concrete
+
+    Parameters
+    ----------
+
+    that : QCborValueRef
+      Passed on as a value: Qt reads the C++ QCborValueRef, which stays
+      Python's own.
+
+    Returns
+    -------
+
+    QCborValue
+      A new cute QCborValue around the copy Qt gave back. Python owns it.
+    """
+    #  QCborValue QCborValueRef::concrete(QCborValueRef that)
+    address = Rituals.call(
+        'ritual_ZN13QCborValueRef8concreteES_', CuteMixin._valueOf(that),
+    )
+    return QCborValue._cuteOwning(address)
+
+  @overload()
+  def concrete(self) -> QCborValue:
+    """
+    Calls Qt's 'QCborValue QCborValueRef::concrete() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcborvalueref.html#concrete
+
+    Returns
+    -------
+
+    QCborValue
+      A new cute QCborValue around the copy Qt gave back. Python owns it.
+    """
+    #  QCborValue QCborValueRef::concrete() const
+    address = self.uglySide.call('ritual_ZNK13QCborValueRef8concreteEv')
+    return QCborValue._cuteOwning(address)
+
+  @staticmethod
+  @overload(THIS)
+  def concreteType(self_: QCborValueRef) -> QCborValue.Type:
+    """
+    Calls Qt's 'QCborValue::Type QCborValueRef::concreteType(QCborValueRef
+    self_)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcborvalueref.html#concreteType
+
+    Parameters
+    ----------
+
+    self_ : QCborValueRef
+      Passed on as a value: Qt reads the C++ QCborValueRef, which stays
+      Python's own.
+
+    Returns
+    -------
+
+    QCborValue.Type
+      The member standing for the number Qt gave back. For a number Qt gives
+      no name it is the member without a name that 'QCborValue.Type(number)'
+      gives.
+    """
+    #  QCborValue::Type QCborValueRef::concreteType(QCborValueRef self_)
+    return QCborValue.Type(Rituals.call(
+        'ritual_ZN13QCborValueRef12concreteTypeES_',
+        CuteMixin._valueOf(self_),
+    ))
+
+  @overload()
+  def concreteType(self) -> QCborValue.Type:
+    """
+    Calls Qt's 'QCborValue::Type QCborValueRef::concreteType() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcborvalueref.html#concreteType
+
+    Returns
+    -------
+
+    QCborValue.Type
+      The member standing for the number Qt gave back. For a number Qt gives
+      no name it is the member without a name that 'QCborValue.Type(number)'
+      gives.
+    """
+    #  QCborValue::Type QCborValueRef::concreteType() const
+    return QCborValue.Type(self.uglySide.call(
+        'ritual_ZNK13QCborValueRef12concreteTypeEv',
+    ))
+
+  @staticmethod
+  @overload(THIS, QCborValue)
+  def assign(that: QCborValueRef, other: QCborValue) -> None:
+    """
+    Calls Qt's 'void QCborValueRef::assign(QCborValueRef that, const
+    QCborValue &other)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcborvalueref.html#assign
+
+    Parameters
+    ----------
+
+    that : QCborValueRef
+      Passed on as a value: Qt reads the C++ QCborValueRef, which stays
+      Python's own.
+
+    other : QCborValue
+      Passed on as a value: Qt reads the C++ QCborValue, which stays Python's
+      own.
+    """
+    #  void QCborValueRef::assign(QCborValueRef that, const QCborValue
+    #      &other)
+    Rituals.call(
+        'ritual_ZN13QCborValueRef6assignES_RK10QCborValue',
+        CuteMixin._valueOf(that), CuteMixin._valueOf(other),
+    )
+
+  @staticmethod
+  @overload(THIS, THIS)
+  def assign(that: QCborValueRef, other: QCborValueRef) -> None:
+    """
+    Calls Qt's 'void QCborValueRef::assign(QCborValueRef that, const
+    QCborValueRef other)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcborvalueref.html#assign
+
+    Parameters
+    ----------
+
+    that : QCborValueRef
+      Passed on as a value: Qt reads the C++ QCborValueRef, which stays
+      Python's own.
+
+    other : QCborValueRef
+      Passed on as a value: Qt reads the C++ QCborValueRef, which stays
+      Python's own.
+    """
+    #  void QCborValueRef::assign(QCborValueRef that, const QCborValueRef
+    #      other)
+    Rituals.call(
+        'ritual_ZN13QCborValueRef6assignES_S_',
+        CuteMixin._valueOf(that), CuteMixin._valueOf(other),
+    )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -880,6 +1028,19 @@ class QCborValueRef(QCborValueConstRef):
     #  QCborValueRef::QCborValueRef(const QCborValueRef &a0)
     self._noteCreation(QCborValueRef, lambda: Rituals.call(
         'ritual_ZN13QCborValueRefC1ERKS_', self._valueOf(a0),
+    ))
+
+  @overload()
+  def __init__(self) -> None:
+    """
+    Notes what was given, for Qt's 'QCborValueRef::QCborValueRef()', which is
+    called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcborvalueref.html#QCborValueRef
+    """
+    #  QCborValueRef::QCborValueRef()
+    self._noteCreation(QCborValueRef, lambda: Rituals.call(
+        'ritual_ZN13QCborValueRefC1Ev',
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

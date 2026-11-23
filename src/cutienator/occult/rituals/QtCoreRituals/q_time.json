@@ -4,6 +4,7 @@
     "QtCore/qdatetime.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN5QTimeC1Ei": ["address", "int"],
     "ritual_ZN5QTimeC1Ev": ["address"],
     "ritual_ZN5QTimeC1Eiiii": ["address", "int", "int", "int", "int"],
     "ritual_ZNK5QTime6isNullEv": ["bool", "address"],
@@ -41,6 +42,7 @@
     ],
     "ritual_ZN5QTime10fromStringERK7QStringS2_": ["address", "text", "text"],
     "ritual_ZN5QTime7isValidEiiii": ["bool", "int", "int", "int", "int"],
+    "ritual_ZNK5QTime2dsEv": ["int", "address"],
     "ritual_ZeqRK5QTimeS1_": ["bool", "address", "address"],
     "ritual_ZneRK5QTimeS1_": ["bool", "address", "address"],
     "ritual_ZltRK5QTimeS1_": ["bool", "address", "address"],

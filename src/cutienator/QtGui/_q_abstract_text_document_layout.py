@@ -20,8 +20,8 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QMetaObject, QPointF, QRectF, QSizeF
-  from . import QPaintDevice, QPainter, QTextBlock, QTextDocument
-  from . import QTextFormat, QTextFrame, QTextInlineObject
+  from . import QPaintDevice, QPainter, QTextBlock, QTextCharFormat
+  from . import QTextDocument, QTextFormat, QTextFrame, QTextInlineObject
   from . import QTextObjectInterface
 else:
   #  The cute classes this file names and is not built on. Each is brought in
@@ -53,13 +53,14 @@ class QAbstractTextDocumentLayout(QObject):
   -----------
 
   Every function of Qt's QAbstractTextDocumentLayout that has a ritual and
-  that Python can call so far, 21 names in all: 'metaObject', 'tr', 'draw',
+  that Python can call so far, 24 names in all: 'metaObject', 'tr', 'draw',
   'hitTest', 'anchorAt', 'imageAt', 'formatAt', 'blockWithMarkerAt',
   'pageCount', 'documentSize', 'frameBoundingRect', 'blockBoundingRect',
   'setPaintDevice', 'paintDevice', 'document', 'registerHandler',
-  'unregisterHandler', 'handlerForObject', 'resizeInlineObject',
-  'positionInlineObject', 'drawInlineObject'. None can be made from Python:
-  one comes out of a function of another class that gives one back.
+  'unregisterHandler', 'handlerForObject', 'documentChanged',
+  'resizeInlineObject', 'positionInlineObject', 'drawInlineObject',
+  'formatIndex', 'format'. None can be made from Python: one comes out of a
+  function of another class that gives one back.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -70,9 +71,9 @@ class QAbstractTextDocumentLayout(QObject):
   What has no ritual
   ------------------
 
-  15 of the 37 functions Qt declares: 4 a signal; 4 protected; 3 private; 2
-  takes or gives a type that cannot be passed yet; 1 a template; 1 the class
-  is abstract, so C++ cannot make one.
+  12 of the 37 functions Qt declares: 4 takes or gives a type that cannot be
+  passed yet; 4 a signal; 2 the class is abstract, so C++ cannot make one; 1
+  a template; 1 declared and nowhere to be found.
 
   What to expect
   --------------
@@ -990,6 +991,39 @@ class QAbstractTextDocumentLayout(QObject):
         objectType, self._addressOf(component),
     )
 
+  @overload(int, int, int)
+  def documentChanged(
+      self,
+      from_: int,
+      charsRemoved: int,
+      charsAdded: int,
+  ) -> None:
+    """
+    Calls Qt's 'void QAbstractTextDocumentLayout::documentChanged(int from,
+    int charsRemoved, int charsAdded)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#documentChanged
+
+    Parameters
+    ----------
+
+    from_ : int
+      Passed on as it is.
+
+    charsRemoved : int
+      Passed on as it is.
+
+    charsAdded : int
+      Passed on as it is.
+    """
+    #  void QAbstractTextDocumentLayout::documentChanged(int from, int
+    #      charsRemoved, int charsAdded)
+    self.uglySide.call(
+        'ritual_ZN27QAbstractTextDocumentLayout15documentChangedEiii',
+        from_, charsRemoved, charsAdded,
+    )
+
   @overload(QTextInlineObject, int, QTextFormat)
   def resizeInlineObject(
       self,
@@ -1021,10 +1055,15 @@ class QAbstractTextDocumentLayout(QObject):
     """
     #  void QAbstractTextDocumentLayout::resizeInlineObject(QTextInlineObject
     #      item, int posInDocument, const QTextFormat &format)
+    ritual = (
+        'ritual_ZN27QAbstractTextDocumentLayout18resizeInlineObjectE17QText'
+        'InlineObjectiRK11QTextFormat')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN27QAbstractTextDocumentLayout18resizeInlineObjectE1'
+          '7QTextInlineObjectiRK11QTextFormat')
     self.uglySide.call(
-        'ritual_own_ZN27QAbstractTextDocumentLayout18resizeInlineObjectE17Q'
-        'TextInlineObjectiRK11QTextFormat',
-        self._valueOf(item), posInDocument, self._valueOf(format),
+        ritual, self._valueOf(item), posInDocument, self._valueOf(format),
     )
 
   @overload(QTextInlineObject, int, QTextFormat)
@@ -1059,10 +1098,15 @@ class QAbstractTextDocumentLayout(QObject):
     #  void QAbstractTextDocumentLayout::positionInlineObject(
     #      QTextInlineObject item, int posInDocument, const QTextFormat
     #      &format)
+    ritual = (
+        'ritual_ZN27QAbstractTextDocumentLayout20positionInlineObjectE17QTe'
+        'xtInlineObjectiRK11QTextFormat')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN27QAbstractTextDocumentLayout20positionInlineObject'
+          'E17QTextInlineObjectiRK11QTextFormat')
     self.uglySide.call(
-        'ritual_own_ZN27QAbstractTextDocumentLayout20positionInlineObjectE1'
-        '7QTextInlineObjectiRK11QTextFormat',
-        self._valueOf(item), posInDocument, self._valueOf(format),
+        ritual, self._valueOf(item), posInDocument, self._valueOf(format),
     )
 
   @overload(QPainter, QRectF, QTextInlineObject, int, QTextFormat)
@@ -1108,9 +1152,63 @@ class QAbstractTextDocumentLayout(QObject):
     #  void QAbstractTextDocumentLayout::drawInlineObject(QPainter *painter,
     #      const QRectF &rect, QTextInlineObject object, int posInDocument,
     #      const QTextFormat &format)
+    ritual = (
+        'ritual_ZN27QAbstractTextDocumentLayout16drawInlineObjectEP8QPainte'
+        'rRK6QRectF17QTextInlineObjectiRK11QTextFormat')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN27QAbstractTextDocumentLayout16drawInlineObjectEP8Q'
+          'PainterRK6QRectF17QTextInlineObjectiRK11QTextFormat')
     self.uglySide.call(
-        'ritual_own_ZN27QAbstractTextDocumentLayout16drawInlineObjectEP8QPa'
-        'interRK6QRectF17QTextInlineObjectiRK11QTextFormat',
+        ritual,
         self._addressOf(painter), self._valueOf(rect), self._valueOf(object),
         posInDocument, self._valueOf(format),
     )
+
+  @overload(int)
+  def formatIndex(self, pos: int) -> int:
+    """
+    Calls Qt's 'int QAbstractTextDocumentLayout::formatIndex(int pos)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#formatIndex
+
+    Parameters
+    ----------
+
+    pos : int
+      Passed on as it is.
+    """
+    #  int QAbstractTextDocumentLayout::formatIndex(int pos)
+    return self.uglySide.call(
+        'ritual_ZN27QAbstractTextDocumentLayout11formatIndexEi', pos,
+    )
+
+  @overload(int)
+  def format(self, pos: int) -> QTextCharFormat:
+    """
+    Calls Qt's 'QTextCharFormat QAbstractTextDocumentLayout::format(int
+    pos)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#format
+
+    Parameters
+    ----------
+
+    pos : int
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QTextCharFormat
+      A new cute QTextCharFormat around the copy Qt gave back. Python owns
+      it.
+    """
+    #  QTextCharFormat QAbstractTextDocumentLayout::format(int pos)
+    address = self.uglySide.call(
+        'ritual_ZN27QAbstractTextDocumentLayout6formatEi', pos,
+    )
+    from . import QTextCharFormat
+    return QTextCharFormat._cuteOwning(address)

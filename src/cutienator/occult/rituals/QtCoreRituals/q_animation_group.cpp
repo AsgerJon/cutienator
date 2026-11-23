@@ -290,6 +290,14 @@ void ritual_ZN15QAnimationGroup5clearEv(QAnimationGroup *self) {
   self->clear();
 }
 
+//  bool QAnimationGroup::event(QEvent *event)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN15QAnimationGroup5eventEP6QEvent(
+    QAnimationGroup *self,
+    QEvent *event) {
+  return self->event(event);
+}
+
 //  a Python function taken by a CuteQAnimationGroup, for the function named
 //      by the key
 extern "C" Q_DECL_EXPORT

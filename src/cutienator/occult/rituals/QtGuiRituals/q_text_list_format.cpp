@@ -88,6 +88,13 @@ int ritual_ZNK15QTextListFormat5startEv(const QTextListFormat *self) {
   return self->start();
 }
 
+//  QTextListFormat::QTextListFormat(const QTextFormat &fmt)
+extern "C" Q_DECL_EXPORT
+QTextListFormat *ritual_ZN15QTextListFormatC1ERK11QTextFormat(
+    const QTextFormat *fmt) {
+  return new QTextListFormat(*fmt);
+}
+
 //  QTextListFormat::~QTextListFormat()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QTextListFormatD1Ev(QTextListFormat *self) {

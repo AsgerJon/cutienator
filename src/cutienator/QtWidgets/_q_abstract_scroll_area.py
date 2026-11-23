@@ -20,7 +20,7 @@ from . import QFrame, QWidget
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from ..QtCore import QEvent, QMetaObject, QSize
+  from ..QtCore import QEvent, QMargins, QMetaObject, QSize
   from ..QtGui import QContextMenuEvent, QDragEnterEvent, QDragLeaveEvent
   from ..QtGui import QDragMoveEvent, QDropEvent, QKeyEvent, QMouseEvent
   from ..QtGui import QPaintEvent, QResizeEvent, QWheelEvent
@@ -36,6 +36,7 @@ else:
   QDropEvent = WAIT['QDropEvent']
   QEvent = WAIT['QEvent']
   QKeyEvent = WAIT['QKeyEvent']
+  QMargins = WAIT['QMargins']
   QMouseEvent = WAIT['QMouseEvent']
   QPaintEvent = WAIT['QPaintEvent']
   QResizeEvent = WAIT['QResizeEvent']
@@ -59,19 +60,20 @@ class QAbstractScrollArea(QFrame):
   -----------
 
   Every function of Qt's QAbstractScrollArea that has a ritual and that
-  Python can call so far, 40 names in all: 'metaObject', 'tr',
+  Python can call so far, 42 names in all: 'metaObject', 'tr',
   'verticalScrollBarPolicy', 'setVerticalScrollBarPolicy',
   'verticalScrollBar', 'setVerticalScrollBar', 'horizontalScrollBarPolicy',
   'setHorizontalScrollBarPolicy', 'horizontalScrollBar',
   'setHorizontalScrollBar', 'cornerWidget', 'setCornerWidget',
   'addScrollBarWidget', 'scrollBarWidgets', 'viewport', 'setViewport',
   'maximumViewportSize', 'minimumSizeHint', 'sizeHint', 'setupViewport',
-  'sizeAdjustPolicy', 'setSizeAdjustPolicy', 'eventFilter', 'event',
-  'viewportEvent', 'resizeEvent', 'paintEvent', 'mousePressEvent',
-  'mouseReleaseEvent', 'mouseDoubleClickEvent', 'mouseMoveEvent',
-  'wheelEvent', 'contextMenuEvent', 'dragEnterEvent', 'dragMoveEvent',
-  'dragLeaveEvent', 'dropEvent', 'keyPressEvent', 'scrollContentsBy',
-  'viewportSizeHint'. It can be made from Python, in 1 way; see '__init__'.
+  'sizeAdjustPolicy', 'setSizeAdjustPolicy', 'setViewportMargins',
+  'viewportMargins', 'eventFilter', 'event', 'viewportEvent', 'resizeEvent',
+  'paintEvent', 'mousePressEvent', 'mouseReleaseEvent',
+  'mouseDoubleClickEvent', 'mouseMoveEvent', 'wheelEvent',
+  'contextMenuEvent', 'dragEnterEvent', 'dragMoveEvent', 'dragLeaveEvent',
+  'dropEvent', 'keyPressEvent', 'scrollContentsBy', 'viewportSizeHint'. It
+  can be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -82,8 +84,8 @@ class QAbstractScrollArea(QFrame):
   What has no ritual
   ------------------
 
-  12 of the 54 functions Qt declares: 4 protected; 3 private; 2 takes or
-  gives a type that cannot be passed yet; 2 forbidden; 1 a template.
+  9 of the 54 functions Qt declares: 5 takes or gives a type that cannot be
+  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found.
 
   What to expect
   --------------
@@ -449,6 +451,26 @@ class QAbstractScrollArea(QFrame):
         'ritual_ZNK19QAbstractScrollArea16sizeAdjustPolicyEv',
     ))
 
+  def viewportMargins(self) -> QMargins:
+    """
+    Calls Qt's 'QMargins QAbstractScrollArea::viewportMargins() const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins
+
+    Returns
+    -------
+
+    QMargins
+      A new cute QMargins around the copy Qt gave back. Python owns it.
+    """
+    #  QMargins QAbstractScrollArea::viewportMargins() const
+    address = self.uglySide.call(
+        'ritual_ZNK19QAbstractScrollArea15viewportMarginsEv',
+    )
+    from ..QtCore import QMargins
+    return QMargins._cuteOwning(address)
+
   def viewportSizeHint(self) -> QSize:
     """
     Calls Qt's 'QSize QAbstractScrollArea::viewportSizeHint() const'.
@@ -463,9 +485,10 @@ class QAbstractScrollArea(QFrame):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QAbstractScrollArea::viewportSizeHint() const
-    address = self.uglySide.call(
-        'ritual_own_ZNK19QAbstractScrollArea16viewportSizeHintEv',
-    )
+    ritual = 'ritual_ZNK19QAbstractScrollArea16viewportSizeHintEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK19QAbstractScrollArea16viewportSizeHintEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
@@ -634,6 +657,65 @@ class QAbstractScrollArea(QFrame):
         policy.value,
     )
 
+  @overload(int, int, int, int)
+  def setViewportMargins(
+      self,
+      left: int,
+      top: int,
+      right: int,
+      bottom: int,
+  ) -> None:
+    """
+    Calls Qt's 'void QAbstractScrollArea::setViewportMargins(int left, int
+    top, int right, int bottom)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins
+
+    Parameters
+    ----------
+
+    left : int
+      Passed on as it is.
+
+    top : int
+      Passed on as it is.
+
+    right : int
+      Passed on as it is.
+
+    bottom : int
+      Passed on as it is.
+    """
+    #  void QAbstractScrollArea::setViewportMargins(int left, int top, int
+    #      right, int bottom)
+    self.uglySide.call(
+        'ritual_ZN19QAbstractScrollArea18setViewportMarginsEiiii',
+        left, top, right, bottom,
+    )
+
+  @overload(QMargins)
+  def setViewportMargins(self, margins: QMargins) -> None:
+    """
+    Calls Qt's 'void QAbstractScrollArea::setViewportMargins(const QMargins
+    &margins)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins
+
+    Parameters
+    ----------
+
+    margins : QMargins
+      Passed on as a value: Qt reads the C++ QMargins, which stays Python's
+      own.
+    """
+    #  void QAbstractScrollArea::setViewportMargins(const QMargins &margins)
+    self.uglySide.call(
+        'ritual_ZN19QAbstractScrollArea18setViewportMarginsERK8QMargins',
+        self._valueOf(margins),
+    )
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -799,9 +881,13 @@ class QAbstractScrollArea(QFrame):
       object.
     """
     #  bool QAbstractScrollArea::eventFilter(QObject *a0, QEvent *a1)
+    ritual = 'ritual_ZN19QAbstractScrollArea11eventFilterEP7QObjectP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN19QAbstractScrollArea11eventFilterEP7QObjectP6QEven'
+          't')
     return self.uglySide.call(
-        'ritual_own_ZN19QAbstractScrollArea11eventFilterEP7QObjectP6QEvent',
-        self._addressOf(a0), self._addressOf(a1),
+        ritual, self._addressOf(a0), self._addressOf(a1),
     )
 
   @overload(QEvent)
@@ -820,10 +906,10 @@ class QAbstractScrollArea(QFrame):
       object.
     """
     #  bool QAbstractScrollArea::event(QEvent *a0)
-    return self.uglySide.call(
-        'ritual_own_ZN19QAbstractScrollArea5eventEP6QEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN19QAbstractScrollArea5eventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN19QAbstractScrollArea5eventEP6QEvent'
+    return self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QEvent)
   @overload(NoneType)
@@ -842,10 +928,10 @@ class QAbstractScrollArea(QFrame):
       object.
     """
     #  bool QAbstractScrollArea::viewportEvent(QEvent *a0)
-    return self.uglySide.call(
-        'ritual_own_ZN19QAbstractScrollArea13viewportEventEP6QEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN19QAbstractScrollArea13viewportEventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN19QAbstractScrollArea13viewportEventEP6QEvent'
+    return self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QResizeEvent)
   @overload(NoneType)
@@ -864,10 +950,11 @@ class QAbstractScrollArea(QFrame):
       object.
     """
     #  void QAbstractScrollArea::resizeEvent(QResizeEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN19QAbstractScrollArea11resizeEventEP12QResizeEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN19QAbstractScrollArea11resizeEventEP12QResizeEvent'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN19QAbstractScrollArea11resizeEventEP12QResizeEvent')
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QPaintEvent)
   @overload(NoneType)
@@ -886,10 +973,11 @@ class QAbstractScrollArea(QFrame):
       object.
     """
     #  void QAbstractScrollArea::paintEvent(QPaintEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN19QAbstractScrollArea10paintEventEP11QPaintEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN19QAbstractScrollArea10paintEventEP11QPaintEvent'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN19QAbstractScrollArea10paintEventEP11QPaintEvent')
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QMouseEvent)
   @overload(NoneType)
@@ -908,10 +996,12 @@ class QAbstractScrollArea(QFrame):
       object.
     """
     #  void QAbstractScrollArea::mousePressEvent(QMouseEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN19QAbstractScrollArea15mousePressEventEP11QMouseEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN19QAbstractScrollArea15mousePressEventEP11QMouseEvent'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN19QAbstractScrollArea15mousePressEventEP11QMouseEve'
+          'nt')
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QMouseEvent)
   @overload(NoneType)
@@ -931,11 +1021,13 @@ class QAbstractScrollArea(QFrame):
       object.
     """
     #  void QAbstractScrollArea::mouseReleaseEvent(QMouseEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN19QAbstractScrollArea17mouseReleaseEventEP11QMouseEve'
-        'nt',
-        self._addressOf(a0),
-    )
+    ritual = (
+        'ritual_ZN19QAbstractScrollArea17mouseReleaseEventEP11QMouseEvent')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN19QAbstractScrollArea17mouseReleaseEventEP11QMouseE'
+          'vent')
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QMouseEvent)
   @overload(NoneType)
@@ -955,11 +1047,14 @@ class QAbstractScrollArea(QFrame):
       object.
     """
     #  void QAbstractScrollArea::mouseDoubleClickEvent(QMouseEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN19QAbstractScrollArea21mouseDoubleClickEventEP11QMous'
-        'eEvent',
-        self._addressOf(a0),
-    )
+    ritual = (
+        'ritual_ZN19QAbstractScrollArea21mouseDoubleClickEventEP11QMouseEve'
+        'nt')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN19QAbstractScrollArea21mouseDoubleClickEventEP11QMo'
+          'useEvent')
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QMouseEvent)
   @overload(NoneType)
@@ -978,10 +1073,12 @@ class QAbstractScrollArea(QFrame):
       object.
     """
     #  void QAbstractScrollArea::mouseMoveEvent(QMouseEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN19QAbstractScrollArea14mouseMoveEventEP11QMouseEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN19QAbstractScrollArea14mouseMoveEventEP11QMouseEvent'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN19QAbstractScrollArea14mouseMoveEventEP11QMouseEven'
+          't')
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QWheelEvent)
   @overload(NoneType)
@@ -1000,10 +1097,11 @@ class QAbstractScrollArea(QFrame):
       object.
     """
     #  void QAbstractScrollArea::wheelEvent(QWheelEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN19QAbstractScrollArea10wheelEventEP11QWheelEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN19QAbstractScrollArea10wheelEventEP11QWheelEvent'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN19QAbstractScrollArea10wheelEventEP11QWheelEvent')
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QContextMenuEvent)
   @overload(NoneType)
@@ -1023,11 +1121,14 @@ class QAbstractScrollArea(QFrame):
       object.
     """
     #  void QAbstractScrollArea::contextMenuEvent(QContextMenuEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN19QAbstractScrollArea16contextMenuEventEP17QContextMe'
-        'nuEvent',
-        self._addressOf(a0),
-    )
+    ritual = (
+        'ritual_ZN19QAbstractScrollArea16contextMenuEventEP17QContextMenuEv'
+        'ent')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN19QAbstractScrollArea16contextMenuEventEP17QContext'
+          'MenuEvent')
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QDragEnterEvent)
   @overload(NoneType)
@@ -1047,11 +1148,13 @@ class QAbstractScrollArea(QFrame):
       object.
     """
     #  void QAbstractScrollArea::dragEnterEvent(QDragEnterEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN19QAbstractScrollArea14dragEnterEventEP15QDragEnterEv'
-        'ent',
-        self._addressOf(a0),
-    )
+    ritual = (
+        'ritual_ZN19QAbstractScrollArea14dragEnterEventEP15QDragEnterEvent')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN19QAbstractScrollArea14dragEnterEventEP15QDragEnter'
+          'Event')
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QDragMoveEvent)
   @overload(NoneType)
@@ -1070,11 +1173,13 @@ class QAbstractScrollArea(QFrame):
       object.
     """
     #  void QAbstractScrollArea::dragMoveEvent(QDragMoveEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN19QAbstractScrollArea13dragMoveEventEP14QDragMoveEven'
-        't',
-        self._addressOf(a0),
-    )
+    ritual = (
+        'ritual_ZN19QAbstractScrollArea13dragMoveEventEP14QDragMoveEvent')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN19QAbstractScrollArea13dragMoveEventEP14QDragMoveEv'
+          'ent')
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QDragLeaveEvent)
   @overload(NoneType)
@@ -1094,11 +1199,13 @@ class QAbstractScrollArea(QFrame):
       object.
     """
     #  void QAbstractScrollArea::dragLeaveEvent(QDragLeaveEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN19QAbstractScrollArea14dragLeaveEventEP15QDragLeaveEv'
-        'ent',
-        self._addressOf(a0),
-    )
+    ritual = (
+        'ritual_ZN19QAbstractScrollArea14dragLeaveEventEP15QDragLeaveEvent')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN19QAbstractScrollArea14dragLeaveEventEP15QDragLeave'
+          'Event')
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QDropEvent)
   @overload(NoneType)
@@ -1116,10 +1223,10 @@ class QAbstractScrollArea(QFrame):
       object.
     """
     #  void QAbstractScrollArea::dropEvent(QDropEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN19QAbstractScrollArea9dropEventEP10QDropEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN19QAbstractScrollArea9dropEventEP10QDropEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN19QAbstractScrollArea9dropEventEP10QDropEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QKeyEvent)
   @overload(NoneType)
@@ -1138,10 +1245,11 @@ class QAbstractScrollArea(QFrame):
       object.
     """
     #  void QAbstractScrollArea::keyPressEvent(QKeyEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN19QAbstractScrollArea13keyPressEventEP9QKeyEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN19QAbstractScrollArea13keyPressEventEP9QKeyEvent'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN19QAbstractScrollArea13keyPressEventEP9QKeyEvent')
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(int, int)
   def scrollContentsBy(self, dx: int, dy: int) -> None:
@@ -1161,6 +1269,7 @@ class QAbstractScrollArea(QFrame):
       Passed on as it is.
     """
     #  void QAbstractScrollArea::scrollContentsBy(int dx, int dy)
-    self.uglySide.call(
-        'ritual_own_ZN19QAbstractScrollArea16scrollContentsByEii', dx, dy,
-    )
+    ritual = 'ritual_ZN19QAbstractScrollArea16scrollContentsByEii'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN19QAbstractScrollArea16scrollContentsByEii'
+    self.uglySide.call(ritual, dx, dy)

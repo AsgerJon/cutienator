@@ -47,7 +47,7 @@ class QFont(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QFont that has a ritual and that Python can call so
-  far, 79 names in all: 'family', 'setFamily', 'families', 'setFamilies',
+  far, 80 names in all: 'family', 'setFamily', 'families', 'setFamilies',
   'styleName', 'setStyleName', 'pointSize', 'setPointSize', 'pointSizeF',
   'setPointSizeF', 'pixelSize', 'setPixelSize', 'weight', 'setWeight',
   'bold', 'setBold', 'setStyle', 'style', 'italic', 'setItalic', 'underline',
@@ -64,8 +64,8 @@ class QFont(CuteMixin, metaclass=MetaCute):
   'substitutions', 'insertSubstitution', 'insertSubstitutions',
   'removeSubstitutions', 'initialize', 'cleanup', 'cacheStatistics',
   'defaultFamily', 'resolve', 'resolveMask', 'setResolveMask',
-  'setLegacyWeight', 'legacyWeight', '__rlshift__'. It can be made from
-  Python, in 5 ways; see '__init__'.
+  'setLegacyWeight', 'legacyWeight', 'detach', '__rlshift__'. It can be made
+  from Python, in 5 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -78,8 +78,8 @@ class QFont(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  13 of the 99 functions Qt declares: 8 takes or gives a type that cannot be
-  passed yet; 3 private; 1 declared and nowhere to be found; 1 a template.
+  12 of the 99 functions Qt declares: 9 takes or gives a type that cannot be
+  passed yet; 2 declared and nowhere to be found; 1 a template.
 
   What to expect
   --------------
@@ -2093,3 +2093,12 @@ class QFont(CuteMixin, metaclass=MetaCute):
     """
     #  bool QFont::fromString(const QString &a0)
     return self.uglySide.call('ritual_ZN5QFont10fromStringERK7QString', a0)
+
+  def detach(self) -> None:
+    """
+    Calls Qt's 'void QFont::detach()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfont.html#detach
+    """
+    #  void QFont::detach()
+    self.uglySide.call('ritual_ZN5QFont6detachEv')

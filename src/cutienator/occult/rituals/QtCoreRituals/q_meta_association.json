@@ -39,6 +39,7 @@
     "ritual_ZNK16QMetaAssociation5ifaceEv": ["address", "address"],
     "ritual_ZeqRK16QMetaAssociationS1_": ["bool", "address", "address"],
     "ritual_ZneRK16QMetaAssociationS1_": ["bool", "address", "address"],
+    "ritual_ZNK16QMetaAssociation1dEv": ["address", "address"],
     "ritual_ZN16QMetaAssociationD1Ev": ["nothing", "address"]
   }
 }

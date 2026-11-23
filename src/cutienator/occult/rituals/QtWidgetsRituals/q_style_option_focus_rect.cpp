@@ -16,6 +16,12 @@ QStyleOptionFocusRect *ritual_ZN21QStyleOptionFocusRectC1ERKS_(
   return new QStyleOptionFocusRect(*other);
 }
 
+//  QStyleOptionFocusRect::QStyleOptionFocusRect(int version)
+extern "C" Q_DECL_EXPORT
+QStyleOptionFocusRect *ritual_ZN21QStyleOptionFocusRectC1Ei(int version) {
+  return new QStyleOptionFocusRect(version);
+}
+
 //  QStyleOptionFocusRect::~QStyleOptionFocusRect()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN21QStyleOptionFocusRectD1Ev(QStyleOptionFocusRect *self) {

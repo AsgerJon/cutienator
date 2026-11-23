@@ -146,6 +146,7 @@
       "nothing", "address", "int"
     ],
     "ritual_ZNK15QTextCharFormat19tableCellColumnSpanEv": ["int", "address"],
+    "ritual_ZN15QTextCharFormatC1ERK11QTextFormat": ["address", "address"],
     "ritual_ZN15QTextCharFormatD1Ev": ["nothing", "address"]
   }
 }

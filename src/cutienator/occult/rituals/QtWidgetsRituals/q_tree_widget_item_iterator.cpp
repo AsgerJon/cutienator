@@ -77,3 +77,12 @@ QTreeWidgetItem *ritual_ZNK23QTreeWidgetItemIteratordeEv(
     const QTreeWidgetItemIterator *self) {
   return self->operator*();
 }
+
+//  bool QTreeWidgetItemIterator::matchesFlags(const QTreeWidgetItem *item)
+//      const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK23QTreeWidgetItemIterator12matchesFlagsEPK15QTreeWidgetItem(
+    const QTreeWidgetItemIterator *self,
+    const QTreeWidgetItem *item) {
+  return self->matchesFlags(item);
+}

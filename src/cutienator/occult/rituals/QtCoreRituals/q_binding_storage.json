@@ -16,6 +16,19 @@
     ],
     "ritual_ZN15QBindingStorage11bindingDataEP20QUntypedPropertyDatab": [
       "address", "address", "address", "bool"
+    ],
+    "ritual_ZN15QBindingStorage21reinitAfterThreadMoveEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QBindingStorage5clearEv": ["nothing", "address"],
+    "ritual_ZNK15QBindingStorage25registerDependency_helperEPK20QUntypedPropertyData": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QBindingStorage18bindingData_helperEPK20QUntypedPropertyData": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN15QBindingStorage18bindingData_helperEP20QUntypedPropertyDatab": [
+      "address", "address", "address", "bool"
     ]
   }
 }

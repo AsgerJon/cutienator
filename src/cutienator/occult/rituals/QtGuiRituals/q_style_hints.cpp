@@ -326,3 +326,9 @@ int ritual_ZNK11QStyleHints24toolTipWakeUpDelayAsMSecEv(
     const QStyleHints *self) {
   return self->toolTipWakeUpDelayAsMSec();
 }
+
+//  QStyleHints::QStyleHints()
+extern "C" Q_DECL_EXPORT
+QStyleHints *ritual_ZN11QStyleHintsC1Ev() {
+  return new QStyleHints();
+}

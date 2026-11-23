@@ -421,3 +421,82 @@ bool ritual_ZNK20QFutureInterfaceBase15isChainCanceledEv(
     const QFutureInterfaceBase *self) {
   return self->isChainCanceled();
 }
+
+//  bool QFutureInterfaceBase::refT() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK20QFutureInterfaceBase4refTEv(
+    const QFutureInterfaceBase *self) {
+  return self->refT();
+}
+
+//  bool QFutureInterfaceBase::derefT() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK20QFutureInterfaceBase6derefTEv(
+    const QFutureInterfaceBase *self) {
+  return self->derefT();
+}
+
+//  void QFutureInterfaceBase::reset()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QFutureInterfaceBase5resetEv(QFutureInterfaceBase *self) {
+  self->reset();
+}
+
+//  void QFutureInterfaceBase::rethrowPossibleException()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QFutureInterfaceBase24rethrowPossibleExceptionEv(
+    QFutureInterfaceBase *self) {
+  self->rethrowPossibleException();
+}
+
+//  void QFutureInterfaceBase::cleanContinuation()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QFutureInterfaceBase17cleanContinuationEv(
+    QFutureInterfaceBase *self) {
+  self->cleanContinuation();
+}
+
+//  void QFutureInterfaceBase::runContinuation() const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK20QFutureInterfaceBase15runContinuationEv(
+    const QFutureInterfaceBase *self) {
+  self->runContinuation();
+}
+
+//  void QFutureInterfaceBase::setLaunchAsync(bool value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QFutureInterfaceBase14setLaunchAsyncEb(
+    QFutureInterfaceBase *self,
+    bool value) {
+  self->setLaunchAsync(value);
+}
+
+//  bool QFutureInterfaceBase::launchAsync() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK20QFutureInterfaceBase11launchAsyncEv(
+    const QFutureInterfaceBase *self) {
+  return self->launchAsync();
+}
+
+//  bool QFutureInterfaceBase::isRunningOrPending() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK20QFutureInterfaceBase18isRunningOrPendingEv(
+    const QFutureInterfaceBase *self) {
+  return self->isRunningOrPending();
+}
+
+//  void QFutureInterfaceBase::cancel(CancelMode mode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QFutureInterfaceBase6cancelENS_10CancelModeE(
+    QFutureInterfaceBase *self,
+    QFutureInterfaceBase::CancelMode mode) {
+  self->cancel(mode);
+}
+
+//  void QFutureInterfaceBase::cancelChain(CancelMode mode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QFutureInterfaceBase11cancelChainENS_10CancelModeE(
+    QFutureInterfaceBase *self,
+    QFutureInterfaceBase::CancelMode mode) {
+  self->cancelChain(mode);
+}

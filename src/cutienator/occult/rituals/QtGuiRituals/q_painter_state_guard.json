@@ -9,6 +9,7 @@
     ],
     "ritual_ZN18QPainterStateGuardD1Ev": ["nothing", "address"],
     "ritual_ZN18QPainterStateGuard4saveEv": ["nothing", "address"],
-    "ritual_ZN18QPainterStateGuard7restoreEv": ["nothing", "address"]
+    "ritual_ZN18QPainterStateGuard7restoreEv": ["nothing", "address"],
+    "ritual_ZN18QPainterStateGuard13verifyPainterEv": ["nothing", "address"]
   }
 }

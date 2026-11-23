@@ -999,6 +999,28 @@ void ritual_ZN8QSpinBox21setDisplayIntegerBaseEi(QSpinBox *self, int base) {
   self->setDisplayIntegerBase(base);
 }
 
+//  bool QSpinBox::event(QEvent *event)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN8QSpinBox5eventEP6QEvent(QSpinBox *self, QEvent *event) {
+  return self->event(event);
+}
+
+//  int QSpinBox::valueFromText(const QString &text) const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK8QSpinBox13valueFromTextERK7QString(
+    const QSpinBox *self,
+    const QString *text) {
+  return self->valueFromText(*text);
+}
+
+//  QString QSpinBox::textFromValue(int val) const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK8QSpinBox13textFromValueEi(
+    const QSpinBox *self,
+    int val) {
+  return new QString(self->textFromValue(val));
+}
+
 //  void QSpinBox::setValue(int val)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN8QSpinBox8setValueEi(QSpinBox *self, int val) {

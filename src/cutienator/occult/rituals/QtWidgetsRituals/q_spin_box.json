@@ -33,6 +33,11 @@
     "ritual_ZN8QSpinBox21setDisplayIntegerBaseEi": [
       "nothing", "address", "int"
     ],
+    "ritual_ZN8QSpinBox5eventEP6QEvent": ["bool", "address", "address"],
+    "ritual_ZNK8QSpinBox13valueFromTextERK7QString": [
+      "int", "address", "text"
+    ],
+    "ritual_ZNK8QSpinBox13textFromValueEi": ["text", "address", "int"],
     "ritual_ZN8QSpinBox8setValueEi": ["nothing", "address", "int"],
     "ritual_take_QSpinBox": ["bool", "address", "chars", "address"],
     "ritual_own_ZN8QSpinBox5eventEP6QEvent": ["bool", "address", "address"],

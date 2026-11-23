@@ -113,9 +113,9 @@ class QWindow(QObject, QSurface):
   What has no ritual
   ------------------
 
-  37 of the 172 functions Qt declares: 21 a signal; 5 takes or gives a type
-  that cannot be passed yet; 4 private; 3 protected; 2 a template; 2
-  forbidden.
+  37 of the 172 functions Qt declares: 21 a signal; 11 takes or gives a type
+  that cannot be passed yet; 2 a template; 2 forbidden; 1 declared and
+  nowhere to be found.
 
   What to expect
   --------------
@@ -2295,10 +2295,10 @@ class QWindow(QObject, QSurface):
       object.
     """
     #  void QWindow::exposeEvent(QExposeEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN7QWindow11exposeEventEP12QExposeEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN7QWindow11exposeEventEP12QExposeEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QWindow11exposeEventEP12QExposeEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QResizeEvent)
   @overload(NoneType)
@@ -2316,10 +2316,10 @@ class QWindow(QObject, QSurface):
       object.
     """
     #  void QWindow::resizeEvent(QResizeEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN7QWindow11resizeEventEP12QResizeEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN7QWindow11resizeEventEP12QResizeEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QWindow11resizeEventEP12QResizeEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QPaintEvent)
   @overload(NoneType)
@@ -2337,10 +2337,10 @@ class QWindow(QObject, QSurface):
       object.
     """
     #  void QWindow::paintEvent(QPaintEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN7QWindow10paintEventEP11QPaintEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN7QWindow10paintEventEP11QPaintEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QWindow10paintEventEP11QPaintEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QMoveEvent)
   @overload(NoneType)
@@ -2358,9 +2358,10 @@ class QWindow(QObject, QSurface):
       object.
     """
     #  void QWindow::moveEvent(QMoveEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN7QWindow9moveEventEP10QMoveEvent', self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN7QWindow9moveEventEP10QMoveEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QWindow9moveEventEP10QMoveEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QFocusEvent)
   @overload(NoneType)
@@ -2378,10 +2379,10 @@ class QWindow(QObject, QSurface):
       object.
     """
     #  void QWindow::focusInEvent(QFocusEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN7QWindow12focusInEventEP11QFocusEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN7QWindow12focusInEventEP11QFocusEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QWindow12focusInEventEP11QFocusEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QFocusEvent)
   @overload(NoneType)
@@ -2399,10 +2400,10 @@ class QWindow(QObject, QSurface):
       object.
     """
     #  void QWindow::focusOutEvent(QFocusEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN7QWindow13focusOutEventEP11QFocusEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN7QWindow13focusOutEventEP11QFocusEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QWindow13focusOutEventEP11QFocusEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QShowEvent)
   @overload(NoneType)
@@ -2420,9 +2421,10 @@ class QWindow(QObject, QSurface):
       object.
     """
     #  void QWindow::showEvent(QShowEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN7QWindow9showEventEP10QShowEvent', self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN7QWindow9showEventEP10QShowEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QWindow9showEventEP10QShowEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QHideEvent)
   @overload(NoneType)
@@ -2440,9 +2442,10 @@ class QWindow(QObject, QSurface):
       object.
     """
     #  void QWindow::hideEvent(QHideEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN7QWindow9hideEventEP10QHideEvent', self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN7QWindow9hideEventEP10QHideEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QWindow9hideEventEP10QHideEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QCloseEvent)
   @overload(NoneType)
@@ -2460,10 +2463,10 @@ class QWindow(QObject, QSurface):
       object.
     """
     #  void QWindow::closeEvent(QCloseEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN7QWindow10closeEventEP11QCloseEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN7QWindow10closeEventEP11QCloseEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QWindow10closeEventEP11QCloseEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QEvent)
   @overload(NoneType)
@@ -2481,9 +2484,10 @@ class QWindow(QObject, QSurface):
       object.
     """
     #  bool QWindow::event(QEvent *a0)
-    return self.uglySide.call(
-        'ritual_own_ZN7QWindow5eventEP6QEvent', self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN7QWindow5eventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QWindow5eventEP6QEvent'
+    return self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QKeyEvent)
   @overload(NoneType)
@@ -2501,10 +2505,10 @@ class QWindow(QObject, QSurface):
       object.
     """
     #  void QWindow::keyPressEvent(QKeyEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN7QWindow13keyPressEventEP9QKeyEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN7QWindow13keyPressEventEP9QKeyEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QWindow13keyPressEventEP9QKeyEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QKeyEvent)
   @overload(NoneType)
@@ -2522,10 +2526,10 @@ class QWindow(QObject, QSurface):
       object.
     """
     #  void QWindow::keyReleaseEvent(QKeyEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN7QWindow15keyReleaseEventEP9QKeyEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN7QWindow15keyReleaseEventEP9QKeyEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QWindow15keyReleaseEventEP9QKeyEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QMouseEvent)
   @overload(NoneType)
@@ -2543,10 +2547,10 @@ class QWindow(QObject, QSurface):
       object.
     """
     #  void QWindow::mousePressEvent(QMouseEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN7QWindow15mousePressEventEP11QMouseEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN7QWindow15mousePressEventEP11QMouseEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QWindow15mousePressEventEP11QMouseEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QMouseEvent)
   @overload(NoneType)
@@ -2564,10 +2568,10 @@ class QWindow(QObject, QSurface):
       object.
     """
     #  void QWindow::mouseReleaseEvent(QMouseEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN7QWindow17mouseReleaseEventEP11QMouseEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN7QWindow17mouseReleaseEventEP11QMouseEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QWindow17mouseReleaseEventEP11QMouseEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QMouseEvent)
   @overload(NoneType)
@@ -2585,10 +2589,10 @@ class QWindow(QObject, QSurface):
       object.
     """
     #  void QWindow::mouseDoubleClickEvent(QMouseEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN7QWindow21mouseDoubleClickEventEP11QMouseEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN7QWindow21mouseDoubleClickEventEP11QMouseEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QWindow21mouseDoubleClickEventEP11QMouseEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QMouseEvent)
   @overload(NoneType)
@@ -2606,10 +2610,10 @@ class QWindow(QObject, QSurface):
       object.
     """
     #  void QWindow::mouseMoveEvent(QMouseEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN7QWindow14mouseMoveEventEP11QMouseEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN7QWindow14mouseMoveEventEP11QMouseEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QWindow14mouseMoveEventEP11QMouseEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QWheelEvent)
   @overload(NoneType)
@@ -2627,10 +2631,10 @@ class QWindow(QObject, QSurface):
       object.
     """
     #  void QWindow::wheelEvent(QWheelEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN7QWindow10wheelEventEP11QWheelEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN7QWindow10wheelEventEP11QWheelEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QWindow10wheelEventEP11QWheelEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QTouchEvent)
   @overload(NoneType)
@@ -2648,10 +2652,10 @@ class QWindow(QObject, QSurface):
       object.
     """
     #  void QWindow::touchEvent(QTouchEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN7QWindow10touchEventEP11QTouchEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN7QWindow10touchEventEP11QTouchEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QWindow10touchEventEP11QTouchEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QTabletEvent)
   @overload(NoneType)
@@ -2669,10 +2673,10 @@ class QWindow(QObject, QSurface):
       object.
     """
     #  void QWindow::tabletEvent(QTabletEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN7QWindow11tabletEventEP12QTabletEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN7QWindow11tabletEventEP12QTabletEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QWindow11tabletEventEP12QTabletEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
 
 #  Qt's 'QList<QWindow *>': the list of QWindow, which 'QList[QWindow]'

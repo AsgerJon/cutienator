@@ -557,6 +557,27 @@ bool ritual_ZN11QFileDevice11setFileTimeERK9QDateTimeNS_8FileTimeE(
   return self->setFileTime(*newDate, fileTime);
 }
 
+//  QFileDevice::QFileDevice()
+extern "C" Q_DECL_EXPORT
+QFileDevice *ritual_ZN11QFileDeviceC1Ev() {
+  return new CuteQFileDevice();
+}
+
+//  QFileDevice::QFileDevice(QObject *parent)
+extern "C" Q_DECL_EXPORT
+QFileDevice *ritual_ZN11QFileDeviceC1EP7QObject(QObject *parent) {
+  return new CuteQFileDevice(parent);
+}
+
+//  qint64 QFileDevice::writeData(const char *data, qint64 len)
+extern "C" Q_DECL_EXPORT
+qint64 ritual_ZN11QFileDevice9writeDataEPKcx(
+    QFileDevice *self,
+    const char *data,
+    qint64 len) {
+  return self->writeData(data, len);
+}
+
 //  a Python function taken by a CuteQFileDevice, for the function named by
 //      the key
 extern "C" Q_DECL_EXPORT

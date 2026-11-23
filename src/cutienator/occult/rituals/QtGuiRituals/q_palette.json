@@ -86,6 +86,20 @@
     "ritual_ZNK8QPalette11resolveMaskEv": ["unsigned long long", "address"],
     "ritual_ZN8QPalette14setResolveMaskEy": [
       "nothing", "address", "unsigned long long"
-    ]
+    ],
+    "ritual_ZN8QPalette13setColorGroupENS_10ColorGroupERK6QBrushS3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_": [
+      "nothing", "address", "int", "address", "address", "address",
+      "address", "address", "address", "address", "address", "address",
+      "address", "address", "address", "address", "address", "address",
+      "address", "address"
+    ],
+    "ritual_ZN8QPalette13setColorGroupENS_10ColorGroupERK6QBrushS3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_": [
+      "nothing", "address", "int", "address", "address", "address",
+      "address", "address", "address", "address", "address", "address",
+      "address", "address", "address", "address", "address", "address",
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN8QPalette4initEv": ["nothing", "address"],
+    "ritual_ZN8QPalette6detachEv": ["nothing", "address"]
   }
 }

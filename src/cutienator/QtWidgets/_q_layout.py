@@ -21,13 +21,15 @@ from . import QLayoutItem, QSizePolicy
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from ..QtCore import QChildEvent, QMargins, QMetaObject, QRect, QSize
+  from ..QtCore import QChildEvent, QEvent, QMargins, QMetaObject, QRect
+  from ..QtCore import QSize
   from . import QWidget
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
   QChildEvent = WAIT['QChildEvent']
+  QEvent = WAIT['QEvent']
   QMargins = WAIT['QMargins']
   QRect = WAIT['QRect']
   QSize = WAIT['QSize']
@@ -52,7 +54,7 @@ class QLayout(QObject, QLayoutItem):
   -----------
 
   Every function of Qt's QLayout that has a ritual and that Python can call
-  so far, 48 names in all: 'metaObject', 'tr', 'spacing', 'setSpacing',
+  so far, 54 names in all: 'metaObject', 'tr', 'spacing', 'setSpacing',
   'setContentsMargins', 'unsetContentsMargins', 'contentsMargins',
   'contentsRect', 'setAlignment', 'setSizeConstraint', 'sizeConstraint',
   'setSizeConstraints', 'setHorizontalSizeConstraint',
@@ -64,8 +66,10 @@ class QLayout(QObject, QLayoutItem):
   'isEmpty', 'controlTypes', 'replaceWidget', 'totalMinimumHeightForWidth',
   'totalHeightForWidth', 'totalMinimumSize', 'totalMaximumSize',
   'totalSizeHint', 'layout', 'setEnabled', 'isEnabled',
-  'closestAcceptableSize', 'childEvent'. None can be made from Python: one
-  comes out of a function of another class that gives one back.
+  'closestAcceptableSize', 'widgetEvent', 'childEvent', 'addChildLayout',
+  'addChildWidget', 'adoptLayout', 'alignmentRect',
+  'activateRecursiveHelper'. None can be made from Python: one comes out of a
+  function of another class that gives one back.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -78,9 +82,9 @@ class QLayout(QObject, QLayoutItem):
   What has no ritual
   ------------------
 
-  16 of the 69 functions Qt declares: 6 protected; 4 private; 2 takes or
-  gives a type that cannot be passed yet; 2 forbidden; 1 a template; 1 the
-  class is abstract, so C++ cannot make one.
+  10 of the 69 functions Qt declares: 4 takes or gives a type that cannot be
+  passed yet; 2 the class is abstract, so C++ cannot make one; 2 forbidden; 1
+  a template; 1 declared and nowhere to be found.
 
   What to expect
   --------------
@@ -192,6 +196,29 @@ class QLayout(QObject, QLayoutItem):
     )
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
+
+  @staticmethod
+  @overload(QLayoutItem)
+  @overload(NoneType)
+  def activateRecursiveHelper(item: Optional[QLayoutItem]) -> None:
+    """
+    Calls Qt's 'void QLayout::activateRecursiveHelper(QLayoutItem *item)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qlayout.html#activateRecursiveHelper
+
+    Parameters
+    ----------
+
+    item : Optional[QLayoutItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QLayout::activateRecursiveHelper(QLayoutItem *item)
+    Rituals.call(
+        'ritual_ZN7QLayout23activateRecursiveHelperEP11QLayoutItem',
+        CuteMixin._addressOf(item, 'QLayoutItem'),
+    )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -729,6 +756,32 @@ class QLayout(QObject, QLayoutItem):
     #  bool QLayout::isEnabled() const
     return self.uglySide.call('ritual_ZNK7QLayout9isEnabledEv')
 
+  @overload(QRect)
+  def alignmentRect(self, a0: QRect) -> QRect:
+    """
+    Calls Qt's 'QRect QLayout::alignmentRect(const QRect &a0) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlayout.html#alignmentRect
+
+    Parameters
+    ----------
+
+    a0 : QRect
+      Passed on as a value: Qt reads the C++ QRect, which stays Python's own.
+
+    Returns
+    -------
+
+    QRect
+      A new cute QRect around the copy Qt gave back. Python owns it.
+    """
+    #  QRect QLayout::alignmentRect(const QRect &a0) const
+    address = self.uglySide.call(
+        'ritual_ZNK7QLayout13alignmentRectERK5QRect', self._valueOf(a0),
+    )
+    from ..QtCore import QRect
+    return QRect._cuteOwning(address)
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1265,6 +1318,26 @@ class QLayout(QObject, QLayoutItem):
     address = self.uglySide.call(ritual)
     return QLayout._cuteAt(address)
 
+  @overload(QEvent)
+  @overload(NoneType)
+  def widgetEvent(self, a0: Optional[QEvent]) -> None:
+    """
+    Calls Qt's 'void QLayout::widgetEvent(QEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlayout.html#widgetEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QLayout::widgetEvent(QEvent *a0)
+    self.uglySide.call(
+        'ritual_ZN7QLayout11widgetEventEP6QEvent', self._addressOf(a0),
+    )
+
   @overload(QChildEvent)
   @overload(NoneType)
   def childEvent(self, e: Optional[QChildEvent]) -> None:
@@ -1281,7 +1354,67 @@ class QLayout(QObject, QLayoutItem):
       object.
     """
     #  void QLayout::childEvent(QChildEvent *e)
+    ritual = 'ritual_ZN7QLayout10childEventEP11QChildEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QLayout10childEventEP11QChildEvent'
+    self.uglySide.call(ritual, self._addressOf(e))
+
+  @overload(THIS)
+  @overload(NoneType)
+  def addChildLayout(self, l: Optional[QLayout]) -> None:
+    """
+    Calls Qt's 'void QLayout::addChildLayout(QLayout *l)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlayout.html#addChildLayout
+
+    Parameters
+    ----------
+
+    l : Optional[QLayout]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QLayout::addChildLayout(QLayout *l)
     self.uglySide.call(
-        'ritual_own_ZN7QLayout10childEventEP11QChildEvent',
-        self._addressOf(e),
+        'ritual_ZN7QLayout14addChildLayoutEPS_', self._addressOf(l),
+    )
+
+  @overload(QWidget)
+  @overload(NoneType)
+  def addChildWidget(self, w: Optional[QWidget]) -> None:
+    """
+    Calls Qt's 'void QLayout::addChildWidget(QWidget *w)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlayout.html#addChildWidget
+
+    Parameters
+    ----------
+
+    w : Optional[QWidget]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QLayout::addChildWidget(QWidget *w)
+    self.uglySide.call(
+        'ritual_ZN7QLayout14addChildWidgetEP7QWidget', self._addressOf(w),
+    )
+
+  @overload(THIS)
+  @overload(NoneType)
+  def adoptLayout(self, layout: Optional[QLayout]) -> bool:
+    """
+    Calls Qt's 'bool QLayout::adoptLayout(QLayout *layout)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlayout.html#adoptLayout
+
+    Parameters
+    ----------
+
+    layout : Optional[QLayout]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QLayout::adoptLayout(QLayout *layout)
+    return self.uglySide.call(
+        'ritual_ZN7QLayout11adoptLayoutEPS_', self._addressOf(layout),
     )

@@ -18,6 +18,9 @@
       "address", "address", "address"
     ],
     "ritual_ZeqRK15QColorTransformS1_": ["bool", "address", "address"],
-    "ritual_ZneRK15QColorTransformS1_": ["bool", "address", "address"]
+    "ritual_ZneRK15QColorTransformS1_": ["bool", "address", "address"],
+    "ritual_ZNK15QColorTransform7compareERKS_": [
+      "bool", "address", "address"
+    ]
   }
 }

@@ -17,12 +17,20 @@ from ..occult import Rituals
 from . import QJsonValue
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Optional
+
   from . import QJsonArray, QJsonObject, QLatin1String, QVariant
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
+  QJsonArray = WAIT['QJsonArray']
+  QJsonObject = WAIT['QJsonObject']
   QLatin1String = WAIT['QLatin1String']
+
+#  The class of None, for a signature that takes None in the place of an
+#  object or of text.
+NoneType = type(None)
 
 
 class QJsonValueConstRef(CuteMixin, metaclass=MetaCute):
@@ -38,11 +46,13 @@ class QJsonValueConstRef(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QJsonValueConstRef that has a ritual and that Python
-  can call so far, 20 names in all: 'toVariant', 'type', 'isNull', 'isBool',
+  can call so far, 30 names in all: 'toVariant', 'type', 'isNull', 'isBool',
   'isDouble', 'isString', 'isArray', 'isObject', 'isUndefined', 'toBool',
   'toInt', 'toInteger', 'toDouble', 'toString', 'toStringView', 'toArray',
-  'toObject', '__getitem__', '__eq__', '__ne__'. It can be made from Python,
-  in 1 way; see '__init__'.
+  'toObject', '__getitem__', '__eq__', '__ne__', 'concreteType',
+  'concreteBool', 'concreteInt', 'concreteDouble', 'concreteString',
+  'concreteStringView', 'concrete', 'objectKey', 'objectKeyView', 'rebind'.
+  It can be made from Python, in 3 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -61,7 +71,7 @@ class QJsonValueConstRef(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  15 of the 44 functions Qt declares: 14 protected; 1 forbidden.
+  1 of the 44 functions Qt declares: 1 forbidden.
 
   What to expect
   --------------
@@ -80,6 +90,323 @@ class QJsonValueConstRef(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  @overload(THIS)
+  def concreteType(self_: QJsonValueConstRef) -> QJsonValue.Type:
+    """
+    Calls Qt's 'QJsonValue::Type
+    QJsonValueConstRef::concreteType(QJsonValueConstRef self_)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qjsonvalueconstref.html#concreteType
+
+    Parameters
+    ----------
+
+    self_ : QJsonValueConstRef
+      Passed on as a value: Qt reads the C++ QJsonValueConstRef, which stays
+      Python's own.
+
+    Returns
+    -------
+
+    QJsonValue.Type
+      The member standing for the number Qt gave back. For a number Qt gives
+      no name it is the member without a name that 'QJsonValue.Type(number)'
+      gives.
+    """
+    #  QJsonValue::Type QJsonValueConstRef::concreteType(QJsonValueConstRef
+    #      self_)
+    return QJsonValue.Type(Rituals.call(
+        'ritual_ZN18QJsonValueConstRef12concreteTypeES_',
+        CuteMixin._valueOf(self_),
+    ))
+
+  @staticmethod
+  @overload(THIS, bool)
+  def concreteBool(self_: QJsonValueConstRef, defaultValue: bool) -> bool:
+    """
+    Calls Qt's 'bool QJsonValueConstRef::concreteBool(QJsonValueConstRef
+    self_, bool defaultValue)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qjsonvalueconstref.html#concreteBool
+
+    Parameters
+    ----------
+
+    self_ : QJsonValueConstRef
+      Passed on as a value: Qt reads the C++ QJsonValueConstRef, which stays
+      Python's own.
+
+    defaultValue : bool
+      Passed on as it is.
+    """
+    #  bool QJsonValueConstRef::concreteBool(QJsonValueConstRef self_, bool
+    #      defaultValue)
+    return Rituals.call(
+        'ritual_ZN18QJsonValueConstRef12concreteBoolES_b',
+        CuteMixin._valueOf(self_), defaultValue,
+    )
+
+  @staticmethod
+  @overload(THIS, int, bool)
+  def concreteInt(
+      self_: QJsonValueConstRef,
+      defaultValue: int,
+      clamp: bool,
+  ) -> int:
+    """
+    Calls Qt's 'qint64 QJsonValueConstRef::concreteInt(QJsonValueConstRef
+    self_, qint64 defaultValue, bool clamp)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qjsonvalueconstref.html#concreteInt
+
+    Parameters
+    ----------
+
+    self_ : QJsonValueConstRef
+      Passed on as a value: Qt reads the C++ QJsonValueConstRef, which stays
+      Python's own.
+
+    defaultValue : int
+      Passed on as it is.
+
+    clamp : bool
+      Passed on as it is.
+    """
+    #  qint64 QJsonValueConstRef::concreteInt(QJsonValueConstRef self_,
+    #      qint64 defaultValue, bool clamp)
+    return Rituals.call(
+        'ritual_ZN18QJsonValueConstRef11concreteIntES_xb',
+        CuteMixin._valueOf(self_), defaultValue, clamp,
+    )
+
+  @staticmethod
+  @overload(THIS, float)
+  def concreteDouble(
+      self_: QJsonValueConstRef,
+      defaultValue: float,
+  ) -> float:
+    """
+    Calls Qt's 'double QJsonValueConstRef::concreteDouble(QJsonValueConstRef
+    self_, double defaultValue)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qjsonvalueconstref.html#concreteDouble
+
+    Parameters
+    ----------
+
+    self_ : QJsonValueConstRef
+      Passed on as a value: Qt reads the C++ QJsonValueConstRef, which stays
+      Python's own.
+
+    defaultValue : float
+      Passed on as it is.
+    """
+    #  double QJsonValueConstRef::concreteDouble(QJsonValueConstRef self_,
+    #      double defaultValue)
+    return Rituals.call(
+        'ritual_ZN18QJsonValueConstRef14concreteDoubleES_d',
+        CuteMixin._valueOf(self_), defaultValue,
+    )
+
+  @staticmethod
+  @overload(THIS, str)
+  def concreteString(self_: QJsonValueConstRef, defaultValue: str) -> str:
+    """
+    Calls Qt's 'QString QJsonValueConstRef::concreteString(QJsonValueConstRef
+    self_, const QString &defaultValue)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qjsonvalueconstref.html#concreteString
+
+    Parameters
+    ----------
+
+    self_ : QJsonValueConstRef
+      Passed on as a value: Qt reads the C++ QJsonValueConstRef, which stays
+      Python's own.
+
+    defaultValue : str
+      Passed on as it is: a QString is made of it for the call.
+
+    Returns
+    -------
+
+    str
+      The text Qt gave back.
+    """
+    #  QString QJsonValueConstRef::concreteString(QJsonValueConstRef self_,
+    #      const QString &defaultValue)
+    return Rituals.call(
+        'ritual_ZN18QJsonValueConstRef14concreteStringES_RK7QString',
+        CuteMixin._valueOf(self_), defaultValue,
+    )
+
+  @staticmethod
+  @overload(THIS, str)
+  def concreteStringView(
+      self_: QJsonValueConstRef,
+      defaultValue: str,
+  ) -> str:
+    """
+    Calls Qt's 'QAnyStringView
+    QJsonValueConstRef::concreteStringView(QJsonValueConstRef self_,
+    QAnyStringView defaultValue)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qjsonvalueconstref.html#concreteStringView
+
+    Parameters
+    ----------
+
+    self_ : QJsonValueConstRef
+      Passed on as a value: Qt reads the C++ QJsonValueConstRef, which stays
+      Python's own.
+
+    defaultValue : str
+      Passed on as it is: a QString is made of it for the call.
+
+    Returns
+    -------
+
+    str
+      The text Qt gave back.
+    """
+    #  QAnyStringView
+    #      QJsonValueConstRef::concreteStringView(QJsonValueConstRef self_,
+    #      QAnyStringView defaultValue)
+    return Rituals.call(
+        'ritual_ZN18QJsonValueConstRef18concreteStringViewES_14QAnyStringVi'
+        'ew',
+        CuteMixin._valueOf(self_), defaultValue,
+    )
+
+  @staticmethod
+  @overload(THIS)
+  def concrete(self_: QJsonValueConstRef) -> QJsonValue:
+    """
+    Calls Qt's 'QJsonValue QJsonValueConstRef::concrete(QJsonValueConstRef
+    self_)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qjsonvalueconstref.html#concrete
+
+    Parameters
+    ----------
+
+    self_ : QJsonValueConstRef
+      Passed on as a value: Qt reads the C++ QJsonValueConstRef, which stays
+      Python's own.
+
+    Returns
+    -------
+
+    QJsonValue
+      A new cute QJsonValue around the copy Qt gave back. Python owns it.
+    """
+    #  QJsonValue QJsonValueConstRef::concrete(QJsonValueConstRef self_)
+    address = Rituals.call(
+        'ritual_ZN18QJsonValueConstRef8concreteES_',
+        CuteMixin._valueOf(self_),
+    )
+    return QJsonValue._cuteOwning(address)
+
+  @staticmethod
+  @overload(THIS)
+  def objectKey(self_: QJsonValueConstRef) -> str:
+    """
+    Calls Qt's 'QString QJsonValueConstRef::objectKey(QJsonValueConstRef
+    self_)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qjsonvalueconstref.html#objectKey
+
+    Parameters
+    ----------
+
+    self_ : QJsonValueConstRef
+      Passed on as a value: Qt reads the C++ QJsonValueConstRef, which stays
+      Python's own.
+
+    Returns
+    -------
+
+    str
+      The text Qt gave back.
+    """
+    #  QString QJsonValueConstRef::objectKey(QJsonValueConstRef self_)
+    return Rituals.call(
+        'ritual_ZN18QJsonValueConstRef9objectKeyES_',
+        CuteMixin._valueOf(self_),
+    )
+
+  @overload()
+  def objectKey(self) -> str:
+    """
+    Calls Qt's 'QString QJsonValueConstRef::objectKey() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qjsonvalueconstref.html#objectKey
+
+    Returns
+    -------
+
+    str
+      The text Qt gave back.
+    """
+    #  QString QJsonValueConstRef::objectKey() const
+    return self.uglySide.call('ritual_ZNK18QJsonValueConstRef9objectKeyEv')
+
+  @staticmethod
+  @overload(THIS)
+  def objectKeyView(self_: QJsonValueConstRef) -> str:
+    """
+    Calls Qt's 'QAnyStringView
+    QJsonValueConstRef::objectKeyView(QJsonValueConstRef self_)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qjsonvalueconstref.html#objectKeyView
+
+    Parameters
+    ----------
+
+    self_ : QJsonValueConstRef
+      Passed on as a value: Qt reads the C++ QJsonValueConstRef, which stays
+      Python's own.
+
+    Returns
+    -------
+
+    str
+      The text Qt gave back.
+    """
+    #  QAnyStringView QJsonValueConstRef::objectKeyView(QJsonValueConstRef
+    #      self_)
+    return Rituals.call(
+        'ritual_ZN18QJsonValueConstRef13objectKeyViewES_',
+        CuteMixin._valueOf(self_),
+    )
+
+  @overload()
+  def objectKeyView(self) -> str:
+    """
+    Calls Qt's 'QAnyStringView QJsonValueConstRef::objectKeyView() const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qjsonvalueconstref.html#objectKeyView
+
+    Returns
+    -------
+
+    str
+      The text Qt gave back.
+    """
+    #  QAnyStringView QJsonValueConstRef::objectKeyView() const
+    return self.uglySide.call(
+        'ritual_ZNK18QJsonValueConstRef13objectKeyViewEv',
+    )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -601,6 +928,61 @@ class QJsonValueConstRef(CuteMixin, metaclass=MetaCute):
         'ritual_ZN18QJsonValueConstRefC1ERKS_', self._valueOf(a0),
     ))
 
+  @overload(QJsonArray, int)
+  @overload(NoneType, int)
+  def __init__(self, array: Optional[QJsonArray], idx: int) -> None:
+    """
+    Notes what was given, for Qt's
+    'QJsonValueConstRef::QJsonValueConstRef(QJsonArray *array, qsizetype
+    idx)', which is called at the first use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qjsonvalueconstref.html#QJsonValueConstRef
+
+    Parameters
+    ----------
+
+    array : Optional[QJsonArray]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    idx : int
+      Passed on as it is.
+    """
+    #  QJsonValueConstRef::QJsonValueConstRef(QJsonArray *array, qsizetype
+    #      idx)
+    self._noteCreation(QJsonValueConstRef, lambda: Rituals.call(
+        'ritual_ZN18QJsonValueConstRefC1EP10QJsonArrayx',
+        self._addressOf(array), idx,
+    ))
+
+  @overload(QJsonObject, int)
+  def __init__(self, object: Optional[QJsonObject], idx: int) -> None:
+    """
+    Notes what was given, for Qt's
+    'QJsonValueConstRef::QJsonValueConstRef(QJsonObject *object, qsizetype
+    idx)', which is called at the first use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qjsonvalueconstref.html#QJsonValueConstRef
+
+    Parameters
+    ----------
+
+    object : Optional[QJsonObject]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    idx : int
+      Passed on as it is.
+    """
+    #  QJsonValueConstRef::QJsonValueConstRef(QJsonObject *object, qsizetype
+    #      idx)
+    self._noteCreation(QJsonValueConstRef, lambda: Rituals.call(
+        'ritual_ZN18QJsonValueConstRefC1EP11QJsonObjectx',
+        self._addressOf(object), idx,
+    ))
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -620,3 +1002,22 @@ class QJsonValueConstRef(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(THIS)
+  def rebind(self, other: QJsonValueConstRef) -> None:
+    """
+    Calls Qt's 'void QJsonValueConstRef::rebind(QJsonValueConstRef other)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qjsonvalueconstref.html#rebind
+
+    Parameters
+    ----------
+
+    other : QJsonValueConstRef
+      Passed on as a value: Qt reads the C++ QJsonValueConstRef, which stays
+      Python's own.
+    """
+    #  void QJsonValueConstRef::rebind(QJsonValueConstRef other)
+    self.uglySide.call(
+        'ritual_ZN18QJsonValueConstRef6rebindES_', self._valueOf(other),
+    )

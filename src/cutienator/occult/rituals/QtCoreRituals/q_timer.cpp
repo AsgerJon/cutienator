@@ -261,6 +261,32 @@ void ritual_ZN6QTimer4stopEv(QTimer *self) {
   self->stop();
 }
 
+//  void QTimer::timerEvent(QTimerEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QTimer10timerEventEP11QTimerEvent(
+    QTimer *self,
+    QTimerEvent *a0) {
+  self->timerEvent(a0);
+}
+
+//  int QTimer::startTimer(int a0)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN6QTimer10startTimerEi(QTimer *self, int a0) {
+  return self->startTimer(a0);
+}
+
+//  void QTimer::killTimer(int a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QTimer9killTimerEi(QTimer *self, int a0) {
+  self->killTimer(a0);
+}
+
+//  Qt::TimerType QTimer::defaultTypeFor(int msecs)
+extern "C" Q_DECL_EXPORT
+Qt::TimerType ritual_ZN6QTimer14defaultTypeForEi(int msecs) {
+  return QTimer::defaultTypeFor(msecs);
+}
+
 //  a Python function taken by a CuteQTimer, for the function named by the
 //      key
 extern "C" Q_DECL_EXPORT

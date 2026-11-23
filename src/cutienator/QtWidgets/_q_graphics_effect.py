@@ -14,16 +14,19 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteFlags, CuteNum, WAIT
 from ..occult import Rituals
-from ..QtCore import QObject
+from ..QtCore import Qt, QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from ..QtCore import QMetaObject, QRectF
+  from ..QtCore import QMetaObject, QPoint, QRectF
+  from ..QtGui import QPainter, QPixmap
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
+  QPainter = WAIT['QPainter']
+  QPoint = WAIT['QPoint']
   QRectF = WAIT['QRectF']
 
 #  The class of None, for a signature that takes None in the place of an
@@ -43,10 +46,11 @@ class QGraphicsEffect(QObject):
   -----------
 
   Every function of Qt's QGraphicsEffect that has a ritual and that Python
-  can call so far, 8 names in all: 'metaObject', 'tr', 'boundingRectFor',
-  'boundingRect', 'isEnabled', 'setEnabled', 'update', 'sourceChanged'. None
-  can be made from Python: one comes out of a function of another class that
-  gives one back.
+  can call so far, 14 names in all: 'metaObject', 'tr', 'boundingRectFor',
+  'boundingRect', 'isEnabled', 'setEnabled', 'update', 'draw',
+  'sourceChanged', 'updateBoundingRect', 'sourceIsPixmap',
+  'sourceBoundingRect', 'drawSource', 'sourcePixmap'. None can be made from
+  Python: one comes out of a function of another class that gives one back.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -57,9 +61,9 @@ class QGraphicsEffect(QObject):
   What has no ritual
   ------------------
 
-  18 of the 27 functions Qt declares: 7 protected; 3 takes or gives a type
-  that cannot be passed yet; 3 private; 2 forbidden; 1 a template; 1 the
-  class is abstract, so C++ cannot make one; 1 a signal.
+  12 of the 27 functions Qt declares: 5 takes or gives a type that cannot be
+  passed yet; 2 the class is abstract, so C++ cannot make one; 2 forbidden; 1
+  a template; 1 declared and nowhere to be found; 1 a signal.
 
   What to expect
   --------------
@@ -281,6 +285,103 @@ class QGraphicsEffect(QObject):
     #  bool QGraphicsEffect::isEnabled() const
     return self.uglySide.call('ritual_ZNK15QGraphicsEffect9isEnabledEv')
 
+  def sourceIsPixmap(self) -> bool:
+    """
+    Calls Qt's 'bool QGraphicsEffect::sourceIsPixmap() const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicseffect.html#sourceIsPixmap
+    """
+    #  bool QGraphicsEffect::sourceIsPixmap() const
+    return self.uglySide.call(
+        'ritual_ZNK15QGraphicsEffect14sourceIsPixmapEv',
+    )
+
+  @overload()
+  @overload(Qt.CoordinateSystem)
+  def sourceBoundingRect(
+      self,
+      system: Qt.CoordinateSystem = Qt.CoordinateSystem.LogicalCoordinates,
+  ) -> QRectF:
+    """
+    Calls Qt's 'QRectF
+    QGraphicsEffect::sourceBoundingRect(Qt::CoordinateSystem system) const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect
+
+    Parameters
+    ----------
+
+    system : Qt.CoordinateSystem
+      Passed on as its number. May be left out, as in Qt: it is then
+      Qt.CoordinateSystem.LogicalCoordinates.
+
+    Returns
+    -------
+
+    QRectF
+      A new cute QRectF around the copy Qt gave back. Python owns it.
+    """
+    #  QRectF QGraphicsEffect::sourceBoundingRect(Qt::CoordinateSystem
+    #      system) const
+    address = self.uglySide.call(
+        'ritual_ZNK15QGraphicsEffect18sourceBoundingRectEN2Qt16CoordinateSy'
+        'stemE',
+        system.value,
+    )
+    from ..QtCore import QRectF
+    return QRectF._cuteOwning(address)
+
+  @overload()
+  @overload(Qt.CoordinateSystem)
+  @overload(Qt.CoordinateSystem, QPoint)
+  @overload(Qt.CoordinateSystem, NoneType)
+  @overload(Qt.CoordinateSystem, QPoint, PixmapPadMode)
+  @overload(Qt.CoordinateSystem, NoneType, PixmapPadMode)
+  def sourcePixmap(
+      self,
+      system: Qt.CoordinateSystem = Qt.CoordinateSystem.LogicalCoordinates,
+      offset: Optional[QPoint] = None,
+      mode: PixmapPadMode = PixmapPadMode.PadToEffectiveBoundingRect,
+  ) -> QPixmap:
+    """
+    Calls Qt's 'QPixmap QGraphicsEffect::sourcePixmap(Qt::CoordinateSystem
+    system, QPoint *offset, PixmapPadMode mode) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap
+
+    Parameters
+    ----------
+
+    system : Qt.CoordinateSystem
+      Passed on as its number. May be left out, as in Qt: it is then
+      Qt.CoordinateSystem.LogicalCoordinates.
+
+    offset : Optional[QPoint]
+      Passed on as the address of its C++ object. None is passed on as no
+      object. May be left out, as in Qt: it is then None.
+
+    mode : PixmapPadMode
+      Passed on as its number. May be left out, as in Qt: it is then
+      PixmapPadMode.PadToEffectiveBoundingRect.
+
+    Returns
+    -------
+
+    QPixmap
+      A new cute QPixmap around the copy Qt gave back. Python owns it.
+    """
+    #  QPixmap QGraphicsEffect::sourcePixmap(Qt::CoordinateSystem system,
+    #      QPoint *offset, PixmapPadMode mode) const
+    address = self.uglySide.call(
+        'ritual_ZNK15QGraphicsEffect12sourcePixmapEN2Qt16CoordinateSystemEP'
+        '6QPointNS_13PixmapPadModeE',
+        system.value, self._addressOf(offset), mode.value,
+    )
+    from ..QtGui import QPixmap
+    return QPixmap._cuteOwning(address)
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -342,6 +443,27 @@ class QGraphicsEffect(QObject):
     #  void QGraphicsEffect::update()
     self.uglySide.call('ritual_ZN15QGraphicsEffect6updateEv')
 
+  @overload(QPainter)
+  @overload(NoneType)
+  def draw(self, painter: Optional[QPainter]) -> None:
+    """
+    Calls Qt's 'void QGraphicsEffect::draw(QPainter *painter)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicseffect.html#draw
+
+    Parameters
+    ----------
+
+    painter : Optional[QPainter]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGraphicsEffect::draw(QPainter *painter)
+    self.uglySide.call(
+        'ritual_ZN15QGraphicsEffect4drawEP8QPainter',
+        self._addressOf(painter),
+    )
+
   @overload(ChangeFlags)
   def sourceChanged(self, flags: ChangeFlags) -> None:
     """
@@ -356,8 +478,42 @@ class QGraphicsEffect(QObject):
       Passed on as its number.
     """
     #  void QGraphicsEffect::sourceChanged(ChangeFlags flags)
+    ritual = (
+        'ritual_ZN15QGraphicsEffect13sourceChangedE6QFlagsINS_10ChangeFlagE'
+        'E')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN15QGraphicsEffect13sourceChangedE6QFlagsINS_10Chang'
+          'eFlagEE')
+    self.uglySide.call(ritual, flags.value)
+
+  def updateBoundingRect(self) -> None:
+    """
+    Calls Qt's 'void QGraphicsEffect::updateBoundingRect()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicseffect.html#updateBoundingRect
+    """
+    #  void QGraphicsEffect::updateBoundingRect()
+    self.uglySide.call('ritual_ZN15QGraphicsEffect18updateBoundingRectEv')
+
+  @overload(QPainter)
+  @overload(NoneType)
+  def drawSource(self, painter: Optional[QPainter]) -> None:
+    """
+    Calls Qt's 'void QGraphicsEffect::drawSource(QPainter *painter)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicseffect.html#drawSource
+
+    Parameters
+    ----------
+
+    painter : Optional[QPainter]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGraphicsEffect::drawSource(QPainter *painter)
     self.uglySide.call(
-        'ritual_own_ZN15QGraphicsEffect13sourceChangedE6QFlagsINS_10ChangeF'
-        'lagEE',
-        flags.value,
+        'ritual_ZN15QGraphicsEffect10drawSourceEP8QPainter',
+        self._addressOf(painter),
     )

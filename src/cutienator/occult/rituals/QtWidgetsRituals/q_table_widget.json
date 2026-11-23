@@ -142,6 +142,21 @@
     "ritual_ZN12QTableWidget12removeColumnEi": ["nothing", "address", "int"],
     "ritual_ZN12QTableWidget5clearEv": ["nothing", "address"],
     "ritual_ZN12QTableWidget13clearContentsEv": ["nothing", "address"],
+    "ritual_ZN12QTableWidget5eventEP6QEvent": ["bool", "address", "address"],
+    "ritual_ZNK12QTableWidget9mimeTypesEv": ["address", "address"],
+    "ritual_ZNK12QTableWidget8mimeDataERK5QListIP16QTableWidgetItemE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN12QTableWidget12dropMimeDataEiiPK9QMimeDataN2Qt10DropActionE": [
+      "bool", "address", "int", "int", "address", "int"
+    ],
+    "ritual_ZNK12QTableWidget20supportedDropActionsEv": ["int", "address"],
+    "ritual_ZN12QTableWidget9dropEventEP10QDropEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QTableWidget8setModelEP18QAbstractItemModel": [
+      "nothing", "address", "address"
+    ],
     "ritual_take_QTableWidget": ["bool", "address", "chars", "address"],
     "ritual_own_ZN12QTableWidget5eventEP6QEvent": [
       "bool", "address", "address"
@@ -153,6 +168,9 @@
       "int", "address"
     ],
     "ritual_own_ZN12QTableWidget9dropEventEP10QDropEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN12QTableWidget8setModelEP18QAbstractItemModel": [
       "nothing", "address", "address"
     ]
   }

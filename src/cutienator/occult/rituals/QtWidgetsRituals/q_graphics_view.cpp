@@ -1602,6 +1602,209 @@ void ritual_ZN13QGraphicsView15updateSceneRectERK6QRectF(
   self->updateSceneRect(*rect);
 }
 
+//  void QGraphicsView::setupViewport(QWidget *widget)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QGraphicsView13setupViewportEP7QWidget(
+    QGraphicsView *self,
+    QWidget *widget) {
+  self->setupViewport(widget);
+}
+
+//  bool QGraphicsView::event(QEvent *event)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN13QGraphicsView5eventEP6QEvent(
+    QGraphicsView *self,
+    QEvent *event) {
+  return self->event(event);
+}
+
+//  bool QGraphicsView::viewportEvent(QEvent *event)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN13QGraphicsView13viewportEventEP6QEvent(
+    QGraphicsView *self,
+    QEvent *event) {
+  return self->viewportEvent(event);
+}
+
+//  void QGraphicsView::contextMenuEvent(QContextMenuEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QGraphicsView16contextMenuEventEP17QContextMenuEvent(
+    QGraphicsView *self,
+    QContextMenuEvent *event) {
+  self->contextMenuEvent(event);
+}
+
+//  void QGraphicsView::dragEnterEvent(QDragEnterEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QGraphicsView14dragEnterEventEP15QDragEnterEvent(
+    QGraphicsView *self,
+    QDragEnterEvent *event) {
+  self->dragEnterEvent(event);
+}
+
+//  void QGraphicsView::dragLeaveEvent(QDragLeaveEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QGraphicsView14dragLeaveEventEP15QDragLeaveEvent(
+    QGraphicsView *self,
+    QDragLeaveEvent *event) {
+  self->dragLeaveEvent(event);
+}
+
+//  void QGraphicsView::dragMoveEvent(QDragMoveEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QGraphicsView13dragMoveEventEP14QDragMoveEvent(
+    QGraphicsView *self,
+    QDragMoveEvent *event) {
+  self->dragMoveEvent(event);
+}
+
+//  void QGraphicsView::dropEvent(QDropEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QGraphicsView9dropEventEP10QDropEvent(
+    QGraphicsView *self,
+    QDropEvent *event) {
+  self->dropEvent(event);
+}
+
+//  void QGraphicsView::focusInEvent(QFocusEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QGraphicsView12focusInEventEP11QFocusEvent(
+    QGraphicsView *self,
+    QFocusEvent *event) {
+  self->focusInEvent(event);
+}
+
+//  bool QGraphicsView::focusNextPrevChild(bool next)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN13QGraphicsView18focusNextPrevChildEb(
+    QGraphicsView *self,
+    bool next) {
+  return self->focusNextPrevChild(next);
+}
+
+//  void QGraphicsView::focusOutEvent(QFocusEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QGraphicsView13focusOutEventEP11QFocusEvent(
+    QGraphicsView *self,
+    QFocusEvent *event) {
+  self->focusOutEvent(event);
+}
+
+//  void QGraphicsView::keyPressEvent(QKeyEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QGraphicsView13keyPressEventEP9QKeyEvent(
+    QGraphicsView *self,
+    QKeyEvent *event) {
+  self->keyPressEvent(event);
+}
+
+//  void QGraphicsView::keyReleaseEvent(QKeyEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QGraphicsView15keyReleaseEventEP9QKeyEvent(
+    QGraphicsView *self,
+    QKeyEvent *event) {
+  self->keyReleaseEvent(event);
+}
+
+//  void QGraphicsView::mouseDoubleClickEvent(QMouseEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QGraphicsView21mouseDoubleClickEventEP11QMouseEvent(
+    QGraphicsView *self,
+    QMouseEvent *event) {
+  self->mouseDoubleClickEvent(event);
+}
+
+//  void QGraphicsView::mousePressEvent(QMouseEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QGraphicsView15mousePressEventEP11QMouseEvent(
+    QGraphicsView *self,
+    QMouseEvent *event) {
+  self->mousePressEvent(event);
+}
+
+//  void QGraphicsView::mouseMoveEvent(QMouseEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QGraphicsView14mouseMoveEventEP11QMouseEvent(
+    QGraphicsView *self,
+    QMouseEvent *event) {
+  self->mouseMoveEvent(event);
+}
+
+//  void QGraphicsView::mouseReleaseEvent(QMouseEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QGraphicsView17mouseReleaseEventEP11QMouseEvent(
+    QGraphicsView *self,
+    QMouseEvent *event) {
+  self->mouseReleaseEvent(event);
+}
+
+//  void QGraphicsView::wheelEvent(QWheelEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QGraphicsView10wheelEventEP11QWheelEvent(
+    QGraphicsView *self,
+    QWheelEvent *event) {
+  self->wheelEvent(event);
+}
+
+//  void QGraphicsView::paintEvent(QPaintEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QGraphicsView10paintEventEP11QPaintEvent(
+    QGraphicsView *self,
+    QPaintEvent *event) {
+  self->paintEvent(event);
+}
+
+//  void QGraphicsView::resizeEvent(QResizeEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QGraphicsView11resizeEventEP12QResizeEvent(
+    QGraphicsView *self,
+    QResizeEvent *event) {
+  self->resizeEvent(event);
+}
+
+//  void QGraphicsView::scrollContentsBy(int dx, int dy)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QGraphicsView16scrollContentsByEii(
+    QGraphicsView *self,
+    int dx,
+    int dy) {
+  self->scrollContentsBy(dx, dy);
+}
+
+//  void QGraphicsView::showEvent(QShowEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QGraphicsView9showEventEP10QShowEvent(
+    QGraphicsView *self,
+    QShowEvent *event) {
+  self->showEvent(event);
+}
+
+//  void QGraphicsView::inputMethodEvent(QInputMethodEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QGraphicsView16inputMethodEventEP17QInputMethodEvent(
+    QGraphicsView *self,
+    QInputMethodEvent *event) {
+  self->inputMethodEvent(event);
+}
+
+//  void QGraphicsView::drawBackground(QPainter *painter, const QRectF &rect)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QGraphicsView14drawBackgroundEP8QPainterRK6QRectF(
+    QGraphicsView *self,
+    QPainter *painter,
+    const QRectF *rect) {
+  self->drawBackground(painter, *rect);
+}
+
+//  void QGraphicsView::drawForeground(QPainter *painter, const QRectF &rect)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QGraphicsView14drawForegroundEP8QPainterRK6QRectF(
+    QGraphicsView *self,
+    QPainter *painter,
+    const QRectF *rect) {
+  self->drawForeground(painter, *rect);
+}
+
 //  a Python function taken by a CuteQGraphicsView, for the function named by
 //      the key
 extern "C" Q_DECL_EXPORT

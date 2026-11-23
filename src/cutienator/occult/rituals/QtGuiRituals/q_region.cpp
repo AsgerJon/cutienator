@@ -6,6 +6,7 @@
 #include <QtGui/qbitmap.h>
 #include <QtCore/qpoint.h>
 #include <QtCore/qvariant.h>
+#include <QtCore/qbytearray.h>
 
 //  QRegion::QRegion()
 extern "C" Q_DECL_EXPORT
@@ -324,4 +325,27 @@ bool ritual_ZNK7QRegionneERKS_(const QRegion *self, const QRegion *r) {
 extern "C" Q_DECL_EXPORT
 QVariant *ritual_ZNK7QRegioncv8QVariantEv(const QRegion *self) {
   return new QVariant(self->operator QVariant());
+}
+
+//  QRegion QRegion::copy() const
+extern "C" Q_DECL_EXPORT
+QRegion *ritual_ZNK7QRegion4copyEv(const QRegion *self) {
+  return new QRegion(self->copy());
+}
+
+//  void QRegion::detach()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QRegion6detachEv(QRegion *self) {
+  self->detach();
+}
+
+//  void QRegion::exec(const QByteArray &ba, int ver, QDataStream::ByteOrder
+//      byteOrder)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QRegion4execERK10QByteArrayiN11QDataStream9ByteOrderE(
+    QRegion *self,
+    const QByteArray *ba,
+    int ver,
+    QDataStream::ByteOrder byteOrder) {
+  self->exec(*ba, ver, byteOrder);
 }

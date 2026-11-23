@@ -13,6 +13,15 @@
     ],
     "ritual_ZNK14QStringEncoder13requiredSpaceEx": [
       "long long", "address", "long long"
+    ],
+    "ritual_ZN14QStringEncoder23invalidateAndReturnNullEv": [
+      "address", "address"
+    ],
+    "ritual_ZN14QStringEncoder21encodeAsByteArrayImplE11QStringView": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN14QStringEncoder17encodeAsByteArrayE11QStringView": [
+      "address", "address", "text"
     ]
   }
 }

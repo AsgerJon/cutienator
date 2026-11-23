@@ -10,6 +10,7 @@
 #include <QtCore/qsize.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  Only a class built on QTableView may call these functions of it.
@@ -1853,6 +1854,238 @@ void ritual_ZN10QTableView12sortByColumnEiN2Qt9SortOrderE(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN10QTableView11setShowGridEb(QTableView *self, bool show) {
   self->setShowGrid(show);
+}
+
+//  void QTableView::rowMoved(int row, int oldIndex, int newIndex)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QTableView8rowMovedEiii(
+    QTableView *self,
+    int row,
+    int oldIndex,
+    int newIndex) {
+  self->rowMoved(row, oldIndex, newIndex);
+}
+
+//  void QTableView::columnMoved(int column, int oldIndex, int newIndex)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QTableView11columnMovedEiii(
+    QTableView *self,
+    int column,
+    int oldIndex,
+    int newIndex) {
+  self->columnMoved(column, oldIndex, newIndex);
+}
+
+//  void QTableView::rowResized(int row, int oldHeight, int newHeight)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QTableView10rowResizedEiii(
+    QTableView *self,
+    int row,
+    int oldHeight,
+    int newHeight) {
+  self->rowResized(row, oldHeight, newHeight);
+}
+
+//  void QTableView::columnResized(int column, int oldWidth, int newWidth)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QTableView13columnResizedEiii(
+    QTableView *self,
+    int column,
+    int oldWidth,
+    int newWidth) {
+  self->columnResized(column, oldWidth, newWidth);
+}
+
+//  void QTableView::rowCountChanged(int oldCount, int newCount)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QTableView15rowCountChangedEii(
+    QTableView *self,
+    int oldCount,
+    int newCount) {
+  self->rowCountChanged(oldCount, newCount);
+}
+
+//  void QTableView::columnCountChanged(int oldCount, int newCount)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QTableView18columnCountChangedEii(
+    QTableView *self,
+    int oldCount,
+    int newCount) {
+  self->columnCountChanged(oldCount, newCount);
+}
+
+//  void QTableView::scrollContentsBy(int dx, int dy)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QTableView16scrollContentsByEii(
+    QTableView *self,
+    int dx,
+    int dy) {
+  self->scrollContentsBy(dx, dy);
+}
+
+//  void QTableView::initViewItemOption(QStyleOptionViewItem *option) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK10QTableView18initViewItemOptionEP20QStyleOptionViewItem(
+    const QTableView *self,
+    QStyleOptionViewItem *option) {
+  self->initViewItemOption(option);
+}
+
+//  void QTableView::paintEvent(QPaintEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QTableView10paintEventEP11QPaintEvent(
+    QTableView *self,
+    QPaintEvent *e) {
+  self->paintEvent(e);
+}
+
+//  void QTableView::timerEvent(QTimerEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QTableView10timerEventEP11QTimerEvent(
+    QTableView *self,
+    QTimerEvent *event) {
+  self->timerEvent(event);
+}
+
+//  void QTableView::dropEvent(QDropEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QTableView9dropEventEP10QDropEvent(
+    QTableView *self,
+    QDropEvent *event) {
+  self->dropEvent(event);
+}
+
+//  int QTableView::horizontalOffset() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK10QTableView16horizontalOffsetEv(const QTableView *self) {
+  return self->horizontalOffset();
+}
+
+//  int QTableView::verticalOffset() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK10QTableView14verticalOffsetEv(const QTableView *self) {
+  return self->verticalOffset();
+}
+
+//  QModelIndex QTableView::moveCursor(CursorAction cursorAction,
+//      Qt::KeyboardModifiers modifiers)
+extern "C" Q_DECL_EXPORT
+QModelIndex *ritual_ZN10QTableView10moveCursorEN17QAbstractItemView12CursorActionE6QFlagsIN2Qt16KeyboardModifierEE(
+    QTableView *self,
+    QAbstractItemView::CursorAction cursorAction,
+    int modifiers) {
+  return new QModelIndex(
+      self->moveCursor(
+          cursorAction,
+          QFlags<Qt::KeyboardModifier>::fromInt(modifiers)));
+}
+
+//  void QTableView::setSelection(const QRect &rect,
+//      QItemSelectionModel::SelectionFlags command)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QTableView12setSelectionERK5QRect6QFlagsIN19QItemSelectionModel13SelectionFlagEE(
+    QTableView *self,
+    const QRect *rect,
+    int command) {
+  self->setSelection(
+      *rect,
+      QFlags<QItemSelectionModel::SelectionFlag>::fromInt(command));
+}
+
+//  QRegion QTableView::visualRegionForSelection(const QItemSelection
+//      &selection) const
+extern "C" Q_DECL_EXPORT
+QRegion *ritual_ZNK10QTableView24visualRegionForSelectionERK14QItemSelection(
+    const QTableView *self,
+    const QItemSelection *selection) {
+  return new QRegion(self->visualRegionForSelection(*selection));
+}
+
+//  QModelIndexList QTableView::selectedIndexes() const
+extern "C" Q_DECL_EXPORT
+QList<QModelIndex> *ritual_ZNK10QTableView15selectedIndexesEv(
+    const QTableView *self) {
+  return new QList<QModelIndex>(self->selectedIndexes());
+}
+
+//  void QTableView::updateGeometries()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QTableView16updateGeometriesEv(QTableView *self) {
+  self->updateGeometries();
+}
+
+//  QSize QTableView::viewportSizeHint() const
+extern "C" Q_DECL_EXPORT
+QSize *ritual_ZNK10QTableView16viewportSizeHintEv(const QTableView *self) {
+  return new QSize(self->viewportSizeHint());
+}
+
+//  int QTableView::sizeHintForRow(int row) const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK10QTableView14sizeHintForRowEi(
+    const QTableView *self,
+    int row) {
+  return self->sizeHintForRow(row);
+}
+
+//  int QTableView::sizeHintForColumn(int column) const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK10QTableView17sizeHintForColumnEi(
+    const QTableView *self,
+    int column) {
+  return self->sizeHintForColumn(column);
+}
+
+//  void QTableView::verticalScrollbarAction(int action)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QTableView23verticalScrollbarActionEi(
+    QTableView *self,
+    int action) {
+  self->verticalScrollbarAction(action);
+}
+
+//  void QTableView::horizontalScrollbarAction(int action)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QTableView25horizontalScrollbarActionEi(
+    QTableView *self,
+    int action) {
+  self->horizontalScrollbarAction(action);
+}
+
+//  bool QTableView::isIndexHidden(const QModelIndex &index) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK10QTableView13isIndexHiddenERK11QModelIndex(
+    const QTableView *self,
+    const QModelIndex *index) {
+  return self->isIndexHidden(*index);
+}
+
+//  void QTableView::selectionChanged(const QItemSelection &selected, const
+//      QItemSelection &deselected)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QTableView16selectionChangedERK14QItemSelectionS2_(
+    QTableView *self,
+    const QItemSelection *selected,
+    const QItemSelection *deselected) {
+  self->selectionChanged(*selected, *deselected);
+}
+
+//  void QTableView::currentChanged(const QModelIndex &current, const
+//      QModelIndex &previous)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QTableView14currentChangedERK11QModelIndexS2_(
+    QTableView *self,
+    const QModelIndex *current,
+    const QModelIndex *previous) {
+  self->currentChanged(*current, *previous);
+}
+
+//  int QTableView::visualIndex(const QModelIndex &index) const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK10QTableView11visualIndexERK11QModelIndex(
+    const QTableView *self,
+    const QModelIndex *index) {
+  return self->visualIndex(*index);
 }
 
 //  a Python function taken by a CuteQTableView, for the function named by

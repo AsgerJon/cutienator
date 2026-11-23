@@ -126,6 +126,13 @@ bool ritual_ZNK16QTextTableFormat14borderCollapseEv(
   return self->borderCollapse();
 }
 
+//  QTextTableFormat::QTextTableFormat(const QTextFormat &fmt)
+extern "C" Q_DECL_EXPORT
+QTextTableFormat *ritual_ZN16QTextTableFormatC1ERK11QTextFormat(
+    const QTextFormat *fmt) {
+  return new QTextTableFormat(*fmt);
+}
+
 //  QTextTableFormat::~QTextTableFormat()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QTextTableFormatD1Ev(QTextTableFormat *self) {

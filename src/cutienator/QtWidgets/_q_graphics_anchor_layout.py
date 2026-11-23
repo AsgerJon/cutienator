@@ -60,7 +60,8 @@ class QGraphicsAnchorLayout(QGraphicsLayout):
   What has no ritual
   ------------------
 
-  4 of the 21 functions Qt declares: 2 forbidden; 2 private.
+  4 of the 21 functions Qt declares: 2 forbidden; 2 takes or gives a type
+  that cannot be passed yet.
 
   What to expect
   --------------
@@ -203,10 +204,14 @@ class QGraphicsAnchorLayout(QGraphicsLayout):
     if constraint is None:
       from ..QtCore import QSizeF
       constraint = QSizeF()
+    ritual = (
+        'ritual_ZNK21QGraphicsAnchorLayout8sizeHintEN2Qt8SizeHintERK6QSizeF')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK21QGraphicsAnchorLayout8sizeHintEN2Qt8SizeHintERK6'
+          'QSizeF')
     address = self.uglySide.call(
-        'ritual_own_ZNK21QGraphicsAnchorLayout8sizeHintEN2Qt8SizeHintERK6QS'
-        'izeF',
-        which.value, self._valueOf(constraint),
+        ritual, which.value, self._valueOf(constraint),
     )
     from ..QtCore import QSizeF
     return QSizeF._cuteOwning(address)

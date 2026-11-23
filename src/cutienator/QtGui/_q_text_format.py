@@ -70,7 +70,7 @@ class QTextFormat(CuteMixin, metaclass=MetaCute):
   ------------------
 
   7 of the 60 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 1 declared and nowhere to be found; 1 a template; 1 private.
+  passed yet; 2 declared and nowhere to be found; 1 a template.
 
   What to expect
   --------------

@@ -15,7 +15,7 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteFlags, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
-from . import Qt, QHash, QList
+from . import Qt, QArrayData, QHash, QList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -46,7 +46,7 @@ class QByteArray(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QByteArray that has a ritual and that Python can
-  call so far, 64 names in all: 'isEmpty', 'resize', 'resizeForOverwrite',
+  call so far, 72 names in all: 'isEmpty', 'resize', 'resizeForOverwrite',
   'capacity', 'reserve', 'squeeze', 'data', 'constData', 'detach',
   'isDetached', 'isSharedWith', 'clear', 'indexOf', 'lastIndexOf',
   'contains', 'count', 'compare', 'left', 'right', 'mid', 'first', 'last',
@@ -57,7 +57,9 @@ class QByteArray(CuteMixin, metaclass=MetaCute):
   'constBegin', 'end', 'cend', 'constEnd', 'push_back', 'push_front',
   'shrink_to_fit', 'max_size', 'maxSize', 'size', 'length', 'isNull',
   'nullTerminated', '__eq__', '__ne__', '__lt__', '__gt__', '__le__',
-  '__ge__'. It can be made from Python, in 5 ways; see '__init__'.
+  '__ge__', 'reallocData', 'reallocGrowData', 'expand', 'verify',
+  'toLower_helper', 'toUpper_helper', 'trimmed_helper', 'simplified_helper'.
+  It can be made from Python, in 5 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -187,9 +189,9 @@ class QByteArray(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  140 of the 283 functions Qt declares: 109 takes or gives a type that cannot
-  be passed yet; 14 can only be called on a value about to be thrown away; 13
-  private; 3 a template; 1 Qt has it on some systems only.
+  132 of the 283 functions Qt declares: 114 takes or gives a type that cannot
+  be passed yet; 14 can only be called on a value about to be thrown away; 3
+  a template; 1 Qt has it on some systems only.
 
   What to expect
   --------------
@@ -604,6 +606,116 @@ class QByteArray(CuteMixin, metaclass=MetaCute):
     """
     #  qsizetype QByteArray::maxSize()
     return Rituals.call('ritual_ZN10QByteArray7maxSizeEv')
+
+  @staticmethod
+  @overload(THIS)
+  def toLower_helper(a: QByteArray) -> QByteArray:
+    """
+    Calls Qt's 'QByteArray QByteArray::toLower_helper(const QByteArray &a)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbytearray.html#toLower_helper
+
+    Parameters
+    ----------
+
+    a : QByteArray
+      Passed on as a value: Qt reads the C++ QByteArray, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QByteArray
+      A new cute QByteArray around the copy Qt gave back. Python owns it.
+    """
+    #  QByteArray QByteArray::toLower_helper(const QByteArray &a)
+    address = Rituals.call(
+        'ritual_ZN10QByteArray14toLower_helperERKS_', CuteMixin._valueOf(a),
+    )
+    return QByteArray._cuteOwning(address)
+
+  @staticmethod
+  @overload(THIS)
+  def toUpper_helper(a: QByteArray) -> QByteArray:
+    """
+    Calls Qt's 'QByteArray QByteArray::toUpper_helper(const QByteArray &a)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbytearray.html#toUpper_helper
+
+    Parameters
+    ----------
+
+    a : QByteArray
+      Passed on as a value: Qt reads the C++ QByteArray, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QByteArray
+      A new cute QByteArray around the copy Qt gave back. Python owns it.
+    """
+    #  QByteArray QByteArray::toUpper_helper(const QByteArray &a)
+    address = Rituals.call(
+        'ritual_ZN10QByteArray14toUpper_helperERKS_', CuteMixin._valueOf(a),
+    )
+    return QByteArray._cuteOwning(address)
+
+  @staticmethod
+  @overload(THIS)
+  def trimmed_helper(a: QByteArray) -> QByteArray:
+    """
+    Calls Qt's 'QByteArray QByteArray::trimmed_helper(const QByteArray &a)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbytearray.html#trimmed_helper
+
+    Parameters
+    ----------
+
+    a : QByteArray
+      Passed on as a value: Qt reads the C++ QByteArray, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QByteArray
+      A new cute QByteArray around the copy Qt gave back. Python owns it.
+    """
+    #  QByteArray QByteArray::trimmed_helper(const QByteArray &a)
+    address = Rituals.call(
+        'ritual_ZN10QByteArray14trimmed_helperERKS_', CuteMixin._valueOf(a),
+    )
+    return QByteArray._cuteOwning(address)
+
+  @staticmethod
+  @overload(THIS)
+  def simplified_helper(a: QByteArray) -> QByteArray:
+    """
+    Calls Qt's 'QByteArray QByteArray::simplified_helper(const QByteArray
+    &a)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbytearray.html#simplified_helper
+
+    Parameters
+    ----------
+
+    a : QByteArray
+      Passed on as a value: Qt reads the C++ QByteArray, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QByteArray
+      A new cute QByteArray around the copy Qt gave back. Python owns it.
+    """
+    #  QByteArray QByteArray::simplified_helper(const QByteArray &a)
+    address = Rituals.call(
+        'ritual_ZN10QByteArray17simplified_helperERKS_',
+        CuteMixin._valueOf(a),
+    )
+    return QByteArray._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -2126,6 +2238,88 @@ class QByteArray(CuteMixin, metaclass=MetaCute):
     """
     #  void QByteArray::shrink_to_fit()
     self.uglySide.call('ritual_ZN10QByteArray13shrink_to_fitEv')
+
+  @overload(int, QArrayData.AllocationOption)
+  def reallocData(
+      self,
+      alloc: int,
+      option: QArrayData.AllocationOption,
+  ) -> None:
+    """
+    Calls Qt's 'void QByteArray::reallocData(qsizetype alloc,
+    QArrayData::AllocationOption option)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbytearray.html#reallocData
+
+    Parameters
+    ----------
+
+    alloc : int
+      Passed on as it is.
+
+    option : QArrayData.AllocationOption
+      Passed on as its number.
+    """
+    #  void QByteArray::reallocData(qsizetype alloc,
+    #      QArrayData::AllocationOption option)
+    self.uglySide.call(
+        'ritual_ZN10QByteArray11reallocDataExN10QArrayData16AllocationOptio'
+        'nE',
+        alloc, option.value,
+    )
+
+  @overload(int)
+  def reallocGrowData(self, n: int) -> None:
+    """
+    Calls Qt's 'void QByteArray::reallocGrowData(qsizetype n)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbytearray.html#reallocGrowData
+
+    Parameters
+    ----------
+
+    n : int
+      Passed on as it is.
+    """
+    #  void QByteArray::reallocGrowData(qsizetype n)
+    self.uglySide.call('ritual_ZN10QByteArray15reallocGrowDataEx', n)
+
+  @overload(int)
+  def expand(self, i: int) -> None:
+    """
+    Calls Qt's 'void QByteArray::expand(qsizetype i)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbytearray.html#expand
+
+    Parameters
+    ----------
+
+    i : int
+      Passed on as it is.
+    """
+    #  void QByteArray::expand(qsizetype i)
+    self.uglySide.call('ritual_ZN10QByteArray6expandEx', i)
+
+  @overload()
+  @overload(int)
+  @overload(int, int)
+  def verify(self, pos: int = 0, n: int = 1) -> None:
+    """
+    Calls Qt's 'void QByteArray::verify(qsizetype pos, qsizetype n) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbytearray.html#verify
+
+    Parameters
+    ----------
+
+    pos : int
+      Passed on as it is. May be left out, as in Qt: it is then 0.
+
+    n : int
+      Passed on as it is. May be left out, as in Qt: it is then 1.
+    """
+    #  void QByteArray::verify(qsizetype pos, qsizetype n) const
+    self.uglySide.call('ritual_ZNK10QByteArray6verifyExx', pos, n)
 
 
 #  Qt's 'QList<QByteArray>': the list of QByteArray, which

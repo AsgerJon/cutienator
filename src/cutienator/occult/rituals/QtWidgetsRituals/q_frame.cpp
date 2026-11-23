@@ -896,6 +896,40 @@ void ritual_ZN6QFrame12setFrameRectERK5QRect(QFrame *self, const QRect *a0) {
   self->setFrameRect(*a0);
 }
 
+//  bool QFrame::event(QEvent *e)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN6QFrame5eventEP6QEvent(QFrame *self, QEvent *e) {
+  return self->event(e);
+}
+
+//  void QFrame::paintEvent(QPaintEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QFrame10paintEventEP11QPaintEvent(
+    QFrame *self,
+    QPaintEvent *a0) {
+  self->paintEvent(a0);
+}
+
+//  void QFrame::changeEvent(QEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QFrame11changeEventEP6QEvent(QFrame *self, QEvent *a0) {
+  self->changeEvent(a0);
+}
+
+//  void QFrame::drawFrame(QPainter *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QFrame9drawFrameEP8QPainter(QFrame *self, QPainter *a0) {
+  self->drawFrame(a0);
+}
+
+//  void QFrame::initStyleOption(QStyleOptionFrame *option) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK6QFrame15initStyleOptionEP17QStyleOptionFrame(
+    const QFrame *self,
+    QStyleOptionFrame *option) {
+  self->initStyleOption(option);
+}
+
 //  a Python function taken by a CuteQFrame, for the function named by the
 //      key
 extern "C" Q_DECL_EXPORT

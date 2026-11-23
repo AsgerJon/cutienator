@@ -65,6 +65,7 @@
       "address", "address", "address"
     ],
     "ritual_ZNK11QColorSpacecv8QVariantEv": ["address", "address"],
+    "ritual_ZNK11QColorSpace6equalsERKS_": ["bool", "address", "address"],
     "ritual_Zls6QDebugRK11QColorSpace": ["address", "address", "address"]
   }
 }

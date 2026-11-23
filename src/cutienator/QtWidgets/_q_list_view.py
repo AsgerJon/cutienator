@@ -14,7 +14,7 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteNum, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt, QItemSelectionModel
+from ..QtCore import Qt, QItemSelectionModel, QList
 from . import QAbstractItemView, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
@@ -63,7 +63,7 @@ class QListView(QAbstractItemView):
   -----------
 
   Every function of Qt's QListView that has a ritual and that Python can call
-  so far, 63 names in all: 'metaObject', 'tr', 'setMovement', 'movement',
+  so far, 69 names in all: 'metaObject', 'tr', 'setMovement', 'movement',
   'setFlow', 'flow', 'setWrapping', 'isWrapping', 'setResizeMode',
   'resizeMode', 'setLayoutMode', 'layoutMode', 'setSpacing', 'spacing',
   'setBatchSize', 'batchSize', 'setGridSize', 'gridSize', 'setViewMode',
@@ -72,27 +72,31 @@ class QListView(QAbstractItemView):
   'setWordWrap', 'wordWrap', 'setSelectionRectVisible',
   'isSelectionRectVisible', 'setItemAlignment', 'itemAlignment',
   'visualRect', 'scrollTo', 'indexAt', 'doItemsLayout', 'reset',
-  'setRootIndex', 'event', 'scrollContentsBy', 'rowsInserted',
-  'rowsAboutToBeRemoved', 'mouseMoveEvent', 'mouseReleaseEvent',
-  'wheelEvent', 'timerEvent', 'resizeEvent', 'dragMoveEvent',
-  'dragLeaveEvent', 'dropEvent', 'startDrag', 'initViewItemOption',
-  'paintEvent', 'horizontalOffset', 'verticalOffset', 'setSelection',
-  'visualRegionForSelection', 'updateGeometries', 'isIndexHidden',
-  'selectionChanged', 'currentChanged', 'viewportSizeHint'. It can be made
-  from Python, in 1 way; see '__init__'.
+  'setRootIndex', 'event', 'scrollContentsBy', 'resizeContents',
+  'contentsSize', 'rowsInserted', 'rowsAboutToBeRemoved', 'mouseMoveEvent',
+  'mouseReleaseEvent', 'wheelEvent', 'timerEvent', 'resizeEvent',
+  'dragMoveEvent', 'dragLeaveEvent', 'dropEvent', 'startDrag',
+  'initViewItemOption', 'paintEvent', 'horizontalOffset', 'verticalOffset',
+  'rectForIndex', 'setPositionForIndex', 'setSelection',
+  'visualRegionForSelection', 'selectedIndexes', 'updateGeometries',
+  'isIndexHidden', 'selectionChanged', 'currentChanged', 'viewportSizeHint',
+  'visualIndex'. It can be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QListView::~QListView()': the destructor: Python never removes a
     C++ QListView.
+  - Qt's 'QModelIndex QListView::moveCursor(CursorAction cursorAction,
+    Qt::KeyboardModifiers modifiers)': names the enum
+    'QAbstractItemView::CursorAction', whose class cannot be named here.
 
   What has no ritual
   ------------------
 
-  18 of the 83 functions Qt declares: 8 protected; 4 private; 2 takes or
-  gives a type that cannot be passed yet; 2 forbidden; 1 a template; 1 a
-  signal.
+  11 of the 83 functions Qt declares: 6 takes or gives a type that cannot be
+  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found;
+  1 a signal.
 
   What to expect
   --------------
@@ -502,6 +506,23 @@ class QListView(QAbstractItemView):
     from ..QtCore import QModelIndex
     return QModelIndex._cuteOwning(address)
 
+  def contentsSize(self) -> QSize:
+    """
+    Calls Qt's 'QSize QListView::contentsSize() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlistview.html#contentsSize
+
+    Returns
+    -------
+
+    QSize
+      A new cute QSize around the copy Qt gave back. Python owns it.
+    """
+    #  QSize QListView::contentsSize() const
+    address = self.uglySide.call('ritual_ZNK9QListView12contentsSizeEv')
+    from ..QtCore import QSize
+    return QSize._cuteOwning(address)
+
   def horizontalOffset(self) -> int:
     """
     Calls Qt's 'int QListView::horizontalOffset() const'.
@@ -509,7 +530,10 @@ class QListView(QAbstractItemView):
     Qt's own words: https://doc.qt.io/qt-6/qlistview.html#horizontalOffset
     """
     #  int QListView::horizontalOffset() const
-    return self.uglySide.call('ritual_own_ZNK9QListView16horizontalOffsetEv')
+    ritual = 'ritual_ZNK9QListView16horizontalOffsetEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK9QListView16horizontalOffsetEv'
+    return self.uglySide.call(ritual)
 
   def verticalOffset(self) -> int:
     """
@@ -518,7 +542,39 @@ class QListView(QAbstractItemView):
     Qt's own words: https://doc.qt.io/qt-6/qlistview.html#verticalOffset
     """
     #  int QListView::verticalOffset() const
-    return self.uglySide.call('ritual_own_ZNK9QListView14verticalOffsetEv')
+    ritual = 'ritual_ZNK9QListView14verticalOffsetEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK9QListView14verticalOffsetEv'
+    return self.uglySide.call(ritual)
+
+  @overload(QModelIndex)
+  def rectForIndex(self, index: QModelIndex) -> QRect:
+    """
+    Calls Qt's 'QRect QListView::rectForIndex(const QModelIndex &index)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlistview.html#rectForIndex
+
+    Parameters
+    ----------
+
+    index : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+
+    Returns
+    -------
+
+    QRect
+      A new cute QRect around the copy Qt gave back. Python owns it.
+    """
+    #  QRect QListView::rectForIndex(const QModelIndex &index) const
+    address = self.uglySide.call(
+        'ritual_ZNK9QListView12rectForIndexERK11QModelIndex',
+        self._valueOf(index),
+    )
+    from ..QtCore import QRect
+    return QRect._cuteOwning(address)
 
   @overload(QItemSelection)
   def visualRegionForSelection(self, selection: QItemSelection) -> QRegion:
@@ -544,13 +600,32 @@ class QListView(QAbstractItemView):
     """
     #  QRegion QListView::visualRegionForSelection(const QItemSelection
     #      &selection) const
-    address = self.uglySide.call(
-        'ritual_own_ZNK9QListView24visualRegionForSelectionERK14QItemSelect'
-        'ion',
-        self._valueOf(selection),
-    )
+    ritual = (
+        'ritual_ZNK9QListView24visualRegionForSelectionERK14QItemSelection')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK9QListView24visualRegionForSelectionERK14QItemSele'
+          'ction')
+    address = self.uglySide.call(ritual, self._valueOf(selection))
     from ..QtGui import QRegion
     return QRegion._cuteOwning(address)
+
+  def selectedIndexes(self) -> QList[QModelIndex]:
+    """
+    Calls Qt's 'QModelIndexList QListView::selectedIndexes() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlistview.html#selectedIndexes
+
+    Returns
+    -------
+
+    QList[QModelIndex]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QModelIndexList QListView::selectedIndexes() const
+    address = self.uglySide.call('ritual_ZNK9QListView15selectedIndexesEv')
+    from ..QtCore import QModelIndex
+    return QList[QModelIndex]._cuteOwning(address)
 
   @overload(QModelIndex)
   def isIndexHidden(self, index: QModelIndex) -> bool:
@@ -568,10 +643,10 @@ class QListView(QAbstractItemView):
       Python's own.
     """
     #  bool QListView::isIndexHidden(const QModelIndex &index) const
-    return self.uglySide.call(
-        'ritual_own_ZNK9QListView13isIndexHiddenERK11QModelIndex',
-        self._valueOf(index),
-    )
+    ritual = 'ritual_ZNK9QListView13isIndexHiddenERK11QModelIndex'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK9QListView13isIndexHiddenERK11QModelIndex'
+    return self.uglySide.call(ritual, self._valueOf(index))
 
   def viewportSizeHint(self) -> QSize:
     """
@@ -586,11 +661,32 @@ class QListView(QAbstractItemView):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QListView::viewportSizeHint() const
-    address = self.uglySide.call(
-        'ritual_own_ZNK9QListView16viewportSizeHintEv',
-    )
+    ritual = 'ritual_ZNK9QListView16viewportSizeHintEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK9QListView16viewportSizeHintEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
+
+  @overload(QModelIndex)
+  def visualIndex(self, index: QModelIndex) -> int:
+    """
+    Calls Qt's 'int QListView::visualIndex(const QModelIndex &index) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlistview.html#visualIndex
+
+    Parameters
+    ----------
+
+    index : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+    """
+    #  int QListView::visualIndex(const QModelIndex &index) const
+    return self.uglySide.call(
+        'ritual_ZNK9QListView11visualIndexERK11QModelIndex',
+        self._valueOf(index),
+    )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -876,6 +972,36 @@ class QListView(QAbstractItemView):
       ritual = 'ritual_own_ZN9QListView12setRootIndexERK11QModelIndex'
     self.uglySide.call(ritual, self._valueOf(index))
 
+  @overload(QPoint, QModelIndex)
+  def setPositionForIndex(
+      self,
+      position: QPoint,
+      index: QModelIndex,
+  ) -> None:
+    """
+    Calls Qt's 'void QListView::setPositionForIndex(const QPoint &position,
+    const QModelIndex &index)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlistview.html#setPositionForIndex
+
+    Parameters
+    ----------
+
+    position : QPoint
+      Passed on as a value: Qt reads the C++ QPoint, which stays Python's
+      own.
+
+    index : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+    """
+    #  void QListView::setPositionForIndex(const QPoint &position, const
+    #      QModelIndex &index)
+    self.uglySide.call(
+        'ritual_ZN9QListView19setPositionForIndexERK6QPointRK11QModelIndex',
+        self._valueOf(position), self._valueOf(index),
+    )
+
   @overload(QRect, QItemSelectionModel.SelectionFlags)
   def setSelection(
       self,
@@ -899,11 +1025,14 @@ class QListView(QAbstractItemView):
     """
     #  void QListView::setSelection(const QRect &rect,
     #      QItemSelectionModel::SelectionFlags command)
-    self.uglySide.call(
-        'ritual_own_ZN9QListView12setSelectionERK5QRect6QFlagsIN19QItemSele'
-        'ctionModel13SelectionFlagEE',
-        self._valueOf(rect), command.value,
-    )
+    ritual = (
+        'ritual_ZN9QListView12setSelectionERK5QRect6QFlagsIN19QItemSelectio'
+        'nModel13SelectionFlagEE')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN9QListView12setSelectionERK5QRect6QFlagsIN19QItemSe'
+          'lectionModel13SelectionFlagEE')
+    self.uglySide.call(ritual, self._valueOf(rect), command.value)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1043,9 +1172,10 @@ class QListView(QAbstractItemView):
       object.
     """
     #  bool QListView::event(QEvent *e)
-    return self.uglySide.call(
-        'ritual_own_ZN9QListView5eventEP6QEvent', self._addressOf(e),
-    )
+    ritual = 'ritual_ZN9QListView5eventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QListView5eventEP6QEvent'
+    return self.uglySide.call(ritual, self._addressOf(e))
 
   @overload(int, int)
   def scrollContentsBy(self, dx: int, dy: int) -> None:
@@ -1064,8 +1194,30 @@ class QListView(QAbstractItemView):
       Passed on as it is.
     """
     #  void QListView::scrollContentsBy(int dx, int dy)
+    ritual = 'ritual_ZN9QListView16scrollContentsByEii'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QListView16scrollContentsByEii'
+    self.uglySide.call(ritual, dx, dy)
+
+  @overload(int, int)
+  def resizeContents(self, width: int, height: int) -> None:
+    """
+    Calls Qt's 'void QListView::resizeContents(int width, int height)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlistview.html#resizeContents
+
+    Parameters
+    ----------
+
+    width : int
+      Passed on as it is.
+
+    height : int
+      Passed on as it is.
+    """
+    #  void QListView::resizeContents(int width, int height)
     self.uglySide.call(
-        'ritual_own_ZN9QListView16scrollContentsByEii', dx, dy,
+        'ritual_ZN9QListView14resizeContentsEii', width, height,
     )
 
   @overload(QModelIndex, int, int)
@@ -1091,10 +1243,10 @@ class QListView(QAbstractItemView):
     """
     #  void QListView::rowsInserted(const QModelIndex &parent, int start, int
     #      end)
-    self.uglySide.call(
-        'ritual_own_ZN9QListView12rowsInsertedERK11QModelIndexii',
-        self._valueOf(parent), start, end,
-    )
+    ritual = 'ritual_ZN9QListView12rowsInsertedERK11QModelIndexii'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QListView12rowsInsertedERK11QModelIndexii'
+    self.uglySide.call(ritual, self._valueOf(parent), start, end)
 
   @overload(QModelIndex, int, int)
   def rowsAboutToBeRemoved(
@@ -1125,10 +1277,11 @@ class QListView(QAbstractItemView):
     """
     #  void QListView::rowsAboutToBeRemoved(const QModelIndex &parent, int
     #      start, int end)
-    self.uglySide.call(
-        'ritual_own_ZN9QListView20rowsAboutToBeRemovedERK11QModelIndexii',
-        self._valueOf(parent), start, end,
-    )
+    ritual = 'ritual_ZN9QListView20rowsAboutToBeRemovedERK11QModelIndexii'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN9QListView20rowsAboutToBeRemovedERK11QModelIndexii')
+    self.uglySide.call(ritual, self._valueOf(parent), start, end)
 
   @overload(QMouseEvent)
   @overload(NoneType)
@@ -1146,10 +1299,10 @@ class QListView(QAbstractItemView):
       object.
     """
     #  void QListView::mouseMoveEvent(QMouseEvent *e)
-    self.uglySide.call(
-        'ritual_own_ZN9QListView14mouseMoveEventEP11QMouseEvent',
-        self._addressOf(e),
-    )
+    ritual = 'ritual_ZN9QListView14mouseMoveEventEP11QMouseEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QListView14mouseMoveEventEP11QMouseEvent'
+    self.uglySide.call(ritual, self._addressOf(e))
 
   @overload(QMouseEvent)
   @overload(NoneType)
@@ -1167,10 +1320,10 @@ class QListView(QAbstractItemView):
       object.
     """
     #  void QListView::mouseReleaseEvent(QMouseEvent *e)
-    self.uglySide.call(
-        'ritual_own_ZN9QListView17mouseReleaseEventEP11QMouseEvent',
-        self._addressOf(e),
-    )
+    ritual = 'ritual_ZN9QListView17mouseReleaseEventEP11QMouseEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QListView17mouseReleaseEventEP11QMouseEvent'
+    self.uglySide.call(ritual, self._addressOf(e))
 
   @overload(QWheelEvent)
   @overload(NoneType)
@@ -1188,10 +1341,10 @@ class QListView(QAbstractItemView):
       object.
     """
     #  void QListView::wheelEvent(QWheelEvent *e)
-    self.uglySide.call(
-        'ritual_own_ZN9QListView10wheelEventEP11QWheelEvent',
-        self._addressOf(e),
-    )
+    ritual = 'ritual_ZN9QListView10wheelEventEP11QWheelEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QListView10wheelEventEP11QWheelEvent'
+    self.uglySide.call(ritual, self._addressOf(e))
 
   @overload(QTimerEvent)
   @overload(NoneType)
@@ -1209,10 +1362,10 @@ class QListView(QAbstractItemView):
       object.
     """
     #  void QListView::timerEvent(QTimerEvent *e)
-    self.uglySide.call(
-        'ritual_own_ZN9QListView10timerEventEP11QTimerEvent',
-        self._addressOf(e),
-    )
+    ritual = 'ritual_ZN9QListView10timerEventEP11QTimerEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QListView10timerEventEP11QTimerEvent'
+    self.uglySide.call(ritual, self._addressOf(e))
 
   @overload(QResizeEvent)
   @overload(NoneType)
@@ -1230,10 +1383,10 @@ class QListView(QAbstractItemView):
       object.
     """
     #  void QListView::resizeEvent(QResizeEvent *e)
-    self.uglySide.call(
-        'ritual_own_ZN9QListView11resizeEventEP12QResizeEvent',
-        self._addressOf(e),
-    )
+    ritual = 'ritual_ZN9QListView11resizeEventEP12QResizeEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QListView11resizeEventEP12QResizeEvent'
+    self.uglySide.call(ritual, self._addressOf(e))
 
   @overload(QDragMoveEvent)
   @overload(NoneType)
@@ -1251,10 +1404,10 @@ class QListView(QAbstractItemView):
       object.
     """
     #  void QListView::dragMoveEvent(QDragMoveEvent *e)
-    self.uglySide.call(
-        'ritual_own_ZN9QListView13dragMoveEventEP14QDragMoveEvent',
-        self._addressOf(e),
-    )
+    ritual = 'ritual_ZN9QListView13dragMoveEventEP14QDragMoveEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QListView13dragMoveEventEP14QDragMoveEvent'
+    self.uglySide.call(ritual, self._addressOf(e))
 
   @overload(QDragLeaveEvent)
   @overload(NoneType)
@@ -1272,10 +1425,10 @@ class QListView(QAbstractItemView):
       object.
     """
     #  void QListView::dragLeaveEvent(QDragLeaveEvent *e)
-    self.uglySide.call(
-        'ritual_own_ZN9QListView14dragLeaveEventEP15QDragLeaveEvent',
-        self._addressOf(e),
-    )
+    ritual = 'ritual_ZN9QListView14dragLeaveEventEP15QDragLeaveEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QListView14dragLeaveEventEP15QDragLeaveEvent'
+    self.uglySide.call(ritual, self._addressOf(e))
 
   @overload(QDropEvent)
   @overload(NoneType)
@@ -1293,10 +1446,10 @@ class QListView(QAbstractItemView):
       object.
     """
     #  void QListView::dropEvent(QDropEvent *e)
-    self.uglySide.call(
-        'ritual_own_ZN9QListView9dropEventEP10QDropEvent',
-        self._addressOf(e),
-    )
+    ritual = 'ritual_ZN9QListView9dropEventEP10QDropEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QListView9dropEventEP10QDropEvent'
+    self.uglySide.call(ritual, self._addressOf(e))
 
   @overload(Qt.DropActions)
   def startDrag(self, supportedActions: Qt.DropActions) -> None:
@@ -1312,10 +1465,10 @@ class QListView(QAbstractItemView):
       Passed on as its number.
     """
     #  void QListView::startDrag(Qt::DropActions supportedActions)
-    self.uglySide.call(
-        'ritual_own_ZN9QListView9startDragE6QFlagsIN2Qt10DropActionEE',
-        supportedActions.value,
-    )
+    ritual = 'ritual_ZN9QListView9startDragE6QFlagsIN2Qt10DropActionEE'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QListView9startDragE6QFlagsIN2Qt10DropActionEE'
+    self.uglySide.call(ritual, supportedActions.value)
 
   @overload(QStyleOptionViewItem)
   @overload(NoneType)
@@ -1337,11 +1490,13 @@ class QListView(QAbstractItemView):
       object.
     """
     #  void QListView::initViewItemOption(QStyleOptionViewItem *option) const
-    self.uglySide.call(
-        'ritual_own_ZNK9QListView18initViewItemOptionEP20QStyleOptionViewIt'
-        'em',
-        self._addressOf(option),
-    )
+    ritual = (
+        'ritual_ZNK9QListView18initViewItemOptionEP20QStyleOptionViewItem')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK9QListView18initViewItemOptionEP20QStyleOptionView'
+          'Item')
+    self.uglySide.call(ritual, self._addressOf(option))
 
   @overload(QPaintEvent)
   @overload(NoneType)
@@ -1359,10 +1514,10 @@ class QListView(QAbstractItemView):
       object.
     """
     #  void QListView::paintEvent(QPaintEvent *e)
-    self.uglySide.call(
-        'ritual_own_ZN9QListView10paintEventEP11QPaintEvent',
-        self._addressOf(e),
-    )
+    ritual = 'ritual_ZN9QListView10paintEventEP11QPaintEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QListView10paintEventEP11QPaintEvent'
+    self.uglySide.call(ritual, self._addressOf(e))
 
   def updateGeometries(self) -> None:
     """
@@ -1371,7 +1526,10 @@ class QListView(QAbstractItemView):
     Qt's own words: https://doc.qt.io/qt-6/qlistview.html#updateGeometries
     """
     #  void QListView::updateGeometries()
-    self.uglySide.call('ritual_own_ZN9QListView16updateGeometriesEv')
+    ritual = 'ritual_ZN9QListView16updateGeometriesEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QListView16updateGeometriesEv'
+    self.uglySide.call(ritual)
 
   @overload(QItemSelection, QItemSelection)
   def selectionChanged(
@@ -1398,9 +1556,12 @@ class QListView(QAbstractItemView):
     """
     #  void QListView::selectionChanged(const QItemSelection &selected, const
     #      QItemSelection &deselected)
+    ritual = 'ritual_ZN9QListView16selectionChangedERK14QItemSelectionS2_'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN9QListView16selectionChangedERK14QItemSelectionS2_')
     self.uglySide.call(
-        'ritual_own_ZN9QListView16selectionChangedERK14QItemSelectionS2_',
-        self._valueOf(selected), self._valueOf(deselected),
+        ritual, self._valueOf(selected), self._valueOf(deselected),
     )
 
   @overload(QModelIndex, QModelIndex)
@@ -1428,7 +1589,9 @@ class QListView(QAbstractItemView):
     """
     #  void QListView::currentChanged(const QModelIndex &current, const
     #      QModelIndex &previous)
+    ritual = 'ritual_ZN9QListView14currentChangedERK11QModelIndexS2_'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QListView14currentChangedERK11QModelIndexS2_'
     self.uglySide.call(
-        'ritual_own_ZN9QListView14currentChangedERK11QModelIndexS2_',
-        self._valueOf(current), self._valueOf(previous),
+        ritual, self._valueOf(current), self._valueOf(previous),
     )

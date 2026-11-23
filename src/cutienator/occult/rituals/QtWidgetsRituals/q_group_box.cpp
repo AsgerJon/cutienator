@@ -891,6 +891,84 @@ void ritual_ZN9QGroupBox10setCheckedEb(QGroupBox *self, bool checked) {
   self->setChecked(checked);
 }
 
+//  bool QGroupBox::event(QEvent *event)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN9QGroupBox5eventEP6QEvent(QGroupBox *self, QEvent *event) {
+  return self->event(event);
+}
+
+//  void QGroupBox::childEvent(QChildEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QGroupBox10childEventEP11QChildEvent(
+    QGroupBox *self,
+    QChildEvent *event) {
+  self->childEvent(event);
+}
+
+//  void QGroupBox::resizeEvent(QResizeEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QGroupBox11resizeEventEP12QResizeEvent(
+    QGroupBox *self,
+    QResizeEvent *event) {
+  self->resizeEvent(event);
+}
+
+//  void QGroupBox::paintEvent(QPaintEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QGroupBox10paintEventEP11QPaintEvent(
+    QGroupBox *self,
+    QPaintEvent *event) {
+  self->paintEvent(event);
+}
+
+//  void QGroupBox::focusInEvent(QFocusEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QGroupBox12focusInEventEP11QFocusEvent(
+    QGroupBox *self,
+    QFocusEvent *event) {
+  self->focusInEvent(event);
+}
+
+//  void QGroupBox::changeEvent(QEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QGroupBox11changeEventEP6QEvent(
+    QGroupBox *self,
+    QEvent *event) {
+  self->changeEvent(event);
+}
+
+//  void QGroupBox::mousePressEvent(QMouseEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QGroupBox15mousePressEventEP11QMouseEvent(
+    QGroupBox *self,
+    QMouseEvent *event) {
+  self->mousePressEvent(event);
+}
+
+//  void QGroupBox::mouseMoveEvent(QMouseEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QGroupBox14mouseMoveEventEP11QMouseEvent(
+    QGroupBox *self,
+    QMouseEvent *event) {
+  self->mouseMoveEvent(event);
+}
+
+//  void QGroupBox::mouseReleaseEvent(QMouseEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QGroupBox17mouseReleaseEventEP11QMouseEvent(
+    QGroupBox *self,
+    QMouseEvent *event) {
+  self->mouseReleaseEvent(event);
+}
+
+//  void QGroupBox::initStyleOption(QStyleOptionGroupBox *option) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK9QGroupBox15initStyleOptionEP20QStyleOptionGroupBox(
+    const QGroupBox *self,
+    QStyleOptionGroupBox *option) {
+  self->initStyleOption(option);
+}
+
 //  a Python function taken by a CuteQGroupBox, for the function named by the
 //      key
 extern "C" Q_DECL_EXPORT

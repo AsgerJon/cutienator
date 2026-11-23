@@ -32,6 +32,12 @@
     "ritual_ZNK10QCborArray13ConstIteratormiES0_": [
       "long long", "address", "address"
     ],
+    "ritual_ZN10QCborArray13ConstIterator20comparesEqual_helperERKS0_S2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN10QCborArray13ConstIterator22compareThreeWay_helperERKS0_S2_": [
+      "address", "address", "address"
+    ],
     "ritual_ZeqRKN10QCborArray13ConstIteratorES2_": [
       "bool", "address", "address"
     ],

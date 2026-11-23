@@ -88,6 +88,9 @@
     "ritual_ZNK11QGridLayout15getItemPositionEiPiS0_S0_S0_": [
       "nothing", "address", "int", "address", "address", "address", "address"
     ],
+    "ritual_ZN11QGridLayout7addItemEP11QLayoutItem": [
+      "nothing", "address", "address"
+    ],
     "ritual_take_QGridLayout": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK11QGridLayout8sizeHintEv": ["address", "address"],
     "ritual_own_ZNK11QGridLayout11minimumSizeEv": ["address", "address"],

@@ -32,15 +32,17 @@ class QBasicReadWriteLock(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QBasicReadWriteLock that has a ritual and that
-  Python can call so far, 10 names in all: 'lockForRead', 'tryLockForRead',
+  Python can call so far, 12 names in all: 'lockForRead', 'tryLockForRead',
   'lockForWrite', 'tryLockForWrite', 'unlock', 'lock', 'lock_shared',
-  'try_lock', 'try_lock_shared', 'unlock_shared'. It can be made from Python,
-  in 1 way; see '__init__'.
+  'try_lock', 'try_lock_shared', 'unlock_shared', 'tryLockForReadInternal',
+  'tryLockForWriteInternal'. It can be made from Python, in 1 way; see
+  '__init__'.
 
   What has no ritual
   ------------------
 
-  12 of the 25 functions Qt declares: 10 protected; 2 forbidden.
+  10 of the 25 functions Qt declares: 8 takes or gives a type that cannot be
+  passed yet; 2 forbidden.
 
   What to expect
   --------------
@@ -278,3 +280,67 @@ class QBasicReadWriteLock(CuteMixin, metaclass=MetaCute):
     """
     #  void QBasicReadWriteLock::unlock_shared()
     self.uglySide.call('ritual_ZN19QBasicReadWriteLock13unlock_sharedEv')
+
+  @overload(QDeadlineTimer, int)
+  def tryLockForReadInternal(
+      self,
+      timeout: QDeadlineTimer,
+      tsanFlags: int,
+  ) -> bool:
+    """
+    Calls Qt's 'bool
+    QBasicReadWriteLock::tryLockForReadInternal(QDeadlineTimer timeout,
+    unsigned int tsanFlags)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qbasicreadwritelock.html#tryLockForReadInternal
+
+    Parameters
+    ----------
+
+    timeout : QDeadlineTimer
+      Passed on as a value: Qt reads the C++ QDeadlineTimer, which stays
+      Python's own.
+
+    tsanFlags : int
+      Passed on as it is.
+    """
+    #  bool QBasicReadWriteLock::tryLockForReadInternal(QDeadlineTimer
+    #      timeout, unsigned int tsanFlags)
+    return self.uglySide.call(
+        'ritual_ZN19QBasicReadWriteLock22tryLockForReadInternalE14QDeadline'
+        'Timerj',
+        self._valueOf(timeout), tsanFlags,
+    )
+
+  @overload(QDeadlineTimer, int)
+  def tryLockForWriteInternal(
+      self,
+      timeout: QDeadlineTimer,
+      tsanFlags: int,
+  ) -> bool:
+    """
+    Calls Qt's 'bool
+    QBasicReadWriteLock::tryLockForWriteInternal(QDeadlineTimer timeout,
+    unsigned int tsanFlags)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qbasicreadwritelock.html#tryLockForWriteInternal
+
+    Parameters
+    ----------
+
+    timeout : QDeadlineTimer
+      Passed on as a value: Qt reads the C++ QDeadlineTimer, which stays
+      Python's own.
+
+    tsanFlags : int
+      Passed on as it is.
+    """
+    #  bool QBasicReadWriteLock::tryLockForWriteInternal(QDeadlineTimer
+    #      timeout, unsigned int tsanFlags)
+    return self.uglySide.call(
+        'ritual_ZN19QBasicReadWriteLock23tryLockForWriteInternalE14QDeadlin'
+        'eTimerj',
+        self._valueOf(timeout), tsanFlags,
+    )

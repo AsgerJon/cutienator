@@ -81,8 +81,9 @@ class QMdiSubWindow(QWidget):
   What has no ritual
   ------------------
 
-  10 of the 52 functions Qt declares: 3 private; 2 takes or gives a type that
-  cannot be passed yet; 2 a signal; 2 forbidden; 1 a template.
+  10 of the 52 functions Qt declares: 4 takes or gives a type that cannot be
+  passed yet; 2 a signal; 2 forbidden; 1 a template; 1 declared and nowhere
+  to be found.
 
   What to expect
   --------------
@@ -611,9 +612,11 @@ class QMdiSubWindow(QWidget):
       object.
     """
     #  bool QMdiSubWindow::eventFilter(QObject *object, QEvent *event)
+    ritual = 'ritual_ZN13QMdiSubWindow11eventFilterEP7QObjectP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN13QMdiSubWindow11eventFilterEP7QObjectP6QEvent'
     return self.uglySide.call(
-        'ritual_own_ZN13QMdiSubWindow11eventFilterEP7QObjectP6QEvent',
-        self._addressOf(object), self._addressOf(event),
+        ritual, self._addressOf(object), self._addressOf(event),
     )
 
   @overload(QEvent)
@@ -632,10 +635,10 @@ class QMdiSubWindow(QWidget):
       object.
     """
     #  bool QMdiSubWindow::event(QEvent *event)
-    return self.uglySide.call(
-        'ritual_own_ZN13QMdiSubWindow5eventEP6QEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN13QMdiSubWindow5eventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN13QMdiSubWindow5eventEP6QEvent'
+    return self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QShowEvent)
   @overload(NoneType)
@@ -653,10 +656,10 @@ class QMdiSubWindow(QWidget):
       object.
     """
     #  void QMdiSubWindow::showEvent(QShowEvent *showEvent)
-    self.uglySide.call(
-        'ritual_own_ZN13QMdiSubWindow9showEventEP10QShowEvent',
-        self._addressOf(showEvent),
-    )
+    ritual = 'ritual_ZN13QMdiSubWindow9showEventEP10QShowEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN13QMdiSubWindow9showEventEP10QShowEvent'
+    self.uglySide.call(ritual, self._addressOf(showEvent))
 
   @overload(QHideEvent)
   @overload(NoneType)
@@ -674,10 +677,10 @@ class QMdiSubWindow(QWidget):
       object.
     """
     #  void QMdiSubWindow::hideEvent(QHideEvent *hideEvent)
-    self.uglySide.call(
-        'ritual_own_ZN13QMdiSubWindow9hideEventEP10QHideEvent',
-        self._addressOf(hideEvent),
-    )
+    ritual = 'ritual_ZN13QMdiSubWindow9hideEventEP10QHideEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN13QMdiSubWindow9hideEventEP10QHideEvent'
+    self.uglySide.call(ritual, self._addressOf(hideEvent))
 
   @overload(QEvent)
   @overload(NoneType)
@@ -695,10 +698,10 @@ class QMdiSubWindow(QWidget):
       object.
     """
     #  void QMdiSubWindow::changeEvent(QEvent *changeEvent)
-    self.uglySide.call(
-        'ritual_own_ZN13QMdiSubWindow11changeEventEP6QEvent',
-        self._addressOf(changeEvent),
-    )
+    ritual = 'ritual_ZN13QMdiSubWindow11changeEventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN13QMdiSubWindow11changeEventEP6QEvent'
+    self.uglySide.call(ritual, self._addressOf(changeEvent))
 
   @overload(QCloseEvent)
   @overload(NoneType)
@@ -716,10 +719,10 @@ class QMdiSubWindow(QWidget):
       object.
     """
     #  void QMdiSubWindow::closeEvent(QCloseEvent *closeEvent)
-    self.uglySide.call(
-        'ritual_own_ZN13QMdiSubWindow10closeEventEP11QCloseEvent',
-        self._addressOf(closeEvent),
-    )
+    ritual = 'ritual_ZN13QMdiSubWindow10closeEventEP11QCloseEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN13QMdiSubWindow10closeEventEP11QCloseEvent'
+    self.uglySide.call(ritual, self._addressOf(closeEvent))
 
   @overload(QEvent)
   @overload(NoneType)
@@ -737,10 +740,10 @@ class QMdiSubWindow(QWidget):
       object.
     """
     #  void QMdiSubWindow::leaveEvent(QEvent *leaveEvent)
-    self.uglySide.call(
-        'ritual_own_ZN13QMdiSubWindow10leaveEventEP6QEvent',
-        self._addressOf(leaveEvent),
-    )
+    ritual = 'ritual_ZN13QMdiSubWindow10leaveEventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN13QMdiSubWindow10leaveEventEP6QEvent'
+    self.uglySide.call(ritual, self._addressOf(leaveEvent))
 
   @overload(QResizeEvent)
   @overload(NoneType)
@@ -758,10 +761,10 @@ class QMdiSubWindow(QWidget):
       object.
     """
     #  void QMdiSubWindow::resizeEvent(QResizeEvent *resizeEvent)
-    self.uglySide.call(
-        'ritual_own_ZN13QMdiSubWindow11resizeEventEP12QResizeEvent',
-        self._addressOf(resizeEvent),
-    )
+    ritual = 'ritual_ZN13QMdiSubWindow11resizeEventEP12QResizeEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN13QMdiSubWindow11resizeEventEP12QResizeEvent'
+    self.uglySide.call(ritual, self._addressOf(resizeEvent))
 
   @overload(QTimerEvent)
   @overload(NoneType)
@@ -779,10 +782,10 @@ class QMdiSubWindow(QWidget):
       object.
     """
     #  void QMdiSubWindow::timerEvent(QTimerEvent *timerEvent)
-    self.uglySide.call(
-        'ritual_own_ZN13QMdiSubWindow10timerEventEP11QTimerEvent',
-        self._addressOf(timerEvent),
-    )
+    ritual = 'ritual_ZN13QMdiSubWindow10timerEventEP11QTimerEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN13QMdiSubWindow10timerEventEP11QTimerEvent'
+    self.uglySide.call(ritual, self._addressOf(timerEvent))
 
   @overload(QMoveEvent)
   @overload(NoneType)
@@ -800,10 +803,10 @@ class QMdiSubWindow(QWidget):
       object.
     """
     #  void QMdiSubWindow::moveEvent(QMoveEvent *moveEvent)
-    self.uglySide.call(
-        'ritual_own_ZN13QMdiSubWindow9moveEventEP10QMoveEvent',
-        self._addressOf(moveEvent),
-    )
+    ritual = 'ritual_ZN13QMdiSubWindow9moveEventEP10QMoveEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN13QMdiSubWindow9moveEventEP10QMoveEvent'
+    self.uglySide.call(ritual, self._addressOf(moveEvent))
 
   @overload(QPaintEvent)
   @overload(NoneType)
@@ -821,10 +824,10 @@ class QMdiSubWindow(QWidget):
       object.
     """
     #  void QMdiSubWindow::paintEvent(QPaintEvent *paintEvent)
-    self.uglySide.call(
-        'ritual_own_ZN13QMdiSubWindow10paintEventEP11QPaintEvent',
-        self._addressOf(paintEvent),
-    )
+    ritual = 'ritual_ZN13QMdiSubWindow10paintEventEP11QPaintEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN13QMdiSubWindow10paintEventEP11QPaintEvent'
+    self.uglySide.call(ritual, self._addressOf(paintEvent))
 
   @overload(QMouseEvent)
   @overload(NoneType)
@@ -843,10 +846,10 @@ class QMdiSubWindow(QWidget):
       object.
     """
     #  void QMdiSubWindow::mousePressEvent(QMouseEvent *mouseEvent)
-    self.uglySide.call(
-        'ritual_own_ZN13QMdiSubWindow15mousePressEventEP11QMouseEvent',
-        self._addressOf(mouseEvent),
-    )
+    ritual = 'ritual_ZN13QMdiSubWindow15mousePressEventEP11QMouseEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN13QMdiSubWindow15mousePressEventEP11QMouseEvent'
+    self.uglySide.call(ritual, self._addressOf(mouseEvent))
 
   @overload(QMouseEvent)
   @overload(NoneType)
@@ -866,10 +869,12 @@ class QMdiSubWindow(QWidget):
       object.
     """
     #  void QMdiSubWindow::mouseDoubleClickEvent(QMouseEvent *mouseEvent)
-    self.uglySide.call(
-        'ritual_own_ZN13QMdiSubWindow21mouseDoubleClickEventEP11QMouseEvent',
-        self._addressOf(mouseEvent),
-    )
+    ritual = 'ritual_ZN13QMdiSubWindow21mouseDoubleClickEventEP11QMouseEvent'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN13QMdiSubWindow21mouseDoubleClickEventEP11QMouseEve'
+          'nt')
+    self.uglySide.call(ritual, self._addressOf(mouseEvent))
 
   @overload(QMouseEvent)
   @overload(NoneType)
@@ -889,10 +894,11 @@ class QMdiSubWindow(QWidget):
       object.
     """
     #  void QMdiSubWindow::mouseReleaseEvent(QMouseEvent *mouseEvent)
-    self.uglySide.call(
-        'ritual_own_ZN13QMdiSubWindow17mouseReleaseEventEP11QMouseEvent',
-        self._addressOf(mouseEvent),
-    )
+    ritual = 'ritual_ZN13QMdiSubWindow17mouseReleaseEventEP11QMouseEvent'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN13QMdiSubWindow17mouseReleaseEventEP11QMouseEvent')
+    self.uglySide.call(ritual, self._addressOf(mouseEvent))
 
   @overload(QMouseEvent)
   @overload(NoneType)
@@ -910,10 +916,10 @@ class QMdiSubWindow(QWidget):
       object.
     """
     #  void QMdiSubWindow::mouseMoveEvent(QMouseEvent *mouseEvent)
-    self.uglySide.call(
-        'ritual_own_ZN13QMdiSubWindow14mouseMoveEventEP11QMouseEvent',
-        self._addressOf(mouseEvent),
-    )
+    ritual = 'ritual_ZN13QMdiSubWindow14mouseMoveEventEP11QMouseEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN13QMdiSubWindow14mouseMoveEventEP11QMouseEvent'
+    self.uglySide.call(ritual, self._addressOf(mouseEvent))
 
   @overload(QKeyEvent)
   @overload(NoneType)
@@ -931,10 +937,10 @@ class QMdiSubWindow(QWidget):
       object.
     """
     #  void QMdiSubWindow::keyPressEvent(QKeyEvent *keyEvent)
-    self.uglySide.call(
-        'ritual_own_ZN13QMdiSubWindow13keyPressEventEP9QKeyEvent',
-        self._addressOf(keyEvent),
-    )
+    ritual = 'ritual_ZN13QMdiSubWindow13keyPressEventEP9QKeyEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN13QMdiSubWindow13keyPressEventEP9QKeyEvent'
+    self.uglySide.call(ritual, self._addressOf(keyEvent))
 
   @overload(QContextMenuEvent)
   @overload(NoneType)
@@ -958,11 +964,13 @@ class QMdiSubWindow(QWidget):
     """
     #  void QMdiSubWindow::contextMenuEvent(QContextMenuEvent
     #      *contextMenuEvent)
-    self.uglySide.call(
-        'ritual_own_ZN13QMdiSubWindow16contextMenuEventEP17QContextMenuEven'
-        't',
-        self._addressOf(contextMenuEvent),
-    )
+    ritual = (
+        'ritual_ZN13QMdiSubWindow16contextMenuEventEP17QContextMenuEvent')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN13QMdiSubWindow16contextMenuEventEP17QContextMenuEv'
+          'ent')
+    self.uglySide.call(ritual, self._addressOf(contextMenuEvent))
 
   @overload(QFocusEvent)
   @overload(NoneType)
@@ -980,10 +988,10 @@ class QMdiSubWindow(QWidget):
       object.
     """
     #  void QMdiSubWindow::focusInEvent(QFocusEvent *focusInEvent)
-    self.uglySide.call(
-        'ritual_own_ZN13QMdiSubWindow12focusInEventEP11QFocusEvent',
-        self._addressOf(focusInEvent),
-    )
+    ritual = 'ritual_ZN13QMdiSubWindow12focusInEventEP11QFocusEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN13QMdiSubWindow12focusInEventEP11QFocusEvent'
+    self.uglySide.call(ritual, self._addressOf(focusInEvent))
 
   @overload(QFocusEvent)
   @overload(NoneType)
@@ -1002,10 +1010,10 @@ class QMdiSubWindow(QWidget):
       object.
     """
     #  void QMdiSubWindow::focusOutEvent(QFocusEvent *focusOutEvent)
-    self.uglySide.call(
-        'ritual_own_ZN13QMdiSubWindow13focusOutEventEP11QFocusEvent',
-        self._addressOf(focusOutEvent),
-    )
+    ritual = 'ritual_ZN13QMdiSubWindow13focusOutEventEP11QFocusEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN13QMdiSubWindow13focusOutEventEP11QFocusEvent'
+    self.uglySide.call(ritual, self._addressOf(focusOutEvent))
 
   @overload(QChildEvent)
   @overload(NoneType)
@@ -1023,10 +1031,10 @@ class QMdiSubWindow(QWidget):
       object.
     """
     #  void QMdiSubWindow::childEvent(QChildEvent *childEvent)
-    self.uglySide.call(
-        'ritual_own_ZN13QMdiSubWindow10childEventEP11QChildEvent',
-        self._addressOf(childEvent),
-    )
+    ritual = 'ritual_ZN13QMdiSubWindow10childEventEP11QChildEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN13QMdiSubWindow10childEventEP11QChildEvent'
+    self.uglySide.call(ritual, self._addressOf(childEvent))
 
 
 #  Qt's 'QList<QMdiSubWindow *>': the list of QMdiSubWindow, which

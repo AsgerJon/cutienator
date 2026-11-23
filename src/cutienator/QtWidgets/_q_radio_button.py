@@ -61,8 +61,8 @@ class QRadioButton(QAbstractButton):
   What has no ritual
   ------------------
 
-  8 of the 20 functions Qt declares: 3 private; 2 takes or gives a type that
-  cannot be passed yet; 2 forbidden; 1 a template.
+  8 of the 20 functions Qt declares: 4 takes or gives a type that cannot be
+  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found.
 
   What to expect
   --------------
@@ -239,10 +239,10 @@ class QRadioButton(QAbstractButton):
       own.
     """
     #  bool QRadioButton::hitButton(const QPoint &a0) const
-    return self.uglySide.call(
-        'ritual_own_ZNK12QRadioButton9hitButtonERK6QPoint',
-        self._valueOf(a0),
-    )
+    ritual = 'ritual_ZNK12QRadioButton9hitButtonERK6QPoint'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK12QRadioButton9hitButtonERK6QPoint'
+    return self.uglySide.call(ritual, self._valueOf(a0))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -344,9 +344,10 @@ class QRadioButton(QAbstractButton):
       object.
     """
     #  bool QRadioButton::event(QEvent *e)
-    return self.uglySide.call(
-        'ritual_own_ZN12QRadioButton5eventEP6QEvent', self._addressOf(e),
-    )
+    ritual = 'ritual_ZN12QRadioButton5eventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN12QRadioButton5eventEP6QEvent'
+    return self.uglySide.call(ritual, self._addressOf(e))
 
   @overload(QPaintEvent)
   @overload(NoneType)
@@ -364,10 +365,10 @@ class QRadioButton(QAbstractButton):
       object.
     """
     #  void QRadioButton::paintEvent(QPaintEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN12QRadioButton10paintEventEP11QPaintEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN12QRadioButton10paintEventEP11QPaintEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN12QRadioButton10paintEventEP11QPaintEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QMouseEvent)
   @overload(NoneType)
@@ -385,10 +386,10 @@ class QRadioButton(QAbstractButton):
       object.
     """
     #  void QRadioButton::mouseMoveEvent(QMouseEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN12QRadioButton14mouseMoveEventEP11QMouseEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN12QRadioButton14mouseMoveEventEP11QMouseEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN12QRadioButton14mouseMoveEventEP11QMouseEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QStyleOptionButton)
   @overload(NoneType)
@@ -407,8 +408,10 @@ class QRadioButton(QAbstractButton):
       object.
     """
     #  void QRadioButton::initStyleOption(QStyleOptionButton *button) const
-    self.uglySide.call(
-        'ritual_own_ZNK12QRadioButton15initStyleOptionEP18QStyleOptionButto'
-        'n',
-        self._addressOf(button),
-    )
+    ritual = (
+        'ritual_ZNK12QRadioButton15initStyleOptionEP18QStyleOptionButton')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK12QRadioButton15initStyleOptionEP18QStyleOptionBut'
+          'ton')
+    self.uglySide.call(ritual, self._addressOf(button))

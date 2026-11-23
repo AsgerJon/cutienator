@@ -69,8 +69,9 @@ class QToolBar(QWidget):
   What has no ritual
   ------------------
 
-  16 of the 50 functions Qt declares: 8 a signal; 3 private; 2 takes or gives
-  a type that cannot be passed yet; 2 forbidden; 1 a template.
+  16 of the 50 functions Qt declares: 8 a signal; 4 takes or gives a type
+  that cannot be passed yet; 2 forbidden; 1 a template; 1 declared and
+  nowhere to be found.
 
   What to expect
   --------------
@@ -774,10 +775,10 @@ class QToolBar(QWidget):
       object.
     """
     #  void QToolBar::actionEvent(QActionEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN8QToolBar11actionEventEP12QActionEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN8QToolBar11actionEventEP12QActionEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN8QToolBar11actionEventEP12QActionEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QEvent)
   @overload(NoneType)
@@ -795,10 +796,10 @@ class QToolBar(QWidget):
       object.
     """
     #  void QToolBar::changeEvent(QEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN8QToolBar11changeEventEP6QEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN8QToolBar11changeEventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN8QToolBar11changeEventEP6QEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QPaintEvent)
   @overload(NoneType)
@@ -816,10 +817,10 @@ class QToolBar(QWidget):
       object.
     """
     #  void QToolBar::paintEvent(QPaintEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN8QToolBar10paintEventEP11QPaintEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN8QToolBar10paintEventEP11QPaintEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN8QToolBar10paintEventEP11QPaintEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QEvent)
   @overload(NoneType)
@@ -837,9 +838,10 @@ class QToolBar(QWidget):
       object.
     """
     #  bool QToolBar::event(QEvent *event)
-    return self.uglySide.call(
-        'ritual_own_ZN8QToolBar5eventEP6QEvent', self._addressOf(event),
-    )
+    ritual = 'ritual_ZN8QToolBar5eventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN8QToolBar5eventEP6QEvent'
+    return self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QStyleOptionToolBar)
   @overload(NoneType)
@@ -858,7 +860,8 @@ class QToolBar(QWidget):
       object.
     """
     #  void QToolBar::initStyleOption(QStyleOptionToolBar *option) const
-    self.uglySide.call(
-        'ritual_own_ZNK8QToolBar15initStyleOptionEP19QStyleOptionToolBar',
-        self._addressOf(option),
-    )
+    ritual = 'ritual_ZNK8QToolBar15initStyleOptionEP19QStyleOptionToolBar'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK8QToolBar15initStyleOptionEP19QStyleOptionToolBar')
+    self.uglySide.call(ritual, self._addressOf(option))

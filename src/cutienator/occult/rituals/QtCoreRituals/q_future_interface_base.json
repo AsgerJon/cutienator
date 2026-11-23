@@ -131,6 +131,31 @@
     ],
     "ritual_ZNK20QFutureInterfaceBase15isChainCanceledEv": [
       "bool", "address"
+    ],
+    "ritual_ZNK20QFutureInterfaceBase4refTEv": ["bool", "address"],
+    "ritual_ZNK20QFutureInterfaceBase6derefTEv": ["bool", "address"],
+    "ritual_ZN20QFutureInterfaceBase5resetEv": ["nothing", "address"],
+    "ritual_ZN20QFutureInterfaceBase24rethrowPossibleExceptionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QFutureInterfaceBase17cleanContinuationEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK20QFutureInterfaceBase15runContinuationEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QFutureInterfaceBase14setLaunchAsyncEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK20QFutureInterfaceBase11launchAsyncEv": ["bool", "address"],
+    "ritual_ZNK20QFutureInterfaceBase18isRunningOrPendingEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN20QFutureInterfaceBase6cancelENS_10CancelModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QFutureInterfaceBase11cancelChainENS_10CancelModeE": [
+      "nothing", "address", "int"
     ]
   }
 }

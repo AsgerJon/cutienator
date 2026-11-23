@@ -395,3 +395,17 @@ QByteArray *ritual_ZN17QCborStreamReader16readAllByteArrayEv(
     QCborStreamReader *self) {
   return new QByteArray(self->readAllByteArray());
 }
+
+//  bool QCborStreamReader::_enterContainer_helper()
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN17QCborStreamReader22_enterContainer_helperEv(
+    QCborStreamReader *self) {
+  return self->_enterContainer_helper();
+}
+
+//  qsizetype QCborStreamReader::_currentStringChunkSize() const
+extern "C" Q_DECL_EXPORT
+qsizetype ritual_ZNK17QCborStreamReader23_currentStringChunkSizeEv(
+    const QCborStreamReader *self) {
+  return self->_currentStringChunkSize();
+}

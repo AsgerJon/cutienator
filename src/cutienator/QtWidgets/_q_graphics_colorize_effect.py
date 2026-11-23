@@ -58,8 +58,9 @@ class QGraphicsColorizeEffect(QGraphicsEffect):
   What has no ritual
   ------------------
 
-  10 of the 19 functions Qt declares: 3 private; 2 takes or gives a type that
-  cannot be passed yet; 2 a signal; 2 forbidden; 1 a template.
+  10 of the 19 functions Qt declares: 4 takes or gives a type that cannot be
+  passed yet; 2 a signal; 2 forbidden; 1 a template; 1 declared and nowhere
+  to be found.
 
   What to expect
   --------------
@@ -320,7 +321,7 @@ class QGraphicsColorizeEffect(QGraphicsEffect):
       object.
     """
     #  void QGraphicsColorizeEffect::draw(QPainter *painter)
-    self.uglySide.call(
-        'ritual_own_ZN23QGraphicsColorizeEffect4drawEP8QPainter',
-        self._addressOf(painter),
-    )
+    ritual = 'ritual_ZN23QGraphicsColorizeEffect4drawEP8QPainter'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN23QGraphicsColorizeEffect4drawEP8QPainter'
+    self.uglySide.call(ritual, self._addressOf(painter))

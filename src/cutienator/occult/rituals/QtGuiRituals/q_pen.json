@@ -41,9 +41,17 @@
     "ritual_ZNK4QPenneERKS_": ["bool", "address", "address"],
     "ritual_ZNK4QPencv8QVariantEv": ["address", "address"],
     "ritual_ZN4QPen10isDetachedEv": ["bool", "address"],
+    "ritual_ZNK4QPen18isSolidDefaultLineEv": ["bool", "address"],
+    "ritual_ZNK4QPen19doCompareEqualColorE6QColor": [
+      "bool", "address", "address"
+    ],
     "ritual_ZeqRK4QPenRK6QColor": ["bool", "address", "address"],
     "ritual_ZneRK4QPenRK6QColor": ["bool", "address", "address"],
     "ritual_ZeqRK6QColorRK4QPen": ["bool", "address", "address"],
-    "ritual_ZneRK6QColorRK4QPen": ["bool", "address", "address"]
+    "ritual_ZneRK6QColorRK4QPen": ["bool", "address", "address"],
+    "ritual_ZNK4QPen19doCompareEqualStyleEN2Qt8PenStyleE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN4QPen6detachEv": ["nothing", "address"]
   }
 }

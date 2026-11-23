@@ -873,6 +873,48 @@ void ritual_ZN10QStatusBar12clearMessageEv(QStatusBar *self) {
   self->clearMessage();
 }
 
+//  void QStatusBar::showEvent(QShowEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QStatusBar9showEventEP10QShowEvent(
+    QStatusBar *self,
+    QShowEvent *a0) {
+  self->showEvent(a0);
+}
+
+//  void QStatusBar::paintEvent(QPaintEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QStatusBar10paintEventEP11QPaintEvent(
+    QStatusBar *self,
+    QPaintEvent *a0) {
+  self->paintEvent(a0);
+}
+
+//  void QStatusBar::resizeEvent(QResizeEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QStatusBar11resizeEventEP12QResizeEvent(
+    QStatusBar *self,
+    QResizeEvent *a0) {
+  self->resizeEvent(a0);
+}
+
+//  void QStatusBar::reformat()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QStatusBar8reformatEv(QStatusBar *self) {
+  self->reformat();
+}
+
+//  void QStatusBar::hideOrShow()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QStatusBar10hideOrShowEv(QStatusBar *self) {
+  self->hideOrShow();
+}
+
+//  bool QStatusBar::event(QEvent *a0)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN10QStatusBar5eventEP6QEvent(QStatusBar *self, QEvent *a0) {
+  return self->event(a0);
+}
+
 //  a Python function taken by a CuteQStatusBar, for the function named by
 //      the key
 extern "C" Q_DECL_EXPORT

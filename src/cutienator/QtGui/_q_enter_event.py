@@ -57,7 +57,8 @@ class QEnterEvent(QSinglePointEvent):
   What has no ritual
   ------------------
 
-  4 of the 16 functions Qt declares: 2 protected; 2 forbidden.
+  4 of the 16 functions Qt declares: 2 takes or gives a type that cannot be
+  passed yet; 2 forbidden.
 
   What to expect
   --------------
@@ -258,6 +259,7 @@ class QEnterEvent(QSinglePointEvent):
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @overload(QPointF, QPointF, QPointF)
   @overload(QPointF, QPointF, QPointF, QPointingDevice)
   @overload(QPointF, QPointF, QPointF, NoneType)
   def __init__(
@@ -265,7 +267,7 @@ class QEnterEvent(QSinglePointEvent):
       localPos: QPointF,
       scenePos: QPointF,
       globalPos: QPointF,
-      device: Optional[QPointingDevice],
+      device: Optional[QPointingDevice] = ...,
   ) -> None:
     """
     Notes what was given, for Qt's 'QEnterEvent::QEnterEvent(const QPointF
@@ -291,11 +293,15 @@ class QEnterEvent(QSinglePointEvent):
 
     device : Optional[QPointingDevice]
       Passed on as the address of its C++ object. None is passed on as no
-      object.
+      object. May be left out, as in Qt: what
+      'QPointingDevice.primaryPointingDevice()' gives is then passed on.
     """
     #  QEnterEvent::QEnterEvent(const QPointF &localPos, const QPointF
     #      &scenePos, const QPointF &globalPos, const QPointingDevice
     #      *device)
+    if device is ...:
+      from . import QPointingDevice
+      device = QPointingDevice.primaryPointingDevice()
     self._noteCreation(QEnterEvent, lambda: Rituals.call(
         'ritual_ZN11QEnterEventC1ERK7QPointFS2_S2_PK15QPointingDevice',
         self._valueOf(localPos), self._valueOf(scenePos),

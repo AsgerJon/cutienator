@@ -46,14 +46,14 @@ class QLatin1String(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QLatin1String that has a ritual and that Python can
-  call so far, 41 names in all: 'toString', 'toUtf8', 'latin1', 'size',
+  call so far, 44 names in all: 'toString', 'toUtf8', 'latin1', 'size',
   'data', 'constData', 'constBegin', 'constEnd', 'first', 'last', 'length',
   'isNull', 'isEmpty', 'empty', 'at', '__getitem__', 'front', 'back',
   'compare', 'startsWith', 'endsWith', 'indexOf', 'contains', 'lastIndexOf',
   'count', 'max_size', 'maxSize', 'mid', 'left', 'right', 'sliced',
   'chopped', 'chop', 'truncate', 'trimmed', '__eq__', '__ne__', '__lt__',
-  '__gt__', '__le__', '__ge__'. It can be made from Python, in 6 ways; see
-  '__init__'.
+  '__gt__', '__le__', '__ge__', 'verify', 'compare_helper', 'equal_helper'.
+  It can be made from Python, in 6 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -156,8 +156,8 @@ class QLatin1String(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  31 of the 163 functions Qt declares: 23 takes or gives a type that cannot
-  be passed yet; 5 private; 3 a template.
+  26 of the 163 functions Qt declares: 23 takes or gives a type that cannot
+  be passed yet; 3 a template.
 
   What to expect
   --------------
@@ -186,6 +186,137 @@ class QLatin1String(CuteMixin, metaclass=MetaCute):
     """
     #  qsizetype QLatin1String::maxSize()
     return Rituals.call('ritual_ZN13QLatin1String7maxSizeEv')
+
+  @staticmethod
+  @overload(THIS, str)
+  @overload(THIS, NoneType)
+  def compare_helper(s1: QLatin1String, s2: Optional[str]) -> int:
+    """
+    Calls Qt's 'int QLatin1String::compare_helper(const QLatin1StringView
+    &s1, const char *s2)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlatin1string.html#compare_helper
+
+    Parameters
+    ----------
+
+    s1 : QLatin1String
+      Passed on as a value: Qt reads the C++ QLatin1String, which stays
+      Python's own.
+
+    s2 : Optional[str]
+      Passed on as the bytes of the text. None is passed on as no text.
+    """
+    #  int QLatin1String::compare_helper(const QLatin1StringView &s1, const
+    #      char *s2)
+    return Rituals.call(
+        'ritual_ZN13QLatin1String14compare_helperERKS_PKc',
+        CuteMixin._valueOf(s1), CuteMixin._bytesOf(s2),
+    )
+
+  @staticmethod
+  @overload(THIS, str, int)
+  @overload(THIS, NoneType, int)
+  def compare_helper(s1: QLatin1String, s2: Optional[str], len: int) -> int:
+    """
+    Calls Qt's 'int QLatin1String::compare_helper(const QLatin1StringView
+    &s1, const char *s2, qsizetype len)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlatin1string.html#compare_helper
+
+    Parameters
+    ----------
+
+    s1 : QLatin1String
+      Passed on as a value: Qt reads the C++ QLatin1String, which stays
+      Python's own.
+
+    s2 : Optional[str]
+      Passed on as the bytes of the text. None is passed on as no text.
+
+    len : int
+      Passed on as it is.
+    """
+    #  int QLatin1String::compare_helper(const QLatin1StringView &s1, const
+    #      char *s2, qsizetype len)
+    return Rituals.call(
+        'ritual_ZN13QLatin1String14compare_helperERKS_PKcx',
+        CuteMixin._valueOf(s1), CuteMixin._bytesOf(s2), len,
+    )
+
+  @staticmethod
+  @overload(QChar, int, THIS)
+  @overload(NoneType, int, THIS)
+  @overload(QChar, int, THIS, Qt.CaseSensitivity)
+  @overload(NoneType, int, THIS, Qt.CaseSensitivity)
+  def compare_helper(
+      data1: Optional[QChar],
+      length1: int,
+      s2: QLatin1String,
+      cs: Qt.CaseSensitivity = Qt.CaseSensitivity.CaseSensitive,
+  ) -> int:
+    """
+    Calls Qt's 'int QLatin1String::compare_helper(const QChar *data1,
+    qsizetype length1, QLatin1StringView s2, Qt::CaseSensitivity cs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlatin1string.html#compare_helper
+
+    Parameters
+    ----------
+
+    data1 : Optional[QChar]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    length1 : int
+      Passed on as it is.
+
+    s2 : QLatin1String
+      Passed on as a value: Qt reads the C++ QLatin1String, which stays
+      Python's own.
+
+    cs : Qt.CaseSensitivity
+      Passed on as its number. May be left out, as in Qt: it is then
+      Qt.CaseSensitivity.CaseSensitive.
+    """
+    #  int QLatin1String::compare_helper(const QChar *data1, qsizetype
+    #      length1, QLatin1StringView s2, Qt::CaseSensitivity cs)
+    return Rituals.call(
+        'ritual_ZN13QLatin1String14compare_helperEPK5QCharxS_N2Qt15CaseSens'
+        'itivityE',
+        CuteMixin._addressOf(data1), length1, CuteMixin._valueOf(s2),
+        cs.value,
+    )
+
+  @staticmethod
+  @overload(THIS, str, int)
+  @overload(THIS, NoneType, int)
+  def equal_helper(s1: QLatin1String, s2: Optional[str], len: int) -> bool:
+    """
+    Calls Qt's 'bool QLatin1String::equal_helper(QLatin1StringView s1, const
+    char *s2, qsizetype len)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlatin1string.html#equal_helper
+
+    Parameters
+    ----------
+
+    s1 : QLatin1String
+      Passed on as a value: Qt reads the C++ QLatin1String, which stays
+      Python's own.
+
+    s2 : Optional[str]
+      Passed on as the bytes of the text. None is passed on as no text.
+
+    len : int
+      Passed on as it is.
+    """
+    #  bool QLatin1String::equal_helper(QLatin1StringView s1, const char *s2,
+    #      qsizetype len)
+    return Rituals.call(
+        'ritual_ZN13QLatin1String12equal_helperES_PKcx',
+        CuteMixin._valueOf(s1), CuteMixin._bytesOf(s2), len,
+    )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -2422,3 +2553,24 @@ class QLatin1String(CuteMixin, metaclass=MetaCute):
     """
     #  void QLatin1String::truncate(qsizetype n)
     self.uglySide.call('ritual_ZN13QLatin1String8truncateEx', n)
+
+  @overload(int)
+  @overload(int, int)
+  def verify(self, pos: int, n: int = 1) -> None:
+    """
+    Calls Qt's 'void QLatin1String::verify(qsizetype pos, qsizetype n)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlatin1string.html#verify
+
+    Parameters
+    ----------
+
+    pos : int
+      Passed on as it is.
+
+    n : int
+      Passed on as it is. May be left out, as in Qt: it is then 1.
+    """
+    #  void QLatin1String::verify(qsizetype pos, qsizetype n) const
+    self.uglySide.call('ritual_ZNK13QLatin1String6verifyExx', pos, n)

@@ -67,7 +67,7 @@ class QPainter(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QPainter that has a ritual and that Python can call
-  so far, 90 names in all: 'device', 'begin', 'end', 'isActive',
+  so far, 92 names in all: 'device', 'begin', 'end', 'isActive',
   'setCompositionMode', 'compositionMode', 'font', 'setFont', 'fontMetrics',
   'fontInfo', 'setPen', 'pen', 'setBrush', 'brush', 'setBackgroundMode',
   'backgroundMode', 'brushOrigin', 'brushOriginF', 'setBrushOrigin',
@@ -86,8 +86,8 @@ class QPainter(CuteMixin, metaclass=MetaCute):
   'setLayoutDirection', 'layoutDirection', 'drawGlyphRun', 'drawStaticText',
   'drawText', 'boundingRect', 'drawTextItem', 'fillRect', 'eraseRect',
   'setRenderHint', 'setRenderHints', 'renderHints', 'testRenderHint',
-  'paintEngine', 'beginNativePainting', 'endNativePainting'. It can be made
-  from Python, in 2 ways; see '__init__'.
+  'paintEngine', 'beginNativePainting', 'endNativePainting', 'doSetPen',
+  'doSetBrush'. It can be made from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -98,9 +98,8 @@ class QPainter(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  11 of the 211 functions Qt declares: 5 private; 2 takes or gives a type
-  that cannot be passed yet; 2 forbidden; 1 declared and nowhere to be found;
-  1 a template.
+  9 of the 211 functions Qt declares: 4 takes or gives a type that cannot be
+  passed yet; 2 declared and nowhere to be found; 2 forbidden; 1 a template.
 
   What to expect
   --------------
@@ -5380,3 +5379,53 @@ class QPainter(CuteMixin, metaclass=MetaCute):
     """
     #  void QPainter::endNativePainting()
     self.uglySide.call('ritual_ZN8QPainter17endNativePaintingEv')
+
+  @overload(QPen, QPen)
+  @overload(QPen, NoneType)
+  def doSetPen(self, lvalue: QPen, rvalue: Optional[QPen]) -> None:
+    """
+    Calls Qt's 'void QPainter::doSetPen(const QPen &lvalue, QPen *rvalue)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpainter.html#doSetPen
+
+    Parameters
+    ----------
+
+    lvalue : QPen
+      Passed on as a value: Qt reads the C++ QPen, which stays Python's own.
+
+    rvalue : Optional[QPen]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QPainter::doSetPen(const QPen &lvalue, QPen *rvalue)
+    self.uglySide.call(
+        'ritual_ZN8QPainter8doSetPenERK4QPenPS0_',
+        self._valueOf(lvalue), self._addressOf(rvalue),
+    )
+
+  @overload(QBrush, QBrush)
+  @overload(QBrush, NoneType)
+  def doSetBrush(self, lvalue: QBrush, rvalue: Optional[QBrush]) -> None:
+    """
+    Calls Qt's 'void QPainter::doSetBrush(const QBrush &lvalue, QBrush
+    *rvalue)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpainter.html#doSetBrush
+
+    Parameters
+    ----------
+
+    lvalue : QBrush
+      Passed on as a value: Qt reads the C++ QBrush, which stays Python's
+      own.
+
+    rvalue : Optional[QBrush]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QPainter::doSetBrush(const QBrush &lvalue, QBrush *rvalue)
+    self.uglySide.call(
+        'ritual_ZN8QPainter10doSetBrushERK6QBrushPS0_',
+        self._valueOf(lvalue), self._addressOf(rvalue),
+    )

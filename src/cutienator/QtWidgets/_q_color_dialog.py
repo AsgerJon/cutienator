@@ -60,8 +60,9 @@ class QColorDialog(QDialog):
   What has no ritual
   ------------------
 
-  10 of the 32 functions Qt declares: 3 private; 2 takes or gives a type that
-  cannot be passed yet; 2 a signal; 2 forbidden; 1 a template.
+  10 of the 32 functions Qt declares: 4 takes or gives a type that cannot be
+  passed yet; 2 a signal; 2 forbidden; 1 a template; 1 declared and nowhere
+  to be found.
 
   What to expect
   --------------
@@ -642,10 +643,10 @@ class QColorDialog(QDialog):
       object.
     """
     #  void QColorDialog::changeEvent(QEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN12QColorDialog11changeEventEP6QEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN12QColorDialog11changeEventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN12QColorDialog11changeEventEP6QEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(int)
   def done(self, result: int) -> None:
@@ -661,4 +662,7 @@ class QColorDialog(QDialog):
       Passed on as it is.
     """
     #  void QColorDialog::done(int result)
-    self.uglySide.call('ritual_own_ZN12QColorDialog4doneEi', result)
+    ritual = 'ritual_ZN12QColorDialog4doneEi'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN12QColorDialog4doneEi'
+    self.uglySide.call(ritual, result)

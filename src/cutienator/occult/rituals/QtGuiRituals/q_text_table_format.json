@@ -39,6 +39,7 @@
       "nothing", "address", "bool"
     ],
     "ritual_ZNK16QTextTableFormat14borderCollapseEv": ["bool", "address"],
+    "ritual_ZN16QTextTableFormatC1ERK11QTextFormat": ["address", "address"],
     "ritual_ZN16QTextTableFormatD1Ev": ["nothing", "address"]
   }
 }

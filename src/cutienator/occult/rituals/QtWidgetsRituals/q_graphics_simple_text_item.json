@@ -36,6 +36,15 @@
       "address", "address"
     ],
     "ritual_ZNK23QGraphicsSimpleTextItem4typeEv": ["int", "address"],
+    "ritual_ZNK23QGraphicsSimpleTextItem17supportsExtensionEN13QGraphicsItem9ExtensionE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN23QGraphicsSimpleTextItem12setExtensionEN13QGraphicsItem9ExtensionERK8QVariant": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZNK23QGraphicsSimpleTextItem9extensionERK8QVariant": [
+      "address", "address", "address"
+    ],
     "ritual_take_QGraphicsSimpleTextItem": [
       "bool", "address", "chars", "address"
     ],

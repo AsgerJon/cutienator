@@ -55,8 +55,8 @@ class QErrorMessage(QDialog):
   What has no ritual
   ------------------
 
-  8 of the 17 functions Qt declares: 3 private; 2 takes or gives a type that
-  cannot be passed yet; 2 forbidden; 1 a template.
+  8 of the 17 functions Qt declares: 4 takes or gives a type that cannot be
+  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found.
 
   What to expect
   --------------
@@ -295,7 +295,10 @@ class QErrorMessage(QDialog):
       Passed on as it is.
     """
     #  void QErrorMessage::done(int a0)
-    self.uglySide.call('ritual_own_ZN13QErrorMessage4doneEi', a0)
+    ritual = 'ritual_ZN13QErrorMessage4doneEi'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN13QErrorMessage4doneEi'
+    self.uglySide.call(ritual, a0)
 
   @overload(QEvent)
   @overload(NoneType)
@@ -313,7 +316,7 @@ class QErrorMessage(QDialog):
       object.
     """
     #  void QErrorMessage::changeEvent(QEvent *e)
-    self.uglySide.call(
-        'ritual_own_ZN13QErrorMessage11changeEventEP6QEvent',
-        self._addressOf(e),
-    )
+    ritual = 'ritual_ZN13QErrorMessage11changeEventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN13QErrorMessage11changeEventEP6QEvent'
+    self.uglySide.call(ritual, self._addressOf(e))

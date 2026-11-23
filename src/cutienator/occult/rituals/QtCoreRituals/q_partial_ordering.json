@@ -66,6 +66,13 @@
     "ritual_ZneN2Qt16partial_orderingE16QPartialOrdering": [
       "bool", "address", "address"
     ],
+    "ritual_ZN16QPartialOrderingC1EN9QtPrivate8OrderingE": [
+      "address", "signed char"
+    ],
+    "ritual_ZN16QPartialOrderingC1EN9QtPrivate18LegacyUncomparableE": [
+      "address", "signed char"
+    ],
+    "ritual_ZNK16QPartialOrdering9isOrderedEv": ["bool", "address"],
     "ritual_ZN16QPartialOrderingD1Ev": ["nothing", "address"]
   }
 }

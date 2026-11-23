@@ -275,6 +275,14 @@ QVariant *ritual_ZNK11QColorSpacecv8QVariantEv(const QColorSpace *self) {
   return new QVariant(self->operator QVariant());
 }
 
+//  bool QColorSpace::equals(const QColorSpace &other) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK11QColorSpace6equalsERKS_(
+    const QColorSpace *self,
+    const QColorSpace *other) {
+  return self->equals(*other);
+}
+
 //  QDebug operator<<(QDebug dbg, const QColorSpace &colorSpace)
 extern "C" Q_DECL_EXPORT
 QDebug *ritual_Zls6QDebugRK11QColorSpace(

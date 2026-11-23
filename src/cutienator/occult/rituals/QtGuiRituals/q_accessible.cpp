@@ -82,6 +82,12 @@ void ritual_ZN11QAccessible7cleanupEv() {
   QAccessible::cleanup();
 }
 
+//  QAccessible::QAccessible()
+extern "C" Q_DECL_EXPORT
+QAccessible *ritual_ZN11QAccessibleC1Ev() {
+  return new QAccessible();
+}
+
 //  QAccessible::~QAccessible()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QAccessibleD1Ev(QAccessible *self) {

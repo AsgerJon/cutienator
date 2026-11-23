@@ -177,6 +177,15 @@
     "ritual_ZN12QPainterPathaNERKS_": ["nothing", "address", "address"],
     "ritual_ZN12QPainterPathoRERKS_": ["nothing", "address", "address"],
     "ritual_ZN12QPainterPathpLERKS_": ["nothing", "address", "address"],
-    "ritual_ZN12QPainterPathmIERKS_": ["nothing", "address", "address"]
+    "ritual_ZN12QPainterPathmIERKS_": ["nothing", "address", "address"],
+    "ritual_ZN12QPainterPath10ensureDataEv": ["nothing", "address"],
+    "ritual_ZN12QPainterPath17ensureData_helperEv": ["nothing", "address"],
+    "ritual_ZN12QPainterPath8setDirtyEb": ["nothing", "address", "bool"],
+    "ritual_ZNK12QPainterPath19computeBoundingRectEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK12QPainterPath23computeControlPointRectEv": [
+      "nothing", "address"
+    ]
   }
 }

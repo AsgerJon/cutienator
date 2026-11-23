@@ -968,6 +968,104 @@ void ritual_ZN11QToolButton16setDefaultActionEP7QAction(
   self->setDefaultAction(a0);
 }
 
+//  bool QToolButton::event(QEvent *e)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN11QToolButton5eventEP6QEvent(QToolButton *self, QEvent *e) {
+  return self->event(e);
+}
+
+//  void QToolButton::mousePressEvent(QMouseEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QToolButton15mousePressEventEP11QMouseEvent(
+    QToolButton *self,
+    QMouseEvent *a0) {
+  self->mousePressEvent(a0);
+}
+
+//  void QToolButton::mouseReleaseEvent(QMouseEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QToolButton17mouseReleaseEventEP11QMouseEvent(
+    QToolButton *self,
+    QMouseEvent *a0) {
+  self->mouseReleaseEvent(a0);
+}
+
+//  void QToolButton::paintEvent(QPaintEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QToolButton10paintEventEP11QPaintEvent(
+    QToolButton *self,
+    QPaintEvent *a0) {
+  self->paintEvent(a0);
+}
+
+//  void QToolButton::actionEvent(QActionEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QToolButton11actionEventEP12QActionEvent(
+    QToolButton *self,
+    QActionEvent *a0) {
+  self->actionEvent(a0);
+}
+
+//  void QToolButton::enterEvent(QEnterEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QToolButton10enterEventEP11QEnterEvent(
+    QToolButton *self,
+    QEnterEvent *a0) {
+  self->enterEvent(a0);
+}
+
+//  void QToolButton::leaveEvent(QEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QToolButton10leaveEventEP6QEvent(
+    QToolButton *self,
+    QEvent *a0) {
+  self->leaveEvent(a0);
+}
+
+//  void QToolButton::timerEvent(QTimerEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QToolButton10timerEventEP11QTimerEvent(
+    QToolButton *self,
+    QTimerEvent *a0) {
+  self->timerEvent(a0);
+}
+
+//  void QToolButton::changeEvent(QEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QToolButton11changeEventEP6QEvent(
+    QToolButton *self,
+    QEvent *a0) {
+  self->changeEvent(a0);
+}
+
+//  bool QToolButton::hitButton(const QPoint &pos) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK11QToolButton9hitButtonERK6QPoint(
+    const QToolButton *self,
+    const QPoint *pos) {
+  return self->hitButton(*pos);
+}
+
+//  void QToolButton::checkStateSet()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QToolButton13checkStateSetEv(QToolButton *self) {
+  self->checkStateSet();
+}
+
+//  void QToolButton::nextCheckState()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QToolButton14nextCheckStateEv(QToolButton *self) {
+  self->nextCheckState();
+}
+
+//  void QToolButton::initStyleOption(QStyleOptionToolButton *option) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK11QToolButton15initStyleOptionEP22QStyleOptionToolButton(
+    const QToolButton *self,
+    QStyleOptionToolButton *option) {
+  self->initStyleOption(option);
+}
+
 //  a Python function taken by a CuteQToolButton, for the function named by
 //      the key
 extern "C" Q_DECL_EXPORT

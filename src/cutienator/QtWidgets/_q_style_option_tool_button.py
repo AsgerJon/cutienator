@@ -35,7 +35,7 @@ class QStyleOptionToolButton(QStyleOptionComplex):
   -----------
 
   No function of Qt's QStyleOptionToolButton yet. It can be made from Python,
-  in 2 ways; see '__init__'.
+  in 3 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -47,8 +47,8 @@ class QStyleOptionToolButton(QStyleOptionComplex):
   What has no ritual
   ------------------
 
-  2 of the 5 functions Qt declares: 1 takes or gives a type that cannot be
-  passed yet; 1 protected.
+  1 of the 5 functions Qt declares: 1 takes or gives a type that cannot be
+  passed yet.
 
   What to expect
   --------------
@@ -180,6 +180,27 @@ class QStyleOptionToolButton(QStyleOptionComplex):
     #      QStyleOptionToolButton &other)
     self._noteCreation(QStyleOptionToolButton, lambda: Rituals.call(
         'ritual_ZN22QStyleOptionToolButtonC1ERKS_', self._valueOf(other),
+    ))
+
+  @overload(int)
+  def __init__(self, version: int) -> None:
+    """
+    Notes what was given, for Qt's
+    'QStyleOptionToolButton::QStyleOptionToolButton(int version)', which is
+    called at the first use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qstyleoptiontoolbutton.html#QStyleOptionToolButton
+
+    Parameters
+    ----------
+
+    version : int
+      Passed on as it is.
+    """
+    #  QStyleOptionToolButton::QStyleOptionToolButton(int version)
+    self._noteCreation(QStyleOptionToolButton, lambda: Rituals.call(
+        'ritual_ZN22QStyleOptionToolButtonC1Ei', version,
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

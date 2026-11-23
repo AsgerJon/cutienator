@@ -63,8 +63,8 @@ class QTextFrame(QTextObject):
   What has no ritual
   ------------------
 
-  9 of the 25 functions Qt declares: 3 private; 2 takes or gives a type that
-  cannot be passed yet; 2 forbidden; 1 a template; 1 protected.
+  9 of the 25 functions Qt declares: 5 takes or gives a type that cannot be
+  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found.
 
   What to expect
   --------------
@@ -98,7 +98,7 @@ class QTextFrame(QTextObject):
     Every function of Qt's QTextFrame::iterator that has a ritual and that
     Python can call so far, 6 names in all: 'parentFrame', 'currentFrame',
     'currentBlock', 'atEnd', '__eq__', '__ne__'. It can be made from Python,
-    in 1 way; see '__init__'.
+    in 2 ways; see '__init__'.
 
     What has a ritual and is left out, and why
     ------------------------------------------
@@ -114,8 +114,8 @@ class QTextFrame(QTextObject):
     What has no ritual
     ------------------
 
-    3 of the 13 functions Qt declares: 2 takes or gives a type that cannot be
-    passed yet; 1 private.
+    2 of the 13 functions Qt declares: 2 takes or gives a type that cannot be
+    passed yet.
 
     What to expect
     --------------
@@ -130,6 +130,12 @@ class QTextFrame(QTextObject):
     - A function giving a QTextFrame::iterator back gives a copy the ritual
       made for Python, in a new cute QTextFrame::iterator.
     """
+
+    #  The cute classes this class names and is not built on. Each waits
+    #  until it is made; see 'WAIT'. A type checker reads the imports at the
+    #  top of the file instead.
+    if not TYPE_CHECKING:
+      QTextFrame = WAIT['QTextFrame']
 
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -304,6 +310,46 @@ class QTextFrame(QTextObject):
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    @overload(QTextFrame, int, int, int)
+    @overload(NoneType, int, int, int)
+    def __init__(
+        self,
+        frame: Optional[QTextFrame],
+        block: int,
+        begin: int,
+        end: int,
+    ) -> None:
+      """
+      Notes what was given, for Qt's
+      'QTextFrame::iterator::iterator(QTextFrame *frame, int block, int
+      begin, int end)', which is called at the first use.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qtextframe-iterator.html#iterator
+
+      Parameters
+      ----------
+
+      frame : Optional[QTextFrame]
+        Passed on as the address of its C++ object. None is passed on as no
+        object.
+
+      block : int
+        Passed on as it is.
+
+      begin : int
+        Passed on as it is.
+
+      end : int
+        Passed on as it is.
+      """
+      #  QTextFrame::iterator::iterator(QTextFrame *frame, int block, int
+      #      begin, int end)
+      self._noteCreation(QTextFrame.iterator, lambda: Rituals.call(
+          'ritual_ZN10QTextFrame8iteratorC1EPS_iii',
+          self._addressOf(frame), block, begin, end,
+      ))
 
     @overload()
     def __init__(self) -> None:

@@ -13,18 +13,20 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
+from ..QtCore import QList
 from . import QTextObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QMetaObject
-  from . import QTextBlock
+  from . import QTextBlock, QTextDocument
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
   QTextBlock = WAIT['QTextBlock']
+  QTextDocument = WAIT['QTextDocument']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -43,15 +45,21 @@ class QTextBlockGroup(QTextObject):
   -----------
 
   Every function of Qt's QTextBlockGroup that has a ritual and that Python
-  can call so far, 5 names in all: 'metaObject', 'tr', 'blockInserted',
-  'blockRemoved', 'blockFormatChanged'. None can be made from Python: one
-  comes out of a function of another class that gives one back.
+  can call so far, 6 names in all: 'metaObject', 'tr', 'blockInserted',
+  'blockRemoved', 'blockFormatChanged', 'blockList'. It can be made from
+  Python, in 1 way; see '__init__'.
+
+  What has a ritual and is left out, and why
+  ------------------------------------------
+
+  - Qt's 'QTextBlockGroup::~QTextBlockGroup()': the destructor: Python never
+    removes a C++ QTextBlockGroup.
 
   What has no ritual
   ------------------
 
-  12 of the 17 functions Qt declares: 4 protected; 3 private; 2 takes or
-  gives a type that cannot be passed yet; 2 forbidden; 1 a template.
+  9 of the 17 functions Qt declares: 5 takes or gives a type that cannot be
+  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found.
 
   What to expect
   --------------
@@ -187,6 +195,23 @@ class QTextBlockGroup(QTextObject):
     from ..QtCore import QMetaObject
     return QMetaObject._cuteAt(address)
 
+  def blockList(self) -> QList[QTextBlock]:
+    """
+    Calls Qt's 'QList<QTextBlock> QTextBlockGroup::blockList() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextblockgroup.html#blockList
+
+    Returns
+    -------
+
+    QList[QTextBlock]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QTextBlock> QTextBlockGroup::blockList() const
+    address = self.uglySide.call('ritual_ZNK15QTextBlockGroup9blockListEv')
+    from . import QTextBlock
+    return QList[QTextBlock]._cuteOwning(address)
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -202,6 +227,30 @@ class QTextBlockGroup(QTextObject):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(QTextDocument)
+  @overload(NoneType)
+  def __init__(self, doc: Optional[QTextDocument]) -> None:
+    """
+    Notes what was given, for Qt's
+    'QTextBlockGroup::QTextBlockGroup(QTextDocument *doc)', which is called
+    at the first use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qtextblockgroup.html#QTextBlockGroup
+
+    Parameters
+    ----------
+
+    doc : Optional[QTextDocument]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  QTextBlockGroup::QTextBlockGroup(QTextDocument *doc)
+    self._noteCreation(QTextBlockGroup, lambda: Rituals.call(
+        'ritual_ZN15QTextBlockGroupC1EP13QTextDocument',
+        self._addressOf(doc),
+    ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -239,10 +288,10 @@ class QTextBlockGroup(QTextObject):
       own.
     """
     #  void QTextBlockGroup::blockInserted(const QTextBlock &block)
-    self.uglySide.call(
-        'ritual_own_ZN15QTextBlockGroup13blockInsertedERK10QTextBlock',
-        self._valueOf(block),
-    )
+    ritual = 'ritual_ZN15QTextBlockGroup13blockInsertedERK10QTextBlock'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN15QTextBlockGroup13blockInsertedERK10QTextBlock'
+    self.uglySide.call(ritual, self._valueOf(block))
 
   @overload(QTextBlock)
   def blockRemoved(self, block: QTextBlock) -> None:
@@ -259,10 +308,10 @@ class QTextBlockGroup(QTextObject):
       own.
     """
     #  void QTextBlockGroup::blockRemoved(const QTextBlock &block)
-    self.uglySide.call(
-        'ritual_own_ZN15QTextBlockGroup12blockRemovedERK10QTextBlock',
-        self._valueOf(block),
-    )
+    ritual = 'ritual_ZN15QTextBlockGroup12blockRemovedERK10QTextBlock'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN15QTextBlockGroup12blockRemovedERK10QTextBlock'
+    self.uglySide.call(ritual, self._valueOf(block))
 
   @overload(QTextBlock)
   def blockFormatChanged(self, block: QTextBlock) -> None:
@@ -281,7 +330,9 @@ class QTextBlockGroup(QTextObject):
       own.
     """
     #  void QTextBlockGroup::blockFormatChanged(const QTextBlock &block)
-    self.uglySide.call(
-        'ritual_own_ZN15QTextBlockGroup18blockFormatChangedERK10QTextBlock',
-        self._valueOf(block),
-    )
+    ritual = 'ritual_ZN15QTextBlockGroup18blockFormatChangedERK10QTextBlock'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN15QTextBlockGroup18blockFormatChangedERK10QTextBloc'
+          'k')
+    self.uglySide.call(ritual, self._valueOf(block))

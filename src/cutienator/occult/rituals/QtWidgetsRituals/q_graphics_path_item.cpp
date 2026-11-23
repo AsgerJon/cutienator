@@ -665,6 +665,32 @@ int ritual_ZNK17QGraphicsPathItem4typeEv(const QGraphicsPathItem *self) {
   return self->type();
 }
 
+//  bool QGraphicsPathItem::supportsExtension(Extension extension) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK17QGraphicsPathItem17supportsExtensionEN13QGraphicsItem9ExtensionE(
+    const QGraphicsPathItem *self,
+    QGraphicsItem::Extension extension) {
+  return self->supportsExtension(extension);
+}
+
+//  void QGraphicsPathItem::setExtension(Extension extension, const QVariant
+//      &variant)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QGraphicsPathItem12setExtensionEN13QGraphicsItem9ExtensionERK8QVariant(
+    QGraphicsPathItem *self,
+    QGraphicsItem::Extension extension,
+    const QVariant *variant) {
+  self->setExtension(extension, *variant);
+}
+
+//  QVariant QGraphicsPathItem::extension(const QVariant &variant) const
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZNK17QGraphicsPathItem9extensionERK8QVariant(
+    const QGraphicsPathItem *self,
+    const QVariant *variant) {
+  return new QVariant(self->extension(*variant));
+}
+
 //  a Python function taken by a CuteQGraphicsPathItem, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT

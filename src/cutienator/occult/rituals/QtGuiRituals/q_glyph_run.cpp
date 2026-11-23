@@ -180,6 +180,12 @@ bool ritual_ZNK9QGlyphRun7isEmptyEv(const QGlyphRun *self) {
   return self->isEmpty();
 }
 
+//  void QGlyphRun::detach()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QGlyphRun6detachEv(QGlyphRun *self) {
+  self->detach();
+}
+
 //  QList<QGlyphRun>::QList()
 extern "C" Q_DECL_EXPORT
 QList<QGlyphRun> *ritual_list_make_QGlyphRun() {

@@ -473,6 +473,91 @@ void ritual_ZN7QObject11deleteLaterEv(QObject *self) {
   self->deleteLater();
 }
 
+//  QObject *QObject::sender() const
+extern "C" Q_DECL_EXPORT
+QObject *ritual_ZNK7QObject6senderEv(const QObject *self) {
+  return self->sender();
+}
+
+//  int QObject::senderSignalIndex() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK7QObject17senderSignalIndexEv(const QObject *self) {
+  return self->senderSignalIndex();
+}
+
+//  int QObject::receivers(const char *signal) const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK7QObject9receiversEPKc(
+    const QObject *self,
+    const char *signal) {
+  return self->receivers(signal);
+}
+
+//  bool QObject::isSignalConnected(const QMetaMethod &signal) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK7QObject17isSignalConnectedERK11QMetaMethod(
+    const QObject *self,
+    const QMetaMethod *signal) {
+  return self->isSignalConnected(*signal);
+}
+
+//  void QObject::timerEvent(QTimerEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QObject10timerEventEP11QTimerEvent(
+    QObject *self,
+    QTimerEvent *event) {
+  self->timerEvent(event);
+}
+
+//  void QObject::childEvent(QChildEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QObject10childEventEP11QChildEvent(
+    QObject *self,
+    QChildEvent *event) {
+  self->childEvent(event);
+}
+
+//  void QObject::customEvent(QEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QObject11customEventEP6QEvent(QObject *self, QEvent *event) {
+  self->customEvent(event);
+}
+
+//  void QObject::connectNotify(const QMetaMethod &signal)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QObject13connectNotifyERK11QMetaMethod(
+    QObject *self,
+    const QMetaMethod *signal) {
+  self->connectNotify(*signal);
+}
+
+//  void QObject::disconnectNotify(const QMetaMethod &signal)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QObject16disconnectNotifyERK11QMetaMethod(
+    QObject *self,
+    const QMetaMethod *signal) {
+  self->disconnectNotify(*signal);
+}
+
+//  void QObject::doSetObjectName(const QString &name)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QObject15doSetObjectNameERK7QString(
+    QObject *self,
+    const QString *name) {
+  self->doSetObjectName(*name);
+}
+
+//  bool QObject::doSetProperty(const char *name, const QVariant &value,
+//      QVariant *rvalue)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN7QObject13doSetPropertyEPKcRK8QVariantPS2_(
+    QObject *self,
+    const char *name,
+    const QVariant *value,
+    QVariant *rvalue) {
+  return self->doSetProperty(name, *value, rvalue);
+}
+
 //  a Python function taken by a CuteQObject, for the function named by the
 //      key
 extern "C" Q_DECL_EXPORT

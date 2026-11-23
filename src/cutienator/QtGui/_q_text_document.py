@@ -92,9 +92,9 @@ class QTextDocument(QObject):
   What has no ritual
   ------------------
 
-  23 of the 118 functions Qt declares: 10 a signal; 6 takes or gives a type
-  that cannot be passed yet; 3 private; 2 forbidden; 1 a template; 1
-  protected.
+  23 of the 118 functions Qt declares: 10 a signal; 9 takes or gives a type
+  that cannot be passed yet; 2 forbidden; 1 a template; 1 declared and
+  nowhere to be found.
 
   What to expect
   --------------
@@ -2076,10 +2076,10 @@ class QTextDocument(QObject):
       no object.
     """
     #  QTextObject *QTextDocument::createObject(const QTextFormat &f)
-    address = self.uglySide.call(
-        'ritual_own_ZN13QTextDocument12createObjectERK11QTextFormat',
-        self._valueOf(f),
-    )
+    ritual = 'ritual_ZN13QTextDocument12createObjectERK11QTextFormat'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN13QTextDocument12createObjectERK11QTextFormat'
+    address = self.uglySide.call(ritual, self._valueOf(f))
     from . import QTextObject
     return QTextObject._cuteAt(address)
 
@@ -2107,9 +2107,9 @@ class QTextDocument(QObject):
       A new cute QVariant around the copy Qt gave back. Python owns it.
     """
     #  QVariant QTextDocument::loadResource(int type, const QUrl &name)
-    address = self.uglySide.call(
-        'ritual_own_ZN13QTextDocument12loadResourceEiRK4QUrl',
-        type, self._valueOf(name),
-    )
+    ritual = 'ritual_ZN13QTextDocument12loadResourceEiRK4QUrl'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN13QTextDocument12loadResourceEiRK4QUrl'
+    address = self.uglySide.call(ritual, type, self._valueOf(name))
     from ..QtCore import QVariant
     return QVariant._cuteOwning(address)

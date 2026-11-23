@@ -67,6 +67,9 @@
     "ritual_ZN19QItemSelectionModel17clearCurrentIndexEv": [
       "nothing", "address"
     ],
+    "ritual_ZN19QItemSelectionModel20emitSelectionChangedERK14QItemSelectionS2_": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_take_QItemSelectionModel": [
       "bool", "address", "chars", "address"
     ],

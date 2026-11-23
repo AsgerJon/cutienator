@@ -31,6 +31,15 @@
     "ritual_ZN7QBuffer4seekEx": ["bool", "address", "long long"],
     "ritual_ZNK7QBuffer5atEndEv": ["bool", "address"],
     "ritual_ZNK7QBuffer11canReadLineEv": ["bool", "address"],
+    "ritual_ZN7QBuffer13connectNotifyERK11QMetaMethod": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QBuffer16disconnectNotifyERK11QMetaMethod": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QBuffer9writeDataEPKcx": [
+      "long long", "address", "chars", "long long"
+    ],
     "ritual_take_QBuffer": ["bool", "address", "chars", "address"],
     "ritual_own_ZN7QBuffer4openE6QFlagsIN13QIODeviceBase12OpenModeFlagEE": [
       "bool", "address", "int"

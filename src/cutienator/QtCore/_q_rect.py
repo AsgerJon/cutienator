@@ -66,7 +66,8 @@ class QRect(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  1 of the 78 functions Qt declares: 1 private.
+  1 of the 78 functions Qt declares: 1 takes or gives a type that cannot be
+  passed yet.
 
   What to expect
   --------------

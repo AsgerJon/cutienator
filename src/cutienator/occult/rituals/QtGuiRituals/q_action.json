@@ -93,6 +93,7 @@
     "ritual_ZN7QAction14showStatusTextEP7QObject": [
       "bool", "address", "address"
     ],
+    "ritual_ZN7QAction5eventEP6QEvent": ["bool", "address", "address"],
     "ritual_ZN7QAction7triggerEv": ["nothing", "address"],
     "ritual_ZN7QAction5hoverEv": ["nothing", "address"],
     "ritual_ZN7QAction10setCheckedEb": ["nothing", "address", "bool"],
@@ -101,6 +102,10 @@
     "ritual_ZN7QAction12resetEnabledEv": ["nothing", "address"],
     "ritual_ZN7QAction11setDisabledEb": ["nothing", "address", "bool"],
     "ritual_ZN7QAction10setVisibleEb": ["nothing", "address", "bool"],
+    "ritual_ZNK7QAction10menuObjectEv": ["address", "address"],
+    "ritual_ZN7QAction13setMenuObjectEP7QObject": [
+      "nothing", "address", "address"
+    ],
     "ritual_take_QAction": ["bool", "address", "chars", "address"],
     "ritual_own_ZN7QAction5eventEP6QEvent": ["bool", "address", "address"],
     "ritual_list_make_QAction_ptr": ["address"],

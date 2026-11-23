@@ -42,14 +42,14 @@ class QPageLayout(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QPageLayout that has a ritual and that Python can
-  call so far, 29 names in all: 'isEquivalentTo', 'isValid', 'setMode',
+  call so far, 30 names in all: 'isEquivalentTo', 'isValid', 'setMode',
   'mode', 'setPageSize', 'pageSize', 'setOrientation', 'orientation',
   'setUnits', 'units', 'setMargins', 'setLeftMargin', 'setRightMargin',
   'setTopMargin', 'setBottomMargin', 'margins', 'marginsPoints',
   'marginsPixels', 'setMinimumMargins', 'minimumMargins', 'maximumMargins',
   'fullRect', 'fullRectPoints', 'fullRectPixels', 'paintRect',
-  'paintRectPoints', 'paintRectPixels', '__eq__', '__ne__'. It can be made
-  from Python, in 3 ways; see '__init__'.
+  'paintRectPoints', 'paintRectPixels', 'equals', '__eq__', '__ne__'. It can
+  be made from Python, in 3 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -60,8 +60,8 @@ class QPageLayout(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  4 of the 40 functions Qt declares: 3 takes or gives a type that cannot be
-  passed yet; 1 private.
+  3 of the 40 functions Qt declares: 3 takes or gives a type that cannot be
+  passed yet.
 
   What to expect
   --------------
@@ -544,6 +544,25 @@ class QPageLayout(CuteMixin, metaclass=MetaCute):
     )
     from ..QtCore import QRect
     return QRect._cuteOwning(address)
+
+  @overload(THIS)
+  def equals(self, other: QPageLayout) -> bool:
+    """
+    Calls Qt's 'bool QPageLayout::equals(const QPageLayout &other) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpagelayout.html#equals
+
+    Parameters
+    ----------
+
+    other : QPageLayout
+      Passed on as a value: Qt reads the C++ QPageLayout, which stays
+      Python's own.
+    """
+    #  bool QPageLayout::equals(const QPageLayout &other) const
+    return self.uglySide.call(
+        'ritual_ZNK11QPageLayout6equalsERKS_', self._valueOf(other),
+    )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

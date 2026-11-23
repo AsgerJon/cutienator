@@ -31,12 +31,13 @@ class QDeadlineTimer(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QDeadlineTimer that has a ritual and that Python can
-  call so far, 25 names in all: 'isForever', 'hasExpired', 'timerType',
+  call so far, 26 names in all: 'isForever', 'hasExpired', 'timerType',
   'setTimerType', 'remainingTime', 'remainingTimeNSecs', 'setRemainingTime',
   'setPreciseRemainingTime', 'deadline', 'deadlineNSecs', 'setDeadline',
   'setPreciseDeadline', 'addNSecs', 'current', '__add__', '__radd__',
   '__sub__', '__iadd__', '__isub__', '__eq__', '__ne__', '__lt__', '__gt__',
-  '__le__', '__ge__'. It can be made from Python, in 4 ways; see '__init__'.
+  '__le__', '__ge__', 'rawRemainingTimeNSecs'. It can be made from Python, in
+  4 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -47,8 +48,8 @@ class QDeadlineTimer(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  10 of the 41 functions Qt declares: 7 a template; 2 takes or gives a type
-  that cannot be passed yet; 1 private.
+  9 of the 41 functions Qt declares: 7 a template; 2 takes or gives a type
+  that cannot be passed yet.
 
   What to expect
   --------------
@@ -244,6 +245,18 @@ class QDeadlineTimer(CuteMixin, metaclass=MetaCute):
     """
     #  qint64 QDeadlineTimer::deadlineNSecs() const
     return self.uglySide.call('ritual_ZNK14QDeadlineTimer13deadlineNSecsEv')
+
+  def rawRemainingTimeNSecs(self) -> int:
+    """
+    Calls Qt's 'qint64 QDeadlineTimer::rawRemainingTimeNSecs() const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qdeadlinetimer.html#rawRemainingTimeNSecs
+    """
+    #  qint64 QDeadlineTimer::rawRemainingTimeNSecs() const
+    return self.uglySide.call(
+        'ritual_ZNK14QDeadlineTimer21rawRemainingTimeNSecsEv',
+    )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

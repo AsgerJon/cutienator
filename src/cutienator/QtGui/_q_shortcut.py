@@ -57,8 +57,8 @@ class QShortcut(QObject):
   What has no ritual
   ------------------
 
-  17 of the 38 functions Qt declares: 10 a template; 3 private; 2 takes or
-  gives a type that cannot be passed yet; 2 a signal.
+  17 of the 38 functions Qt declares: 10 a template; 4 takes or gives a type
+  that cannot be passed yet; 2 a signal; 1 declared and nowhere to be found.
 
   What to expect
   --------------
@@ -610,6 +610,7 @@ class QShortcut(QObject):
       object.
     """
     #  bool QShortcut::event(QEvent *e)
-    return self.uglySide.call(
-        'ritual_own_ZN9QShortcut5eventEP6QEvent', self._addressOf(e),
-    )
+    ritual = 'ritual_ZN9QShortcut5eventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QShortcut5eventEP6QEvent'
+    return self.uglySide.call(ritual, self._addressOf(e))

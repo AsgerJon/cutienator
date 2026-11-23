@@ -16,6 +16,15 @@
     ],
     "ritual_ZN14QStringDecoder14appendToBufferEP5QChar14QByteArrayView": [
       "address", "address", "address", "address"
+    ],
+    "ritual_ZN14QStringDecoder23invalidateAndReturnNullEv": [
+      "text", "address"
+    ],
+    "ritual_ZN14QStringDecoder18decodeAsStringImplE14QByteArrayView": [
+      "text", "address", "address"
+    ],
+    "ritual_ZN14QStringDecoder14decodeAsStringE14QByteArrayView": [
+      "text", "address", "address"
     ]
   }
 }

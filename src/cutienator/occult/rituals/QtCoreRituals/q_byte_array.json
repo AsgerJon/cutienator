@@ -225,6 +225,20 @@
     "ritual_ZgtRK5QCharRK10QByteArray": ["bool", "address", "address"],
     "ritual_ZleRK5QCharRK10QByteArray": ["bool", "address", "address"],
     "ritual_ZgeRK5QCharRK10QByteArray": ["bool", "address", "address"],
+    "ritual_ZN10QByteArray11reallocDataExN10QArrayData16AllocationOptionE": [
+      "nothing", "address", "long long", "int"
+    ],
+    "ritual_ZN10QByteArray15reallocGrowDataEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN10QByteArray6expandEx": ["nothing", "address", "long long"],
+    "ritual_ZNK10QByteArray6verifyExx": [
+      "nothing", "address", "long long", "long long"
+    ],
+    "ritual_ZN10QByteArray14toLower_helperERKS_": ["address", "address"],
+    "ritual_ZN10QByteArray14toUpper_helperERKS_": ["address", "address"],
+    "ritual_ZN10QByteArray14trimmed_helperERKS_": ["address", "address"],
+    "ritual_ZN10QByteArray17simplified_helperERKS_": ["address", "address"],
     "ritual_list_make_QByteArray": ["address"],
     "ritual_list_add_QByteArray": ["nothing", "address", "address"],
     "ritual_list_size_QByteArray": ["long long", "address"],

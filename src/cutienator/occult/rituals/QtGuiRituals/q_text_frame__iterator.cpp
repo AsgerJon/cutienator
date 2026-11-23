@@ -2,6 +2,17 @@
 //  QtGui/qtextobject.h, Qt 6.12.0. Changes made here are lost.
 #include <QtGui/qtextobject.h>
 
+//  QTextFrame::iterator::iterator(QTextFrame *frame, int block, int begin,
+//      int end)
+extern "C" Q_DECL_EXPORT
+QTextFrame::iterator *ritual_ZN10QTextFrame8iteratorC1EPS_iii(
+    QTextFrame *frame,
+    int block,
+    int begin,
+    int end) {
+  return new QTextFrame::iterator(frame, block, begin, end);
+}
+
 //  QTextFrame::iterator::iterator()
 extern "C" Q_DECL_EXPORT
 QTextFrame::iterator *ritual_ZN10QTextFrame8iteratorC1Ev() {

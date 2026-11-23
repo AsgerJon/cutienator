@@ -810,6 +810,77 @@ void ritual_ZN9QSizeGrip10setVisibleEb(QSizeGrip *self, bool a0) {
   self->setVisible(a0);
 }
 
+//  void QSizeGrip::paintEvent(QPaintEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QSizeGrip10paintEventEP11QPaintEvent(
+    QSizeGrip *self,
+    QPaintEvent *a0) {
+  self->paintEvent(a0);
+}
+
+//  void QSizeGrip::mousePressEvent(QMouseEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QSizeGrip15mousePressEventEP11QMouseEvent(
+    QSizeGrip *self,
+    QMouseEvent *a0) {
+  self->mousePressEvent(a0);
+}
+
+//  void QSizeGrip::mouseMoveEvent(QMouseEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QSizeGrip14mouseMoveEventEP11QMouseEvent(
+    QSizeGrip *self,
+    QMouseEvent *a0) {
+  self->mouseMoveEvent(a0);
+}
+
+//  void QSizeGrip::mouseReleaseEvent(QMouseEvent *mouseEvent)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QSizeGrip17mouseReleaseEventEP11QMouseEvent(
+    QSizeGrip *self,
+    QMouseEvent *mouseEvent) {
+  self->mouseReleaseEvent(mouseEvent);
+}
+
+//  void QSizeGrip::moveEvent(QMoveEvent *moveEvent)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QSizeGrip9moveEventEP10QMoveEvent(
+    QSizeGrip *self,
+    QMoveEvent *moveEvent) {
+  self->moveEvent(moveEvent);
+}
+
+//  void QSizeGrip::showEvent(QShowEvent *showEvent)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QSizeGrip9showEventEP10QShowEvent(
+    QSizeGrip *self,
+    QShowEvent *showEvent) {
+  self->showEvent(showEvent);
+}
+
+//  void QSizeGrip::hideEvent(QHideEvent *hideEvent)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QSizeGrip9hideEventEP10QHideEvent(
+    QSizeGrip *self,
+    QHideEvent *hideEvent) {
+  self->hideEvent(hideEvent);
+}
+
+//  bool QSizeGrip::eventFilter(QObject *a0, QEvent *a1)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN9QSizeGrip11eventFilterEP7QObjectP6QEvent(
+    QSizeGrip *self,
+    QObject *a0,
+    QEvent *a1) {
+  return self->eventFilter(a0, a1);
+}
+
+//  bool QSizeGrip::event(QEvent *a0)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN9QSizeGrip5eventEP6QEvent(QSizeGrip *self, QEvent *a0) {
+  return self->event(a0);
+}
+
 //  a Python function taken by a CuteQSizeGrip, for the function named by the
 //      key
 extern "C" Q_DECL_EXPORT

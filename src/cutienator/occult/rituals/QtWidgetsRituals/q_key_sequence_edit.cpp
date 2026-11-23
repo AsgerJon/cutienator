@@ -873,6 +873,46 @@ void ritual_ZN16QKeySequenceEdit24setMaximumSequenceLengthEx(
   self->setMaximumSequenceLength(count);
 }
 
+//  bool QKeySequenceEdit::event(QEvent *a0)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN16QKeySequenceEdit5eventEP6QEvent(
+    QKeySequenceEdit *self,
+    QEvent *a0) {
+  return self->event(a0);
+}
+
+//  void QKeySequenceEdit::keyPressEvent(QKeyEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QKeySequenceEdit13keyPressEventEP9QKeyEvent(
+    QKeySequenceEdit *self,
+    QKeyEvent *a0) {
+  self->keyPressEvent(a0);
+}
+
+//  void QKeySequenceEdit::keyReleaseEvent(QKeyEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QKeySequenceEdit15keyReleaseEventEP9QKeyEvent(
+    QKeySequenceEdit *self,
+    QKeyEvent *a0) {
+  self->keyReleaseEvent(a0);
+}
+
+//  void QKeySequenceEdit::timerEvent(QTimerEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QKeySequenceEdit10timerEventEP11QTimerEvent(
+    QKeySequenceEdit *self,
+    QTimerEvent *a0) {
+  self->timerEvent(a0);
+}
+
+//  void QKeySequenceEdit::focusOutEvent(QFocusEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QKeySequenceEdit13focusOutEventEP11QFocusEvent(
+    QKeySequenceEdit *self,
+    QFocusEvent *a0) {
+  self->focusOutEvent(a0);
+}
+
 //  a Python function taken by a CuteQKeySequenceEdit, for the function named
 //      by the key
 extern "C" Q_DECL_EXPORT

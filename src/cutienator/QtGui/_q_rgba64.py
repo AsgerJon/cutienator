@@ -28,11 +28,13 @@ class QRgba64(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QRgba64 that has a ritual and that Python can call
-  so far, 21 names in all: 'fromRgba64', 'fromRgba', 'fromArgb32',
+  so far, 26 names in all: 'fromRgba64', 'fromRgba', 'fromArgb32',
   'isOpaque', 'isTransparent', 'red', 'green', 'blue', 'alpha', 'setRed',
   'setGreen', 'setBlue', 'setAlpha', 'red8', 'green8', 'blue8', 'alpha8',
-  'toArgb32', 'toRgb16', 'premultiplied', 'unpremultiplied'. It can be made
-  from Python, in 1 way; see '__init__'.
+  'toArgb32', 'toRgb16', 'premultiplied', 'unpremultiplied', 'alphaMask',
+  'div_257_floor', 'div_257', 'unpremultiplied_32bit',
+  'unpremultiplied_64bit'. It can be made from Python, in 2 ways; see
+  '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -45,8 +47,8 @@ class QRgba64(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  7 of the 32 functions Qt declares: 6 private; 1 takes or gives a type that
-  cannot be passed yet.
+  1 of the 32 functions Qt declares: 1 takes or gives a type that cannot be
+  passed yet.
 
   What to expect
   --------------
@@ -186,6 +188,50 @@ class QRgba64(CuteMixin, metaclass=MetaCute):
     #  QRgba64 QRgba64::fromArgb32(uint rgb)
     address = Rituals.call('ritual_ZN7QRgba6410fromArgb32Ej', rgb)
     return QRgba64._cuteOwning(address)
+
+  @staticmethod
+  def alphaMask() -> int:
+    """
+    Calls Qt's 'quint64 QRgba64::alphaMask()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qrgba64.html#alphaMask
+    """
+    #  quint64 QRgba64::alphaMask()
+    return Rituals.call('ritual_ZN7QRgba649alphaMaskEv')
+
+  @staticmethod
+  @overload(int)
+  def div_257_floor(x: int) -> int:
+    """
+    Calls Qt's 'quint8 QRgba64::div_257_floor(uint x)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qrgba64.html#div_257_floor
+
+    Parameters
+    ----------
+
+    x : int
+      Passed on as it is.
+    """
+    #  quint8 QRgba64::div_257_floor(uint x)
+    return Rituals.call('ritual_ZN7QRgba6413div_257_floorEj', x)
+
+  @staticmethod
+  @overload(int)
+  def div_257(x: int) -> int:
+    """
+    Calls Qt's 'quint8 QRgba64::div_257(quint16 x)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qrgba64.html#div_257
+
+    Parameters
+    ----------
+
+    x : int
+      Passed on as it is.
+    """
+    #  quint8 QRgba64::div_257(quint16 x)
+    return Rituals.call('ritual_ZN7QRgba647div_257Et', x)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -351,6 +397,42 @@ class QRgba64(CuteMixin, metaclass=MetaCute):
     address = self.uglySide.call('ritual_ZNK7QRgba6415unpremultipliedEv')
     return QRgba64._cuteOwning(address)
 
+  def unpremultiplied_32bit(self) -> QRgba64:
+    """
+    Calls Qt's 'QRgba64 QRgba64::unpremultiplied_32bit() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qrgba64.html#unpremultiplied_32bit
+
+    Returns
+    -------
+
+    QRgba64
+      A new cute QRgba64 around the copy Qt gave back. Python owns it.
+    """
+    #  QRgba64 QRgba64::unpremultiplied_32bit() const
+    address = self.uglySide.call(
+        'ritual_ZNK7QRgba6421unpremultiplied_32bitEv',
+    )
+    return QRgba64._cuteOwning(address)
+
+  def unpremultiplied_64bit(self) -> QRgba64:
+    """
+    Calls Qt's 'QRgba64 QRgba64::unpremultiplied_64bit() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qrgba64.html#unpremultiplied_64bit
+
+    Returns
+    -------
+
+    QRgba64
+      A new cute QRgba64 around the copy Qt gave back. Python owns it.
+    """
+    #  QRgba64 QRgba64::unpremultiplied_64bit() const
+    address = self.uglySide.call(
+        'ritual_ZNK7QRgba6421unpremultiplied_64bitEv',
+    )
+    return QRgba64._cuteOwning(address)
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -430,6 +512,25 @@ class QRgba64(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(int)
+  def __init__(self, c: int) -> None:
+    """
+    Notes what was given, for Qt's 'QRgba64::QRgba64(quint64 c)', which is
+    called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qrgba64.html#QRgba64
+
+    Parameters
+    ----------
+
+    c : int
+      Passed on as it is.
+    """
+    #  QRgba64::QRgba64(quint64 c)
+    self._noteCreation(QRgba64, lambda: Rituals.call(
+        'ritual_ZN7QRgba64C1Ey', c,
+    ))
 
   @overload()
   def __init__(self) -> None:

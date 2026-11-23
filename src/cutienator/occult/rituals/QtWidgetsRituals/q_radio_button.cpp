@@ -880,6 +880,44 @@ QSize *ritual_ZNK12QRadioButton15minimumSizeHintEv(
   return new QSize(self->minimumSizeHint());
 }
 
+//  bool QRadioButton::event(QEvent *e)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN12QRadioButton5eventEP6QEvent(QRadioButton *self, QEvent *e) {
+  return self->event(e);
+}
+
+//  bool QRadioButton::hitButton(const QPoint &a0) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK12QRadioButton9hitButtonERK6QPoint(
+    const QRadioButton *self,
+    const QPoint *a0) {
+  return self->hitButton(*a0);
+}
+
+//  void QRadioButton::paintEvent(QPaintEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QRadioButton10paintEventEP11QPaintEvent(
+    QRadioButton *self,
+    QPaintEvent *a0) {
+  self->paintEvent(a0);
+}
+
+//  void QRadioButton::mouseMoveEvent(QMouseEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QRadioButton14mouseMoveEventEP11QMouseEvent(
+    QRadioButton *self,
+    QMouseEvent *a0) {
+  self->mouseMoveEvent(a0);
+}
+
+//  void QRadioButton::initStyleOption(QStyleOptionButton *button) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK12QRadioButton15initStyleOptionEP18QStyleOptionButton(
+    const QRadioButton *self,
+    QStyleOptionButton *button) {
+  self->initStyleOption(button);
+}
+
 //  a Python function taken by a CuteQRadioButton, for the function named by
 //      the key
 extern "C" Q_DECL_EXPORT

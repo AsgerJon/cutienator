@@ -52,7 +52,8 @@ class QIntValidator(QValidator):
   ------------------
 
   10 of the 20 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 2 a signal; 2 forbidden; 1 a template; 1 private.
+  passed yet; 2 a signal; 2 forbidden; 1 a template; 1 declared and nowhere
+  to be found.
 
   What to expect
   --------------

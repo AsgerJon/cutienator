@@ -971,6 +971,123 @@ void ritual_ZN8QMenuBar10setVisibleEb(QMenuBar *self, bool visible) {
   self->setVisible(visible);
 }
 
+//  void QMenuBar::changeEvent(QEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QMenuBar11changeEventEP6QEvent(QMenuBar *self, QEvent *a0) {
+  self->changeEvent(a0);
+}
+
+//  void QMenuBar::keyPressEvent(QKeyEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QMenuBar13keyPressEventEP9QKeyEvent(
+    QMenuBar *self,
+    QKeyEvent *a0) {
+  self->keyPressEvent(a0);
+}
+
+//  void QMenuBar::mouseReleaseEvent(QMouseEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QMenuBar17mouseReleaseEventEP11QMouseEvent(
+    QMenuBar *self,
+    QMouseEvent *a0) {
+  self->mouseReleaseEvent(a0);
+}
+
+//  void QMenuBar::mousePressEvent(QMouseEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QMenuBar15mousePressEventEP11QMouseEvent(
+    QMenuBar *self,
+    QMouseEvent *a0) {
+  self->mousePressEvent(a0);
+}
+
+//  void QMenuBar::mouseMoveEvent(QMouseEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QMenuBar14mouseMoveEventEP11QMouseEvent(
+    QMenuBar *self,
+    QMouseEvent *a0) {
+  self->mouseMoveEvent(a0);
+}
+
+//  void QMenuBar::leaveEvent(QEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QMenuBar10leaveEventEP6QEvent(QMenuBar *self, QEvent *a0) {
+  self->leaveEvent(a0);
+}
+
+//  void QMenuBar::paintEvent(QPaintEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QMenuBar10paintEventEP11QPaintEvent(
+    QMenuBar *self,
+    QPaintEvent *a0) {
+  self->paintEvent(a0);
+}
+
+//  void QMenuBar::resizeEvent(QResizeEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QMenuBar11resizeEventEP12QResizeEvent(
+    QMenuBar *self,
+    QResizeEvent *a0) {
+  self->resizeEvent(a0);
+}
+
+//  void QMenuBar::actionEvent(QActionEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QMenuBar11actionEventEP12QActionEvent(
+    QMenuBar *self,
+    QActionEvent *a0) {
+  self->actionEvent(a0);
+}
+
+//  void QMenuBar::focusOutEvent(QFocusEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QMenuBar13focusOutEventEP11QFocusEvent(
+    QMenuBar *self,
+    QFocusEvent *a0) {
+  self->focusOutEvent(a0);
+}
+
+//  void QMenuBar::focusInEvent(QFocusEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QMenuBar12focusInEventEP11QFocusEvent(
+    QMenuBar *self,
+    QFocusEvent *a0) {
+  self->focusInEvent(a0);
+}
+
+//  void QMenuBar::timerEvent(QTimerEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QMenuBar10timerEventEP11QTimerEvent(
+    QMenuBar *self,
+    QTimerEvent *a0) {
+  self->timerEvent(a0);
+}
+
+//  bool QMenuBar::eventFilter(QObject *a0, QEvent *a1)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN8QMenuBar11eventFilterEP7QObjectP6QEvent(
+    QMenuBar *self,
+    QObject *a0,
+    QEvent *a1) {
+  return self->eventFilter(a0, a1);
+}
+
+//  bool QMenuBar::event(QEvent *a0)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN8QMenuBar5eventEP6QEvent(QMenuBar *self, QEvent *a0) {
+  return self->event(a0);
+}
+
+//  void QMenuBar::initStyleOption(QStyleOptionMenuItem *option, const
+//      QAction *action) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK8QMenuBar15initStyleOptionEP20QStyleOptionMenuItemPK7QAction(
+    const QMenuBar *self,
+    QStyleOptionMenuItem *option,
+    const QAction *action) {
+  self->initStyleOption(option, action);
+}
+
 //  a Python function taken by a CuteQMenuBar, for the function named by the
 //      key
 extern "C" Q_DECL_EXPORT

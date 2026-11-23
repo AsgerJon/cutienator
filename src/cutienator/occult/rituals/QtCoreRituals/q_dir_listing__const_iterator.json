@@ -7,6 +7,7 @@
     "ritual_ZN11QDirListing14const_iteratorC1Ev": ["address"],
     "ritual_ZN11QDirListing14const_iteratorppEi": [
       "nothing", "address", "int"
-    ]
+    ],
+    "ritual_ZNK11QDirListing14const_iterator5atEndEv": ["bool", "address"]
   }
 }

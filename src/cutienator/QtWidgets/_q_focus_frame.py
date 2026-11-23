@@ -60,8 +60,8 @@ class QFocusFrame(QWidget):
   What has no ritual
   ------------------
 
-  8 of the 18 functions Qt declares: 3 private; 2 takes or gives a type that
-  cannot be passed yet; 2 forbidden; 1 a template.
+  8 of the 18 functions Qt declares: 4 takes or gives a type that cannot be
+  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found.
 
   What to expect
   --------------
@@ -295,9 +295,10 @@ class QFocusFrame(QWidget):
       object.
     """
     #  bool QFocusFrame::event(QEvent *e)
-    return self.uglySide.call(
-        'ritual_own_ZN11QFocusFrame5eventEP6QEvent', self._addressOf(e),
-    )
+    ritual = 'ritual_ZN11QFocusFrame5eventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QFocusFrame5eventEP6QEvent'
+    return self.uglySide.call(ritual, self._addressOf(e))
 
   @overload(QObject, QEvent)
   @overload(QObject, NoneType)
@@ -321,9 +322,11 @@ class QFocusFrame(QWidget):
       object.
     """
     #  bool QFocusFrame::eventFilter(QObject *a0, QEvent *a1)
+    ritual = 'ritual_ZN11QFocusFrame11eventFilterEP7QObjectP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QFocusFrame11eventFilterEP7QObjectP6QEvent'
     return self.uglySide.call(
-        'ritual_own_ZN11QFocusFrame11eventFilterEP7QObjectP6QEvent',
-        self._addressOf(a0), self._addressOf(a1),
+        ritual, self._addressOf(a0), self._addressOf(a1),
     )
 
   @overload(QPaintEvent)
@@ -342,10 +345,10 @@ class QFocusFrame(QWidget):
       object.
     """
     #  void QFocusFrame::paintEvent(QPaintEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN11QFocusFrame10paintEventEP11QPaintEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN11QFocusFrame10paintEventEP11QPaintEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QFocusFrame10paintEventEP11QPaintEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QStyleOption)
   @overload(NoneType)
@@ -364,7 +367,7 @@ class QFocusFrame(QWidget):
       object.
     """
     #  void QFocusFrame::initStyleOption(QStyleOption *option) const
-    self.uglySide.call(
-        'ritual_own_ZNK11QFocusFrame15initStyleOptionEP12QStyleOption',
-        self._addressOf(option),
-    )
+    ritual = 'ritual_ZNK11QFocusFrame15initStyleOptionEP12QStyleOption'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QFocusFrame15initStyleOptionEP12QStyleOption'
+    self.uglySide.call(ritual, self._addressOf(option))

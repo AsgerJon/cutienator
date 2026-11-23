@@ -56,6 +56,8 @@
     "ritual_ZneRK18QJsonValueConstRefRK13QJsonValueRef": [
       "bool", "address", "address"
     ],
+    "ritual_ZNK13QJsonValueRef7toValueEv": ["address", "address"],
+    "ritual_ZN13QJsonValueRef6detachEv": ["nothing", "address"],
     "ritual_ZN13QJsonValueRefD1Ev": ["nothing", "address"]
   }
 }

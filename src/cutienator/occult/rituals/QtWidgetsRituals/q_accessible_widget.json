@@ -39,6 +39,12 @@
     "ritual_ZNK17QAccessibleWidget20keyBindingsForActionERK7QString": [
       "address", "address", "text"
     ],
+    "ritual_ZN17QAccessibleWidgetD1Ev": ["nothing", "address"],
+    "ritual_ZNK17QAccessibleWidget6widgetEv": ["address", "address"],
+    "ritual_ZNK17QAccessibleWidget12parentObjectEv": ["address", "address"],
+    "ritual_ZN17QAccessibleWidget20addControllingSignalERK7QString": [
+      "nothing", "address", "text"
+    ],
     "ritual_cast_QAccessibleWidget_QAccessibleActionInterface": [
       "address", "address"
     ],

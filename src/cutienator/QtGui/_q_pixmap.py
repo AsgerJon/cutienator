@@ -21,8 +21,8 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QByteArray, QIODevice, QRect, QSize, QSizeF
-  from . import QBitmap, QColor, QImage, QImageReader, QPaintEngine, QRegion
-  from . import QTransform
+  from . import QBitmap, QColor, QImage, QImageReader, QImageWriter
+  from . import QPaintEngine, QRegion, QTransform
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -33,6 +33,7 @@ else:
   QIODevice = WAIT['QIODevice']
   QImage = WAIT['QImage']
   QImageReader = WAIT['QImageReader']
+  QImageWriter = WAIT['QImageWriter']
   QRect = WAIT['QRect']
   QRegion = WAIT['QRegion']
   QSize = WAIT['QSize']
@@ -59,15 +60,16 @@ class QPixmap(QPaintDevice):
   -----------
 
   Every function of Qt's QPixmap that has a ritual and that Python can call
-  so far, 38 names in all: 'isNull', 'devType', 'width', 'height', 'size',
+  so far, 40 names in all: 'isNull', 'devType', 'width', 'height', 'size',
   'rect', 'depth', 'defaultDepth', 'fill', 'mask', 'setMask',
   'devicePixelRatio', 'setDevicePixelRatio', 'deviceIndependentSize',
   'hasAlpha', 'hasAlphaChannel', 'createHeuristicMask',
   'createMaskFromColor', 'scaled', 'scaledToWidth', 'scaledToHeight',
   'transformed', 'trueMatrix', 'toImage', 'fromImage', 'fromImageReader',
   'load', 'loadFromData', 'save', 'convertFromImage', 'copy', 'scroll',
-  'cacheKey', 'isDetached', 'detach', 'isQBitmap', 'paintEngine', 'metric'.
-  It can be made from Python, in 5 ways; see '__init__'.
+  'cacheKey', 'isDetached', 'detach', 'isQBitmap', 'paintEngine', 'metric',
+  'doImageIO', 'doInit'. It can be made from Python, in 6 ways; see
+  '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -82,8 +84,8 @@ class QPixmap(QPaintDevice):
   What has no ritual
   ------------------
 
-  17 of the 67 functions Qt declares: 11 takes or gives a type that cannot be
-  passed yet; 3 private; 2 forbidden; 1 protected.
+  14 of the 67 functions Qt declares: 12 takes or gives a type that cannot be
+  passed yet; 2 forbidden.
 
   What to expect
   --------------
@@ -897,9 +899,36 @@ class QPixmap(QPaintDevice):
       Passed on as its number.
     """
     #  int QPixmap::metric(PaintDeviceMetric a0) const
+    ritual = 'ritual_ZNK7QPixmap6metricEN12QPaintDevice17PaintDeviceMetricE'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK7QPixmap6metricEN12QPaintDevice17PaintDeviceMetric'
+          'E')
+    return self.uglySide.call(ritual, a0.value)
+
+  @overload(QImageWriter, int)
+  @overload(NoneType, int)
+  def doImageIO(self, io: Optional[QImageWriter], quality: int) -> bool:
+    """
+    Calls Qt's 'bool QPixmap::doImageIO(QImageWriter *io, int quality)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpixmap.html#doImageIO
+
+    Parameters
+    ----------
+
+    io : Optional[QImageWriter]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    quality : int
+      Passed on as it is.
+    """
+    #  bool QPixmap::doImageIO(QImageWriter *io, int quality) const
     return self.uglySide.call(
-        'ritual_own_ZNK7QPixmap6metricEN12QPaintDevice17PaintDeviceMetricE',
-        a0.value,
+        'ritual_ZNK7QPixmap9doImageIOEP12QImageWriteri',
+        self._addressOf(io), quality,
     )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1067,6 +1096,28 @@ class QPixmap(QPaintDevice):
     #  QPixmap::QPixmap(const QPixmap &a0)
     self._noteCreation(QPixmap, lambda: Rituals.call(
         'ritual_ZN7QPixmapC1ERKS_', self._valueOf(a0),
+    ))
+
+  @overload(QSize, int)
+  def __init__(self, s: QSize, type: int) -> None:
+    """
+    Notes what was given, for Qt's 'QPixmap::QPixmap(const QSize &s, int
+    type)', which is called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpixmap.html#QPixmap
+
+    Parameters
+    ----------
+
+    s : QSize
+      Passed on as a value: Qt reads the C++ QSize, which stays Python's own.
+
+    type : int
+      Passed on as it is.
+    """
+    #  QPixmap::QPixmap(const QSize &s, int type)
+    self._noteCreation(QPixmap, lambda: Rituals.call(
+        'ritual_ZN7QPixmapC1ERK5QSizei', self._valueOf(s), type,
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1322,3 +1373,25 @@ class QPixmap(QPaintDevice):
     """
     #  void QPixmap::detach()
     self.uglySide.call('ritual_ZN7QPixmap6detachEv')
+
+  @overload(int, int, int)
+  def doInit(self, a0: int, a1: int, a2: int) -> None:
+    """
+    Calls Qt's 'void QPixmap::doInit(int a0, int a1, int a2)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpixmap.html#doInit
+
+    Parameters
+    ----------
+
+    a0 : int
+      Passed on as it is.
+
+    a1 : int
+      Passed on as it is.
+
+    a2 : int
+      Passed on as it is.
+    """
+    #  void QPixmap::doInit(int a0, int a1, int a2)
+    self.uglySide.call('ritual_ZN7QPixmap6doInitEiii', a0, a1, a2)

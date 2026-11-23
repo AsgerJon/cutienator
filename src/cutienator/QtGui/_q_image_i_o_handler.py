@@ -62,8 +62,8 @@ class QImageIOHandler(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  6 of the 26 functions Qt declares: 2 private; 2 forbidden; 1 the class is
-  abstract, so C++ cannot make one; 1 protected.
+  6 of the 26 functions Qt declares: 2 takes or gives a type that cannot be
+  passed yet; 2 the class is abstract, so C++ cannot make one; 2 forbidden.
 
   What to expect
   --------------

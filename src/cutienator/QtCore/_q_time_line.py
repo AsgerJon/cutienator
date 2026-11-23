@@ -62,8 +62,9 @@ class QTimeLine(QObject):
   What has no ritual
   ------------------
 
-  18 of the 50 functions Qt declares: 8 takes or gives a type that cannot be
-  passed yet; 4 a signal; 3 private; 2 forbidden; 1 a template.
+  18 of the 50 functions Qt declares: 10 takes or gives a type that cannot be
+  passed yet; 4 a signal; 2 forbidden; 1 a template; 1 declared and nowhere
+  to be found.
 
   What to expect
   --------------
@@ -651,7 +652,7 @@ class QTimeLine(QObject):
       object.
     """
     #  void QTimeLine::timerEvent(QTimerEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN9QTimeLine10timerEventEP11QTimerEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN9QTimeLine10timerEventEP11QTimerEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QTimeLine10timerEventEP11QTimerEvent'
+    self.uglySide.call(ritual, self._addressOf(event))

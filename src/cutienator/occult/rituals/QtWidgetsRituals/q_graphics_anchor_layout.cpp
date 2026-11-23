@@ -313,6 +313,16 @@ void ritual_ZN21QGraphicsAnchorLayout10invalidateEv(
   self->invalidate();
 }
 
+//  QSizeF QGraphicsAnchorLayout::sizeHint(Qt::SizeHint which, const QSizeF
+//      &constraint) const
+extern "C" Q_DECL_EXPORT
+QSizeF *ritual_ZNK21QGraphicsAnchorLayout8sizeHintEN2Qt8SizeHintERK6QSizeF(
+    const QGraphicsAnchorLayout *self,
+    Qt::SizeHint which,
+    const QSizeF *constraint) {
+  return new QSizeF(self->sizeHint(which, *constraint));
+}
+
 //  a Python function taken by a CuteQGraphicsAnchorLayout, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT

@@ -71,8 +71,9 @@ class QCompleter(QObject):
   What has no ritual
   ------------------
 
-  12 of the 53 functions Qt declares: 4 a signal; 3 private; 2 takes or gives
-  a type that cannot be passed yet; 2 forbidden; 1 a template.
+  12 of the 53 functions Qt declares: 4 takes or gives a type that cannot be
+  passed yet; 4 a signal; 2 forbidden; 1 a template; 1 declared and nowhere
+  to be found.
 
   What to expect
   --------------
@@ -938,10 +939,10 @@ class QCompleter(QObject):
       object.
     """
     #  bool QCompleter::eventFilter(QObject *o, QEvent *e)
-    return self.uglySide.call(
-        'ritual_own_ZN10QCompleter11eventFilterEP7QObjectP6QEvent',
-        self._addressOf(o), self._addressOf(e),
-    )
+    ritual = 'ritual_ZN10QCompleter11eventFilterEP7QObjectP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN10QCompleter11eventFilterEP7QObjectP6QEvent'
+    return self.uglySide.call(ritual, self._addressOf(o), self._addressOf(e))
 
   @overload(QEvent)
   @overload(NoneType)
@@ -959,6 +960,7 @@ class QCompleter(QObject):
       object.
     """
     #  bool QCompleter::event(QEvent *a0)
-    return self.uglySide.call(
-        'ritual_own_ZN10QCompleter5eventEP6QEvent', self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN10QCompleter5eventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN10QCompleter5eventEP6QEvent'
+    return self.uglySide.call(ritual, self._addressOf(a0))

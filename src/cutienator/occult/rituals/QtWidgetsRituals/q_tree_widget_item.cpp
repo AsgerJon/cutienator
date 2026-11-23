@@ -618,6 +618,44 @@ void ritual_ZN15QTreeWidgetItem12sortChildrenEiN2Qt9SortOrderE(
   self->sortChildren(column, order);
 }
 
+//  void QTreeWidgetItem::emitDataChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QTreeWidgetItem15emitDataChangedEv(QTreeWidgetItem *self) {
+  self->emitDataChanged();
+}
+
+//  void QTreeWidgetItem::sortChildren(int column, Qt::SortOrder order, bool
+//      climb)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QTreeWidgetItem12sortChildrenEiN2Qt9SortOrderEb(
+    QTreeWidgetItem *self,
+    int column,
+    Qt::SortOrder order,
+    bool climb) {
+  self->sortChildren(column, order, climb);
+}
+
+//  QVariant QTreeWidgetItem::childrenCheckState(int column) const
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZNK15QTreeWidgetItem18childrenCheckStateEi(
+    const QTreeWidgetItem *self,
+    int column) {
+  return new QVariant(self->childrenCheckState(column));
+}
+
+//  void QTreeWidgetItem::itemChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QTreeWidgetItem11itemChangedEv(QTreeWidgetItem *self) {
+  self->itemChanged();
+}
+
+//  void QTreeWidgetItem::executePendingSort() const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK15QTreeWidgetItem18executePendingSortEv(
+    const QTreeWidgetItem *self) {
+  self->executePendingSort();
+}
+
 //  a Python function taken by a CuteQTreeWidgetItem, for the function named
 //      by the key
 extern "C" Q_DECL_EXPORT

@@ -11,19 +11,20 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import WAIT
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
 from . import QOpenGLFunctions
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from . import QOpenGLContext
+  from . import QOpenGLContext, QOpenGLExtraFunctionsPrivate
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
   QOpenGLContext = WAIT['QOpenGLContext']
+  QOpenGLExtraFunctionsPrivate = WAIT['QOpenGLExtraFunctionsPrivate']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -46,7 +47,7 @@ class QOpenGLExtraFunctions(QOpenGLFunctions):
   -----------
 
   Every function of Qt's QOpenGLExtraFunctions that has a ritual and that
-  Python can call so far, 73 names in all: 'glReadBuffer',
+  Python can call so far, 75 names in all: 'd_func', 'glReadBuffer',
   'glCopyTexSubImage3D', 'glBeginQuery', 'glEndQuery', 'glBlitFramebuffer',
   'glRenderbufferStorageMultisample', 'glFramebufferTextureLayer',
   'glBindVertexArray', 'glBeginTransformFeedback', 'glEndTransformFeedback',
@@ -70,12 +71,15 @@ class QOpenGLExtraFunctions(QOpenGLFunctions):
   'glDisablei', 'glBlendEquationi', 'glBlendEquationSeparatei',
   'glBlendFunci', 'glBlendFuncSeparatei', 'glColorMaski',
   'glFramebufferTexture', 'glPrimitiveBoundingBox', 'glMinSampleShading',
-  'glPatchParameteri', 'glTexBuffer', 'glTexStorage3DMultisample'. It can be
-  made from Python, in 2 ways; see '__init__'.
+  'glPatchParameteri', 'glTexBuffer', 'glTexStorage3DMultisample',
+  'isInitialized'. It can be made from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'const QOpenGLExtraFunctionsPrivate *QOpenGLExtraFunctions::d_func()
+    const': takes in Python what 'QOpenGLExtraFunctionsPrivate
+    *QOpenGLExtraFunctions::d_func()' takes.
   - Qt's 'QOpenGLExtraFunctions::~QOpenGLExtraFunctions()': the destructor:
     Python removes its C++ QOpenGLExtraFunctions by it, and has no other use
     for it.
@@ -83,9 +87,9 @@ class QOpenGLExtraFunctions(QOpenGLFunctions):
   What has no ritual
   ------------------
 
-  146 of the 222 functions Qt declares: 137 takes or gives a type that cannot
+  143 of the 222 functions Qt declares: 137 takes or gives a type that cannot
   be passed yet; 6 takes or gives a number that is not equally wide on every
-  system; 3 private.
+  system.
 
   What to expect
   --------------
@@ -104,6 +108,32 @@ class QOpenGLExtraFunctions(QOpenGLFunctions):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  @overload(QOpenGLExtraFunctionsPrivate)
+  @overload(NoneType)
+  def isInitialized(d: Optional[QOpenGLExtraFunctionsPrivate]) -> bool:
+    """
+    Calls Qt's 'bool QOpenGLExtraFunctions::isInitialized(const
+    QOpenGLExtraFunctionsPrivate *d)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qopenglextrafunctions.html#isInitialized
+
+    Parameters
+    ----------
+
+    d : Optional[QOpenGLExtraFunctionsPrivate]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QOpenGLExtraFunctions::isInitialized(const
+    #      QOpenGLExtraFunctionsPrivate *d)
+    return Rituals.call(
+        'ritual_ZN21QOpenGLExtraFunctions13isInitializedEPK28QOpenGLExtraFu'
+        'nctionsPrivate',
+        CuteMixin._addressOf(d),
+    )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -204,6 +234,25 @@ class QOpenGLExtraFunctions(QOpenGLFunctions):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def d_func(self) -> Optional[QOpenGLExtraFunctionsPrivate]:
+    """
+    Calls Qt's 'QOpenGLExtraFunctionsPrivate
+    *QOpenGLExtraFunctions::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qopenglextrafunctions.html#d_func
+
+    Returns
+    -------
+
+    Optional[QOpenGLExtraFunctionsPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QOpenGLExtraFunctionsPrivate *QOpenGLExtraFunctions::d_func()
+    address = self.uglySide.call('ritual_ZN21QOpenGLExtraFunctions6d_funcEv')
+    from . import QOpenGLExtraFunctionsPrivate
+    return QOpenGLExtraFunctionsPrivate._cuteAt(address)
 
   @overload(int)
   def glReadBuffer(self, mode: int) -> None:

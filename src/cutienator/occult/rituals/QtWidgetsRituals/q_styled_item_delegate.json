@@ -38,6 +38,15 @@
     "ritual_ZNK19QStyledItemDelegate11displayTextERK8QVariantRK7QLocale": [
       "text", "address", "address", "address"
     ],
+    "ritual_ZNK19QStyledItemDelegate15initStyleOptionEP20QStyleOptionViewItemRK11QModelIndex": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN19QStyledItemDelegate11eventFilterEP7QObjectP6QEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN19QStyledItemDelegate11editorEventEP6QEventP18QAbstractItemModelRK20QStyleOptionViewItemRK11QModelIndex": [
+      "bool", "address", "address", "address", "address", "address"
+    ],
     "ritual_take_QStyledItemDelegate": [
       "bool", "address", "chars", "address"
     ],

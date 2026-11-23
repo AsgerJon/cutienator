@@ -349,6 +349,16 @@ void ritual_ZN9QMimeData5clearEv(QMimeData *self) {
   self->clear();
 }
 
+//  QVariant QMimeData::retrieveData(const QString &mimetype, QMetaType
+//      preferredType) const
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZNK9QMimeData12retrieveDataERK7QString9QMetaType(
+    const QMimeData *self,
+    const QString *mimetype,
+    const QMetaType *preferredType) {
+  return new QVariant(self->retrieveData(*mimetype, *preferredType));
+}
+
 //  a Python function taken by a CuteQMimeData, for the function named by the
 //      key
 extern "C" Q_DECL_EXPORT

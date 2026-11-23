@@ -54,7 +54,8 @@ class QGraphicsSceneEvent(QEvent):
   What has no ritual
   ------------------
 
-  5 of the 11 functions Qt declares: 3 protected; 2 forbidden.
+  5 of the 11 functions Qt declares: 3 takes or gives a type that cannot be
+  passed yet; 2 forbidden.
 
   What to expect
   --------------

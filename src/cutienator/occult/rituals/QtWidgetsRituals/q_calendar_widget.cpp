@@ -1066,6 +1066,72 @@ void ritual_ZN15QCalendarWidget22setDateEditAcceptDelayEi(
   self->setDateEditAcceptDelay(delay);
 }
 
+//  bool QCalendarWidget::event(QEvent *event)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN15QCalendarWidget5eventEP6QEvent(
+    QCalendarWidget *self,
+    QEvent *event) {
+  return self->event(event);
+}
+
+//  bool QCalendarWidget::eventFilter(QObject *watched, QEvent *event)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN15QCalendarWidget11eventFilterEP7QObjectP6QEvent(
+    QCalendarWidget *self,
+    QObject *watched,
+    QEvent *event) {
+  return self->eventFilter(watched, event);
+}
+
+//  void QCalendarWidget::mousePressEvent(QMouseEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QCalendarWidget15mousePressEventEP11QMouseEvent(
+    QCalendarWidget *self,
+    QMouseEvent *event) {
+  self->mousePressEvent(event);
+}
+
+//  void QCalendarWidget::resizeEvent(QResizeEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QCalendarWidget11resizeEventEP12QResizeEvent(
+    QCalendarWidget *self,
+    QResizeEvent *event) {
+  self->resizeEvent(event);
+}
+
+//  void QCalendarWidget::keyPressEvent(QKeyEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QCalendarWidget13keyPressEventEP9QKeyEvent(
+    QCalendarWidget *self,
+    QKeyEvent *event) {
+  self->keyPressEvent(event);
+}
+
+//  void QCalendarWidget::paintCell(QPainter *painter, const QRect &rect,
+//      QDate date) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK15QCalendarWidget9paintCellEP8QPainterRK5QRect5QDate(
+    const QCalendarWidget *self,
+    QPainter *painter,
+    const QRect *rect,
+    const QDate *date) {
+  self->paintCell(painter, *rect, *date);
+}
+
+//  void QCalendarWidget::updateCell(QDate date)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QCalendarWidget10updateCellE5QDate(
+    QCalendarWidget *self,
+    const QDate *date) {
+  self->updateCell(*date);
+}
+
+//  void QCalendarWidget::updateCells()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QCalendarWidget11updateCellsEv(QCalendarWidget *self) {
+  self->updateCells();
+}
+
 //  void QCalendarWidget::setSelectedDate(QDate date)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QCalendarWidget15setSelectedDateE5QDate(

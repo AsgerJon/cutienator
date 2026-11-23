@@ -59,8 +59,9 @@ class QUndoStack(QObject):
   What has no ritual
   ------------------
 
-  14 of the 43 functions Qt declares: 6 a signal; 3 private; 2 takes or gives
-  a type that cannot be passed yet; 2 forbidden; 1 a template.
+  14 of the 43 functions Qt declares: 6 a signal; 4 takes or gives a type
+  that cannot be passed yet; 2 forbidden; 1 a template; 1 declared and
+  nowhere to be found.
 
   What to expect
   --------------

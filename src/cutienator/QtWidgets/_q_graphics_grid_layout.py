@@ -67,7 +67,8 @@ class QGraphicsGridLayout(QGraphicsLayout):
   What has no ritual
   ------------------
 
-  4 of the 51 functions Qt declares: 2 forbidden; 2 private.
+  4 of the 51 functions Qt declares: 2 forbidden; 2 takes or gives a type
+  that cannot be passed yet.
 
   What to expect
   --------------

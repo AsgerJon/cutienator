@@ -229,6 +229,14 @@ QSize *ritual_ZN9QPageSize10sizePixelsENS_10PageSizeIdEi(
   return new QSize(QPageSize::sizePixels(pageSizeId, resolution));
 }
 
+//  bool QPageSize::equals(const QPageSize &other) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK9QPageSize6equalsERKS_(
+    const QPageSize *self,
+    const QPageSize *other) {
+  return self->equals(*other);
+}
+
 //  bool operator==(const QPageSize &lhs, const QPageSize &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZeqRK9QPageSizeS1_(const QPageSize *lhs, const QPageSize *rhs) {
@@ -239,4 +247,24 @@ bool ritual_ZeqRK9QPageSizeS1_(const QPageSize *lhs, const QPageSize *rhs) {
 extern "C" Q_DECL_EXPORT
 bool ritual_ZneRK9QPageSizeS1_(const QPageSize *lhs, const QPageSize *rhs) {
   return operator!=(*lhs, *rhs);
+}
+
+//  QPageSize::QPageSize(const QString &key, const QSize &pointSize, const
+//      QString &name)
+extern "C" Q_DECL_EXPORT
+QPageSize *ritual_ZN9QPageSizeC1ERK7QStringRK5QSizeS2_(
+    const QString *key,
+    const QSize *pointSize,
+    const QString *name) {
+  return new QPageSize(*key, *pointSize, *name);
+}
+
+//  QPageSize::QPageSize(int windowsId, const QSize &pointSize, const QString
+//      &name)
+extern "C" Q_DECL_EXPORT
+QPageSize *ritual_ZN9QPageSizeC1EiRK5QSizeRK7QString(
+    int windowsId,
+    const QSize *pointSize,
+    const QString *name) {
+  return new QPageSize(windowsId, *pointSize, *name);
 }

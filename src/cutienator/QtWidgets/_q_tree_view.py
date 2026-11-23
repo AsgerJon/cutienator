@@ -13,7 +13,7 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt, QItemSelectionModel
+from ..QtCore import Qt, QItemSelectionModel, QList
 from . import QAbstractItemView, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
@@ -41,6 +41,7 @@ else:
   QPainter = WAIT['QPainter']
   QPoint = WAIT['QPoint']
   QRect = WAIT['QRect']
+  QRegion = WAIT['QRegion']
   QStyleOptionViewItem = WAIT['QStyleOptionViewItem']
   QTimerEvent = WAIT['QTimerEvent']
 
@@ -61,7 +62,7 @@ class QTreeView(QAbstractItemView):
   -----------
 
   Every function of Qt's QTreeView that has a ritual and that Python can call
-  so far, 91 names in all: 'metaObject', 'tr', 'setModel', 'setRootIndex',
+  so far, 101 names in all: 'metaObject', 'tr', 'setModel', 'setRootIndex',
   'setSelectionModel', 'header', 'setHeader', 'autoExpandDelay',
   'setAutoExpandDelay', 'indentation', 'setIndentation', 'resetIndentation',
   'rootIsDecorated', 'setRootIsDecorated', 'uniformRowHeights',
@@ -77,29 +78,34 @@ class QTreeView(QAbstractItemView):
   'scrollTo', 'indexAt', 'indexAbove', 'indexBelow', 'doItemsLayout',
   'reset', 'selectAll', 'hideColumn', 'showColumn', 'expand', 'collapse',
   'resizeColumnToContents', 'sortByColumn', 'expandAll', 'expandRecursively',
-  'collapseAll', 'expandToDepth', 'verticalScrollbarValueChanged',
+  'collapseAll', 'expandToDepth', 'columnResized', 'columnCountChanged',
+  'columnMoved', 'reexpand', 'rowsRemoved', 'verticalScrollbarValueChanged',
   'scrollContentsBy', 'rowsInserted', 'rowsAboutToBeRemoved',
   'horizontalOffset', 'verticalOffset', 'setSelection',
-  'visualRegionForSelection', 'changeEvent', 'timerEvent', 'paintEvent',
-  'drawRow', 'drawBranches', 'mousePressEvent', 'mouseReleaseEvent',
-  'mouseDoubleClickEvent', 'mouseMoveEvent', 'keyPressEvent',
-  'dragMoveEvent', 'viewportEvent', 'updateGeometries', 'viewportSizeHint',
-  'sizeHintForColumn', 'horizontalScrollbarAction', 'isIndexHidden',
-  'selectionChanged', 'currentChanged'. It can be made from Python, in 1 way;
-  see '__init__'.
+  'visualRegionForSelection', 'selectedIndexes', 'changeEvent', 'timerEvent',
+  'paintEvent', 'drawTree', 'drawRow', 'drawBranches', 'mousePressEvent',
+  'mouseReleaseEvent', 'mouseDoubleClickEvent', 'mouseMoveEvent',
+  'keyPressEvent', 'dragMoveEvent', 'viewportEvent', 'updateGeometries',
+  'viewportSizeHint', 'sizeHintForColumn', 'indexRowSizeHint', 'rowHeight',
+  'horizontalScrollbarAction', 'isIndexHidden', 'selectionChanged',
+  'currentChanged', 'visualIndex'. It can be made from Python, in 1 way; see
+  '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QTreeView::~QTreeView()': the destructor: Python never removes a
     C++ QTreeView.
+  - Qt's 'QModelIndex QTreeView::moveCursor(CursorAction cursorAction,
+    Qt::KeyboardModifiers modifiers)': names the enum
+    'QAbstractItemView::CursorAction', whose class cannot be named here.
 
   What has no ritual
   ------------------
 
-  23 of the 116 functions Qt declares: 11 protected; 4 private; 3 takes or
-  gives a type that cannot be passed yet; 2 a signal; 2 forbidden; 1 a
-  template.
+  12 of the 116 functions Qt declares: 6 takes or gives a type that cannot be
+  passed yet; 2 a signal; 2 forbidden; 1 a template; 1 declared and nowhere
+  to be found.
 
   What to expect
   --------------
@@ -647,7 +653,10 @@ class QTreeView(QAbstractItemView):
     Qt's own words: https://doc.qt.io/qt-6/qtreeview.html#horizontalOffset
     """
     #  int QTreeView::horizontalOffset() const
-    return self.uglySide.call('ritual_own_ZNK9QTreeView16horizontalOffsetEv')
+    ritual = 'ritual_ZNK9QTreeView16horizontalOffsetEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK9QTreeView16horizontalOffsetEv'
+    return self.uglySide.call(ritual)
 
   def verticalOffset(self) -> int:
     """
@@ -656,7 +665,10 @@ class QTreeView(QAbstractItemView):
     Qt's own words: https://doc.qt.io/qt-6/qtreeview.html#verticalOffset
     """
     #  int QTreeView::verticalOffset() const
-    return self.uglySide.call('ritual_own_ZNK9QTreeView14verticalOffsetEv')
+    ritual = 'ritual_ZNK9QTreeView14verticalOffsetEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK9QTreeView14verticalOffsetEv'
+    return self.uglySide.call(ritual)
 
   @overload(QItemSelection)
   def visualRegionForSelection(self, selection: QItemSelection) -> QRegion:
@@ -682,13 +694,32 @@ class QTreeView(QAbstractItemView):
     """
     #  QRegion QTreeView::visualRegionForSelection(const QItemSelection
     #      &selection) const
-    address = self.uglySide.call(
-        'ritual_own_ZNK9QTreeView24visualRegionForSelectionERK14QItemSelect'
-        'ion',
-        self._valueOf(selection),
-    )
+    ritual = (
+        'ritual_ZNK9QTreeView24visualRegionForSelectionERK14QItemSelection')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK9QTreeView24visualRegionForSelectionERK14QItemSele'
+          'ction')
+    address = self.uglySide.call(ritual, self._valueOf(selection))
     from ..QtGui import QRegion
     return QRegion._cuteOwning(address)
+
+  def selectedIndexes(self) -> QList[QModelIndex]:
+    """
+    Calls Qt's 'QModelIndexList QTreeView::selectedIndexes() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtreeview.html#selectedIndexes
+
+    Returns
+    -------
+
+    QList[QModelIndex]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QModelIndexList QTreeView::selectedIndexes() const
+    address = self.uglySide.call('ritual_ZNK9QTreeView15selectedIndexesEv')
+    from ..QtCore import QModelIndex
+    return QList[QModelIndex]._cuteOwning(address)
 
   def viewportSizeHint(self) -> QSize:
     """
@@ -703,9 +734,10 @@ class QTreeView(QAbstractItemView):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QTreeView::viewportSizeHint() const
-    address = self.uglySide.call(
-        'ritual_own_ZNK9QTreeView16viewportSizeHintEv',
-    )
+    ritual = 'ritual_ZNK9QTreeView16viewportSizeHintEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK9QTreeView16viewportSizeHintEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
@@ -723,8 +755,50 @@ class QTreeView(QAbstractItemView):
       Passed on as it is.
     """
     #  int QTreeView::sizeHintForColumn(int column) const
+    ritual = 'ritual_ZNK9QTreeView17sizeHintForColumnEi'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK9QTreeView17sizeHintForColumnEi'
+    return self.uglySide.call(ritual, column)
+
+  @overload(QModelIndex)
+  def indexRowSizeHint(self, index: QModelIndex) -> int:
+    """
+    Calls Qt's 'int QTreeView::indexRowSizeHint(const QModelIndex &index)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtreeview.html#indexRowSizeHint
+
+    Parameters
+    ----------
+
+    index : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+    """
+    #  int QTreeView::indexRowSizeHint(const QModelIndex &index) const
     return self.uglySide.call(
-        'ritual_own_ZNK9QTreeView17sizeHintForColumnEi', column,
+        'ritual_ZNK9QTreeView16indexRowSizeHintERK11QModelIndex',
+        self._valueOf(index),
+    )
+
+  @overload(QModelIndex)
+  def rowHeight(self, index: QModelIndex) -> int:
+    """
+    Calls Qt's 'int QTreeView::rowHeight(const QModelIndex &index) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtreeview.html#rowHeight
+
+    Parameters
+    ----------
+
+    index : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+    """
+    #  int QTreeView::rowHeight(const QModelIndex &index) const
+    return self.uglySide.call(
+        'ritual_ZNK9QTreeView9rowHeightERK11QModelIndex',
+        self._valueOf(index),
     )
 
   @overload(QModelIndex)
@@ -743,8 +817,28 @@ class QTreeView(QAbstractItemView):
       Python's own.
     """
     #  bool QTreeView::isIndexHidden(const QModelIndex &index) const
+    ritual = 'ritual_ZNK9QTreeView13isIndexHiddenERK11QModelIndex'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK9QTreeView13isIndexHiddenERK11QModelIndex'
+    return self.uglySide.call(ritual, self._valueOf(index))
+
+  @overload(QModelIndex)
+  def visualIndex(self, index: QModelIndex) -> int:
+    """
+    Calls Qt's 'int QTreeView::visualIndex(const QModelIndex &index) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtreeview.html#visualIndex
+
+    Parameters
+    ----------
+
+    index : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+    """
+    #  int QTreeView::visualIndex(const QModelIndex &index) const
     return self.uglySide.call(
-        'ritual_own_ZNK9QTreeView13isIndexHiddenERK11QModelIndex',
+        'ritual_ZNK9QTreeView11visualIndexERK11QModelIndex',
         self._valueOf(index),
     )
 
@@ -1195,11 +1289,14 @@ class QTreeView(QAbstractItemView):
     """
     #  void QTreeView::setSelection(const QRect &rect,
     #      QItemSelectionModel::SelectionFlags command)
-    self.uglySide.call(
-        'ritual_own_ZN9QTreeView12setSelectionERK5QRect6QFlagsIN19QItemSele'
-        'ctionModel13SelectionFlagEE',
-        self._valueOf(rect), command.value,
-    )
+    ritual = (
+        'ritual_ZN9QTreeView12setSelectionERK5QRect6QFlagsIN19QItemSelectio'
+        'nModel13SelectionFlagEE')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN9QTreeView12setSelectionERK5QRect6QFlagsIN19QItemSe'
+          'lectionModel13SelectionFlagEE')
+    self.uglySide.call(ritual, self._valueOf(rect), command.value)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1525,6 +1622,99 @@ class QTreeView(QAbstractItemView):
     #  void QTreeView::expandToDepth(int depth)
     self.uglySide.call('ritual_ZN9QTreeView13expandToDepthEi', depth)
 
+  @overload(int, int, int)
+  def columnResized(self, column: int, oldSize: int, newSize: int) -> None:
+    """
+    Calls Qt's 'void QTreeView::columnResized(int column, int oldSize, int
+    newSize)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtreeview.html#columnResized
+
+    Parameters
+    ----------
+
+    column : int
+      Passed on as it is.
+
+    oldSize : int
+      Passed on as it is.
+
+    newSize : int
+      Passed on as it is.
+    """
+    #  void QTreeView::columnResized(int column, int oldSize, int newSize)
+    self.uglySide.call(
+        'ritual_ZN9QTreeView13columnResizedEiii', column, oldSize, newSize,
+    )
+
+  @overload(int, int)
+  def columnCountChanged(self, oldCount: int, newCount: int) -> None:
+    """
+    Calls Qt's 'void QTreeView::columnCountChanged(int oldCount, int
+    newCount)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtreeview.html#columnCountChanged
+
+    Parameters
+    ----------
+
+    oldCount : int
+      Passed on as it is.
+
+    newCount : int
+      Passed on as it is.
+    """
+    #  void QTreeView::columnCountChanged(int oldCount, int newCount)
+    self.uglySide.call(
+        'ritual_ZN9QTreeView18columnCountChangedEii', oldCount, newCount,
+    )
+
+  def columnMoved(self) -> None:
+    """
+    Calls Qt's 'void QTreeView::columnMoved()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtreeview.html#columnMoved
+    """
+    #  void QTreeView::columnMoved()
+    self.uglySide.call('ritual_ZN9QTreeView11columnMovedEv')
+
+  def reexpand(self) -> None:
+    """
+    Calls Qt's 'void QTreeView::reexpand()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtreeview.html#reexpand
+    """
+    #  void QTreeView::reexpand()
+    self.uglySide.call('ritual_ZN9QTreeView8reexpandEv')
+
+  @overload(QModelIndex, int, int)
+  def rowsRemoved(self, parent: QModelIndex, first: int, last: int) -> None:
+    """
+    Calls Qt's 'void QTreeView::rowsRemoved(const QModelIndex &parent, int
+    first, int last)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtreeview.html#rowsRemoved
+
+    Parameters
+    ----------
+
+    parent : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+
+    first : int
+      Passed on as it is.
+
+    last : int
+      Passed on as it is.
+    """
+    #  void QTreeView::rowsRemoved(const QModelIndex &parent, int first, int
+    #      last)
+    self.uglySide.call(
+        'ritual_ZN9QTreeView11rowsRemovedERK11QModelIndexii',
+        self._valueOf(parent), first, last,
+    )
+
   @overload(int)
   def verticalScrollbarValueChanged(self, value: int) -> None:
     """
@@ -1540,9 +1730,10 @@ class QTreeView(QAbstractItemView):
       Passed on as it is.
     """
     #  void QTreeView::verticalScrollbarValueChanged(int value)
-    self.uglySide.call(
-        'ritual_own_ZN9QTreeView29verticalScrollbarValueChangedEi', value,
-    )
+    ritual = 'ritual_ZN9QTreeView29verticalScrollbarValueChangedEi'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QTreeView29verticalScrollbarValueChangedEi'
+    self.uglySide.call(ritual, value)
 
   @overload(int, int)
   def scrollContentsBy(self, dx: int, dy: int) -> None:
@@ -1561,9 +1752,10 @@ class QTreeView(QAbstractItemView):
       Passed on as it is.
     """
     #  void QTreeView::scrollContentsBy(int dx, int dy)
-    self.uglySide.call(
-        'ritual_own_ZN9QTreeView16scrollContentsByEii', dx, dy,
-    )
+    ritual = 'ritual_ZN9QTreeView16scrollContentsByEii'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QTreeView16scrollContentsByEii'
+    self.uglySide.call(ritual, dx, dy)
 
   @overload(QModelIndex, int, int)
   def rowsInserted(self, parent: QModelIndex, start: int, end: int) -> None:
@@ -1588,10 +1780,10 @@ class QTreeView(QAbstractItemView):
     """
     #  void QTreeView::rowsInserted(const QModelIndex &parent, int start, int
     #      end)
-    self.uglySide.call(
-        'ritual_own_ZN9QTreeView12rowsInsertedERK11QModelIndexii',
-        self._valueOf(parent), start, end,
-    )
+    ritual = 'ritual_ZN9QTreeView12rowsInsertedERK11QModelIndexii'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QTreeView12rowsInsertedERK11QModelIndexii'
+    self.uglySide.call(ritual, self._valueOf(parent), start, end)
 
   @overload(QModelIndex, int, int)
   def rowsAboutToBeRemoved(
@@ -1622,10 +1814,11 @@ class QTreeView(QAbstractItemView):
     """
     #  void QTreeView::rowsAboutToBeRemoved(const QModelIndex &parent, int
     #      start, int end)
-    self.uglySide.call(
-        'ritual_own_ZN9QTreeView20rowsAboutToBeRemovedERK11QModelIndexii',
-        self._valueOf(parent), start, end,
-    )
+    ritual = 'ritual_ZN9QTreeView20rowsAboutToBeRemovedERK11QModelIndexii'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN9QTreeView20rowsAboutToBeRemovedERK11QModelIndexii')
+    self.uglySide.call(ritual, self._valueOf(parent), start, end)
 
   @overload(QEvent)
   @overload(NoneType)
@@ -1643,10 +1836,10 @@ class QTreeView(QAbstractItemView):
       object.
     """
     #  void QTreeView::changeEvent(QEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN9QTreeView11changeEventEP6QEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN9QTreeView11changeEventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QTreeView11changeEventEP6QEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QTimerEvent)
   @overload(NoneType)
@@ -1664,10 +1857,10 @@ class QTreeView(QAbstractItemView):
       object.
     """
     #  void QTreeView::timerEvent(QTimerEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN9QTreeView10timerEventEP11QTimerEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN9QTreeView10timerEventEP11QTimerEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QTreeView10timerEventEP11QTimerEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QPaintEvent)
   @overload(NoneType)
@@ -1685,9 +1878,36 @@ class QTreeView(QAbstractItemView):
       object.
     """
     #  void QTreeView::paintEvent(QPaintEvent *event)
+    ritual = 'ritual_ZN9QTreeView10paintEventEP11QPaintEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QTreeView10paintEventEP11QPaintEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
+
+  @overload(QPainter, QRegion)
+  @overload(NoneType, QRegion)
+  def drawTree(self, painter: Optional[QPainter], region: QRegion) -> None:
+    """
+    Calls Qt's 'void QTreeView::drawTree(QPainter *painter, const QRegion
+    &region) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtreeview.html#drawTree
+
+    Parameters
+    ----------
+
+    painter : Optional[QPainter]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    region : QRegion
+      Passed on as a value: Qt reads the C++ QRegion, which stays Python's
+      own.
+    """
+    #  void QTreeView::drawTree(QPainter *painter, const QRegion &region)
+    #      const
     self.uglySide.call(
-        'ritual_own_ZN9QTreeView10paintEventEP11QPaintEvent',
-        self._addressOf(event),
+        'ritual_ZNK9QTreeView8drawTreeEP8QPainterRK7QRegion',
+        self._addressOf(painter), self._valueOf(region),
     )
 
   @overload(QPainter, QStyleOptionViewItem, QModelIndex)
@@ -1721,9 +1941,15 @@ class QTreeView(QAbstractItemView):
     """
     #  void QTreeView::drawRow(QPainter *painter, const QStyleOptionViewItem
     #      &options, const QModelIndex &index) const
+    ritual = (
+        'ritual_ZNK9QTreeView7drawRowEP8QPainterRK20QStyleOptionViewItemRK1'
+        '1QModelIndex')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK9QTreeView7drawRowEP8QPainterRK20QStyleOptionViewI'
+          'temRK11QModelIndex')
     self.uglySide.call(
-        'ritual_own_ZNK9QTreeView7drawRowEP8QPainterRK20QStyleOptionViewIte'
-        'mRK11QModelIndex',
+        ritual,
         self._addressOf(painter), self._valueOf(options),
         self._valueOf(index),
     )
@@ -1758,9 +1984,15 @@ class QTreeView(QAbstractItemView):
     """
     #  void QTreeView::drawBranches(QPainter *painter, const QRect &rect,
     #      const QModelIndex &index) const
+    ritual = (
+        'ritual_ZNK9QTreeView12drawBranchesEP8QPainterRK5QRectRK11QModelInd'
+        'ex')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK9QTreeView12drawBranchesEP8QPainterRK5QRectRK11QMo'
+          'delIndex')
     self.uglySide.call(
-        'ritual_own_ZNK9QTreeView12drawBranchesEP8QPainterRK5QRectRK11QMode'
-        'lIndex',
+        ritual,
         self._addressOf(painter), self._valueOf(rect), self._valueOf(index),
     )
 
@@ -1780,10 +2012,10 @@ class QTreeView(QAbstractItemView):
       object.
     """
     #  void QTreeView::mousePressEvent(QMouseEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN9QTreeView15mousePressEventEP11QMouseEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN9QTreeView15mousePressEventEP11QMouseEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QTreeView15mousePressEventEP11QMouseEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QMouseEvent)
   @overload(NoneType)
@@ -1801,10 +2033,10 @@ class QTreeView(QAbstractItemView):
       object.
     """
     #  void QTreeView::mouseReleaseEvent(QMouseEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN9QTreeView17mouseReleaseEventEP11QMouseEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN9QTreeView17mouseReleaseEventEP11QMouseEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QTreeView17mouseReleaseEventEP11QMouseEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QMouseEvent)
   @overload(NoneType)
@@ -1823,10 +2055,11 @@ class QTreeView(QAbstractItemView):
       object.
     """
     #  void QTreeView::mouseDoubleClickEvent(QMouseEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN9QTreeView21mouseDoubleClickEventEP11QMouseEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN9QTreeView21mouseDoubleClickEventEP11QMouseEvent'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN9QTreeView21mouseDoubleClickEventEP11QMouseEvent')
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QMouseEvent)
   @overload(NoneType)
@@ -1844,10 +2077,10 @@ class QTreeView(QAbstractItemView):
       object.
     """
     #  void QTreeView::mouseMoveEvent(QMouseEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN9QTreeView14mouseMoveEventEP11QMouseEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN9QTreeView14mouseMoveEventEP11QMouseEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QTreeView14mouseMoveEventEP11QMouseEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QKeyEvent)
   @overload(NoneType)
@@ -1865,10 +2098,10 @@ class QTreeView(QAbstractItemView):
       object.
     """
     #  void QTreeView::keyPressEvent(QKeyEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN9QTreeView13keyPressEventEP9QKeyEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN9QTreeView13keyPressEventEP9QKeyEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QTreeView13keyPressEventEP9QKeyEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QDragMoveEvent)
   @overload(NoneType)
@@ -1886,10 +2119,10 @@ class QTreeView(QAbstractItemView):
       object.
     """
     #  void QTreeView::dragMoveEvent(QDragMoveEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN9QTreeView13dragMoveEventEP14QDragMoveEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN9QTreeView13dragMoveEventEP14QDragMoveEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QTreeView13dragMoveEventEP14QDragMoveEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QEvent)
   @overload(NoneType)
@@ -1907,10 +2140,10 @@ class QTreeView(QAbstractItemView):
       object.
     """
     #  bool QTreeView::viewportEvent(QEvent *event)
-    return self.uglySide.call(
-        'ritual_own_ZN9QTreeView13viewportEventEP6QEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN9QTreeView13viewportEventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QTreeView13viewportEventEP6QEvent'
+    return self.uglySide.call(ritual, self._addressOf(event))
 
   def updateGeometries(self) -> None:
     """
@@ -1919,7 +2152,10 @@ class QTreeView(QAbstractItemView):
     Qt's own words: https://doc.qt.io/qt-6/qtreeview.html#updateGeometries
     """
     #  void QTreeView::updateGeometries()
-    self.uglySide.call('ritual_own_ZN9QTreeView16updateGeometriesEv')
+    ritual = 'ritual_ZN9QTreeView16updateGeometriesEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QTreeView16updateGeometriesEv'
+    self.uglySide.call(ritual)
 
   @overload(int)
   def horizontalScrollbarAction(self, action: int) -> None:
@@ -1936,9 +2172,10 @@ class QTreeView(QAbstractItemView):
       Passed on as it is.
     """
     #  void QTreeView::horizontalScrollbarAction(int action)
-    self.uglySide.call(
-        'ritual_own_ZN9QTreeView25horizontalScrollbarActionEi', action,
-    )
+    ritual = 'ritual_ZN9QTreeView25horizontalScrollbarActionEi'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QTreeView25horizontalScrollbarActionEi'
+    self.uglySide.call(ritual, action)
 
   @overload(QItemSelection, QItemSelection)
   def selectionChanged(
@@ -1965,9 +2202,12 @@ class QTreeView(QAbstractItemView):
     """
     #  void QTreeView::selectionChanged(const QItemSelection &selected, const
     #      QItemSelection &deselected)
+    ritual = 'ritual_ZN9QTreeView16selectionChangedERK14QItemSelectionS2_'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN9QTreeView16selectionChangedERK14QItemSelectionS2_')
     self.uglySide.call(
-        'ritual_own_ZN9QTreeView16selectionChangedERK14QItemSelectionS2_',
-        self._valueOf(selected), self._valueOf(deselected),
+        ritual, self._valueOf(selected), self._valueOf(deselected),
     )
 
   @overload(QModelIndex, QModelIndex)
@@ -1995,7 +2235,9 @@ class QTreeView(QAbstractItemView):
     """
     #  void QTreeView::currentChanged(const QModelIndex &current, const
     #      QModelIndex &previous)
+    ritual = 'ritual_ZN9QTreeView14currentChangedERK11QModelIndexS2_'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QTreeView14currentChangedERK11QModelIndexS2_'
     self.uglySide.call(
-        'ritual_own_ZN9QTreeView14currentChangedERK11QModelIndexS2_',
-        self._valueOf(current), self._valueOf(previous),
+        ritual, self._valueOf(current), self._valueOf(previous),
     )

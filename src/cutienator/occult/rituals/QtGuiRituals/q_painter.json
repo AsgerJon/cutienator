@@ -519,6 +519,12 @@
     ],
     "ritual_ZNK8QPainter11paintEngineEv": ["address", "address"],
     "ritual_ZN8QPainter19beginNativePaintingEv": ["nothing", "address"],
-    "ritual_ZN8QPainter17endNativePaintingEv": ["nothing", "address"]
+    "ritual_ZN8QPainter17endNativePaintingEv": ["nothing", "address"],
+    "ritual_ZN8QPainter8doSetPenERK4QPenPS0_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN8QPainter10doSetBrushERK6QBrushPS0_": [
+      "nothing", "address", "address", "address"
+    ]
   }
 }

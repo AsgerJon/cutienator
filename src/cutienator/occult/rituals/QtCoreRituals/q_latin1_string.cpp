@@ -1073,6 +1073,55 @@ bool ritual_ZgeRK10QByteArrayRK13QLatin1String(
   return operator>=(*lhs, *rhs);
 }
 
+//  void QLatin1String::verify(qsizetype pos, qsizetype n) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK13QLatin1String6verifyExx(
+    const QLatin1String *self,
+    qsizetype pos,
+    qsizetype n) {
+  self->verify(pos, n);
+}
+
+//  int QLatin1String::compare_helper(const QLatin1StringView &s1, const char
+//      *s2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QLatin1String14compare_helperERKS_PKc(
+    const QLatin1String *s1,
+    const char *s2) {
+  return QLatin1String::compare_helper(*s1, s2);
+}
+
+//  bool QLatin1String::equal_helper(QLatin1StringView s1, const char *s2,
+//      qsizetype len)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN13QLatin1String12equal_helperES_PKcx(
+    const QLatin1String *s1,
+    const char *s2,
+    qsizetype len) {
+  return QLatin1String::equal_helper(*s1, s2, len);
+}
+
+//  int QLatin1String::compare_helper(const QLatin1StringView &s1, const char
+//      *s2, qsizetype len)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QLatin1String14compare_helperERKS_PKcx(
+    const QLatin1String *s1,
+    const char *s2,
+    qsizetype len) {
+  return QLatin1String::compare_helper(*s1, s2, len);
+}
+
+//  int QLatin1String::compare_helper(const QChar *data1, qsizetype length1,
+//      QLatin1StringView s2, Qt::CaseSensitivity cs)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QLatin1String14compare_helperEPK5QCharxS_N2Qt15CaseSensitivityE(
+    const QChar *data1,
+    qsizetype length1,
+    const QLatin1String *s2,
+    Qt::CaseSensitivity cs) {
+  return QLatin1String::compare_helper(data1, length1, *s2, cs);
+}
+
 //  QLatin1String::~QLatin1String()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QLatin1StringD1Ev(QLatin1String *self) {

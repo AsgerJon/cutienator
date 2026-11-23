@@ -20,6 +20,7 @@
     "ritual_ZNK11QPageRanges7isEmptyEv": ["bool", "address"],
     "ritual_ZNK11QPageRanges9firstPageEv": ["int", "address"],
     "ritual_ZNK11QPageRanges8lastPageEv": ["int", "address"],
-    "ritual_ZN11QPageRanges6detachEv": ["nothing", "address"]
+    "ritual_ZN11QPageRanges6detachEv": ["nothing", "address"],
+    "ritual_ZNK11QPageRanges7isEqualERKS_": ["bool", "address", "address"]
   }
 }

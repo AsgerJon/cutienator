@@ -30,11 +30,11 @@ class QTime(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QTime that has a ritual and that Python can call so
-  far, 22 names in all: 'isNull', 'isValid', 'hour', 'minute', 'second',
+  far, 23 names in all: 'isNull', 'isValid', 'hour', 'minute', 'second',
   'msec', 'toString', 'setHMS', 'addSecs', 'secsTo', 'addMSecs', 'msecsTo',
   'fromMSecsSinceStartOfDay', 'msecsSinceStartOfDay', 'currentTime',
-  'fromString', '__eq__', '__ne__', '__lt__', '__gt__', '__le__', '__ge__'.
-  It can be made from Python, in 2 ways; see '__init__'.
+  'fromString', 'ds', '__eq__', '__ne__', '__lt__', '__gt__', '__le__',
+  '__ge__'. It can be made from Python, in 3 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -56,8 +56,8 @@ class QTime(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  4 of the 36 functions Qt declares: 2 private; 2 takes or gives a type that
-  cannot be passed yet.
+  2 of the 36 functions Qt declares: 2 takes or gives a type that cannot be
+  passed yet.
 
   What to expect
   --------------
@@ -429,6 +429,15 @@ class QTime(CuteMixin, metaclass=MetaCute):
     #  int QTime::msecsSinceStartOfDay() const
     return self.uglySide.call('ritual_ZNK5QTime20msecsSinceStartOfDayEv')
 
+  def ds(self) -> int:
+    """
+    Calls Qt's 'int QTime::ds() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtime.html#ds
+    """
+    #  int QTime::ds() const
+    return self.uglySide.call('ritual_ZNK5QTime2dsEv')
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -638,6 +647,25 @@ class QTime(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(int)
+  def __init__(self, ms: int) -> None:
+    """
+    Notes what was given, for Qt's 'QTime::QTime(int ms)', which is called at
+    the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtime.html#QTime
+
+    Parameters
+    ----------
+
+    ms : int
+      Passed on as it is.
+    """
+    #  QTime::QTime(int ms)
+    self._noteCreation(QTime, lambda: Rituals.call(
+        'ritual_ZN5QTimeC1Ei', ms,
+    ))
 
   @overload()
   def __init__(self) -> None:

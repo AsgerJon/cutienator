@@ -67,8 +67,8 @@ class QPdfWriter(QObject, QPagedPaintDevice):
   What has no ritual
   ------------------
 
-  8 of the 35 functions Qt declares: 3 private; 2 takes or gives a type that
-  cannot be passed yet; 2 forbidden; 1 a template.
+  8 of the 35 functions Qt declares: 4 takes or gives a type that cannot be
+  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found.
 
   What to expect
   --------------
@@ -358,7 +358,10 @@ class QPdfWriter(QObject, QPagedPaintDevice):
       no object.
     """
     #  QPaintEngine *QPdfWriter::paintEngine() const
-    address = self.uglySide.call('ritual_own_ZNK10QPdfWriter11paintEngineEv')
+    ritual = 'ritual_ZNK10QPdfWriter11paintEngineEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK10QPdfWriter11paintEngineEv'
+    address = self.uglySide.call(ritual)
     from . import QPaintEngine
     return QPaintEngine._cuteAt(address)
 
@@ -376,11 +379,13 @@ class QPdfWriter(QObject, QPagedPaintDevice):
       Passed on as its number.
     """
     #  int QPdfWriter::metric(PaintDeviceMetric id) const
-    return self.uglySide.call(
-        'ritual_own_ZNK10QPdfWriter6metricEN12QPaintDevice17PaintDeviceMetr'
-        'icE',
-        id.value,
-    )
+    ritual = (
+        'ritual_ZNK10QPdfWriter6metricEN12QPaintDevice17PaintDeviceMetricE')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK10QPdfWriter6metricEN12QPaintDevice17PaintDeviceMe'
+          'tricE')
+    return self.uglySide.call(ritual, id.value)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

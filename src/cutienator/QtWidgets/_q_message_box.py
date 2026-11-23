@@ -99,8 +99,9 @@ class QMessageBox(QDialog):
   What has no ritual
   ------------------
 
-  9 of the 82 functions Qt declares: 3 private; 2 takes or gives a type that
-  cannot be passed yet; 2 forbidden; 1 a template; 1 a signal.
+  9 of the 82 functions Qt declares: 4 takes or gives a type that cannot be
+  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found;
+  1 a signal.
 
   What to expect
   --------------
@@ -2154,9 +2155,10 @@ class QMessageBox(QDialog):
       object.
     """
     #  bool QMessageBox::event(QEvent *e)
-    return self.uglySide.call(
-        'ritual_own_ZN11QMessageBox5eventEP6QEvent', self._addressOf(e),
-    )
+    ritual = 'ritual_ZN11QMessageBox5eventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QMessageBox5eventEP6QEvent'
+    return self.uglySide.call(ritual, self._addressOf(e))
 
   @overload(QResizeEvent)
   @overload(NoneType)
@@ -2174,10 +2176,10 @@ class QMessageBox(QDialog):
       object.
     """
     #  void QMessageBox::resizeEvent(QResizeEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN11QMessageBox11resizeEventEP12QResizeEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN11QMessageBox11resizeEventEP12QResizeEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QMessageBox11resizeEventEP12QResizeEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QShowEvent)
   @overload(NoneType)
@@ -2195,10 +2197,10 @@ class QMessageBox(QDialog):
       object.
     """
     #  void QMessageBox::showEvent(QShowEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN11QMessageBox9showEventEP10QShowEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN11QMessageBox9showEventEP10QShowEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QMessageBox9showEventEP10QShowEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QCloseEvent)
   @overload(NoneType)
@@ -2216,10 +2218,10 @@ class QMessageBox(QDialog):
       object.
     """
     #  void QMessageBox::closeEvent(QCloseEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN11QMessageBox10closeEventEP11QCloseEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN11QMessageBox10closeEventEP11QCloseEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QMessageBox10closeEventEP11QCloseEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QKeyEvent)
   @overload(NoneType)
@@ -2237,10 +2239,10 @@ class QMessageBox(QDialog):
       object.
     """
     #  void QMessageBox::keyPressEvent(QKeyEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN11QMessageBox13keyPressEventEP9QKeyEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN11QMessageBox13keyPressEventEP9QKeyEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QMessageBox13keyPressEventEP9QKeyEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QEvent)
   @overload(NoneType)
@@ -2258,7 +2260,7 @@ class QMessageBox(QDialog):
       object.
     """
     #  void QMessageBox::changeEvent(QEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN11QMessageBox11changeEventEP6QEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN11QMessageBox11changeEventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QMessageBox11changeEventEP6QEvent'
+    self.uglySide.call(ritual, self._addressOf(event))

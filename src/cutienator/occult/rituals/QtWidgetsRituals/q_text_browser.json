@@ -39,6 +39,31 @@
     "ritual_ZN12QTextBrowser7forwardEv": ["nothing", "address"],
     "ritual_ZN12QTextBrowser4homeEv": ["nothing", "address"],
     "ritual_ZN12QTextBrowser6reloadEv": ["nothing", "address"],
+    "ritual_ZN12QTextBrowser5eventEP6QEvent": ["bool", "address", "address"],
+    "ritual_ZN12QTextBrowser13keyPressEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QTextBrowser14mouseMoveEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QTextBrowser15mousePressEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QTextBrowser17mouseReleaseEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QTextBrowser13focusOutEventEP11QFocusEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QTextBrowser18focusNextPrevChildEb": [
+      "bool", "address", "bool"
+    ],
+    "ritual_ZN12QTextBrowser10paintEventEP11QPaintEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QTextBrowser11doSetSourceERK4QUrlN13QTextDocument12ResourceTypeE": [
+      "nothing", "address", "address", "int"
+    ],
     "ritual_take_QTextBrowser": ["bool", "address", "chars", "address"],
     "ritual_own_ZN12QTextBrowser12loadResourceEiRK4QUrl": [
       "address", "address", "int", "address"

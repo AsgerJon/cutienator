@@ -55,14 +55,15 @@ class QStyleHints(QObject):
   'wheelScrollLines', 'setWheelScrollLines',
   'setMouseQuickSelectionThreshold', 'mouseQuickSelectionThreshold',
   'colorScheme', 'setColorScheme', 'unsetColorScheme', 'accessibility',
-  'toolTipWakeUpDelayAsMSec'. None can be made from Python: one comes out of
-  a function of another class that gives one back.
+  'toolTipWakeUpDelayAsMSec'. It can be made from Python, in 1 way; see
+  '__init__'.
 
   What has no ritual
   ------------------
 
-  24 of the 69 functions Qt declares: 15 a signal; 4 takes or gives a type
-  that cannot be passed yet; 4 private; 1 a template.
+  23 of the 69 functions Qt declares: 15 a signal; 6 takes or gives a type
+  that cannot be passed yet; 1 a template; 1 declared and nowhere to be
+  found.
 
   What to expect
   --------------
@@ -820,6 +821,19 @@ class QStyleHints(QObject):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload()
+  def __init__(self) -> None:
+    """
+    Notes what was given, for Qt's 'QStyleHints::QStyleHints()', which is
+    called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qstylehints.html#QStyleHints
+    """
+    #  QStyleHints::QStyleHints()
+    self._noteCreation(QStyleHints, lambda: Rituals.call(
+        'ritual_ZN11QStyleHintsC1Ev',
+    ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #

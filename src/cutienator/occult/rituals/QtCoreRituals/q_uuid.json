@@ -4,6 +4,7 @@
     "QtCore/quuid.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN5QUuidC1EN2Qt14InitializationE": ["address", "int"],
     "ritual_ZN5QUuidC1Ev": ["address"],
     "ritual_ZN5QUuidC1Ejtthhhhhhhh": [
       "address", "unsigned int", "unsigned short", "unsigned short",
@@ -29,6 +30,9 @@
     "ritual_ZNK5QUuid6isNullEN2Qt15Disambiguated_tE": [
       "bool", "address", "address"
     ],
+    "ritual_ZN5QUuid22compareThreeWay_helperERKS_S1_": [
+      "address", "address", "address"
+    ],
     "ritual_ZeqRK5QUuidS1_": ["bool", "address", "address"],
     "ritual_ZneRK5QUuidS1_": ["bool", "address", "address"],
     "ritual_ZltRK5QUuidS1_": ["bool", "address", "address"],
@@ -43,6 +47,7 @@
       "address", "address", "address"
     ],
     "ritual_ZN5QUuid12createUuidV7Ev": ["address"],
+    "ritual_ZN5QUuid14isKnownVersionENS_7VersionE": ["bool", "int"],
     "ritual_ZNK5QUuid7variantEN2Qt15Disambiguated_tE": [
       "int", "address", "address"
     ],

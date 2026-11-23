@@ -68,3 +68,11 @@ bool ritual_ZneRK15QColorTransformS1_(
     const QColorTransform *ct2) {
   return operator!=(*ct1, *ct2);
 }
+
+//  bool QColorTransform::compare(const QColorTransform &other) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK15QColorTransform7compareERKS_(
+    const QColorTransform *self,
+    const QColorTransform *other) {
+  return self->compare(*other);
+}

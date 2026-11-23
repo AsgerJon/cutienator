@@ -54,6 +54,12 @@
       "address"
     ],
     "ritual_ZNK11QMetaMethod7isValidEv": ["bool", "address"],
+    "ritual_ZN11QMetaMethod23fromRelativeMethodIndexEPK11QMetaObjecti": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN11QMetaMethod28fromRelativeConstructorIndexEPK11QMetaObjecti": [
+      "address", "address", "int"
+    ],
     "ritual_ZeqRK11QMetaMethodS1_": ["bool", "address", "address"],
     "ritual_ZneRK11QMetaMethodS1_": ["bool", "address", "address"],
     "ritual_ZN11QMetaMethodD1Ev": ["nothing", "address"]

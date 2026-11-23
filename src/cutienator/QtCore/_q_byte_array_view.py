@@ -17,12 +17,18 @@ from ..occult import Rituals
 from . import Qt
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Optional
+
   from . import QByteArray, QChar
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
   QChar = WAIT['QChar']
+
+#  The class of None, for a signature that takes None in the place of an
+#  object or of text.
+NoneType = type(None)
 
 
 class QByteArrayView(CuteMixin, metaclass=MetaCute):
@@ -38,12 +44,13 @@ class QByteArrayView(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QByteArrayView that has a ritual and that Python can
-  call so far, 32 names in all: 'toByteArray', 'maxSize', 'size', 'first',
-  'last', 'sliced', 'chopped', 'left', 'right', 'mid', 'truncate', 'chop',
-  'trimmed', 'startsWith', 'endsWith', 'indexOf', 'contains', 'lastIndexOf',
-  'count', 'compare', 'isValidUtf8', 'empty', 'max_size', 'isNull',
-  'isEmpty', 'length', '__eq__', '__ne__', '__lt__', '__gt__', '__le__',
-  '__ge__'. It can be made from Python, in 1 way; see '__init__'.
+  call so far, 34 names in all: 'lengthHelperCharArray', 'toByteArray',
+  'maxSize', 'size', 'first', 'last', 'sliced', 'chopped', 'left', 'right',
+  'mid', 'truncate', 'chop', 'trimmed', 'startsWith', 'endsWith', 'indexOf',
+  'contains', 'lastIndexOf', 'count', 'compare', 'isValidUtf8', 'empty',
+  'max_size', 'isNull', 'isEmpty', 'length', 'verify', '__eq__', '__ne__',
+  '__lt__', '__gt__', '__le__', '__ge__'. It can be made from Python, in 1
+  way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -140,8 +147,8 @@ class QByteArrayView(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  39 of the 122 functions Qt declares: 26 takes or gives a type that cannot
-  be passed yet; 10 a template; 3 private.
+  37 of the 122 functions Qt declares: 27 takes or gives a type that cannot
+  be passed yet; 10 a template.
 
   What to expect
   --------------
@@ -160,6 +167,33 @@ class QByteArrayView(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  @overload(str, int)
+  @overload(NoneType, int)
+  def lengthHelperCharArray(data: Optional[str], size: int) -> int:
+    """
+    Calls Qt's 'qsizetype QByteArrayView::lengthHelperCharArray(const char
+    *data, size_t size)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qbytearrayview.html#lengthHelperCharArray
+
+    Parameters
+    ----------
+
+    data : Optional[str]
+      Passed on as the bytes of the text. None is passed on as no text.
+
+    size : int
+      Passed on as it is.
+    """
+    #  qsizetype QByteArrayView::lengthHelperCharArray(const char *data,
+    #      size_t size)
+    return Rituals.call(
+        'ritual_ZN14QByteArrayView21lengthHelperCharArrayEPKcm',
+        CuteMixin._bytesOf(data), size,
+    )
 
   @staticmethod
   def maxSize() -> int:
@@ -1056,3 +1090,25 @@ class QByteArrayView(CuteMixin, metaclass=MetaCute):
     """
     #  void QByteArrayView::chop(qsizetype n)
     self.uglySide.call('ritual_ZN14QByteArrayView4chopEx', n)
+
+  @overload()
+  @overload(int)
+  @overload(int, int)
+  def verify(self, pos: int = 0, n: int = 1) -> None:
+    """
+    Calls Qt's 'void QByteArrayView::verify(qsizetype pos, qsizetype n)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbytearrayview.html#verify
+
+    Parameters
+    ----------
+
+    pos : int
+      Passed on as it is. May be left out, as in Qt: it is then 0.
+
+    n : int
+      Passed on as it is. May be left out, as in Qt: it is then 1.
+    """
+    #  void QByteArrayView::verify(qsizetype pos, qsizetype n) const
+    self.uglySide.call('ritual_ZNK14QByteArrayView6verifyExx', pos, n)

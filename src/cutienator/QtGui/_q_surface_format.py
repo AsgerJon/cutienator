@@ -40,7 +40,7 @@ class QSurfaceFormat(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QSurfaceFormat that has a ritual and that Python can
-  call so far, 41 names in all: 'setDepthBufferSize', 'depthBufferSize',
+  call so far, 43 names in all: 'setDepthBufferSize', 'depthBufferSize',
   'setStencilBufferSize', 'stencilBufferSize', 'setRedBufferSize',
   'redBufferSize', 'setGreenBufferSize', 'greenBufferSize',
   'setBlueBufferSize', 'blueBufferSize', 'setAlphaBufferSize',
@@ -50,8 +50,8 @@ class QSurfaceFormat(CuteMixin, metaclass=MetaCute):
   'minorVersion', 'setVersion', 'stereo', 'setStereo', 'setOptions',
   'setOption', 'testOption', 'options', 'swapInterval', 'setSwapInterval',
   'colorSpace', 'setColorSpace', 'setDefaultFormat', 'defaultFormat',
-  '__eq__', '__ne__', '__rlshift__'. It can be made from Python, in 3 ways;
-  see '__init__'.
+  'detach', 'equals', '__eq__', '__ne__', '__rlshift__'. It can be made from
+  Python, in 3 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -62,8 +62,8 @@ class QSurfaceFormat(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  7 of the 53 functions Qt declares: 3 private; 2 takes or gives a type that
-  cannot be passed yet; 1 declared and nowhere to be found; 1 a template.
+  5 of the 53 functions Qt declares: 2 declared and nowhere to be found; 2
+  takes or gives a type that cannot be passed yet; 1 a template.
 
   What to expect
   --------------
@@ -437,6 +437,26 @@ class QSurfaceFormat(CuteMixin, metaclass=MetaCute):
     address = self.uglySide.call('ritual_ZNK14QSurfaceFormat10colorSpaceEv')
     from . import QColorSpace
     return QColorSpace._cuteOwning(address)
+
+  @overload(THIS)
+  def equals(self, other: QSurfaceFormat) -> bool:
+    """
+    Calls Qt's 'bool QSurfaceFormat::equals(const QSurfaceFormat &other)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qsurfaceformat.html#equals
+
+    Parameters
+    ----------
+
+    other : QSurfaceFormat
+      Passed on as a value: Qt reads the C++ QSurfaceFormat, which stays
+      Python's own.
+    """
+    #  bool QSurfaceFormat::equals(const QSurfaceFormat &other) const
+    return self.uglySide.call(
+        'ritual_ZNK14QSurfaceFormat6equalsERKS_', self._valueOf(other),
+    )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -990,3 +1010,12 @@ class QSurfaceFormat(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def detach(self) -> None:
+    """
+    Calls Qt's 'void QSurfaceFormat::detach()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qsurfaceformat.html#detach
+    """
+    #  void QSurfaceFormat::detach()
+    self.uglySide.call('ritual_ZN14QSurfaceFormat6detachEv')

@@ -51,11 +51,17 @@ class QAccessibleInterface(CuteMixin, metaclass=MetaCute):
   'attributesInterface', 'viewportInterface'. None can be made from Python:
   one comes out of a function of another class that gives one back.
 
+  What has a ritual and is left out, and why
+  ------------------------------------------
+
+  - Qt's 'QAccessibleInterface::~QAccessibleInterface()': the destructor:
+    Python never removes a C++ QAccessibleInterface.
+
   What has no ritual
   ------------------
 
-  9 of the 36 functions Qt declares: 4 forbidden; 3 takes or gives a type
-  that cannot be passed yet; 2 protected.
+  8 of the 36 functions Qt declares: 4 forbidden; 3 takes or gives a type
+  that cannot be passed yet; 1 the class is abstract, so C++ cannot make one.
 
   What to expect
   --------------

@@ -130,3 +130,11 @@ int ritual_ZNK14QTextTableCell20tableCellFormatIndexEv(
     const QTextTableCell *self) {
   return self->tableCellFormatIndex();
 }
+
+//  QTextTableCell::QTextTableCell(const QTextTable *t, int f)
+extern "C" Q_DECL_EXPORT
+QTextTableCell *ritual_ZN14QTextTableCellC1EPK10QTextTablei(
+    const QTextTable *t,
+    int f) {
+  return new QTextTableCell(t, f);
+}

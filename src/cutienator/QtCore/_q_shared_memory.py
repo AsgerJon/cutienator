@@ -53,8 +53,8 @@ class QSharedMemory(QObject):
   What has no ritual
   ------------------
 
-  11 of the 35 functions Qt declares: 5 takes or gives a type that cannot be
-  passed yet; 3 private; 2 forbidden; 1 a template.
+  11 of the 35 functions Qt declares: 7 takes or gives a type that cannot be
+  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found.
 
   What to expect
   --------------

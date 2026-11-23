@@ -62,7 +62,7 @@ class QImage(QPaintDevice):
   -----------
 
   Every function of Qt's QImage that has a ritual and that Python can call so
-  far, 78 names in all: 'isNull', 'devType', '__eq__', '__ne__', 'detach',
+  far, 86 names in all: 'isNull', 'devType', '__eq__', '__ne__', 'detach',
   'isDetached', 'copy', 'format', 'convertToFormat', 'reinterpretAsFormat',
   'convertedTo', 'convertTo', 'width', 'height', 'size', 'rect', 'depth',
   'colorCount', 'bitPlaneCount', 'color', 'setColor', 'setColorCount',
@@ -78,7 +78,10 @@ class QImage(QPaintDevice):
   'fromData', 'cacheKey', 'paintEngine', 'dotsPerMeterX', 'dotsPerMeterY',
   'setDotsPerMeterX', 'setDotsPerMeterY', 'offset', 'setOffset', 'textKeys',
   'text', 'setText', 'pixelFormat', 'toPixelFormat', 'toImageFormat',
-  'metric'. It can be made from Python, in 5 ways; see '__init__'.
+  'metric', 'mirrored_helper', 'rgbSwapped_helper', 'mirrored_inplace',
+  'rgbSwapped_inplace', 'convertToFormat_helper', 'convertToFormat_inplace',
+  'smoothScaled', 'detachMetadata'. It can be made from Python, in 5 ways;
+  see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -91,9 +94,9 @@ class QImage(QPaintDevice):
   What has no ritual
   ------------------
 
-  40 of the 143 functions Qt declares: 21 takes or gives a type that cannot
-  be passed yet; 8 can only be called on a value about to be thrown away; 8
-  protected; 1 declared and nowhere to be found; 1 a template; 1 private.
+  32 of the 143 functions Qt declares: 21 takes or gives a type that cannot
+  be passed yet; 8 can only be called on a value about to be thrown away; 2
+  declared and nowhere to be found; 1 a template.
 
   What to expect
   --------------
@@ -1636,10 +1639,118 @@ class QImage(QPaintDevice):
       Passed on as its number.
     """
     #  int QImage::metric(PaintDeviceMetric metric) const
-    return self.uglySide.call(
-        'ritual_own_ZNK6QImage6metricEN12QPaintDevice17PaintDeviceMetricE',
-        metric.value,
+    ritual = 'ritual_ZNK6QImage6metricEN12QPaintDevice17PaintDeviceMetricE'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK6QImage6metricEN12QPaintDevice17PaintDeviceMetricE')
+    return self.uglySide.call(ritual, metric.value)
+
+  @overload(bool, bool)
+  def mirrored_helper(self, horizontal: bool, vertical: bool) -> QImage:
+    """
+    Calls Qt's 'QImage QImage::mirrored_helper(bool horizontal, bool
+    vertical) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qimage.html#mirrored_helper
+
+    Parameters
+    ----------
+
+    horizontal : bool
+      Passed on as it is.
+
+    vertical : bool
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QImage
+      A new cute QImage around the copy Qt gave back. Python owns it.
+    """
+    #  QImage QImage::mirrored_helper(bool horizontal, bool vertical) const
+    address = self.uglySide.call(
+        'ritual_ZNK6QImage15mirrored_helperEbb', horizontal, vertical,
     )
+    return QImage._cuteOwning(address)
+
+  def rgbSwapped_helper(self) -> QImage:
+    """
+    Calls Qt's 'QImage QImage::rgbSwapped_helper() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qimage.html#rgbSwapped_helper
+
+    Returns
+    -------
+
+    QImage
+      A new cute QImage around the copy Qt gave back. Python owns it.
+    """
+    #  QImage QImage::rgbSwapped_helper() const
+    address = self.uglySide.call('ritual_ZNK6QImage17rgbSwapped_helperEv')
+    return QImage._cuteOwning(address)
+
+  @overload(Format, Qt.ImageConversionFlags)
+  def convertToFormat_helper(
+      self,
+      format: Format,
+      flags: Qt.ImageConversionFlags,
+  ) -> QImage:
+    """
+    Calls Qt's 'QImage QImage::convertToFormat_helper(Format format,
+    Qt::ImageConversionFlags flags) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qimage.html#convertToFormat_helper
+
+    Parameters
+    ----------
+
+    format : Format
+      Passed on as its number.
+
+    flags : Qt.ImageConversionFlags
+      Passed on as its number.
+
+    Returns
+    -------
+
+    QImage
+      A new cute QImage around the copy Qt gave back. Python owns it.
+    """
+    #  QImage QImage::convertToFormat_helper(Format format,
+    #      Qt::ImageConversionFlags flags) const
+    address = self.uglySide.call(
+        'ritual_ZNK6QImage22convertToFormat_helperENS_6FormatE6QFlagsIN2Qt1'
+        '9ImageConversionFlagEE',
+        format.value, flags.value,
+    )
+    return QImage._cuteOwning(address)
+
+  @overload(int, int)
+  def smoothScaled(self, w: int, h: int) -> QImage:
+    """
+    Calls Qt's 'QImage QImage::smoothScaled(int w, int h) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qimage.html#smoothScaled
+
+    Parameters
+    ----------
+
+    w : int
+      Passed on as it is.
+
+    h : int
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QImage
+      A new cute QImage around the copy Qt gave back. Python owns it.
+    """
+    #  QImage QImage::smoothScaled(int w, int h) const
+    address = self.uglySide.call('ritual_ZNK6QImage12smoothScaledEii', w, h)
+    return QImage._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -2506,3 +2617,81 @@ class QImage(QPaintDevice):
         'ritual_ZN6QImage12loadFromDataERK10QByteArrayPKc',
         self._valueOf(data), self._bytesOf(format),
     )
+
+  @overload(bool, bool)
+  def mirrored_inplace(self, horizontal: bool, vertical: bool) -> None:
+    """
+    Calls Qt's 'void QImage::mirrored_inplace(bool horizontal, bool
+    vertical)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qimage.html#mirrored_inplace
+
+    Parameters
+    ----------
+
+    horizontal : bool
+      Passed on as it is.
+
+    vertical : bool
+      Passed on as it is.
+    """
+    #  void QImage::mirrored_inplace(bool horizontal, bool vertical)
+    self.uglySide.call(
+        'ritual_ZN6QImage16mirrored_inplaceEbb', horizontal, vertical,
+    )
+
+  def rgbSwapped_inplace(self) -> None:
+    """
+    Calls Qt's 'void QImage::rgbSwapped_inplace()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qimage.html#rgbSwapped_inplace
+    """
+    #  void QImage::rgbSwapped_inplace()
+    self.uglySide.call('ritual_ZN6QImage18rgbSwapped_inplaceEv')
+
+  @overload(Format, Qt.ImageConversionFlags)
+  def convertToFormat_inplace(
+      self,
+      format: Format,
+      flags: Qt.ImageConversionFlags,
+  ) -> bool:
+    """
+    Calls Qt's 'bool QImage::convertToFormat_inplace(Format format,
+    Qt::ImageConversionFlags flags)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qimage.html#convertToFormat_inplace
+
+    Parameters
+    ----------
+
+    format : Format
+      Passed on as its number.
+
+    flags : Qt.ImageConversionFlags
+      Passed on as its number.
+    """
+    #  bool QImage::convertToFormat_inplace(Format format,
+    #      Qt::ImageConversionFlags flags)
+    return self.uglySide.call(
+        'ritual_ZN6QImage23convertToFormat_inplaceENS_6FormatE6QFlagsIN2Qt1'
+        '9ImageConversionFlagEE',
+        format.value, flags.value,
+    )
+
+  @overload()
+  @overload(bool)
+  def detachMetadata(self, invalidateCache: bool = False) -> None:
+    """
+    Calls Qt's 'void QImage::detachMetadata(bool invalidateCache)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qimage.html#detachMetadata
+
+    Parameters
+    ----------
+
+    invalidateCache : bool
+      Passed on as it is. May be left out, as in Qt: it is then False.
+    """
+    #  void QImage::detachMetadata(bool invalidateCache)
+    self.uglySide.call('ritual_ZN6QImage14detachMetadataEb', invalidateCache)

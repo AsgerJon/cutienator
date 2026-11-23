@@ -91,6 +91,10 @@
       "address", "double", "double"
     ],
     "ritual_ZN10QTransform9fromScaleEdd": ["address", "double", "double"],
+    "ritual_ZNK10QTransform11inline_typeEv": ["int", "address"],
+    "ritual_ZNK10QTransform6do_mapEddRdS0_": [
+      "nothing", "address", "double", "double", "address", "address"
+    ],
     "ritual_ZN10QTransformD1Ev": ["nothing", "address"]
   }
 }

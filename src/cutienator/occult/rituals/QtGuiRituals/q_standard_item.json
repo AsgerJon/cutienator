@@ -178,6 +178,7 @@
     ],
     "ritual_ZNK13QStandardItem5cloneEv": ["address", "address"],
     "ritual_ZNK13QStandardItem4typeEv": ["int", "address"],
+    "ritual_ZN13QStandardItem15emitDataChangedEv": ["nothing", "address"],
     "ritual_take_QStandardItem": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK13QStandardItem4dataEi": ["address", "address", "int"],
     "ritual_own_ZNK13QStandardItem9multiDataE18QModelRoleDataSpan": [

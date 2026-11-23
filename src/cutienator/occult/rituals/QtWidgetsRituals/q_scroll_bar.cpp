@@ -842,6 +842,78 @@ QMenu *ritual_ZN10QScrollBar25createStandardContextMenuE6QPoint(
   return self->createStandardContextMenu(*position);
 }
 
+//  void QScrollBar::wheelEvent(QWheelEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QScrollBar10wheelEventEP11QWheelEvent(
+    QScrollBar *self,
+    QWheelEvent *a0) {
+  self->wheelEvent(a0);
+}
+
+//  void QScrollBar::paintEvent(QPaintEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QScrollBar10paintEventEP11QPaintEvent(
+    QScrollBar *self,
+    QPaintEvent *a0) {
+  self->paintEvent(a0);
+}
+
+//  void QScrollBar::mousePressEvent(QMouseEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QScrollBar15mousePressEventEP11QMouseEvent(
+    QScrollBar *self,
+    QMouseEvent *a0) {
+  self->mousePressEvent(a0);
+}
+
+//  void QScrollBar::mouseReleaseEvent(QMouseEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QScrollBar17mouseReleaseEventEP11QMouseEvent(
+    QScrollBar *self,
+    QMouseEvent *a0) {
+  self->mouseReleaseEvent(a0);
+}
+
+//  void QScrollBar::mouseMoveEvent(QMouseEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QScrollBar14mouseMoveEventEP11QMouseEvent(
+    QScrollBar *self,
+    QMouseEvent *a0) {
+  self->mouseMoveEvent(a0);
+}
+
+//  void QScrollBar::hideEvent(QHideEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QScrollBar9hideEventEP10QHideEvent(
+    QScrollBar *self,
+    QHideEvent *a0) {
+  self->hideEvent(a0);
+}
+
+//  void QScrollBar::sliderChange(SliderChange change)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QScrollBar12sliderChangeEN15QAbstractSlider12SliderChangeE(
+    QScrollBar *self,
+    QAbstractSlider::SliderChange change) {
+  self->sliderChange(change);
+}
+
+//  void QScrollBar::contextMenuEvent(QContextMenuEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QScrollBar16contextMenuEventEP17QContextMenuEvent(
+    QScrollBar *self,
+    QContextMenuEvent *a0) {
+  self->contextMenuEvent(a0);
+}
+
+//  void QScrollBar::initStyleOption(QStyleOptionSlider *option) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK10QScrollBar15initStyleOptionEP18QStyleOptionSlider(
+    const QScrollBar *self,
+    QStyleOptionSlider *option) {
+  self->initStyleOption(option);
+}
+
 //  a Python function taken by a CuteQScrollBar, for the function named by
 //      the key
 extern "C" Q_DECL_EXPORT

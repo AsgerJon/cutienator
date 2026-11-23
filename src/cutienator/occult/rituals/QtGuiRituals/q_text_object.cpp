@@ -147,6 +147,26 @@ QString *ritual_ZN11QTextObject2trEPKcS1_i(
   return new QString(QTextObject::tr(s, c, n));
 }
 
+//  QTextObject::QTextObject(QTextDocument *doc)
+extern "C" Q_DECL_EXPORT
+QTextObject *ritual_ZN11QTextObjectC1EP13QTextDocument(QTextDocument *doc) {
+  return new CuteQTextObject(doc);
+}
+
+//  QTextObject::~QTextObject()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QTextObjectD1Ev(QTextObject *self) {
+  delete self;
+}
+
+//  void QTextObject::setFormat(const QTextFormat &format)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QTextObject9setFormatERK11QTextFormat(
+    QTextObject *self,
+    const QTextFormat *format) {
+  self->setFormat(*format);
+}
+
 //  QTextFormat QTextObject::format() const
 extern "C" Q_DECL_EXPORT
 QTextFormat *ritual_ZNK11QTextObject6formatEv(const QTextObject *self) {

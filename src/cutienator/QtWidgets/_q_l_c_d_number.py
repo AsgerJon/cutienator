@@ -61,8 +61,9 @@ class QLCDNumber(QFrame):
   What has no ritual
   ------------------
 
-  9 of the 36 functions Qt declares: 3 private; 2 takes or gives a type that
-  cannot be passed yet; 2 forbidden; 1 a template; 1 a signal.
+  9 of the 36 functions Qt declares: 4 takes or gives a type that cannot be
+  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found;
+  1 a signal.
 
   What to expect
   --------------
@@ -570,9 +571,10 @@ class QLCDNumber(QFrame):
       object.
     """
     #  bool QLCDNumber::event(QEvent *e)
-    return self.uglySide.call(
-        'ritual_own_ZN10QLCDNumber5eventEP6QEvent', self._addressOf(e),
-    )
+    ritual = 'ritual_ZN10QLCDNumber5eventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN10QLCDNumber5eventEP6QEvent'
+    return self.uglySide.call(ritual, self._addressOf(e))
 
   @overload(QPaintEvent)
   @overload(NoneType)
@@ -590,7 +592,7 @@ class QLCDNumber(QFrame):
       object.
     """
     #  void QLCDNumber::paintEvent(QPaintEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN10QLCDNumber10paintEventEP11QPaintEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN10QLCDNumber10paintEventEP11QPaintEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN10QLCDNumber10paintEventEP11QPaintEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))

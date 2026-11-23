@@ -20,7 +20,7 @@ from ..QtGui import QAccessibleInterface, QAccessibleObject
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from ..QtCore import QRect
+  from ..QtCore import QObject, QRect
   from ..QtGui import QColor, QWindow
   from . import QWidget
 else:
@@ -49,17 +49,23 @@ class QAccessibleWidget(QAccessibleObject, QAccessibleActionInterface):
   -----------
 
   Every function of Qt's QAccessibleWidget that has a ritual and that Python
-  can call so far, 16 names in all: 'isValid', 'window', 'childCount',
+  can call so far, 19 names in all: 'isValid', 'window', 'childCount',
   'indexOfChild', 'focusChild', 'rect', 'parent', 'child', 'text', 'role',
   'state', 'foregroundColor', 'backgroundColor', 'actionNames', 'doAction',
-  'keyBindingsForAction'. It can be made from Python, in 2 ways; see
-  '__init__'.
+  'keyBindingsForAction', 'widget', 'parentObject', 'addControllingSignal'.
+  It can be made from Python, in 2 ways; see '__init__'.
+
+  What has a ritual and is left out, and why
+  ------------------------------------------
+
+  - Qt's 'QAccessibleWidget::~QAccessibleWidget()': the destructor: Python
+    never removes a C++ QAccessibleWidget.
 
   What has no ritual
   ------------------
 
-  8 of the 26 functions Qt declares: 4 protected; 2 takes or gives a type
-  that cannot be passed yet; 2 forbidden.
+  4 of the 26 functions Qt declares: 2 takes or gives a type that cannot be
+  passed yet; 2 forbidden.
 
   What to expect
   --------------
@@ -427,6 +433,45 @@ class QAccessibleWidget(QAccessibleObject, QAccessibleActionInterface):
     )
     return QStringList._cuteOwning(address)
 
+  def widget(self) -> Optional[QWidget]:
+    """
+    Calls Qt's 'QWidget *QAccessibleWidget::widget() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qaccessiblewidget.html#widget
+
+    Returns
+    -------
+
+    Optional[QWidget]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QWidget *QAccessibleWidget::widget() const
+    address = self.uglySide.call('ritual_ZNK17QAccessibleWidget6widgetEv')
+    from . import QWidget
+    return QWidget._cuteAt(address)
+
+  def parentObject(self) -> Optional[QObject]:
+    """
+    Calls Qt's 'QObject *QAccessibleWidget::parentObject() const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qaccessiblewidget.html#parentObject
+
+    Returns
+    -------
+
+    Optional[QObject]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QObject *QAccessibleWidget::parentObject() const
+    address = self.uglySide.call(
+        'ritual_ZNK17QAccessibleWidget12parentObjectEv',
+    )
+    from ..QtCore import QObject
+    return QObject._cuteAt(address)
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -552,3 +597,24 @@ class QAccessibleWidget(QAccessibleObject, QAccessibleActionInterface):
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZN17QAccessibleWidget8doActionERK7QString'
     self.uglySide.call(ritual, actionName)
+
+  @overload(str)
+  def addControllingSignal(self, signal: str) -> None:
+    """
+    Calls Qt's 'void QAccessibleWidget::addControllingSignal(const QString
+    &signal)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qaccessiblewidget.html#addControllingSignal
+
+    Parameters
+    ----------
+
+    signal : str
+      Passed on as it is: a QString is made of it for the call.
+    """
+    #  void QAccessibleWidget::addControllingSignal(const QString &signal)
+    self.uglySide.call(
+        'ritual_ZN17QAccessibleWidget20addControllingSignalERK7QString',
+        signal,
+    )

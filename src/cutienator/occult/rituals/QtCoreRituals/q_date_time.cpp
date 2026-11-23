@@ -562,6 +562,14 @@ qint64 ritual_ZN9QDateTime21currentSecsSinceEpochEv() {
   return QDateTime::currentSecsSinceEpoch();
 }
 
+//  bool QDateTime::equals(const QDateTime &other) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK9QDateTime6equalsERKS_(
+    const QDateTime *self,
+    const QDateTime *other) {
+  return self->equals(*other);
+}
+
 //  bool operator==(const QDateTime &lhs, const QDateTime &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZeqRK9QDateTimeS1_(const QDateTime *lhs, const QDateTime *rhs) {

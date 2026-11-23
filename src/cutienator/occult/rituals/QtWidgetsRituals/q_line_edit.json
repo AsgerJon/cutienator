@@ -117,6 +117,57 @@
     "ritual_ZN9QLineEdit25createStandardContextMenuEv": [
       "address", "address"
     ],
+    "ritual_ZN9QLineEdit15mousePressEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QLineEdit14mouseMoveEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QLineEdit17mouseReleaseEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QLineEdit21mouseDoubleClickEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QLineEdit13keyPressEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QLineEdit15keyReleaseEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QLineEdit12focusInEventEP11QFocusEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QLineEdit13focusOutEventEP11QFocusEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QLineEdit10paintEventEP11QPaintEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QLineEdit14dragEnterEventEP15QDragEnterEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QLineEdit13dragMoveEventEP14QDragMoveEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QLineEdit14dragLeaveEventEP15QDragLeaveEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QLineEdit9dropEventEP10QDropEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QLineEdit11changeEventEP6QEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QLineEdit16contextMenuEventEP17QContextMenuEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QLineEdit16inputMethodEventEP17QInputMethodEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9QLineEdit15initStyleOptionEP17QStyleOptionFrame": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK9QLineEdit16inputMethodQueryEN2Qt16InputMethodQueryE": [
       "address", "address", "int"
     ],
@@ -127,6 +178,7 @@
       "nothing", "address", "address"
     ],
     "ritual_ZN9QLineEdit5eventEP6QEvent": ["bool", "address", "address"],
+    "ritual_ZNK9QLineEdit10cursorRectEv": ["address", "address"],
     "ritual_take_QLineEdit": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK9QLineEdit8sizeHintEv": ["address", "address"],
     "ritual_own_ZNK9QLineEdit15minimumSizeHintEv": ["address", "address"],

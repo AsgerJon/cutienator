@@ -60,8 +60,8 @@ class QThreadPool(QObject):
   What has no ritual
   ------------------
 
-  9 of the 35 functions Qt declares: 4 a template; 3 private; 2 takes or
-  gives a type that cannot be passed yet.
+  9 of the 35 functions Qt declares: 4 takes or gives a type that cannot be
+  passed yet; 4 a template; 1 declared and nowhere to be found.
 
   What to expect
   --------------

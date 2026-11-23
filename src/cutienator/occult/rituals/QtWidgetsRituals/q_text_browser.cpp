@@ -1193,6 +1193,78 @@ void ritual_ZN12QTextBrowser6reloadEv(QTextBrowser *self) {
   self->reload();
 }
 
+//  bool QTextBrowser::event(QEvent *e)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN12QTextBrowser5eventEP6QEvent(QTextBrowser *self, QEvent *e) {
+  return self->event(e);
+}
+
+//  void QTextBrowser::keyPressEvent(QKeyEvent *ev)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QTextBrowser13keyPressEventEP9QKeyEvent(
+    QTextBrowser *self,
+    QKeyEvent *ev) {
+  self->keyPressEvent(ev);
+}
+
+//  void QTextBrowser::mouseMoveEvent(QMouseEvent *ev)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QTextBrowser14mouseMoveEventEP11QMouseEvent(
+    QTextBrowser *self,
+    QMouseEvent *ev) {
+  self->mouseMoveEvent(ev);
+}
+
+//  void QTextBrowser::mousePressEvent(QMouseEvent *ev)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QTextBrowser15mousePressEventEP11QMouseEvent(
+    QTextBrowser *self,
+    QMouseEvent *ev) {
+  self->mousePressEvent(ev);
+}
+
+//  void QTextBrowser::mouseReleaseEvent(QMouseEvent *ev)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QTextBrowser17mouseReleaseEventEP11QMouseEvent(
+    QTextBrowser *self,
+    QMouseEvent *ev) {
+  self->mouseReleaseEvent(ev);
+}
+
+//  void QTextBrowser::focusOutEvent(QFocusEvent *ev)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QTextBrowser13focusOutEventEP11QFocusEvent(
+    QTextBrowser *self,
+    QFocusEvent *ev) {
+  self->focusOutEvent(ev);
+}
+
+//  bool QTextBrowser::focusNextPrevChild(bool next)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN12QTextBrowser18focusNextPrevChildEb(
+    QTextBrowser *self,
+    bool next) {
+  return self->focusNextPrevChild(next);
+}
+
+//  void QTextBrowser::paintEvent(QPaintEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QTextBrowser10paintEventEP11QPaintEvent(
+    QTextBrowser *self,
+    QPaintEvent *e) {
+  self->paintEvent(e);
+}
+
+//  void QTextBrowser::doSetSource(const QUrl &name,
+//      QTextDocument::ResourceType type)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QTextBrowser11doSetSourceERK4QUrlN13QTextDocument12ResourceTypeE(
+    QTextBrowser *self,
+    const QUrl *name,
+    QTextDocument::ResourceType type) {
+  self->doSetSource(*name, type);
+}
+
 //  a Python function taken by a CuteQTextBrowser, for the function named by
 //      the key
 extern "C" Q_DECL_EXPORT

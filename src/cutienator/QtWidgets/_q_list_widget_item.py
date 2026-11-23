@@ -73,8 +73,8 @@ class QListWidgetItem(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  4 of the 45 functions Qt declares: 3 takes or gives a type that cannot be
-  passed yet; 1 private.
+  4 of the 45 functions Qt declares: 4 takes or gives a type that cannot be
+  passed yet.
 
   What to expect
   --------------

@@ -63,12 +63,14 @@ class QScrollBar(QAbstractSlider):
 
   - Qt's 'QScrollBar::~QScrollBar()': the destructor: Python never removes a
     C++ QScrollBar.
+  - Qt's 'void QScrollBar::sliderChange(SliderChange change)': names the enum
+    'QAbstractSlider::SliderChange', whose class cannot be named here.
 
   What has no ritual
   ------------------
 
-  9 of the 25 functions Qt declares: 3 private; 2 takes or gives a type that
-  cannot be passed yet; 2 forbidden; 1 a template; 1 protected.
+  8 of the 25 functions Qt declares: 4 takes or gives a type that cannot be
+  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found.
 
   What to expect
   --------------
@@ -364,10 +366,10 @@ class QScrollBar(QAbstractSlider):
       object.
     """
     #  void QScrollBar::wheelEvent(QWheelEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN10QScrollBar10wheelEventEP11QWheelEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN10QScrollBar10wheelEventEP11QWheelEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN10QScrollBar10wheelEventEP11QWheelEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QPaintEvent)
   @overload(NoneType)
@@ -385,10 +387,10 @@ class QScrollBar(QAbstractSlider):
       object.
     """
     #  void QScrollBar::paintEvent(QPaintEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN10QScrollBar10paintEventEP11QPaintEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN10QScrollBar10paintEventEP11QPaintEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN10QScrollBar10paintEventEP11QPaintEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QMouseEvent)
   @overload(NoneType)
@@ -406,10 +408,10 @@ class QScrollBar(QAbstractSlider):
       object.
     """
     #  void QScrollBar::mousePressEvent(QMouseEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN10QScrollBar15mousePressEventEP11QMouseEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN10QScrollBar15mousePressEventEP11QMouseEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN10QScrollBar15mousePressEventEP11QMouseEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QMouseEvent)
   @overload(NoneType)
@@ -427,10 +429,10 @@ class QScrollBar(QAbstractSlider):
       object.
     """
     #  void QScrollBar::mouseReleaseEvent(QMouseEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN10QScrollBar17mouseReleaseEventEP11QMouseEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN10QScrollBar17mouseReleaseEventEP11QMouseEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN10QScrollBar17mouseReleaseEventEP11QMouseEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QMouseEvent)
   @overload(NoneType)
@@ -448,10 +450,10 @@ class QScrollBar(QAbstractSlider):
       object.
     """
     #  void QScrollBar::mouseMoveEvent(QMouseEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN10QScrollBar14mouseMoveEventEP11QMouseEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN10QScrollBar14mouseMoveEventEP11QMouseEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN10QScrollBar14mouseMoveEventEP11QMouseEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QHideEvent)
   @overload(NoneType)
@@ -469,10 +471,10 @@ class QScrollBar(QAbstractSlider):
       object.
     """
     #  void QScrollBar::hideEvent(QHideEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN10QScrollBar9hideEventEP10QHideEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN10QScrollBar9hideEventEP10QHideEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN10QScrollBar9hideEventEP10QHideEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QContextMenuEvent)
   @overload(NoneType)
@@ -490,10 +492,11 @@ class QScrollBar(QAbstractSlider):
       object.
     """
     #  void QScrollBar::contextMenuEvent(QContextMenuEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN10QScrollBar16contextMenuEventEP17QContextMenuEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN10QScrollBar16contextMenuEventEP17QContextMenuEvent'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN10QScrollBar16contextMenuEventEP17QContextMenuEvent')
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QStyleOptionSlider)
   @overload(NoneType)
@@ -512,7 +515,9 @@ class QScrollBar(QAbstractSlider):
       object.
     """
     #  void QScrollBar::initStyleOption(QStyleOptionSlider *option) const
-    self.uglySide.call(
-        'ritual_own_ZNK10QScrollBar15initStyleOptionEP18QStyleOptionSlider',
-        self._addressOf(option),
-    )
+    ritual = 'ritual_ZNK10QScrollBar15initStyleOptionEP18QStyleOptionSlider'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK10QScrollBar15initStyleOptionEP18QStyleOptionSlide'
+          'r')
+    self.uglySide.call(ritual, self._addressOf(option))

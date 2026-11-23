@@ -16,6 +16,13 @@ QStyleOptionTabWidgetFrame *ritual_ZN26QStyleOptionTabWidgetFrameC1ERKS_(
   return new QStyleOptionTabWidgetFrame(*other);
 }
 
+//  QStyleOptionTabWidgetFrame::QStyleOptionTabWidgetFrame(int version)
+extern "C" Q_DECL_EXPORT
+QStyleOptionTabWidgetFrame *ritual_ZN26QStyleOptionTabWidgetFrameC1Ei(
+    int version) {
+  return new QStyleOptionTabWidgetFrame(version);
+}
+
 //  QStyleOptionTabWidgetFrame::~QStyleOptionTabWidgetFrame()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN26QStyleOptionTabWidgetFrameD1Ev(

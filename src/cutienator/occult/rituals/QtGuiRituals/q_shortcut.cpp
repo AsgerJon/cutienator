@@ -285,6 +285,12 @@ QString *ritual_ZNK9QShortcut9whatsThisEv(const QShortcut *self) {
   return new QString(self->whatsThis());
 }
 
+//  bool QShortcut::event(QEvent *e)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN9QShortcut5eventEP6QEvent(QShortcut *self, QEvent *e) {
+  return self->event(e);
+}
+
 //  a Python function taken by a CuteQShortcut, for the function named by the
 //      key
 extern "C" Q_DECL_EXPORT

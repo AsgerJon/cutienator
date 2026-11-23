@@ -234,6 +234,47 @@ int ritual_ZN12QPaintDevice13encodeMetricFENS_17PaintDeviceMetricEd(
   return QPaintDevice::encodeMetricF(metric, value);
 }
 
+//  int QPaintDevice::metric(PaintDeviceMetric metric) const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK12QPaintDevice6metricENS_17PaintDeviceMetricE(
+    const QPaintDevice *self,
+    QPaintDevice::PaintDeviceMetric metric) {
+  return self->metric(metric);
+}
+
+//  void QPaintDevice::initPainter(QPainter *painter) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK12QPaintDevice11initPainterEP8QPainter(
+    const QPaintDevice *self,
+    QPainter *painter) {
+  self->initPainter(painter);
+}
+
+//  QPaintDevice *QPaintDevice::redirected(QPoint *offset) const
+extern "C" Q_DECL_EXPORT
+QPaintDevice *ritual_ZNK12QPaintDevice10redirectedEP6QPoint(
+    const QPaintDevice *self,
+    QPoint *offset) {
+  return self->redirected(offset);
+}
+
+//  QPainter *QPaintDevice::sharedPainter() const
+extern "C" Q_DECL_EXPORT
+QPainter *ritual_ZNK12QPaintDevice13sharedPainterEv(
+    const QPaintDevice *self) {
+  return self->sharedPainter();
+}
+
+//  double QPaintDevice::getDecodedMetricF(PaintDeviceMetric metricA,
+//      PaintDeviceMetric metricB) const
+extern "C" Q_DECL_EXPORT
+double ritual_ZNK12QPaintDevice17getDecodedMetricFENS_17PaintDeviceMetricES0_(
+    const QPaintDevice *self,
+    QPaintDevice::PaintDeviceMetric metricA,
+    QPaintDevice::PaintDeviceMetric metricB) {
+  return self->getDecodedMetricF(metricA, metricB);
+}
+
 //  a Python function taken by a CuteQPaintDevice, for the function named by
 //      the key
 extern "C" Q_DECL_EXPORT

@@ -34,7 +34,7 @@ class QStyleOptionTitleBar(QStyleOptionComplex):
   -----------
 
   No function of Qt's QStyleOptionTitleBar yet. It can be made from Python,
-  in 2 ways; see '__init__'.
+  in 3 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -46,8 +46,8 @@ class QStyleOptionTitleBar(QStyleOptionComplex):
   What has no ritual
   ------------------
 
-  2 of the 5 functions Qt declares: 1 takes or gives a type that cannot be
-  passed yet; 1 protected.
+  1 of the 5 functions Qt declares: 1 takes or gives a type that cannot be
+  passed yet.
 
   What to expect
   --------------
@@ -163,6 +163,27 @@ class QStyleOptionTitleBar(QStyleOptionComplex):
     #      &other)
     self._noteCreation(QStyleOptionTitleBar, lambda: Rituals.call(
         'ritual_ZN20QStyleOptionTitleBarC1ERKS_', self._valueOf(other),
+    ))
+
+  @overload(int)
+  def __init__(self, version: int) -> None:
+    """
+    Notes what was given, for Qt's
+    'QStyleOptionTitleBar::QStyleOptionTitleBar(int version)', which is
+    called at the first use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qstyleoptiontitlebar.html#QStyleOptionTitleBar
+
+    Parameters
+    ----------
+
+    version : int
+      Passed on as it is.
+    """
+    #  QStyleOptionTitleBar::QStyleOptionTitleBar(int version)
+    self._noteCreation(QStyleOptionTitleBar, lambda: Rituals.call(
+        'ritual_ZN20QStyleOptionTitleBarC1Ei', version,
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

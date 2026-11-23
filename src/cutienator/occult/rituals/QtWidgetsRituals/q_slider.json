@@ -20,6 +20,21 @@
     "ritual_ZN7QSlider15setTickIntervalEi": ["nothing", "address", "int"],
     "ritual_ZNK7QSlider12tickIntervalEv": ["int", "address"],
     "ritual_ZN7QSlider5eventEP6QEvent": ["bool", "address", "address"],
+    "ritual_ZN7QSlider10paintEventEP11QPaintEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QSlider15mousePressEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QSlider17mouseReleaseEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QSlider14mouseMoveEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK7QSlider15initStyleOptionEP18QStyleOptionSlider": [
+      "nothing", "address", "address"
+    ],
     "ritual_take_QSlider": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK7QSlider8sizeHintEv": ["address", "address"],
     "ritual_own_ZNK7QSlider15minimumSizeHintEv": ["address", "address"],

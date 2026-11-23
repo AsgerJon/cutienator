@@ -887,6 +887,12 @@ void ritual_ZN11QProxyStyle8unpolishEP12QApplication(
   self->unpolish(app);
 }
 
+//  bool QProxyStyle::event(QEvent *e)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN11QProxyStyle5eventEP6QEvent(QProxyStyle *self, QEvent *e) {
+  return self->event(e);
+}
+
 //  a Python function taken by a CuteQProxyStyle, for the function named by
 //      the key
 extern "C" Q_DECL_EXPORT

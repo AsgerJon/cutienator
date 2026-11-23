@@ -47,6 +47,15 @@
     "ritual_ZN19QGraphicsPixmapItem12setShapeModeENS_9ShapeModeE": [
       "nothing", "address", "int"
     ],
+    "ritual_ZNK19QGraphicsPixmapItem17supportsExtensionEN13QGraphicsItem9ExtensionE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN19QGraphicsPixmapItem12setExtensionEN13QGraphicsItem9ExtensionERK8QVariant": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZNK19QGraphicsPixmapItem9extensionERK8QVariant": [
+      "address", "address", "address"
+    ],
     "ritual_take_QGraphicsPixmapItem": [
       "bool", "address", "chars", "address"
     ],

@@ -4,6 +4,9 @@
     "QtCore/qcalendar.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZNK9QCalendar8SystemId8isInEnumEv": ["bool", "address"],
+    "ritual_ZN9QCalendar8SystemIdC1ENS_6SystemE": ["address", "int"],
+    "ritual_ZN9QCalendar8SystemIdC1Em": ["address", "size_t"],
     "ritual_ZN9QCalendar8SystemIdC1Ev": ["address"],
     "ritual_ZNK9QCalendar8SystemId7isValidEv": ["bool", "address"],
     "ritual_ZN9QCalendar8SystemIdD1Ev": ["nothing", "address"]

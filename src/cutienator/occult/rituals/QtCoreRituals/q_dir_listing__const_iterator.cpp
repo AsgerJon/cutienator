@@ -15,3 +15,10 @@ void ritual_ZN11QDirListing14const_iteratorppEi(
     int a0) {
   self->operator++(a0);
 }
+
+//  bool QDirListing::const_iterator::atEnd() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK11QDirListing14const_iterator5atEndEv(
+    const QDirListing::const_iterator *self) {
+  return self->atEnd();
+}

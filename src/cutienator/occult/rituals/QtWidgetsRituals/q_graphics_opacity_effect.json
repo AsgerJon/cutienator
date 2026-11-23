@@ -23,6 +23,9 @@
     "ritual_ZN22QGraphicsOpacityEffect14setOpacityMaskERK6QBrush": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN22QGraphicsOpacityEffect4drawEP8QPainter": [
+      "nothing", "address", "address"
+    ],
     "ritual_take_QGraphicsOpacityEffect": [
       "bool", "address", "chars", "address"
     ],

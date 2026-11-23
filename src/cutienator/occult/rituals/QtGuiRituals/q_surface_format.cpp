@@ -317,6 +317,20 @@ QSurfaceFormat *ritual_ZN14QSurfaceFormat13defaultFormatEv() {
   return new QSurfaceFormat(QSurfaceFormat::defaultFormat());
 }
 
+//  void QSurfaceFormat::detach()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QSurfaceFormat6detachEv(QSurfaceFormat *self) {
+  self->detach();
+}
+
+//  bool QSurfaceFormat::equals(const QSurfaceFormat &other) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK14QSurfaceFormat6equalsERKS_(
+    const QSurfaceFormat *self,
+    const QSurfaceFormat *other) {
+  return self->equals(*other);
+}
+
 //  bool operator==(const QSurfaceFormat &lhs, const QSurfaceFormat &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZeqRK14QSurfaceFormatS1_(

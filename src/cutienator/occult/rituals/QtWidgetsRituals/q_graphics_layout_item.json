@@ -96,6 +96,15 @@
       "address", "address"
     ],
     "ritual_ZNK19QGraphicsLayoutItem13ownedByLayoutEv": ["bool", "address"],
+    "ritual_ZN19QGraphicsLayoutItem15setGraphicsItemEP13QGraphicsItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QGraphicsLayoutItem16setOwnedByLayoutEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK19QGraphicsLayoutItem8sizeHintEN2Qt8SizeHintERK6QSizeF": [
+      "address", "address", "int", "address"
+    ],
     "ritual_take_QGraphicsLayoutItem": [
       "bool", "address", "chars", "address"
     ],

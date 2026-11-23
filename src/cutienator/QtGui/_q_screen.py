@@ -65,8 +65,9 @@ class QScreen(QObject):
   What has no ritual
   ------------------
 
-  21 of the 57 functions Qt declares: 9 a signal; 4 private; 3 takes or gives
-  a type that cannot be passed yet; 2 a template; 2 forbidden; 1 protected.
+  21 of the 57 functions Qt declares: 9 a signal; 7 takes or gives a type
+  that cannot be passed yet; 2 a template; 2 forbidden; 1 declared and
+  nowhere to be found.
 
   What to expect
   --------------

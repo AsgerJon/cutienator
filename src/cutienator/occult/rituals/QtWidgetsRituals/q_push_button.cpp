@@ -947,6 +947,68 @@ void ritual_ZN11QPushButton8showMenuEv(QPushButton *self) {
   self->showMenu();
 }
 
+//  bool QPushButton::event(QEvent *e)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN11QPushButton5eventEP6QEvent(QPushButton *self, QEvent *e) {
+  return self->event(e);
+}
+
+//  void QPushButton::paintEvent(QPaintEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QPushButton10paintEventEP11QPaintEvent(
+    QPushButton *self,
+    QPaintEvent *a0) {
+  self->paintEvent(a0);
+}
+
+//  void QPushButton::keyPressEvent(QKeyEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QPushButton13keyPressEventEP9QKeyEvent(
+    QPushButton *self,
+    QKeyEvent *a0) {
+  self->keyPressEvent(a0);
+}
+
+//  void QPushButton::focusInEvent(QFocusEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QPushButton12focusInEventEP11QFocusEvent(
+    QPushButton *self,
+    QFocusEvent *a0) {
+  self->focusInEvent(a0);
+}
+
+//  void QPushButton::focusOutEvent(QFocusEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QPushButton13focusOutEventEP11QFocusEvent(
+    QPushButton *self,
+    QFocusEvent *a0) {
+  self->focusOutEvent(a0);
+}
+
+//  void QPushButton::mouseMoveEvent(QMouseEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QPushButton14mouseMoveEventEP11QMouseEvent(
+    QPushButton *self,
+    QMouseEvent *a0) {
+  self->mouseMoveEvent(a0);
+}
+
+//  void QPushButton::initStyleOption(QStyleOptionButton *option) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK11QPushButton15initStyleOptionEP18QStyleOptionButton(
+    const QPushButton *self,
+    QStyleOptionButton *option) {
+  self->initStyleOption(option);
+}
+
+//  bool QPushButton::hitButton(const QPoint &pos) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK11QPushButton9hitButtonERK6QPoint(
+    const QPushButton *self,
+    const QPoint *pos) {
+  return self->hitButton(*pos);
+}
+
 //  a Python function taken by a CuteQPushButton, for the function named by
 //      the key
 extern "C" Q_DECL_EXPORT

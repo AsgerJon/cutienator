@@ -57,7 +57,7 @@ class QCborValue(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QCborValue that has a ritual and that Python can
-  call so far, 48 names in all: 'type', 'isInteger', 'isByteArray',
+  call so far, 52 names in all: 'type', 'isInteger', 'isByteArray',
   'isString', 'isArray', 'isMap', 'isTag', 'isFalse', 'isTrue', 'isBool',
   'isNull', 'isUndefined', 'isDouble', 'isDateTime', 'isUrl',
   'isRegularExpression', 'isUuid', 'isInvalid', 'isContainer',
@@ -66,8 +66,8 @@ class QCborValue(CuteMixin, metaclass=MetaCute):
   'toRegularExpression', 'toUuid', 'toArray', 'toMap', '__getitem__',
   'compare', 'fromVariant', 'toVariant', 'fromJsonValue', 'toJsonValue',
   'fromCbor', 'toCbor', 'toDiagnosticNotation', '__eq__', '__ne__', '__lt__',
-  '__gt__', '__le__', '__ge__'. It can be made from Python, in 16 ways; see
-  '__init__'.
+  '__gt__', '__le__', '__ge__', 'dispose', 'value_helper', 'fp_helper',
+  'isTag_helper'. It can be made from Python, in 16 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -102,13 +102,15 @@ class QCborValue(CuteMixin, metaclass=MetaCute):
   - Qt's 'QCborValueRef QCborValue::operator[](const QString &key)': takes in
     Python what 'const QCborValue QCborValue::operator[](const QString &key)
     const' takes.
+  - Qt's 'Type QCborValue::type_helper(QCborSimpleType st)': names the enum
+    'QCborSimpleType', whose class cannot be named here.
 
   What has no ritual
   ------------------
 
-  19 of the 101 functions Qt declares: 10 takes or gives a type that cannot
-  be passed yet; 6 private; 1 declared and nowhere to be found; 1 a template;
-  1 forbidden.
+  14 of the 101 functions Qt declares: 10 takes or gives a type that cannot
+  be passed yet; 2 declared and nowhere to be found; 1 a template; 1
+  forbidden.
 
   What to expect
   --------------
@@ -320,6 +322,25 @@ class QCborValue(CuteMixin, metaclass=MetaCute):
         CuteMixin._bytesOf(data), len, CuteMixin._addressOf(error),
     )
     return QCborValue._cuteOwning(address)
+
+  @staticmethod
+  @overload(Type)
+  def isTag_helper(tt: Type) -> bool:
+    """
+    Calls Qt's 'bool QCborValue::isTag_helper(Type tt)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcborvalue.html#isTag_helper
+
+    Parameters
+    ----------
+
+    tt : Type
+      Passed on as its number.
+    """
+    #  bool QCborValue::isTag_helper(Type tt)
+    return Rituals.call(
+        'ritual_ZN10QCborValue12isTag_helperENS_4TypeE', tt.value,
+    )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1074,6 +1095,24 @@ class QCborValue(CuteMixin, metaclass=MetaCute):
         opts.value,
     )
 
+  def value_helper(self) -> int:
+    """
+    Calls Qt's 'qint64 QCborValue::value_helper() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcborvalue.html#value_helper
+    """
+    #  qint64 QCborValue::value_helper() const
+    return self.uglySide.call('ritual_ZNK10QCborValue12value_helperEv')
+
+  def fp_helper(self) -> float:
+    """
+    Calls Qt's 'double QCborValue::fp_helper() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcborvalue.html#fp_helper
+    """
+    #  double QCborValue::fp_helper() const
+    return self.uglySide.call('ritual_ZNK10QCborValue9fp_helperEv')
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1668,6 +1707,15 @@ class QCborValue(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def dispose(self) -> None:
+    """
+    Calls Qt's 'void QCborValue::dispose()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcborvalue.html#dispose
+    """
+    #  void QCborValue::dispose()
+    self.uglySide.call('ritual_ZN10QCborValue7disposeEv')
 
 
 #  Qt's 'QList<QCborValue>': the list of QCborValue, which

@@ -28,6 +28,9 @@
     "ritual_ZN17QOffscreenSurface9setScreenEP7QScreen": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN17QOffscreenSurface15screenDestroyedEP7QObject": [
+      "nothing", "address", "address"
+    ],
     "ritual_cast_QOffscreenSurface_QSurface": ["address", "address"],
     "ritual_take_QOffscreenSurface": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK17QOffscreenSurface11surfaceTypeEv": ["int", "address"],

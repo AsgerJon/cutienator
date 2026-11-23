@@ -59,8 +59,9 @@ class QVariantAnimation(QAbstractAnimation):
   What has no ritual
   ------------------
 
-  15 of the 35 functions Qt declares: 6 takes or gives a type that cannot be
-  passed yet; 4 private; 2 forbidden; 1 a template; 1 a signal; 1 protected.
+  15 of the 35 functions Qt declares: 10 takes or gives a type that cannot be
+  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found;
+  1 a signal.
 
   What to expect
   --------------
@@ -342,9 +343,12 @@ class QVariantAnimation(QAbstractAnimation):
     """
     #  QVariant QVariantAnimation::interpolated(const QVariant &from, const
     #      QVariant &to, qreal progress) const
+    ritual = 'ritual_ZNK17QVariantAnimation12interpolatedERK8QVariantS2_d'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK17QVariantAnimation12interpolatedERK8QVariantS2_d')
     address = self.uglySide.call(
-        'ritual_own_ZNK17QVariantAnimation12interpolatedERK8QVariantS2_d',
-        self._valueOf(from_), self._valueOf(to), progress,
+        ritual, self._valueOf(from_), self._valueOf(to), progress,
     )
     from . import QVariant
     return QVariant._cuteOwning(address)
@@ -531,10 +535,10 @@ class QVariantAnimation(QAbstractAnimation):
       object.
     """
     #  bool QVariantAnimation::event(QEvent *event)
-    return self.uglySide.call(
-        'ritual_own_ZN17QVariantAnimation5eventEP6QEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN17QVariantAnimation5eventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN17QVariantAnimation5eventEP6QEvent'
+    return self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(int)
   def updateCurrentTime(self, a0: int) -> None:
@@ -551,9 +555,10 @@ class QVariantAnimation(QAbstractAnimation):
       Passed on as it is.
     """
     #  void QVariantAnimation::updateCurrentTime(int a0)
-    self.uglySide.call(
-        'ritual_own_ZN17QVariantAnimation17updateCurrentTimeEi', a0,
-    )
+    ritual = 'ritual_ZN17QVariantAnimation17updateCurrentTimeEi'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN17QVariantAnimation17updateCurrentTimeEi'
+    self.uglySide.call(ritual, a0)
 
   @overload(QAbstractAnimation.State, QAbstractAnimation.State)
   def updateState(
@@ -578,11 +583,14 @@ class QVariantAnimation(QAbstractAnimation):
     """
     #  void QVariantAnimation::updateState(QAbstractAnimation::State
     #      newState, QAbstractAnimation::State oldState)
-    self.uglySide.call(
-        'ritual_own_ZN17QVariantAnimation11updateStateEN18QAbstractAnimatio'
-        'n5StateES1_',
-        newState.value, oldState.value,
-    )
+    ritual = (
+        'ritual_ZN17QVariantAnimation11updateStateEN18QAbstractAnimation5St'
+        'ateES1_')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN17QVariantAnimation11updateStateEN18QAbstractAnimat'
+          'ion5StateES1_')
+    self.uglySide.call(ritual, newState.value, oldState.value)
 
   @overload(QVariant)
   def updateCurrentValue(self, value: QVariant) -> None:
@@ -601,7 +609,8 @@ class QVariantAnimation(QAbstractAnimation):
       own.
     """
     #  void QVariantAnimation::updateCurrentValue(const QVariant &value)
-    self.uglySide.call(
-        'ritual_own_ZN17QVariantAnimation18updateCurrentValueERK8QVariant',
-        self._valueOf(value),
-    )
+    ritual = 'ritual_ZN17QVariantAnimation18updateCurrentValueERK8QVariant'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN17QVariantAnimation18updateCurrentValueERK8QVariant')
+    self.uglySide.call(ritual, self._valueOf(value))

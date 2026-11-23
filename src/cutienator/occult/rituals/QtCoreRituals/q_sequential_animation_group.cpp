@@ -271,6 +271,42 @@ int ritual_ZNK25QSequentialAnimationGroup8durationEv(
   return self->duration();
 }
 
+//  bool QSequentialAnimationGroup::event(QEvent *event)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN25QSequentialAnimationGroup5eventEP6QEvent(
+    QSequentialAnimationGroup *self,
+    QEvent *event) {
+  return self->event(event);
+}
+
+//  void QSequentialAnimationGroup::updateCurrentTime(int a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QSequentialAnimationGroup17updateCurrentTimeEi(
+    QSequentialAnimationGroup *self,
+    int a0) {
+  self->updateCurrentTime(a0);
+}
+
+//  void QSequentialAnimationGroup::updateState(QAbstractAnimation::State
+//      newState, QAbstractAnimation::State oldState)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QSequentialAnimationGroup11updateStateEN18QAbstractAnimation5StateES1_(
+    QSequentialAnimationGroup *self,
+    QAbstractAnimation::State newState,
+    QAbstractAnimation::State oldState) {
+  self->updateState(newState, oldState);
+}
+
+//  void
+//      QSequentialAnimationGroup::updateDirection(QAbstractAnimation::Direct
+//      ion direction)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QSequentialAnimationGroup15updateDirectionEN18QAbstractAnimation9DirectionE(
+    QSequentialAnimationGroup *self,
+    QAbstractAnimation::Direction direction) {
+  self->updateDirection(direction);
+}
+
 //  a Python function taken by a CuteQSequentialAnimationGroup, for the
 //      function named by the key
 extern "C" Q_DECL_EXPORT

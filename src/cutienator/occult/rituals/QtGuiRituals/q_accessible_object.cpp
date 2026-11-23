@@ -319,6 +319,12 @@ QAccessibleInterface *ritual_ZNK17QAccessibleObject7childAtEii(
   return self->childAt(x, y);
 }
 
+//  QAccessibleObject::~QAccessibleObject()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QAccessibleObjectD1Ev(QAccessibleObject *self) {
+  delete self;
+}
+
 //  a Python function taken by a CuteQAccessibleObject, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT

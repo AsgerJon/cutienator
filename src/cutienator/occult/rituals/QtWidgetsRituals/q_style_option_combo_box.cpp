@@ -16,6 +16,12 @@ QStyleOptionComboBox *ritual_ZN20QStyleOptionComboBoxC1ERKS_(
   return new QStyleOptionComboBox(*other);
 }
 
+//  QStyleOptionComboBox::QStyleOptionComboBox(int version)
+extern "C" Q_DECL_EXPORT
+QStyleOptionComboBox *ritual_ZN20QStyleOptionComboBoxC1Ei(int version) {
+  return new QStyleOptionComboBox(version);
+}
+
 //  QStyleOptionComboBox::~QStyleOptionComboBox()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QStyleOptionComboBoxD1Ev(QStyleOptionComboBox *self) {

@@ -211,6 +211,13 @@ QTextBlockFormat::MarkerType ritual_ZNK16QTextBlockFormat6markerEv(
   return self->marker();
 }
 
+//  QTextBlockFormat::QTextBlockFormat(const QTextFormat &fmt)
+extern "C" Q_DECL_EXPORT
+QTextBlockFormat *ritual_ZN16QTextBlockFormatC1ERK11QTextFormat(
+    const QTextFormat *fmt) {
+  return new QTextBlockFormat(*fmt);
+}
+
 //  QTextBlockFormat::~QTextBlockFormat()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QTextBlockFormatD1Ev(QTextBlockFormat *self) {

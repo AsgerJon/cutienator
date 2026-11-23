@@ -144,6 +144,10 @@
       "nothing", "address", "float", "float", "float", "float"
     ],
     "ritual_ZNK10QMatrix4x45flagsEv": ["int", "address"],
+    "ritual_ZNK10QMatrix4x418orthonormalInverseEv": ["address", "address"],
+    "ritual_ZNK10QMatrix4x420toGenericMatrix_implEPfii": [
+      "nothing", "address", "address", "int", "int"
+    ],
     "ritual_ZN10QMatrix4x4D1Ev": ["nothing", "address"]
   }
 }

@@ -49,7 +49,7 @@ class QAction(QObject):
   -----------
 
   Every function of Qt's QAction that has a ritual and that Python can call
-  so far, 55 names in all: 'metaObject', 'tr', 'associatedObjects',
+  so far, 57 names in all: 'metaObject', 'tr', 'associatedObjects',
   'setActionGroup', 'actionGroup', 'setIcon', 'icon', 'setText', 'text',
   'setIconText', 'iconText', 'setToolTip', 'toolTip', 'setStatusTip',
   'statusTip', 'setWhatsThis', 'whatsThis', 'setPriority', 'priority',
@@ -59,9 +59,9 @@ class QAction(QObject):
   'setData', 'isChecked', 'isEnabled', 'isVisible', 'activate',
   'setMenuRole', 'menuRole', 'setIconVisibleInMenu', 'isIconVisibleInMenu',
   'setShortcutVisibleInContextMenu', 'isShortcutVisibleInContextMenu',
-  'showStatusText', 'trigger', 'hover', 'setChecked', 'toggle', 'setEnabled',
-  'resetEnabled', 'setDisabled', 'setVisible', 'event'. It can be made from
-  Python, in 3 ways; see '__init__'.
+  'showStatusText', 'event', 'trigger', 'hover', 'setChecked', 'toggle',
+  'setEnabled', 'resetEnabled', 'setDisabled', 'setVisible', 'menuObject',
+  'setMenuObject'. It can be made from Python, in 3 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -72,8 +72,9 @@ class QAction(QObject):
   What has no ritual
   ------------------
 
-  23 of the 83 functions Qt declares: 7 a signal; 6 a template; 5 private; 2
-  takes or gives a type that cannot be passed yet; 2 forbidden; 1 protected.
+  21 of the 83 functions Qt declares: 7 a signal; 6 a template; 5 takes or
+  gives a type that cannot be passed yet; 2 forbidden; 1 declared and nowhere
+  to be found.
 
   What to expect
   --------------
@@ -534,6 +535,23 @@ class QAction(QObject):
         'ritual_ZNK7QAction30isShortcutVisibleInContextMenuEv',
     )
 
+  def menuObject(self) -> Optional[QObject]:
+    """
+    Calls Qt's 'QObject *QAction::menuObject() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qaction.html#menuObject
+
+    Returns
+    -------
+
+    Optional[QObject]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QObject *QAction::menuObject() const
+    address = self.uglySide.call('ritual_ZNK7QAction10menuObjectEv')
+    return QObject._cuteAt(address)
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -960,6 +978,27 @@ class QAction(QObject):
     #  void QAction::setVisible(bool a0)
     self.uglySide.call('ritual_ZN7QAction10setVisibleEb', a0)
 
+  @overload(QObject)
+  @overload(NoneType)
+  def setMenuObject(self, object: Optional[QObject]) -> None:
+    """
+    Calls Qt's 'void QAction::setMenuObject(QObject *object)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qaction.html#setMenuObject
+
+    Parameters
+    ----------
+
+    object : Optional[QObject]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QAction::setMenuObject(QObject *object)
+    self.uglySide.call(
+        'ritual_ZN7QAction13setMenuObjectEP7QObject',
+        self._addressOf(object),
+    )
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1115,6 +1154,27 @@ class QAction(QObject):
         self._addressOf(object),
     )
 
+  @overload(QEvent)
+  @overload(NoneType)
+  def event(self, a0: Optional[QEvent]) -> bool:
+    """
+    Calls Qt's 'bool QAction::event(QEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qaction.html#event
+
+    Parameters
+    ----------
+
+    a0 : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QAction::event(QEvent *a0)
+    ritual = 'ritual_ZN7QAction5eventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QAction5eventEP6QEvent'
+    return self.uglySide.call(ritual, self._addressOf(a0))
+
   def trigger(self) -> None:
     """
     Calls Qt's 'void QAction::trigger()'.
@@ -1150,26 +1210,6 @@ class QAction(QObject):
     """
     #  void QAction::resetEnabled()
     self.uglySide.call('ritual_ZN7QAction12resetEnabledEv')
-
-  @overload(QEvent)
-  @overload(NoneType)
-  def event(self, a0: Optional[QEvent]) -> bool:
-    """
-    Calls Qt's 'bool QAction::event(QEvent *a0)'.
-
-    Qt's own words: https://doc.qt.io/qt-6/qaction.html#event
-
-    Parameters
-    ----------
-
-    a0 : Optional[QEvent]
-      Passed on as the address of its C++ object. None is passed on as no
-      object.
-    """
-    #  bool QAction::event(QEvent *a0)
-    return self.uglySide.call(
-        'ritual_own_ZN7QAction5eventEP6QEvent', self._addressOf(a0),
-    )
 
 
 #  Qt's 'QList<QAction *>': the list of QAction, which 'QList[QAction]'

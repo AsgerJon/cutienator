@@ -42,14 +42,15 @@ class QCborArray(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QCborArray that has a ritual and that Python can
-  call so far, 38 names in all: 'toCborValue', 'size', 'isEmpty', 'clear',
+  call so far, 40 names in all: 'toCborValue', 'size', 'isEmpty', 'clear',
   'at', 'first', 'last', '__getitem__', 'insert', 'prepend', 'append',
   'extract', 'removeAt', 'takeAt', 'removeFirst', 'removeLast', 'takeFirst',
   'takeLast', 'contains', 'compare', 'push_back', 'push_front', 'pop_front',
   'pop_back', 'empty', '__add__', '__iadd__', 'fromStringList',
   'fromVariantList', 'fromJsonArray', 'toVariantList', 'toJsonArray',
-  '__eq__', '__ne__', '__lt__', '__gt__', '__le__', '__ge__'. It can be made
-  from Python, in 2 ways; see '__init__'.
+  '__eq__', '__ne__', '__lt__', '__gt__', '__le__', '__ge__',
+  'comparesEqual_helper', 'detach'. It can be made from Python, in 2 ways;
+  see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -62,6 +63,9 @@ class QCborArray(CuteMixin, metaclass=MetaCute):
     QCborArray::last() const' takes.
   - Qt's 'QCborValueRef QCborArray::operator[](qsizetype i)': takes in Python
     what 'const QCborValue QCborArray::operator[](qsizetype i) const' takes.
+  - Qt's 'Qt::strong_ordering QCborArray::compareThreeWay_helper(const
+    QCborArray &lhs, const QCborValue &rhs)': gives 'Qt::strong_ordering',
+    which has no cute class yet.
   - Qt's 'bool operator==(const QCborValue &lhs, const QCborArray &rhs)':
     takes in Python what 'bool operator==(const QCborArray &lhs, const
     QCborValue &rhs)' takes.
@@ -80,6 +84,9 @@ class QCborArray(CuteMixin, metaclass=MetaCute):
   - Qt's 'bool operator>=(const QCborValue &lhs, const QCborArray &rhs)':
     takes in Python what 'bool operator<=(const QCborArray &lhs, const
     QCborValue &rhs)' takes.
+  - Qt's 'Qt::strong_ordering QCborArray::compareThreeWay_helper(const
+    QCborArray &lhs, QCborValueConstRef rhs)': gives 'Qt::strong_ordering',
+    which has no cute class yet.
   - Qt's 'bool operator==(const QCborValueConstRef &lhs, const QCborArray
     &rhs)': takes in Python what 'bool operator==(const QCborArray &lhs,
     const QCborValueConstRef &rhs)' takes.
@@ -102,8 +109,8 @@ class QCborArray(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  28 of the 97 functions Qt declares: 22 takes or gives a type that cannot be
-  passed yet; 6 private.
+  23 of the 97 functions Qt declares: 22 takes or gives a type that cannot be
+  passed yet; 1 declared and nowhere to be found.
 
   What to expect
   --------------
@@ -134,10 +141,10 @@ class QCborArray(CuteMixin, metaclass=MetaCute):
     -----------
 
     Every function of Qt's QCborArray::ConstIterator that has a ritual and
-    that Python can call so far, 11 names in all: '__getitem__', '__iadd__',
-    '__isub__', '__add__', '__sub__', '__eq__', '__ne__', '__lt__', '__gt__',
-    '__le__', '__ge__'. It can be made from Python, in 2 ways; see
-    '__init__'.
+    that Python can call so far, 12 names in all: '__getitem__', '__iadd__',
+    '__isub__', '__add__', '__sub__', 'comparesEqual_helper', '__eq__',
+    '__ne__', '__lt__', '__gt__', '__le__', '__ge__'. It can be made from
+    Python, in 2 ways; see '__init__'.
 
     What has a ritual and is left out, and why
     ------------------------------------------
@@ -150,6 +157,10 @@ class QCborArray(CuteMixin, metaclass=MetaCute):
       operator Python has no name for.
     - Qt's 'ConstIterator QCborArray::ConstIterator::operator--(int a0)': an
       operator Python has no name for.
+    - Qt's 'Qt::strong_ordering
+      QCborArray::ConstIterator::compareThreeWay_helper(const ConstIterator
+      &lhs, const ConstIterator &rhs)': gives 'Qt::strong_ordering', which
+      has no cute class yet.
     - Qt's 'QCborArray::ConstIterator::~ConstIterator()': the destructor:
       Python removes its C++ QCborArray::ConstIterator by it, and has no
       other use for it.
@@ -157,8 +168,8 @@ class QCborArray(CuteMixin, metaclass=MetaCute):
     What has no ritual
     ------------------
 
-    6 of the 25 functions Qt declares: 3 private; 3 takes or gives a type
-    that cannot be passed yet.
+    4 of the 25 functions Qt declares: 4 takes or gives a type that cannot be
+    passed yet.
 
     What to expect
     --------------
@@ -177,6 +188,38 @@ class QCborArray(CuteMixin, metaclass=MetaCute):
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    @staticmethod
+    @overload(THIS, THIS)
+    def comparesEqual_helper(
+        lhs: QCborArray.ConstIterator,
+        rhs: QCborArray.ConstIterator,
+    ) -> bool:
+      """
+      Calls Qt's 'bool QCborArray::ConstIterator::comparesEqual_helper(const
+      ConstIterator &lhs, const ConstIterator &rhs)'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qcborarray-constiterator.html
+
+      Parameters
+      ----------
+
+      lhs : QCborArray.ConstIterator
+        Passed on as a value: Qt reads the C++ QCborArray::ConstIterator,
+        which stays Python's own.
+
+      rhs : QCborArray.ConstIterator
+        Passed on as a value: Qt reads the C++ QCborArray::ConstIterator,
+        which stays Python's own.
+      """
+      #  bool QCborArray::ConstIterator::comparesEqual_helper(const
+      #      ConstIterator &lhs, const ConstIterator &rhs)
+      return Rituals.call(
+          'ritual_ZN10QCborArray13ConstIterator20comparesEqual_helperERKS0_'
+          'S2_',
+          CuteMixin._valueOf(lhs), CuteMixin._valueOf(rhs),
+      )
 
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -659,10 +702,10 @@ class QCborArray(CuteMixin, metaclass=MetaCute):
     -----------
 
     Every function of Qt's QCborArray::Iterator that has a ritual and that
-    Python can call so far, 11 names in all: '__getitem__', '__iadd__',
-    '__isub__', '__add__', '__sub__', '__eq__', '__ne__', '__lt__', '__gt__',
-    '__le__', '__ge__'. It can be made from Python, in 2 ways; see
-    '__init__'.
+    Python can call so far, 12 names in all: '__getitem__', '__iadd__',
+    '__isub__', '__add__', '__sub__', 'comparesEqual_helper', '__eq__',
+    '__ne__', '__lt__', '__gt__', '__le__', '__ge__'. It can be made from
+    Python, in 2 ways; see '__init__'.
 
     What has a ritual and is left out, and why
     ------------------------------------------
@@ -677,6 +720,18 @@ class QCborArray(CuteMixin, metaclass=MetaCute):
       Python has no name for.
     - Qt's 'Iterator QCborArray::Iterator::operator--(int a0)': an operator
       Python has no name for.
+    - Qt's 'bool QCborArray::Iterator::comparesEqual_helper(const Iterator
+      &lhs, const ConstIterator &rhs)': names 'QCborArray::ConstIterator',
+      which stands beside this class inside 'QCborArray' and cannot be named
+      from here.
+    - Qt's 'Qt::strong_ordering
+      QCborArray::Iterator::compareThreeWay_helper(const Iterator &lhs, const
+      Iterator &rhs)': gives 'Qt::strong_ordering', which has no cute class
+      yet.
+    - Qt's 'Qt::strong_ordering
+      QCborArray::Iterator::compareThreeWay_helper(const Iterator &lhs, const
+      ConstIterator &rhs)': names 'QCborArray::ConstIterator', which stands
+      beside this class inside 'QCborArray' and cannot be named from here.
     - Qt's 'bool operator==(const Iterator &lhs, const ConstIterator &rhs)':
       names 'QCborArray::ConstIterator', which stands beside this class
       inside 'QCborArray' and cannot be named from here.
@@ -720,8 +775,8 @@ class QCborArray(CuteMixin, metaclass=MetaCute):
     What has no ritual
     ------------------
 
-    8 of the 40 functions Qt declares: 5 private; 3 takes or gives a type
-    that cannot be passed yet.
+    4 of the 40 functions Qt declares: 4 takes or gives a type that cannot be
+    passed yet.
 
     What to expect
     --------------
@@ -740,6 +795,37 @@ class QCborArray(CuteMixin, metaclass=MetaCute):
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    @staticmethod
+    @overload(THIS, THIS)
+    def comparesEqual_helper(
+        lhs: QCborArray.Iterator,
+        rhs: QCborArray.Iterator,
+    ) -> bool:
+      """
+      Calls Qt's 'bool QCborArray::Iterator::comparesEqual_helper(const
+      Iterator &lhs, const Iterator &rhs)'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qcborarray-iterator.html#comparesEqual_helper
+
+      Parameters
+      ----------
+
+      lhs : QCborArray.Iterator
+        Passed on as a value: Qt reads the C++ QCborArray::Iterator, which
+        stays Python's own.
+
+      rhs : QCborArray.Iterator
+        Passed on as a value: Qt reads the C++ QCborArray::Iterator, which
+        stays Python's own.
+      """
+      #  bool QCborArray::Iterator::comparesEqual_helper(const Iterator &lhs,
+      #      const Iterator &rhs)
+      return Rituals.call(
+          'ritual_ZN10QCborArray8Iterator20comparesEqual_helperERKS0_S2_',
+          CuteMixin._valueOf(lhs), CuteMixin._valueOf(rhs),
+      )
 
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1281,6 +1367,63 @@ class QCborArray(CuteMixin, metaclass=MetaCute):
         CuteMixin._valueOf(array),
     )
     return QCborArray._cuteOwning(address)
+
+  @staticmethod
+  @overload(THIS, QCborValue)
+  def comparesEqual_helper(lhs: QCborArray, rhs: QCborValue) -> bool:
+    """
+    Calls Qt's 'bool QCborArray::comparesEqual_helper(const QCborArray &lhs,
+    const QCborValue &rhs)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qcborarray.html#comparesEqual_helper
+
+    Parameters
+    ----------
+
+    lhs : QCborArray
+      Passed on as a value: Qt reads the C++ QCborArray, which stays Python's
+      own.
+
+    rhs : QCborValue
+      Passed on as a value: Qt reads the C++ QCborValue, which stays Python's
+      own.
+    """
+    #  bool QCborArray::comparesEqual_helper(const QCborArray &lhs, const
+    #      QCborValue &rhs)
+    return Rituals.call(
+        'ritual_ZN10QCborArray20comparesEqual_helperERKS_RK10QCborValue',
+        CuteMixin._valueOf(lhs), CuteMixin._valueOf(rhs),
+    )
+
+  @staticmethod
+  @overload(THIS, QCborValueConstRef)
+  def comparesEqual_helper(lhs: QCborArray, rhs: QCborValueConstRef) -> bool:
+    """
+    Calls Qt's 'bool QCborArray::comparesEqual_helper(const QCborArray &lhs,
+    QCborValueConstRef rhs)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qcborarray.html#comparesEqual_helper
+
+    Parameters
+    ----------
+
+    lhs : QCborArray
+      Passed on as a value: Qt reads the C++ QCborArray, which stays Python's
+      own.
+
+    rhs : QCborValueConstRef
+      Passed on as a value: Qt reads the C++ QCborValueConstRef, which stays
+      Python's own.
+    """
+    #  bool QCborArray::comparesEqual_helper(const QCborArray &lhs,
+    #      QCborValueConstRef rhs)
+    return Rituals.call(
+        'ritual_ZN10QCborArray20comparesEqual_helperERKS_18QCborValueConstR'
+        'ef',
+        CuteMixin._valueOf(lhs), CuteMixin._valueOf(rhs),
+    )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -2343,3 +2486,20 @@ class QCborArray(CuteMixin, metaclass=MetaCute):
     """
     #  void QCborArray::pop_back()
     self.uglySide.call('ritual_ZN10QCborArray8pop_backEv')
+
+  @overload()
+  @overload(int)
+  def detach(self, reserve: int = 0) -> None:
+    """
+    Calls Qt's 'void QCborArray::detach(qsizetype reserve)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcborarray.html#detach
+
+    Parameters
+    ----------
+
+    reserve : int
+      Passed on as it is. May be left out, as in Qt: it is then 0.
+    """
+    #  void QCborArray::detach(qsizetype reserve)
+    self.uglySide.call('ritual_ZN10QCborArray6detachEx', reserve)

@@ -34,7 +34,7 @@ class QStyleOptionSpinBox(QStyleOptionComplex):
   -----------
 
   No function of Qt's QStyleOptionSpinBox yet. It can be made from Python, in
-  2 ways; see '__init__'.
+  3 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -46,8 +46,8 @@ class QStyleOptionSpinBox(QStyleOptionComplex):
   What has no ritual
   ------------------
 
-  2 of the 5 functions Qt declares: 1 takes or gives a type that cannot be
-  passed yet; 1 protected.
+  1 of the 5 functions Qt declares: 1 takes or gives a type that cannot be
+  passed yet.
 
   What to expect
   --------------
@@ -163,6 +163,27 @@ class QStyleOptionSpinBox(QStyleOptionComplex):
     #      &other)
     self._noteCreation(QStyleOptionSpinBox, lambda: Rituals.call(
         'ritual_ZN19QStyleOptionSpinBoxC1ERKS_', self._valueOf(other),
+    ))
+
+  @overload(int)
+  def __init__(self, version: int) -> None:
+    """
+    Notes what was given, for Qt's
+    'QStyleOptionSpinBox::QStyleOptionSpinBox(int version)', which is called
+    at the first use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qstyleoptionspinbox.html#QStyleOptionSpinBox
+
+    Parameters
+    ----------
+
+    version : int
+      Passed on as it is.
+    """
+    #  QStyleOptionSpinBox::QStyleOptionSpinBox(int version)
+    self._noteCreation(QStyleOptionSpinBox, lambda: Rituals.call(
+        'ritual_ZN19QStyleOptionSpinBoxC1Ei', version,
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

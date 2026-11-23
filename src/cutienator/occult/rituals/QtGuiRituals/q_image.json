@@ -198,6 +198,27 @@
     "ritual_ZNK6QImage11pixelFormatEv": ["address", "address"],
     "ritual_ZN6QImage13toPixelFormatENS_6FormatE": ["address", "int"],
     "ritual_ZN6QImage13toImageFormatE12QPixelFormat": ["int", "address"],
+    "ritual_ZNK6QImage6metricEN12QPaintDevice17PaintDeviceMetricE": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK6QImage15mirrored_helperEbb": [
+      "address", "address", "bool", "bool"
+    ],
+    "ritual_ZNK6QImage17rgbSwapped_helperEv": ["address", "address"],
+    "ritual_ZN6QImage16mirrored_inplaceEbb": [
+      "nothing", "address", "bool", "bool"
+    ],
+    "ritual_ZN6QImage18rgbSwapped_inplaceEv": ["nothing", "address"],
+    "ritual_ZNK6QImage22convertToFormat_helperENS_6FormatE6QFlagsIN2Qt19ImageConversionFlagEE": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZN6QImage23convertToFormat_inplaceENS_6FormatE6QFlagsIN2Qt19ImageConversionFlagEE": [
+      "bool", "address", "int", "int"
+    ],
+    "ritual_ZNK6QImage12smoothScaledEii": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZN6QImage14detachMetadataEb": ["nothing", "address", "bool"],
     "ritual_take_QImage": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK6QImage7devTypeEv": ["int", "address"],
     "ritual_own_ZNK6QImage11paintEngineEv": ["address", "address"],

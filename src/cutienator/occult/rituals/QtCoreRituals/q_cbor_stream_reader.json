@@ -92,6 +92,12 @@
     ],
     "ritual_ZN17QCborStreamReader16readAllByteArrayEv": [
       "address", "address"
+    ],
+    "ritual_ZN17QCborStreamReader22_enterContainer_helperEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK17QCborStreamReader23_currentStringChunkSizeEv": [
+      "long long", "address"
     ]
   }
 }

@@ -229,6 +229,18 @@ bool ritual_ZneRK18QJsonValueConstRefRK13QJsonValueRef(
   return operator!=(*lhs, *rhs);
 }
 
+//  QJsonValue QJsonValueRef::toValue() const
+extern "C" Q_DECL_EXPORT
+QJsonValue *ritual_ZNK13QJsonValueRef7toValueEv(const QJsonValueRef *self) {
+  return new QJsonValue(self->toValue());
+}
+
+//  void QJsonValueRef::detach()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QJsonValueRef6detachEv(QJsonValueRef *self) {
+  self->detach();
+}
+
 //  QJsonValueRef::~QJsonValueRef()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QJsonValueRefD1Ev(QJsonValueRef *self) {

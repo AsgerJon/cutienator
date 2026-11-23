@@ -39,6 +39,16 @@
     "ritual_ZN11QWizardPage12validatePageEv": ["bool", "address"],
     "ritual_ZNK11QWizardPage10isCompleteEv": ["bool", "address"],
     "ritual_ZNK11QWizardPage6nextIdEv": ["int", "address"],
+    "ritual_ZN11QWizardPage8setFieldERK7QStringRK8QVariant": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZNK11QWizardPage5fieldERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN11QWizardPage13registerFieldERK7QStringP7QWidgetPKcS6_": [
+      "nothing", "address", "text", "address", "chars", "chars"
+    ],
+    "ritual_ZNK11QWizardPage6wizardEv": ["address", "address"],
     "ritual_take_QWizardPage": ["bool", "address", "chars", "address"],
     "ritual_own_ZN11QWizardPage14initializePageEv": ["nothing", "address"],
     "ritual_own_ZN11QWizardPage11cleanupPageEv": ["nothing", "address"],

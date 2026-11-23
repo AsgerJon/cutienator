@@ -1294,6 +1294,156 @@ void ritual_ZN7QWindow13requestUpdateEv(QWindow *self) {
   self->requestUpdate();
 }
 
+//  void QWindow::exposeEvent(QExposeEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QWindow11exposeEventEP12QExposeEvent(
+    QWindow *self,
+    QExposeEvent *a0) {
+  self->exposeEvent(a0);
+}
+
+//  void QWindow::resizeEvent(QResizeEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QWindow11resizeEventEP12QResizeEvent(
+    QWindow *self,
+    QResizeEvent *a0) {
+  self->resizeEvent(a0);
+}
+
+//  void QWindow::paintEvent(QPaintEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QWindow10paintEventEP11QPaintEvent(
+    QWindow *self,
+    QPaintEvent *a0) {
+  self->paintEvent(a0);
+}
+
+//  void QWindow::moveEvent(QMoveEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QWindow9moveEventEP10QMoveEvent(
+    QWindow *self,
+    QMoveEvent *a0) {
+  self->moveEvent(a0);
+}
+
+//  void QWindow::focusInEvent(QFocusEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QWindow12focusInEventEP11QFocusEvent(
+    QWindow *self,
+    QFocusEvent *a0) {
+  self->focusInEvent(a0);
+}
+
+//  void QWindow::focusOutEvent(QFocusEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QWindow13focusOutEventEP11QFocusEvent(
+    QWindow *self,
+    QFocusEvent *a0) {
+  self->focusOutEvent(a0);
+}
+
+//  void QWindow::showEvent(QShowEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QWindow9showEventEP10QShowEvent(
+    QWindow *self,
+    QShowEvent *a0) {
+  self->showEvent(a0);
+}
+
+//  void QWindow::hideEvent(QHideEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QWindow9hideEventEP10QHideEvent(
+    QWindow *self,
+    QHideEvent *a0) {
+  self->hideEvent(a0);
+}
+
+//  void QWindow::closeEvent(QCloseEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QWindow10closeEventEP11QCloseEvent(
+    QWindow *self,
+    QCloseEvent *a0) {
+  self->closeEvent(a0);
+}
+
+//  bool QWindow::event(QEvent *a0)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN7QWindow5eventEP6QEvent(QWindow *self, QEvent *a0) {
+  return self->event(a0);
+}
+
+//  void QWindow::keyPressEvent(QKeyEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QWindow13keyPressEventEP9QKeyEvent(
+    QWindow *self,
+    QKeyEvent *a0) {
+  self->keyPressEvent(a0);
+}
+
+//  void QWindow::keyReleaseEvent(QKeyEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QWindow15keyReleaseEventEP9QKeyEvent(
+    QWindow *self,
+    QKeyEvent *a0) {
+  self->keyReleaseEvent(a0);
+}
+
+//  void QWindow::mousePressEvent(QMouseEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QWindow15mousePressEventEP11QMouseEvent(
+    QWindow *self,
+    QMouseEvent *a0) {
+  self->mousePressEvent(a0);
+}
+
+//  void QWindow::mouseReleaseEvent(QMouseEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QWindow17mouseReleaseEventEP11QMouseEvent(
+    QWindow *self,
+    QMouseEvent *a0) {
+  self->mouseReleaseEvent(a0);
+}
+
+//  void QWindow::mouseDoubleClickEvent(QMouseEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QWindow21mouseDoubleClickEventEP11QMouseEvent(
+    QWindow *self,
+    QMouseEvent *a0) {
+  self->mouseDoubleClickEvent(a0);
+}
+
+//  void QWindow::mouseMoveEvent(QMouseEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QWindow14mouseMoveEventEP11QMouseEvent(
+    QWindow *self,
+    QMouseEvent *a0) {
+  self->mouseMoveEvent(a0);
+}
+
+//  void QWindow::wheelEvent(QWheelEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QWindow10wheelEventEP11QWheelEvent(
+    QWindow *self,
+    QWheelEvent *a0) {
+  self->wheelEvent(a0);
+}
+
+//  void QWindow::touchEvent(QTouchEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QWindow10touchEventEP11QTouchEvent(
+    QWindow *self,
+    QTouchEvent *a0) {
+  self->touchEvent(a0);
+}
+
+//  void QWindow::tabletEvent(QTabletEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QWindow11tabletEventEP12QTabletEvent(
+    QWindow *self,
+    QTabletEvent *a0) {
+  self->tabletEvent(a0);
+}
+
 //  QWindow as the QSurface it is built on
 extern "C" Q_DECL_EXPORT
 QSurface *ritual_cast_QWindow_QSurface(QWindow *self) {

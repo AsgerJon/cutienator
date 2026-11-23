@@ -687,6 +687,32 @@ int ritual_ZNK17QGraphicsRectItem4typeEv(const QGraphicsRectItem *self) {
   return self->type();
 }
 
+//  bool QGraphicsRectItem::supportsExtension(Extension extension) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK17QGraphicsRectItem17supportsExtensionEN13QGraphicsItem9ExtensionE(
+    const QGraphicsRectItem *self,
+    QGraphicsItem::Extension extension) {
+  return self->supportsExtension(extension);
+}
+
+//  void QGraphicsRectItem::setExtension(Extension extension, const QVariant
+//      &variant)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QGraphicsRectItem12setExtensionEN13QGraphicsItem9ExtensionERK8QVariant(
+    QGraphicsRectItem *self,
+    QGraphicsItem::Extension extension,
+    const QVariant *variant) {
+  self->setExtension(extension, *variant);
+}
+
+//  QVariant QGraphicsRectItem::extension(const QVariant &variant) const
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZNK17QGraphicsRectItem9extensionERK8QVariant(
+    const QGraphicsRectItem *self,
+    const QVariant *variant) {
+  return new QVariant(self->extension(*variant));
+}
+
 //  a Python function taken by a CuteQGraphicsRectItem, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT

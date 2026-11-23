@@ -20,12 +20,12 @@ from . import QHash, QList, QMap, QStringList
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from . import QBitArray, QByteArray, QChar, QDate, QDateTime, QEasingCurve
-  from . import QJsonArray, QJsonDocument, QJsonObject, QJsonValue
-  from . import QLatin1String, QLine, QLineF, QLocale, QMetaType, QModelIndex
-  from . import QPartialOrdering, QPersistentModelIndex, QPoint, QPointF
-  from . import QRect, QRectF, QRegularExpression, QSize, QSizeF, QTime, QUrl
-  from . import QUuid
+  from . import QBitArray, QByteArray, QChar, QDate, QDateTime, QDebug
+  from . import QEasingCurve, QJsonArray, QJsonDocument, QJsonObject
+  from . import QJsonValue, QLatin1String, QLine, QLineF, QLocale, QMetaType
+  from . import QModelIndex, QPartialOrdering, QPersistentModelIndex, QPoint
+  from . import QPointF, QRect, QRectF, QRegularExpression, QSize, QSizeF
+  from . import QTime, QUrl, QUuid
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -35,6 +35,7 @@ else:
   QChar = WAIT['QChar']
   QDate = WAIT['QDate']
   QDateTime = WAIT['QDateTime']
+  QDebug = WAIT['QDebug']
   QEasingCurve = WAIT['QEasingCurve']
   QJsonArray = WAIT['QJsonArray']
   QJsonDocument = WAIT['QJsonDocument']
@@ -76,7 +77,7 @@ class QVariant(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QVariant that has a ritual and that Python can call
-  so far, 50 names in all: 'userType', 'typeId', 'typeName', 'metaType',
+  so far, 52 names in all: 'userType', 'typeId', 'typeName', 'metaType',
   'canConvert', 'convert', 'canView', 'isValid', 'isNull', 'clear', 'detach',
   'isDetached', 'toBool', 'toByteArray', 'toBitArray', 'toString',
   'toStringList', 'toChar', 'toDate', 'toTime', 'toDateTime', 'toList',
@@ -85,7 +86,8 @@ class QVariant(CuteMixin, metaclass=MetaCute):
   'toEasingCurve', 'toUuid', 'toUrl', 'toJsonValue', 'toJsonObject',
   'toJsonArray', 'toJsonDocument', 'toModelIndex', 'toPersistentModelIndex',
   'type', 'typeToName', 'nameToType', 'setValue', 'compare', '__eq__',
-  '__ne__'. It can be made from Python, in 38 ways; see '__init__'.
+  '__ne__', 'qdebugHelper', 'equals'. It can be made from Python, in 38 ways;
+  see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -118,8 +120,8 @@ class QVariant(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  68 of the 170 functions Qt declares: 31 takes or gives a type that cannot
-  be passed yet; 21 a template; 6 forbidden; 5 private; 5 protected.
+  66 of the 170 functions Qt declares: 39 takes or gives a type that cannot
+  be passed yet; 21 a template; 6 forbidden.
 
   What to expect
   --------------
@@ -358,8 +360,8 @@ class QVariant(CuteMixin, metaclass=MetaCute):
     What exists
     -----------
 
-    No function of Qt's QVariant::PrivateShared yet. None can be made from
-    Python: one comes out of a function of another class that gives one back.
+    No function of Qt's QVariant::PrivateShared yet. It can be made from
+    Python, in 1 way; see '__init__'.
 
     What has a ritual and is left out, and why
     ------------------------------------------
@@ -371,8 +373,8 @@ class QVariant(CuteMixin, metaclass=MetaCute):
     What has no ritual
     ------------------
 
-    7 of the 8 functions Qt declares: 4 declared and nowhere to be found; 2
-    takes or gives a type that cannot be passed yet; 1 private.
+    6 of the 8 functions Qt declares: 4 declared and nowhere to be found; 2
+    takes or gives a type that cannot be passed yet.
 
     What to expect
     --------------
@@ -432,6 +434,21 @@ class QVariant(CuteMixin, metaclass=MetaCute):
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    @overload()
+    def __init__(self) -> None:
+      """
+      Notes what was given, for Qt's
+      'QVariant::PrivateShared::PrivateShared()', which is called at the
+      first use.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qvariant-privateshared.html#PrivateShared
+      """
+      #  QVariant::PrivateShared::PrivateShared()
+      self._noteCreation(QVariant.PrivateShared, lambda: Rituals.call(
+          'ritual_ZN8QVariant13PrivateSharedC1Ev',
+      ))
 
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1239,6 +1256,52 @@ class QVariant(CuteMixin, metaclass=MetaCute):
     """
     #  Type QVariant::type() const
     return QVariant.Type(self.uglySide.call('ritual_ZNK8QVariant4typeEv'))
+
+  @overload(QDebug)
+  def qdebugHelper(self, a0: QDebug) -> QDebug:
+    """
+    Calls Qt's 'QDebug QVariant::qdebugHelper(QDebug a0) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qvariant.html#qdebugHelper
+
+    Parameters
+    ----------
+
+    a0 : QDebug
+      Passed on as a value: Qt reads the C++ QDebug, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QDebug
+      A new cute QDebug around the copy Qt gave back. Python owns it.
+    """
+    #  QDebug QVariant::qdebugHelper(QDebug a0) const
+    address = self.uglySide.call(
+        'ritual_ZNK8QVariant12qdebugHelperE6QDebug', self._valueOf(a0),
+    )
+    from . import QDebug
+    return QDebug._cuteOwning(address)
+
+  @overload(THIS)
+  def equals(self, other: QVariant) -> bool:
+    """
+    Calls Qt's 'bool QVariant::equals(const QVariant &other) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qvariant.html#equals
+
+    Parameters
+    ----------
+
+    other : QVariant
+      Passed on as a value: Qt reads the C++ QVariant, which stays Python's
+      own.
+    """
+    #  bool QVariant::equals(const QVariant &other) const
+    return self.uglySide.call(
+        'ritual_ZNK8QVariant6equalsERKS_', self._valueOf(other),
+    )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -1098,6 +1098,86 @@ void ritual_ZN8QMdiArea25activatePreviousSubWindowEv(QMdiArea *self) {
   self->activatePreviousSubWindow();
 }
 
+//  void QMdiArea::setupViewport(QWidget *viewport)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QMdiArea13setupViewportEP7QWidget(
+    QMdiArea *self,
+    QWidget *viewport) {
+  self->setupViewport(viewport);
+}
+
+//  bool QMdiArea::event(QEvent *event)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN8QMdiArea5eventEP6QEvent(QMdiArea *self, QEvent *event) {
+  return self->event(event);
+}
+
+//  bool QMdiArea::eventFilter(QObject *object, QEvent *event)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN8QMdiArea11eventFilterEP7QObjectP6QEvent(
+    QMdiArea *self,
+    QObject *object,
+    QEvent *event) {
+  return self->eventFilter(object, event);
+}
+
+//  void QMdiArea::paintEvent(QPaintEvent *paintEvent)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QMdiArea10paintEventEP11QPaintEvent(
+    QMdiArea *self,
+    QPaintEvent *paintEvent) {
+  self->paintEvent(paintEvent);
+}
+
+//  void QMdiArea::childEvent(QChildEvent *childEvent)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QMdiArea10childEventEP11QChildEvent(
+    QMdiArea *self,
+    QChildEvent *childEvent) {
+  self->childEvent(childEvent);
+}
+
+//  void QMdiArea::resizeEvent(QResizeEvent *resizeEvent)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QMdiArea11resizeEventEP12QResizeEvent(
+    QMdiArea *self,
+    QResizeEvent *resizeEvent) {
+  self->resizeEvent(resizeEvent);
+}
+
+//  void QMdiArea::timerEvent(QTimerEvent *timerEvent)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QMdiArea10timerEventEP11QTimerEvent(
+    QMdiArea *self,
+    QTimerEvent *timerEvent) {
+  self->timerEvent(timerEvent);
+}
+
+//  void QMdiArea::showEvent(QShowEvent *showEvent)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QMdiArea9showEventEP10QShowEvent(
+    QMdiArea *self,
+    QShowEvent *showEvent) {
+  self->showEvent(showEvent);
+}
+
+//  bool QMdiArea::viewportEvent(QEvent *event)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN8QMdiArea13viewportEventEP6QEvent(
+    QMdiArea *self,
+    QEvent *event) {
+  return self->viewportEvent(event);
+}
+
+//  void QMdiArea::scrollContentsBy(int dx, int dy)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QMdiArea16scrollContentsByEii(
+    QMdiArea *self,
+    int dx,
+    int dy) {
+  self->scrollContentsBy(dx, dy);
+}
+
 //  a Python function taken by a CuteQMdiArea, for the function named by the
 //      key
 extern "C" Q_DECL_EXPORT

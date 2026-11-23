@@ -57,8 +57,9 @@ class QButtonGroup(QObject):
   What has no ritual
   ------------------
 
-  16 of the 30 functions Qt declares: 8 a signal; 3 private; 2 takes or gives
-  a type that cannot be passed yet; 2 forbidden; 1 a template.
+  16 of the 30 functions Qt declares: 8 a signal; 4 takes or gives a type
+  that cannot be passed yet; 2 forbidden; 1 a template; 1 declared and
+  nowhere to be found.
 
   What to expect
   --------------

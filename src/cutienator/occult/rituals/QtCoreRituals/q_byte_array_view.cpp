@@ -4,6 +4,15 @@
 #include <QtCore/qbytearray.h>
 #include <QtCore/qchar.h>
 
+//  qsizetype QByteArrayView::lengthHelperCharArray(const char *data, size_t
+//      size)
+extern "C" Q_DECL_EXPORT
+qsizetype ritual_ZN14QByteArrayView21lengthHelperCharArrayEPKcm(
+    const char *data,
+    size_t size) {
+  return QByteArrayView::lengthHelperCharArray(data, size);
+}
+
 //  QByteArrayView::QByteArrayView()
 extern "C" Q_DECL_EXPORT
 QByteArrayView *ritual_ZN14QByteArrayViewC1Ev() {
@@ -405,6 +414,15 @@ char ritual_ZNK14QByteArrayView5firstEv(const QByteArrayView *self) {
 extern "C" Q_DECL_EXPORT
 char ritual_ZNK14QByteArrayView4lastEv(const QByteArrayView *self) {
   return self->last();
+}
+
+//  void QByteArrayView::verify(qsizetype pos, qsizetype n) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK14QByteArrayView6verifyExx(
+    const QByteArrayView *self,
+    qsizetype pos,
+    qsizetype n) {
+  self->verify(pos, n);
 }
 
 //  bool operator==(const QByteArrayView &lhs, const QByteArrayView &rhs)

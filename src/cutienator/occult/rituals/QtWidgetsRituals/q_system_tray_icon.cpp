@@ -285,6 +285,14 @@ void ritual_ZN15QSystemTrayIcon11showMessageERK7QStringS2_NS_11MessageIconEi(
   self->showMessage(*title, *msg, icon, msecs);
 }
 
+//  bool QSystemTrayIcon::event(QEvent *event)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN15QSystemTrayIcon5eventEP6QEvent(
+    QSystemTrayIcon *self,
+    QEvent *event) {
+  return self->event(event);
+}
+
 //  a Python function taken by a CuteQSystemTrayIcon, for the function named
 //      by the key
 extern "C" Q_DECL_EXPORT

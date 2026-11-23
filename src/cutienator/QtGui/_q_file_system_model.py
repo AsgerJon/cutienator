@@ -75,8 +75,9 @@ class QFileSystemModel(QAbstractItemModel):
   What has no ritual
   ------------------
 
-  13 of the 70 functions Qt declares: 3 takes or gives a type that cannot be
-  passed yet; 3 private; 3 a signal; 2 forbidden; 1 a template; 1 protected.
+  13 of the 70 functions Qt declares: 6 takes or gives a type that cannot be
+  passed yet; 3 a signal; 2 forbidden; 1 a template; 1 declared and nowhere
+  to be found.
 
   What to expect
   --------------
@@ -1562,10 +1563,10 @@ class QFileSystemModel(QAbstractItemModel):
       object.
     """
     #  void QFileSystemModel::timerEvent(QTimerEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN16QFileSystemModel10timerEventEP11QTimerEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN16QFileSystemModel10timerEventEP11QTimerEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN16QFileSystemModel10timerEventEP11QTimerEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QEvent)
   @overload(NoneType)
@@ -1583,7 +1584,7 @@ class QFileSystemModel(QAbstractItemModel):
       object.
     """
     #  bool QFileSystemModel::event(QEvent *event)
-    return self.uglySide.call(
-        'ritual_own_ZN16QFileSystemModel5eventEP6QEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN16QFileSystemModel5eventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN16QFileSystemModel5eventEP6QEvent'
+    return self.uglySide.call(ritual, self._addressOf(event))

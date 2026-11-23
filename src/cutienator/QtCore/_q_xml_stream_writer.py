@@ -64,8 +64,8 @@ class QXmlStreamWriter(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  5 of the 45 functions Qt declares: 2 forbidden; 2 private; 1 takes or gives
-  a type that cannot be passed yet.
+  5 of the 45 functions Qt declares: 3 takes or gives a type that cannot be
+  passed yet; 2 forbidden.
 
   What to expect
   --------------

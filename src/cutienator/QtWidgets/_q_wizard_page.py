@@ -18,13 +18,14 @@ from . import QWidget, QWizard
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from ..QtCore import QMetaObject
+  from ..QtCore import QMetaObject, QVariant
   from ..QtGui import QPixmap
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
   QPixmap = WAIT['QPixmap']
+  QVariant = WAIT['QVariant']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -43,12 +44,12 @@ class QWizardPage(QWidget):
   -----------
 
   Every function of Qt's QWizardPage that has a ritual and that Python can
-  call so far, 19 names in all: 'metaObject', 'tr', 'setTitle', 'title',
+  call so far, 23 names in all: 'metaObject', 'tr', 'setTitle', 'title',
   'setSubTitle', 'subTitle', 'setPixmap', 'pixmap', 'setFinalPage',
   'isFinalPage', 'setCommitPage', 'isCommitPage', 'setButtonText',
   'buttonText', 'initializePage', 'cleanupPage', 'validatePage',
-  'isComplete', 'nextId'. It can be made from Python, in 1 way; see
-  '__init__'.
+  'isComplete', 'nextId', 'setField', 'field', 'registerField', 'wizard'. It
+  can be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -59,9 +60,9 @@ class QWizardPage(QWidget):
   What has no ritual
   ------------------
 
-  13 of the 34 functions Qt declares: 4 protected; 3 private; 2 takes or
-  gives a type that cannot be passed yet; 2 forbidden; 1 a template; 1 a
-  signal.
+  9 of the 34 functions Qt declares: 4 takes or gives a type that cannot be
+  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found;
+  1 a signal.
 
   What to expect
   --------------
@@ -327,6 +328,49 @@ class QWizardPage(QWidget):
       ritual = 'ritual_own_ZNK11QWizardPage6nextIdEv'
     return self.uglySide.call(ritual)
 
+  @overload(str)
+  def field(self, name: str) -> QVariant:
+    """
+    Calls Qt's 'QVariant QWizardPage::field(const QString &name) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwizardpage.html#field
+
+    Parameters
+    ----------
+
+    name : str
+      Passed on as it is: a QString is made of it for the call.
+
+    Returns
+    -------
+
+    QVariant
+      A new cute QVariant around the copy Qt gave back. Python owns it.
+    """
+    #  QVariant QWizardPage::field(const QString &name) const
+    address = self.uglySide.call(
+        'ritual_ZNK11QWizardPage5fieldERK7QString', name,
+    )
+    from ..QtCore import QVariant
+    return QVariant._cuteOwning(address)
+
+  def wizard(self) -> Optional[QWizard]:
+    """
+    Calls Qt's 'QWizard *QWizardPage::wizard() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwizardpage.html#wizard
+
+    Returns
+    -------
+
+    Optional[QWizard]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QWizard *QWizardPage::wizard() const
+    address = self.uglySide.call('ritual_ZNK11QWizardPage6wizardEv')
+    return QWizard._cuteAt(address)
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -448,6 +492,30 @@ class QWizardPage(QWidget):
         which.value, text,
     )
 
+  @overload(str, QVariant)
+  def setField(self, name: str, value: QVariant) -> None:
+    """
+    Calls Qt's 'void QWizardPage::setField(const QString &name, const
+    QVariant &value)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwizardpage.html#setField
+
+    Parameters
+    ----------
+
+    name : str
+      Passed on as it is: a QString is made of it for the call.
+
+    value : QVariant
+      Passed on as a value: Qt reads the C++ QVariant, which stays Python's
+      own.
+    """
+    #  void QWizardPage::setField(const QString &name, const QVariant &value)
+    self.uglySide.call(
+        'ritual_ZN11QWizardPage8setFieldERK7QStringRK8QVariant',
+        name, self._valueOf(value),
+    )
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -537,3 +605,56 @@ class QWizardPage(QWidget):
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZN11QWizardPage12validatePageEv'
     return self.uglySide.call(ritual)
+
+  @overload(str, QWidget)
+  @overload(str, NoneType)
+  @overload(str, QWidget, str)
+  @overload(str, QWidget, NoneType)
+  @overload(str, NoneType, str)
+  @overload(str, NoneType, NoneType)
+  @overload(str, QWidget, str, str)
+  @overload(str, QWidget, str, NoneType)
+  @overload(str, QWidget, NoneType, str)
+  @overload(str, QWidget, NoneType, NoneType)
+  @overload(str, NoneType, str, str)
+  @overload(str, NoneType, str, NoneType)
+  @overload(str, NoneType, NoneType, str)
+  @overload(str, NoneType, NoneType, NoneType)
+  def registerField(
+      self,
+      name: str,
+      widget: Optional[QWidget],
+      property: Optional[str] = None,
+      changedSignal: Optional[str] = None,
+  ) -> None:
+    """
+    Calls Qt's 'void QWizardPage::registerField(const QString &name, QWidget
+    *widget, const char *property, const char *changedSignal)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwizardpage.html#registerField
+
+    Parameters
+    ----------
+
+    name : str
+      Passed on as it is: a QString is made of it for the call.
+
+    widget : Optional[QWidget]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    property : Optional[str]
+      Passed on as the bytes of the text. None is passed on as no text. May
+      be left out, as in Qt: it is then None.
+
+    changedSignal : Optional[str]
+      Passed on as the bytes of the text. None is passed on as no text. May
+      be left out, as in Qt: it is then None.
+    """
+    #  void QWizardPage::registerField(const QString &name, QWidget *widget,
+    #      const char *property, const char *changedSignal)
+    self.uglySide.call(
+        'ritual_ZN11QWizardPage13registerFieldERK7QStringP7QWidgetPKcS6_',
+        name, self._addressOf(widget), self._bytesOf(property),
+        self._bytesOf(changedSignal),
+    )

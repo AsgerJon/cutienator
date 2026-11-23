@@ -528,6 +528,35 @@ bool ritual_ZNK7QPixmapntEv(const QPixmap *self) {
   return self->operator!();
 }
 
+//  int QPixmap::metric(PaintDeviceMetric a0) const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK7QPixmap6metricEN12QPaintDevice17PaintDeviceMetricE(
+    const QPixmap *self,
+    QPaintDevice::PaintDeviceMetric a0) {
+  return self->metric(a0);
+}
+
+//  bool QPixmap::doImageIO(QImageWriter *io, int quality) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK7QPixmap9doImageIOEP12QImageWriteri(
+    const QPixmap *self,
+    QImageWriter *io,
+    int quality) {
+  return self->doImageIO(io, quality);
+}
+
+//  QPixmap::QPixmap(const QSize &s, int type)
+extern "C" Q_DECL_EXPORT
+QPixmap *ritual_ZN7QPixmapC1ERK5QSizei(const QSize *s, int type) {
+  return new CuteQPixmap(*s, type);
+}
+
+//  void QPixmap::doInit(int a0, int a1, int a2)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QPixmap6doInitEiii(QPixmap *self, int a0, int a1, int a2) {
+  self->doInit(a0, a1, a2);
+}
+
 //  a Python function taken by a CuteQPixmap, for the function named by the
 //      key
 extern "C" Q_DECL_EXPORT

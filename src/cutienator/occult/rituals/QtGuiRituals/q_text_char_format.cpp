@@ -516,6 +516,13 @@ int ritual_ZNK15QTextCharFormat19tableCellColumnSpanEv(
   return self->tableCellColumnSpan();
 }
 
+//  QTextCharFormat::QTextCharFormat(const QTextFormat &fmt)
+extern "C" Q_DECL_EXPORT
+QTextCharFormat *ritual_ZN15QTextCharFormatC1ERK11QTextFormat(
+    const QTextFormat *fmt) {
+  return new QTextCharFormat(*fmt);
+}
+
 //  QTextCharFormat::~QTextCharFormat()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QTextCharFormatD1Ev(QTextCharFormat *self) {

@@ -46,6 +46,9 @@
     "ritual_ZN25QGraphicsDropShadowEffect8setColorERK6QColor": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN25QGraphicsDropShadowEffect4drawEP8QPainter": [
+      "nothing", "address", "address"
+    ],
     "ritual_take_QGraphicsDropShadowEffect": [
       "bool", "address", "chars", "address"
     ],

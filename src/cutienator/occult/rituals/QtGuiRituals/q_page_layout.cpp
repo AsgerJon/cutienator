@@ -270,6 +270,14 @@ QRect *ritual_ZNK11QPageLayout15paintRectPixelsEi(
   return new QRect(self->paintRectPixels(resolution));
 }
 
+//  bool QPageLayout::equals(const QPageLayout &other) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK11QPageLayout6equalsERKS_(
+    const QPageLayout *self,
+    const QPageLayout *other) {
+  return self->equals(*other);
+}
+
 //  bool operator==(const QPageLayout &lhs, const QPageLayout &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZeqRK11QPageLayoutS1_(

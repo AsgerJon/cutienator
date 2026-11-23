@@ -42,6 +42,21 @@
     "ritual_ZN24QPlainTextDocumentLayout13requestUpdateEv": [
       "nothing", "address"
     ],
+    "ritual_ZN24QPlainTextDocumentLayout15documentChangedEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZN24QPlainTextDocumentLayout12setTextWidthEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK24QPlainTextDocumentLayout9textWidthEv": [
+      "double", "address"
+    ],
+    "ritual_ZN24QPlainTextDocumentLayout11layoutBlockERK10QTextBlock": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QPlainTextDocumentLayout10blockWidthERK10QTextBlock": [
+      "double", "address", "address"
+    ],
     "ritual_take_QPlainTextDocumentLayout": [
       "bool", "address", "chars", "address"
     ],

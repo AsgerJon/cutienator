@@ -64,8 +64,8 @@ class QSizeGrip(QWidget):
   What has no ritual
   ------------------
 
-  8 of the 23 functions Qt declares: 3 private; 2 takes or gives a type that
-  cannot be passed yet; 2 forbidden; 1 a template.
+  8 of the 23 functions Qt declares: 4 takes or gives a type that cannot be
+  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found.
 
   What to expect
   --------------
@@ -283,10 +283,10 @@ class QSizeGrip(QWidget):
       object.
     """
     #  void QSizeGrip::paintEvent(QPaintEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN9QSizeGrip10paintEventEP11QPaintEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN9QSizeGrip10paintEventEP11QPaintEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QSizeGrip10paintEventEP11QPaintEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QMouseEvent)
   @overload(NoneType)
@@ -304,10 +304,10 @@ class QSizeGrip(QWidget):
       object.
     """
     #  void QSizeGrip::mousePressEvent(QMouseEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN9QSizeGrip15mousePressEventEP11QMouseEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN9QSizeGrip15mousePressEventEP11QMouseEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QSizeGrip15mousePressEventEP11QMouseEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QMouseEvent)
   @overload(NoneType)
@@ -325,10 +325,10 @@ class QSizeGrip(QWidget):
       object.
     """
     #  void QSizeGrip::mouseMoveEvent(QMouseEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN9QSizeGrip14mouseMoveEventEP11QMouseEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN9QSizeGrip14mouseMoveEventEP11QMouseEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QSizeGrip14mouseMoveEventEP11QMouseEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QMouseEvent)
   @overload(NoneType)
@@ -346,10 +346,10 @@ class QSizeGrip(QWidget):
       object.
     """
     #  void QSizeGrip::mouseReleaseEvent(QMouseEvent *mouseEvent)
-    self.uglySide.call(
-        'ritual_own_ZN9QSizeGrip17mouseReleaseEventEP11QMouseEvent',
-        self._addressOf(mouseEvent),
-    )
+    ritual = 'ritual_ZN9QSizeGrip17mouseReleaseEventEP11QMouseEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QSizeGrip17mouseReleaseEventEP11QMouseEvent'
+    self.uglySide.call(ritual, self._addressOf(mouseEvent))
 
   @overload(QMoveEvent)
   @overload(NoneType)
@@ -367,10 +367,10 @@ class QSizeGrip(QWidget):
       object.
     """
     #  void QSizeGrip::moveEvent(QMoveEvent *moveEvent)
-    self.uglySide.call(
-        'ritual_own_ZN9QSizeGrip9moveEventEP10QMoveEvent',
-        self._addressOf(moveEvent),
-    )
+    ritual = 'ritual_ZN9QSizeGrip9moveEventEP10QMoveEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QSizeGrip9moveEventEP10QMoveEvent'
+    self.uglySide.call(ritual, self._addressOf(moveEvent))
 
   @overload(QShowEvent)
   @overload(NoneType)
@@ -388,10 +388,10 @@ class QSizeGrip(QWidget):
       object.
     """
     #  void QSizeGrip::showEvent(QShowEvent *showEvent)
-    self.uglySide.call(
-        'ritual_own_ZN9QSizeGrip9showEventEP10QShowEvent',
-        self._addressOf(showEvent),
-    )
+    ritual = 'ritual_ZN9QSizeGrip9showEventEP10QShowEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QSizeGrip9showEventEP10QShowEvent'
+    self.uglySide.call(ritual, self._addressOf(showEvent))
 
   @overload(QHideEvent)
   @overload(NoneType)
@@ -409,10 +409,10 @@ class QSizeGrip(QWidget):
       object.
     """
     #  void QSizeGrip::hideEvent(QHideEvent *hideEvent)
-    self.uglySide.call(
-        'ritual_own_ZN9QSizeGrip9hideEventEP10QHideEvent',
-        self._addressOf(hideEvent),
-    )
+    ritual = 'ritual_ZN9QSizeGrip9hideEventEP10QHideEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QSizeGrip9hideEventEP10QHideEvent'
+    self.uglySide.call(ritual, self._addressOf(hideEvent))
 
   @overload(QObject, QEvent)
   @overload(QObject, NoneType)
@@ -436,9 +436,11 @@ class QSizeGrip(QWidget):
       object.
     """
     #  bool QSizeGrip::eventFilter(QObject *a0, QEvent *a1)
+    ritual = 'ritual_ZN9QSizeGrip11eventFilterEP7QObjectP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QSizeGrip11eventFilterEP7QObjectP6QEvent'
     return self.uglySide.call(
-        'ritual_own_ZN9QSizeGrip11eventFilterEP7QObjectP6QEvent',
-        self._addressOf(a0), self._addressOf(a1),
+        ritual, self._addressOf(a0), self._addressOf(a1),
     )
 
   @overload(QEvent)
@@ -457,6 +459,7 @@ class QSizeGrip(QWidget):
       object.
     """
     #  bool QSizeGrip::event(QEvent *a0)
-    return self.uglySide.call(
-        'ritual_own_ZN9QSizeGrip5eventEP6QEvent', self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN9QSizeGrip5eventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QSizeGrip5eventEP6QEvent'
+    return self.uglySide.call(ritual, self._addressOf(a0))

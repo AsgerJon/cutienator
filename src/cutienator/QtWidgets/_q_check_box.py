@@ -64,8 +64,9 @@ class QCheckBox(QAbstractButton):
   What has no ritual
   ------------------
 
-  10 of the 28 functions Qt declares: 3 private; 2 takes or gives a type that
-  cannot be passed yet; 2 a signal; 2 forbidden; 1 a template.
+  10 of the 28 functions Qt declares: 4 takes or gives a type that cannot be
+  passed yet; 2 a signal; 2 forbidden; 1 a template; 1 declared and nowhere
+  to be found.
 
   What to expect
   --------------
@@ -268,9 +269,10 @@ class QCheckBox(QAbstractButton):
       own.
     """
     #  bool QCheckBox::hitButton(const QPoint &pos) const
-    return self.uglySide.call(
-        'ritual_own_ZNK9QCheckBox9hitButtonERK6QPoint', self._valueOf(pos),
-    )
+    ritual = 'ritual_ZNK9QCheckBox9hitButtonERK6QPoint'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK9QCheckBox9hitButtonERK6QPoint'
+    return self.uglySide.call(ritual, self._valueOf(pos))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -407,9 +409,10 @@ class QCheckBox(QAbstractButton):
       object.
     """
     #  bool QCheckBox::event(QEvent *e)
-    return self.uglySide.call(
-        'ritual_own_ZN9QCheckBox5eventEP6QEvent', self._addressOf(e),
-    )
+    ritual = 'ritual_ZN9QCheckBox5eventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QCheckBox5eventEP6QEvent'
+    return self.uglySide.call(ritual, self._addressOf(e))
 
   def checkStateSet(self) -> None:
     """
@@ -418,7 +421,10 @@ class QCheckBox(QAbstractButton):
     Qt's own words: https://doc.qt.io/qt-6/qcheckbox.html#checkStateSet
     """
     #  void QCheckBox::checkStateSet()
-    self.uglySide.call('ritual_own_ZN9QCheckBox13checkStateSetEv')
+    ritual = 'ritual_ZN9QCheckBox13checkStateSetEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QCheckBox13checkStateSetEv'
+    self.uglySide.call(ritual)
 
   def nextCheckState(self) -> None:
     """
@@ -427,7 +433,10 @@ class QCheckBox(QAbstractButton):
     Qt's own words: https://doc.qt.io/qt-6/qcheckbox.html#nextCheckState
     """
     #  void QCheckBox::nextCheckState()
-    self.uglySide.call('ritual_own_ZN9QCheckBox14nextCheckStateEv')
+    ritual = 'ritual_ZN9QCheckBox14nextCheckStateEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QCheckBox14nextCheckStateEv'
+    self.uglySide.call(ritual)
 
   @overload(QPaintEvent)
   @overload(NoneType)
@@ -445,10 +454,10 @@ class QCheckBox(QAbstractButton):
       object.
     """
     #  void QCheckBox::paintEvent(QPaintEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN9QCheckBox10paintEventEP11QPaintEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN9QCheckBox10paintEventEP11QPaintEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QCheckBox10paintEventEP11QPaintEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QMouseEvent)
   @overload(NoneType)
@@ -466,10 +475,10 @@ class QCheckBox(QAbstractButton):
       object.
     """
     #  void QCheckBox::mouseMoveEvent(QMouseEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN9QCheckBox14mouseMoveEventEP11QMouseEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN9QCheckBox14mouseMoveEventEP11QMouseEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QCheckBox14mouseMoveEventEP11QMouseEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QStyleOptionButton)
   @overload(NoneType)
@@ -488,7 +497,8 @@ class QCheckBox(QAbstractButton):
       object.
     """
     #  void QCheckBox::initStyleOption(QStyleOptionButton *option) const
-    self.uglySide.call(
-        'ritual_own_ZNK9QCheckBox15initStyleOptionEP18QStyleOptionButton',
-        self._addressOf(option),
-    )
+    ritual = 'ritual_ZNK9QCheckBox15initStyleOptionEP18QStyleOptionButton'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK9QCheckBox15initStyleOptionEP18QStyleOptionButton')
+    self.uglySide.call(ritual, self._addressOf(option))

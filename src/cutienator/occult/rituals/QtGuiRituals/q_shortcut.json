@@ -38,6 +38,7 @@
       "nothing", "address", "text"
     ],
     "ritual_ZNK9QShortcut9whatsThisEv": ["text", "address"],
+    "ritual_ZN9QShortcut5eventEP6QEvent": ["bool", "address", "address"],
     "ritual_take_QShortcut": ["bool", "address", "chars", "address"],
     "ritual_own_ZN9QShortcut5eventEP6QEvent": ["bool", "address", "address"]
   }

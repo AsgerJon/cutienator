@@ -1257,6 +1257,181 @@ void ritual_ZN14QGraphicsScene5clearEv(QGraphicsScene *self) {
   self->clear();
 }
 
+//  bool QGraphicsScene::event(QEvent *event)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN14QGraphicsScene5eventEP6QEvent(
+    QGraphicsScene *self,
+    QEvent *event) {
+  return self->event(event);
+}
+
+//  bool QGraphicsScene::eventFilter(QObject *watched, QEvent *event)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN14QGraphicsScene11eventFilterEP7QObjectP6QEvent(
+    QGraphicsScene *self,
+    QObject *watched,
+    QEvent *event) {
+  return self->eventFilter(watched, event);
+}
+
+//  void QGraphicsScene::contextMenuEvent(QGraphicsSceneContextMenuEvent
+//      *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QGraphicsScene16contextMenuEventEP30QGraphicsSceneContextMenuEvent(
+    QGraphicsScene *self,
+    QGraphicsSceneContextMenuEvent *event) {
+  self->contextMenuEvent(event);
+}
+
+//  void QGraphicsScene::dragEnterEvent(QGraphicsSceneDragDropEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QGraphicsScene14dragEnterEventEP27QGraphicsSceneDragDropEvent(
+    QGraphicsScene *self,
+    QGraphicsSceneDragDropEvent *event) {
+  self->dragEnterEvent(event);
+}
+
+//  void QGraphicsScene::dragMoveEvent(QGraphicsSceneDragDropEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QGraphicsScene13dragMoveEventEP27QGraphicsSceneDragDropEvent(
+    QGraphicsScene *self,
+    QGraphicsSceneDragDropEvent *event) {
+  self->dragMoveEvent(event);
+}
+
+//  void QGraphicsScene::dragLeaveEvent(QGraphicsSceneDragDropEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QGraphicsScene14dragLeaveEventEP27QGraphicsSceneDragDropEvent(
+    QGraphicsScene *self,
+    QGraphicsSceneDragDropEvent *event) {
+  self->dragLeaveEvent(event);
+}
+
+//  void QGraphicsScene::dropEvent(QGraphicsSceneDragDropEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QGraphicsScene9dropEventEP27QGraphicsSceneDragDropEvent(
+    QGraphicsScene *self,
+    QGraphicsSceneDragDropEvent *event) {
+  self->dropEvent(event);
+}
+
+//  void QGraphicsScene::focusInEvent(QFocusEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QGraphicsScene12focusInEventEP11QFocusEvent(
+    QGraphicsScene *self,
+    QFocusEvent *event) {
+  self->focusInEvent(event);
+}
+
+//  void QGraphicsScene::focusOutEvent(QFocusEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QGraphicsScene13focusOutEventEP11QFocusEvent(
+    QGraphicsScene *self,
+    QFocusEvent *event) {
+  self->focusOutEvent(event);
+}
+
+//  void QGraphicsScene::helpEvent(QGraphicsSceneHelpEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QGraphicsScene9helpEventEP23QGraphicsSceneHelpEvent(
+    QGraphicsScene *self,
+    QGraphicsSceneHelpEvent *event) {
+  self->helpEvent(event);
+}
+
+//  void QGraphicsScene::keyPressEvent(QKeyEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QGraphicsScene13keyPressEventEP9QKeyEvent(
+    QGraphicsScene *self,
+    QKeyEvent *event) {
+  self->keyPressEvent(event);
+}
+
+//  void QGraphicsScene::keyReleaseEvent(QKeyEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QGraphicsScene15keyReleaseEventEP9QKeyEvent(
+    QGraphicsScene *self,
+    QKeyEvent *event) {
+  self->keyReleaseEvent(event);
+}
+
+//  void QGraphicsScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QGraphicsScene15mousePressEventEP24QGraphicsSceneMouseEvent(
+    QGraphicsScene *self,
+    QGraphicsSceneMouseEvent *event) {
+  self->mousePressEvent(event);
+}
+
+//  void QGraphicsScene::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QGraphicsScene14mouseMoveEventEP24QGraphicsSceneMouseEvent(
+    QGraphicsScene *self,
+    QGraphicsSceneMouseEvent *event) {
+  self->mouseMoveEvent(event);
+}
+
+//  void QGraphicsScene::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QGraphicsScene17mouseReleaseEventEP24QGraphicsSceneMouseEvent(
+    QGraphicsScene *self,
+    QGraphicsSceneMouseEvent *event) {
+  self->mouseReleaseEvent(event);
+}
+
+//  void QGraphicsScene::mouseDoubleClickEvent(QGraphicsSceneMouseEvent
+//      *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QGraphicsScene21mouseDoubleClickEventEP24QGraphicsSceneMouseEvent(
+    QGraphicsScene *self,
+    QGraphicsSceneMouseEvent *event) {
+  self->mouseDoubleClickEvent(event);
+}
+
+//  void QGraphicsScene::wheelEvent(QGraphicsSceneWheelEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QGraphicsScene10wheelEventEP24QGraphicsSceneWheelEvent(
+    QGraphicsScene *self,
+    QGraphicsSceneWheelEvent *event) {
+  self->wheelEvent(event);
+}
+
+//  void QGraphicsScene::inputMethodEvent(QInputMethodEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QGraphicsScene16inputMethodEventEP17QInputMethodEvent(
+    QGraphicsScene *self,
+    QInputMethodEvent *event) {
+  self->inputMethodEvent(event);
+}
+
+//  void QGraphicsScene::drawBackground(QPainter *painter, const QRectF
+//      &rect)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QGraphicsScene14drawBackgroundEP8QPainterRK6QRectF(
+    QGraphicsScene *self,
+    QPainter *painter,
+    const QRectF *rect) {
+  self->drawBackground(painter, *rect);
+}
+
+//  void QGraphicsScene::drawForeground(QPainter *painter, const QRectF
+//      &rect)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QGraphicsScene14drawForegroundEP8QPainterRK6QRectF(
+    QGraphicsScene *self,
+    QPainter *painter,
+    const QRectF *rect) {
+  self->drawForeground(painter, *rect);
+}
+
+//  bool QGraphicsScene::focusNextPrevChild(bool next)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN14QGraphicsScene18focusNextPrevChildEb(
+    QGraphicsScene *self,
+    bool next) {
+  return self->focusNextPrevChild(next);
+}
+
 //  a Python function taken by a CuteQGraphicsScene, for the function named
 //      by the key
 extern "C" Q_DECL_EXPORT

@@ -6,6 +6,7 @@
   "rows": {
     "ritual_ZN19QStyleOptionToolBarC1Ev": ["address"],
     "ritual_ZN19QStyleOptionToolBarC1ERKS_": ["address", "address"],
+    "ritual_ZN19QStyleOptionToolBarC1Ei": ["address", "int"],
     "ritual_ZN19QStyleOptionToolBarD1Ev": ["nothing", "address"]
   }
 }

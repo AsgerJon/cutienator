@@ -4,6 +4,9 @@
     "QtCore/qbytearrayview.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN14QByteArrayView21lengthHelperCharArrayEPKcm": [
+      "long long", "chars", "size_t"
+    ],
     "ritual_ZN14QByteArrayViewC1Ev": ["address"],
     "ritual_ZNK14QByteArrayView11toByteArrayEv": ["address", "address"],
     "ritual_ZN14QByteArrayView7maxSizeEv": ["long long"],
@@ -104,6 +107,9 @@
     "ritual_ZNK14QByteArrayView6lengthEv": ["long long", "address"],
     "ritual_ZNK14QByteArrayView5firstEv": ["char", "address"],
     "ritual_ZNK14QByteArrayView4lastEv": ["char", "address"],
+    "ritual_ZNK14QByteArrayView6verifyExx": [
+      "nothing", "address", "long long", "long long"
+    ],
     "ritual_ZeqRK14QByteArrayViewS1_": ["bool", "address", "address"],
     "ritual_ZneRK14QByteArrayViewS1_": ["bool", "address", "address"],
     "ritual_ZltRK14QByteArrayViewS1_": ["bool", "address", "address"],

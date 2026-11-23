@@ -187,6 +187,26 @@ bool ritual_ZneN2Qt16partial_orderingE16QPartialOrdering(
   return operator!=(*lhs, *rhs);
 }
 
+//  QPartialOrdering::QPartialOrdering(QtPrivate::Ordering order)
+extern "C" Q_DECL_EXPORT
+QPartialOrdering *ritual_ZN16QPartialOrderingC1EN9QtPrivate8OrderingE(
+    QtPrivate::Ordering order) {
+  return new QPartialOrdering(order);
+}
+
+//  QPartialOrdering::QPartialOrdering(QtPrivate::LegacyUncomparable order)
+extern "C" Q_DECL_EXPORT
+QPartialOrdering *ritual_ZN16QPartialOrderingC1EN9QtPrivate18LegacyUncomparableE(
+    QtPrivate::LegacyUncomparable order) {
+  return new QPartialOrdering(order);
+}
+
+//  bool QPartialOrdering::isOrdered() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK16QPartialOrdering9isOrderedEv(const QPartialOrdering *self) {
+  return self->isOrdered();
+}
+
 //  QPartialOrdering::~QPartialOrdering()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QPartialOrderingD1Ev(QPartialOrdering *self) {

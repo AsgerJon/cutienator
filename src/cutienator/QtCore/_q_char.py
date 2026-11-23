@@ -16,6 +16,13 @@ from worktoy.keenum import Kee
 from ..cute import CuteMixin, CuteNum, MetaCute
 from ..occult import Rituals
 
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Optional
+
+#  The class of None, for a signature that takes None in the place of an
+#  object or of text.
+NoneType = type(None)
+
 
 class QChar(CuteMixin, metaclass=MetaCute):
   """
@@ -30,7 +37,7 @@ class QChar(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QChar that has a ritual and that Python can call so
-  far, 43 names in all: 'category', 'direction', 'joiningType',
+  far, 45 names in all: 'category', 'direction', 'joiningType',
   'combiningClass', 'mirroredChar', 'hasMirrored', 'decomposition',
   'decompositionTag', 'digitValue', 'toLower', 'toUpper', 'toTitleCase',
   'toCaseFolded', 'script', 'unicodeVersion', 'isNull', 'isPrint', 'isSpace',
@@ -38,8 +45,8 @@ class QChar(CuteMixin, metaclass=MetaCute):
   'isLetterOrNumber', 'isDigit', 'isLower', 'isUpper', 'isTitleCase',
   'isNonCharacter', 'isHighSurrogate', 'isLowSurrogate', 'isSurrogate',
   'cell', 'row', 'setCell', 'setRow', 'currentUnicodeVersion', '__eq__',
-  '__ne__', '__lt__', '__gt__', '__le__', '__ge__'. It can be made from
-  Python, in 2 ways; see '__init__'.
+  '__ne__', '__lt__', '__gt__', '__le__', '__ge__', 'equal_helper',
+  'compare_helper'. It can be made from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -53,8 +60,8 @@ class QChar(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  62 of the 110 functions Qt declares: 52 takes or gives a type that cannot
-  be passed yet; 6 private; 4 a template.
+  60 of the 110 functions Qt declares: 56 takes or gives a type that cannot
+  be passed yet; 4 a template.
 
   What to expect
   --------------
@@ -457,6 +464,54 @@ class QChar(CuteMixin, metaclass=MetaCute):
     return QChar.UnicodeVersion(Rituals.call(
         'ritual_ZN5QChar21currentUnicodeVersionEv',
     ))
+
+  @staticmethod
+  @overload(THIS, str)
+  @overload(THIS, NoneType)
+  def equal_helper(lhs: QChar, rhs: Optional[str]) -> bool:
+    """
+    Calls Qt's 'bool QChar::equal_helper(QChar lhs, const char *rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qchar.html#equal_helper
+
+    Parameters
+    ----------
+
+    lhs : QChar
+      Passed on as a value: Qt reads the C++ QChar, which stays Python's own.
+
+    rhs : Optional[str]
+      Passed on as the bytes of the text. None is passed on as no text.
+    """
+    #  bool QChar::equal_helper(QChar lhs, const char *rhs)
+    return Rituals.call(
+        'ritual_ZN5QChar12equal_helperES_PKc',
+        CuteMixin._valueOf(lhs), CuteMixin._bytesOf(rhs),
+    )
+
+  @staticmethod
+  @overload(THIS, str)
+  @overload(THIS, NoneType)
+  def compare_helper(lhs: QChar, rhs: Optional[str]) -> int:
+    """
+    Calls Qt's 'int QChar::compare_helper(QChar lhs, const char *rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qchar.html#compare_helper
+
+    Parameters
+    ----------
+
+    lhs : QChar
+      Passed on as a value: Qt reads the C++ QChar, which stays Python's own.
+
+    rhs : Optional[str]
+      Passed on as the bytes of the text. None is passed on as no text.
+    """
+    #  int QChar::compare_helper(QChar lhs, const char *rhs)
+    return Rituals.call(
+        'ritual_ZN5QChar14compare_helperES_PKc',
+        CuteMixin._valueOf(lhs), CuteMixin._bytesOf(rhs),
+    )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

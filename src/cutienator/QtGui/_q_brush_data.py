@@ -9,7 +9,10 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
+from worktoy.dispatch import overload
+
 from ..cute import CuteMixin, MetaCute
+from ..occult import Rituals
 
 
 class QBrushData(CuteMixin, metaclass=MetaCute):
@@ -20,13 +23,20 @@ class QBrushData(CuteMixin, metaclass=MetaCute):
   What exists
   -----------
 
-  No function of Qt's QBrushData yet. None can be made from Python: one comes
-  out of a function of another class that gives one back.
+  No function of Qt's QBrushData yet. It can be made from Python, in 1 way;
+  see '__init__'.
+
+  What has a ritual and is left out, and why
+  ------------------------------------------
+
+  - Qt's 'QBrushData::~QBrushData()': the destructor: Python never removes a
+    C++ QBrushData.
 
   What has no ritual
   ------------------
 
-  6 of the 6 functions Qt declares: 6 protected.
+  4 of the 6 functions Qt declares: 4 takes or gives a type that cannot be
+  passed yet.
 
   What to expect
   --------------
@@ -79,6 +89,19 @@ class QBrushData(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload()
+  def __init__(self) -> None:
+    """
+    Notes what was given, for Qt's 'QBrushData::QBrushData()', which is
+    called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbrushdata.html#QBrushData
+    """
+    #  QBrushData::QBrushData()
+    self._noteCreation(QBrushData, lambda: Rituals.call(
+        'ritual_ZN10QBrushDataC1Ev',
+    ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #

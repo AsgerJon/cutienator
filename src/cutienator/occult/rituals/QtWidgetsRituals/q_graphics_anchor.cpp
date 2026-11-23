@@ -187,6 +187,13 @@ void ritual_ZN15QGraphicsAnchorD1Ev(QGraphicsAnchor *self) {
   delete self;
 }
 
+//  QGraphicsAnchor::QGraphicsAnchor(QGraphicsAnchorLayout *parent)
+extern "C" Q_DECL_EXPORT
+QGraphicsAnchor *ritual_ZN15QGraphicsAnchorC1EP21QGraphicsAnchorLayout(
+    QGraphicsAnchorLayout *parent) {
+  return new CuteQGraphicsAnchor(parent);
+}
+
 //  a Python function taken by a CuteQGraphicsAnchor, for the function named
 //      by the key
 extern "C" Q_DECL_EXPORT

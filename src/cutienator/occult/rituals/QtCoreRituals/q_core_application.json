@@ -105,6 +105,21 @@
     "ritual_ZN16QCoreApplication18setQuitLockEnabledEb": ["nothing", "bool"],
     "ritual_ZN16QCoreApplication4quitEv": ["nothing"],
     "ritual_ZN16QCoreApplication4exitEi": ["nothing", "int"],
+    "ritual_ZN16QCoreApplication5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN16QCoreApplication20sendSpontaneousEventEP7QObjectP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN16QCoreApplication15notifyInternal2EP7QObjectP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN16QCoreApplication12forwardEventEP7QObjectP6QEventS3_": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN16QCoreApplication21requestPermissionImplERK11QPermissionPN9QtPrivate15QSlotObjectBaseEPK7QObject": [
+      "nothing", "address", "address", "address", "address"
+    ],
     "ritual_take_QCoreApplication": ["bool", "address", "chars", "address"],
     "ritual_own_ZN16QCoreApplication6notifyEP7QObjectP6QEvent": [
       "bool", "address", "address", "address"

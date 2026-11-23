@@ -320,6 +320,14 @@ void ritual_ZN25QGraphicsDropShadowEffect8setColorERK6QColor(
   self->setColor(*color);
 }
 
+//  void QGraphicsDropShadowEffect::draw(QPainter *painter)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QGraphicsDropShadowEffect4drawEP8QPainter(
+    QGraphicsDropShadowEffect *self,
+    QPainter *painter) {
+  self->draw(painter);
+}
+
 //  a Python function taken by a CuteQGraphicsDropShadowEffect, for the
 //      function named by the key
 extern "C" Q_DECL_EXPORT

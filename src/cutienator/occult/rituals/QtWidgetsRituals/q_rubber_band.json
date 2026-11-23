@@ -25,6 +25,25 @@
     "ritual_ZN11QRubberBand6resizeERK5QSize": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN11QRubberBand5eventEP6QEvent": ["bool", "address", "address"],
+    "ritual_ZN11QRubberBand10paintEventEP11QPaintEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QRubberBand11changeEventEP6QEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QRubberBand9showEventEP10QShowEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QRubberBand11resizeEventEP12QResizeEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QRubberBand9moveEventEP10QMoveEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QRubberBand15initStyleOptionEP22QStyleOptionRubberBand": [
+      "nothing", "address", "address"
+    ],
     "ritual_take_QRubberBand": ["bool", "address", "chars", "address"],
     "ritual_own_ZN11QRubberBand5eventEP6QEvent": [
       "bool", "address", "address"

@@ -19,12 +19,17 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QMetaObject
-  from . import QTextBlock, QTextDocument
+  from . import QColor, QFont, QTextBlock, QTextBlockUserData
+  from . import QTextCharFormat, QTextDocument
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
+  QColor = WAIT['QColor']
+  QFont = WAIT['QFont']
   QTextBlock = WAIT['QTextBlock']
+  QTextBlockUserData = WAIT['QTextBlockUserData']
+  QTextCharFormat = WAIT['QTextCharFormat']
   QTextDocument = WAIT['QTextDocument']
 
 #  The class of None, for a signature that takes None in the place of an
@@ -44,9 +49,12 @@ class QSyntaxHighlighter(QObject):
   -----------
 
   Every function of Qt's QSyntaxHighlighter that has a ritual and that Python
-  can call so far, 6 names in all: 'metaObject', 'tr', 'setDocument',
-  'document', 'rehighlight', 'rehighlightBlock'. None can be made from
-  Python: one comes out of a function of another class that gives one back.
+  can call so far, 15 names in all: 'metaObject', 'tr', 'setDocument',
+  'document', 'rehighlight', 'rehighlightBlock', 'highlightBlock',
+  'setFormat', 'format', 'previousBlockState', 'currentBlockState',
+  'setCurrentBlockState', 'setCurrentBlockUserData', 'currentBlockUserData',
+  'currentBlock'. None can be made from Python: one comes out of a function
+  of another class that gives one back.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -57,9 +65,9 @@ class QSyntaxHighlighter(QObject):
   What has no ritual
   ------------------
 
-  21 of the 28 functions Qt declares: 11 protected; 3 private; 2 takes or
-  gives a type that cannot be passed yet; 2 the class is abstract, so C++
-  cannot make one; 2 forbidden; 1 a template.
+  10 of the 28 functions Qt declares: 4 takes or gives a type that cannot be
+  passed yet; 2 the class is abstract, so C++ cannot make one; 2 forbidden; 1
+  a template; 1 declared and nowhere to be found.
 
   What to expect
   --------------
@@ -201,6 +209,99 @@ class QSyntaxHighlighter(QObject):
     from . import QTextDocument
     return QTextDocument._cuteAt(address)
 
+  @overload(int)
+  def format(self, pos: int) -> QTextCharFormat:
+    """
+    Calls Qt's 'QTextCharFormat QSyntaxHighlighter::format(int pos) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qsyntaxhighlighter.html#format
+
+    Parameters
+    ----------
+
+    pos : int
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QTextCharFormat
+      A new cute QTextCharFormat around the copy Qt gave back. Python owns
+      it.
+    """
+    #  QTextCharFormat QSyntaxHighlighter::format(int pos) const
+    address = self.uglySide.call(
+        'ritual_ZNK18QSyntaxHighlighter6formatEi', pos,
+    )
+    from . import QTextCharFormat
+    return QTextCharFormat._cuteOwning(address)
+
+  def previousBlockState(self) -> int:
+    """
+    Calls Qt's 'int QSyntaxHighlighter::previousBlockState() const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qsyntaxhighlighter.html#previousBlockState
+    """
+    #  int QSyntaxHighlighter::previousBlockState() const
+    return self.uglySide.call(
+        'ritual_ZNK18QSyntaxHighlighter18previousBlockStateEv',
+    )
+
+  def currentBlockState(self) -> int:
+    """
+    Calls Qt's 'int QSyntaxHighlighter::currentBlockState() const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qsyntaxhighlighter.html#currentBlockState
+    """
+    #  int QSyntaxHighlighter::currentBlockState() const
+    return self.uglySide.call(
+        'ritual_ZNK18QSyntaxHighlighter17currentBlockStateEv',
+    )
+
+  def currentBlockUserData(self) -> Optional[QTextBlockUserData]:
+    """
+    Calls Qt's 'QTextBlockUserData
+    *QSyntaxHighlighter::currentBlockUserData() const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qsyntaxhighlighter.html#currentBlockUserData
+
+    Returns
+    -------
+
+    Optional[QTextBlockUserData]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QTextBlockUserData *QSyntaxHighlighter::currentBlockUserData() const
+    address = self.uglySide.call(
+        'ritual_ZNK18QSyntaxHighlighter20currentBlockUserDataEv',
+    )
+    from . import QTextBlockUserData
+    return QTextBlockUserData._cuteAt(address)
+
+  def currentBlock(self) -> QTextBlock:
+    """
+    Calls Qt's 'QTextBlock QSyntaxHighlighter::currentBlock() const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qsyntaxhighlighter.html#currentBlock
+
+    Returns
+    -------
+
+    QTextBlock
+      A new cute QTextBlock around the copy Qt gave back. Python owns it.
+    """
+    #  QTextBlock QSyntaxHighlighter::currentBlock() const
+    address = self.uglySide.call(
+        'ritual_ZNK18QSyntaxHighlighter12currentBlockEv',
+    )
+    from . import QTextBlock
+    return QTextBlock._cuteOwning(address)
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -225,6 +326,141 @@ class QSyntaxHighlighter(QObject):
     self.uglySide.call(
         'ritual_ZN18QSyntaxHighlighter11setDocumentEP13QTextDocument',
         self._addressOf(doc),
+    )
+
+  @overload(int, int, QTextCharFormat)
+  def setFormat(
+      self,
+      start: int,
+      count: int,
+      format: QTextCharFormat,
+  ) -> None:
+    """
+    Calls Qt's 'void QSyntaxHighlighter::setFormat(int start, int count,
+    const QTextCharFormat &format)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qsyntaxhighlighter.html#setFormat
+
+    Parameters
+    ----------
+
+    start : int
+      Passed on as it is.
+
+    count : int
+      Passed on as it is.
+
+    format : QTextCharFormat
+      Passed on as a value: Qt reads the C++ QTextCharFormat, which stays
+      Python's own.
+    """
+    #  void QSyntaxHighlighter::setFormat(int start, int count, const
+    #      QTextCharFormat &format)
+    self.uglySide.call(
+        'ritual_ZN18QSyntaxHighlighter9setFormatEiiRK15QTextCharFormat',
+        start, count, self._valueOf(format),
+    )
+
+  @overload(int, int, QColor)
+  def setFormat(self, start: int, count: int, color: QColor) -> None:
+    """
+    Calls Qt's 'void QSyntaxHighlighter::setFormat(int start, int count,
+    const QColor &color)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qsyntaxhighlighter.html#setFormat
+
+    Parameters
+    ----------
+
+    start : int
+      Passed on as it is.
+
+    count : int
+      Passed on as it is.
+
+    color : QColor
+      Passed on as a value: Qt reads the C++ QColor, which stays Python's
+      own.
+    """
+    #  void QSyntaxHighlighter::setFormat(int start, int count, const QColor
+    #      &color)
+    self.uglySide.call(
+        'ritual_ZN18QSyntaxHighlighter9setFormatEiiRK6QColor',
+        start, count, self._valueOf(color),
+    )
+
+  @overload(int, int, QFont)
+  def setFormat(self, start: int, count: int, font: QFont) -> None:
+    """
+    Calls Qt's 'void QSyntaxHighlighter::setFormat(int start, int count,
+    const QFont &font)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qsyntaxhighlighter.html#setFormat
+
+    Parameters
+    ----------
+
+    start : int
+      Passed on as it is.
+
+    count : int
+      Passed on as it is.
+
+    font : QFont
+      Passed on as a value: Qt reads the C++ QFont, which stays Python's own.
+    """
+    #  void QSyntaxHighlighter::setFormat(int start, int count, const QFont
+    #      &font)
+    self.uglySide.call(
+        'ritual_ZN18QSyntaxHighlighter9setFormatEiiRK5QFont',
+        start, count, self._valueOf(font),
+    )
+
+  @overload(int)
+  def setCurrentBlockState(self, newState: int) -> None:
+    """
+    Calls Qt's 'void QSyntaxHighlighter::setCurrentBlockState(int newState)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qsyntaxhighlighter.html#setCurrentBlockState
+
+    Parameters
+    ----------
+
+    newState : int
+      Passed on as it is.
+    """
+    #  void QSyntaxHighlighter::setCurrentBlockState(int newState)
+    self.uglySide.call(
+        'ritual_ZN18QSyntaxHighlighter20setCurrentBlockStateEi', newState,
+    )
+
+  @overload(QTextBlockUserData)
+  @overload(NoneType)
+  def setCurrentBlockUserData(
+      self,
+      data: Optional[QTextBlockUserData],
+  ) -> None:
+    """
+    Calls Qt's 'void
+    QSyntaxHighlighter::setCurrentBlockUserData(QTextBlockUserData *data)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qsyntaxhighlighter.html#setCurrentBlockUserData
+
+    Parameters
+    ----------
+
+    data : Optional[QTextBlockUserData]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QSyntaxHighlighter::setCurrentBlockUserData(QTextBlockUserData
+    #      *data)
+    self.uglySide.call(
+        'ritual_ZN18QSyntaxHighlighter23setCurrentBlockUserDataEP18QTextBlo'
+        'ckUserData',
+        self._addressOf(data),
     )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -289,4 +525,24 @@ class QSyntaxHighlighter(QObject):
     self.uglySide.call(
         'ritual_ZN18QSyntaxHighlighter16rehighlightBlockERK10QTextBlock',
         self._valueOf(block),
+    )
+
+  @overload(str)
+  def highlightBlock(self, text: str) -> None:
+    """
+    Calls Qt's 'void QSyntaxHighlighter::highlightBlock(const QString
+    &text)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qsyntaxhighlighter.html#highlightBlock
+
+    Parameters
+    ----------
+
+    text : str
+      Passed on as it is: a QString is made of it for the call.
+    """
+    #  void QSyntaxHighlighter::highlightBlock(const QString &text)
+    self.uglySide.call(
+        'ritual_ZN18QSyntaxHighlighter14highlightBlockERK7QString', text,
     )

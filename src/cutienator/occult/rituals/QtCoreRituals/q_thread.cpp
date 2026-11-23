@@ -358,6 +358,24 @@ void ritual_ZN7QThread6usleepEm(unsigned long a0) {
   QThread::usleep(a0);
 }
 
+//  void QThread::run()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QThread3runEv(QThread *self) {
+  self->run();
+}
+
+//  int QThread::exec()
+extern "C" Q_DECL_EXPORT
+int ritual_ZN7QThread4execEv(QThread *self) {
+  return self->exec();
+}
+
+//  void QThread::setTerminationEnabled(bool enabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QThread21setTerminationEnabledEb(bool enabled) {
+  QThread::setTerminationEnabled(enabled);
+}
+
 //  a Python function taken by a CuteQThread, for the function named by the
 //      key
 extern "C" Q_DECL_EXPORT

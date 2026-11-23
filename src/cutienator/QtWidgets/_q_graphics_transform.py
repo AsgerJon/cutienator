@@ -43,9 +43,9 @@ class QGraphicsTransform(QObject):
   -----------
 
   Every function of Qt's QGraphicsTransform that has a ritual and that Python
-  can call so far, 3 names in all: 'metaObject', 'tr', 'applyTo'. None can be
-  made from Python: one comes out of a function of another class that gives
-  one back.
+  can call so far, 4 names in all: 'metaObject', 'tr', 'applyTo', 'update'.
+  None can be made from Python: one comes out of a function of another class
+  that gives one back.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -56,9 +56,9 @@ class QGraphicsTransform(QObject):
   What has no ritual
   ------------------
 
-  9 of the 13 functions Qt declares: 3 private; 2 takes or gives a type that
-  cannot be passed yet; 2 protected; 1 a template; 1 the class is abstract,
-  so C++ cannot make one.
+  8 of the 13 functions Qt declares: 4 takes or gives a type that cannot be
+  passed yet; 2 the class is abstract, so C++ cannot make one; 1 a template;
+  1 declared and nowhere to be found.
 
   What to expect
   --------------
@@ -238,6 +238,15 @@ class QGraphicsTransform(QObject):
         'ritual_ZNK18QGraphicsTransform7applyToEP10QMatrix4x4',
         self._addressOf(matrix),
     )
+
+  def update(self) -> None:
+    """
+    Calls Qt's 'void QGraphicsTransform::update()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicstransform.html#update
+    """
+    #  void QGraphicsTransform::update()
+    self.uglySide.call('ritual_ZN18QGraphicsTransform6updateEv')
 
 
 #  Qt's 'QList<QGraphicsTransform *>': the list of QGraphicsTransform, which

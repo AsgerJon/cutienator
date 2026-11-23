@@ -34,6 +34,7 @@
       "nothing", "address"
     ],
     "ritual_ZN11QAccessible7cleanupEv": ["nothing"],
+    "ritual_ZN11QAccessibleC1Ev": ["address"],
     "ritual_ZN11QAccessibleD1Ev": ["nothing", "address"]
   }
 }

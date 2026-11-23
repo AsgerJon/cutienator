@@ -72,3 +72,10 @@ QDirListing::sentinel *ritual_ZNK11QDirListing8constEndEv(
     const QDirListing *self) {
   return new QDirListing::sentinel(self->constEnd());
 }
+
+//  DirEntry QDirListing::next(DirEntry a0)
+extern "C" Q_DECL_EXPORT
+QDirListing::DirEntry *ritual_ZN11QDirListing4nextENS_8DirEntryE(
+    const QDirListing::DirEntry *a0) {
+  return new QDirListing::DirEntry(QDirListing::next(*a0));
+}

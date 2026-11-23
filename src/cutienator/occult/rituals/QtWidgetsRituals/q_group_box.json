@@ -24,6 +24,34 @@
     "ritual_ZN9QGroupBox12setCheckableEb": ["nothing", "address", "bool"],
     "ritual_ZNK9QGroupBox9isCheckedEv": ["bool", "address"],
     "ritual_ZN9QGroupBox10setCheckedEb": ["nothing", "address", "bool"],
+    "ritual_ZN9QGroupBox5eventEP6QEvent": ["bool", "address", "address"],
+    "ritual_ZN9QGroupBox10childEventEP11QChildEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QGroupBox11resizeEventEP12QResizeEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QGroupBox10paintEventEP11QPaintEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QGroupBox12focusInEventEP11QFocusEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QGroupBox11changeEventEP6QEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QGroupBox15mousePressEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QGroupBox14mouseMoveEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QGroupBox17mouseReleaseEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9QGroupBox15initStyleOptionEP20QStyleOptionGroupBox": [
+      "nothing", "address", "address"
+    ],
     "ritual_take_QGroupBox": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK9QGroupBox15minimumSizeHintEv": ["address", "address"],
     "ritual_own_ZN9QGroupBox5eventEP6QEvent": ["bool", "address", "address"],

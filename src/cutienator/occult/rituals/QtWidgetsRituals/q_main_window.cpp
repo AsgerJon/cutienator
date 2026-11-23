@@ -1216,6 +1216,22 @@ void ritual_ZN11QMainWindow30setUnifiedTitleAndToolBarOnMacEb(
   self->setUnifiedTitleAndToolBarOnMac(set);
 }
 
+//  void QMainWindow::contextMenuEvent(QContextMenuEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QMainWindow16contextMenuEventEP17QContextMenuEvent(
+    QMainWindow *self,
+    QContextMenuEvent *event) {
+  self->contextMenuEvent(event);
+}
+
+//  bool QMainWindow::event(QEvent *event)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN11QMainWindow5eventEP6QEvent(
+    QMainWindow *self,
+    QEvent *event) {
+  return self->event(event);
+}
+
 //  a Python function taken by a CuteQMainWindow, for the function named by
 //      the key
 extern "C" Q_DECL_EXPORT

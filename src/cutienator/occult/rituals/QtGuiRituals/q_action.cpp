@@ -488,6 +488,12 @@ bool ritual_ZN7QAction14showStatusTextEP7QObject(
   return self->showStatusText(object);
 }
 
+//  bool QAction::event(QEvent *a0)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN7QAction5eventEP6QEvent(QAction *self, QEvent *a0) {
+  return self->event(a0);
+}
+
 //  void QAction::trigger()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN7QAction7triggerEv(QAction *self) {
@@ -534,6 +540,20 @@ void ritual_ZN7QAction11setDisabledEb(QAction *self, bool b) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN7QAction10setVisibleEb(QAction *self, bool a0) {
   self->setVisible(a0);
+}
+
+//  QObject *QAction::menuObject() const
+extern "C" Q_DECL_EXPORT
+QObject *ritual_ZNK7QAction10menuObjectEv(const QAction *self) {
+  return self->menuObject();
+}
+
+//  void QAction::setMenuObject(QObject *object)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QAction13setMenuObjectEP7QObject(
+    QAction *self,
+    QObject *object) {
+  self->setMenuObject(object);
 }
 
 //  a Python function taken by a CuteQAction, for the function named by the

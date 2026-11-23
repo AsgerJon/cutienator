@@ -590,6 +590,37 @@ bool ritual_ZgeRK10QCborValueS1_(
   return operator>=(*lhs, *rhs);
 }
 
+//  void QCborValue::dispose()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QCborValue7disposeEv(QCborValue *self) {
+  self->dispose();
+}
+
+//  qint64 QCborValue::value_helper() const
+extern "C" Q_DECL_EXPORT
+qint64 ritual_ZNK10QCborValue12value_helperEv(const QCborValue *self) {
+  return self->value_helper();
+}
+
+//  double QCborValue::fp_helper() const
+extern "C" Q_DECL_EXPORT
+double ritual_ZNK10QCborValue9fp_helperEv(const QCborValue *self) {
+  return self->fp_helper();
+}
+
+//  Type QCborValue::type_helper(QCborSimpleType st)
+extern "C" Q_DECL_EXPORT
+QCborValue::Type ritual_ZN10QCborValue11type_helperE15QCborSimpleType(
+    QCborSimpleType st) {
+  return QCborValue::type_helper(st);
+}
+
+//  bool QCborValue::isTag_helper(Type tt)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN10QCborValue12isTag_helperENS_4TypeE(QCborValue::Type tt) {
+  return QCborValue::isTag_helper(tt);
+}
+
 //  QList<QCborValue>::QList()
 extern "C" Q_DECL_EXPORT
 QList<QCborValue> *ritual_list_make_QCborValue() {

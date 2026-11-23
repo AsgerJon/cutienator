@@ -5,6 +5,12 @@
   ],
   "rows": {
     "ritual_ZN17QPropertyObserverC1Ev": ["address"],
-    "ritual_ZN17QPropertyObserverD1Ev": ["nothing", "address"]
+    "ritual_ZN17QPropertyObserverD1Ev": ["nothing", "address"],
+    "ritual_ZN17QPropertyObserverC1EP20QUntypedPropertyData": [
+      "address", "address"
+    ],
+    "ritual_ZNK17QPropertyObserver15aliasedPropertyEv": [
+      "address", "address"
+    ]
   }
 }

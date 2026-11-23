@@ -4,6 +4,7 @@
     "QtGui/qrgba64.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN7QRgba64C1Ey": ["address", "unsigned long long"],
     "ritual_ZN7QRgba64C1Ev": ["address"],
     "ritual_ZN7QRgba6410fromRgba64Ey": ["address", "unsigned long long"],
     "ritual_ZN7QRgba6410fromRgba64Etttt": [
@@ -34,6 +35,11 @@
     "ritual_ZNK7QRgba6413premultipliedEv": ["address", "address"],
     "ritual_ZNK7QRgba6415unpremultipliedEv": ["address", "address"],
     "ritual_ZNK7QRgba64cvyEv": ["unsigned long long", "address"],
+    "ritual_ZN7QRgba649alphaMaskEv": ["unsigned long long"],
+    "ritual_ZN7QRgba6413div_257_floorEj": ["unsigned char", "unsigned int"],
+    "ritual_ZN7QRgba647div_257Et": ["unsigned char", "unsigned short"],
+    "ritual_ZNK7QRgba6421unpremultiplied_32bitEv": ["address", "address"],
+    "ritual_ZNK7QRgba6421unpremultiplied_64bitEv": ["address", "address"],
     "ritual_ZN7QRgba64D1Ev": ["nothing", "address"]
   }
 }

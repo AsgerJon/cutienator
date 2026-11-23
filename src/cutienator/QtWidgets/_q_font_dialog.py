@@ -64,8 +64,9 @@ class QFontDialog(QDialog):
   What has no ritual
   ------------------
 
-  10 of the 29 functions Qt declares: 3 private; 2 takes or gives a type that
-  cannot be passed yet; 2 a signal; 2 forbidden; 1 a template.
+  10 of the 29 functions Qt declares: 4 takes or gives a type that cannot be
+  passed yet; 2 a signal; 2 forbidden; 1 a template; 1 declared and nowhere
+  to be found.
 
   What to expect
   --------------
@@ -474,10 +475,10 @@ class QFontDialog(QDialog):
       object.
     """
     #  void QFontDialog::changeEvent(QEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN11QFontDialog11changeEventEP6QEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN11QFontDialog11changeEventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QFontDialog11changeEventEP6QEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(int)
   def done(self, result: int) -> None:
@@ -493,7 +494,10 @@ class QFontDialog(QDialog):
       Passed on as it is.
     """
     #  void QFontDialog::done(int result)
-    self.uglySide.call('ritual_own_ZN11QFontDialog4doneEi', result)
+    ritual = 'ritual_ZN11QFontDialog4doneEi'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QFontDialog4doneEi'
+    self.uglySide.call(ritual, result)
 
   @overload(QObject, QEvent)
   @overload(QObject, NoneType)
@@ -522,7 +526,9 @@ class QFontDialog(QDialog):
       object.
     """
     #  bool QFontDialog::eventFilter(QObject *object, QEvent *event)
+    ritual = 'ritual_ZN11QFontDialog11eventFilterEP7QObjectP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QFontDialog11eventFilterEP7QObjectP6QEvent'
     return self.uglySide.call(
-        'ritual_own_ZN11QFontDialog11eventFilterEP7QObjectP6QEvent',
-        self._addressOf(object), self._addressOf(event),
+        ritual, self._addressOf(object), self._addressOf(event),
     )

@@ -6,6 +6,11 @@
   "rows": {
     "ritual_ZNK11QTextObject10metaObjectEv": ["address", "address"],
     "ritual_ZN11QTextObject2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN11QTextObjectC1EP13QTextDocument": ["address", "address"],
+    "ritual_ZN11QTextObjectD1Ev": ["nothing", "address"],
+    "ritual_ZN11QTextObject9setFormatERK11QTextFormat": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK11QTextObject6formatEv": ["address", "address"],
     "ritual_ZNK11QTextObject11formatIndexEv": ["int", "address"],
     "ritual_ZNK11QTextObject8documentEv": ["address", "address"],

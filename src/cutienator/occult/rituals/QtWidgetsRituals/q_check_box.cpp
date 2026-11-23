@@ -907,6 +907,56 @@ void ritual_ZN9QCheckBox13setCheckStateEN2Qt10CheckStateE(
   self->setCheckState(state);
 }
 
+//  bool QCheckBox::event(QEvent *e)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN9QCheckBox5eventEP6QEvent(QCheckBox *self, QEvent *e) {
+  return self->event(e);
+}
+
+//  bool QCheckBox::hitButton(const QPoint &pos) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK9QCheckBox9hitButtonERK6QPoint(
+    const QCheckBox *self,
+    const QPoint *pos) {
+  return self->hitButton(*pos);
+}
+
+//  void QCheckBox::checkStateSet()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QCheckBox13checkStateSetEv(QCheckBox *self) {
+  self->checkStateSet();
+}
+
+//  void QCheckBox::nextCheckState()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QCheckBox14nextCheckStateEv(QCheckBox *self) {
+  self->nextCheckState();
+}
+
+//  void QCheckBox::paintEvent(QPaintEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QCheckBox10paintEventEP11QPaintEvent(
+    QCheckBox *self,
+    QPaintEvent *a0) {
+  self->paintEvent(a0);
+}
+
+//  void QCheckBox::mouseMoveEvent(QMouseEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QCheckBox14mouseMoveEventEP11QMouseEvent(
+    QCheckBox *self,
+    QMouseEvent *a0) {
+  self->mouseMoveEvent(a0);
+}
+
+//  void QCheckBox::initStyleOption(QStyleOptionButton *option) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK9QCheckBox15initStyleOptionEP18QStyleOptionButton(
+    const QCheckBox *self,
+    QStyleOptionButton *option) {
+  self->initStyleOption(option);
+}
+
 //  a Python function taken by a CuteQCheckBox, for the function named by the
 //      key
 extern "C" Q_DECL_EXPORT

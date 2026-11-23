@@ -60,6 +60,24 @@
     "ritual_ZNK27QAbstractTextDocumentLayout16handlerForObjectEi": [
       "address", "address", "int"
     ],
+    "ritual_ZN27QAbstractTextDocumentLayout15documentChangedEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZN27QAbstractTextDocumentLayout18resizeInlineObjectE17QTextInlineObjectiRK11QTextFormat": [
+      "nothing", "address", "address", "int", "address"
+    ],
+    "ritual_ZN27QAbstractTextDocumentLayout20positionInlineObjectE17QTextInlineObjectiRK11QTextFormat": [
+      "nothing", "address", "address", "int", "address"
+    ],
+    "ritual_ZN27QAbstractTextDocumentLayout16drawInlineObjectEP8QPainterRK6QRectF17QTextInlineObjectiRK11QTextFormat": [
+      "nothing", "address", "address", "address", "address", "int", "address"
+    ],
+    "ritual_ZN27QAbstractTextDocumentLayout11formatIndexEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZN27QAbstractTextDocumentLayout6formatEi": [
+      "address", "address", "int"
+    ],
     "ritual_take_QAbstractTextDocumentLayout": [
       "bool", "address", "chars", "address"
     ],

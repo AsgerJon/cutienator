@@ -86,7 +86,7 @@ class TestBuild(BaseTest):
     qtFolder = Build.getQtSharedObjectFolder()
     ritualFile = build.getRitualFiles()[0]
     expected = (
-        'clang++', '-std=c++17', '-O2',
+        'clang++', '-std=c++17', '-O2', '-fno-access-control',
         *system.getCompilerFlags(qtFolder),
         '-I%s' % Build.getQtHeaderFolder(),
         '-fpch-instantiate-templates', '-x', 'c++-header',
@@ -95,7 +95,7 @@ class TestBuild(BaseTest):
     )
     self.assertEqual(build.getPrecompileCommand(), expected)
     expected = (
-        'clang++', '-std=c++17', '-O2', '-c',
+        'clang++', '-std=c++17', '-O2', '-fno-access-control', '-c',
         *system.getCompilerFlags(qtFolder),
         '-I%s' % Build.getQtHeaderFolder(),
         '-include-pch', build.getPrecompiledHeaderFile(), ritualFile,

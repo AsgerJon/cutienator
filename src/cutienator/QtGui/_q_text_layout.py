@@ -69,8 +69,8 @@ class QTextLayout(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  7 of the 49 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 2 forbidden; 1 private.
+  7 of the 49 functions Qt declares: 5 takes or gives a type that cannot be
+  passed yet; 2 forbidden.
 
   What to expect
   --------------

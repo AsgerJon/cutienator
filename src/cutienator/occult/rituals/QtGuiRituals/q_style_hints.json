@@ -88,6 +88,9 @@
     ],
     "ritual_ZN11QStyleHints16unsetColorSchemeEv": ["nothing", "address"],
     "ritual_ZNK11QStyleHints13accessibilityEv": ["address", "address"],
-    "ritual_ZNK11QStyleHints24toolTipWakeUpDelayAsMSecEv": ["int", "address"]
+    "ritual_ZNK11QStyleHints24toolTipWakeUpDelayAsMSecEv": [
+      "int", "address"
+    ],
+    "ritual_ZN11QStyleHintsC1Ev": ["address"]
   }
 }

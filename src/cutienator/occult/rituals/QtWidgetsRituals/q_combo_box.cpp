@@ -1384,6 +1384,124 @@ void ritual_ZN9QComboBox14setCurrentTextERK7QString(
   self->setCurrentText(*text);
 }
 
+//  void QComboBox::focusInEvent(QFocusEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QComboBox12focusInEventEP11QFocusEvent(
+    QComboBox *self,
+    QFocusEvent *e) {
+  self->focusInEvent(e);
+}
+
+//  void QComboBox::focusOutEvent(QFocusEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QComboBox13focusOutEventEP11QFocusEvent(
+    QComboBox *self,
+    QFocusEvent *e) {
+  self->focusOutEvent(e);
+}
+
+//  void QComboBox::changeEvent(QEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QComboBox11changeEventEP6QEvent(QComboBox *self, QEvent *e) {
+  self->changeEvent(e);
+}
+
+//  void QComboBox::resizeEvent(QResizeEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QComboBox11resizeEventEP12QResizeEvent(
+    QComboBox *self,
+    QResizeEvent *e) {
+  self->resizeEvent(e);
+}
+
+//  void QComboBox::paintEvent(QPaintEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QComboBox10paintEventEP11QPaintEvent(
+    QComboBox *self,
+    QPaintEvent *e) {
+  self->paintEvent(e);
+}
+
+//  void QComboBox::showEvent(QShowEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QComboBox9showEventEP10QShowEvent(
+    QComboBox *self,
+    QShowEvent *e) {
+  self->showEvent(e);
+}
+
+//  void QComboBox::hideEvent(QHideEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QComboBox9hideEventEP10QHideEvent(
+    QComboBox *self,
+    QHideEvent *e) {
+  self->hideEvent(e);
+}
+
+//  void QComboBox::mousePressEvent(QMouseEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QComboBox15mousePressEventEP11QMouseEvent(
+    QComboBox *self,
+    QMouseEvent *e) {
+  self->mousePressEvent(e);
+}
+
+//  void QComboBox::mouseReleaseEvent(QMouseEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QComboBox17mouseReleaseEventEP11QMouseEvent(
+    QComboBox *self,
+    QMouseEvent *e) {
+  self->mouseReleaseEvent(e);
+}
+
+//  void QComboBox::keyPressEvent(QKeyEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QComboBox13keyPressEventEP9QKeyEvent(
+    QComboBox *self,
+    QKeyEvent *e) {
+  self->keyPressEvent(e);
+}
+
+//  void QComboBox::keyReleaseEvent(QKeyEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QComboBox15keyReleaseEventEP9QKeyEvent(
+    QComboBox *self,
+    QKeyEvent *e) {
+  self->keyReleaseEvent(e);
+}
+
+//  void QComboBox::wheelEvent(QWheelEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QComboBox10wheelEventEP11QWheelEvent(
+    QComboBox *self,
+    QWheelEvent *e) {
+  self->wheelEvent(e);
+}
+
+//  void QComboBox::contextMenuEvent(QContextMenuEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QComboBox16contextMenuEventEP17QContextMenuEvent(
+    QComboBox *self,
+    QContextMenuEvent *e) {
+  self->contextMenuEvent(e);
+}
+
+//  void QComboBox::inputMethodEvent(QInputMethodEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QComboBox16inputMethodEventEP17QInputMethodEvent(
+    QComboBox *self,
+    QInputMethodEvent *a0) {
+  self->inputMethodEvent(a0);
+}
+
+//  void QComboBox::initStyleOption(QStyleOptionComboBox *option) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK9QComboBox15initStyleOptionEP20QStyleOptionComboBox(
+    const QComboBox *self,
+    QStyleOptionComboBox *option) {
+  self->initStyleOption(option);
+}
+
 //  a Python function taken by a CuteQComboBox, for the function named by the
 //      key
 extern "C" Q_DECL_EXPORT

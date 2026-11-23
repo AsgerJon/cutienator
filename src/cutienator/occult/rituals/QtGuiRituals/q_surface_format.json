@@ -87,6 +87,8 @@
       "nothing", "address"
     ],
     "ritual_ZN14QSurfaceFormat13defaultFormatEv": ["address"],
+    "ritual_ZN14QSurfaceFormat6detachEv": ["nothing", "address"],
+    "ritual_ZNK14QSurfaceFormat6equalsERKS_": ["bool", "address", "address"],
     "ritual_ZeqRK14QSurfaceFormatS1_": ["bool", "address", "address"],
     "ritual_ZneRK14QSurfaceFormatS1_": ["bool", "address", "address"],
     "ritual_Zls6QDebugRK14QSurfaceFormat": ["address", "address", "address"]

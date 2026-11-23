@@ -25,6 +25,7 @@ else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
+  QGraphicsItem = WAIT['QGraphicsItem']
   QRectF = WAIT['QRectF']
   QSizeF = WAIT['QSizeF']
 
@@ -42,7 +43,7 @@ class QGraphicsLayoutItem(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QGraphicsLayoutItem that has a ritual and that
-  Python can call so far, 31 names in all: 'setSizePolicy', 'sizePolicy',
+  Python can call so far, 34 names in all: 'setSizePolicy', 'sizePolicy',
   'setMinimumSize', 'minimumSize', 'setMinimumWidth', 'minimumWidth',
   'setMinimumHeight', 'minimumHeight', 'setPreferredSize', 'preferredSize',
   'setPreferredWidth', 'preferredWidth', 'setPreferredHeight',
@@ -50,8 +51,9 @@ class QGraphicsLayoutItem(CuteMixin, metaclass=MetaCute):
   'maximumWidth', 'setMaximumHeight', 'maximumHeight', 'setGeometry',
   'geometry', 'contentsRect', 'effectiveSizeHint', 'updateGeometry',
   'isEmpty', 'parentLayoutItem', 'setParentLayoutItem', 'isLayout',
-  'graphicsItem', 'ownedByLayout'. None can be made from Python: one comes
-  out of a function of another class that gives one back.
+  'graphicsItem', 'ownedByLayout', 'setGraphicsItem', 'setOwnedByLayout',
+  'sizeHint'. None can be made from Python: one comes out of a function of
+  another class that gives one back.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -65,8 +67,9 @@ class QGraphicsLayoutItem(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  8 of the 45 functions Qt declares: 4 protected; 3 private; 1 the class is
-  abstract, so C++ cannot make one.
+  5 of the 45 functions Qt declares: 2 the class is abstract, so C++ cannot
+  make one; 2 takes or gives a type that cannot be passed yet; 1 declared and
+  nowhere to be found.
 
   What to expect
   --------------
@@ -478,6 +481,48 @@ class QGraphicsLayoutItem(CuteMixin, metaclass=MetaCute):
         'ritual_ZNK19QGraphicsLayoutItem13ownedByLayoutEv',
     )
 
+  @overload(Qt.SizeHint)
+  @overload(Qt.SizeHint, QSizeF)
+  def sizeHint(
+      self,
+      which: Qt.SizeHint,
+      constraint: Optional[QSizeF] = None,
+  ) -> QSizeF:
+    """
+    Calls Qt's 'QSizeF QGraphicsLayoutItem::sizeHint(Qt::SizeHint which,
+    const QSizeF &constraint) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicslayoutitem.html#sizeHint
+
+    Parameters
+    ----------
+
+    which : Qt.SizeHint
+      Passed on as its number.
+
+    constraint : Optional[QSizeF]
+      Passed on as a value: Qt reads the C++ QSizeF, which stays Python's
+      own. May be left out, as in Qt: a new 'QSizeF()' is then passed on.
+
+    Returns
+    -------
+
+    QSizeF
+      A new cute QSizeF around the copy Qt gave back. Python owns it.
+    """
+    #  QSizeF QGraphicsLayoutItem::sizeHint(Qt::SizeHint which, const QSizeF
+    #      &constraint) const
+    if constraint is None:
+      from ..QtCore import QSizeF
+      constraint = QSizeF()
+    address = self._callAs(
+        'QGraphicsLayoutItem',
+        'ritual_ZNK19QGraphicsLayoutItem8sizeHintEN2Qt8SizeHintERK6QSizeF',
+        which.value, self._valueOf(constraint),
+    )
+    from ..QtCore import QSizeF
+    return QSizeF._cuteOwning(address)
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -859,6 +904,52 @@ class QGraphicsLayoutItem(CuteMixin, metaclass=MetaCute):
         'QGraphicsLayoutItem',
         'ritual_ZN19QGraphicsLayoutItem19setParentLayoutItemEPS_',
         self._addressOf(parent, 'QGraphicsLayoutItem'),
+    )
+
+  @overload(QGraphicsItem)
+  @overload(NoneType)
+  def setGraphicsItem(self, item: Optional[QGraphicsItem]) -> None:
+    """
+    Calls Qt's 'void QGraphicsLayoutItem::setGraphicsItem(QGraphicsItem
+    *item)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setGraphicsItem
+
+    Parameters
+    ----------
+
+    item : Optional[QGraphicsItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGraphicsLayoutItem::setGraphicsItem(QGraphicsItem *item)
+    self._callAs(
+        'QGraphicsLayoutItem',
+        'ritual_ZN19QGraphicsLayoutItem15setGraphicsItemEP13QGraphicsItem',
+        self._addressOf(item, 'QGraphicsItem'),
+    )
+
+  @overload(bool)
+  def setOwnedByLayout(self, ownedByLayout: bool) -> None:
+    """
+    Calls Qt's 'void QGraphicsLayoutItem::setOwnedByLayout(bool
+    ownedByLayout)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setOwnedByLayout
+
+    Parameters
+    ----------
+
+    ownedByLayout : bool
+      Passed on as it is.
+    """
+    #  void QGraphicsLayoutItem::setOwnedByLayout(bool ownedByLayout)
+    self._callAs(
+        'QGraphicsLayoutItem',
+        'ritual_ZN19QGraphicsLayoutItem16setOwnedByLayoutEb',
+        ownedByLayout,
     )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

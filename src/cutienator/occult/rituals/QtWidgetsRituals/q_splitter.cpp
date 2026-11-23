@@ -1009,6 +1009,64 @@ void ritual_ZN9QSplitter16setStretchFactorEii(
   self->setStretchFactor(index, stretch);
 }
 
+//  QSplitterHandle *QSplitter::createHandle()
+extern "C" Q_DECL_EXPORT
+QSplitterHandle *ritual_ZN9QSplitter12createHandleEv(QSplitter *self) {
+  return self->createHandle();
+}
+
+//  void QSplitter::childEvent(QChildEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QSplitter10childEventEP11QChildEvent(
+    QSplitter *self,
+    QChildEvent *a0) {
+  self->childEvent(a0);
+}
+
+//  bool QSplitter::event(QEvent *a0)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN9QSplitter5eventEP6QEvent(QSplitter *self, QEvent *a0) {
+  return self->event(a0);
+}
+
+//  void QSplitter::resizeEvent(QResizeEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QSplitter11resizeEventEP12QResizeEvent(
+    QSplitter *self,
+    QResizeEvent *a0) {
+  self->resizeEvent(a0);
+}
+
+//  void QSplitter::changeEvent(QEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QSplitter11changeEventEP6QEvent(QSplitter *self, QEvent *a0) {
+  self->changeEvent(a0);
+}
+
+//  void QSplitter::moveSplitter(int pos, int index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QSplitter12moveSplitterEii(
+    QSplitter *self,
+    int pos,
+    int index) {
+  self->moveSplitter(pos, index);
+}
+
+//  void QSplitter::setRubberBand(int position)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QSplitter13setRubberBandEi(QSplitter *self, int position) {
+  self->setRubberBand(position);
+}
+
+//  int QSplitter::closestLegalPosition(int a0, int a1)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN9QSplitter20closestLegalPositionEii(
+    QSplitter *self,
+    int a0,
+    int a1) {
+  return self->closestLegalPosition(a0, a1);
+}
+
 //  a Python function taken by a CuteQSplitter, for the function named by the
 //      key
 extern "C" Q_DECL_EXPORT

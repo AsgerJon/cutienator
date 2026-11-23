@@ -286,6 +286,20 @@ bool ritual_ZgeRK5QCharS1_(const QChar *lhs, const QChar *rhs) {
   return operator>=(*lhs, *rhs);
 }
 
+//  bool QChar::equal_helper(QChar lhs, const char *rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN5QChar12equal_helperES_PKc(const QChar *lhs, const char *rhs) {
+  return QChar::equal_helper(*lhs, rhs);
+}
+
+//  int QChar::compare_helper(QChar lhs, const char *rhs)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN5QChar14compare_helperES_PKc(
+    const QChar *lhs,
+    const char *rhs) {
+  return QChar::compare_helper(*lhs, rhs);
+}
+
 //  QChar::~QChar()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN5QCharD1Ev(QChar *self) {

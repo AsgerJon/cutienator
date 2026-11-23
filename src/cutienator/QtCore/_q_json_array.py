@@ -47,13 +47,14 @@ class QJsonArray(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QJsonArray that has a ritual and that Python can
-  call so far, 36 names in all: 'fromStringList', 'fromVariantList',
+  call so far, 37 names in all: 'fromStringList', 'fromVariantList',
   'toVariantList', 'size', 'count', 'isEmpty', 'at', 'first', 'last',
   'prepend', 'append', 'removeAt', 'takeAt', 'removeFirst', 'removeLast',
   'insert', 'replace', 'contains', '__getitem__', 'begin', 'constBegin',
   'cbegin', 'end', 'constEnd', 'cend', 'erase', '__add__', '__iadd__',
   'push_back', 'push_front', 'pop_front', 'pop_back', 'empty', '__rlshift__',
-  '__eq__', '__ne__'. It can be made from Python, in 2 ways; see '__init__'.
+  '__eq__', '__ne__', 'detach'. It can be made from Python, in 2 ways; see
+  '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -76,8 +77,8 @@ class QJsonArray(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  8 of the 55 functions Qt declares: 6 takes or gives a type that cannot be
-  passed yet; 2 private.
+  7 of the 55 functions Qt declares: 7 takes or gives a type that cannot be
+  passed yet.
 
   What to expect
   --------------
@@ -108,10 +109,10 @@ class QJsonArray(CuteMixin, metaclass=MetaCute):
     -----------
 
     Every function of Qt's QJsonArray::const_iterator that has a ritual and
-    that Python can call so far, 11 names in all: '__getitem__', '__iadd__',
-    '__isub__', '__add__', '__sub__', '__eq__', '__ne__', '__lt__', '__gt__',
-    '__le__', '__ge__'. It can be made from Python, in 3 ways; see
-    '__init__'.
+    that Python can call so far, 12 names in all: '__getitem__', '__iadd__',
+    '__isub__', '__add__', '__sub__', 'comparesEqual_helper', '__eq__',
+    '__ne__', '__lt__', '__gt__', '__le__', '__ge__'. It can be made from
+    Python, in 3 ways; see '__init__'.
 
     What has a ritual and is left out, and why
     ------------------------------------------
@@ -128,6 +129,10 @@ class QJsonArray(CuteMixin, metaclass=MetaCute):
       an operator Python has no name for.
     - Qt's 'const_iterator QJsonArray::const_iterator::operator--(int a0)':
       an operator Python has no name for.
+    - Qt's 'Qt::strong_ordering
+      QJsonArray::const_iterator::compareThreeWay_helper(const const_iterator
+      &lhs, const const_iterator &rhs)': gives 'Qt::strong_ordering', which
+      has no cute class yet.
     - Qt's 'QJsonArray::const_iterator::~const_iterator()': the destructor:
       Python removes its C++ QJsonArray::const_iterator by it, and has no
       other use for it.
@@ -135,8 +140,8 @@ class QJsonArray(CuteMixin, metaclass=MetaCute):
     What has no ritual
     ------------------
 
-    5 of the 26 functions Qt declares: 3 takes or gives a type that cannot be
-    passed yet; 2 private.
+    3 of the 26 functions Qt declares: 3 takes or gives a type that cannot be
+    passed yet.
 
     What to expect
     --------------
@@ -161,6 +166,38 @@ class QJsonArray(CuteMixin, metaclass=MetaCute):
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    @staticmethod
+    @overload(THIS, THIS)
+    def comparesEqual_helper(
+        lhs: QJsonArray.const_iterator,
+        rhs: QJsonArray.const_iterator,
+    ) -> bool:
+      """
+      Calls Qt's 'bool QJsonArray::const_iterator::comparesEqual_helper(const
+      const_iterator &lhs, const const_iterator &rhs)'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qjsonarray-const_iterator.html
+
+      Parameters
+      ----------
+
+      lhs : QJsonArray.const_iterator
+        Passed on as a value: Qt reads the C++ QJsonArray::const_iterator,
+        which stays Python's own.
+
+      rhs : QJsonArray.const_iterator
+        Passed on as a value: Qt reads the C++ QJsonArray::const_iterator,
+        which stays Python's own.
+      """
+      #  bool QJsonArray::const_iterator::comparesEqual_helper(const
+      #      const_iterator &lhs, const const_iterator &rhs)
+      return Rituals.call(
+          'ritual_ZN10QJsonArray14const_iterator20comparesEqual_helperERKS0'
+          '_S2_',
+          CuteMixin._valueOf(lhs), CuteMixin._valueOf(rhs),
+      )
 
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -677,10 +714,10 @@ class QJsonArray(CuteMixin, metaclass=MetaCute):
     -----------
 
     Every function of Qt's QJsonArray::iterator that has a ritual and that
-    Python can call so far, 11 names in all: '__getitem__', '__iadd__',
-    '__isub__', '__add__', '__sub__', '__eq__', '__ne__', '__lt__', '__gt__',
-    '__le__', '__ge__'. It can be made from Python, in 3 ways; see
-    '__init__'.
+    Python can call so far, 12 names in all: '__getitem__', '__iadd__',
+    '__isub__', '__add__', '__sub__', 'comparesEqual_helper', '__eq__',
+    '__ne__', '__lt__', '__gt__', '__le__', '__ge__'. It can be made from
+    Python, in 3 ways; see '__init__'.
 
     What has a ritual and is left out, and why
     ------------------------------------------
@@ -695,6 +732,18 @@ class QJsonArray(CuteMixin, metaclass=MetaCute):
       Python has no name for.
     - Qt's 'iterator QJsonArray::iterator::operator--(int a0)': an operator
       Python has no name for.
+    - Qt's 'bool QJsonArray::iterator::comparesEqual_helper(const iterator
+      &lhs, const const_iterator &rhs)': names 'QJsonArray::const_iterator',
+      which stands beside this class inside 'QJsonArray' and cannot be named
+      from here.
+    - Qt's 'Qt::strong_ordering
+      QJsonArray::iterator::compareThreeWay_helper(const iterator &lhs, const
+      iterator &rhs)': gives 'Qt::strong_ordering', which has no cute class
+      yet.
+    - Qt's 'Qt::strong_ordering
+      QJsonArray::iterator::compareThreeWay_helper(const iterator &lhs, const
+      const_iterator &rhs)': names 'QJsonArray::const_iterator', which stands
+      beside this class inside 'QJsonArray' and cannot be named from here.
     - Qt's 'bool operator==(const iterator &lhs, const const_iterator &rhs)':
       names 'QJsonArray::const_iterator', which stands beside this class
       inside 'QJsonArray' and cannot be named from here.
@@ -738,8 +787,8 @@ class QJsonArray(CuteMixin, metaclass=MetaCute):
     What has no ritual
     ------------------
 
-    7 of the 40 functions Qt declares: 4 private; 3 takes or gives a type
-    that cannot be passed yet.
+    3 of the 40 functions Qt declares: 3 takes or gives a type that cannot be
+    passed yet.
 
     What to expect
     --------------
@@ -764,6 +813,37 @@ class QJsonArray(CuteMixin, metaclass=MetaCute):
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    @staticmethod
+    @overload(THIS, THIS)
+    def comparesEqual_helper(
+        lhs: QJsonArray.iterator,
+        rhs: QJsonArray.iterator,
+    ) -> bool:
+      """
+      Calls Qt's 'bool QJsonArray::iterator::comparesEqual_helper(const
+      iterator &lhs, const iterator &rhs)'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qjsonarray-iterator.html#comparesEqual_helper
+
+      Parameters
+      ----------
+
+      lhs : QJsonArray.iterator
+        Passed on as a value: Qt reads the C++ QJsonArray::iterator, which
+        stays Python's own.
+
+      rhs : QJsonArray.iterator
+        Passed on as a value: Qt reads the C++ QJsonArray::iterator, which
+        stays Python's own.
+      """
+      #  bool QJsonArray::iterator::comparesEqual_helper(const iterator &lhs,
+      #      const iterator &rhs)
+      return Rituals.call(
+          'ritual_ZN10QJsonArray8iterator20comparesEqual_helperERKS0_S2_',
+          CuteMixin._valueOf(lhs), CuteMixin._valueOf(rhs),
+      )
 
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -2116,3 +2196,20 @@ class QJsonArray(CuteMixin, metaclass=MetaCute):
     """
     #  void QJsonArray::pop_back()
     self.uglySide.call('ritual_ZN10QJsonArray8pop_backEv')
+
+  @overload()
+  @overload(int)
+  def detach(self, reserve: int = 0) -> bool:
+    """
+    Calls Qt's 'bool QJsonArray::detach(qsizetype reserve)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qjsonarray.html#detach
+
+    Parameters
+    ----------
+
+    reserve : int
+      Passed on as it is. May be left out, as in Qt: it is then 0.
+    """
+    #  bool QJsonArray::detach(qsizetype reserve)
+    return self.uglySide.call('ritual_ZN10QJsonArray6detachEx', reserve)

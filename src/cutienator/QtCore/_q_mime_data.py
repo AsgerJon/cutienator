@@ -60,8 +60,8 @@ class QMimeData(QObject):
   What has no ritual
   ------------------
 
-  8 of the 34 functions Qt declares: 3 private; 2 takes or gives a type that
-  cannot be passed yet; 2 forbidden; 1 a template.
+  8 of the 34 functions Qt declares: 4 takes or gives a type that cannot be
+  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found.
 
   What to expect
   --------------
@@ -416,9 +416,11 @@ class QMimeData(QObject):
     """
     #  QVariant QMimeData::retrieveData(const QString &mimetype, QMetaType
     #      preferredType) const
+    ritual = 'ritual_ZNK9QMimeData12retrieveDataERK7QString9QMetaType'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK9QMimeData12retrieveDataERK7QString9QMetaType'
     address = self.uglySide.call(
-        'ritual_own_ZNK9QMimeData12retrieveDataERK7QString9QMetaType',
-        mimetype, self._valueOf(preferredType),
+        ritual, mimetype, self._valueOf(preferredType),
     )
     from . import QVariant
     return QVariant._cuteOwning(address)

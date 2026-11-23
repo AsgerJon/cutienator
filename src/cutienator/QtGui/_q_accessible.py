@@ -51,8 +51,8 @@ class QAccessible(CuteMixin, metaclass=MetaCute):
   'removeActivationObserver', 'queryAccessibleInterface', 'uniqueId',
   'accessibleInterface', 'registerAccessibleInterface',
   'deleteAccessibleInterface', 'updateAccessibility', 'isActive',
-  'setActive', 'setRootObject', 'cleanup'. None can be made from Python: one
-  comes out of a function of another class that gives one back.
+  'setActive', 'setRootObject', 'cleanup'. It can be made from Python, in 1
+  way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -63,8 +63,8 @@ class QAccessible(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  9 of the 22 functions Qt declares: 5 takes or gives a type that cannot be
-  passed yet; 2 private; 1 declared and nowhere to be found; 1 a template.
+  8 of the 22 functions Qt declares: 5 takes or gives a type that cannot be
+  passed yet; 2 declared and nowhere to be found; 1 a template.
 
   What to expect
   --------------
@@ -931,6 +931,19 @@ class QAccessible(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload()
+  def __init__(self) -> None:
+    """
+    Notes what was given, for Qt's 'QAccessible::QAccessible()', which is
+    called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qaccessible.html#QAccessible
+    """
+    #  QAccessible::QAccessible()
+    self._noteCreation(QAccessible, lambda: Rituals.call(
+        'ritual_ZN11QAccessibleC1Ev',
+    ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #

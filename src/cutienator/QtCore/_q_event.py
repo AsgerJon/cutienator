@@ -28,10 +28,10 @@ class QEvent(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QEvent that has a ritual and that Python can call so
-  far, 11 names in all: 'type', 'spontaneous', 'setAccepted', 'isAccepted',
+  far, 12 names in all: 'type', 'spontaneous', 'setAccepted', 'isAccepted',
   'accept', 'ignore', 'isInputEvent', 'isPointerEvent', 'isSinglePointEvent',
-  'registerEventType', 'clone'. It can be made from Python, in 1 way; see
-  '__init__'.
+  'registerEventType', 'clone', 'setSpontaneous'. It can be made from Python,
+  in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -42,8 +42,8 @@ class QEvent(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  11 of the 24 functions Qt declares: 5 protected; 2 private; 2 forbidden; 1
-  declared and nowhere to be found; 1 a template.
+  10 of the 24 functions Qt declares: 5 takes or gives a type that cannot be
+  passed yet; 2 declared and nowhere to be found; 2 forbidden; 1 a template.
 
   What to expect
   --------------
@@ -412,6 +412,15 @@ class QEvent(CuteMixin, metaclass=MetaCute):
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZN6QEvent11setAcceptedEb'
     self.uglySide.call(ritual, accepted)
+
+  def setSpontaneous(self) -> None:
+    """
+    Calls Qt's 'void QEvent::setSpontaneous()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qevent.html#setSpontaneous
+    """
+    #  void QEvent::setSpontaneous()
+    self.uglySide.call('ritual_ZN6QEvent14setSpontaneousEv')
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

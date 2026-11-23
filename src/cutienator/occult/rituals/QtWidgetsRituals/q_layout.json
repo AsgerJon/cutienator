@@ -94,6 +94,25 @@
     "ritual_ZN7QLayout21closestAcceptableSizeEPK7QWidgetRK5QSize": [
       "address", "address", "address"
     ],
+    "ritual_ZN7QLayout11widgetEventEP6QEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QLayout10childEventEP11QChildEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QLayout14addChildLayoutEPS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QLayout14addChildWidgetEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QLayout11adoptLayoutEPS_": ["bool", "address", "address"],
+    "ritual_ZNK7QLayout13alignmentRectERK5QRect": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN7QLayout23activateRecursiveHelperEP11QLayoutItem": [
+      "nothing", "address"
+    ],
     "ritual_cast_QLayout_QLayoutItem": ["address", "address"],
     "ritual_take_QLayout": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK7QLayout7spacingEv": ["int", "address"],

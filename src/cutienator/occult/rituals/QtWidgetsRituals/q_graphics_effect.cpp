@@ -3,6 +3,7 @@
 #include <QtWidgets/qgraphicseffect.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qrect.h>
+#include <QtGui/qpixmap.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 
@@ -240,6 +241,64 @@ void ritual_ZN15QGraphicsEffect10setEnabledEb(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QGraphicsEffect6updateEv(QGraphicsEffect *self) {
   self->update();
+}
+
+//  void QGraphicsEffect::draw(QPainter *painter)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QGraphicsEffect4drawEP8QPainter(
+    QGraphicsEffect *self,
+    QPainter *painter) {
+  self->draw(painter);
+}
+
+//  void QGraphicsEffect::sourceChanged(ChangeFlags flags)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QGraphicsEffect13sourceChangedE6QFlagsINS_10ChangeFlagEE(
+    QGraphicsEffect *self,
+    int flags) {
+  self->sourceChanged(QFlags<QGraphicsEffect::ChangeFlag>::fromInt(flags));
+}
+
+//  void QGraphicsEffect::updateBoundingRect()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QGraphicsEffect18updateBoundingRectEv(
+    QGraphicsEffect *self) {
+  self->updateBoundingRect();
+}
+
+//  bool QGraphicsEffect::sourceIsPixmap() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK15QGraphicsEffect14sourceIsPixmapEv(
+    const QGraphicsEffect *self) {
+  return self->sourceIsPixmap();
+}
+
+//  QRectF QGraphicsEffect::sourceBoundingRect(Qt::CoordinateSystem system)
+//      const
+extern "C" Q_DECL_EXPORT
+QRectF *ritual_ZNK15QGraphicsEffect18sourceBoundingRectEN2Qt16CoordinateSystemE(
+    const QGraphicsEffect *self,
+    Qt::CoordinateSystem system) {
+  return new QRectF(self->sourceBoundingRect(system));
+}
+
+//  void QGraphicsEffect::drawSource(QPainter *painter)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QGraphicsEffect10drawSourceEP8QPainter(
+    QGraphicsEffect *self,
+    QPainter *painter) {
+  self->drawSource(painter);
+}
+
+//  QPixmap QGraphicsEffect::sourcePixmap(Qt::CoordinateSystem system, QPoint
+//      *offset, PixmapPadMode mode) const
+extern "C" Q_DECL_EXPORT
+QPixmap *ritual_ZNK15QGraphicsEffect12sourcePixmapEN2Qt16CoordinateSystemEP6QPointNS_13PixmapPadModeE(
+    const QGraphicsEffect *self,
+    Qt::CoordinateSystem system,
+    QPoint *offset,
+    QGraphicsEffect::PixmapPadMode mode) {
+  return new QPixmap(self->sourcePixmap(system, offset, mode));
 }
 
 //  a Python function taken by a CuteQGraphicsEffect, for the function named

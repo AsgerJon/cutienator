@@ -23,6 +23,7 @@
 #include <QtCore/qlatin1stringview.h>
 #include <QtCore/qmetatype.h>
 #include <QtCore/qcompare.h>
+#include <QtCore/qdebug.h>
 #include <QtCore/qlist.h>
 #include <QtCore/qmap.h>
 #include <QtCore/qhash.h>
@@ -666,6 +667,22 @@ bool ritual_ZeqRK8QVariantS1_(const QVariant *lhs, const QVariant *rhs) {
 extern "C" Q_DECL_EXPORT
 bool ritual_ZneRK8QVariantS1_(const QVariant *lhs, const QVariant *rhs) {
   return operator!=(*lhs, *rhs);
+}
+
+//  QDebug QVariant::qdebugHelper(QDebug a0) const
+extern "C" Q_DECL_EXPORT
+QDebug *ritual_ZNK8QVariant12qdebugHelperE6QDebug(
+    const QVariant *self,
+    const QDebug *a0) {
+  return new QDebug(self->qdebugHelper(*a0));
+}
+
+//  bool QVariant::equals(const QVariant &other) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK8QVariant6equalsERKS_(
+    const QVariant *self,
+    const QVariant *other) {
+  return self->equals(*other);
 }
 
 //  QList<QVariant>::QList()

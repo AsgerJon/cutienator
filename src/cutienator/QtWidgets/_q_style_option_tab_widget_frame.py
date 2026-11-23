@@ -35,7 +35,7 @@ class QStyleOptionTabWidgetFrame(QStyleOption):
   -----------
 
   No function of Qt's QStyleOptionTabWidgetFrame yet. It can be made from
-  Python, in 2 ways; see '__init__'.
+  Python, in 3 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -47,8 +47,8 @@ class QStyleOptionTabWidgetFrame(QStyleOption):
   What has no ritual
   ------------------
 
-  2 of the 5 functions Qt declares: 1 takes or gives a type that cannot be
-  passed yet; 1 protected.
+  1 of the 5 functions Qt declares: 1 takes or gives a type that cannot be
+  passed yet.
 
   What to expect
   --------------
@@ -165,6 +165,27 @@ class QStyleOptionTabWidgetFrame(QStyleOption):
     #      QStyleOptionTabWidgetFrame &other)
     self._noteCreation(QStyleOptionTabWidgetFrame, lambda: Rituals.call(
         'ritual_ZN26QStyleOptionTabWidgetFrameC1ERKS_', self._valueOf(other),
+    ))
+
+  @overload(int)
+  def __init__(self, version: int) -> None:
+    """
+    Notes what was given, for Qt's
+    'QStyleOptionTabWidgetFrame::QStyleOptionTabWidgetFrame(int version)',
+    which is called at the first use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qstyleoptiontabwidgetframe.html
+
+    Parameters
+    ----------
+
+    version : int
+      Passed on as it is.
+    """
+    #  QStyleOptionTabWidgetFrame::QStyleOptionTabWidgetFrame(int version)
+    self._noteCreation(QStyleOptionTabWidgetFrame, lambda: Rituals.call(
+        'ritual_ZN26QStyleOptionTabWidgetFrameC1Ei', version,
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

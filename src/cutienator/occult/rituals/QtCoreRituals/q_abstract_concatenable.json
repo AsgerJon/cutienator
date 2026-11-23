@@ -4,6 +4,9 @@
     "QtCore/qstringbuilder.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN21QAbstractConcatenable14appendLatin1ToE13QLatin1StringP5QChar": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN21QAbstractConcatenableD1Ev": ["nothing", "address"]
   }
 }

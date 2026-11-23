@@ -149,6 +149,17 @@
     "ritual_ZN15QTreeWidgetItem12sortChildrenEiN2Qt9SortOrderE": [
       "nothing", "address", "int", "int"
     ],
+    "ritual_ZN15QTreeWidgetItem15emitDataChangedEv": ["nothing", "address"],
+    "ritual_ZN15QTreeWidgetItem12sortChildrenEiN2Qt9SortOrderEb": [
+      "nothing", "address", "int", "int", "bool"
+    ],
+    "ritual_ZNK15QTreeWidgetItem18childrenCheckStateEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN15QTreeWidgetItem11itemChangedEv": ["nothing", "address"],
+    "ritual_ZNK15QTreeWidgetItem18executePendingSortEv": [
+      "nothing", "address"
+    ],
     "ritual_take_QTreeWidgetItem": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK15QTreeWidgetItem5cloneEv": ["address", "address"],
     "ritual_own_ZNK15QTreeWidgetItem4dataEii": [

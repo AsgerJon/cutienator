@@ -42,11 +42,11 @@ class QGraphicsLayout(QGraphicsLayoutItem):
   -----------
 
   Every function of Qt's QGraphicsLayout that has a ritual and that Python
-  can call so far, 11 names in all: 'setContentsMargins', 'activate',
+  can call so far, 12 names in all: 'setContentsMargins', 'activate',
   'isActivated', 'invalidate', 'updateGeometry', 'widgetEvent', 'count',
   'itemAt', 'removeAt', 'setInstantInvalidatePropagation',
-  'instantInvalidatePropagation'. None can be made from Python: one comes out
-  of a function of another class that gives one back.
+  'instantInvalidatePropagation', 'addChildLayoutItem'. None can be made from
+  Python: one comes out of a function of another class that gives one back.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -60,8 +60,8 @@ class QGraphicsLayout(QGraphicsLayoutItem):
   What has no ritual
   ------------------
 
-  7 of the 20 functions Qt declares: 2 protected; 2 forbidden; 2 private; 1
-  the class is abstract, so C++ cannot make one.
+  6 of the 20 functions Qt declares: 2 the class is abstract, so C++ cannot
+  make one; 2 forbidden; 2 takes or gives a type that cannot be passed yet.
 
   What to expect
   --------------
@@ -363,3 +363,31 @@ class QGraphicsLayout(QGraphicsLayoutItem):
     """
     #  void QGraphicsLayout::removeAt(int index)
     self.uglySide.call('ritual_ZN15QGraphicsLayout8removeAtEi', index)
+
+  @overload(QGraphicsLayoutItem)
+  @overload(NoneType)
+  def addChildLayoutItem(
+      self,
+      layoutItem: Optional[QGraphicsLayoutItem],
+  ) -> None:
+    """
+    Calls Qt's 'void QGraphicsLayout::addChildLayoutItem(QGraphicsLayoutItem
+    *layoutItem)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicslayout.html#addChildLayoutItem
+
+    Parameters
+    ----------
+
+    layoutItem : Optional[QGraphicsLayoutItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGraphicsLayout::addChildLayoutItem(QGraphicsLayoutItem
+    #      *layoutItem)
+    self.uglySide.call(
+        'ritual_ZN15QGraphicsLayout18addChildLayoutItemEP19QGraphicsLayoutI'
+        'tem',
+        self._addressOf(layoutItem, 'QGraphicsLayoutItem'),
+    )

@@ -230,6 +230,9 @@
     "ritual_ZN16QOpenGLFunctions16glVertexAttrib4fEjffff": [
       "nothing", "address", "unsigned int", "float", "float", "float",
       "float"
+    ],
+    "ritual_ZN16QOpenGLFunctions13isInitializedEPK23QOpenGLFunctionsPrivate": [
+      "bool", "address"
     ]
   }
 }

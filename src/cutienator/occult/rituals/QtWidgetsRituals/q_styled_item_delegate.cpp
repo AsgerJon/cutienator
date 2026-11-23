@@ -485,6 +485,37 @@ QString *ritual_ZNK19QStyledItemDelegate11displayTextERK8QVariantRK7QLocale(
   return new QString(self->displayText(*value, *locale));
 }
 
+//  void QStyledItemDelegate::initStyleOption(QStyleOptionViewItem *option,
+//      const QModelIndex &index) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK19QStyledItemDelegate15initStyleOptionEP20QStyleOptionViewItemRK11QModelIndex(
+    const QStyledItemDelegate *self,
+    QStyleOptionViewItem *option,
+    const QModelIndex *index) {
+  self->initStyleOption(option, *index);
+}
+
+//  bool QStyledItemDelegate::eventFilter(QObject *object, QEvent *event)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN19QStyledItemDelegate11eventFilterEP7QObjectP6QEvent(
+    QStyledItemDelegate *self,
+    QObject *object,
+    QEvent *event) {
+  return self->eventFilter(object, event);
+}
+
+//  bool QStyledItemDelegate::editorEvent(QEvent *event, QAbstractItemModel
+//      *model, const QStyleOptionViewItem &option, const QModelIndex &index)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN19QStyledItemDelegate11editorEventEP6QEventP18QAbstractItemModelRK20QStyleOptionViewItemRK11QModelIndex(
+    QStyledItemDelegate *self,
+    QEvent *event,
+    QAbstractItemModel *model,
+    const QStyleOptionViewItem *option,
+    const QModelIndex *index) {
+  return self->editorEvent(event, model, *option, *index);
+}
+
 //  a Python function taken by a CuteQStyledItemDelegate, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT

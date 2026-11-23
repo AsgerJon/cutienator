@@ -40,7 +40,7 @@ class QCborStreamReader(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QCborStreamReader that has a ritual and that Python
-  can call so far, 47 names in all: 'setDevice', 'device', 'addData',
+  can call so far, 49 names in all: 'setDevice', 'device', 'addData',
   'reparse', 'clear', 'reset', 'lastError', 'currentOffset', 'isValid',
   'containerDepth', 'parentContainerType', 'hasNext', 'next', 'type',
   'isUnsignedInteger', 'isNegativeInteger', 'isInteger', 'isByteArray',
@@ -49,8 +49,9 @@ class QCborStreamReader(CuteMixin, metaclass=MetaCute):
   'isNull', 'isUndefined', 'isLengthKnown', 'length', 'isContainer',
   'enterContainer', 'leaveContainer', 'currentStringChunkSize', 'toBool',
   'toUnsignedInteger', 'toFloat16', 'toFloat', 'toDouble', 'toInteger',
-  'readAllString', 'readAllUtf8String', 'readAllByteArray'. It can be made
-  from Python, in 4 ways; see '__init__'.
+  'readAllString', 'readAllUtf8String', 'readAllByteArray',
+  '_enterContainer_helper', '_currentStringChunkSize'. It can be made from
+  Python, in 4 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -69,9 +70,8 @@ class QCborStreamReader(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  24 of the 81 functions Qt declares: 10 private; 9 takes or gives a type
-  that cannot be passed yet; 2 a template; 2 forbidden; 1 declared and
-  nowhere to be found.
+  22 of the 81 functions Qt declares: 15 takes or gives a type that cannot be
+  passed yet; 3 declared and nowhere to be found; 2 a template; 2 forbidden.
 
   What to expect
   --------------
@@ -538,6 +538,19 @@ class QCborStreamReader(CuteMixin, metaclass=MetaCute):
     #  qint64 QCborStreamReader::toInteger() const
     return self.uglySide.call('ritual_ZNK17QCborStreamReader9toIntegerEv')
 
+  def _currentStringChunkSize(self) -> int:
+    """
+    Calls Qt's 'qsizetype QCborStreamReader::_currentStringChunkSize()
+    const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qcborstreamreader.html#_currentStringChunkSize
+    """
+    #  qsizetype QCborStreamReader::_currentStringChunkSize() const
+    return self.uglySide.call(
+        'ritual_ZNK17QCborStreamReader23_currentStringChunkSizeEv',
+    )
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -851,3 +864,15 @@ class QCborStreamReader(CuteMixin, metaclass=MetaCute):
     )
     from . import QByteArray
     return QByteArray._cuteOwning(address)
+
+  def _enterContainer_helper(self) -> bool:
+    """
+    Calls Qt's 'bool QCborStreamReader::_enterContainer_helper()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qcborstreamreader.html#_enterContainer_helper
+    """
+    #  bool QCborStreamReader::_enterContainer_helper()
+    return self.uglySide.call(
+        'ritual_ZN17QCborStreamReader22_enterContainer_helperEv',
+    )

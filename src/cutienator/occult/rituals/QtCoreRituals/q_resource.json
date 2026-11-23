@@ -28,6 +28,9 @@
     ],
     "ritual_ZN9QResource18unregisterResourceERK7QStringS2_": [
       "bool", "text", "text"
-    ]
+    ],
+    "ritual_ZNK9QResource5isDirEv": ["bool", "address"],
+    "ritual_ZNK9QResource6isFileEv": ["bool", "address"],
+    "ritual_ZNK9QResource8childrenEv": ["address", "address"]
   }
 }

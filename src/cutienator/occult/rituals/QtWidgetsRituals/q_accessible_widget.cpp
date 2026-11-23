@@ -476,6 +476,34 @@ QList<QString> *ritual_ZNK17QAccessibleWidget20keyBindingsForActionERK7QString(
   return new QList<QString>(self->keyBindingsForAction(*actionName));
 }
 
+//  QAccessibleWidget::~QAccessibleWidget()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QAccessibleWidgetD1Ev(QAccessibleWidget *self) {
+  delete self;
+}
+
+//  QWidget *QAccessibleWidget::widget() const
+extern "C" Q_DECL_EXPORT
+QWidget *ritual_ZNK17QAccessibleWidget6widgetEv(
+    const QAccessibleWidget *self) {
+  return self->widget();
+}
+
+//  QObject *QAccessibleWidget::parentObject() const
+extern "C" Q_DECL_EXPORT
+QObject *ritual_ZNK17QAccessibleWidget12parentObjectEv(
+    const QAccessibleWidget *self) {
+  return self->parentObject();
+}
+
+//  void QAccessibleWidget::addControllingSignal(const QString &signal)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QAccessibleWidget20addControllingSignalERK7QString(
+    QAccessibleWidget *self,
+    const QString *signal) {
+  self->addControllingSignal(*signal);
+}
+
 //  QAccessibleWidget as the QAccessibleActionInterface it is built on
 extern "C" Q_DECL_EXPORT
 QAccessibleActionInterface *ritual_cast_QAccessibleWidget_QAccessibleActionInterface(

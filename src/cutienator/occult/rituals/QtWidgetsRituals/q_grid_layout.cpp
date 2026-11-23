@@ -898,6 +898,14 @@ void ritual_ZNK11QGridLayout15getItemPositionEiPiS0_S0_S0_(
   self->getItemPosition(idx, row, column, rowSpan, columnSpan);
 }
 
+//  void QGridLayout::addItem(QLayoutItem *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QGridLayout7addItemEP11QLayoutItem(
+    QGridLayout *self,
+    QLayoutItem *a0) {
+  self->addItem(a0);
+}
+
 //  a Python function taken by a CuteQGridLayout, for the function named by
 //      the key
 extern "C" Q_DECL_EXPORT

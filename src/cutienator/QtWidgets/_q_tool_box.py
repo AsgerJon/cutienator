@@ -62,8 +62,9 @@ class QToolBox(QFrame):
   What has no ritual
   ------------------
 
-  9 of the 38 functions Qt declares: 3 private; 2 takes or gives a type that
-  cannot be passed yet; 2 forbidden; 1 a template; 1 a signal.
+  9 of the 38 functions Qt declares: 4 takes or gives a type that cannot be
+  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found;
+  1 a signal.
 
   What to expect
   --------------
@@ -707,9 +708,10 @@ class QToolBox(QFrame):
       object.
     """
     #  bool QToolBox::event(QEvent *e)
-    return self.uglySide.call(
-        'ritual_own_ZN8QToolBox5eventEP6QEvent', self._addressOf(e),
-    )
+    ritual = 'ritual_ZN8QToolBox5eventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN8QToolBox5eventEP6QEvent'
+    return self.uglySide.call(ritual, self._addressOf(e))
 
   @overload(int)
   def itemInserted(self, index: int) -> None:
@@ -725,7 +727,10 @@ class QToolBox(QFrame):
       Passed on as it is.
     """
     #  void QToolBox::itemInserted(int index)
-    self.uglySide.call('ritual_own_ZN8QToolBox12itemInsertedEi', index)
+    ritual = 'ritual_ZN8QToolBox12itemInsertedEi'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN8QToolBox12itemInsertedEi'
+    self.uglySide.call(ritual, index)
 
   @overload(int)
   def itemRemoved(self, index: int) -> None:
@@ -741,7 +746,10 @@ class QToolBox(QFrame):
       Passed on as it is.
     """
     #  void QToolBox::itemRemoved(int index)
-    self.uglySide.call('ritual_own_ZN8QToolBox11itemRemovedEi', index)
+    ritual = 'ritual_ZN8QToolBox11itemRemovedEi'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN8QToolBox11itemRemovedEi'
+    self.uglySide.call(ritual, index)
 
   @overload(QShowEvent)
   @overload(NoneType)
@@ -759,9 +767,10 @@ class QToolBox(QFrame):
       object.
     """
     #  void QToolBox::showEvent(QShowEvent *e)
-    self.uglySide.call(
-        'ritual_own_ZN8QToolBox9showEventEP10QShowEvent', self._addressOf(e),
-    )
+    ritual = 'ritual_ZN8QToolBox9showEventEP10QShowEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN8QToolBox9showEventEP10QShowEvent'
+    self.uglySide.call(ritual, self._addressOf(e))
 
   @overload(QEvent)
   @overload(NoneType)
@@ -779,6 +788,7 @@ class QToolBox(QFrame):
       object.
     """
     #  void QToolBox::changeEvent(QEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN8QToolBox11changeEventEP6QEvent', self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN8QToolBox11changeEventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN8QToolBox11changeEventEP6QEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))

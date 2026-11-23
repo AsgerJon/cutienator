@@ -49,13 +49,13 @@ class QOpenGLContext(QObject):
   -----------
 
   Every function of Qt's QOpenGLContext that has a ritual and that Python can
-  call so far, 24 names in all: 'metaObject', 'tr', 'setFormat',
+  call so far, 25 names in all: 'metaObject', 'tr', 'setFormat',
   'setShareContext', 'setScreen', 'create', 'isValid', 'format',
   'shareContext', 'shareGroup', 'screen', 'makeCurrent', 'doneCurrent',
   'swapBuffers', 'surface', 'currentContext', 'areSharing', 'functions',
   'extraFunctions', 'hasExtension', 'openGLModuleType', 'isOpenGLES',
-  'supportsThreadedOpenGL', 'globalShareContext'. It can be made from Python,
-  in 1 way; see '__init__'.
+  'supportsThreadedOpenGL', 'globalShareContext', 'destroy'. It can be made
+  from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -66,8 +66,8 @@ class QOpenGLContext(QObject):
   What has no ritual
   ------------------
 
-  18 of the 44 functions Qt declares: 8 takes or gives a type that cannot be
-  passed yet; 6 private; 2 a template; 1 protected; 1 a signal.
+  17 of the 44 functions Qt declares: 13 takes or gives a type that cannot be
+  passed yet; 2 a template; 1 declared and nowhere to be found; 1 a signal.
 
   What to expect
   --------------
@@ -641,6 +641,15 @@ class QOpenGLContext(QObject):
         'ritual_ZN14QOpenGLContext11swapBuffersEP8QSurface',
         self._addressOf(surface, 'QSurface'),
     )
+
+  def destroy(self) -> None:
+    """
+    Calls Qt's 'void QOpenGLContext::destroy()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qopenglcontext.html#destroy
+    """
+    #  void QOpenGLContext::destroy()
+    self.uglySide.call('ritual_ZN14QOpenGLContext7destroyEv')
 
 
 #  Qt's 'QList<QOpenGLContext *>': the list of QOpenGLContext, which

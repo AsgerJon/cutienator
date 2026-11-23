@@ -5,6 +5,14 @@
     "lost."
   ],
   "rows": {
+    "ritual_ZN16QStringConverterC1Ev": ["address"],
+    "ritual_ZN16QStringConverterC1ENS_8EncodingE6QFlagsIN20QStringConverterBase4FlagEE": [
+      "address", "int", "int"
+    ],
+    "ritual_ZN16QStringConverterC1E14QAnyStringView6QFlagsIN20QStringConverterBase4FlagEE": [
+      "address", "text", "int"
+    ],
+    "ritual_ZN16QStringConverterD1Ev": ["nothing", "address"],
     "ritual_ZNK16QStringConverter7isValidEv": ["bool", "address"],
     "ritual_ZN16QStringConverter10resetStateEv": ["nothing", "address"],
     "ritual_ZNK16QStringConverter8hasErrorEv": ["bool", "address"],

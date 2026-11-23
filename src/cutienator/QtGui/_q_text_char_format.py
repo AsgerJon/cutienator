@@ -63,7 +63,7 @@ class QTextCharFormat(QTextFormat):
   'setBaselineOffset', 'baselineOffset', 'setAnchor', 'isAnchor',
   'setAnchorHref', 'anchorHref', 'setAnchorNames', 'anchorNames',
   'setTableCellRowSpan', 'tableCellRowSpan', 'setTableCellColumnSpan',
-  'tableCellColumnSpan'. It can be made from Python, in 1 way; see
+  'tableCellColumnSpan'. It can be made from Python, in 2 ways; see
   '__init__'.
 
   What has a ritual and is left out, and why
@@ -75,8 +75,8 @@ class QTextCharFormat(QTextFormat):
   What has no ritual
   ------------------
 
-  7 of the 76 functions Qt declares: 6 takes or gives a type that cannot be
-  passed yet; 1 protected.
+  6 of the 76 functions Qt declares: 6 takes or gives a type that cannot be
+  passed yet.
 
   What to expect
   --------------
@@ -1371,6 +1371,27 @@ class QTextCharFormat(QTextFormat):
     #  QTextCharFormat::QTextCharFormat()
     self._noteCreation(QTextCharFormat, lambda: Rituals.call(
         'ritual_ZN15QTextCharFormatC1Ev',
+    ))
+
+  @overload(QTextFormat)
+  def __init__(self, fmt: QTextFormat) -> None:
+    """
+    Notes what was given, for Qt's 'QTextCharFormat::QTextCharFormat(const
+    QTextFormat &fmt)', which is called at the first use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qtextcharformat.html#QTextCharFormat
+
+    Parameters
+    ----------
+
+    fmt : QTextFormat
+      Passed on as a value: Qt reads the C++ QTextFormat, which stays
+      Python's own.
+    """
+    #  QTextCharFormat::QTextCharFormat(const QTextFormat &fmt)
+    self._noteCreation(QTextCharFormat, lambda: Rituals.call(
+        'ritual_ZN15QTextCharFormatC1ERK11QTextFormat', self._valueOf(fmt),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

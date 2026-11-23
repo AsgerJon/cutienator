@@ -64,7 +64,7 @@ class QGraphicsItemAnimation(QObject):
   ------------------
 
   11 of the 37 functions Qt declares: 7 takes or gives a type that cannot be
-  passed yet; 2 forbidden; 1 a template; 1 private.
+  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found.
 
   What to expect
   --------------
@@ -708,9 +708,10 @@ class QGraphicsItemAnimation(QObject):
       Passed on as it is.
     """
     #  void QGraphicsItemAnimation::beforeAnimationStep(qreal step)
-    self.uglySide.call(
-        'ritual_own_ZN22QGraphicsItemAnimation19beforeAnimationStepEd', step,
-    )
+    ritual = 'ritual_ZN22QGraphicsItemAnimation19beforeAnimationStepEd'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN22QGraphicsItemAnimation19beforeAnimationStepEd'
+    self.uglySide.call(ritual, step)
 
   @overload(float)
   def afterAnimationStep(self, step: float) -> None:
@@ -727,6 +728,7 @@ class QGraphicsItemAnimation(QObject):
       Passed on as it is.
     """
     #  void QGraphicsItemAnimation::afterAnimationStep(qreal step)
-    self.uglySide.call(
-        'ritual_own_ZN22QGraphicsItemAnimation18afterAnimationStepEd', step,
-    )
+    ritual = 'ritual_ZN22QGraphicsItemAnimation18afterAnimationStepEd'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN22QGraphicsItemAnimation18afterAnimationStepEd'
+    self.uglySide.call(ritual, step)

@@ -47,7 +47,7 @@ class QColor(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QColor that has a ritual and that Python can call so
-  far, 81 names in all: 'fromString', 'isValid', 'name', 'setNamedColor',
+  far, 83 names in all: 'fromString', 'isValid', 'name', 'setNamedColor',
   'colorNames', 'spec', 'alpha', 'setAlpha', 'alphaF', 'setAlphaF', 'red',
   'green', 'blue', 'setRed', 'setGreen', 'setBlue', 'redF', 'greenF',
   'blueF', 'setRedF', 'setGreenF', 'setBlueF', 'setRgb', 'setRgbF', 'rgba64',
@@ -60,8 +60,8 @@ class QColor(CuteMixin, metaclass=MetaCute):
   'toCmyk', 'toHsl', 'toExtendedRgb', 'convertTo', 'fromRgb', 'fromRgba',
   'fromRgbF', 'fromRgba64', 'fromHsv', 'fromHsvF', 'fromCmyk', 'fromCmykF',
   'fromHsl', 'fromHslF', 'lighter', 'darker', '__eq__', '__ne__',
-  'isValidColor', 'isValidColorName'. It can be made from Python, in 10 ways;
-  see '__init__'.
+  'isValidColor', 'isValidColorName', 'invalidate', 'isRgbaValid'. It can be
+  made from Python, in 10 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -96,8 +96,8 @@ class QColor(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  5 of the 114 functions Qt declares: 3 takes or gives a type that cannot be
-  passed yet; 2 private.
+  3 of the 114 functions Qt declares: 3 takes or gives a type that cannot be
+  passed yet.
 
   What to expect
   --------------
@@ -631,6 +631,33 @@ class QColor(CuteMixin, metaclass=MetaCute):
     return Rituals.call(
         'ritual_ZN6QColor16isValidColorNameE14QAnyStringView', a0,
     )
+
+  @staticmethod
+  @overload(int, int, int)
+  @overload(int, int, int, int)
+  def isRgbaValid(r: int, g: int, b: int, a: int = 255) -> bool:
+    """
+    Calls Qt's 'bool QColor::isRgbaValid(int r, int g, int b, int a)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcolor.html#isRgbaValid
+
+    Parameters
+    ----------
+
+    r : int
+      Passed on as it is.
+
+    g : int
+      Passed on as it is.
+
+    b : int
+      Passed on as it is.
+
+    a : int
+      Passed on as it is. May be left out, as in Qt: it is then 255.
+    """
+    #  bool QColor::isRgbaValid(int r, int g, int b, int a)
+    return Rituals.call('ritual_ZN6QColor11isRgbaValidEiiii', r, g, b, a)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1927,6 +1954,15 @@ class QColor(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def invalidate(self) -> None:
+    """
+    Calls Qt's 'void QColor::invalidate()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcolor.html#invalidate
+    """
+    #  void QColor::invalidate()
+    self.uglySide.call('ritual_ZN6QColor10invalidateEv')
 
 
 #  Qt's 'QList<QColor>': the list of QColor, which 'QList[QColor]' gives. It

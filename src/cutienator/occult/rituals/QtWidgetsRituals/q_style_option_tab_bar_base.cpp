@@ -16,6 +16,12 @@ QStyleOptionTabBarBase *ritual_ZN22QStyleOptionTabBarBaseC1ERKS_(
   return new QStyleOptionTabBarBase(*other);
 }
 
+//  QStyleOptionTabBarBase::QStyleOptionTabBarBase(int version)
+extern "C" Q_DECL_EXPORT
+QStyleOptionTabBarBase *ritual_ZN22QStyleOptionTabBarBaseC1Ei(int version) {
+  return new QStyleOptionTabBarBase(version);
+}
+
 //  QStyleOptionTabBarBase::~QStyleOptionTabBarBase()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN22QStyleOptionTabBarBaseD1Ev(QStyleOptionTabBarBase *self) {

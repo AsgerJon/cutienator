@@ -75,8 +75,8 @@ class QMetaObject(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  24 of the 67 functions Qt declares: 15 a template; 5 takes or gives a type
-  that cannot be passed yet; 4 private.
+  24 of the 67 functions Qt declares: 15 a template; 9 takes or gives a type
+  that cannot be passed yet.
 
   What to expect
   --------------
@@ -127,8 +127,9 @@ class QMetaObject(CuteMixin, metaclass=MetaCute):
     What exists
     -----------
 
-    No function of Qt's QMetaObject::Connection yet. It can be made from
-    Python, in 2 ways; see '__init__'.
+    Every function of Qt's QMetaObject::Connection that has a ritual and that
+    Python can call so far, 1 name in all: 'isConnected_helper'. It can be
+    made from Python, in 2 ways; see '__init__'.
 
     What has a ritual and is left out, and why
     ------------------------------------------
@@ -140,8 +141,8 @@ class QMetaObject(CuteMixin, metaclass=MetaCute):
     What has no ritual
     ------------------
 
-    7 of the 10 functions Qt declares: 5 takes or gives a type that cannot be
-    passed yet; 2 private.
+    6 of the 10 functions Qt declares: 6 takes or gives a type that cannot be
+    passed yet.
 
     What to expect
     --------------
@@ -185,6 +186,18 @@ class QMetaObject(CuteMixin, metaclass=MetaCute):
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    def isConnected_helper(self) -> bool:
+      """
+      Calls Qt's 'bool QMetaObject::Connection::isConnected_helper() const'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qmetaobject-connection.html#isConnected_helper
+      """
+      #  bool QMetaObject::Connection::isConnected_helper() const
+      return self.uglySide.call(
+          'ritual_ZNK11QMetaObject10Connection18isConnected_helperEv',
+      )
 
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

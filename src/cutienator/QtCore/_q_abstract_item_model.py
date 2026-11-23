@@ -47,7 +47,7 @@ class QAbstractItemModel(QObject):
   -----------
 
   Every function of Qt's QAbstractItemModel that has a ritual and that Python
-  can call so far, 47 names in all: 'metaObject', 'tr', 'hasIndex', 'index',
+  can call so far, 65 names in all: 'metaObject', 'tr', 'hasIndex', 'index',
   'parent', 'sibling', 'rowCount', 'columnCount', 'hasChildren', 'data',
   'setData', 'headerData', 'setHeaderData', 'itemData', 'setItemData',
   'clearItemData', 'mimeTypes', 'mimeData', 'canDropMimeData',
@@ -56,21 +56,36 @@ class QAbstractItemModel(QObject):
   'moveColumns', 'insertRow', 'insertColumn', 'removeRow', 'removeColumn',
   'moveRow', 'moveColumn', 'fetchMore', 'canFetchMore', 'flags', 'sort',
   'buddy', 'match', 'span', 'roleNames', 'checkIndex', 'multiData', 'submit',
-  'revert', 'resetInternalData'. None can be made from Python: one comes out
-  of a function of another class that gives one back.
+  'revert', 'resetInternalData', 'createIndex', 'beginInsertRows',
+  'endInsertRows', 'beginRemoveRows', 'endRemoveRows', 'beginMoveRows',
+  'endMoveRows', 'beginInsertColumns', 'endInsertColumns',
+  'beginRemoveColumns', 'endRemoveColumns', 'beginMoveColumns',
+  'endMoveColumns', 'beginResetModel', 'endResetModel',
+  'changePersistentIndex', 'changePersistentIndexList',
+  'persistentIndexList'. None can be made from Python: one comes out of a
+  function of another class that gives one back.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QAbstractItemModel::~QAbstractItemModel()': the destructor: Python
     never removes a C++ QAbstractItemModel.
+  - Qt's 'Qt::weak_ordering QAbstractItemModel::compareData(const QVariant
+    &left, const QVariant &right)': gives 'Qt::weak_ordering', which has no
+    cute class yet.
+  - Qt's 'Qt::weak_ordering QAbstractItemModel::compareData(const QVariant
+    &left, const QVariant &right, const QCollator &collator)': gives
+    'Qt::weak_ordering', which has no cute class yet.
+  - Qt's 'Qt::weak_ordering QAbstractItemModel::compareDataImpl(const
+    QVariant &left, const QVariant &right, const QCollator *collator)': gives
+    'Qt::weak_ordering', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  52 of the 100 functions Qt declares: 24 protected; 18 a signal; 4 private;
-  2 takes or gives a type that cannot be passed yet; 2 forbidden; 1 a
-  template; 1 the class is abstract, so C++ cannot make one.
+  31 of the 100 functions Qt declares: 18 a signal; 7 takes or gives a type
+  that cannot be passed yet; 2 the class is abstract, so C++ cannot make one;
+  2 forbidden; 1 a template; 1 declared and nowhere to be found.
 
   What to expect
   --------------
@@ -1193,6 +1208,62 @@ class QAbstractItemModel(QObject):
         self._valueOf(index), options.value,
     )
 
+  @overload(int, int, int)
+  def createIndex(self, row: int, column: int, id: int) -> QModelIndex:
+    """
+    Calls Qt's 'QModelIndex QAbstractItemModel::createIndex(int row, int
+    column, quintptr id) const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractitemmodel.html#createIndex
+
+    Parameters
+    ----------
+
+    row : int
+      Passed on as it is.
+
+    column : int
+      Passed on as it is.
+
+    id : int
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QModelIndex
+      A new cute QModelIndex around the copy Qt gave back. Python owns it.
+    """
+    #  QModelIndex QAbstractItemModel::createIndex(int row, int column,
+    #      quintptr id) const
+    address = self.uglySide.call(
+        'ritual_ZNK18QAbstractItemModel11createIndexEiiy', row, column, id,
+    )
+    from . import QModelIndex
+    return QModelIndex._cuteOwning(address)
+
+  def persistentIndexList(self) -> QList[QModelIndex]:
+    """
+    Calls Qt's 'QModelIndexList QAbstractItemModel::persistentIndexList()
+    const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractitemmodel.html#persistentIndexList
+
+    Returns
+    -------
+
+    QList[QModelIndex]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QModelIndexList QAbstractItemModel::persistentIndexList() const
+    address = self.uglySide.call(
+        'ritual_ZNK18QAbstractItemModel19persistentIndexListEv',
+    )
+    from . import QModelIndex
+    return QList[QModelIndex]._cuteOwning(address)
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -2020,8 +2091,386 @@ class QAbstractItemModel(QObject):
     https://doc.qt.io/qt-6/qabstractitemmodel.html#resetInternalData
     """
     #  void QAbstractItemModel::resetInternalData()
+    ritual = 'ritual_ZN18QAbstractItemModel17resetInternalDataEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN18QAbstractItemModel17resetInternalDataEv'
+    self.uglySide.call(ritual)
+
+  @overload(QModelIndex, int, int)
+  def beginInsertRows(
+      self,
+      parent: QModelIndex,
+      first: int,
+      last: int,
+  ) -> None:
+    """
+    Calls Qt's 'void QAbstractItemModel::beginInsertRows(const QModelIndex
+    &parent, int first, int last)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertRows
+
+    Parameters
+    ----------
+
+    parent : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+
+    first : int
+      Passed on as it is.
+
+    last : int
+      Passed on as it is.
+    """
+    #  void QAbstractItemModel::beginInsertRows(const QModelIndex &parent,
+    #      int first, int last)
     self.uglySide.call(
-        'ritual_own_ZN18QAbstractItemModel17resetInternalDataEv',
+        'ritual_ZN18QAbstractItemModel15beginInsertRowsERK11QModelIndexii',
+        self._valueOf(parent), first, last,
+    )
+
+  def endInsertRows(self) -> None:
+    """
+    Calls Qt's 'void QAbstractItemModel::endInsertRows()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertRows
+    """
+    #  void QAbstractItemModel::endInsertRows()
+    self.uglySide.call('ritual_ZN18QAbstractItemModel13endInsertRowsEv')
+
+  @overload(QModelIndex, int, int)
+  def beginRemoveRows(
+      self,
+      parent: QModelIndex,
+      first: int,
+      last: int,
+  ) -> None:
+    """
+    Calls Qt's 'void QAbstractItemModel::beginRemoveRows(const QModelIndex
+    &parent, int first, int last)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveRows
+
+    Parameters
+    ----------
+
+    parent : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+
+    first : int
+      Passed on as it is.
+
+    last : int
+      Passed on as it is.
+    """
+    #  void QAbstractItemModel::beginRemoveRows(const QModelIndex &parent,
+    #      int first, int last)
+    self.uglySide.call(
+        'ritual_ZN18QAbstractItemModel15beginRemoveRowsERK11QModelIndexii',
+        self._valueOf(parent), first, last,
+    )
+
+  def endRemoveRows(self) -> None:
+    """
+    Calls Qt's 'void QAbstractItemModel::endRemoveRows()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveRows
+    """
+    #  void QAbstractItemModel::endRemoveRows()
+    self.uglySide.call('ritual_ZN18QAbstractItemModel13endRemoveRowsEv')
+
+  @overload(QModelIndex, int, int, QModelIndex, int)
+  def beginMoveRows(
+      self,
+      sourceParent: QModelIndex,
+      sourceFirst: int,
+      sourceLast: int,
+      destinationParent: QModelIndex,
+      destinationRow: int,
+  ) -> bool:
+    """
+    Calls Qt's 'bool QAbstractItemModel::beginMoveRows(const QModelIndex
+    &sourceParent, int sourceFirst, int sourceLast, const QModelIndex
+    &destinationParent, int destinationRow)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveRows
+
+    Parameters
+    ----------
+
+    sourceParent : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+
+    sourceFirst : int
+      Passed on as it is.
+
+    sourceLast : int
+      Passed on as it is.
+
+    destinationParent : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+
+    destinationRow : int
+      Passed on as it is.
+    """
+    #  bool QAbstractItemModel::beginMoveRows(const QModelIndex
+    #      &sourceParent, int sourceFirst, int sourceLast, const QModelIndex
+    #      &destinationParent, int destinationRow)
+    return self.uglySide.call(
+        'ritual_ZN18QAbstractItemModel13beginMoveRowsERK11QModelIndexiiS2_i',
+        self._valueOf(sourceParent), sourceFirst, sourceLast,
+        self._valueOf(destinationParent), destinationRow,
+    )
+
+  def endMoveRows(self) -> None:
+    """
+    Calls Qt's 'void QAbstractItemModel::endMoveRows()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveRows
+    """
+    #  void QAbstractItemModel::endMoveRows()
+    self.uglySide.call('ritual_ZN18QAbstractItemModel11endMoveRowsEv')
+
+  @overload(QModelIndex, int, int)
+  def beginInsertColumns(
+      self,
+      parent: QModelIndex,
+      first: int,
+      last: int,
+  ) -> None:
+    """
+    Calls Qt's 'void QAbstractItemModel::beginInsertColumns(const QModelIndex
+    &parent, int first, int last)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertColumns
+
+    Parameters
+    ----------
+
+    parent : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+
+    first : int
+      Passed on as it is.
+
+    last : int
+      Passed on as it is.
+    """
+    #  void QAbstractItemModel::beginInsertColumns(const QModelIndex &parent,
+    #      int first, int last)
+    self.uglySide.call(
+        'ritual_ZN18QAbstractItemModel18beginInsertColumnsERK11QModelIndexi'
+        'i',
+        self._valueOf(parent), first, last,
+    )
+
+  def endInsertColumns(self) -> None:
+    """
+    Calls Qt's 'void QAbstractItemModel::endInsertColumns()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertColumns
+    """
+    #  void QAbstractItemModel::endInsertColumns()
+    self.uglySide.call('ritual_ZN18QAbstractItemModel16endInsertColumnsEv')
+
+  @overload(QModelIndex, int, int)
+  def beginRemoveColumns(
+      self,
+      parent: QModelIndex,
+      first: int,
+      last: int,
+  ) -> None:
+    """
+    Calls Qt's 'void QAbstractItemModel::beginRemoveColumns(const QModelIndex
+    &parent, int first, int last)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveColumns
+
+    Parameters
+    ----------
+
+    parent : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+
+    first : int
+      Passed on as it is.
+
+    last : int
+      Passed on as it is.
+    """
+    #  void QAbstractItemModel::beginRemoveColumns(const QModelIndex &parent,
+    #      int first, int last)
+    self.uglySide.call(
+        'ritual_ZN18QAbstractItemModel18beginRemoveColumnsERK11QModelIndexi'
+        'i',
+        self._valueOf(parent), first, last,
+    )
+
+  def endRemoveColumns(self) -> None:
+    """
+    Calls Qt's 'void QAbstractItemModel::endRemoveColumns()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveColumns
+    """
+    #  void QAbstractItemModel::endRemoveColumns()
+    self.uglySide.call('ritual_ZN18QAbstractItemModel16endRemoveColumnsEv')
+
+  @overload(QModelIndex, int, int, QModelIndex, int)
+  def beginMoveColumns(
+      self,
+      sourceParent: QModelIndex,
+      sourceFirst: int,
+      sourceLast: int,
+      destinationParent: QModelIndex,
+      destinationColumn: int,
+  ) -> bool:
+    """
+    Calls Qt's 'bool QAbstractItemModel::beginMoveColumns(const QModelIndex
+    &sourceParent, int sourceFirst, int sourceLast, const QModelIndex
+    &destinationParent, int destinationColumn)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveColumns
+
+    Parameters
+    ----------
+
+    sourceParent : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+
+    sourceFirst : int
+      Passed on as it is.
+
+    sourceLast : int
+      Passed on as it is.
+
+    destinationParent : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+
+    destinationColumn : int
+      Passed on as it is.
+    """
+    #  bool QAbstractItemModel::beginMoveColumns(const QModelIndex
+    #      &sourceParent, int sourceFirst, int sourceLast, const QModelIndex
+    #      &destinationParent, int destinationColumn)
+    return self.uglySide.call(
+        'ritual_ZN18QAbstractItemModel16beginMoveColumnsERK11QModelIndexiiS'
+        '2_i',
+        self._valueOf(sourceParent), sourceFirst, sourceLast,
+        self._valueOf(destinationParent), destinationColumn,
+    )
+
+  def endMoveColumns(self) -> None:
+    """
+    Calls Qt's 'void QAbstractItemModel::endMoveColumns()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveColumns
+    """
+    #  void QAbstractItemModel::endMoveColumns()
+    self.uglySide.call('ritual_ZN18QAbstractItemModel14endMoveColumnsEv')
+
+  def beginResetModel(self) -> None:
+    """
+    Calls Qt's 'void QAbstractItemModel::beginResetModel()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractitemmodel.html#beginResetModel
+    """
+    #  void QAbstractItemModel::beginResetModel()
+    self.uglySide.call('ritual_ZN18QAbstractItemModel15beginResetModelEv')
+
+  def endResetModel(self) -> None:
+    """
+    Calls Qt's 'void QAbstractItemModel::endResetModel()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractitemmodel.html#endResetModel
+    """
+    #  void QAbstractItemModel::endResetModel()
+    self.uglySide.call('ritual_ZN18QAbstractItemModel13endResetModelEv')
+
+  @overload(QModelIndex, QModelIndex)
+  def changePersistentIndex(
+      self,
+      from_: QModelIndex,
+      to: QModelIndex,
+  ) -> None:
+    """
+    Calls Qt's 'void QAbstractItemModel::changePersistentIndex(const
+    QModelIndex &from, const QModelIndex &to)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndex
+
+    Parameters
+    ----------
+
+    from_ : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+
+    to : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+    """
+    #  void QAbstractItemModel::changePersistentIndex(const QModelIndex
+    #      &from, const QModelIndex &to)
+    self.uglySide.call(
+        'ritual_ZN18QAbstractItemModel21changePersistentIndexERK11QModelInd'
+        'exS2_',
+        self._valueOf(from_), self._valueOf(to),
+    )
+
+  @overload(QList[QModelIndex], QList[QModelIndex])
+  def changePersistentIndexList(
+      self,
+      from_: QList[QModelIndex],
+      to: QList[QModelIndex],
+  ) -> None:
+    """
+    Calls Qt's 'void QAbstractItemModel::changePersistentIndexList(const
+    QModelIndexList &from, const QModelIndexList &to)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndexList
+
+    Parameters
+    ----------
+
+    from_ : QList[QModelIndex]
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+
+    to : QList[QModelIndex]
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  void QAbstractItemModel::changePersistentIndexList(const
+    #      QModelIndexList &from, const QModelIndexList &to)
+    self.uglySide.call(
+        'ritual_ZN18QAbstractItemModel25changePersistentIndexListERK5QListI'
+        '11QModelIndexES4_',
+        self._valueOf(from_), self._valueOf(to),
     )
 
 

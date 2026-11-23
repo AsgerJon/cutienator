@@ -2,6 +2,7 @@
 //  QtGui/qevent.h, Qt 6.12.0. Changes made here are lost.
 #include <QtGui/qevent.h>
 #include <QtCore/qpoint.h>
+#include <QtGui/qeventpoint.h>
 #include <cstring>
 
 //  A QSinglePointEvent that Python can take functions over in. Every QSinglePointEvent
@@ -195,6 +196,56 @@ void ritual_ZN17QSinglePointEvent24setExclusivePointGrabberEP7QObject(
     QSinglePointEvent *self,
     QObject *exclusiveGrabber) {
   self->setExclusivePointGrabber(exclusiveGrabber);
+}
+
+//  QSinglePointEvent::QSinglePointEvent(Type type, const QPointingDevice
+//      *dev, const QEventPoint &point, Qt::MouseButton button,
+//      Qt::MouseButtons buttons, Qt::KeyboardModifiers modifiers,
+//      Qt::MouseEventSource source)
+extern "C" Q_DECL_EXPORT
+QSinglePointEvent *ritual_ZN17QSinglePointEventC1EN6QEvent4TypeEPK15QPointingDeviceRK11QEventPointN2Qt11MouseButtonE6QFlagsIS9_ESA_INS8_16KeyboardModifierEENS8_16MouseEventSourceE(
+    QEvent::Type type,
+    const QPointingDevice *dev,
+    const QEventPoint *point,
+    Qt::MouseButton button,
+    int buttons,
+    int modifiers,
+    Qt::MouseEventSource source) {
+  return new CuteQSinglePointEvent(
+      type,
+      dev,
+      *point,
+      button,
+      QFlags<Qt::MouseButton>::fromInt(buttons),
+      QFlags<Qt::KeyboardModifier>::fromInt(modifiers),
+      source);
+}
+
+//  QSinglePointEvent::QSinglePointEvent(Type type, const QPointingDevice
+//      *dev, const QPointF &localPos, const QPointF &scenePos, const QPointF
+//      &globalPos, Qt::MouseButton button, Qt::MouseButtons buttons,
+//      Qt::KeyboardModifiers modifiers, Qt::MouseEventSource source)
+extern "C" Q_DECL_EXPORT
+QSinglePointEvent *ritual_ZN17QSinglePointEventC1EN6QEvent4TypeEPK15QPointingDeviceRK7QPointFS7_S7_N2Qt11MouseButtonE6QFlagsIS9_ESA_INS8_16KeyboardModifierEENS8_16MouseEventSourceE(
+    QEvent::Type type,
+    const QPointingDevice *dev,
+    const QPointF *localPos,
+    const QPointF *scenePos,
+    const QPointF *globalPos,
+    Qt::MouseButton button,
+    int buttons,
+    int modifiers,
+    Qt::MouseEventSource source) {
+  return new CuteQSinglePointEvent(
+      type,
+      dev,
+      *localPos,
+      *scenePos,
+      *globalPos,
+      button,
+      QFlags<Qt::MouseButton>::fromInt(buttons),
+      QFlags<Qt::KeyboardModifier>::fromInt(modifiers),
+      source);
 }
 
 //  a Python function taken by a CuteQSinglePointEvent, for the function

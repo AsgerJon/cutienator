@@ -62,6 +62,16 @@
     "ritual_ZN9QIODevice9ungetCharEc": ["nothing", "address", "char"],
     "ritual_ZN9QIODevice7putCharEc": ["bool", "address", "char"],
     "ritual_ZNK9QIODevice11errorStringEv": ["text", "address"],
+    "ritual_ZN9QIODevice8skipDataEx": ["long long", "address", "long long"],
+    "ritual_ZN9QIODevice9writeDataEPKcx": [
+      "long long", "address", "chars", "long long"
+    ],
+    "ritual_ZN9QIODevice11setOpenModeE6QFlagsIN13QIODeviceBase12OpenModeFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN9QIODevice14setErrorStringERK7QString": [
+      "nothing", "address", "text"
+    ],
     "ritual_cast_QIODevice_QIODeviceBase": ["address", "address"],
     "ritual_take_QIODevice": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK9QIODevice12isSequentialEv": ["bool", "address"],

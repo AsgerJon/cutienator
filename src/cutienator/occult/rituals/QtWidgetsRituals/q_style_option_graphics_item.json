@@ -9,6 +9,7 @@
     "ritual_ZN24QStyleOptionGraphicsItem26levelOfDetailFromTransformERK10QTransform": [
       "double", "address"
     ],
+    "ritual_ZN24QStyleOptionGraphicsItemC1Ei": ["address", "int"],
     "ritual_ZN24QStyleOptionGraphicsItemD1Ev": ["nothing", "address"]
   }
 }

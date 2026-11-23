@@ -134,6 +134,13 @@
     "ritual_ZgtRK10QCborValueS1_": ["bool", "address", "address"],
     "ritual_ZleRK10QCborValueS1_": ["bool", "address", "address"],
     "ritual_ZgeRK10QCborValueS1_": ["bool", "address", "address"],
+    "ritual_ZN10QCborValue7disposeEv": ["nothing", "address"],
+    "ritual_ZNK10QCborValue12value_helperEv": ["long long", "address"],
+    "ritual_ZNK10QCborValue9fp_helperEv": ["double", "address"],
+    "ritual_ZN10QCborValue11type_helperE15QCborSimpleType": [
+      "int", "unsigned char"
+    ],
+    "ritual_ZN10QCborValue12isTag_helperENS_4TypeE": ["bool", "int"],
     "ritual_list_make_QCborValue": ["address"],
     "ritual_list_add_QCborValue": ["nothing", "address", "address"],
     "ritual_list_size_QCborValue": ["long long", "address"],

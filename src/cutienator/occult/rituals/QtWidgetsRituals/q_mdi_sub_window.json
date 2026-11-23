@@ -44,6 +44,66 @@
     "ritual_ZNK13QMdiSubWindow7mdiAreaEv": ["address", "address"],
     "ritual_ZN13QMdiSubWindow14showSystemMenuEv": ["nothing", "address"],
     "ritual_ZN13QMdiSubWindow10showShadedEv": ["nothing", "address"],
+    "ritual_ZN13QMdiSubWindow11eventFilterEP7QObjectP6QEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN13QMdiSubWindow5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN13QMdiSubWindow9showEventEP10QShowEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QMdiSubWindow9hideEventEP10QHideEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QMdiSubWindow11changeEventEP6QEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QMdiSubWindow10closeEventEP11QCloseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QMdiSubWindow10leaveEventEP6QEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QMdiSubWindow11resizeEventEP12QResizeEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QMdiSubWindow10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QMdiSubWindow9moveEventEP10QMoveEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QMdiSubWindow10paintEventEP11QPaintEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QMdiSubWindow15mousePressEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QMdiSubWindow21mouseDoubleClickEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QMdiSubWindow17mouseReleaseEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QMdiSubWindow14mouseMoveEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QMdiSubWindow13keyPressEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QMdiSubWindow16contextMenuEventEP17QContextMenuEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QMdiSubWindow12focusInEventEP11QFocusEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QMdiSubWindow13focusOutEventEP11QFocusEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QMdiSubWindow10childEventEP11QChildEvent": [
+      "nothing", "address", "address"
+    ],
     "ritual_take_QMdiSubWindow": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK13QMdiSubWindow8sizeHintEv": ["address", "address"],
     "ritual_own_ZNK13QMdiSubWindow15minimumSizeHintEv": [

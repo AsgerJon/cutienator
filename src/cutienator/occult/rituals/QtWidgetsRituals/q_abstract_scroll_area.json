@@ -67,6 +67,69 @@
     "ritual_ZN19QAbstractScrollArea19setSizeAdjustPolicyENS_16SizeAdjustPolicyE": [
       "nothing", "address", "int"
     ],
+    "ritual_ZN19QAbstractScrollArea18setViewportMarginsEiiii": [
+      "nothing", "address", "int", "int", "int", "int"
+    ],
+    "ritual_ZN19QAbstractScrollArea18setViewportMarginsERK8QMargins": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QAbstractScrollArea15viewportMarginsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QAbstractScrollArea11eventFilterEP7QObjectP6QEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN19QAbstractScrollArea5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN19QAbstractScrollArea13viewportEventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN19QAbstractScrollArea11resizeEventEP12QResizeEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QAbstractScrollArea10paintEventEP11QPaintEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QAbstractScrollArea15mousePressEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QAbstractScrollArea17mouseReleaseEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QAbstractScrollArea21mouseDoubleClickEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QAbstractScrollArea14mouseMoveEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QAbstractScrollArea10wheelEventEP11QWheelEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QAbstractScrollArea16contextMenuEventEP17QContextMenuEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QAbstractScrollArea14dragEnterEventEP15QDragEnterEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QAbstractScrollArea13dragMoveEventEP14QDragMoveEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QAbstractScrollArea14dragLeaveEventEP15QDragLeaveEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QAbstractScrollArea9dropEventEP10QDropEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QAbstractScrollArea13keyPressEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QAbstractScrollArea16scrollContentsByEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK19QAbstractScrollArea16viewportSizeHintEv": [
+      "address", "address"
+    ],
     "ritual_take_QAbstractScrollArea": [
       "bool", "address", "chars", "address"
     ],

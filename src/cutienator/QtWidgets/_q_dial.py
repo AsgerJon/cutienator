@@ -59,12 +59,14 @@ class QDial(QAbstractSlider):
   ------------------------------------------
 
   - Qt's 'QDial::~QDial()': the destructor: Python never removes a C++ QDial.
+  - Qt's 'void QDial::sliderChange(SliderChange change)': names the enum
+    'QAbstractSlider::SliderChange', whose class cannot be named here.
 
   What has no ritual
   ------------------
 
-  9 of the 29 functions Qt declares: 3 private; 2 takes or gives a type that
-  cannot be passed yet; 2 forbidden; 1 a template; 1 protected.
+  8 of the 29 functions Qt declares: 4 takes or gives a type that cannot be
+  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found.
 
   What to expect
   --------------
@@ -382,9 +384,10 @@ class QDial(QAbstractSlider):
       object.
     """
     #  bool QDial::event(QEvent *e)
-    return self.uglySide.call(
-        'ritual_own_ZN5QDial5eventEP6QEvent', self._addressOf(e),
-    )
+    ritual = 'ritual_ZN5QDial5eventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN5QDial5eventEP6QEvent'
+    return self.uglySide.call(ritual, self._addressOf(e))
 
   @overload(QResizeEvent)
   @overload(NoneType)
@@ -402,10 +405,10 @@ class QDial(QAbstractSlider):
       object.
     """
     #  void QDial::resizeEvent(QResizeEvent *re)
-    self.uglySide.call(
-        'ritual_own_ZN5QDial11resizeEventEP12QResizeEvent',
-        self._addressOf(re),
-    )
+    ritual = 'ritual_ZN5QDial11resizeEventEP12QResizeEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN5QDial11resizeEventEP12QResizeEvent'
+    self.uglySide.call(ritual, self._addressOf(re))
 
   @overload(QPaintEvent)
   @overload(NoneType)
@@ -423,10 +426,10 @@ class QDial(QAbstractSlider):
       object.
     """
     #  void QDial::paintEvent(QPaintEvent *pe)
-    self.uglySide.call(
-        'ritual_own_ZN5QDial10paintEventEP11QPaintEvent',
-        self._addressOf(pe),
-    )
+    ritual = 'ritual_ZN5QDial10paintEventEP11QPaintEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN5QDial10paintEventEP11QPaintEvent'
+    self.uglySide.call(ritual, self._addressOf(pe))
 
   @overload(QMouseEvent)
   @overload(NoneType)
@@ -444,10 +447,10 @@ class QDial(QAbstractSlider):
       object.
     """
     #  void QDial::mousePressEvent(QMouseEvent *me)
-    self.uglySide.call(
-        'ritual_own_ZN5QDial15mousePressEventEP11QMouseEvent',
-        self._addressOf(me),
-    )
+    ritual = 'ritual_ZN5QDial15mousePressEventEP11QMouseEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN5QDial15mousePressEventEP11QMouseEvent'
+    self.uglySide.call(ritual, self._addressOf(me))
 
   @overload(QMouseEvent)
   @overload(NoneType)
@@ -465,10 +468,10 @@ class QDial(QAbstractSlider):
       object.
     """
     #  void QDial::mouseReleaseEvent(QMouseEvent *me)
-    self.uglySide.call(
-        'ritual_own_ZN5QDial17mouseReleaseEventEP11QMouseEvent',
-        self._addressOf(me),
-    )
+    ritual = 'ritual_ZN5QDial17mouseReleaseEventEP11QMouseEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN5QDial17mouseReleaseEventEP11QMouseEvent'
+    self.uglySide.call(ritual, self._addressOf(me))
 
   @overload(QMouseEvent)
   @overload(NoneType)
@@ -486,10 +489,10 @@ class QDial(QAbstractSlider):
       object.
     """
     #  void QDial::mouseMoveEvent(QMouseEvent *me)
-    self.uglySide.call(
-        'ritual_own_ZN5QDial14mouseMoveEventEP11QMouseEvent',
-        self._addressOf(me),
-    )
+    ritual = 'ritual_ZN5QDial14mouseMoveEventEP11QMouseEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN5QDial14mouseMoveEventEP11QMouseEvent'
+    self.uglySide.call(ritual, self._addressOf(me))
 
   @overload(QStyleOptionSlider)
   @overload(NoneType)
@@ -508,7 +511,7 @@ class QDial(QAbstractSlider):
       object.
     """
     #  void QDial::initStyleOption(QStyleOptionSlider *option) const
-    self.uglySide.call(
-        'ritual_own_ZNK5QDial15initStyleOptionEP18QStyleOptionSlider',
-        self._addressOf(option),
-    )
+    ritual = 'ritual_ZNK5QDial15initStyleOptionEP18QStyleOptionSlider'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK5QDial15initStyleOptionEP18QStyleOptionSlider'
+    self.uglySide.call(ritual, self._addressOf(option))

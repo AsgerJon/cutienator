@@ -441,6 +441,12 @@ bool ritual_ZgeRK4QUrlS1_(const QUrl *lhs, const QUrl *rhs) {
   return operator>=(*lhs, *rhs);
 }
 
+//  void QUrl::detachToClear()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN4QUrl13detachToClearEv(QUrl *self) {
+  self->detachToClear();
+}
+
 //  QList<QUrl>::QList()
 extern "C" Q_DECL_EXPORT
 QList<QUrl> *ritual_list_make_QUrl() {

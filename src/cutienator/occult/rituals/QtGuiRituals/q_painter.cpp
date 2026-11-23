@@ -1832,3 +1832,21 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN8QPainter17endNativePaintingEv(QPainter *self) {
   self->endNativePainting();
 }
+
+//  void QPainter::doSetPen(const QPen &lvalue, QPen *rvalue)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QPainter8doSetPenERK4QPenPS0_(
+    QPainter *self,
+    const QPen *lvalue,
+    QPen *rvalue) {
+  self->doSetPen(*lvalue, rvalue);
+}
+
+//  void QPainter::doSetBrush(const QBrush &lvalue, QBrush *rvalue)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QPainter10doSetBrushERK6QBrushPS0_(
+    QPainter *self,
+    const QBrush *lvalue,
+    QBrush *rvalue) {
+  self->doSetBrush(*lvalue, rvalue);
+}

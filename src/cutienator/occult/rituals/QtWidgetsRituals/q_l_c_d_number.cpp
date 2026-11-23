@@ -948,6 +948,20 @@ void ritual_ZN10QLCDNumber20setSmallDecimalPointEb(
   self->setSmallDecimalPoint(a0);
 }
 
+//  bool QLCDNumber::event(QEvent *e)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN10QLCDNumber5eventEP6QEvent(QLCDNumber *self, QEvent *e) {
+  return self->event(e);
+}
+
+//  void QLCDNumber::paintEvent(QPaintEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QLCDNumber10paintEventEP11QPaintEvent(
+    QLCDNumber *self,
+    QPaintEvent *a0) {
+  self->paintEvent(a0);
+}
+
 //  a Python function taken by a CuteQLCDNumber, for the function named by
 //      the key
 extern "C" Q_DECL_EXPORT

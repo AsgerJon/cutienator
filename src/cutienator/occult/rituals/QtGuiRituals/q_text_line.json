@@ -51,6 +51,10 @@
     "ritual_ZNK9QTextLine9glyphRunsEii": [
       "address", "address", "int", "int"
     ],
+    "ritual_ZN9QTextLine13layout_helperEi": ["nothing", "address", "int"],
+    "ritual_ZNK9QTextLine13draw_internalEP8QPainterRK7QPointFPKN11QTextLayout11FormatRangeE": [
+      "nothing", "address", "address", "address", "address"
+    ],
     "ritual_ZN9QTextLineD1Ev": ["nothing", "address"]
   }
 }

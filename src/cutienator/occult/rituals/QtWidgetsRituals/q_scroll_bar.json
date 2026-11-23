@@ -16,6 +16,33 @@
     "ritual_ZN10QScrollBar25createStandardContextMenuE6QPoint": [
       "address", "address", "address"
     ],
+    "ritual_ZN10QScrollBar10wheelEventEP11QWheelEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QScrollBar10paintEventEP11QPaintEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QScrollBar15mousePressEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QScrollBar17mouseReleaseEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QScrollBar14mouseMoveEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QScrollBar9hideEventEP10QHideEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QScrollBar12sliderChangeEN15QAbstractSlider12SliderChangeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10QScrollBar16contextMenuEventEP17QContextMenuEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10QScrollBar15initStyleOptionEP18QStyleOptionSlider": [
+      "nothing", "address", "address"
+    ],
     "ritual_take_QScrollBar": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK10QScrollBar8sizeHintEv": ["address", "address"],
     "ritual_own_ZN10QScrollBar5eventEP6QEvent": [

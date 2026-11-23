@@ -165,6 +165,22 @@
       "nothing", "address", "int"
     ],
     "ritual_ZN11QMessageBox12standardIconENS_4IconE": ["address", "int"],
+    "ritual_ZN11QMessageBox5eventEP6QEvent": ["bool", "address", "address"],
+    "ritual_ZN11QMessageBox11resizeEventEP12QResizeEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QMessageBox9showEventEP10QShowEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QMessageBox10closeEventEP11QCloseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QMessageBox13keyPressEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QMessageBox11changeEventEP6QEvent": [
+      "nothing", "address", "address"
+    ],
     "ritual_take_QMessageBox": ["bool", "address", "chars", "address"],
     "ritual_own_ZN11QMessageBox5eventEP6QEvent": [
       "bool", "address", "address"

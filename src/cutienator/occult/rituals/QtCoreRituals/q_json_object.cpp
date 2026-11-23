@@ -487,3 +487,40 @@ QDebug *ritual_Zls6QDebugRK11QJsonObject(
     const QJsonObject *a1) {
   return new QDebug(operator<<(*a0, *a1));
 }
+
+//  bool QJsonObject::detach(qsizetype reserve)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN11QJsonObject6detachEx(QJsonObject *self, qsizetype reserve) {
+  return self->detach(reserve);
+}
+
+//  QString QJsonObject::keyAt(qsizetype i) const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK11QJsonObject5keyAtEx(
+    const QJsonObject *self,
+    qsizetype i) {
+  return new QString(self->keyAt(i));
+}
+
+//  QJsonValue QJsonObject::valueAt(qsizetype i) const
+extern "C" Q_DECL_EXPORT
+QJsonValue *ritual_ZNK11QJsonObject7valueAtEx(
+    const QJsonObject *self,
+    qsizetype i) {
+  return new QJsonValue(self->valueAt(i));
+}
+
+//  void QJsonObject::setValueAt(qsizetype i, const QJsonValue &val)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QJsonObject10setValueAtExRK10QJsonValue(
+    QJsonObject *self,
+    qsizetype i,
+    const QJsonValue *val) {
+  self->setValueAt(i, *val);
+}
+
+//  void QJsonObject::removeAt(qsizetype i)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QJsonObject8removeAtEx(QJsonObject *self, qsizetype i) {
+  self->removeAt(i);
+}

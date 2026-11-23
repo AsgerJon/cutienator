@@ -542,6 +542,14 @@ QTemporaryFile *ritual_ZN14QTemporaryFile16createNativeFileERK7QString(
   return QTemporaryFile::createNativeFile(*fileName);
 }
 
+//  bool QTemporaryFile::open(OpenMode flags)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN14QTemporaryFile4openE6QFlagsIN13QIODeviceBase12OpenModeFlagEE(
+    QTemporaryFile *self,
+    int flags) {
+  return self->open(QFlags<QIODeviceBase::OpenModeFlag>::fromInt(flags));
+}
+
 //  a Python function taken by a CuteQTemporaryFile, for the function named
 //      by the key
 extern "C" Q_DECL_EXPORT

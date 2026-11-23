@@ -45,6 +45,13 @@
     "ritual_ZNK12QKeySequenceleERKS_": ["bool", "address", "address"],
     "ritual_ZNK12QKeySequencegeERKS_": ["bool", "address", "address"],
     "ritual_ZNK12QKeySequence10isDetachedEv": ["bool", "address"],
+    "ritual_ZN12QKeySequence6assignERK7QString": ["int", "address", "text"],
+    "ritual_ZN12QKeySequence6assignERK7QStringNS_14SequenceFormatE": [
+      "int", "address", "text", "int"
+    ],
+    "ritual_ZN12QKeySequence6setKeyE15QKeyCombinationi": [
+      "nothing", "address", "address", "int"
+    ],
     "ritual_list_make_QKeySequence": ["address"],
     "ritual_list_add_QKeySequence": ["nothing", "address", "address"],
     "ritual_list_size_QKeySequence": ["long long", "address"],

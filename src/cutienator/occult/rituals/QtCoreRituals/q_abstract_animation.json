@@ -37,6 +37,18 @@
     "ritual_ZN18QAbstractAnimation14setCurrentTimeEi": [
       "nothing", "address", "int"
     ],
+    "ritual_ZN18QAbstractAnimation5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN18QAbstractAnimation17updateCurrentTimeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18QAbstractAnimation11updateStateENS_5StateES0_": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN18QAbstractAnimation15updateDirectionENS_9DirectionE": [
+      "nothing", "address", "int"
+    ],
     "ritual_take_QAbstractAnimation": [
       "bool", "address", "chars", "address"
     ],

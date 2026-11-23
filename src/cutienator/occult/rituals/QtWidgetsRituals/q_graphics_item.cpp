@@ -2037,6 +2037,239 @@ void ritual_ZN13QGraphicsItem22removeSceneEventFilterEPS_(
   self->removeSceneEventFilter(filterItem);
 }
 
+//  void QGraphicsItem::updateMicroFocus()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QGraphicsItem16updateMicroFocusEv(QGraphicsItem *self) {
+  self->updateMicroFocus();
+}
+
+//  bool QGraphicsItem::sceneEventFilter(QGraphicsItem *watched, QEvent
+//      *event)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN13QGraphicsItem16sceneEventFilterEPS_P6QEvent(
+    QGraphicsItem *self,
+    QGraphicsItem *watched,
+    QEvent *event) {
+  return self->sceneEventFilter(watched, event);
+}
+
+//  bool QGraphicsItem::sceneEvent(QEvent *event)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN13QGraphicsItem10sceneEventEP6QEvent(
+    QGraphicsItem *self,
+    QEvent *event) {
+  return self->sceneEvent(event);
+}
+
+//  void QGraphicsItem::contextMenuEvent(QGraphicsSceneContextMenuEvent
+//      *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QGraphicsItem16contextMenuEventEP30QGraphicsSceneContextMenuEvent(
+    QGraphicsItem *self,
+    QGraphicsSceneContextMenuEvent *event) {
+  self->contextMenuEvent(event);
+}
+
+//  void QGraphicsItem::dragEnterEvent(QGraphicsSceneDragDropEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QGraphicsItem14dragEnterEventEP27QGraphicsSceneDragDropEvent(
+    QGraphicsItem *self,
+    QGraphicsSceneDragDropEvent *event) {
+  self->dragEnterEvent(event);
+}
+
+//  void QGraphicsItem::dragLeaveEvent(QGraphicsSceneDragDropEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QGraphicsItem14dragLeaveEventEP27QGraphicsSceneDragDropEvent(
+    QGraphicsItem *self,
+    QGraphicsSceneDragDropEvent *event) {
+  self->dragLeaveEvent(event);
+}
+
+//  void QGraphicsItem::dragMoveEvent(QGraphicsSceneDragDropEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QGraphicsItem13dragMoveEventEP27QGraphicsSceneDragDropEvent(
+    QGraphicsItem *self,
+    QGraphicsSceneDragDropEvent *event) {
+  self->dragMoveEvent(event);
+}
+
+//  void QGraphicsItem::dropEvent(QGraphicsSceneDragDropEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QGraphicsItem9dropEventEP27QGraphicsSceneDragDropEvent(
+    QGraphicsItem *self,
+    QGraphicsSceneDragDropEvent *event) {
+  self->dropEvent(event);
+}
+
+//  void QGraphicsItem::focusInEvent(QFocusEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QGraphicsItem12focusInEventEP11QFocusEvent(
+    QGraphicsItem *self,
+    QFocusEvent *event) {
+  self->focusInEvent(event);
+}
+
+//  void QGraphicsItem::focusOutEvent(QFocusEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QGraphicsItem13focusOutEventEP11QFocusEvent(
+    QGraphicsItem *self,
+    QFocusEvent *event) {
+  self->focusOutEvent(event);
+}
+
+//  void QGraphicsItem::hoverEnterEvent(QGraphicsSceneHoverEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QGraphicsItem15hoverEnterEventEP24QGraphicsSceneHoverEvent(
+    QGraphicsItem *self,
+    QGraphicsSceneHoverEvent *event) {
+  self->hoverEnterEvent(event);
+}
+
+//  void QGraphicsItem::hoverMoveEvent(QGraphicsSceneHoverEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QGraphicsItem14hoverMoveEventEP24QGraphicsSceneHoverEvent(
+    QGraphicsItem *self,
+    QGraphicsSceneHoverEvent *event) {
+  self->hoverMoveEvent(event);
+}
+
+//  void QGraphicsItem::hoverLeaveEvent(QGraphicsSceneHoverEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QGraphicsItem15hoverLeaveEventEP24QGraphicsSceneHoverEvent(
+    QGraphicsItem *self,
+    QGraphicsSceneHoverEvent *event) {
+  self->hoverLeaveEvent(event);
+}
+
+//  void QGraphicsItem::keyPressEvent(QKeyEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QGraphicsItem13keyPressEventEP9QKeyEvent(
+    QGraphicsItem *self,
+    QKeyEvent *event) {
+  self->keyPressEvent(event);
+}
+
+//  void QGraphicsItem::keyReleaseEvent(QKeyEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QGraphicsItem15keyReleaseEventEP9QKeyEvent(
+    QGraphicsItem *self,
+    QKeyEvent *event) {
+  self->keyReleaseEvent(event);
+}
+
+//  void QGraphicsItem::mousePressEvent(QGraphicsSceneMouseEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QGraphicsItem15mousePressEventEP24QGraphicsSceneMouseEvent(
+    QGraphicsItem *self,
+    QGraphicsSceneMouseEvent *event) {
+  self->mousePressEvent(event);
+}
+
+//  void QGraphicsItem::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QGraphicsItem14mouseMoveEventEP24QGraphicsSceneMouseEvent(
+    QGraphicsItem *self,
+    QGraphicsSceneMouseEvent *event) {
+  self->mouseMoveEvent(event);
+}
+
+//  void QGraphicsItem::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QGraphicsItem17mouseReleaseEventEP24QGraphicsSceneMouseEvent(
+    QGraphicsItem *self,
+    QGraphicsSceneMouseEvent *event) {
+  self->mouseReleaseEvent(event);
+}
+
+//  void QGraphicsItem::mouseDoubleClickEvent(QGraphicsSceneMouseEvent
+//      *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QGraphicsItem21mouseDoubleClickEventEP24QGraphicsSceneMouseEvent(
+    QGraphicsItem *self,
+    QGraphicsSceneMouseEvent *event) {
+  self->mouseDoubleClickEvent(event);
+}
+
+//  void QGraphicsItem::wheelEvent(QGraphicsSceneWheelEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QGraphicsItem10wheelEventEP24QGraphicsSceneWheelEvent(
+    QGraphicsItem *self,
+    QGraphicsSceneWheelEvent *event) {
+  self->wheelEvent(event);
+}
+
+//  void QGraphicsItem::inputMethodEvent(QInputMethodEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QGraphicsItem16inputMethodEventEP17QInputMethodEvent(
+    QGraphicsItem *self,
+    QInputMethodEvent *event) {
+  self->inputMethodEvent(event);
+}
+
+//  QVariant QGraphicsItem::inputMethodQuery(Qt::InputMethodQuery query)
+//      const
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZNK13QGraphicsItem16inputMethodQueryEN2Qt16InputMethodQueryE(
+    const QGraphicsItem *self,
+    Qt::InputMethodQuery query) {
+  return new QVariant(self->inputMethodQuery(query));
+}
+
+//  QVariant QGraphicsItem::itemChange(GraphicsItemChange change, const
+//      QVariant &value)
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZN13QGraphicsItem10itemChangeENS_18GraphicsItemChangeERK8QVariant(
+    QGraphicsItem *self,
+    QGraphicsItem::GraphicsItemChange change,
+    const QVariant *value) {
+  return new QVariant(self->itemChange(change, *value));
+}
+
+//  bool QGraphicsItem::supportsExtension(Extension extension) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK13QGraphicsItem17supportsExtensionENS_9ExtensionE(
+    const QGraphicsItem *self,
+    QGraphicsItem::Extension extension) {
+  return self->supportsExtension(extension);
+}
+
+//  void QGraphicsItem::setExtension(Extension extension, const QVariant
+//      &variant)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QGraphicsItem12setExtensionENS_9ExtensionERK8QVariant(
+    QGraphicsItem *self,
+    QGraphicsItem::Extension extension,
+    const QVariant *variant) {
+  self->setExtension(extension, *variant);
+}
+
+//  QVariant QGraphicsItem::extension(const QVariant &variant) const
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZNK13QGraphicsItem9extensionERK8QVariant(
+    const QGraphicsItem *self,
+    const QVariant *variant) {
+  return new QVariant(self->extension(*variant));
+}
+
+//  void QGraphicsItem::addToIndex()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QGraphicsItem10addToIndexEv(QGraphicsItem *self) {
+  self->addToIndex();
+}
+
+//  void QGraphicsItem::removeFromIndex()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QGraphicsItem15removeFromIndexEv(QGraphicsItem *self) {
+  self->removeFromIndex();
+}
+
+//  void QGraphicsItem::prepareGeometryChange()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QGraphicsItem21prepareGeometryChangeEv(QGraphicsItem *self) {
+  self->prepareGeometryChange();
+}
+
 //  a Python function taken by a CuteQGraphicsItem, for the function named by
 //      the key
 extern "C" Q_DECL_EXPORT

@@ -56,6 +56,7 @@
       "nothing", "address", "int"
     ],
     "ritual_ZNK16QTextBlockFormat6markerEv": ["int", "address"],
+    "ritual_ZN16QTextBlockFormatC1ERK11QTextFormat": ["address", "address"],
     "ritual_ZN16QTextBlockFormatD1Ev": ["nothing", "address"]
   }
 }

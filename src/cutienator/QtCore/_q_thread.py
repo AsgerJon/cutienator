@@ -45,14 +45,15 @@ class QThread(QObject):
   -----------
 
   Every function of Qt's QThread that has a ritual and that Python can call
-  so far, 30 names in all: 'metaObject', 'tr', 'currentThread',
+  so far, 32 names in all: 'metaObject', 'tr', 'currentThread',
   'isMainThread', 'idealThreadCount', 'yieldCurrentThread', 'setPriority',
   'priority', 'isFinished', 'isRunning', 'requestInterruption',
   'isInterruptionRequested', 'setStackSize', 'stackSize', 'eventDispatcher',
   'setEventDispatcher', 'event', 'loopLevel', 'isCurrentThread',
   'setServiceLevel', 'serviceLevel', 'start', 'terminate', 'exit', 'quit',
-  'wait', 'sleep', 'msleep', 'usleep', 'run'. It can be made from Python, in
-  1 way; see '__init__'.
+  'wait', 'sleep', 'msleep', 'usleep', 'run', 'exec',
+  'setTerminationEnabled'. It can be made from Python, in 1 way; see
+  '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -63,8 +64,8 @@ class QThread(QObject):
   What has no ritual
   ------------------
 
-  16 of the 49 functions Qt declares: 5 private; 4 takes or gives a type that
-  cannot be passed yet; 3 protected; 2 a template; 2 a signal.
+  14 of the 49 functions Qt declares: 9 takes or gives a type that cannot be
+  passed yet; 2 a template; 2 a signal; 1 declared and nowhere to be found.
 
   What to expect
   --------------
@@ -253,6 +254,24 @@ class QThread(QObject):
     """
     #  void QThread::usleep(unsigned long a0)
     Rituals.call('ritual_ZN7QThread6usleepEm', a0)
+
+  @staticmethod
+  @overload()
+  @overload(bool)
+  def setTerminationEnabled(enabled: bool = True) -> None:
+    """
+    Calls Qt's 'void QThread::setTerminationEnabled(bool enabled)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qthread.html#setTerminationEnabled
+
+    Parameters
+    ----------
+
+    enabled : bool
+      Passed on as it is. May be left out, as in Qt: it is then True.
+    """
+    #  void QThread::setTerminationEnabled(bool enabled)
+    Rituals.call('ritual_ZN7QThread21setTerminationEnabledEb', enabled)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -684,4 +703,16 @@ class QThread(QObject):
     Qt's own words: https://doc.qt.io/qt-6/qthread.html#run
     """
     #  void QThread::run()
-    self.uglySide.call('ritual_own_ZN7QThread3runEv')
+    ritual = 'ritual_ZN7QThread3runEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QThread3runEv'
+    self.uglySide.call(ritual)
+
+  def exec(self) -> int:
+    """
+    Calls Qt's 'int QThread::exec()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qthread.html#exec
+    """
+    #  int QThread::exec()
+    return self.uglySide.call('ritual_ZN7QThread4execEv')

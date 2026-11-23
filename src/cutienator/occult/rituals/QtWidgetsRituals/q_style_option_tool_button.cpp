@@ -16,6 +16,12 @@ QStyleOptionToolButton *ritual_ZN22QStyleOptionToolButtonC1ERKS_(
   return new QStyleOptionToolButton(*other);
 }
 
+//  QStyleOptionToolButton::QStyleOptionToolButton(int version)
+extern "C" Q_DECL_EXPORT
+QStyleOptionToolButton *ritual_ZN22QStyleOptionToolButtonC1Ei(int version) {
+  return new QStyleOptionToolButton(version);
+}
+
 //  QStyleOptionToolButton::~QStyleOptionToolButton()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN22QStyleOptionToolButtonD1Ev(QStyleOptionToolButton *self) {

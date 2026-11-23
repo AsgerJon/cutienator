@@ -74,8 +74,9 @@ class QToolButton(QAbstractButton):
   What has no ritual
   ------------------
 
-  9 of the 41 functions Qt declares: 3 private; 2 takes or gives a type that
-  cannot be passed yet; 2 forbidden; 1 a template; 1 a signal.
+  9 of the 41 functions Qt declares: 4 takes or gives a type that cannot be
+  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found;
+  1 a signal.
 
   What to expect
   --------------
@@ -367,10 +368,10 @@ class QToolButton(QAbstractButton):
       own.
     """
     #  bool QToolButton::hitButton(const QPoint &pos) const
-    return self.uglySide.call(
-        'ritual_own_ZNK11QToolButton9hitButtonERK6QPoint',
-        self._valueOf(pos),
-    )
+    ritual = 'ritual_ZNK11QToolButton9hitButtonERK6QPoint'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QToolButton9hitButtonERK6QPoint'
+    return self.uglySide.call(ritual, self._valueOf(pos))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -570,9 +571,10 @@ class QToolButton(QAbstractButton):
       object.
     """
     #  bool QToolButton::event(QEvent *e)
-    return self.uglySide.call(
-        'ritual_own_ZN11QToolButton5eventEP6QEvent', self._addressOf(e),
-    )
+    ritual = 'ritual_ZN11QToolButton5eventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QToolButton5eventEP6QEvent'
+    return self.uglySide.call(ritual, self._addressOf(e))
 
   @overload(QMouseEvent)
   @overload(NoneType)
@@ -590,10 +592,10 @@ class QToolButton(QAbstractButton):
       object.
     """
     #  void QToolButton::mousePressEvent(QMouseEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN11QToolButton15mousePressEventEP11QMouseEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN11QToolButton15mousePressEventEP11QMouseEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QToolButton15mousePressEventEP11QMouseEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QMouseEvent)
   @overload(NoneType)
@@ -611,10 +613,10 @@ class QToolButton(QAbstractButton):
       object.
     """
     #  void QToolButton::mouseReleaseEvent(QMouseEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN11QToolButton17mouseReleaseEventEP11QMouseEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN11QToolButton17mouseReleaseEventEP11QMouseEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QToolButton17mouseReleaseEventEP11QMouseEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QPaintEvent)
   @overload(NoneType)
@@ -632,10 +634,10 @@ class QToolButton(QAbstractButton):
       object.
     """
     #  void QToolButton::paintEvent(QPaintEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN11QToolButton10paintEventEP11QPaintEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN11QToolButton10paintEventEP11QPaintEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QToolButton10paintEventEP11QPaintEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QActionEvent)
   @overload(NoneType)
@@ -653,10 +655,10 @@ class QToolButton(QAbstractButton):
       object.
     """
     #  void QToolButton::actionEvent(QActionEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN11QToolButton11actionEventEP12QActionEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN11QToolButton11actionEventEP12QActionEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QToolButton11actionEventEP12QActionEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QEnterEvent)
   @overload(NoneType)
@@ -674,10 +676,10 @@ class QToolButton(QAbstractButton):
       object.
     """
     #  void QToolButton::enterEvent(QEnterEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN11QToolButton10enterEventEP11QEnterEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN11QToolButton10enterEventEP11QEnterEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QToolButton10enterEventEP11QEnterEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QEvent)
   @overload(NoneType)
@@ -695,10 +697,10 @@ class QToolButton(QAbstractButton):
       object.
     """
     #  void QToolButton::leaveEvent(QEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN11QToolButton10leaveEventEP6QEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN11QToolButton10leaveEventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QToolButton10leaveEventEP6QEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QTimerEvent)
   @overload(NoneType)
@@ -716,10 +718,10 @@ class QToolButton(QAbstractButton):
       object.
     """
     #  void QToolButton::timerEvent(QTimerEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN11QToolButton10timerEventEP11QTimerEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN11QToolButton10timerEventEP11QTimerEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QToolButton10timerEventEP11QTimerEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QEvent)
   @overload(NoneType)
@@ -737,10 +739,10 @@ class QToolButton(QAbstractButton):
       object.
     """
     #  void QToolButton::changeEvent(QEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN11QToolButton11changeEventEP6QEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN11QToolButton11changeEventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QToolButton11changeEventEP6QEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   def checkStateSet(self) -> None:
     """
@@ -749,7 +751,10 @@ class QToolButton(QAbstractButton):
     Qt's own words: https://doc.qt.io/qt-6/qtoolbutton.html#checkStateSet
     """
     #  void QToolButton::checkStateSet()
-    self.uglySide.call('ritual_own_ZN11QToolButton13checkStateSetEv')
+    ritual = 'ritual_ZN11QToolButton13checkStateSetEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QToolButton13checkStateSetEv'
+    self.uglySide.call(ritual)
 
   def nextCheckState(self) -> None:
     """
@@ -758,7 +763,10 @@ class QToolButton(QAbstractButton):
     Qt's own words: https://doc.qt.io/qt-6/qtoolbutton.html#nextCheckState
     """
     #  void QToolButton::nextCheckState()
-    self.uglySide.call('ritual_own_ZN11QToolButton14nextCheckStateEv')
+    ritual = 'ritual_ZN11QToolButton14nextCheckStateEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QToolButton14nextCheckStateEv'
+    self.uglySide.call(ritual)
 
   @overload(QStyleOptionToolButton)
   @overload(NoneType)
@@ -781,8 +789,10 @@ class QToolButton(QAbstractButton):
     """
     #  void QToolButton::initStyleOption(QStyleOptionToolButton *option)
     #      const
-    self.uglySide.call(
-        'ritual_own_ZNK11QToolButton15initStyleOptionEP22QStyleOptionToolBu'
-        'tton',
-        self._addressOf(option),
-    )
+    ritual = (
+        'ritual_ZNK11QToolButton15initStyleOptionEP22QStyleOptionToolButton')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK11QToolButton15initStyleOptionEP22QStyleOptionTool'
+          'Button')
+    self.uglySide.call(ritual, self._addressOf(option))

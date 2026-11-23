@@ -46,6 +46,10 @@
     ],
     "ritual_ZN11QSizePolicy9transposeEv": ["nothing", "address"],
     "ritual_ZNK11QSizePolicy10transposedEv": ["address", "address"],
+    "ritual_ZN11QSizePolicyC1Ei": ["address", "int"],
+    "ritual_ZN11QSizePolicy23toControlTypeFieldValueENS_11ControlTypeE": [
+      "unsigned int", "int"
+    ],
     "ritual_ZN11QSizePolicyD1Ev": ["nothing", "address"]
   }
 }

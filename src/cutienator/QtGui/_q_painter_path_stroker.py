@@ -49,8 +49,8 @@ class QPainterPathStroker(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  6 of the 23 functions Qt declares: 2 private; 2 takes or gives a type that
-  cannot be passed yet; 2 forbidden.
+  6 of the 23 functions Qt declares: 4 takes or gives a type that cannot be
+  passed yet; 2 forbidden.
 
   What to expect
   --------------

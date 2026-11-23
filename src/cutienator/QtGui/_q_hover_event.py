@@ -57,7 +57,8 @@ class QHoverEvent(QSinglePointEvent):
   What has no ritual
   ------------------
 
-  4 of the 13 functions Qt declares: 2 protected; 2 forbidden.
+  4 of the 13 functions Qt declares: 2 takes or gives a type that cannot be
+  passed yet; 2 forbidden.
 
   What to expect
   --------------
@@ -217,6 +218,8 @@ class QHoverEvent(QSinglePointEvent):
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @overload(QEvent.Type, QPointF, QPointF, QPointF)
+  @overload(QEvent.Type, QPointF, QPointF, QPointF, Qt.KeyboardModifiers)
   @overload(
       QEvent.Type, QPointF, QPointF, QPointF, Qt.KeyboardModifiers,
       QPointingDevice,
@@ -230,8 +233,8 @@ class QHoverEvent(QSinglePointEvent):
       scenePos: QPointF,
       globalPos: QPointF,
       oldPos: QPointF,
-      modifiers: Qt.KeyboardModifiers,
-      device: Optional[QPointingDevice],
+      modifiers: Qt.KeyboardModifiers = Qt.KeyboardModifiers.NoModifier,
+      device: Optional[QPointingDevice] = ...,
   ) -> None:
     """
     Notes what was given, for Qt's 'QHoverEvent::QHoverEvent(Type type, const
@@ -260,15 +263,20 @@ class QHoverEvent(QSinglePointEvent):
       own.
 
     modifiers : Qt.KeyboardModifiers
-      Passed on as its number.
+      Passed on as its number. May be left out, as in Qt: it is then
+      Qt.KeyboardModifiers.NoModifier.
 
     device : Optional[QPointingDevice]
       Passed on as the address of its C++ object. None is passed on as no
-      object.
+      object. May be left out, as in Qt: what
+      'QPointingDevice.primaryPointingDevice()' gives is then passed on.
     """
     #  QHoverEvent::QHoverEvent(Type type, const QPointF &scenePos, const
     #      QPointF &globalPos, const QPointF &oldPos, Qt::KeyboardModifiers
     #      modifiers, const QPointingDevice *device)
+    if device is ...:
+      from . import QPointingDevice
+      device = QPointingDevice.primaryPointingDevice()
     self._noteCreation(QHoverEvent, lambda: Rituals.call(
         'ritual_ZN11QHoverEventC1EN6QEvent4TypeERK7QPointFS4_S4_6QFlagsIN2Q'
         't16KeyboardModifierEEPK15QPointingDevice',
@@ -276,6 +284,8 @@ class QHoverEvent(QSinglePointEvent):
         self._valueOf(oldPos), modifiers.value, self._addressOf(device),
     ))
 
+  @overload(QEvent.Type, QPointF, QPointF)
+  @overload(QEvent.Type, QPointF, QPointF, Qt.KeyboardModifiers)
   @overload(
       QEvent.Type, QPointF, QPointF, Qt.KeyboardModifiers, QPointingDevice,
   )
@@ -285,8 +295,8 @@ class QHoverEvent(QSinglePointEvent):
       type: QEvent.Type,
       pos: QPointF,
       oldPos: QPointF,
-      modifiers: Qt.KeyboardModifiers,
-      device: Optional[QPointingDevice],
+      modifiers: Qt.KeyboardModifiers = Qt.KeyboardModifiers.NoModifier,
+      device: Optional[QPointingDevice] = ...,
   ) -> None:
     """
     Notes what was given, for Qt's 'QHoverEvent::QHoverEvent(Type type, const
@@ -310,15 +320,20 @@ class QHoverEvent(QSinglePointEvent):
       own.
 
     modifiers : Qt.KeyboardModifiers
-      Passed on as its number.
+      Passed on as its number. May be left out, as in Qt: it is then
+      Qt.KeyboardModifiers.NoModifier.
 
     device : Optional[QPointingDevice]
       Passed on as the address of its C++ object. None is passed on as no
-      object.
+      object. May be left out, as in Qt: what
+      'QPointingDevice.primaryPointingDevice()' gives is then passed on.
     """
     #  QHoverEvent::QHoverEvent(Type type, const QPointF &pos, const QPointF
     #      &oldPos, Qt::KeyboardModifiers modifiers, const QPointingDevice
     #      *device)
+    if device is ...:
+      from . import QPointingDevice
+      device = QPointingDevice.primaryPointingDevice()
     self._noteCreation(QHoverEvent, lambda: Rituals.call(
         'ritual_ZN11QHoverEventC1EN6QEvent4TypeERK7QPointFS4_6QFlagsIN2Qt16'
         'KeyboardModifierEEPK15QPointingDevice',

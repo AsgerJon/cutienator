@@ -49,13 +49,13 @@ class QTransform(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QTransform that has a ritual and that Python can
-  call so far, 35 names in all: 'isAffine', 'isIdentity', 'isInvertible',
+  call so far, 36 names in all: 'isAffine', 'isIdentity', 'isInvertible',
   'isScaling', 'isRotating', 'isTranslating', 'type', 'determinant', 'm11',
   'm12', 'm13', 'm21', 'm22', 'm23', 'm31', 'm32', 'm33', 'dx', 'dy',
   'setMatrix', 'adjoint', 'transposed', '__eq__', '__ne__', '__imul__',
   '__mul__', 'reset', 'map', 'mapToPolygon', 'mapRect', '__itruediv__',
-  '__iadd__', '__isub__', 'fromTranslate', 'fromScale'. It can be made from
-  Python, in 5 ways; see '__init__'.
+  '__iadd__', '__isub__', 'fromTranslate', 'fromScale', 'inline_type'. It can
+  be made from Python, in 5 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -68,14 +68,16 @@ class QTransform(CuteMixin, metaclass=MetaCute):
     a number to change where it is.
   - Qt's 'void QTransform::map(qreal x, qreal y, qreal *tx, qreal *ty)
     const': takes a number to change where it is.
+  - Qt's 'void QTransform::do_map(qreal x, qreal y, qreal &nx, qreal &ny)
+    const': takes a number to change where it is.
   - Qt's 'QTransform::~QTransform()': the destructor: Python removes its C++
     QTransform by it, and has no other use for it.
 
   What has no ritual
   ------------------
 
-  18 of the 72 functions Qt declares: 16 takes or gives a type that cannot be
-  passed yet; 2 private.
+  16 of the 72 functions Qt declares: 16 takes or gives a type that cannot be
+  passed yet.
 
   What to expect
   --------------
@@ -694,6 +696,25 @@ class QTransform(CuteMixin, metaclass=MetaCute):
     )
     from ..QtCore import QRectF
     return QRectF._cuteOwning(address)
+
+  def inline_type(self) -> TransformationType:
+    """
+    Calls Qt's 'TransformationType QTransform::inline_type() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtransform.html#inline_type
+
+    Returns
+    -------
+
+    TransformationType
+      The member standing for the number Qt gave back. For a number Qt gives
+      no name it is the member without a name that
+      'TransformationType(number)' gives.
+    """
+    #  TransformationType QTransform::inline_type() const
+    return QTransform.TransformationType(self.uglySide.call(
+        'ritual_ZNK10QTransform11inline_typeEv',
+    ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

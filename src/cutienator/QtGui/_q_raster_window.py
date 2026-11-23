@@ -56,8 +56,8 @@ class QRasterWindow(QPaintDeviceWindow):
   What has no ritual
   ------------------
 
-  8 of the 15 functions Qt declares: 3 private; 2 takes or gives a type that
-  cannot be passed yet; 2 forbidden; 1 a template.
+  8 of the 15 functions Qt declares: 4 takes or gives a type that cannot be
+  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found.
 
   What to expect
   --------------
@@ -179,11 +179,14 @@ class QRasterWindow(QPaintDeviceWindow):
       Passed on as its number.
     """
     #  int QRasterWindow::metric(PaintDeviceMetric metric) const
-    return self.uglySide.call(
-        'ritual_own_ZNK13QRasterWindow6metricEN12QPaintDevice17PaintDeviceM'
-        'etricE',
-        metric.value,
-    )
+    ritual = (
+        'ritual_ZNK13QRasterWindow6metricEN12QPaintDevice17PaintDeviceMetri'
+        'cE')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK13QRasterWindow6metricEN12QPaintDevice17PaintDevic'
+          'eMetricE')
+    return self.uglySide.call(ritual, metric.value)
 
   @overload(QPoint)
   @overload(NoneType)
@@ -208,10 +211,10 @@ class QRasterWindow(QPaintDeviceWindow):
       no object.
     """
     #  QPaintDevice *QRasterWindow::redirected(QPoint *a0) const
-    address = self.uglySide.call(
-        'ritual_own_ZNK13QRasterWindow10redirectedEP6QPoint',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZNK13QRasterWindow10redirectedEP6QPoint'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK13QRasterWindow10redirectedEP6QPoint'
+    address = self.uglySide.call(ritual, self._addressOf(a0))
     return QPaintDevice._cuteAt(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -288,7 +291,7 @@ class QRasterWindow(QPaintDeviceWindow):
       object.
     """
     #  void QRasterWindow::resizeEvent(QResizeEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN13QRasterWindow11resizeEventEP12QResizeEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN13QRasterWindow11resizeEventEP12QResizeEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN13QRasterWindow11resizeEventEP12QResizeEvent'
+    self.uglySide.call(ritual, self._addressOf(event))

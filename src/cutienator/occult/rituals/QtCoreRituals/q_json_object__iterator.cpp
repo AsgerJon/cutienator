@@ -4,6 +4,7 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qanystringview.h>
 #include <QtCore/qjsonvalue.h>
+#include <QtCore/qcompare.h>
 
 //  QJsonObject::iterator::iterator()
 extern "C" Q_DECL_EXPORT
@@ -130,6 +131,48 @@ qsizetype ritual_ZNK11QJsonObject8iteratormiES0_(
     const QJsonObject::iterator *self,
     const QJsonObject::iterator *j) {
   return self->operator-(*j);
+}
+
+//  bool QJsonObject::iterator::comparesEqual_helper(const iterator &lhs,
+//      const iterator &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN11QJsonObject8iterator20comparesEqual_helperERKS0_S2_(
+    const QJsonObject::iterator *lhs,
+    const QJsonObject::iterator *rhs) {
+  return QJsonObject::iterator::comparesEqual_helper(*lhs, *rhs);
+}
+
+//  bool QJsonObject::iterator::comparesEqual_helper(const iterator &lhs,
+//      const const_iterator &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN11QJsonObject8iterator20comparesEqual_helperERKS0_RKNS_14const_iteratorE(
+    const QJsonObject::iterator *lhs,
+    const QJsonObject::const_iterator *rhs) {
+  return QJsonObject::iterator::comparesEqual_helper(*lhs, *rhs);
+}
+
+//  Qt::strong_ordering QJsonObject::iterator::compareThreeWay_helper(const
+//      iterator &lhs, const iterator &rhs)
+extern "C" Q_DECL_EXPORT
+Qt::strong_ordering *ritual_ZN11QJsonObject8iterator22compareThreeWay_helperERKS0_S2_(
+    const QJsonObject::iterator *lhs,
+    const QJsonObject::iterator *rhs) {
+  return new Qt::strong_ordering(
+      QJsonObject::iterator::compareThreeWay_helper(
+          *lhs,
+          *rhs));
+}
+
+//  Qt::strong_ordering QJsonObject::iterator::compareThreeWay_helper(const
+//      iterator &lhs, const const_iterator &rhs)
+extern "C" Q_DECL_EXPORT
+Qt::strong_ordering *ritual_ZN11QJsonObject8iterator22compareThreeWay_helperERKS0_RKNS_14const_iteratorE(
+    const QJsonObject::iterator *lhs,
+    const QJsonObject::const_iterator *rhs) {
+  return new Qt::strong_ordering(
+      QJsonObject::iterator::compareThreeWay_helper(
+          *lhs,
+          *rhs));
 }
 
 //  bool operator==(const iterator &lhs, const iterator &rhs)

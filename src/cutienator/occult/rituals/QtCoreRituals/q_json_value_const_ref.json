@@ -54,6 +54,36 @@
     "ritual_ZneRK10QJsonValueRK18QJsonValueConstRef": [
       "bool", "address", "address"
     ],
+    "ritual_ZN18QJsonValueConstRef12concreteTypeES_": ["int", "address"],
+    "ritual_ZN18QJsonValueConstRef12concreteBoolES_b": [
+      "bool", "address", "bool"
+    ],
+    "ritual_ZN18QJsonValueConstRef11concreteIntES_xb": [
+      "long long", "address", "long long", "bool"
+    ],
+    "ritual_ZN18QJsonValueConstRef14concreteDoubleES_d": [
+      "double", "address", "double"
+    ],
+    "ritual_ZN18QJsonValueConstRef14concreteStringES_RK7QString": [
+      "text", "address", "text"
+    ],
+    "ritual_ZN18QJsonValueConstRef18concreteStringViewES_14QAnyStringView": [
+      "text", "address", "text"
+    ],
+    "ritual_ZN18QJsonValueConstRef8concreteES_": ["address", "address"],
+    "ritual_ZN18QJsonValueConstRef9objectKeyES_": ["text", "address"],
+    "ritual_ZNK18QJsonValueConstRef9objectKeyEv": ["text", "address"],
+    "ritual_ZN18QJsonValueConstRef13objectKeyViewES_": ["text", "address"],
+    "ritual_ZNK18QJsonValueConstRef13objectKeyViewEv": ["text", "address"],
+    "ritual_ZN18QJsonValueConstRefC1EP10QJsonArrayx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN18QJsonValueConstRefC1EP11QJsonObjectx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN18QJsonValueConstRef6rebindES_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN18QJsonValueConstRefD1Ev": ["nothing", "address"]
   }
 }

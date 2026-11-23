@@ -53,7 +53,8 @@ class QPagedPaintDevice(QPaintDevice):
   What has no ritual
   ------------------
 
-  2 of the 11 functions Qt declares: 2 protected.
+  2 of the 11 functions Qt declares: 1 the class is abstract, so C++ cannot
+  make one; 1 takes or gives a type that cannot be passed yet.
 
   What to expect
   --------------

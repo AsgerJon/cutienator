@@ -32,6 +32,9 @@
     "ritual_ZgtRK11QModelIndexS1_": ["bool", "address", "address"],
     "ritual_ZleRK11QModelIndexS1_": ["bool", "address", "address"],
     "ritual_ZgeRK11QModelIndexS1_": ["bool", "address", "address"],
+    "ritual_ZN11QModelIndexC1EiiyPK18QAbstractItemModel": [
+      "address", "int", "int", "unsigned long long", "address"
+    ],
     "ritual_ZN11QModelIndexD1Ev": ["nothing", "address"],
     "ritual_list_make_QModelIndex": ["address"],
     "ritual_list_add_QModelIndex": ["nothing", "address", "address"],

@@ -1102,6 +1102,164 @@ void ritual_ZN16QAbstractSpinBox5clearEv(QAbstractSpinBox *self) {
   self->clear();
 }
 
+//  void QAbstractSpinBox::resizeEvent(QResizeEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QAbstractSpinBox11resizeEventEP12QResizeEvent(
+    QAbstractSpinBox *self,
+    QResizeEvent *event) {
+  self->resizeEvent(event);
+}
+
+//  void QAbstractSpinBox::keyPressEvent(QKeyEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QAbstractSpinBox13keyPressEventEP9QKeyEvent(
+    QAbstractSpinBox *self,
+    QKeyEvent *event) {
+  self->keyPressEvent(event);
+}
+
+//  void QAbstractSpinBox::keyReleaseEvent(QKeyEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QAbstractSpinBox15keyReleaseEventEP9QKeyEvent(
+    QAbstractSpinBox *self,
+    QKeyEvent *event) {
+  self->keyReleaseEvent(event);
+}
+
+//  void QAbstractSpinBox::wheelEvent(QWheelEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QAbstractSpinBox10wheelEventEP11QWheelEvent(
+    QAbstractSpinBox *self,
+    QWheelEvent *event) {
+  self->wheelEvent(event);
+}
+
+//  void QAbstractSpinBox::focusInEvent(QFocusEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QAbstractSpinBox12focusInEventEP11QFocusEvent(
+    QAbstractSpinBox *self,
+    QFocusEvent *event) {
+  self->focusInEvent(event);
+}
+
+//  void QAbstractSpinBox::focusOutEvent(QFocusEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QAbstractSpinBox13focusOutEventEP11QFocusEvent(
+    QAbstractSpinBox *self,
+    QFocusEvent *event) {
+  self->focusOutEvent(event);
+}
+
+//  void QAbstractSpinBox::contextMenuEvent(QContextMenuEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QAbstractSpinBox16contextMenuEventEP17QContextMenuEvent(
+    QAbstractSpinBox *self,
+    QContextMenuEvent *event) {
+  self->contextMenuEvent(event);
+}
+
+//  void QAbstractSpinBox::changeEvent(QEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QAbstractSpinBox11changeEventEP6QEvent(
+    QAbstractSpinBox *self,
+    QEvent *event) {
+  self->changeEvent(event);
+}
+
+//  void QAbstractSpinBox::closeEvent(QCloseEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QAbstractSpinBox10closeEventEP11QCloseEvent(
+    QAbstractSpinBox *self,
+    QCloseEvent *event) {
+  self->closeEvent(event);
+}
+
+//  void QAbstractSpinBox::hideEvent(QHideEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QAbstractSpinBox9hideEventEP10QHideEvent(
+    QAbstractSpinBox *self,
+    QHideEvent *event) {
+  self->hideEvent(event);
+}
+
+//  void QAbstractSpinBox::mousePressEvent(QMouseEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QAbstractSpinBox15mousePressEventEP11QMouseEvent(
+    QAbstractSpinBox *self,
+    QMouseEvent *event) {
+  self->mousePressEvent(event);
+}
+
+//  void QAbstractSpinBox::mouseReleaseEvent(QMouseEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QAbstractSpinBox17mouseReleaseEventEP11QMouseEvent(
+    QAbstractSpinBox *self,
+    QMouseEvent *event) {
+  self->mouseReleaseEvent(event);
+}
+
+//  void QAbstractSpinBox::mouseMoveEvent(QMouseEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QAbstractSpinBox14mouseMoveEventEP11QMouseEvent(
+    QAbstractSpinBox *self,
+    QMouseEvent *event) {
+  self->mouseMoveEvent(event);
+}
+
+//  void QAbstractSpinBox::timerEvent(QTimerEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QAbstractSpinBox10timerEventEP11QTimerEvent(
+    QAbstractSpinBox *self,
+    QTimerEvent *event) {
+  self->timerEvent(event);
+}
+
+//  void QAbstractSpinBox::paintEvent(QPaintEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QAbstractSpinBox10paintEventEP11QPaintEvent(
+    QAbstractSpinBox *self,
+    QPaintEvent *event) {
+  self->paintEvent(event);
+}
+
+//  void QAbstractSpinBox::showEvent(QShowEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QAbstractSpinBox9showEventEP10QShowEvent(
+    QAbstractSpinBox *self,
+    QShowEvent *event) {
+  self->showEvent(event);
+}
+
+//  void QAbstractSpinBox::initStyleOption(QStyleOptionSpinBox *option) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK16QAbstractSpinBox15initStyleOptionEP19QStyleOptionSpinBox(
+    const QAbstractSpinBox *self,
+    QStyleOptionSpinBox *option) {
+  self->initStyleOption(option);
+}
+
+//  QLineEdit *QAbstractSpinBox::lineEdit() const
+extern "C" Q_DECL_EXPORT
+QLineEdit *ritual_ZNK16QAbstractSpinBox8lineEditEv(
+    const QAbstractSpinBox *self) {
+  return self->lineEdit();
+}
+
+//  void QAbstractSpinBox::setLineEdit(QLineEdit *edit)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QAbstractSpinBox11setLineEditEP9QLineEdit(
+    QAbstractSpinBox *self,
+    QLineEdit *edit) {
+  self->setLineEdit(edit);
+}
+
+//  StepEnabled QAbstractSpinBox::stepEnabled() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK16QAbstractSpinBox11stepEnabledEv(
+    const QAbstractSpinBox *self) {
+  return static_cast<int>(self->stepEnabled().toInt());
+}
+
 //  a Python function taken by a CuteQAbstractSpinBox, for the function named
 //      by the key
 extern "C" Q_DECL_EXPORT

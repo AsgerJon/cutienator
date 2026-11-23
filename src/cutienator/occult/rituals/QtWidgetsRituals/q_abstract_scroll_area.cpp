@@ -4,6 +4,7 @@
 #include <QtCore/qstring.h>
 #include <QtWidgets/qwidget.h>
 #include <QtCore/qsize.h>
+#include <QtCore/qmargins.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
@@ -1049,6 +1050,178 @@ void ritual_ZN19QAbstractScrollArea19setSizeAdjustPolicyENS_16SizeAdjustPolicyE(
     QAbstractScrollArea *self,
     QAbstractScrollArea::SizeAdjustPolicy policy) {
   self->setSizeAdjustPolicy(policy);
+}
+
+//  void QAbstractScrollArea::setViewportMargins(int left, int top, int
+//      right, int bottom)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QAbstractScrollArea18setViewportMarginsEiiii(
+    QAbstractScrollArea *self,
+    int left,
+    int top,
+    int right,
+    int bottom) {
+  self->setViewportMargins(left, top, right, bottom);
+}
+
+//  void QAbstractScrollArea::setViewportMargins(const QMargins &margins)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QAbstractScrollArea18setViewportMarginsERK8QMargins(
+    QAbstractScrollArea *self,
+    const QMargins *margins) {
+  self->setViewportMargins(*margins);
+}
+
+//  QMargins QAbstractScrollArea::viewportMargins() const
+extern "C" Q_DECL_EXPORT
+QMargins *ritual_ZNK19QAbstractScrollArea15viewportMarginsEv(
+    const QAbstractScrollArea *self) {
+  return new QMargins(self->viewportMargins());
+}
+
+//  bool QAbstractScrollArea::eventFilter(QObject *a0, QEvent *a1)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN19QAbstractScrollArea11eventFilterEP7QObjectP6QEvent(
+    QAbstractScrollArea *self,
+    QObject *a0,
+    QEvent *a1) {
+  return self->eventFilter(a0, a1);
+}
+
+//  bool QAbstractScrollArea::event(QEvent *a0)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN19QAbstractScrollArea5eventEP6QEvent(
+    QAbstractScrollArea *self,
+    QEvent *a0) {
+  return self->event(a0);
+}
+
+//  bool QAbstractScrollArea::viewportEvent(QEvent *a0)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN19QAbstractScrollArea13viewportEventEP6QEvent(
+    QAbstractScrollArea *self,
+    QEvent *a0) {
+  return self->viewportEvent(a0);
+}
+
+//  void QAbstractScrollArea::resizeEvent(QResizeEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QAbstractScrollArea11resizeEventEP12QResizeEvent(
+    QAbstractScrollArea *self,
+    QResizeEvent *a0) {
+  self->resizeEvent(a0);
+}
+
+//  void QAbstractScrollArea::paintEvent(QPaintEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QAbstractScrollArea10paintEventEP11QPaintEvent(
+    QAbstractScrollArea *self,
+    QPaintEvent *a0) {
+  self->paintEvent(a0);
+}
+
+//  void QAbstractScrollArea::mousePressEvent(QMouseEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QAbstractScrollArea15mousePressEventEP11QMouseEvent(
+    QAbstractScrollArea *self,
+    QMouseEvent *a0) {
+  self->mousePressEvent(a0);
+}
+
+//  void QAbstractScrollArea::mouseReleaseEvent(QMouseEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QAbstractScrollArea17mouseReleaseEventEP11QMouseEvent(
+    QAbstractScrollArea *self,
+    QMouseEvent *a0) {
+  self->mouseReleaseEvent(a0);
+}
+
+//  void QAbstractScrollArea::mouseDoubleClickEvent(QMouseEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QAbstractScrollArea21mouseDoubleClickEventEP11QMouseEvent(
+    QAbstractScrollArea *self,
+    QMouseEvent *a0) {
+  self->mouseDoubleClickEvent(a0);
+}
+
+//  void QAbstractScrollArea::mouseMoveEvent(QMouseEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QAbstractScrollArea14mouseMoveEventEP11QMouseEvent(
+    QAbstractScrollArea *self,
+    QMouseEvent *a0) {
+  self->mouseMoveEvent(a0);
+}
+
+//  void QAbstractScrollArea::wheelEvent(QWheelEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QAbstractScrollArea10wheelEventEP11QWheelEvent(
+    QAbstractScrollArea *self,
+    QWheelEvent *a0) {
+  self->wheelEvent(a0);
+}
+
+//  void QAbstractScrollArea::contextMenuEvent(QContextMenuEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QAbstractScrollArea16contextMenuEventEP17QContextMenuEvent(
+    QAbstractScrollArea *self,
+    QContextMenuEvent *a0) {
+  self->contextMenuEvent(a0);
+}
+
+//  void QAbstractScrollArea::dragEnterEvent(QDragEnterEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QAbstractScrollArea14dragEnterEventEP15QDragEnterEvent(
+    QAbstractScrollArea *self,
+    QDragEnterEvent *a0) {
+  self->dragEnterEvent(a0);
+}
+
+//  void QAbstractScrollArea::dragMoveEvent(QDragMoveEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QAbstractScrollArea13dragMoveEventEP14QDragMoveEvent(
+    QAbstractScrollArea *self,
+    QDragMoveEvent *a0) {
+  self->dragMoveEvent(a0);
+}
+
+//  void QAbstractScrollArea::dragLeaveEvent(QDragLeaveEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QAbstractScrollArea14dragLeaveEventEP15QDragLeaveEvent(
+    QAbstractScrollArea *self,
+    QDragLeaveEvent *a0) {
+  self->dragLeaveEvent(a0);
+}
+
+//  void QAbstractScrollArea::dropEvent(QDropEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QAbstractScrollArea9dropEventEP10QDropEvent(
+    QAbstractScrollArea *self,
+    QDropEvent *a0) {
+  self->dropEvent(a0);
+}
+
+//  void QAbstractScrollArea::keyPressEvent(QKeyEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QAbstractScrollArea13keyPressEventEP9QKeyEvent(
+    QAbstractScrollArea *self,
+    QKeyEvent *a0) {
+  self->keyPressEvent(a0);
+}
+
+//  void QAbstractScrollArea::scrollContentsBy(int dx, int dy)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QAbstractScrollArea16scrollContentsByEii(
+    QAbstractScrollArea *self,
+    int dx,
+    int dy) {
+  self->scrollContentsBy(dx, dy);
+}
+
+//  QSize QAbstractScrollArea::viewportSizeHint() const
+extern "C" Q_DECL_EXPORT
+QSize *ritual_ZNK19QAbstractScrollArea16viewportSizeHintEv(
+    const QAbstractScrollArea *self) {
+  return new QSize(self->viewportSizeHint());
 }
 
 //  a Python function taken by a CuteQAbstractScrollArea, for the function

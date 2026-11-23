@@ -14,6 +14,9 @@ from worktoy.dispatch import overload
 from ..occult import Rituals
 from . import QStringConverter, QStringConverterBase
 
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from . import QByteArray
+
 
 class QStringEncoder(QStringConverter):
   """
@@ -27,14 +30,15 @@ class QStringEncoder(QStringConverter):
   -----------
 
   Every function of Qt's QStringEncoder that has a ritual and that Python can
-  call so far, 1 name in all: 'requiredSpace'. It can be made from Python, in
-  3 ways; see '__init__'.
+  call so far, 4 names in all: 'requiredSpace', 'invalidateAndReturnNull',
+  'encodeAsByteArrayImpl', 'encodeAsByteArray'. It can be made from Python,
+  in 3 ways; see '__init__'.
 
   What has no ritual
   ------------------
 
-  11 of the 15 functions Qt declares: 5 takes or gives a type that cannot be
-  passed yet; 3 private; 2 a template; 1 protected.
+  8 of the 15 functions Qt declares: 6 takes or gives a type that cannot be
+  passed yet; 2 a template.
 
   What to expect
   --------------
@@ -201,3 +205,80 @@ class QStringEncoder(QStringConverter):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def invalidateAndReturnNull(self) -> QByteArray:
+    """
+    Calls Qt's 'QByteArray QStringEncoder::invalidateAndReturnNull()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qstringencoder.html#invalidateAndReturnNull
+
+    Returns
+    -------
+
+    QByteArray
+      A new cute QByteArray around the copy Qt gave back. Python owns it.
+    """
+    #  QByteArray QStringEncoder::invalidateAndReturnNull()
+    address = self.uglySide.call(
+        'ritual_ZN14QStringEncoder23invalidateAndReturnNullEv',
+    )
+    from . import QByteArray
+    return QByteArray._cuteOwning(address)
+
+  @overload(str)
+  def encodeAsByteArrayImpl(self, in_: str) -> QByteArray:
+    """
+    Calls Qt's 'QByteArray QStringEncoder::encodeAsByteArrayImpl(QStringView
+    in)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qstringencoder.html#encodeAsByteArrayImpl
+
+    Parameters
+    ----------
+
+    in_ : str
+      Passed on as it is: a QString is made of it for the call.
+
+    Returns
+    -------
+
+    QByteArray
+      A new cute QByteArray around the copy Qt gave back. Python owns it.
+    """
+    #  QByteArray QStringEncoder::encodeAsByteArrayImpl(QStringView in)
+    address = self.uglySide.call(
+        'ritual_ZN14QStringEncoder21encodeAsByteArrayImplE11QStringView',
+        in_,
+    )
+    from . import QByteArray
+    return QByteArray._cuteOwning(address)
+
+  @overload(str)
+  def encodeAsByteArray(self, in_: str) -> QByteArray:
+    """
+    Calls Qt's 'QByteArray QStringEncoder::encodeAsByteArray(QStringView
+    in)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qstringencoder.html#encodeAsByteArray
+
+    Parameters
+    ----------
+
+    in_ : str
+      Passed on as it is: a QString is made of it for the call.
+
+    Returns
+    -------
+
+    QByteArray
+      A new cute QByteArray around the copy Qt gave back. Python owns it.
+    """
+    #  QByteArray QStringEncoder::encodeAsByteArray(QStringView in)
+    address = self.uglySide.call(
+        'ritual_ZN14QStringEncoder17encodeAsByteArrayE11QStringView', in_,
+    )
+    from . import QByteArray
+    return QByteArray._cuteOwning(address)

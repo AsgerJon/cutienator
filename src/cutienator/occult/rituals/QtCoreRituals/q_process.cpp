@@ -739,6 +739,23 @@ void ritual_ZN8QProcess4killEv(QProcess *self) {
   self->kill();
 }
 
+//  void QProcess::setProcessState(ProcessState state)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QProcess15setProcessStateENS_12ProcessStateE(
+    QProcess *self,
+    QProcess::ProcessState state) {
+  self->setProcessState(state);
+}
+
+//  qint64 QProcess::writeData(const char *data, qint64 len)
+extern "C" Q_DECL_EXPORT
+qint64 ritual_ZN8QProcess9writeDataEPKcx(
+    QProcess *self,
+    const char *data,
+    qint64 len) {
+  return self->writeData(data, len);
+}
+
 //  a Python function taken by a CuteQProcess, for the function named by the
 //      key
 extern "C" Q_DECL_EXPORT

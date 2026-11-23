@@ -941,6 +941,167 @@ void ritual_ZN13QMdiSubWindow10showShadedEv(QMdiSubWindow *self) {
   self->showShaded();
 }
 
+//  bool QMdiSubWindow::eventFilter(QObject *object, QEvent *event)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN13QMdiSubWindow11eventFilterEP7QObjectP6QEvent(
+    QMdiSubWindow *self,
+    QObject *object,
+    QEvent *event) {
+  return self->eventFilter(object, event);
+}
+
+//  bool QMdiSubWindow::event(QEvent *event)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN13QMdiSubWindow5eventEP6QEvent(
+    QMdiSubWindow *self,
+    QEvent *event) {
+  return self->event(event);
+}
+
+//  void QMdiSubWindow::showEvent(QShowEvent *showEvent)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QMdiSubWindow9showEventEP10QShowEvent(
+    QMdiSubWindow *self,
+    QShowEvent *showEvent) {
+  self->showEvent(showEvent);
+}
+
+//  void QMdiSubWindow::hideEvent(QHideEvent *hideEvent)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QMdiSubWindow9hideEventEP10QHideEvent(
+    QMdiSubWindow *self,
+    QHideEvent *hideEvent) {
+  self->hideEvent(hideEvent);
+}
+
+//  void QMdiSubWindow::changeEvent(QEvent *changeEvent)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QMdiSubWindow11changeEventEP6QEvent(
+    QMdiSubWindow *self,
+    QEvent *changeEvent) {
+  self->changeEvent(changeEvent);
+}
+
+//  void QMdiSubWindow::closeEvent(QCloseEvent *closeEvent)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QMdiSubWindow10closeEventEP11QCloseEvent(
+    QMdiSubWindow *self,
+    QCloseEvent *closeEvent) {
+  self->closeEvent(closeEvent);
+}
+
+//  void QMdiSubWindow::leaveEvent(QEvent *leaveEvent)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QMdiSubWindow10leaveEventEP6QEvent(
+    QMdiSubWindow *self,
+    QEvent *leaveEvent) {
+  self->leaveEvent(leaveEvent);
+}
+
+//  void QMdiSubWindow::resizeEvent(QResizeEvent *resizeEvent)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QMdiSubWindow11resizeEventEP12QResizeEvent(
+    QMdiSubWindow *self,
+    QResizeEvent *resizeEvent) {
+  self->resizeEvent(resizeEvent);
+}
+
+//  void QMdiSubWindow::timerEvent(QTimerEvent *timerEvent)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QMdiSubWindow10timerEventEP11QTimerEvent(
+    QMdiSubWindow *self,
+    QTimerEvent *timerEvent) {
+  self->timerEvent(timerEvent);
+}
+
+//  void QMdiSubWindow::moveEvent(QMoveEvent *moveEvent)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QMdiSubWindow9moveEventEP10QMoveEvent(
+    QMdiSubWindow *self,
+    QMoveEvent *moveEvent) {
+  self->moveEvent(moveEvent);
+}
+
+//  void QMdiSubWindow::paintEvent(QPaintEvent *paintEvent)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QMdiSubWindow10paintEventEP11QPaintEvent(
+    QMdiSubWindow *self,
+    QPaintEvent *paintEvent) {
+  self->paintEvent(paintEvent);
+}
+
+//  void QMdiSubWindow::mousePressEvent(QMouseEvent *mouseEvent)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QMdiSubWindow15mousePressEventEP11QMouseEvent(
+    QMdiSubWindow *self,
+    QMouseEvent *mouseEvent) {
+  self->mousePressEvent(mouseEvent);
+}
+
+//  void QMdiSubWindow::mouseDoubleClickEvent(QMouseEvent *mouseEvent)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QMdiSubWindow21mouseDoubleClickEventEP11QMouseEvent(
+    QMdiSubWindow *self,
+    QMouseEvent *mouseEvent) {
+  self->mouseDoubleClickEvent(mouseEvent);
+}
+
+//  void QMdiSubWindow::mouseReleaseEvent(QMouseEvent *mouseEvent)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QMdiSubWindow17mouseReleaseEventEP11QMouseEvent(
+    QMdiSubWindow *self,
+    QMouseEvent *mouseEvent) {
+  self->mouseReleaseEvent(mouseEvent);
+}
+
+//  void QMdiSubWindow::mouseMoveEvent(QMouseEvent *mouseEvent)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QMdiSubWindow14mouseMoveEventEP11QMouseEvent(
+    QMdiSubWindow *self,
+    QMouseEvent *mouseEvent) {
+  self->mouseMoveEvent(mouseEvent);
+}
+
+//  void QMdiSubWindow::keyPressEvent(QKeyEvent *keyEvent)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QMdiSubWindow13keyPressEventEP9QKeyEvent(
+    QMdiSubWindow *self,
+    QKeyEvent *keyEvent) {
+  self->keyPressEvent(keyEvent);
+}
+
+//  void QMdiSubWindow::contextMenuEvent(QContextMenuEvent *contextMenuEvent)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QMdiSubWindow16contextMenuEventEP17QContextMenuEvent(
+    QMdiSubWindow *self,
+    QContextMenuEvent *contextMenuEvent) {
+  self->contextMenuEvent(contextMenuEvent);
+}
+
+//  void QMdiSubWindow::focusInEvent(QFocusEvent *focusInEvent)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QMdiSubWindow12focusInEventEP11QFocusEvent(
+    QMdiSubWindow *self,
+    QFocusEvent *focusInEvent) {
+  self->focusInEvent(focusInEvent);
+}
+
+//  void QMdiSubWindow::focusOutEvent(QFocusEvent *focusOutEvent)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QMdiSubWindow13focusOutEventEP11QFocusEvent(
+    QMdiSubWindow *self,
+    QFocusEvent *focusOutEvent) {
+  self->focusOutEvent(focusOutEvent);
+}
+
+//  void QMdiSubWindow::childEvent(QChildEvent *childEvent)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QMdiSubWindow10childEventEP11QChildEvent(
+    QMdiSubWindow *self,
+    QChildEvent *childEvent) {
+  self->childEvent(childEvent);
+}
+
 //  a Python function taken by a CuteQMdiSubWindow, for the function named by
 //      the key
 extern "C" Q_DECL_EXPORT

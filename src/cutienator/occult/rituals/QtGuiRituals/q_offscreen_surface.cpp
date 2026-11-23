@@ -278,6 +278,14 @@ void ritual_ZN17QOffscreenSurface9setScreenEP7QScreen(
   self->setScreen(screen);
 }
 
+//  void QOffscreenSurface::screenDestroyed(QObject *screen)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QOffscreenSurface15screenDestroyedEP7QObject(
+    QOffscreenSurface *self,
+    QObject *screen) {
+  self->screenDestroyed(screen);
+}
+
 //  QOffscreenSurface as the QSurface it is built on
 extern "C" Q_DECL_EXPORT
 QSurface *ritual_cast_QOffscreenSurface_QSurface(QOffscreenSurface *self) {

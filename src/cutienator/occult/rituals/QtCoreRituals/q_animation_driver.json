@@ -16,6 +16,11 @@
     "ritual_ZN16QAnimationDriver9uninstallEv": ["nothing", "address"],
     "ritual_ZNK16QAnimationDriver9isRunningEv": ["bool", "address"],
     "ritual_ZNK16QAnimationDriver7elapsedEv": ["long long", "address"],
+    "ritual_ZN16QAnimationDriver16advanceAnimationEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QAnimationDriver5startEv": ["nothing", "address"],
+    "ritual_ZN16QAnimationDriver4stopEv": ["nothing", "address"],
     "ritual_take_QAnimationDriver": ["bool", "address", "chars", "address"],
     "ritual_own_ZN16QAnimationDriver7advanceEv": ["nothing", "address"],
     "ritual_own_ZNK16QAnimationDriver7elapsedEv": ["long long", "address"],

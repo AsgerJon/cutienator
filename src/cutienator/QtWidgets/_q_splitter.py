@@ -48,14 +48,15 @@ class QSplitter(QFrame):
   -----------
 
   Every function of Qt's QSplitter that has a ritual and that Python can call
-  so far, 30 names in all: 'metaObject', 'tr', 'addWidget', 'insertWidget',
+  so far, 33 names in all: 'metaObject', 'tr', 'addWidget', 'insertWidget',
   'replaceWidget', 'setOrientation', 'orientation', 'setChildrenCollapsible',
   'childrenCollapsible', 'setCollapsible', 'isCollapsible',
   'setOpaqueResize', 'opaqueResize', 'refresh', 'sizeHint',
   'minimumSizeHint', 'saveState', 'restoreState', 'handleWidth',
   'setHandleWidth', 'indexOf', 'widget', 'count', 'handle',
   'setStretchFactor', 'createHandle', 'childEvent', 'event', 'resizeEvent',
-  'changeEvent'. It can be made from Python, in 2 ways; see '__init__'.
+  'changeEvent', 'moveSplitter', 'setRubberBand', 'closestLegalPosition'. It
+  can be made from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -68,8 +69,9 @@ class QSplitter(QFrame):
   What has no ritual
   ------------------
 
-  14 of the 48 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 3 private; 3 protected; 2 forbidden; 1 a template; 1 a signal.
+  11 of the 48 functions Qt declares: 6 takes or gives a type that cannot be
+  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found;
+  1 a signal.
 
   What to expect
   --------------
@@ -496,6 +498,22 @@ class QSplitter(QFrame):
         'ritual_ZN9QSplitter16setStretchFactorEii', index, stretch,
     )
 
+  @overload(int)
+  def setRubberBand(self, position: int) -> None:
+    """
+    Calls Qt's 'void QSplitter::setRubberBand(int position)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qsplitter.html#setRubberBand
+
+    Parameters
+    ----------
+
+    position : int
+      Passed on as it is.
+    """
+    #  void QSplitter::setRubberBand(int position)
+    self.uglySide.call('ritual_ZN9QSplitter13setRubberBandEi', position)
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -704,7 +722,10 @@ class QSplitter(QFrame):
       no object.
     """
     #  QSplitterHandle *QSplitter::createHandle()
-    address = self.uglySide.call('ritual_own_ZN9QSplitter12createHandleEv')
+    ritual = 'ritual_ZN9QSplitter12createHandleEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QSplitter12createHandleEv'
+    address = self.uglySide.call(ritual)
     from . import QSplitterHandle
     return QSplitterHandle._cuteAt(address)
 
@@ -724,10 +745,10 @@ class QSplitter(QFrame):
       object.
     """
     #  void QSplitter::childEvent(QChildEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN9QSplitter10childEventEP11QChildEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN9QSplitter10childEventEP11QChildEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QSplitter10childEventEP11QChildEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QEvent)
   @overload(NoneType)
@@ -745,9 +766,10 @@ class QSplitter(QFrame):
       object.
     """
     #  bool QSplitter::event(QEvent *a0)
-    return self.uglySide.call(
-        'ritual_own_ZN9QSplitter5eventEP6QEvent', self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN9QSplitter5eventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QSplitter5eventEP6QEvent'
+    return self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QResizeEvent)
   @overload(NoneType)
@@ -765,10 +787,10 @@ class QSplitter(QFrame):
       object.
     """
     #  void QSplitter::resizeEvent(QResizeEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN9QSplitter11resizeEventEP12QResizeEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN9QSplitter11resizeEventEP12QResizeEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QSplitter11resizeEventEP12QResizeEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QEvent)
   @overload(NoneType)
@@ -786,6 +808,48 @@ class QSplitter(QFrame):
       object.
     """
     #  void QSplitter::changeEvent(QEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN9QSplitter11changeEventEP6QEvent', self._addressOf(a0),
+    ritual = 'ritual_ZN9QSplitter11changeEventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QSplitter11changeEventEP6QEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
+
+  @overload(int, int)
+  def moveSplitter(self, pos: int, index: int) -> None:
+    """
+    Calls Qt's 'void QSplitter::moveSplitter(int pos, int index)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qsplitter.html#moveSplitter
+
+    Parameters
+    ----------
+
+    pos : int
+      Passed on as it is.
+
+    index : int
+      Passed on as it is.
+    """
+    #  void QSplitter::moveSplitter(int pos, int index)
+    self.uglySide.call('ritual_ZN9QSplitter12moveSplitterEii', pos, index)
+
+  @overload(int, int)
+  def closestLegalPosition(self, a0: int, a1: int) -> int:
+    """
+    Calls Qt's 'int QSplitter::closestLegalPosition(int a0, int a1)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qsplitter.html#closestLegalPosition
+
+    Parameters
+    ----------
+
+    a0 : int
+      Passed on as it is.
+
+    a1 : int
+      Passed on as it is.
+    """
+    #  int QSplitter::closestLegalPosition(int a0, int a1)
+    return self.uglySide.call(
+        'ritual_ZN9QSplitter20closestLegalPositionEii', a0, a1,
     )

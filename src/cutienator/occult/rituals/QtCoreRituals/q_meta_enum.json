@@ -29,6 +29,7 @@
     ],
     "ritual_ZNK9QMetaEnum19enclosingMetaObjectEv": ["address", "address"],
     "ritual_ZNK9QMetaEnum7isValidEv": ["bool", "address"],
+    "ritual_ZN9QMetaEnumC1EPK11QMetaObjecti": ["address", "address", "int"],
     "ritual_ZN9QMetaEnumD1Ev": ["nothing", "address"]
   }
 }

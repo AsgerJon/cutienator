@@ -17,6 +17,7 @@
     "ritual_ZNK6QEvent18isSinglePointEventEv": ["bool", "address"],
     "ritual_ZN6QEvent17registerEventTypeEi": ["int", "int"],
     "ritual_ZNK6QEvent5cloneEv": ["address", "address"],
+    "ritual_ZN6QEvent14setSpontaneousEv": ["nothing", "address"],
     "ritual_take_QEvent": ["bool", "address", "chars", "address"],
     "ritual_own_ZN6QEvent11setAcceptedEb": ["nothing", "address", "bool"],
     "ritual_own_ZNK6QEvent5cloneEv": ["address", "address"]

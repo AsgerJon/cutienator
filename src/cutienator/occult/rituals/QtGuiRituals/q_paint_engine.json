@@ -97,6 +97,10 @@
     "ritual_ZN12QPaintEngine21createPixmapFromImageE6QImage6QFlagsIN2Qt19ImageConversionFlagEE": [
       "address", "address", "address", "int"
     ],
+    "ritual_ZN12QPaintEngine15setAutoDestructEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK12QPaintEngine12autoDestructEv": ["bool", "address"],
     "ritual_take_QPaintEngine": ["bool", "address", "chars", "address"],
     "ritual_own_ZN12QPaintEngine9drawRectsEPK5QRecti": [
       "nothing", "address", "address", "int"

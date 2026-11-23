@@ -46,8 +46,8 @@ class QAbstractFileIconProvider(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  8 of the 15 functions Qt declares: 3 private; 2 forbidden; 1 declared and
-  nowhere to be found; 1 a template; 1 protected.
+  8 of the 15 functions Qt declares: 3 takes or gives a type that cannot be
+  passed yet; 2 declared and nowhere to be found; 2 forbidden; 1 a template.
 
   What to expect
   --------------

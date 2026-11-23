@@ -111,8 +111,9 @@ class QGraphicsWidget(QGraphicsObject, QGraphicsLayoutItem):
   What has no ritual
   ------------------
 
-  11 of the 97 functions Qt declares: 3 private; 2 takes or gives a type that
-  cannot be passed yet; 2 a signal; 2 forbidden; 1 a template; 1 protected.
+  11 of the 97 functions Qt declares: 5 takes or gives a type that cannot be
+  passed yet; 2 a signal; 2 forbidden; 1 a template; 1 declared and nowhere
+  to be found.
 
   What to expect
   --------------
@@ -792,9 +793,12 @@ class QGraphicsWidget(QGraphicsObject, QGraphicsLayoutItem):
     if constraint is None:
       from ..QtCore import QSizeF
       constraint = QSizeF()
+    ritual = 'ritual_ZNK15QGraphicsWidget8sizeHintEN2Qt8SizeHintERK6QSizeF'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK15QGraphicsWidget8sizeHintEN2Qt8SizeHintERK6QSizeF')
     address = self.uglySide.call(
-        'ritual_own_ZNK15QGraphicsWidget8sizeHintEN2Qt8SizeHintERK6QSizeF',
-        which.value, self._valueOf(constraint),
+        ritual, which.value, self._valueOf(constraint),
     )
     from ..QtCore import QSizeF
     return QSizeF._cuteOwning(address)
@@ -825,9 +829,12 @@ class QGraphicsWidget(QGraphicsObject, QGraphicsLayoutItem):
     """
     #  Qt::WindowFrameSection QGraphicsWidget::windowFrameSectionAt(const
     #      QPointF &pos) const
+    ritual = 'ritual_ZNK15QGraphicsWidget20windowFrameSectionAtERK7QPointF'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK15QGraphicsWidget20windowFrameSectionAtERK7QPointF')
     return Qt.WindowFrameSection(self.uglySide.call(
-        'ritual_own_ZNK15QGraphicsWidget20windowFrameSectionAtERK7QPointF',
-        self._valueOf(pos),
+        ritual, self._valueOf(pos),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1711,10 +1718,11 @@ class QGraphicsWidget(QGraphicsObject, QGraphicsLayoutItem):
       object.
     """
     #  void QGraphicsWidget::initStyleOption(QStyleOption *option) const
-    self.uglySide.call(
-        'ritual_own_ZNK15QGraphicsWidget15initStyleOptionEP12QStyleOption',
-        self._addressOf(option),
-    )
+    ritual = 'ritual_ZNK15QGraphicsWidget15initStyleOptionEP12QStyleOption'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK15QGraphicsWidget15initStyleOptionEP12QStyleOption')
+    self.uglySide.call(ritual, self._addressOf(option))
 
   def updateGeometry(self) -> None:
     """
@@ -1724,7 +1732,10 @@ class QGraphicsWidget(QGraphicsObject, QGraphicsLayoutItem):
     https://doc.qt.io/qt-6/qgraphicswidget.html#updateGeometry
     """
     #  void QGraphicsWidget::updateGeometry()
-    self.uglySide.call('ritual_own_ZN15QGraphicsWidget14updateGeometryEv')
+    ritual = 'ritual_ZN15QGraphicsWidget14updateGeometryEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN15QGraphicsWidget14updateGeometryEv'
+    self.uglySide.call(ritual)
 
   @overload(QGraphicsItem.GraphicsItemChange, QVariant)
   def itemChange(
@@ -1756,11 +1767,14 @@ class QGraphicsWidget(QGraphicsObject, QGraphicsLayoutItem):
     """
     #  QVariant QGraphicsWidget::itemChange(GraphicsItemChange change, const
     #      QVariant &value)
-    address = self.uglySide.call(
-        'ritual_own_ZN15QGraphicsWidget10itemChangeEN13QGraphicsItem18Graph'
-        'icsItemChangeERK8QVariant',
-        change.value, self._valueOf(value),
-    )
+    ritual = (
+        'ritual_ZN15QGraphicsWidget10itemChangeEN13QGraphicsItem18GraphicsI'
+        'temChangeERK8QVariant')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN15QGraphicsWidget10itemChangeEN13QGraphicsItem18Gra'
+          'phicsItemChangeERK8QVariant')
+    address = self.uglySide.call(ritual, change.value, self._valueOf(value))
     from ..QtCore import QVariant
     return QVariant._cuteOwning(address)
 
@@ -1791,11 +1805,13 @@ class QGraphicsWidget(QGraphicsObject, QGraphicsLayoutItem):
     """
     #  QVariant QGraphicsWidget::propertyChange(const QString &propertyName,
     #      const QVariant &value)
-    address = self.uglySide.call(
-        'ritual_own_ZN15QGraphicsWidget14propertyChangeERK7QStringRK8QVaria'
-        'nt',
-        propertyName, self._valueOf(value),
-    )
+    ritual = (
+        'ritual_ZN15QGraphicsWidget14propertyChangeERK7QStringRK8QVariant')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN15QGraphicsWidget14propertyChangeERK7QStringRK8QVar'
+          'iant')
+    address = self.uglySide.call(ritual, propertyName, self._valueOf(value))
     from ..QtCore import QVariant
     return QVariant._cuteOwning(address)
 
@@ -1815,10 +1831,10 @@ class QGraphicsWidget(QGraphicsObject, QGraphicsLayoutItem):
       object.
     """
     #  bool QGraphicsWidget::sceneEvent(QEvent *event)
-    return self.uglySide.call(
-        'ritual_own_ZN15QGraphicsWidget10sceneEventEP6QEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN15QGraphicsWidget10sceneEventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN15QGraphicsWidget10sceneEventEP6QEvent'
+    return self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QEvent)
   @overload(NoneType)
@@ -1837,10 +1853,10 @@ class QGraphicsWidget(QGraphicsObject, QGraphicsLayoutItem):
       object.
     """
     #  bool QGraphicsWidget::windowFrameEvent(QEvent *e)
-    return self.uglySide.call(
-        'ritual_own_ZN15QGraphicsWidget16windowFrameEventEP6QEvent',
-        self._addressOf(e),
-    )
+    ritual = 'ritual_ZN15QGraphicsWidget16windowFrameEventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN15QGraphicsWidget16windowFrameEventEP6QEvent'
+    return self.uglySide.call(ritual, self._addressOf(e))
 
   @overload(QEvent)
   @overload(NoneType)
@@ -1858,10 +1874,10 @@ class QGraphicsWidget(QGraphicsObject, QGraphicsLayoutItem):
       object.
     """
     #  bool QGraphicsWidget::event(QEvent *event)
-    return self.uglySide.call(
-        'ritual_own_ZN15QGraphicsWidget5eventEP6QEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN15QGraphicsWidget5eventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN15QGraphicsWidget5eventEP6QEvent'
+    return self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QEvent)
   @overload(NoneType)
@@ -1879,10 +1895,10 @@ class QGraphicsWidget(QGraphicsObject, QGraphicsLayoutItem):
       object.
     """
     #  void QGraphicsWidget::changeEvent(QEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN15QGraphicsWidget11changeEventEP6QEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN15QGraphicsWidget11changeEventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN15QGraphicsWidget11changeEventEP6QEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QCloseEvent)
   @overload(NoneType)
@@ -1900,10 +1916,10 @@ class QGraphicsWidget(QGraphicsObject, QGraphicsLayoutItem):
       object.
     """
     #  void QGraphicsWidget::closeEvent(QCloseEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN15QGraphicsWidget10closeEventEP11QCloseEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN15QGraphicsWidget10closeEventEP11QCloseEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN15QGraphicsWidget10closeEventEP11QCloseEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QFocusEvent)
   @overload(NoneType)
@@ -1921,10 +1937,10 @@ class QGraphicsWidget(QGraphicsObject, QGraphicsLayoutItem):
       object.
     """
     #  void QGraphicsWidget::focusInEvent(QFocusEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN15QGraphicsWidget12focusInEventEP11QFocusEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN15QGraphicsWidget12focusInEventEP11QFocusEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN15QGraphicsWidget12focusInEventEP11QFocusEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(bool)
   def focusNextPrevChild(self, next: bool) -> bool:
@@ -1941,9 +1957,10 @@ class QGraphicsWidget(QGraphicsObject, QGraphicsLayoutItem):
       Passed on as it is.
     """
     #  bool QGraphicsWidget::focusNextPrevChild(bool next)
-    return self.uglySide.call(
-        'ritual_own_ZN15QGraphicsWidget18focusNextPrevChildEb', next,
-    )
+    ritual = 'ritual_ZN15QGraphicsWidget18focusNextPrevChildEb'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN15QGraphicsWidget18focusNextPrevChildEb'
+    return self.uglySide.call(ritual, next)
 
   @overload(QFocusEvent)
   @overload(NoneType)
@@ -1961,10 +1978,10 @@ class QGraphicsWidget(QGraphicsObject, QGraphicsLayoutItem):
       object.
     """
     #  void QGraphicsWidget::focusOutEvent(QFocusEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN15QGraphicsWidget13focusOutEventEP11QFocusEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN15QGraphicsWidget13focusOutEventEP11QFocusEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN15QGraphicsWidget13focusOutEventEP11QFocusEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QHideEvent)
   @overload(NoneType)
@@ -1982,10 +1999,10 @@ class QGraphicsWidget(QGraphicsObject, QGraphicsLayoutItem):
       object.
     """
     #  void QGraphicsWidget::hideEvent(QHideEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN15QGraphicsWidget9hideEventEP10QHideEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN15QGraphicsWidget9hideEventEP10QHideEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN15QGraphicsWidget9hideEventEP10QHideEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QGraphicsSceneMoveEvent)
   @overload(NoneType)
@@ -2004,11 +2021,13 @@ class QGraphicsWidget(QGraphicsObject, QGraphicsLayoutItem):
       object.
     """
     #  void QGraphicsWidget::moveEvent(QGraphicsSceneMoveEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN15QGraphicsWidget9moveEventEP23QGraphicsSceneMoveEven'
-        't',
-        self._addressOf(event),
-    )
+    ritual = (
+        'ritual_ZN15QGraphicsWidget9moveEventEP23QGraphicsSceneMoveEvent')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN15QGraphicsWidget9moveEventEP23QGraphicsSceneMoveEv'
+          'ent')
+    self.uglySide.call(ritual, self._addressOf(event))
 
   def polishEvent(self) -> None:
     """
@@ -2017,7 +2036,10 @@ class QGraphicsWidget(QGraphicsObject, QGraphicsLayoutItem):
     Qt's own words: https://doc.qt.io/qt-6/qgraphicswidget.html#polishEvent
     """
     #  void QGraphicsWidget::polishEvent()
-    self.uglySide.call('ritual_own_ZN15QGraphicsWidget11polishEventEv')
+    ritual = 'ritual_ZN15QGraphicsWidget11polishEventEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN15QGraphicsWidget11polishEventEv'
+    self.uglySide.call(ritual)
 
   @overload(QGraphicsSceneResizeEvent)
   @overload(NoneType)
@@ -2036,11 +2058,14 @@ class QGraphicsWidget(QGraphicsObject, QGraphicsLayoutItem):
       object.
     """
     #  void QGraphicsWidget::resizeEvent(QGraphicsSceneResizeEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN15QGraphicsWidget11resizeEventEP25QGraphicsSceneResiz'
-        'eEvent',
-        self._addressOf(event),
-    )
+    ritual = (
+        'ritual_ZN15QGraphicsWidget11resizeEventEP25QGraphicsSceneResizeEve'
+        'nt')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN15QGraphicsWidget11resizeEventEP25QGraphicsSceneRes'
+          'izeEvent')
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QShowEvent)
   @overload(NoneType)
@@ -2058,10 +2083,10 @@ class QGraphicsWidget(QGraphicsObject, QGraphicsLayoutItem):
       object.
     """
     #  void QGraphicsWidget::showEvent(QShowEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN15QGraphicsWidget9showEventEP10QShowEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN15QGraphicsWidget9showEventEP10QShowEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN15QGraphicsWidget9showEventEP10QShowEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QGraphicsSceneHoverEvent)
   @overload(NoneType)
@@ -2084,11 +2109,14 @@ class QGraphicsWidget(QGraphicsObject, QGraphicsLayoutItem):
       object.
     """
     #  void QGraphicsWidget::hoverMoveEvent(QGraphicsSceneHoverEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN15QGraphicsWidget14hoverMoveEventEP24QGraphicsSceneHo'
-        'verEvent',
-        self._addressOf(event),
-    )
+    ritual = (
+        'ritual_ZN15QGraphicsWidget14hoverMoveEventEP24QGraphicsSceneHoverE'
+        'vent')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN15QGraphicsWidget14hoverMoveEventEP24QGraphicsScene'
+          'HoverEvent')
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QGraphicsSceneHoverEvent)
   @overload(NoneType)
@@ -2111,11 +2139,14 @@ class QGraphicsWidget(QGraphicsObject, QGraphicsLayoutItem):
       object.
     """
     #  void QGraphicsWidget::hoverLeaveEvent(QGraphicsSceneHoverEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN15QGraphicsWidget15hoverLeaveEventEP24QGraphicsSceneH'
-        'overEvent',
-        self._addressOf(event),
-    )
+    ritual = (
+        'ritual_ZN15QGraphicsWidget15hoverLeaveEventEP24QGraphicsSceneHover'
+        'Event')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN15QGraphicsWidget15hoverLeaveEventEP24QGraphicsScen'
+          'eHoverEvent')
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QEvent)
   @overload(NoneType)
@@ -2134,10 +2165,10 @@ class QGraphicsWidget(QGraphicsObject, QGraphicsLayoutItem):
       object.
     """
     #  void QGraphicsWidget::grabMouseEvent(QEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN15QGraphicsWidget14grabMouseEventEP6QEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN15QGraphicsWidget14grabMouseEventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN15QGraphicsWidget14grabMouseEventEP6QEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QEvent)
   @overload(NoneType)
@@ -2156,10 +2187,10 @@ class QGraphicsWidget(QGraphicsObject, QGraphicsLayoutItem):
       object.
     """
     #  void QGraphicsWidget::ungrabMouseEvent(QEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN15QGraphicsWidget16ungrabMouseEventEP6QEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN15QGraphicsWidget16ungrabMouseEventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN15QGraphicsWidget16ungrabMouseEventEP6QEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QEvent)
   @overload(NoneType)
@@ -2178,10 +2209,10 @@ class QGraphicsWidget(QGraphicsObject, QGraphicsLayoutItem):
       object.
     """
     #  void QGraphicsWidget::grabKeyboardEvent(QEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN15QGraphicsWidget17grabKeyboardEventEP6QEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN15QGraphicsWidget17grabKeyboardEventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN15QGraphicsWidget17grabKeyboardEventEP6QEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QEvent)
   @overload(NoneType)
@@ -2200,7 +2231,7 @@ class QGraphicsWidget(QGraphicsObject, QGraphicsLayoutItem):
       object.
     """
     #  void QGraphicsWidget::ungrabKeyboardEvent(QEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN15QGraphicsWidget19ungrabKeyboardEventEP6QEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN15QGraphicsWidget19ungrabKeyboardEventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN15QGraphicsWidget19ungrabKeyboardEventEP6QEvent'
+    self.uglySide.call(ritual, self._addressOf(event))

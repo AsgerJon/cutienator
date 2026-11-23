@@ -13,7 +13,7 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from . import Qt, QAbstractEventDispatcher, QEventLoop
+from . import Qt, QAbstractEventDispatcher, QEventLoop, QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -43,9 +43,10 @@ class QAbstractEventDispatcherV2(QAbstractEventDispatcher):
   -----------
 
   Every function of Qt's QAbstractEventDispatcherV2 that has a ritual and
-  that Python can call so far, 4 names in all: 'metaObject', 'tr',
-  'unregisterTimer', 'processEventsWithDeadline'. None can be made from
-  Python: one comes out of a function of another class that gives one back.
+  that Python can call so far, 6 names in all: 'metaObject', 'tr',
+  'unregisterTimer', 'processEventsWithDeadline', 'registerTimer',
+  'remainingTime'. None can be made from Python: one comes out of a function
+  of another class that gives one back.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -56,9 +57,9 @@ class QAbstractEventDispatcherV2(QAbstractEventDispatcher):
   What has no ritual
   ------------------
 
-  15 of the 20 functions Qt declares: 7 private; 5 takes or gives a type that
-  cannot be passed yet; 1 a template; 1 the class is abstract, so C++ cannot
-  make one; 1 protected.
+  12 of the 20 functions Qt declares: 8 takes or gives a type that cannot be
+  passed yet; 2 the class is abstract, so C++ cannot make one; 1 a template;
+  1 declared and nowhere to be found.
 
   What to expect
   --------------
@@ -245,6 +246,26 @@ class QAbstractEventDispatcherV2(QAbstractEventDispatcher):
         timerId.value,
     )
 
+  @overload(int)
+  def unregisterTimer(self, timerId: int) -> bool:
+    """
+    Calls Qt's 'bool QAbstractEventDispatcherV2::unregisterTimer(int
+    timerId)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstracteventdispatcherv2.html#unregisterTimer
+
+    Parameters
+    ----------
+
+    timerId : int
+      Passed on as it is.
+    """
+    #  bool QAbstractEventDispatcherV2::unregisterTimer(int timerId)
+    return self.uglySide.call(
+        'ritual_ZN26QAbstractEventDispatcherV215unregisterTimerEi', timerId,
+    )
+
   @overload(QEventLoop.ProcessEventsFlags, QDeadlineTimer)
   def processEventsWithDeadline(
       self,
@@ -279,3 +300,62 @@ class QAbstractEventDispatcherV2(QAbstractEventDispatcher):
           'ritual_own_ZN26QAbstractEventDispatcherV225processEventsWithDead'
           'lineE6QFlagsIN10QEventLoop17ProcessEventsFlagEE14QDeadlineTimer')
     return self.uglySide.call(ritual, flags.value, self._valueOf(deadline))
+
+  @overload(int, int, Qt.TimerType, QObject)
+  @overload(int, int, Qt.TimerType, NoneType)
+  def registerTimer(
+      self,
+      timerId: int,
+      interval: int,
+      timerType: Qt.TimerType,
+      object: Optional[QObject],
+  ) -> None:
+    """
+    Calls Qt's 'void QAbstractEventDispatcherV2::registerTimer(int timerId,
+    qint64 interval, Qt::TimerType timerType, QObject *object)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstracteventdispatcherv2.html#registerTimer
+
+    Parameters
+    ----------
+
+    timerId : int
+      Passed on as it is.
+
+    interval : int
+      Passed on as it is.
+
+    timerType : Qt.TimerType
+      Passed on as its number.
+
+    object : Optional[QObject]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QAbstractEventDispatcherV2::registerTimer(int timerId, qint64
+    #      interval, Qt::TimerType timerType, QObject *object)
+    self.uglySide.call(
+        'ritual_ZN26QAbstractEventDispatcherV213registerTimerEixN2Qt9TimerT'
+        'ypeEP7QObject',
+        timerId, interval, timerType.value, self._addressOf(object),
+    )
+
+  @overload(int)
+  def remainingTime(self, timerId: int) -> int:
+    """
+    Calls Qt's 'int QAbstractEventDispatcherV2::remainingTime(int timerId)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstracteventdispatcherv2.html#remainingTime
+
+    Parameters
+    ----------
+
+    timerId : int
+      Passed on as it is.
+    """
+    #  int QAbstractEventDispatcherV2::remainingTime(int timerId)
+    return self.uglySide.call(
+        'ritual_ZN26QAbstractEventDispatcherV213remainingTimeEi', timerId,
+    )

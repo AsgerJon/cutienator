@@ -38,8 +38,8 @@ class QColorTransform(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QColorTransform that has a ritual and that Python
-  can call so far, 4 names in all: 'isIdentity', 'map', '__eq__', '__ne__'.
-  It can be made from Python, in 2 ways; see '__init__'.
+  can call so far, 5 names in all: 'isIdentity', 'map', '__eq__', '__ne__',
+  'compare'. It can be made from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -50,8 +50,8 @@ class QColorTransform(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  7 of the 16 functions Qt declares: 6 takes or gives a type that cannot be
-  passed yet; 1 private.
+  6 of the 16 functions Qt declares: 6 takes or gives a type that cannot be
+  passed yet.
 
   What to expect
   --------------
@@ -174,6 +174,26 @@ class QColorTransform(CuteMixin, metaclass=MetaCute):
     )
     from . import QColor
     return QColor._cuteOwning(address)
+
+  @overload(THIS)
+  def compare(self, other: QColorTransform) -> bool:
+    """
+    Calls Qt's 'bool QColorTransform::compare(const QColorTransform &other)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcolortransform.html#compare
+
+    Parameters
+    ----------
+
+    other : QColorTransform
+      Passed on as a value: Qt reads the C++ QColorTransform, which stays
+      Python's own.
+    """
+    #  bool QColorTransform::compare(const QColorTransform &other) const
+    return self.uglySide.call(
+        'ritual_ZNK15QColorTransform7compareERKS_', self._valueOf(other),
+    )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

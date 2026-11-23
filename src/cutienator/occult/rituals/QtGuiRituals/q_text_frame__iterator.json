@@ -4,6 +4,9 @@
     "QtGui/qtextobject.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10QTextFrame8iteratorC1EPS_iii": [
+      "address", "address", "int", "int", "int"
+    ],
     "ritual_ZN10QTextFrame8iteratorC1Ev": ["address"],
     "ritual_ZNK10QTextFrame8iterator11parentFrameEv": ["address", "address"],
     "ritual_ZNK10QTextFrame8iterator12currentFrameEv": [

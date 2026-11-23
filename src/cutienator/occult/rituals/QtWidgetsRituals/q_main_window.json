@@ -131,6 +131,10 @@
     "ritual_ZN11QMainWindow30setUnifiedTitleAndToolBarOnMacEb": [
       "nothing", "address", "bool"
     ],
+    "ritual_ZN11QMainWindow16contextMenuEventEP17QContextMenuEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QMainWindow5eventEP6QEvent": ["bool", "address", "address"],
     "ritual_take_QMainWindow": ["bool", "address", "chars", "address"],
     "ritual_own_ZN11QMainWindow15createPopupMenuEv": ["address", "address"],
     "ritual_own_ZN11QMainWindow16contextMenuEventEP17QContextMenuEvent": [

@@ -21,6 +21,18 @@ QString *ritual_ZN10QClipboard2trEPKcS1_i(
   return new QString(QClipboard::tr(s, c, n));
 }
 
+//  QClipboard::QClipboard(QObject *parent)
+extern "C" Q_DECL_EXPORT
+QClipboard *ritual_ZN10QClipboardC1EP7QObject(QObject *parent) {
+  return new QClipboard(parent);
+}
+
+//  QClipboard::~QClipboard()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QClipboardD1Ev(QClipboard *self) {
+  delete self;
+}
+
 //  void QClipboard::clear(Mode mode)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN10QClipboard5clearENS_4ModeE(
@@ -125,4 +137,28 @@ void ritual_ZN10QClipboard9setPixmapERK7QPixmapNS_4ModeE(
     const QPixmap *a0,
     QClipboard::Mode mode) {
   self->setPixmap(*a0, mode);
+}
+
+//  bool QClipboard::supportsMode(Mode mode) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK10QClipboard12supportsModeENS_4ModeE(
+    const QClipboard *self,
+    QClipboard::Mode mode) {
+  return self->supportsMode(mode);
+}
+
+//  bool QClipboard::ownsMode(Mode mode) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK10QClipboard8ownsModeENS_4ModeE(
+    const QClipboard *self,
+    QClipboard::Mode mode) {
+  return self->ownsMode(mode);
+}
+
+//  void QClipboard::emitChanged(Mode mode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QClipboard11emitChangedENS_4ModeE(
+    QClipboard *self,
+    QClipboard::Mode mode) {
+  self->emitChanged(mode);
 }

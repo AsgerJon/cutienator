@@ -60,8 +60,8 @@ class QWheelEvent(QSinglePointEvent):
   What has no ritual
   ------------------
 
-  7 of the 20 functions Qt declares: 2 protected; 2 forbidden; 1 declared and
-  nowhere to be found; 1 a template; 1 private.
+  7 of the 20 functions Qt declares: 2 declared and nowhere to be found; 2
+  takes or gives a type that cannot be passed yet; 2 forbidden; 1 a template.
 
   What to expect
   --------------
@@ -278,6 +278,14 @@ class QWheelEvent(QSinglePointEvent):
 
   @overload(
       QPointF, QPointF, QPoint, QPoint, Qt.MouseButtons,
+      Qt.KeyboardModifiers, Qt.ScrollPhase, bool,
+  )
+  @overload(
+      QPointF, QPointF, QPoint, QPoint, Qt.MouseButtons,
+      Qt.KeyboardModifiers, Qt.ScrollPhase, bool, Qt.MouseEventSource,
+  )
+  @overload(
+      QPointF, QPointF, QPoint, QPoint, Qt.MouseButtons,
       Qt.KeyboardModifiers, Qt.ScrollPhase, bool, Qt.MouseEventSource,
       QPointingDevice,
   )
@@ -296,8 +304,9 @@ class QWheelEvent(QSinglePointEvent):
       modifiers: Qt.KeyboardModifiers,
       phase: Qt.ScrollPhase,
       inverted: bool,
-      source: Qt.MouseEventSource,
-      device: Optional[QPointingDevice],
+      source: Qt.MouseEventSource = (
+          Qt.MouseEventSource.MouseEventNotSynthesized),
+      device: Optional[QPointingDevice] = ...,
   ) -> None:
     """
     Notes what was given, for Qt's 'QWheelEvent::QWheelEvent(const QPointF
@@ -340,17 +349,22 @@ class QWheelEvent(QSinglePointEvent):
       Passed on as it is.
 
     source : Qt.MouseEventSource
-      Passed on as its number.
+      Passed on as its number. May be left out, as in Qt: it is then
+      Qt.MouseEventSource.MouseEventNotSynthesized.
 
     device : Optional[QPointingDevice]
       Passed on as the address of its C++ object. None is passed on as no
-      object.
+      object. May be left out, as in Qt: what
+      'QPointingDevice.primaryPointingDevice()' gives is then passed on.
     """
     #  QWheelEvent::QWheelEvent(const QPointF &pos, const QPointF &globalPos,
     #      QPoint pixelDelta, QPoint angleDelta, Qt::MouseButtons buttons,
     #      Qt::KeyboardModifiers modifiers, Qt::ScrollPhase phase, bool
     #      inverted, Qt::MouseEventSource source, const QPointingDevice
     #      *device)
+    if device is ...:
+      from . import QPointingDevice
+      device = QPointingDevice.primaryPointingDevice()
     self._noteCreation(QWheelEvent, lambda: Rituals.call(
         'ritual_ZN11QWheelEventC1ERK7QPointFS2_6QPointS3_6QFlagsIN2Qt11Mous'
         'eButtonEES4_INS5_16KeyboardModifierEENS5_11ScrollPhaseEbNS5_16Mous'

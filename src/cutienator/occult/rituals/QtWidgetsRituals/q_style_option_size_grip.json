@@ -6,6 +6,7 @@
   "rows": {
     "ritual_ZN20QStyleOptionSizeGripC1Ev": ["address"],
     "ritual_ZN20QStyleOptionSizeGripC1ERKS_": ["address", "address"],
+    "ritual_ZN20QStyleOptionSizeGripC1Ei": ["address", "int"],
     "ritual_ZN20QStyleOptionSizeGripD1Ev": ["nothing", "address"]
   }
 }

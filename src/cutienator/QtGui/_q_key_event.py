@@ -62,7 +62,8 @@ class QKeyEvent(QInputEvent):
   What has no ritual
   ------------------
 
-  4 of the 20 functions Qt declares: 2 protected; 2 forbidden.
+  4 of the 20 functions Qt declares: 2 takes or gives a type that cannot be
+  passed yet; 2 forbidden.
 
   What to expect
   --------------
@@ -315,6 +316,12 @@ class QKeyEvent(QInputEvent):
         type.value, key, modifiers.value, text, autorep, count,
     ))
 
+  @overload(QEvent.Type, int, Qt.KeyboardModifiers, int, int, int)
+  @overload(QEvent.Type, int, Qt.KeyboardModifiers, int, int, int, str)
+  @overload(QEvent.Type, int, Qt.KeyboardModifiers, int, int, int, str, bool)
+  @overload(
+      QEvent.Type, int, Qt.KeyboardModifiers, int, int, int, str, bool, int,
+  )
   @overload(
       QEvent.Type, int, Qt.KeyboardModifiers, int, int, int, str, bool, int,
       QInputDevice,
@@ -331,10 +338,10 @@ class QKeyEvent(QInputEvent):
       nativeScanCode: int,
       nativeVirtualKey: int,
       nativeModifiers: int,
-      text: str,
-      autorep: bool,
-      count: int,
-      device: Optional[QInputDevice],
+      text: str = '',
+      autorep: bool = False,
+      count: int = 1,
+      device: Optional[QInputDevice] = ...,
   ) -> None:
     """
     Notes what was given, for Qt's 'QKeyEvent::QKeyEvent(Type type, int key,
@@ -367,22 +374,27 @@ class QKeyEvent(QInputEvent):
       Passed on as it is.
 
     text : str
-      Passed on as it is: a QString is made of it for the call.
+      Passed on as it is: a QString is made of it for the call. May be left
+      out, as in Qt: it is then ''.
 
     autorep : bool
-      Passed on as it is.
+      Passed on as it is. May be left out, as in Qt: it is then False.
 
     count : int
-      Passed on as it is.
+      Passed on as it is. May be left out, as in Qt: it is then 1.
 
     device : Optional[QInputDevice]
       Passed on as the address of its C++ object. None is passed on as no
-      object.
+      object. May be left out, as in Qt: what
+      'QInputDevice.primaryKeyboard()' gives is then passed on.
     """
     #  QKeyEvent::QKeyEvent(Type type, int key, Qt::KeyboardModifiers
     #      modifiers, quint32 nativeScanCode, quint32 nativeVirtualKey,
     #      quint32 nativeModifiers, const QString &text, bool autorep,
     #      quint16 count, const QInputDevice *device)
+    if device is ...:
+      from . import QInputDevice
+      device = QInputDevice.primaryKeyboard()
     self._noteCreation(QKeyEvent, lambda: Rituals.call(
         'ritual_ZN9QKeyEventC1EN6QEvent4TypeEi6QFlagsIN2Qt16KeyboardModifie'
         'rEEjjjRK7QStringbtPK12QInputDevice',

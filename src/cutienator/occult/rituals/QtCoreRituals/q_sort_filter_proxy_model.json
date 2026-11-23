@@ -96,6 +96,30 @@
       "nothing", "address", "text"
     ],
     "ritual_ZN21QSortFilterProxyModel10invalidateEv": ["nothing", "address"],
+    "ritual_ZNK21QSortFilterProxyModel16filterAcceptsRowEiRK11QModelIndex": [
+      "bool", "address", "int", "address"
+    ],
+    "ritual_ZNK21QSortFilterProxyModel19filterAcceptsColumnEiRK11QModelIndex": [
+      "bool", "address", "int", "address"
+    ],
+    "ritual_ZNK21QSortFilterProxyModel8lessThanERK11QModelIndexS2_": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN21QSortFilterProxyModel17beginFilterChangeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QSortFilterProxyModel15endFilterChangeE6QFlagsINS_9DirectionEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN21QSortFilterProxyModel16invalidateFilterEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QSortFilterProxyModel20invalidateRowsFilterEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QSortFilterProxyModel23invalidateColumnsFilterEv": [
+      "nothing", "address"
+    ],
     "ritual_ZNK21QSortFilterProxyModel5indexEiiRK11QModelIndex": [
       "address", "address", "int", "int", "address"
     ],

@@ -17,6 +17,28 @@
     "ritual_ZNK5QDial15minimumSizeHintEv": ["address", "address"],
     "ritual_ZN5QDial17setNotchesVisibleEb": ["nothing", "address", "bool"],
     "ritual_ZN5QDial11setWrappingEb": ["nothing", "address", "bool"],
+    "ritual_ZN5QDial5eventEP6QEvent": ["bool", "address", "address"],
+    "ritual_ZN5QDial11resizeEventEP12QResizeEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN5QDial10paintEventEP11QPaintEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN5QDial15mousePressEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN5QDial17mouseReleaseEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN5QDial14mouseMoveEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN5QDial12sliderChangeEN15QAbstractSlider12SliderChangeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK5QDial15initStyleOptionEP18QStyleOptionSlider": [
+      "nothing", "address", "address"
+    ],
     "ritual_take_QDial": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK5QDial8sizeHintEv": ["address", "address"],
     "ritual_own_ZNK5QDial15minimumSizeHintEv": ["address", "address"],

@@ -22,6 +22,7 @@
     "ritual_ZNK15QTextListFormat12numberSuffixEv": ["text", "address"],
     "ritual_ZN15QTextListFormat8setStartEi": ["nothing", "address", "int"],
     "ritual_ZNK15QTextListFormat5startEv": ["int", "address"],
+    "ritual_ZN15QTextListFormatC1ERK11QTextFormat": ["address", "address"],
     "ritual_ZN15QTextListFormatD1Ev": ["nothing", "address"]
   }
 }

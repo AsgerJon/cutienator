@@ -973,6 +973,29 @@ QFont *ritual_ZN11QFontDialog7getFontEPbRK5QFontP7QWidgetRK7QString6QFlagsINS_16
           QFlags<QFontDialog::FontDialogOption>::fromInt(options)));
 }
 
+//  void QFontDialog::changeEvent(QEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QFontDialog11changeEventEP6QEvent(
+    QFontDialog *self,
+    QEvent *event) {
+  self->changeEvent(event);
+}
+
+//  void QFontDialog::done(int result)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QFontDialog4doneEi(QFontDialog *self, int result) {
+  self->done(result);
+}
+
+//  bool QFontDialog::eventFilter(QObject *object, QEvent *event)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN11QFontDialog11eventFilterEP7QObjectP6QEvent(
+    QFontDialog *self,
+    QObject *object,
+    QEvent *event) {
+  return self->eventFilter(object, event);
+}
+
 //  a Python function taken by a CuteQFontDialog, for the function named by
 //      the key
 extern "C" Q_DECL_EXPORT

@@ -521,6 +521,20 @@ void ritual_ZN10QPdfWriter15setOutputIntentERK16QPdfOutputIntent(
   self->setOutputIntent(*intent);
 }
 
+//  QPaintEngine *QPdfWriter::paintEngine() const
+extern "C" Q_DECL_EXPORT
+QPaintEngine *ritual_ZNK10QPdfWriter11paintEngineEv(const QPdfWriter *self) {
+  return self->paintEngine();
+}
+
+//  int QPdfWriter::metric(PaintDeviceMetric id) const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK10QPdfWriter6metricEN12QPaintDevice17PaintDeviceMetricE(
+    const QPdfWriter *self,
+    QPaintDevice::PaintDeviceMetric id) {
+  return self->metric(id);
+}
+
 //  QPdfWriter as the QPagedPaintDevice it is built on
 extern "C" Q_DECL_EXPORT
 QPagedPaintDevice *ritual_cast_QPdfWriter_QPagedPaintDevice(

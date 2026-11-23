@@ -359,6 +359,51 @@ void ritual_ZN17QVariantAnimation14setEasingCurveERK12QEasingCurve(
   self->setEasingCurve(*easing);
 }
 
+//  bool QVariantAnimation::event(QEvent *event)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN17QVariantAnimation5eventEP6QEvent(
+    QVariantAnimation *self,
+    QEvent *event) {
+  return self->event(event);
+}
+
+//  void QVariantAnimation::updateCurrentTime(int a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QVariantAnimation17updateCurrentTimeEi(
+    QVariantAnimation *self,
+    int a0) {
+  self->updateCurrentTime(a0);
+}
+
+//  void QVariantAnimation::updateState(QAbstractAnimation::State newState,
+//      QAbstractAnimation::State oldState)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QVariantAnimation11updateStateEN18QAbstractAnimation5StateES1_(
+    QVariantAnimation *self,
+    QAbstractAnimation::State newState,
+    QAbstractAnimation::State oldState) {
+  self->updateState(newState, oldState);
+}
+
+//  void QVariantAnimation::updateCurrentValue(const QVariant &value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QVariantAnimation18updateCurrentValueERK8QVariant(
+    QVariantAnimation *self,
+    const QVariant *value) {
+  self->updateCurrentValue(*value);
+}
+
+//  QVariant QVariantAnimation::interpolated(const QVariant &from, const
+//      QVariant &to, qreal progress) const
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZNK17QVariantAnimation12interpolatedERK8QVariantS2_d(
+    const QVariantAnimation *self,
+    const QVariant *from,
+    const QVariant *to,
+    qreal progress) {
+  return new QVariant(self->interpolated(*from, *to, progress));
+}
+
 //  a Python function taken by a CuteQVariantAnimation, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT

@@ -43,8 +43,9 @@ class QWidgetItemV2(QWidgetItem):
   -----------
 
   Every function of Qt's QWidgetItemV2 that has a ritual and that Python can
-  call so far, 4 names in all: 'sizeHint', 'minimumSize', 'maximumSize',
-  'heightForWidth'. It can be made from Python, in 1 way; see '__init__'.
+  call so far, 6 names in all: 'sizeHint', 'minimumSize', 'maximumSize',
+  'heightForWidth', 'updateCacheIfNecessary', 'invalidateSizeCache'. It can
+  be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -55,7 +56,8 @@ class QWidgetItemV2(QWidgetItem):
   What has no ritual
   ------------------
 
-  5 of the 11 functions Qt declares: 3 private; 2 forbidden.
+  3 of the 11 functions Qt declares: 2 forbidden; 1 declared and nowhere to
+  be found.
 
   What to expect
   --------------
@@ -234,3 +236,23 @@ class QWidgetItemV2(QWidgetItem):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def updateCacheIfNecessary(self) -> None:
+    """
+    Calls Qt's 'void QWidgetItemV2::updateCacheIfNecessary() const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qwidgetitemv2.html#updateCacheIfNecessary
+    """
+    #  void QWidgetItemV2::updateCacheIfNecessary() const
+    self.uglySide.call('ritual_ZNK13QWidgetItemV222updateCacheIfNecessaryEv')
+
+  def invalidateSizeCache(self) -> None:
+    """
+    Calls Qt's 'void QWidgetItemV2::invalidateSizeCache()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qwidgetitemv2.html#invalidateSizeCache
+    """
+    #  void QWidgetItemV2::invalidateSizeCache()
+    self.uglySide.call('ritual_ZN13QWidgetItemV219invalidateSizeCacheEv')

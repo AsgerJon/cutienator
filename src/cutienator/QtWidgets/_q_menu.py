@@ -61,7 +61,7 @@ class QMenu(QWidget):
   -----------
 
   Every function of Qt's QMenu that has a ritual and that Python can call so
-  far, 51 names in all: 'metaObject', 'tr', 'addAction', 'addMenu',
+  far, 53 names in all: 'metaObject', 'tr', 'addAction', 'addMenu',
   'addSeparator', 'addSection', 'insertMenu', 'insertSeparator',
   'insertSection', 'isEmpty', 'clear', 'setTearOffEnabled',
   'isTearOffEnabled', 'isTearOffMenuVisible', 'showTearOffMenu',
@@ -69,11 +69,12 @@ class QMenu(QWidget):
   'activeAction', 'popup', 'exec', 'sizeHint', 'actionGeometry', 'actionAt',
   'menuAction', 'menuInAction', 'title', 'setTitle', 'icon', 'setIcon',
   'setNoReplayFor', 'separatorsCollapsible', 'setSeparatorsCollapsible',
-  'toolTipsVisible', 'setToolTipsVisible', 'changeEvent', 'keyPressEvent',
-  'mouseReleaseEvent', 'mousePressEvent', 'mouseMoveEvent', 'wheelEvent',
-  'enterEvent', 'leaveEvent', 'hideEvent', 'paintEvent', 'actionEvent',
-  'timerEvent', 'event', 'focusNextPrevChild', 'initStyleOption'. It can be
-  made from Python, in 2 ways; see '__init__'.
+  'toolTipsVisible', 'setToolTipsVisible', 'columnCount', 'changeEvent',
+  'keyPressEvent', 'mouseReleaseEvent', 'mousePressEvent', 'mouseMoveEvent',
+  'wheelEvent', 'enterEvent', 'leaveEvent', 'hideEvent', 'paintEvent',
+  'actionEvent', 'timerEvent', 'event', 'focusNextPrevChild',
+  'initStyleOption', 'internalDelayedPopup'. It can be made from Python, in 2
+  ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -83,8 +84,9 @@ class QMenu(QWidget):
   What has no ritual
   ------------------
 
-  21 of the 83 functions Qt declares: 5 a template; 4 takes or gives a type
-  that cannot be passed yet; 4 private; 4 a signal; 2 protected; 2 forbidden.
+  19 of the 83 functions Qt declares: 7 takes or gives a type that cannot be
+  passed yet; 5 a template; 4 a signal; 2 forbidden; 1 declared and nowhere
+  to be found.
 
   What to expect
   --------------
@@ -441,6 +443,15 @@ class QMenu(QWidget):
     """
     #  bool QMenu::toolTipsVisible() const
     return self.uglySide.call('ritual_ZNK5QMenu15toolTipsVisibleEv')
+
+  def columnCount(self) -> int:
+    """
+    Calls Qt's 'int QMenu::columnCount() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmenu.html#columnCount
+    """
+    #  int QMenu::columnCount() const
+    return self.uglySide.call('ritual_ZNK5QMenu11columnCountEv')
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1296,9 +1307,10 @@ class QMenu(QWidget):
       object.
     """
     #  void QMenu::changeEvent(QEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN5QMenu11changeEventEP6QEvent', self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN5QMenu11changeEventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN5QMenu11changeEventEP6QEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QKeyEvent)
   @overload(NoneType)
@@ -1316,10 +1328,10 @@ class QMenu(QWidget):
       object.
     """
     #  void QMenu::keyPressEvent(QKeyEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN5QMenu13keyPressEventEP9QKeyEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN5QMenu13keyPressEventEP9QKeyEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN5QMenu13keyPressEventEP9QKeyEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QMouseEvent)
   @overload(NoneType)
@@ -1337,10 +1349,10 @@ class QMenu(QWidget):
       object.
     """
     #  void QMenu::mouseReleaseEvent(QMouseEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN5QMenu17mouseReleaseEventEP11QMouseEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN5QMenu17mouseReleaseEventEP11QMouseEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN5QMenu17mouseReleaseEventEP11QMouseEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QMouseEvent)
   @overload(NoneType)
@@ -1358,10 +1370,10 @@ class QMenu(QWidget):
       object.
     """
     #  void QMenu::mousePressEvent(QMouseEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN5QMenu15mousePressEventEP11QMouseEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN5QMenu15mousePressEventEP11QMouseEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN5QMenu15mousePressEventEP11QMouseEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QMouseEvent)
   @overload(NoneType)
@@ -1379,10 +1391,10 @@ class QMenu(QWidget):
       object.
     """
     #  void QMenu::mouseMoveEvent(QMouseEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN5QMenu14mouseMoveEventEP11QMouseEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN5QMenu14mouseMoveEventEP11QMouseEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN5QMenu14mouseMoveEventEP11QMouseEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QWheelEvent)
   @overload(NoneType)
@@ -1400,10 +1412,10 @@ class QMenu(QWidget):
       object.
     """
     #  void QMenu::wheelEvent(QWheelEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN5QMenu10wheelEventEP11QWheelEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN5QMenu10wheelEventEP11QWheelEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN5QMenu10wheelEventEP11QWheelEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QEnterEvent)
   @overload(NoneType)
@@ -1421,10 +1433,10 @@ class QMenu(QWidget):
       object.
     """
     #  void QMenu::enterEvent(QEnterEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN5QMenu10enterEventEP11QEnterEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN5QMenu10enterEventEP11QEnterEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN5QMenu10enterEventEP11QEnterEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QEvent)
   @overload(NoneType)
@@ -1442,9 +1454,10 @@ class QMenu(QWidget):
       object.
     """
     #  void QMenu::leaveEvent(QEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN5QMenu10leaveEventEP6QEvent', self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN5QMenu10leaveEventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN5QMenu10leaveEventEP6QEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QHideEvent)
   @overload(NoneType)
@@ -1462,9 +1475,10 @@ class QMenu(QWidget):
       object.
     """
     #  void QMenu::hideEvent(QHideEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN5QMenu9hideEventEP10QHideEvent', self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN5QMenu9hideEventEP10QHideEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN5QMenu9hideEventEP10QHideEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QPaintEvent)
   @overload(NoneType)
@@ -1482,10 +1496,10 @@ class QMenu(QWidget):
       object.
     """
     #  void QMenu::paintEvent(QPaintEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN5QMenu10paintEventEP11QPaintEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN5QMenu10paintEventEP11QPaintEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN5QMenu10paintEventEP11QPaintEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QActionEvent)
   @overload(NoneType)
@@ -1503,10 +1517,10 @@ class QMenu(QWidget):
       object.
     """
     #  void QMenu::actionEvent(QActionEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN5QMenu11actionEventEP12QActionEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN5QMenu11actionEventEP12QActionEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN5QMenu11actionEventEP12QActionEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QTimerEvent)
   @overload(NoneType)
@@ -1524,10 +1538,10 @@ class QMenu(QWidget):
       object.
     """
     #  void QMenu::timerEvent(QTimerEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN5QMenu10timerEventEP11QTimerEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN5QMenu10timerEventEP11QTimerEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN5QMenu10timerEventEP11QTimerEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QEvent)
   @overload(NoneType)
@@ -1545,9 +1559,10 @@ class QMenu(QWidget):
       object.
     """
     #  bool QMenu::event(QEvent *a0)
-    return self.uglySide.call(
-        'ritual_own_ZN5QMenu5eventEP6QEvent', self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN5QMenu5eventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN5QMenu5eventEP6QEvent'
+    return self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(bool)
   def focusNextPrevChild(self, next: bool) -> bool:
@@ -1563,9 +1578,10 @@ class QMenu(QWidget):
       Passed on as it is.
     """
     #  bool QMenu::focusNextPrevChild(bool next)
-    return self.uglySide.call(
-        'ritual_own_ZN5QMenu18focusNextPrevChildEb', next,
-    )
+    ritual = 'ritual_ZN5QMenu18focusNextPrevChildEb'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN5QMenu18focusNextPrevChildEb'
+    return self.uglySide.call(ritual, next)
 
   @overload(QStyleOptionMenuItem, QAction)
   @overload(QStyleOptionMenuItem, NoneType)
@@ -1595,8 +1611,22 @@ class QMenu(QWidget):
     """
     #  void QMenu::initStyleOption(QStyleOptionMenuItem *option, const
     #      QAction *action) const
+    ritual = (
+        'ritual_ZNK5QMenu15initStyleOptionEP20QStyleOptionMenuItemPK7QActio'
+        'n')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK5QMenu15initStyleOptionEP20QStyleOptionMenuItemPK7'
+          'QAction')
     self.uglySide.call(
-        'ritual_own_ZNK5QMenu15initStyleOptionEP20QStyleOptionMenuItemPK7QA'
-        'ction',
-        self._addressOf(option), self._addressOf(action),
+        ritual, self._addressOf(option), self._addressOf(action),
     )
+
+  def internalDelayedPopup(self) -> None:
+    """
+    Calls Qt's 'void QMenu::internalDelayedPopup()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmenu.html#internalDelayedPopup
+    """
+    #  void QMenu::internalDelayedPopup()
+    self.uglySide.call('ritual_ZN5QMenu20internalDelayedPopupEv')

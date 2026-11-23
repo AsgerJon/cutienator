@@ -47,10 +47,10 @@ class QOffscreenSurface(QObject, QSurface):
   -----------
 
   Every function of Qt's QOffscreenSurface that has a ritual and that Python
-  can call so far, 12 names in all: 'metaObject', 'tr', 'surfaceType',
+  can call so far, 13 names in all: 'metaObject', 'tr', 'surfaceType',
   'create', 'destroy', 'isValid', 'setFormat', 'format', 'requestedFormat',
-  'size', 'screen', 'setScreen'. It can be made from Python, in 1 way; see
-  '__init__'.
+  'size', 'screen', 'setScreen', 'screenDestroyed'. It can be made from
+  Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -61,8 +61,9 @@ class QOffscreenSurface(QObject, QSurface):
   What has no ritual
   ------------------
 
-  14 of the 28 functions Qt declares: 5 private; 3 takes or gives a type that
-  cannot be passed yet; 2 a template; 2 forbidden; 1 protected; 1 a signal.
+  13 of the 28 functions Qt declares: 7 takes or gives a type that cannot be
+  passed yet; 2 a template; 2 forbidden; 1 declared and nowhere to be found;
+  1 a signal.
 
   What to expect
   --------------
@@ -419,3 +420,25 @@ class QOffscreenSurface(QObject, QSurface):
     """
     #  void QOffscreenSurface::destroy()
     self.uglySide.call('ritual_ZN17QOffscreenSurface7destroyEv')
+
+  @overload(QObject)
+  @overload(NoneType)
+  def screenDestroyed(self, screen: Optional[QObject]) -> None:
+    """
+    Calls Qt's 'void QOffscreenSurface::screenDestroyed(QObject *screen)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qoffscreensurface.html#screenDestroyed
+
+    Parameters
+    ----------
+
+    screen : Optional[QObject]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QOffscreenSurface::screenDestroyed(QObject *screen)
+    self.uglySide.call(
+        'ritual_ZN17QOffscreenSurface15screenDestroyedEP7QObject',
+        self._addressOf(screen),
+    )

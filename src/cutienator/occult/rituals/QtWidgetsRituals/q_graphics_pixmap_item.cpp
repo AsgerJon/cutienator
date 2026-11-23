@@ -723,6 +723,32 @@ void ritual_ZN19QGraphicsPixmapItem12setShapeModeENS_9ShapeModeE(
   self->setShapeMode(mode);
 }
 
+//  bool QGraphicsPixmapItem::supportsExtension(Extension extension) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK19QGraphicsPixmapItem17supportsExtensionEN13QGraphicsItem9ExtensionE(
+    const QGraphicsPixmapItem *self,
+    QGraphicsItem::Extension extension) {
+  return self->supportsExtension(extension);
+}
+
+//  void QGraphicsPixmapItem::setExtension(Extension extension, const
+//      QVariant &variant)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QGraphicsPixmapItem12setExtensionEN13QGraphicsItem9ExtensionERK8QVariant(
+    QGraphicsPixmapItem *self,
+    QGraphicsItem::Extension extension,
+    const QVariant *variant) {
+  self->setExtension(extension, *variant);
+}
+
+//  QVariant QGraphicsPixmapItem::extension(const QVariant &variant) const
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZNK19QGraphicsPixmapItem9extensionERK8QVariant(
+    const QGraphicsPixmapItem *self,
+    const QVariant *variant) {
+  return new QVariant(self->extension(*variant));
+}
+
 //  a Python function taken by a CuteQGraphicsPixmapItem, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT

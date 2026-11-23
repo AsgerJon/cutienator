@@ -660,3 +660,35 @@ void ritual_ZN12QPainterPathmIERKS_(
     const QPainterPath *other) {
   self->operator-=(*other);
 }
+
+//  void QPainterPath::ensureData()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QPainterPath10ensureDataEv(QPainterPath *self) {
+  self->ensureData();
+}
+
+//  void QPainterPath::ensureData_helper()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QPainterPath17ensureData_helperEv(QPainterPath *self) {
+  self->ensureData_helper();
+}
+
+//  void QPainterPath::setDirty(bool a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QPainterPath8setDirtyEb(QPainterPath *self, bool a0) {
+  self->setDirty(a0);
+}
+
+//  void QPainterPath::computeBoundingRect() const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK12QPainterPath19computeBoundingRectEv(
+    const QPainterPath *self) {
+  self->computeBoundingRect();
+}
+
+//  void QPainterPath::computeControlPointRect() const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK12QPainterPath23computeControlPointRectEv(
+    const QPainterPath *self) {
+  self->computeControlPointRect();
+}

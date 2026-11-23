@@ -21,6 +21,9 @@
     "ritual_ZgtRK13QTypeRevisionS1_": ["bool", "address", "address"],
     "ritual_ZleRK13QTypeRevisionS1_": ["bool", "address", "address"],
     "ritual_ZgeRK13QTypeRevisionS1_": ["bool", "address", "address"],
+    "ritual_ZN13QTypeRevisionC1Ehh": [
+      "address", "unsigned char", "unsigned char"
+    ],
     "ritual_ZN13QTypeRevisionD1Ev": ["nothing", "address"]
   }
 }

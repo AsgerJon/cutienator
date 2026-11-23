@@ -9,7 +9,11 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
+from worktoy.dispatch import overload
+
 from ..cute import CuteMixin, MetaCute
+from ..occult import Rituals
+from . import Qt
 
 
 class QStringTokenizerBaseBase(CuteMixin, metaclass=MetaCute):
@@ -20,13 +24,14 @@ class QStringTokenizerBaseBase(CuteMixin, metaclass=MetaCute):
   What exists
   -----------
 
-  No function of Qt's QStringTokenizerBaseBase yet. None can be made from
-  Python: one comes out of a function of another class that gives one back.
+  No function of Qt's QStringTokenizerBaseBase yet. It can be made from
+  Python, in 1 way; see '__init__'.
 
-  What has no ritual
-  ------------------
+  What has a ritual and is left out, and why
+  ------------------------------------------
 
-  2 of the 2 functions Qt declares: 2 protected.
+  - Qt's 'QStringTokenizerBaseBase::~QStringTokenizerBaseBase()': the
+    destructor: Python never removes a C++ QStringTokenizerBaseBase.
 
   What to expect
   --------------
@@ -80,6 +85,33 @@ class QStringTokenizerBaseBase(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(Qt.SplitBehavior, Qt.CaseSensitivity)
+  def __init__(self, sb: Qt.SplitBehavior, cs: Qt.CaseSensitivity) -> None:
+    """
+    Notes what was given, for Qt's
+    'QStringTokenizerBaseBase::QStringTokenizerBaseBase(Qt::SplitBehavior sb,
+    Qt::CaseSensitivity cs)', which is called at the first use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qstringtokenizerbasebase.html
+
+    Parameters
+    ----------
+
+    sb : Qt.SplitBehavior
+      Passed on as its number.
+
+    cs : Qt.CaseSensitivity
+      Passed on as its number.
+    """
+    #  QStringTokenizerBaseBase::QStringTokenizerBaseBase(Qt::SplitBehavior
+    #      sb, Qt::CaseSensitivity cs)
+    self._noteCreation(QStringTokenizerBaseBase, lambda: Rituals.call(
+        'ritual_ZN24QStringTokenizerBaseBaseC1E6QFlagsIN2Qt18SplitBehaviorF'
+        'lagsEENS1_15CaseSensitivityE',
+        sb.value, cs.value,
+    ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #

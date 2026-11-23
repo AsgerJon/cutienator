@@ -116,6 +116,7 @@
     "ritual_ZgtRK4QUrlS1_": ["bool", "address", "address"],
     "ritual_ZleRK4QUrlS1_": ["bool", "address", "address"],
     "ritual_ZgeRK4QUrlS1_": ["bool", "address", "address"],
+    "ritual_ZN4QUrl13detachToClearEv": ["nothing", "address"],
     "ritual_list_make_QUrl": ["address"],
     "ritual_list_add_QUrl": ["nothing", "address", "address"],
     "ritual_list_size_QUrl": ["long long", "address"],

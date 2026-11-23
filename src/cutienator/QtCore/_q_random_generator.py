@@ -75,8 +75,8 @@ class QRandomGenerator(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  11 of the 41 functions Qt declares: 5 takes or gives a type that cannot be
-  passed yet; 4 a template; 1 protected; 1 private.
+  11 of the 41 functions Qt declares: 6 takes or gives a type that cannot be
+  passed yet; 4 a template; 1 declared and nowhere to be found.
 
   What to expect
   --------------

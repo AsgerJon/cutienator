@@ -24,22 +24,15 @@ __all__ = (
     'QAdoptSharedDataTag',
     'QArrayData',
     'QAtomicInt',
-    'QBasicMutex',
     'QBindingStatus',
-    'QBitRef',
-    'QBluetoothPermission',
     'QByteArrayView',
-    'QCalendarPermission',
     'QCameraPermission',
-    'QCborError',
     'QCborParserError',
     'QChar',
     'QCollatorSortKey',
-    'QContactsPermission',
     'QContiguousCacheData',
     'QDeadlineTimer',
     'QElapsedTimer',
-    'QEvent',
     'QException',
     'QFactoryInterface',
     'QFlag',
@@ -52,11 +45,9 @@ __all__ = (
     'QJsonParseError',
     'QKeyCombination',
     'QLatin1Char',
-    'QLocationPermission',
     'QMargins',
     'QMessageLogContext',
     'QMetaClassInfo',
-    'QMetaEnum',
     'QMetaMethodArgument',
     'QMetaMethodReturnArgument',
     'QMethodRawArguments',
@@ -64,7 +55,6 @@ __all__ = (
     'QModelRoleData',
     'QObjectData',
     'QOperatingSystemVersionBase',
-    'QPermission',
     'QPluginMetaData',
     'QPoint',
     'QPropertyBindingPrivatePtr',
@@ -91,6 +81,7 @@ __all__ = (
     'QXmlStreamNotationDeclaration',
     'qfloat16',
     'QAbstractConcatenable',
+    'QBasicMutex',
     'QBasicReadWriteLock',
     'QBindingStorage',
     'QBitArray',
@@ -100,7 +91,6 @@ __all__ = (
     'QMarginsF',
     'QMetaContainer',
     'QModelRoleDataSpan',
-    'QMutex',
     'QOperatingSystemVersionUnexported',
     'QPartialOrdering',
     'QPointF',
@@ -112,13 +102,12 @@ __all__ = (
     'QAbstractNativeEventFilter',
     'QRegularExpressionMatch',
     'QRegularExpression',
+    'QBitRef',
     'QByteArrayMatcher',
-    'QDynamicPropertyChangeEvent',
-    'QEasingCurve',
     'QLineF',
     'QMetaAssociation',
     'QMetaSequence',
-    'QModelIndex',
+    'QMutex',
     'QOperatingSystemVersion',
     'QReadWriteLock',
     'QRect',
@@ -127,23 +116,16 @@ __all__ = (
     'QAssociativeConstIterator',
     'QAssociativeIterator',
     'QCommandLineOption',
-    'QDirListing',
-    'QItemSelectionRange',
     'QLatin1String',
     'QLatin1StringMatcher',
-    'QLibraryInfo',
     'QLockFile',
     'QLoggingCategory',
-    'QMimeType',
-    'QNativeIpcKey',
-    'QPersistentModelIndex',
     'QProcessEnvironment',
     'QPropertyBindingError',
     'QReadLocker',
     'QRectF',
     'QSequentialConstIterator',
     'QSequentialIterator',
-    'QStandardPaths',
     'QStringConverter',
     'QStringMatcher',
     'QTemporaryDir',
@@ -159,65 +141,90 @@ __all__ = (
     'QXmlStreamAttributes',
     'QXmlStreamEntityResolver',
     'QXmlStreamNamespaceDeclaration',
-    'QDate',
-    'QDateTime',
-    'QLocale',
-    'QCalendar',
-    'QTimeZone',
-    'QMessageLogger',
-    'QStringDecoder',
-    'QStringEncoder',
-    'QSystemSemaphore',
     'QMetaObject',
     'QObject',
     'QIODevice',
     'QDataStream',
+    'QDateTime',
+    'QEvent',
     'QJsonArray',
     'QJsonObject',
+    'QLocale',
+    'QCborStreamWriter',
+    'QModelIndex',
+    'QPersistentModelIndex',
     'QBasicTimer',
-    'QEventLoop',
-    'QSocketNotifier',
-    'QTextStream',
-    'QTextStreamManipulator',
+    'QCborStreamReader',
+    'QCollator',
     'QDebug',
     'QMetaType',
+    'QEasingCurve',
+    'QVariant',
+    'QCborValue',
+    'QEventLoop',
+    'QMimeData',
+    'QSocketNotifier',
+    'QTextStream',
+    'QTimeZone',
     'QAbstractEventDispatcher',
+    'QAbstractItemModel',
+    'QCalendar',
+    'QCborArray',
+    'QCborMap',
+    'QCborValueConstRef',
     'QChildEvent',
+    'QDate',
     'QJsonDocument',
     'QJsonValue',
     'QMetaMethod',
+    'QTextStreamManipulator',
     'QThread',
     'QTimerEvent',
-    'QVariant',
-    'QCollator',
-    'QResource',
+    'QMessageLogger',
+    'QStringDecoder',
+    'QStringEncoder',
     'QAbstractAnimation',
     'QAbstractEventDispatcherV2',
+    'QAbstractListModel',
+    'QAbstractTableModel',
     'QAnimationDriver',
     'QAssociativeIterable',
+    'QBluetoothPermission',
     'QBuffer',
-    'QCborStreamReader',
-    'QCborStreamWriter',
+    'QCalendarPermission',
+    'QCborError',
+    'QCborValueRef',
     'QChronoTimer',
+    'QConcatenateTablesProxyModel',
+    'QContactsPermission',
     'QCryptographicHash',
     'QDebugStateSaver',
+    'QDirListing',
+    'QDynamicPropertyChangeEvent',
     'QEventLoopLocker',
     'QFileDevice',
     'QFileSelector',
     'QFileSystemWatcher',
     'QFutureWatcherBase',
+    'QItemSelectionRange',
     'QJsonValueConstRef',
     'QLibrary',
+    'QLibraryInfo',
+    'QLocationPermission',
+    'QMetaEnum',
     'QMetaProperty',
-    'QMimeData',
+    'QMimeType',
+    'QNativeIpcKey',
     'QNoDebug',
     'QObjectCleanupHandler',
+    'QPermission',
     'QProcess',
+    'QResource',
     'QSequentialIterable',
     'QSettings',
-    'QSharedMemory',
     'QSignalBlocker',
     'QSignalMapper',
+    'QStandardPaths',
     'QThreadPool',
     'QTimeLine',
     'QTimer',
@@ -225,54 +232,47 @@ __all__ = (
     'QUntypedPropertyBinding',
     'QVariantConstPointer',
     'QXmlStreamReader',
-    'QAbstractItemModel',
     'QAnimationGroup',
-    'QCborArray',
-    'QCborMap',
-    'QCborValue',
     'QCoreApplication',
     'QFile',
     'QFutureInterfaceBase',
+    'QItemSelection',
+    'QItemSelectionModel',
     'QJsonValueRef',
     'QMessageAuthenticationCode',
     'QPauseAnimation',
     'QPluginLoader',
+    'QRangeModel',
+    'QRangeModelImplBase',
     'QSaveFile',
+    'QSharedMemory',
+    'QStringListModel',
+    'QSystemSemaphore',
     'QVariantAnimation',
     'QXmlStreamWriter',
-    'QAbstractListModel',
-    'QAbstractTableModel',
-    'QCborValueConstRef',
+    'QAbstractProxyModel',
     'QCommandLineParser',
-    'QConcatenateTablesProxyModel',
     'QDir',
-    'QItemSelection',
-    'QItemSelectionModel',
     'QParallelAnimationGroup',
     'QPropertyAnimation',
     'QPropertyObserver',
-    'QRangeModel',
     'QSequentialAnimationGroup',
     'QTemporaryFile',
-    'QAbstractProxyModel',
-    'QCborValueRef',
     'QDirIterator',
     'QFileInfo',
-    'QPropertyNotifier',
-    'QRangeModelImplBase',
-    'QStorageInfo',
-    'QStringListModel',
-    'QUntypedBindable',
     'QIdentityProxyModel',
-    'QMimeDatabase',
+    'QPropertyNotifier',
     'QSortFilterProxyModel',
+    'QStorageInfo',
     'QTransposeProxyModel',
+    'QUntypedBindable',
+    'QMimeDatabase',
     'QXmlStreamEntityDeclarations',
     'QXmlStreamNotationDeclarations',
     'QByteArrayList',
-    'QModelIndexList',
     'QXmlStreamNamespaceDeclarations',
     'QObjectList',
+    'QModelIndexList',
     'QVariantList',
     'QVariantMap',
     'QVariantHash',
@@ -290,22 +290,15 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from ._q_adopt_shared_data_tag import QAdoptSharedDataTag
   from ._q_array_data import QArrayData
   from ._q_atomic_int import QAtomicInt
-  from ._q_basic_mutex import QBasicMutex
   from ._q_binding_status import QBindingStatus
-  from ._q_bit_ref import QBitRef
-  from ._q_bluetooth_permission import QBluetoothPermission
   from ._q_byte_array_view import QByteArrayView
-  from ._q_calendar_permission import QCalendarPermission
   from ._q_camera_permission import QCameraPermission
-  from ._q_cbor_error import QCborError
   from ._q_cbor_parser_error import QCborParserError
   from ._q_char import QChar
   from ._q_collator_sort_key import QCollatorSortKey
-  from ._q_contacts_permission import QContactsPermission
   from ._q_contiguous_cache_data import QContiguousCacheData
   from ._q_deadline_timer import QDeadlineTimer
   from ._q_elapsed_timer import QElapsedTimer
-  from ._q_event import QEvent
   from ._q_exception import QException
   from ._q_factory_interface import QFactoryInterface
   from ._q_flag import QFlag
@@ -318,11 +311,9 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from ._q_json_parse_error import QJsonParseError
   from ._q_key_combination import QKeyCombination
   from ._q_latin1_char import QLatin1Char
-  from ._q_location_permission import QLocationPermission
   from ._q_margins import QMargins
   from ._q_message_log_context import QMessageLogContext
   from ._q_meta_class_info import QMetaClassInfo
-  from ._q_meta_enum import QMetaEnum
   from ._q_meta_method_argument import QMetaMethodArgument
   from ._q_meta_method_return_argument import QMetaMethodReturnArgument
   from ._q_method_raw_arguments import QMethodRawArguments
@@ -330,7 +321,6 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from ._q_model_role_data import QModelRoleData
   from ._q_object_data import QObjectData
   from ._q_operating_system_version_base import QOperatingSystemVersionBase
-  from ._q_permission import QPermission
   from ._q_plugin_meta_data import QPluginMetaData
   from ._q_point import QPoint
   from ._q_property_binding_private_ptr import QPropertyBindingPrivatePtr
@@ -357,6 +347,7 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from ._q_xml_stream_notation_declaration import QXmlStreamNotationDeclaration
   from ._qfloat16 import qfloat16
   from ._q_abstract_concatenable import QAbstractConcatenable
+  from ._q_basic_mutex import QBasicMutex
   from ._q_basic_read_write_lock import QBasicReadWriteLock
   from ._q_binding_storage import QBindingStorage
   from ._q_bit_array import QBitArray
@@ -366,7 +357,6 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from ._q_margins_f import QMarginsF
   from ._q_meta_container import QMetaContainer
   from ._q_model_role_data_span import QModelRoleDataSpan
-  from ._q_mutex import QMutex
   from ._q_operating_system_version_unexported import QOperatingSystemVersionUnexported
   from ._q_partial_ordering import QPartialOrdering
   from ._q_point_f import QPointF
@@ -378,13 +368,12 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from ._q_abstract_native_event_filter import QAbstractNativeEventFilter
   from ._q_regular_expression_match import QRegularExpressionMatch
   from ._q_regular_expression import QRegularExpression
+  from ._q_bit_ref import QBitRef
   from ._q_byte_array_matcher import QByteArrayMatcher
-  from ._q_dynamic_property_change_event import QDynamicPropertyChangeEvent
-  from ._q_easing_curve import QEasingCurve
   from ._q_line_f import QLineF
   from ._q_meta_association import QMetaAssociation
   from ._q_meta_sequence import QMetaSequence
-  from ._q_model_index import QModelIndex
+  from ._q_mutex import QMutex
   from ._q_operating_system_version import QOperatingSystemVersion
   from ._q_read_write_lock import QReadWriteLock
   from ._q_rect import QRect
@@ -393,23 +382,16 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from ._q_associative_const_iterator import QAssociativeConstIterator
   from ._q_associative_iterator import QAssociativeIterator
   from ._q_command_line_option import QCommandLineOption
-  from ._q_dir_listing import QDirListing
-  from ._q_item_selection_range import QItemSelectionRange
   from ._q_latin1_string import QLatin1String
   from ._q_latin1_string_matcher import QLatin1StringMatcher
-  from ._q_library_info import QLibraryInfo
   from ._q_lock_file import QLockFile
   from ._q_logging_category import QLoggingCategory
-  from ._q_mime_type import QMimeType
-  from ._q_native_ipc_key import QNativeIpcKey
-  from ._q_persistent_model_index import QPersistentModelIndex
   from ._q_process_environment import QProcessEnvironment
   from ._q_property_binding_error import QPropertyBindingError
   from ._q_read_locker import QReadLocker
   from ._q_rect_f import QRectF
   from ._q_sequential_const_iterator import QSequentialConstIterator
   from ._q_sequential_iterator import QSequentialIterator
-  from ._q_standard_paths import QStandardPaths
   from ._q_string_converter import QStringConverter
   from ._q_string_matcher import QStringMatcher
   from ._q_temporary_dir import QTemporaryDir
@@ -425,65 +407,90 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from ._q_xml_stream_attributes import QXmlStreamAttributes
   from ._q_xml_stream_entity_resolver import QXmlStreamEntityResolver
   from ._q_xml_stream_namespace_declaration import QXmlStreamNamespaceDeclaration
-  from ._q_date import QDate
-  from ._q_date_time import QDateTime
-  from ._q_locale import QLocale
-  from ._q_calendar import QCalendar
-  from ._q_time_zone import QTimeZone
-  from ._q_message_logger import QMessageLogger
-  from ._q_string_decoder import QStringDecoder
-  from ._q_string_encoder import QStringEncoder
-  from ._q_system_semaphore import QSystemSemaphore
   from ._q_meta_object import QMetaObject
   from ._q_object import QObject
   from ._q_i_o_device import QIODevice
   from ._q_data_stream import QDataStream
+  from ._q_date_time import QDateTime
+  from ._q_event import QEvent
   from ._q_json_array import QJsonArray
   from ._q_json_object import QJsonObject
+  from ._q_locale import QLocale
+  from ._q_cbor_stream_writer import QCborStreamWriter
+  from ._q_model_index import QModelIndex
+  from ._q_persistent_model_index import QPersistentModelIndex
   from ._q_basic_timer import QBasicTimer
-  from ._q_event_loop import QEventLoop
-  from ._q_socket_notifier import QSocketNotifier
-  from ._q_text_stream import QTextStream
-  from ._q_text_stream_manipulator import QTextStreamManipulator
+  from ._q_cbor_stream_reader import QCborStreamReader
+  from ._q_collator import QCollator
   from ._q_debug import QDebug
   from ._q_meta_type import QMetaType
+  from ._q_easing_curve import QEasingCurve
+  from ._q_variant import QVariant
+  from ._q_cbor_value import QCborValue
+  from ._q_event_loop import QEventLoop
+  from ._q_mime_data import QMimeData
+  from ._q_socket_notifier import QSocketNotifier
+  from ._q_text_stream import QTextStream
+  from ._q_time_zone import QTimeZone
   from ._q_abstract_event_dispatcher import QAbstractEventDispatcher
+  from ._q_abstract_item_model import QAbstractItemModel
+  from ._q_calendar import QCalendar
+  from ._q_cbor_array import QCborArray
+  from ._q_cbor_map import QCborMap
+  from ._q_cbor_value_const_ref import QCborValueConstRef
   from ._q_child_event import QChildEvent
+  from ._q_date import QDate
   from ._q_json_document import QJsonDocument
   from ._q_json_value import QJsonValue
   from ._q_meta_method import QMetaMethod
+  from ._q_text_stream_manipulator import QTextStreamManipulator
   from ._q_thread import QThread
   from ._q_timer_event import QTimerEvent
-  from ._q_variant import QVariant
-  from ._q_collator import QCollator
-  from ._q_resource import QResource
+  from ._q_message_logger import QMessageLogger
+  from ._q_string_decoder import QStringDecoder
+  from ._q_string_encoder import QStringEncoder
   from ._q_abstract_animation import QAbstractAnimation
   from ._q_abstract_event_dispatcher_v2 import QAbstractEventDispatcherV2
+  from ._q_abstract_list_model import QAbstractListModel
+  from ._q_abstract_table_model import QAbstractTableModel
   from ._q_animation_driver import QAnimationDriver
   from ._q_associative_iterable import QAssociativeIterable
+  from ._q_bluetooth_permission import QBluetoothPermission
   from ._q_buffer import QBuffer
-  from ._q_cbor_stream_reader import QCborStreamReader
-  from ._q_cbor_stream_writer import QCborStreamWriter
+  from ._q_calendar_permission import QCalendarPermission
+  from ._q_cbor_error import QCborError
+  from ._q_cbor_value_ref import QCborValueRef
   from ._q_chrono_timer import QChronoTimer
+  from ._q_concatenate_tables_proxy_model import QConcatenateTablesProxyModel
+  from ._q_contacts_permission import QContactsPermission
   from ._q_cryptographic_hash import QCryptographicHash
   from ._q_debug_state_saver import QDebugStateSaver
+  from ._q_dir_listing import QDirListing
+  from ._q_dynamic_property_change_event import QDynamicPropertyChangeEvent
   from ._q_event_loop_locker import QEventLoopLocker
   from ._q_file_device import QFileDevice
   from ._q_file_selector import QFileSelector
   from ._q_file_system_watcher import QFileSystemWatcher
   from ._q_future_watcher_base import QFutureWatcherBase
+  from ._q_item_selection_range import QItemSelectionRange
   from ._q_json_value_const_ref import QJsonValueConstRef
   from ._q_library import QLibrary
+  from ._q_library_info import QLibraryInfo
+  from ._q_location_permission import QLocationPermission
+  from ._q_meta_enum import QMetaEnum
   from ._q_meta_property import QMetaProperty
-  from ._q_mime_data import QMimeData
+  from ._q_mime_type import QMimeType
+  from ._q_native_ipc_key import QNativeIpcKey
   from ._q_no_debug import QNoDebug
   from ._q_object_cleanup_handler import QObjectCleanupHandler
+  from ._q_permission import QPermission
   from ._q_process import QProcess
+  from ._q_resource import QResource
   from ._q_sequential_iterable import QSequentialIterable
   from ._q_settings import QSettings
-  from ._q_shared_memory import QSharedMemory
   from ._q_signal_blocker import QSignalBlocker
   from ._q_signal_mapper import QSignalMapper
+  from ._q_standard_paths import QStandardPaths
   from ._q_thread_pool import QThreadPool
   from ._q_time_line import QTimeLine
   from ._q_timer import QTimer
@@ -491,54 +498,47 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from ._q_untyped_property_binding import QUntypedPropertyBinding
   from ._q_variant_const_pointer import QVariantConstPointer
   from ._q_xml_stream_reader import QXmlStreamReader
-  from ._q_abstract_item_model import QAbstractItemModel
   from ._q_animation_group import QAnimationGroup
-  from ._q_cbor_array import QCborArray
-  from ._q_cbor_map import QCborMap
-  from ._q_cbor_value import QCborValue
   from ._q_core_application import QCoreApplication
   from ._q_file import QFile
   from ._q_future_interface_base import QFutureInterfaceBase
+  from ._q_item_selection import QItemSelection
+  from ._q_item_selection_model import QItemSelectionModel
   from ._q_json_value_ref import QJsonValueRef
   from ._q_message_authentication_code import QMessageAuthenticationCode
   from ._q_pause_animation import QPauseAnimation
   from ._q_plugin_loader import QPluginLoader
+  from ._q_range_model import QRangeModel
+  from ._q_range_model_impl_base import QRangeModelImplBase
   from ._q_save_file import QSaveFile
+  from ._q_shared_memory import QSharedMemory
+  from ._q_string_list_model import QStringListModel
+  from ._q_system_semaphore import QSystemSemaphore
   from ._q_variant_animation import QVariantAnimation
   from ._q_xml_stream_writer import QXmlStreamWriter
-  from ._q_abstract_list_model import QAbstractListModel
-  from ._q_abstract_table_model import QAbstractTableModel
-  from ._q_cbor_value_const_ref import QCborValueConstRef
+  from ._q_abstract_proxy_model import QAbstractProxyModel
   from ._q_command_line_parser import QCommandLineParser
-  from ._q_concatenate_tables_proxy_model import QConcatenateTablesProxyModel
   from ._q_dir import QDir
-  from ._q_item_selection import QItemSelection
-  from ._q_item_selection_model import QItemSelectionModel
   from ._q_parallel_animation_group import QParallelAnimationGroup
   from ._q_property_animation import QPropertyAnimation
   from ._q_property_observer import QPropertyObserver
-  from ._q_range_model import QRangeModel
   from ._q_sequential_animation_group import QSequentialAnimationGroup
   from ._q_temporary_file import QTemporaryFile
-  from ._q_abstract_proxy_model import QAbstractProxyModel
-  from ._q_cbor_value_ref import QCborValueRef
   from ._q_dir_iterator import QDirIterator
   from ._q_file_info import QFileInfo
-  from ._q_property_notifier import QPropertyNotifier
-  from ._q_range_model_impl_base import QRangeModelImplBase
-  from ._q_storage_info import QStorageInfo
-  from ._q_string_list_model import QStringListModel
-  from ._q_untyped_bindable import QUntypedBindable
   from ._q_identity_proxy_model import QIdentityProxyModel
-  from ._q_mime_database import QMimeDatabase
+  from ._q_property_notifier import QPropertyNotifier
   from ._q_sort_filter_proxy_model import QSortFilterProxyModel
+  from ._q_storage_info import QStorageInfo
   from ._q_transpose_proxy_model import QTransposeProxyModel
+  from ._q_untyped_bindable import QUntypedBindable
+  from ._q_mime_database import QMimeDatabase
   from ._q_xml_stream_entity_declaration import QXmlStreamEntityDeclarations
   from ._q_xml_stream_notation_declaration import QXmlStreamNotationDeclarations
   from ._q_byte_array import QByteArrayList
-  from ._q_model_index import QModelIndexList
   from ._q_xml_stream_namespace_declaration import QXmlStreamNamespaceDeclarations
   from ._q_object import QObjectList
+  from ._q_model_index import QModelIndexList
   from ._q_variant import QVariantList
   from ._q_variant import QVariantMap
   from ._q_variant import QVariantHash
@@ -555,22 +555,15 @@ else:
       'QAdoptSharedDataTag': '_q_adopt_shared_data_tag',
       'QArrayData': '_q_array_data',
       'QAtomicInt': '_q_atomic_int',
-      'QBasicMutex': '_q_basic_mutex',
       'QBindingStatus': '_q_binding_status',
-      'QBitRef': '_q_bit_ref',
-      'QBluetoothPermission': '_q_bluetooth_permission',
       'QByteArrayView': '_q_byte_array_view',
-      'QCalendarPermission': '_q_calendar_permission',
       'QCameraPermission': '_q_camera_permission',
-      'QCborError': '_q_cbor_error',
       'QCborParserError': '_q_cbor_parser_error',
       'QChar': '_q_char',
       'QCollatorSortKey': '_q_collator_sort_key',
-      'QContactsPermission': '_q_contacts_permission',
       'QContiguousCacheData': '_q_contiguous_cache_data',
       'QDeadlineTimer': '_q_deadline_timer',
       'QElapsedTimer': '_q_elapsed_timer',
-      'QEvent': '_q_event',
       'QException': '_q_exception',
       'QFactoryInterface': '_q_factory_interface',
       'QFlag': '_q_flag',
@@ -583,11 +576,9 @@ else:
       'QJsonParseError': '_q_json_parse_error',
       'QKeyCombination': '_q_key_combination',
       'QLatin1Char': '_q_latin1_char',
-      'QLocationPermission': '_q_location_permission',
       'QMargins': '_q_margins',
       'QMessageLogContext': '_q_message_log_context',
       'QMetaClassInfo': '_q_meta_class_info',
-      'QMetaEnum': '_q_meta_enum',
       'QMetaMethodArgument': '_q_meta_method_argument',
       'QMetaMethodReturnArgument': '_q_meta_method_return_argument',
       'QMethodRawArguments': '_q_method_raw_arguments',
@@ -595,7 +586,6 @@ else:
       'QModelRoleData': '_q_model_role_data',
       'QObjectData': '_q_object_data',
       'QOperatingSystemVersionBase': '_q_operating_system_version_base',
-      'QPermission': '_q_permission',
       'QPluginMetaData': '_q_plugin_meta_data',
       'QPoint': '_q_point',
       'QPropertyBindingPrivatePtr': '_q_property_binding_private_ptr',
@@ -622,6 +612,7 @@ else:
       'QXmlStreamNotationDeclaration': '_q_xml_stream_notation_declaration',
       'qfloat16': '_qfloat16',
       'QAbstractConcatenable': '_q_abstract_concatenable',
+      'QBasicMutex': '_q_basic_mutex',
       'QBasicReadWriteLock': '_q_basic_read_write_lock',
       'QBindingStorage': '_q_binding_storage',
       'QBitArray': '_q_bit_array',
@@ -631,7 +622,6 @@ else:
       'QMarginsF': '_q_margins_f',
       'QMetaContainer': '_q_meta_container',
       'QModelRoleDataSpan': '_q_model_role_data_span',
-      'QMutex': '_q_mutex',
       'QOperatingSystemVersionUnexported': '_q_operating_system_version_unexported',
       'QPartialOrdering': '_q_partial_ordering',
       'QPointF': '_q_point_f',
@@ -643,13 +633,12 @@ else:
       'QAbstractNativeEventFilter': '_q_abstract_native_event_filter',
       'QRegularExpressionMatch': '_q_regular_expression_match',
       'QRegularExpression': '_q_regular_expression',
+      'QBitRef': '_q_bit_ref',
       'QByteArrayMatcher': '_q_byte_array_matcher',
-      'QDynamicPropertyChangeEvent': '_q_dynamic_property_change_event',
-      'QEasingCurve': '_q_easing_curve',
       'QLineF': '_q_line_f',
       'QMetaAssociation': '_q_meta_association',
       'QMetaSequence': '_q_meta_sequence',
-      'QModelIndex': '_q_model_index',
+      'QMutex': '_q_mutex',
       'QOperatingSystemVersion': '_q_operating_system_version',
       'QReadWriteLock': '_q_read_write_lock',
       'QRect': '_q_rect',
@@ -658,23 +647,16 @@ else:
       'QAssociativeConstIterator': '_q_associative_const_iterator',
       'QAssociativeIterator': '_q_associative_iterator',
       'QCommandLineOption': '_q_command_line_option',
-      'QDirListing': '_q_dir_listing',
-      'QItemSelectionRange': '_q_item_selection_range',
       'QLatin1String': '_q_latin1_string',
       'QLatin1StringMatcher': '_q_latin1_string_matcher',
-      'QLibraryInfo': '_q_library_info',
       'QLockFile': '_q_lock_file',
       'QLoggingCategory': '_q_logging_category',
-      'QMimeType': '_q_mime_type',
-      'QNativeIpcKey': '_q_native_ipc_key',
-      'QPersistentModelIndex': '_q_persistent_model_index',
       'QProcessEnvironment': '_q_process_environment',
       'QPropertyBindingError': '_q_property_binding_error',
       'QReadLocker': '_q_read_locker',
       'QRectF': '_q_rect_f',
       'QSequentialConstIterator': '_q_sequential_const_iterator',
       'QSequentialIterator': '_q_sequential_iterator',
-      'QStandardPaths': '_q_standard_paths',
       'QStringConverter': '_q_string_converter',
       'QStringMatcher': '_q_string_matcher',
       'QTemporaryDir': '_q_temporary_dir',
@@ -690,65 +672,90 @@ else:
       'QXmlStreamAttributes': '_q_xml_stream_attributes',
       'QXmlStreamEntityResolver': '_q_xml_stream_entity_resolver',
       'QXmlStreamNamespaceDeclaration': '_q_xml_stream_namespace_declaration',
-      'QDate': '_q_date',
-      'QDateTime': '_q_date_time',
-      'QLocale': '_q_locale',
-      'QCalendar': '_q_calendar',
-      'QTimeZone': '_q_time_zone',
-      'QMessageLogger': '_q_message_logger',
-      'QStringDecoder': '_q_string_decoder',
-      'QStringEncoder': '_q_string_encoder',
-      'QSystemSemaphore': '_q_system_semaphore',
       'QMetaObject': '_q_meta_object',
       'QObject': '_q_object',
       'QIODevice': '_q_i_o_device',
       'QDataStream': '_q_data_stream',
+      'QDateTime': '_q_date_time',
+      'QEvent': '_q_event',
       'QJsonArray': '_q_json_array',
       'QJsonObject': '_q_json_object',
+      'QLocale': '_q_locale',
+      'QCborStreamWriter': '_q_cbor_stream_writer',
+      'QModelIndex': '_q_model_index',
+      'QPersistentModelIndex': '_q_persistent_model_index',
       'QBasicTimer': '_q_basic_timer',
-      'QEventLoop': '_q_event_loop',
-      'QSocketNotifier': '_q_socket_notifier',
-      'QTextStream': '_q_text_stream',
-      'QTextStreamManipulator': '_q_text_stream_manipulator',
+      'QCborStreamReader': '_q_cbor_stream_reader',
+      'QCollator': '_q_collator',
       'QDebug': '_q_debug',
       'QMetaType': '_q_meta_type',
+      'QEasingCurve': '_q_easing_curve',
+      'QVariant': '_q_variant',
+      'QCborValue': '_q_cbor_value',
+      'QEventLoop': '_q_event_loop',
+      'QMimeData': '_q_mime_data',
+      'QSocketNotifier': '_q_socket_notifier',
+      'QTextStream': '_q_text_stream',
+      'QTimeZone': '_q_time_zone',
       'QAbstractEventDispatcher': '_q_abstract_event_dispatcher',
+      'QAbstractItemModel': '_q_abstract_item_model',
+      'QCalendar': '_q_calendar',
+      'QCborArray': '_q_cbor_array',
+      'QCborMap': '_q_cbor_map',
+      'QCborValueConstRef': '_q_cbor_value_const_ref',
       'QChildEvent': '_q_child_event',
+      'QDate': '_q_date',
       'QJsonDocument': '_q_json_document',
       'QJsonValue': '_q_json_value',
       'QMetaMethod': '_q_meta_method',
+      'QTextStreamManipulator': '_q_text_stream_manipulator',
       'QThread': '_q_thread',
       'QTimerEvent': '_q_timer_event',
-      'QVariant': '_q_variant',
-      'QCollator': '_q_collator',
-      'QResource': '_q_resource',
+      'QMessageLogger': '_q_message_logger',
+      'QStringDecoder': '_q_string_decoder',
+      'QStringEncoder': '_q_string_encoder',
       'QAbstractAnimation': '_q_abstract_animation',
       'QAbstractEventDispatcherV2': '_q_abstract_event_dispatcher_v2',
+      'QAbstractListModel': '_q_abstract_list_model',
+      'QAbstractTableModel': '_q_abstract_table_model',
       'QAnimationDriver': '_q_animation_driver',
       'QAssociativeIterable': '_q_associative_iterable',
+      'QBluetoothPermission': '_q_bluetooth_permission',
       'QBuffer': '_q_buffer',
-      'QCborStreamReader': '_q_cbor_stream_reader',
-      'QCborStreamWriter': '_q_cbor_stream_writer',
+      'QCalendarPermission': '_q_calendar_permission',
+      'QCborError': '_q_cbor_error',
+      'QCborValueRef': '_q_cbor_value_ref',
       'QChronoTimer': '_q_chrono_timer',
+      'QConcatenateTablesProxyModel': '_q_concatenate_tables_proxy_model',
+      'QContactsPermission': '_q_contacts_permission',
       'QCryptographicHash': '_q_cryptographic_hash',
       'QDebugStateSaver': '_q_debug_state_saver',
+      'QDirListing': '_q_dir_listing',
+      'QDynamicPropertyChangeEvent': '_q_dynamic_property_change_event',
       'QEventLoopLocker': '_q_event_loop_locker',
       'QFileDevice': '_q_file_device',
       'QFileSelector': '_q_file_selector',
       'QFileSystemWatcher': '_q_file_system_watcher',
       'QFutureWatcherBase': '_q_future_watcher_base',
+      'QItemSelectionRange': '_q_item_selection_range',
       'QJsonValueConstRef': '_q_json_value_const_ref',
       'QLibrary': '_q_library',
+      'QLibraryInfo': '_q_library_info',
+      'QLocationPermission': '_q_location_permission',
+      'QMetaEnum': '_q_meta_enum',
       'QMetaProperty': '_q_meta_property',
-      'QMimeData': '_q_mime_data',
+      'QMimeType': '_q_mime_type',
+      'QNativeIpcKey': '_q_native_ipc_key',
       'QNoDebug': '_q_no_debug',
       'QObjectCleanupHandler': '_q_object_cleanup_handler',
+      'QPermission': '_q_permission',
       'QProcess': '_q_process',
+      'QResource': '_q_resource',
       'QSequentialIterable': '_q_sequential_iterable',
       'QSettings': '_q_settings',
-      'QSharedMemory': '_q_shared_memory',
       'QSignalBlocker': '_q_signal_blocker',
       'QSignalMapper': '_q_signal_mapper',
+      'QStandardPaths': '_q_standard_paths',
       'QThreadPool': '_q_thread_pool',
       'QTimeLine': '_q_time_line',
       'QTimer': '_q_timer',
@@ -756,54 +763,47 @@ else:
       'QUntypedPropertyBinding': '_q_untyped_property_binding',
       'QVariantConstPointer': '_q_variant_const_pointer',
       'QXmlStreamReader': '_q_xml_stream_reader',
-      'QAbstractItemModel': '_q_abstract_item_model',
       'QAnimationGroup': '_q_animation_group',
-      'QCborArray': '_q_cbor_array',
-      'QCborMap': '_q_cbor_map',
-      'QCborValue': '_q_cbor_value',
       'QCoreApplication': '_q_core_application',
       'QFile': '_q_file',
       'QFutureInterfaceBase': '_q_future_interface_base',
+      'QItemSelection': '_q_item_selection',
+      'QItemSelectionModel': '_q_item_selection_model',
       'QJsonValueRef': '_q_json_value_ref',
       'QMessageAuthenticationCode': '_q_message_authentication_code',
       'QPauseAnimation': '_q_pause_animation',
       'QPluginLoader': '_q_plugin_loader',
+      'QRangeModel': '_q_range_model',
+      'QRangeModelImplBase': '_q_range_model_impl_base',
       'QSaveFile': '_q_save_file',
+      'QSharedMemory': '_q_shared_memory',
+      'QStringListModel': '_q_string_list_model',
+      'QSystemSemaphore': '_q_system_semaphore',
       'QVariantAnimation': '_q_variant_animation',
       'QXmlStreamWriter': '_q_xml_stream_writer',
-      'QAbstractListModel': '_q_abstract_list_model',
-      'QAbstractTableModel': '_q_abstract_table_model',
-      'QCborValueConstRef': '_q_cbor_value_const_ref',
+      'QAbstractProxyModel': '_q_abstract_proxy_model',
       'QCommandLineParser': '_q_command_line_parser',
-      'QConcatenateTablesProxyModel': '_q_concatenate_tables_proxy_model',
       'QDir': '_q_dir',
-      'QItemSelection': '_q_item_selection',
-      'QItemSelectionModel': '_q_item_selection_model',
       'QParallelAnimationGroup': '_q_parallel_animation_group',
       'QPropertyAnimation': '_q_property_animation',
       'QPropertyObserver': '_q_property_observer',
-      'QRangeModel': '_q_range_model',
       'QSequentialAnimationGroup': '_q_sequential_animation_group',
       'QTemporaryFile': '_q_temporary_file',
-      'QAbstractProxyModel': '_q_abstract_proxy_model',
-      'QCborValueRef': '_q_cbor_value_ref',
       'QDirIterator': '_q_dir_iterator',
       'QFileInfo': '_q_file_info',
-      'QPropertyNotifier': '_q_property_notifier',
-      'QRangeModelImplBase': '_q_range_model_impl_base',
-      'QStorageInfo': '_q_storage_info',
-      'QStringListModel': '_q_string_list_model',
-      'QUntypedBindable': '_q_untyped_bindable',
       'QIdentityProxyModel': '_q_identity_proxy_model',
-      'QMimeDatabase': '_q_mime_database',
+      'QPropertyNotifier': '_q_property_notifier',
       'QSortFilterProxyModel': '_q_sort_filter_proxy_model',
+      'QStorageInfo': '_q_storage_info',
       'QTransposeProxyModel': '_q_transpose_proxy_model',
+      'QUntypedBindable': '_q_untyped_bindable',
+      'QMimeDatabase': '_q_mime_database',
       'QXmlStreamEntityDeclarations': '_q_xml_stream_entity_declaration',
       'QXmlStreamNotationDeclarations': '_q_xml_stream_notation_declaration',
       'QByteArrayList': '_q_byte_array',
-      'QModelIndexList': '_q_model_index',
       'QXmlStreamNamespaceDeclarations': '_q_xml_stream_namespace_declaration',
       'QObjectList': '_q_object',
+      'QModelIndexList': '_q_model_index',
       'QVariantList': '_q_variant',
       'QVariantMap': '_q_variant',
       'QVariantHash': '_q_variant',

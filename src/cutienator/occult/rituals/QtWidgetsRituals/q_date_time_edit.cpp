@@ -1300,6 +1300,94 @@ void ritual_ZN13QDateTimeEdit7setTimeE5QTime(
   self->setTime(*time);
 }
 
+//  void QDateTimeEdit::keyPressEvent(QKeyEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QDateTimeEdit13keyPressEventEP9QKeyEvent(
+    QDateTimeEdit *self,
+    QKeyEvent *event) {
+  self->keyPressEvent(event);
+}
+
+//  void QDateTimeEdit::wheelEvent(QWheelEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QDateTimeEdit10wheelEventEP11QWheelEvent(
+    QDateTimeEdit *self,
+    QWheelEvent *event) {
+  self->wheelEvent(event);
+}
+
+//  void QDateTimeEdit::focusInEvent(QFocusEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QDateTimeEdit12focusInEventEP11QFocusEvent(
+    QDateTimeEdit *self,
+    QFocusEvent *event) {
+  self->focusInEvent(event);
+}
+
+//  bool QDateTimeEdit::focusNextPrevChild(bool next)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN13QDateTimeEdit18focusNextPrevChildEb(
+    QDateTimeEdit *self,
+    bool next) {
+  return self->focusNextPrevChild(next);
+}
+
+//  QDateTime QDateTimeEdit::dateTimeFromText(const QString &text) const
+extern "C" Q_DECL_EXPORT
+QDateTime *ritual_ZNK13QDateTimeEdit16dateTimeFromTextERK7QString(
+    const QDateTimeEdit *self,
+    const QString *text) {
+  return new QDateTime(self->dateTimeFromText(*text));
+}
+
+//  QString QDateTimeEdit::textFromDateTime(const QDateTime &dt) const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK13QDateTimeEdit16textFromDateTimeERK9QDateTime(
+    const QDateTimeEdit *self,
+    const QDateTime *dt) {
+  return new QString(self->textFromDateTime(*dt));
+}
+
+//  StepEnabled QDateTimeEdit::stepEnabled() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK13QDateTimeEdit11stepEnabledEv(const QDateTimeEdit *self) {
+  return static_cast<int>(self->stepEnabled().toInt());
+}
+
+//  void QDateTimeEdit::mousePressEvent(QMouseEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QDateTimeEdit15mousePressEventEP11QMouseEvent(
+    QDateTimeEdit *self,
+    QMouseEvent *event) {
+  self->mousePressEvent(event);
+}
+
+//  void QDateTimeEdit::paintEvent(QPaintEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QDateTimeEdit10paintEventEP11QPaintEvent(
+    QDateTimeEdit *self,
+    QPaintEvent *event) {
+  self->paintEvent(event);
+}
+
+//  void QDateTimeEdit::initStyleOption(QStyleOptionSpinBox *option) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK13QDateTimeEdit15initStyleOptionEP19QStyleOptionSpinBox(
+    const QDateTimeEdit *self,
+    QStyleOptionSpinBox *option) {
+  self->initStyleOption(option);
+}
+
+//  QDateTimeEdit::QDateTimeEdit(const QVariant &val, QMetaType::Type
+//      parserType, QWidget *parent)
+extern "C" Q_DECL_EXPORT
+QDateTimeEdit *ritual_ZN13QDateTimeEditC1ERK8QVariantN9QMetaType4TypeEP7QWidget(
+    const QVariant *val,
+    QMetaType::Type parserType,
+    QWidget *parent) {
+  return new CuteQDateTimeEdit(*val, parserType, parent);
+}
+
 //  a Python function taken by a CuteQDateTimeEdit, for the function named by
 //      the key
 extern "C" Q_DECL_EXPORT

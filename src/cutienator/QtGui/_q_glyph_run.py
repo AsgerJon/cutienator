@@ -41,12 +41,12 @@ class QGlyphRun(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QGlyphRun that has a ritual and that Python can call
-  so far, 23 names in all: 'rawFont', 'setRawFont', 'positions',
+  so far, 24 names in all: 'rawFont', 'setRawFont', 'positions',
   'setPositions', 'clear', '__eq__', '__ne__', 'setOverline', 'overline',
   'setUnderline', 'underline', 'setStrikeOut', 'strikeOut', 'setRightToLeft',
   'isRightToLeft', 'setFlag', 'setFlags', 'flags', 'setBoundingRect',
-  'boundingRect', 'setSourceString', 'sourceString', 'isEmpty'. It can be
-  made from Python, in 2 ways; see '__init__'.
+  'boundingRect', 'setSourceString', 'sourceString', 'isEmpty', 'detach'. It
+  can be made from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -57,8 +57,8 @@ class QGlyphRun(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  11 of the 37 functions Qt declares: 8 takes or gives a type that cannot be
-  passed yet; 3 private.
+  10 of the 37 functions Qt declares: 8 takes or gives a type that cannot be
+  passed yet; 2 declared and nowhere to be found.
 
   What to expect
   --------------
@@ -566,6 +566,15 @@ class QGlyphRun(CuteMixin, metaclass=MetaCute):
     """
     #  void QGlyphRun::clear()
     self.uglySide.call('ritual_ZN9QGlyphRun5clearEv')
+
+  def detach(self) -> None:
+    """
+    Calls Qt's 'void QGlyphRun::detach()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qglyphrun.html#detach
+    """
+    #  void QGlyphRun::detach()
+    self.uglySide.call('ritual_ZN9QGlyphRun6detachEv')
 
 
 #  Qt's 'QList<QGlyphRun>': the list of QGlyphRun, which 'QList[QGlyphRun]'

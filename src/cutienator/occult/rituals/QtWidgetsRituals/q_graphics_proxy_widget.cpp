@@ -1168,6 +1168,265 @@ QGraphicsProxyWidget *ritual_ZN20QGraphicsProxyWidget25createProxyForChildWidget
   return self->createProxyForChildWidget(child);
 }
 
+//  QVariant QGraphicsProxyWidget::itemChange(GraphicsItemChange change,
+//      const QVariant &value)
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZN20QGraphicsProxyWidget10itemChangeEN13QGraphicsItem18GraphicsItemChangeERK8QVariant(
+    QGraphicsProxyWidget *self,
+    QGraphicsItem::GraphicsItemChange change,
+    const QVariant *value) {
+  return new QVariant(self->itemChange(change, *value));
+}
+
+//  bool QGraphicsProxyWidget::event(QEvent *event)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN20QGraphicsProxyWidget5eventEP6QEvent(
+    QGraphicsProxyWidget *self,
+    QEvent *event) {
+  return self->event(event);
+}
+
+//  bool QGraphicsProxyWidget::eventFilter(QObject *object, QEvent *event)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN20QGraphicsProxyWidget11eventFilterEP7QObjectP6QEvent(
+    QGraphicsProxyWidget *self,
+    QObject *object,
+    QEvent *event) {
+  return self->eventFilter(object, event);
+}
+
+//  void QGraphicsProxyWidget::showEvent(QShowEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QGraphicsProxyWidget9showEventEP10QShowEvent(
+    QGraphicsProxyWidget *self,
+    QShowEvent *event) {
+  self->showEvent(event);
+}
+
+//  void QGraphicsProxyWidget::hideEvent(QHideEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QGraphicsProxyWidget9hideEventEP10QHideEvent(
+    QGraphicsProxyWidget *self,
+    QHideEvent *event) {
+  self->hideEvent(event);
+}
+
+//  void
+//      QGraphicsProxyWidget::contextMenuEvent(QGraphicsSceneContextMenuEvent
+//      *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QGraphicsProxyWidget16contextMenuEventEP30QGraphicsSceneContextMenuEvent(
+    QGraphicsProxyWidget *self,
+    QGraphicsSceneContextMenuEvent *event) {
+  self->contextMenuEvent(event);
+}
+
+//  void QGraphicsProxyWidget::dragEnterEvent(QGraphicsSceneDragDropEvent
+//      *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QGraphicsProxyWidget14dragEnterEventEP27QGraphicsSceneDragDropEvent(
+    QGraphicsProxyWidget *self,
+    QGraphicsSceneDragDropEvent *event) {
+  self->dragEnterEvent(event);
+}
+
+//  void QGraphicsProxyWidget::dragLeaveEvent(QGraphicsSceneDragDropEvent
+//      *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QGraphicsProxyWidget14dragLeaveEventEP27QGraphicsSceneDragDropEvent(
+    QGraphicsProxyWidget *self,
+    QGraphicsSceneDragDropEvent *event) {
+  self->dragLeaveEvent(event);
+}
+
+//  void QGraphicsProxyWidget::dragMoveEvent(QGraphicsSceneDragDropEvent
+//      *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QGraphicsProxyWidget13dragMoveEventEP27QGraphicsSceneDragDropEvent(
+    QGraphicsProxyWidget *self,
+    QGraphicsSceneDragDropEvent *event) {
+  self->dragMoveEvent(event);
+}
+
+//  void QGraphicsProxyWidget::dropEvent(QGraphicsSceneDragDropEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QGraphicsProxyWidget9dropEventEP27QGraphicsSceneDragDropEvent(
+    QGraphicsProxyWidget *self,
+    QGraphicsSceneDragDropEvent *event) {
+  self->dropEvent(event);
+}
+
+//  void QGraphicsProxyWidget::hoverEnterEvent(QGraphicsSceneHoverEvent
+//      *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QGraphicsProxyWidget15hoverEnterEventEP24QGraphicsSceneHoverEvent(
+    QGraphicsProxyWidget *self,
+    QGraphicsSceneHoverEvent *event) {
+  self->hoverEnterEvent(event);
+}
+
+//  void QGraphicsProxyWidget::hoverLeaveEvent(QGraphicsSceneHoverEvent
+//      *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QGraphicsProxyWidget15hoverLeaveEventEP24QGraphicsSceneHoverEvent(
+    QGraphicsProxyWidget *self,
+    QGraphicsSceneHoverEvent *event) {
+  self->hoverLeaveEvent(event);
+}
+
+//  void QGraphicsProxyWidget::hoverMoveEvent(QGraphicsSceneHoverEvent
+//      *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QGraphicsProxyWidget14hoverMoveEventEP24QGraphicsSceneHoverEvent(
+    QGraphicsProxyWidget *self,
+    QGraphicsSceneHoverEvent *event) {
+  self->hoverMoveEvent(event);
+}
+
+//  void QGraphicsProxyWidget::grabMouseEvent(QEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QGraphicsProxyWidget14grabMouseEventEP6QEvent(
+    QGraphicsProxyWidget *self,
+    QEvent *event) {
+  self->grabMouseEvent(event);
+}
+
+//  void QGraphicsProxyWidget::ungrabMouseEvent(QEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QGraphicsProxyWidget16ungrabMouseEventEP6QEvent(
+    QGraphicsProxyWidget *self,
+    QEvent *event) {
+  self->ungrabMouseEvent(event);
+}
+
+//  void QGraphicsProxyWidget::mouseMoveEvent(QGraphicsSceneMouseEvent
+//      *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QGraphicsProxyWidget14mouseMoveEventEP24QGraphicsSceneMouseEvent(
+    QGraphicsProxyWidget *self,
+    QGraphicsSceneMouseEvent *event) {
+  self->mouseMoveEvent(event);
+}
+
+//  void QGraphicsProxyWidget::mousePressEvent(QGraphicsSceneMouseEvent
+//      *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QGraphicsProxyWidget15mousePressEventEP24QGraphicsSceneMouseEvent(
+    QGraphicsProxyWidget *self,
+    QGraphicsSceneMouseEvent *event) {
+  self->mousePressEvent(event);
+}
+
+//  void QGraphicsProxyWidget::mouseReleaseEvent(QGraphicsSceneMouseEvent
+//      *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QGraphicsProxyWidget17mouseReleaseEventEP24QGraphicsSceneMouseEvent(
+    QGraphicsProxyWidget *self,
+    QGraphicsSceneMouseEvent *event) {
+  self->mouseReleaseEvent(event);
+}
+
+//  void QGraphicsProxyWidget::mouseDoubleClickEvent(QGraphicsSceneMouseEvent
+//      *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QGraphicsProxyWidget21mouseDoubleClickEventEP24QGraphicsSceneMouseEvent(
+    QGraphicsProxyWidget *self,
+    QGraphicsSceneMouseEvent *event) {
+  self->mouseDoubleClickEvent(event);
+}
+
+//  void QGraphicsProxyWidget::wheelEvent(QGraphicsSceneWheelEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QGraphicsProxyWidget10wheelEventEP24QGraphicsSceneWheelEvent(
+    QGraphicsProxyWidget *self,
+    QGraphicsSceneWheelEvent *event) {
+  self->wheelEvent(event);
+}
+
+//  void QGraphicsProxyWidget::keyPressEvent(QKeyEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QGraphicsProxyWidget13keyPressEventEP9QKeyEvent(
+    QGraphicsProxyWidget *self,
+    QKeyEvent *event) {
+  self->keyPressEvent(event);
+}
+
+//  void QGraphicsProxyWidget::keyReleaseEvent(QKeyEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QGraphicsProxyWidget15keyReleaseEventEP9QKeyEvent(
+    QGraphicsProxyWidget *self,
+    QKeyEvent *event) {
+  self->keyReleaseEvent(event);
+}
+
+//  void QGraphicsProxyWidget::focusInEvent(QFocusEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QGraphicsProxyWidget12focusInEventEP11QFocusEvent(
+    QGraphicsProxyWidget *self,
+    QFocusEvent *event) {
+  self->focusInEvent(event);
+}
+
+//  void QGraphicsProxyWidget::focusOutEvent(QFocusEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QGraphicsProxyWidget13focusOutEventEP11QFocusEvent(
+    QGraphicsProxyWidget *self,
+    QFocusEvent *event) {
+  self->focusOutEvent(event);
+}
+
+//  bool QGraphicsProxyWidget::focusNextPrevChild(bool next)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN20QGraphicsProxyWidget18focusNextPrevChildEb(
+    QGraphicsProxyWidget *self,
+    bool next) {
+  return self->focusNextPrevChild(next);
+}
+
+//  QVariant QGraphicsProxyWidget::inputMethodQuery(Qt::InputMethodQuery
+//      query) const
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZNK20QGraphicsProxyWidget16inputMethodQueryEN2Qt16InputMethodQueryE(
+    const QGraphicsProxyWidget *self,
+    Qt::InputMethodQuery query) {
+  return new QVariant(self->inputMethodQuery(query));
+}
+
+//  void QGraphicsProxyWidget::inputMethodEvent(QInputMethodEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QGraphicsProxyWidget16inputMethodEventEP17QInputMethodEvent(
+    QGraphicsProxyWidget *self,
+    QInputMethodEvent *event) {
+  self->inputMethodEvent(event);
+}
+
+//  QSizeF QGraphicsProxyWidget::sizeHint(Qt::SizeHint which, const QSizeF
+//      &constraint) const
+extern "C" Q_DECL_EXPORT
+QSizeF *ritual_ZNK20QGraphicsProxyWidget8sizeHintEN2Qt8SizeHintERK6QSizeF(
+    const QGraphicsProxyWidget *self,
+    Qt::SizeHint which,
+    const QSizeF *constraint) {
+  return new QSizeF(self->sizeHint(which, *constraint));
+}
+
+//  void QGraphicsProxyWidget::resizeEvent(QGraphicsSceneResizeEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QGraphicsProxyWidget11resizeEventEP25QGraphicsSceneResizeEvent(
+    QGraphicsProxyWidget *self,
+    QGraphicsSceneResizeEvent *event) {
+  self->resizeEvent(event);
+}
+
+//  QGraphicsProxyWidget *QGraphicsProxyWidget::newProxyWidget(const QWidget
+//      *a0)
+extern "C" Q_DECL_EXPORT
+QGraphicsProxyWidget *ritual_ZN20QGraphicsProxyWidget14newProxyWidgetEPK7QWidget(
+    QGraphicsProxyWidget *self,
+    const QWidget *a0) {
+  return self->newProxyWidget(a0);
+}
+
 //  a Python function taken by a CuteQGraphicsProxyWidget, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT

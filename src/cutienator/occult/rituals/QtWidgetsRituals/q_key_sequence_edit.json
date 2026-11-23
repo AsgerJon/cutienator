@@ -37,6 +37,21 @@
     "ritual_ZN16QKeySequenceEdit24setMaximumSequenceLengthEx": [
       "nothing", "address", "long long"
     ],
+    "ritual_ZN16QKeySequenceEdit5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN16QKeySequenceEdit13keyPressEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QKeySequenceEdit15keyReleaseEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QKeySequenceEdit10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QKeySequenceEdit13focusOutEventEP11QFocusEvent": [
+      "nothing", "address", "address"
+    ],
     "ritual_take_QKeySequenceEdit": ["bool", "address", "chars", "address"],
     "ritual_own_ZN16QKeySequenceEdit5eventEP6QEvent": [
       "bool", "address", "address"

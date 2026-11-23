@@ -1222,6 +1222,87 @@ void ritual_ZN10QTabWidget16setCurrentWidgetEP7QWidget(
   self->setCurrentWidget(widget);
 }
 
+//  void QTabWidget::tabInserted(int index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QTabWidget11tabInsertedEi(QTabWidget *self, int index) {
+  self->tabInserted(index);
+}
+
+//  void QTabWidget::tabRemoved(int index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QTabWidget10tabRemovedEi(QTabWidget *self, int index) {
+  self->tabRemoved(index);
+}
+
+//  void QTabWidget::showEvent(QShowEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QTabWidget9showEventEP10QShowEvent(
+    QTabWidget *self,
+    QShowEvent *a0) {
+  self->showEvent(a0);
+}
+
+//  void QTabWidget::resizeEvent(QResizeEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QTabWidget11resizeEventEP12QResizeEvent(
+    QTabWidget *self,
+    QResizeEvent *a0) {
+  self->resizeEvent(a0);
+}
+
+//  void QTabWidget::keyPressEvent(QKeyEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QTabWidget13keyPressEventEP9QKeyEvent(
+    QTabWidget *self,
+    QKeyEvent *a0) {
+  self->keyPressEvent(a0);
+}
+
+//  void QTabWidget::paintEvent(QPaintEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QTabWidget10paintEventEP11QPaintEvent(
+    QTabWidget *self,
+    QPaintEvent *a0) {
+  self->paintEvent(a0);
+}
+
+//  void QTabWidget::setTabBar(QTabBar *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QTabWidget9setTabBarEP7QTabBar(
+    QTabWidget *self,
+    QTabBar *a0) {
+  self->setTabBar(a0);
+}
+
+//  void QTabWidget::changeEvent(QEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QTabWidget11changeEventEP6QEvent(
+    QTabWidget *self,
+    QEvent *a0) {
+  self->changeEvent(a0);
+}
+
+//  bool QTabWidget::event(QEvent *a0)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN10QTabWidget5eventEP6QEvent(QTabWidget *self, QEvent *a0) {
+  return self->event(a0);
+}
+
+//  void QTabWidget::initStyleOption(QStyleOptionTabWidgetFrame *option)
+//      const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK10QTabWidget15initStyleOptionEP26QStyleOptionTabWidgetFrame(
+    const QTabWidget *self,
+    QStyleOptionTabWidgetFrame *option) {
+  self->initStyleOption(option);
+}
+
+//  void QTabWidget::setUpLayout(bool a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QTabWidget11setUpLayoutEb(QTabWidget *self, bool a0) {
+  self->setUpLayout(a0);
+}
+
 //  a Python function taken by a CuteQTabWidget, for the function named by
 //      the key
 extern "C" Q_DECL_EXPORT

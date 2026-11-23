@@ -4,6 +4,7 @@
     "QtCore/qvariant.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN8QVariant13PrivateSharedC1Ev": ["address"],
     "ritual_ZN8QVariant13PrivateSharedD1Ev": ["nothing", "address"]
   }
 }

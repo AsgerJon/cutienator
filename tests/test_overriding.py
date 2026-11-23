@@ -510,8 +510,8 @@ class TestOverriding(BaseTest):
     expected = "Qt called 'paintEvent' of a 'Canvas' that Python has let go"
     self.assertEqual(self._found('let go raised'), expected)
 
-  def test_a_function_qt_keeps_to_itself(self) -> None:
-    """Qt's QTreeWidget keeps 'setModel' to itself, so writing it anew
-    is refused."""
-    expected = "'Tree' writes 'setModel' anew,"
-    self.assertEqual(self._found('tree raised'), expected)
+  def test_a_function_qt_marks_private(self) -> None:
+    """Qt's QTreeWidget marks 'setModel' private. A class built on it
+    writes it anew all the same: C++ lets a class do that as well, and
+    what C++ marks private is no concern of cutienator."""
+    self.assertEqual(self._found('tree raised'), 'None')

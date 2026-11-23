@@ -9,6 +9,8 @@
 #include <QtCore/qvariant.h>
 #include <QtCore/qpoint.h>
 #include <QtCore/qrect.h>
+#include <QtGui/qtextobject.h>
+#include <QtGui/qabstracttextdocumentlayout.h>
 #include <QtCore/qsize.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
@@ -1482,6 +1484,268 @@ void ritual_ZN14QPlainTextEdit6zoomInEi(QPlainTextEdit *self, int range) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14QPlainTextEdit7zoomOutEi(QPlainTextEdit *self, int range) {
   self->zoomOut(range);
+}
+
+//  bool QPlainTextEdit::event(QEvent *e)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN14QPlainTextEdit5eventEP6QEvent(
+    QPlainTextEdit *self,
+    QEvent *e) {
+  return self->event(e);
+}
+
+//  void QPlainTextEdit::timerEvent(QTimerEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QPlainTextEdit10timerEventEP11QTimerEvent(
+    QPlainTextEdit *self,
+    QTimerEvent *e) {
+  self->timerEvent(e);
+}
+
+//  void QPlainTextEdit::keyPressEvent(QKeyEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QPlainTextEdit13keyPressEventEP9QKeyEvent(
+    QPlainTextEdit *self,
+    QKeyEvent *e) {
+  self->keyPressEvent(e);
+}
+
+//  void QPlainTextEdit::keyReleaseEvent(QKeyEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QPlainTextEdit15keyReleaseEventEP9QKeyEvent(
+    QPlainTextEdit *self,
+    QKeyEvent *e) {
+  self->keyReleaseEvent(e);
+}
+
+//  void QPlainTextEdit::resizeEvent(QResizeEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QPlainTextEdit11resizeEventEP12QResizeEvent(
+    QPlainTextEdit *self,
+    QResizeEvent *e) {
+  self->resizeEvent(e);
+}
+
+//  void QPlainTextEdit::paintEvent(QPaintEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QPlainTextEdit10paintEventEP11QPaintEvent(
+    QPlainTextEdit *self,
+    QPaintEvent *e) {
+  self->paintEvent(e);
+}
+
+//  void QPlainTextEdit::mousePressEvent(QMouseEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QPlainTextEdit15mousePressEventEP11QMouseEvent(
+    QPlainTextEdit *self,
+    QMouseEvent *e) {
+  self->mousePressEvent(e);
+}
+
+//  void QPlainTextEdit::mouseMoveEvent(QMouseEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QPlainTextEdit14mouseMoveEventEP11QMouseEvent(
+    QPlainTextEdit *self,
+    QMouseEvent *e) {
+  self->mouseMoveEvent(e);
+}
+
+//  void QPlainTextEdit::mouseReleaseEvent(QMouseEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QPlainTextEdit17mouseReleaseEventEP11QMouseEvent(
+    QPlainTextEdit *self,
+    QMouseEvent *e) {
+  self->mouseReleaseEvent(e);
+}
+
+//  void QPlainTextEdit::mouseDoubleClickEvent(QMouseEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QPlainTextEdit21mouseDoubleClickEventEP11QMouseEvent(
+    QPlainTextEdit *self,
+    QMouseEvent *e) {
+  self->mouseDoubleClickEvent(e);
+}
+
+//  bool QPlainTextEdit::focusNextPrevChild(bool next)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN14QPlainTextEdit18focusNextPrevChildEb(
+    QPlainTextEdit *self,
+    bool next) {
+  return self->focusNextPrevChild(next);
+}
+
+//  void QPlainTextEdit::contextMenuEvent(QContextMenuEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QPlainTextEdit16contextMenuEventEP17QContextMenuEvent(
+    QPlainTextEdit *self,
+    QContextMenuEvent *e) {
+  self->contextMenuEvent(e);
+}
+
+//  void QPlainTextEdit::dragEnterEvent(QDragEnterEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QPlainTextEdit14dragEnterEventEP15QDragEnterEvent(
+    QPlainTextEdit *self,
+    QDragEnterEvent *e) {
+  self->dragEnterEvent(e);
+}
+
+//  void QPlainTextEdit::dragLeaveEvent(QDragLeaveEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QPlainTextEdit14dragLeaveEventEP15QDragLeaveEvent(
+    QPlainTextEdit *self,
+    QDragLeaveEvent *e) {
+  self->dragLeaveEvent(e);
+}
+
+//  void QPlainTextEdit::dragMoveEvent(QDragMoveEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QPlainTextEdit13dragMoveEventEP14QDragMoveEvent(
+    QPlainTextEdit *self,
+    QDragMoveEvent *e) {
+  self->dragMoveEvent(e);
+}
+
+//  void QPlainTextEdit::dropEvent(QDropEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QPlainTextEdit9dropEventEP10QDropEvent(
+    QPlainTextEdit *self,
+    QDropEvent *e) {
+  self->dropEvent(e);
+}
+
+//  void QPlainTextEdit::focusInEvent(QFocusEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QPlainTextEdit12focusInEventEP11QFocusEvent(
+    QPlainTextEdit *self,
+    QFocusEvent *e) {
+  self->focusInEvent(e);
+}
+
+//  void QPlainTextEdit::focusOutEvent(QFocusEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QPlainTextEdit13focusOutEventEP11QFocusEvent(
+    QPlainTextEdit *self,
+    QFocusEvent *e) {
+  self->focusOutEvent(e);
+}
+
+//  void QPlainTextEdit::showEvent(QShowEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QPlainTextEdit9showEventEP10QShowEvent(
+    QPlainTextEdit *self,
+    QShowEvent *a0) {
+  self->showEvent(a0);
+}
+
+//  void QPlainTextEdit::changeEvent(QEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QPlainTextEdit11changeEventEP6QEvent(
+    QPlainTextEdit *self,
+    QEvent *e) {
+  self->changeEvent(e);
+}
+
+//  void QPlainTextEdit::wheelEvent(QWheelEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QPlainTextEdit10wheelEventEP11QWheelEvent(
+    QPlainTextEdit *self,
+    QWheelEvent *e) {
+  self->wheelEvent(e);
+}
+
+//  QMimeData *QPlainTextEdit::createMimeDataFromSelection() const
+extern "C" Q_DECL_EXPORT
+QMimeData *ritual_ZNK14QPlainTextEdit27createMimeDataFromSelectionEv(
+    const QPlainTextEdit *self) {
+  return self->createMimeDataFromSelection();
+}
+
+//  bool QPlainTextEdit::canInsertFromMimeData(const QMimeData *source) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK14QPlainTextEdit21canInsertFromMimeDataEPK9QMimeData(
+    const QPlainTextEdit *self,
+    const QMimeData *source) {
+  return self->canInsertFromMimeData(source);
+}
+
+//  void QPlainTextEdit::insertFromMimeData(const QMimeData *source)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QPlainTextEdit18insertFromMimeDataEPK9QMimeData(
+    QPlainTextEdit *self,
+    const QMimeData *source) {
+  self->insertFromMimeData(source);
+}
+
+//  void QPlainTextEdit::inputMethodEvent(QInputMethodEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QPlainTextEdit16inputMethodEventEP17QInputMethodEvent(
+    QPlainTextEdit *self,
+    QInputMethodEvent *a0) {
+  self->inputMethodEvent(a0);
+}
+
+//  void QPlainTextEdit::scrollContentsBy(int dx, int dy)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QPlainTextEdit16scrollContentsByEii(
+    QPlainTextEdit *self,
+    int dx,
+    int dy) {
+  self->scrollContentsBy(dx, dy);
+}
+
+//  void QPlainTextEdit::doSetTextCursor(const QTextCursor &cursor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QPlainTextEdit15doSetTextCursorERK11QTextCursor(
+    QPlainTextEdit *self,
+    const QTextCursor *cursor) {
+  self->doSetTextCursor(*cursor);
+}
+
+//  QTextBlock QPlainTextEdit::firstVisibleBlock() const
+extern "C" Q_DECL_EXPORT
+QTextBlock *ritual_ZNK14QPlainTextEdit17firstVisibleBlockEv(
+    const QPlainTextEdit *self) {
+  return new QTextBlock(self->firstVisibleBlock());
+}
+
+//  QPointF QPlainTextEdit::contentOffset() const
+extern "C" Q_DECL_EXPORT
+QPointF *ritual_ZNK14QPlainTextEdit13contentOffsetEv(
+    const QPlainTextEdit *self) {
+  return new QPointF(self->contentOffset());
+}
+
+//  QRectF QPlainTextEdit::blockBoundingRect(const QTextBlock &block) const
+extern "C" Q_DECL_EXPORT
+QRectF *ritual_ZNK14QPlainTextEdit17blockBoundingRectERK10QTextBlock(
+    const QPlainTextEdit *self,
+    const QTextBlock *block) {
+  return new QRectF(self->blockBoundingRect(*block));
+}
+
+//  QRectF QPlainTextEdit::blockBoundingGeometry(const QTextBlock &block)
+//      const
+extern "C" Q_DECL_EXPORT
+QRectF *ritual_ZNK14QPlainTextEdit21blockBoundingGeometryERK10QTextBlock(
+    const QPlainTextEdit *self,
+    const QTextBlock *block) {
+  return new QRectF(self->blockBoundingGeometry(*block));
+}
+
+//  QAbstractTextDocumentLayout::PaintContext
+//      QPlainTextEdit::getPaintContext() const
+extern "C" Q_DECL_EXPORT
+QAbstractTextDocumentLayout::PaintContext *ritual_ZNK14QPlainTextEdit15getPaintContextEv(
+    const QPlainTextEdit *self) {
+  return new QAbstractTextDocumentLayout::PaintContext(
+      self->getPaintContext());
+}
+
+//  void QPlainTextEdit::zoomInF(float range)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QPlainTextEdit7zoomInFEf(QPlainTextEdit *self, float range) {
+  self->zoomInF(range);
 }
 
 //  a Python function taken by a CuteQPlainTextEdit, for the function named

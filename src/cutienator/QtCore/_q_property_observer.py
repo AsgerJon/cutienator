@@ -11,8 +11,23 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
+from ..cute import WAIT
 from ..occult import Rituals
 from . import QPropertyObserverBase
+
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Optional
+
+  from . import QUntypedPropertyData
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QUntypedPropertyData = WAIT['QUntypedPropertyData']
+
+#  The class of None, for a signature that takes None in the place of an
+#  object or of text.
+NoneType = type(None)
 
 
 class QPropertyObserver(QPropertyObserverBase):
@@ -26,8 +41,9 @@ class QPropertyObserver(QPropertyObserverBase):
   What exists
   -----------
 
-  No function of Qt's QPropertyObserver yet. It can be made from Python, in 1
-  way; see '__init__'.
+  Every function of Qt's QPropertyObserver that has a ritual and that Python
+  can call so far, 1 name in all: 'aliasedProperty'. It can be made from
+  Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -38,8 +54,8 @@ class QPropertyObserver(QPropertyObserverBase):
   What has no ritual
   ------------------
 
-  9 of the 11 functions Qt declares: 3 takes or gives a type that cannot be
-  passed yet; 3 protected; 2 forbidden; 1 a template.
+  7 of the 11 functions Qt declares: 4 takes or gives a type that cannot be
+  passed yet; 2 forbidden; 1 a template.
 
   What to expect
   --------------
@@ -78,6 +94,28 @@ class QPropertyObserver(QPropertyObserverBase):
   #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  def aliasedProperty(self) -> Optional[QUntypedPropertyData]:
+    """
+    Calls Qt's 'QUntypedPropertyData *QPropertyObserver::aliasedProperty()
+    const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qpropertyobserver.html#aliasedProperty
+
+    Returns
+    -------
+
+    Optional[QUntypedPropertyData]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QUntypedPropertyData *QPropertyObserver::aliasedProperty() const
+    address = self.uglySide.call(
+        'ritual_ZNK17QPropertyObserver15aliasedPropertyEv',
+    )
+    from . import QUntypedPropertyData
+    return QUntypedPropertyData._cuteAt(address)
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -106,6 +144,34 @@ class QPropertyObserver(QPropertyObserverBase):
     #  QPropertyObserver::QPropertyObserver()
     self._noteCreation(QPropertyObserver, lambda: Rituals.call(
         'ritual_ZN17QPropertyObserverC1Ev',
+    ))
+
+  @overload(QUntypedPropertyData)
+  @overload(NoneType)
+  def __init__(
+      self,
+      aliasedPropertyPtr: Optional[QUntypedPropertyData],
+  ) -> None:
+    """
+    Notes what was given, for Qt's
+    'QPropertyObserver::QPropertyObserver(QUntypedPropertyData
+    *aliasedPropertyPtr)', which is called at the first use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qpropertyobserver.html#QPropertyObserver
+
+    Parameters
+    ----------
+
+    aliasedPropertyPtr : Optional[QUntypedPropertyData]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  QPropertyObserver::QPropertyObserver(QUntypedPropertyData
+    #      *aliasedPropertyPtr)
+    self._noteCreation(QPropertyObserver, lambda: Rituals.call(
+        'ritual_ZN17QPropertyObserverC1EP20QUntypedPropertyData',
+        self._addressOf(aliasedPropertyPtr),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

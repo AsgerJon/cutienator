@@ -11,8 +11,16 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin, MetaCute
+from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
+
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from . import QDeadlineTimer
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QDeadlineTimer = WAIT['QDeadlineTimer']
 
 
 class QBasicMutex(CuteMixin, metaclass=MetaCute):
@@ -24,13 +32,15 @@ class QBasicMutex(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QBasicMutex that has a ritual and that Python can
-  call so far, 4 names in all: 'lock', 'unlock', 'tryLock', 'try_lock'. It
-  can be made from Python, in 1 way; see '__init__'.
+  call so far, 7 names in all: 'lock', 'unlock', 'tryLock', 'try_lock',
+  'fastTryLock', 'lockInternal', 'unlockInternal'. It can be made from
+  Python, in 1 way; see '__init__'.
 
   What has no ritual
   ------------------
 
-  13 of the 18 functions Qt declares: 9 private; 4 forbidden.
+  8 of the 18 functions Qt declares: 4 forbidden; 4 takes or gives a type
+  that cannot be passed yet.
 
   What to expect
   --------------
@@ -153,3 +163,69 @@ class QBasicMutex(CuteMixin, metaclass=MetaCute):
     """
     #  bool QBasicMutex::try_lock()
     return self.uglySide.call('ritual_ZN11QBasicMutex8try_lockEv')
+
+  def fastTryLock(self) -> bool:
+    """
+    Calls Qt's 'bool QBasicMutex::fastTryLock()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbasicmutex.html#fastTryLock
+    """
+    #  bool QBasicMutex::fastTryLock()
+    return self.uglySide.call('ritual_ZN11QBasicMutex11fastTryLockEv')
+
+  @overload()
+  def lockInternal(self) -> None:
+    """
+    Calls Qt's 'void QBasicMutex::lockInternal()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbasicmutex.html#lockInternal
+    """
+    #  void QBasicMutex::lockInternal()
+    self.uglySide.call('ritual_ZN11QBasicMutex12lockInternalEv')
+
+  @overload(QDeadlineTimer)
+  def lockInternal(self, timeout: QDeadlineTimer) -> bool:
+    """
+    Calls Qt's 'bool QBasicMutex::lockInternal(QDeadlineTimer timeout)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbasicmutex.html#lockInternal
+
+    Parameters
+    ----------
+
+    timeout : QDeadlineTimer
+      Passed on as a value: Qt reads the C++ QDeadlineTimer, which stays
+      Python's own.
+    """
+    #  bool QBasicMutex::lockInternal(QDeadlineTimer timeout)
+    return self.uglySide.call(
+        'ritual_ZN11QBasicMutex12lockInternalE14QDeadlineTimer',
+        self._valueOf(timeout),
+    )
+
+  @overload(int)
+  def lockInternal(self, timeout: int) -> bool:
+    """
+    Calls Qt's 'bool QBasicMutex::lockInternal(int timeout)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbasicmutex.html#lockInternal
+
+    Parameters
+    ----------
+
+    timeout : int
+      Passed on as it is.
+    """
+    #  bool QBasicMutex::lockInternal(int timeout)
+    return self.uglySide.call(
+        'ritual_ZN11QBasicMutex12lockInternalEi', timeout,
+    )
+
+  def unlockInternal(self) -> None:
+    """
+    Calls Qt's 'void QBasicMutex::unlockInternal()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbasicmutex.html#unlockInternal
+    """
+    #  void QBasicMutex::unlockInternal()
+    self.uglySide.call('ritual_ZN11QBasicMutex14unlockInternalEv')

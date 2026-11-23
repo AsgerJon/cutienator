@@ -296,6 +296,19 @@ int ritual_ZNK13QWidgetItemV214heightForWidthEi(
   return self->heightForWidth(width);
 }
 
+//  void QWidgetItemV2::updateCacheIfNecessary() const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK13QWidgetItemV222updateCacheIfNecessaryEv(
+    const QWidgetItemV2 *self) {
+  self->updateCacheIfNecessary();
+}
+
+//  void QWidgetItemV2::invalidateSizeCache()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QWidgetItemV219invalidateSizeCacheEv(QWidgetItemV2 *self) {
+  self->invalidateSizeCache();
+}
+
 //  a Python function taken by a CuteQWidgetItemV2, for the function named by
 //      the key
 extern "C" Q_DECL_EXPORT

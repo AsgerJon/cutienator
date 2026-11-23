@@ -941,6 +941,35 @@ void ritual_ZN11QRangeModel20setAutoConnectPolicyENS_17AutoConnectPolicyE(
   self->setAutoConnectPolicy(policy);
 }
 
+//  void QRangeModel::resetInternalData()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QRangeModel17resetInternalDataEv(QRangeModel *self) {
+  self->resetInternalData();
+}
+
+//  bool QRangeModel::event(QEvent *a0)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN11QRangeModel5eventEP6QEvent(QRangeModel *self, QEvent *a0) {
+  return self->event(a0);
+}
+
+//  bool QRangeModel::eventFilter(QObject *a0, QEvent *a1)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN11QRangeModel11eventFilterEP7QObjectP6QEvent(
+    QRangeModel *self,
+    QObject *a0,
+    QEvent *a1) {
+  return self->eventFilter(a0, a1);
+}
+
+//  QRangeModel::QRangeModel(QRangeModelImplBase *impl, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QRangeModel *ritual_ZN11QRangeModelC1EP19QRangeModelImplBaseP7QObject(
+    QRangeModelImplBase *impl,
+    QObject *parent) {
+  return new CuteQRangeModel(impl, parent);
+}
+
 //  a Python function taken by a CuteQRangeModel, for the function named by
 //      the key
 extern "C" Q_DECL_EXPORT

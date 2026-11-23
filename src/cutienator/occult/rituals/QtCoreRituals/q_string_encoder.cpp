@@ -3,6 +3,8 @@
 #include <QtCore/qstringconverter.h>
 #include <QtCore/qanystringview.h>
 #include <QtCore/qstring.h>
+#include <QtCore/qbytearray.h>
+#include <QtCore/qstringview.h>
 
 //  QStringEncoder::QStringEncoder()
 extern "C" Q_DECL_EXPORT
@@ -36,4 +38,27 @@ qsizetype ritual_ZNK14QStringEncoder13requiredSpaceEx(
     const QStringEncoder *self,
     qsizetype inputLength) {
   return self->requiredSpace(inputLength);
+}
+
+//  QByteArray QStringEncoder::invalidateAndReturnNull()
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZN14QStringEncoder23invalidateAndReturnNullEv(
+    QStringEncoder *self) {
+  return new QByteArray(self->invalidateAndReturnNull());
+}
+
+//  QByteArray QStringEncoder::encodeAsByteArrayImpl(QStringView in)
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZN14QStringEncoder21encodeAsByteArrayImplE11QStringView(
+    QStringEncoder *self,
+    const QString *in) {
+  return new QByteArray(self->encodeAsByteArrayImpl(QStringView(*in)));
+}
+
+//  QByteArray QStringEncoder::encodeAsByteArray(QStringView in)
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZN14QStringEncoder17encodeAsByteArrayE11QStringView(
+    QStringEncoder *self,
+    const QString *in) {
+  return new QByteArray(self->encodeAsByteArray(QStringView(*in)));
 }

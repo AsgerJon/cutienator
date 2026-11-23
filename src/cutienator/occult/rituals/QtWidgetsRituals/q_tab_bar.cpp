@@ -1311,6 +1311,148 @@ void ritual_ZN7QTabBar15setCurrentIndexEi(QTabBar *self, int index) {
   self->setCurrentIndex(index);
 }
 
+//  QSize QTabBar::tabSizeHint(int index) const
+extern "C" Q_DECL_EXPORT
+QSize *ritual_ZNK7QTabBar11tabSizeHintEi(const QTabBar *self, int index) {
+  return new QSize(self->tabSizeHint(index));
+}
+
+//  QSize QTabBar::minimumTabSizeHint(int index) const
+extern "C" Q_DECL_EXPORT
+QSize *ritual_ZNK7QTabBar18minimumTabSizeHintEi(
+    const QTabBar *self,
+    int index) {
+  return new QSize(self->minimumTabSizeHint(index));
+}
+
+//  void QTabBar::tabInserted(int index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QTabBar11tabInsertedEi(QTabBar *self, int index) {
+  self->tabInserted(index);
+}
+
+//  void QTabBar::tabRemoved(int index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QTabBar10tabRemovedEi(QTabBar *self, int index) {
+  self->tabRemoved(index);
+}
+
+//  void QTabBar::tabLayoutChange()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QTabBar15tabLayoutChangeEv(QTabBar *self) {
+  self->tabLayoutChange();
+}
+
+//  bool QTabBar::event(QEvent *a0)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN7QTabBar5eventEP6QEvent(QTabBar *self, QEvent *a0) {
+  return self->event(a0);
+}
+
+//  void QTabBar::resizeEvent(QResizeEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QTabBar11resizeEventEP12QResizeEvent(
+    QTabBar *self,
+    QResizeEvent *a0) {
+  self->resizeEvent(a0);
+}
+
+//  void QTabBar::showEvent(QShowEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QTabBar9showEventEP10QShowEvent(
+    QTabBar *self,
+    QShowEvent *a0) {
+  self->showEvent(a0);
+}
+
+//  void QTabBar::hideEvent(QHideEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QTabBar9hideEventEP10QHideEvent(
+    QTabBar *self,
+    QHideEvent *a0) {
+  self->hideEvent(a0);
+}
+
+//  void QTabBar::paintEvent(QPaintEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QTabBar10paintEventEP11QPaintEvent(
+    QTabBar *self,
+    QPaintEvent *a0) {
+  self->paintEvent(a0);
+}
+
+//  void QTabBar::mousePressEvent(QMouseEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QTabBar15mousePressEventEP11QMouseEvent(
+    QTabBar *self,
+    QMouseEvent *a0) {
+  self->mousePressEvent(a0);
+}
+
+//  void QTabBar::mouseMoveEvent(QMouseEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QTabBar14mouseMoveEventEP11QMouseEvent(
+    QTabBar *self,
+    QMouseEvent *a0) {
+  self->mouseMoveEvent(a0);
+}
+
+//  void QTabBar::mouseReleaseEvent(QMouseEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QTabBar17mouseReleaseEventEP11QMouseEvent(
+    QTabBar *self,
+    QMouseEvent *a0) {
+  self->mouseReleaseEvent(a0);
+}
+
+//  void QTabBar::mouseDoubleClickEvent(QMouseEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QTabBar21mouseDoubleClickEventEP11QMouseEvent(
+    QTabBar *self,
+    QMouseEvent *a0) {
+  self->mouseDoubleClickEvent(a0);
+}
+
+//  void QTabBar::wheelEvent(QWheelEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QTabBar10wheelEventEP11QWheelEvent(
+    QTabBar *self,
+    QWheelEvent *event) {
+  self->wheelEvent(event);
+}
+
+//  void QTabBar::keyPressEvent(QKeyEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QTabBar13keyPressEventEP9QKeyEvent(
+    QTabBar *self,
+    QKeyEvent *a0) {
+  self->keyPressEvent(a0);
+}
+
+//  void QTabBar::changeEvent(QEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QTabBar11changeEventEP6QEvent(QTabBar *self, QEvent *a0) {
+  self->changeEvent(a0);
+}
+
+//  void QTabBar::timerEvent(QTimerEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QTabBar10timerEventEP11QTimerEvent(
+    QTabBar *self,
+    QTimerEvent *event) {
+  self->timerEvent(event);
+}
+
+//  void QTabBar::initStyleOption(QStyleOptionTab *option, int tabIndex)
+//      const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK7QTabBar15initStyleOptionEP15QStyleOptionTabi(
+    const QTabBar *self,
+    QStyleOptionTab *option,
+    int tabIndex) {
+  self->initStyleOption(option, tabIndex);
+}
+
 //  a Python function taken by a CuteQTabBar, for the function named by the
 //      key
 extern "C" Q_DECL_EXPORT

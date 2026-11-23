@@ -131,6 +131,7 @@
     "ritual_ZN9QDateTime18fromSecsSinceEpochEx": ["address", "long long"],
     "ritual_ZN9QDateTime22currentMSecsSinceEpochEv": ["long long"],
     "ritual_ZN9QDateTime21currentSecsSinceEpochEv": ["long long"],
+    "ritual_ZNK9QDateTime6equalsERKS_": ["bool", "address", "address"],
     "ritual_ZeqRK9QDateTimeS1_": ["bool", "address", "address"],
     "ritual_ZneRK9QDateTimeS1_": ["bool", "address", "address"],
     "ritual_ZltRK9QDateTimeS1_": ["bool", "address", "address"],

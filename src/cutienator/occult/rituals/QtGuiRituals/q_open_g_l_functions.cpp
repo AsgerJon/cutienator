@@ -757,3 +757,10 @@ void ritual_ZN16QOpenGLFunctions16glVertexAttrib4fEjffff(
     GLfloat w) {
   self->glVertexAttrib4f(indx, x, y, z, w);
 }
+
+//  bool QOpenGLFunctions::isInitialized(const QOpenGLFunctionsPrivate *d)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN16QOpenGLFunctions13isInitializedEPK23QOpenGLFunctionsPrivate(
+    const QOpenGLFunctionsPrivate *d) {
+  return QOpenGLFunctions::isInitialized(d);
+}

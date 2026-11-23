@@ -44,10 +44,10 @@ class QStaticText(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QStaticText that has a ritual and that Python can
-  call so far, 14 names in all: 'setText', 'text', 'setTextFormat',
+  call so far, 15 names in all: 'setText', 'text', 'setTextFormat',
   'textFormat', 'setTextWidth', 'textWidth', 'setTextOption', 'textOption',
   'size', 'prepare', 'setPerformanceHint', 'performanceHint', '__eq__',
-  '__ne__'. It can be made from Python, in 3 ways; see '__init__'.
+  '__ne__', 'detach'. It can be made from Python, in 3 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -58,8 +58,8 @@ class QStaticText(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  4 of the 22 functions Qt declares: 3 takes or gives a type that cannot be
-  passed yet; 1 private.
+  3 of the 22 functions Qt declares: 3 takes or gives a type that cannot be
+  passed yet.
 
   What to expect
   --------------
@@ -484,3 +484,12 @@ class QStaticText(CuteMixin, metaclass=MetaCute):
         'ritual_ZN11QStaticText7prepareERK10QTransformRK5QFont',
         self._valueOf(matrix), self._valueOf(font),
     )
+
+  def detach(self) -> None:
+    """
+    Calls Qt's 'void QStaticText::detach()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qstatictext.html#detach
+    """
+    #  void QStaticText::detach()
+    self.uglySide.call('ritual_ZN11QStaticText6detachEv')

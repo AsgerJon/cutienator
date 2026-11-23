@@ -613,6 +613,23 @@ int ritual_ZNK10QMatrix4x45flagsEv(const QMatrix4x4 *self) {
   return static_cast<int>(self->flags().toInt());
 }
 
+//  QMatrix4x4 QMatrix4x4::orthonormalInverse() const
+extern "C" Q_DECL_EXPORT
+QMatrix4x4 *ritual_ZNK10QMatrix4x418orthonormalInverseEv(
+    const QMatrix4x4 *self) {
+  return new QMatrix4x4(self->orthonormalInverse());
+}
+
+//  void QMatrix4x4::toGenericMatrix_impl(float *dst, int n, int m) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK10QMatrix4x420toGenericMatrix_implEPfii(
+    const QMatrix4x4 *self,
+    float *dst,
+    int n,
+    int m) {
+  self->toGenericMatrix_impl(dst, n, m);
+}
+
 //  QMatrix4x4::~QMatrix4x4()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN10QMatrix4x4D1Ev(QMatrix4x4 *self) {

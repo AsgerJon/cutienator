@@ -897,6 +897,53 @@ QSize *ritual_ZN7QLayout21closestAcceptableSizeEPK7QWidgetRK5QSize(
   return new QSize(QLayout::closestAcceptableSize(w, *s));
 }
 
+//  void QLayout::widgetEvent(QEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QLayout11widgetEventEP6QEvent(QLayout *self, QEvent *a0) {
+  self->widgetEvent(a0);
+}
+
+//  void QLayout::childEvent(QChildEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QLayout10childEventEP11QChildEvent(
+    QLayout *self,
+    QChildEvent *e) {
+  self->childEvent(e);
+}
+
+//  void QLayout::addChildLayout(QLayout *l)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QLayout14addChildLayoutEPS_(QLayout *self, QLayout *l) {
+  self->addChildLayout(l);
+}
+
+//  void QLayout::addChildWidget(QWidget *w)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QLayout14addChildWidgetEP7QWidget(QLayout *self, QWidget *w) {
+  self->addChildWidget(w);
+}
+
+//  bool QLayout::adoptLayout(QLayout *layout)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN7QLayout11adoptLayoutEPS_(QLayout *self, QLayout *layout) {
+  return self->adoptLayout(layout);
+}
+
+//  QRect QLayout::alignmentRect(const QRect &a0) const
+extern "C" Q_DECL_EXPORT
+QRect *ritual_ZNK7QLayout13alignmentRectERK5QRect(
+    const QLayout *self,
+    const QRect *a0) {
+  return new QRect(self->alignmentRect(*a0));
+}
+
+//  void QLayout::activateRecursiveHelper(QLayoutItem *item)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QLayout23activateRecursiveHelperEP11QLayoutItem(
+    QLayoutItem *item) {
+  QLayout::activateRecursiveHelper(item);
+}
+
 //  QLayout as the QLayoutItem it is built on
 extern "C" Q_DECL_EXPORT
 QLayoutItem *ritual_cast_QLayout_QLayoutItem(QLayout *self) {

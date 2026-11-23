@@ -5,6 +5,7 @@
 #include <QtCore/qlocale.h>
 #include <QtCore/qbytearray.h>
 #include <QtCore/qdatetime.h>
+#include <QtCore/qlist.h>
 
 //  QResource::QResource(const QString &file, const QLocale &locale)
 extern "C" Q_DECL_EXPORT
@@ -107,4 +108,22 @@ bool ritual_ZN9QResource18unregisterResourceERK7QStringS2_(
     const QString *rccFilename,
     const QString *resourceRoot) {
   return QResource::unregisterResource(*rccFilename, *resourceRoot);
+}
+
+//  bool QResource::isDir() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK9QResource5isDirEv(const QResource *self) {
+  return self->isDir();
+}
+
+//  bool QResource::isFile() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK9QResource6isFileEv(const QResource *self) {
+  return self->isFile();
+}
+
+//  QStringList QResource::children() const
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZNK9QResource8childrenEv(const QResource *self) {
+  return new QList<QString>(self->children());
 }

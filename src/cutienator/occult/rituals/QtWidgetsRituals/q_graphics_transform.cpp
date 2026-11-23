@@ -176,6 +176,12 @@ void ritual_ZNK18QGraphicsTransform7applyToEP10QMatrix4x4(
   self->applyTo(matrix);
 }
 
+//  void QGraphicsTransform::update()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QGraphicsTransform6updateEv(QGraphicsTransform *self) {
+  self->update();
+}
+
 //  a Python function taken by a CuteQGraphicsTransform, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT

@@ -13,7 +13,7 @@ from worktoy.dispatch import overload
 
 from ..cute import WAIT
 from ..occult import Rituals
-from . import QTextCharFormat, QTextFrameFormat
+from . import QTextCharFormat, QTextFormat, QTextFrameFormat
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from . import QBrush
@@ -51,7 +51,7 @@ class QTextTableCellFormat(QTextCharFormat):
   'setTopBorderBrush', 'topBorderBrush', 'setBottomBorderBrush',
   'bottomBorderBrush', 'setLeftBorderBrush', 'leftBorderBrush',
   'setRightBorderBrush', 'rightBorderBrush', 'setBorderBrush'. It can be made
-  from Python, in 1 way; see '__init__'.
+  from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -63,8 +63,8 @@ class QTextTableCellFormat(QTextCharFormat):
   What has no ritual
   ------------------
 
-  3 of the 42 functions Qt declares: 2 takes or gives a type that cannot be
-  passed yet; 1 protected.
+  2 of the 42 functions Qt declares: 2 takes or gives a type that cannot be
+  passed yet.
 
   What to expect
   --------------
@@ -831,6 +831,29 @@ class QTextTableCellFormat(QTextCharFormat):
     #  QTextTableCellFormat::QTextTableCellFormat()
     self._noteCreation(QTextTableCellFormat, lambda: Rituals.call(
         'ritual_ZN20QTextTableCellFormatC1Ev',
+    ))
+
+  @overload(QTextFormat)
+  def __init__(self, fmt: QTextFormat) -> None:
+    """
+    Notes what was given, for Qt's
+    'QTextTableCellFormat::QTextTableCellFormat(const QTextFormat &fmt)',
+    which is called at the first use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qtexttablecellformat.html#QTextTableCellFormat
+
+    Parameters
+    ----------
+
+    fmt : QTextFormat
+      Passed on as a value: Qt reads the C++ QTextFormat, which stays
+      Python's own.
+    """
+    #  QTextTableCellFormat::QTextTableCellFormat(const QTextFormat &fmt)
+    self._noteCreation(QTextTableCellFormat, lambda: Rituals.call(
+        'ritual_ZN20QTextTableCellFormatC1ERK11QTextFormat',
+        self._valueOf(fmt),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

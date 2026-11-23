@@ -164,6 +164,10 @@
     "ritual_ZN6QColor12isValidColorE11QStringView": ["bool", "text"],
     "ritual_ZN6QColor12isValidColorE13QLatin1String": ["bool", "address"],
     "ritual_ZN6QColor16isValidColorNameE14QAnyStringView": ["bool", "text"],
+    "ritual_ZN6QColor10invalidateEv": ["nothing", "address"],
+    "ritual_ZN6QColor11isRgbaValidEiiii": [
+      "bool", "int", "int", "int", "int"
+    ],
     "ritual_ZN6QColorC1ENS_4SpecEttttt": [
       "address", "int", "unsigned short", "unsigned short", "unsigned short",
       "unsigned short", "unsigned short"

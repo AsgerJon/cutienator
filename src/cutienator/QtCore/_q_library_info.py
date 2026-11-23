@@ -36,9 +36,8 @@ class QLibraryInfo(CuteMixin, metaclass=MetaCute):
 
   Every function of Qt's QLibraryInfo that has a ritual and that Python can
   call so far, 8 names in all: 'build', 'isDebugBuild', 'isSharedBuild',
-  'version', 'path', 'paths', 'location', 'platformPluginArguments'. None can
-  be made from Python: one comes out of a function of another class that
-  gives one back.
+  'version', 'path', 'paths', 'location', 'platformPluginArguments'. It can
+  be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -49,8 +48,8 @@ class QLibraryInfo(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  4 of the 13 functions Qt declares: 2 private; 1 declared and nowhere to be
-  found; 1 a template.
+  3 of the 13 functions Qt declares: 2 declared and nowhere to be found; 1 a
+  template.
 
   What to expect
   --------------
@@ -295,6 +294,19 @@ class QLibraryInfo(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload()
+  def __init__(self) -> None:
+    """
+    Notes what was given, for Qt's 'QLibraryInfo::QLibraryInfo()', which is
+    called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlibraryinfo.html#QLibraryInfo
+    """
+    #  QLibraryInfo::QLibraryInfo()
+    self._noteCreation(QLibraryInfo, lambda: Rituals.call(
+        'ritual_ZN12QLibraryInfoC1Ev',
+    ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -42,10 +42,11 @@ class QTimer(QObject):
   -----------
 
   Every function of Qt's QTimer that has a ritual and that Python can call so
-  far, 16 names in all: 'metaObject', 'tr', 'isActive', 'timerId', 'id',
+  far, 19 names in all: 'metaObject', 'tr', 'isActive', 'timerId', 'id',
   'setInterval', 'interval', 'remainingTime', 'setTimerType', 'timerType',
   'setSingleShot', 'isSingleShot', 'singleShot', 'start', 'stop',
-  'timerEvent'. It can be made from Python, in 1 way; see '__init__'.
+  'timerEvent', 'startTimer', 'killTimer', 'defaultTypeFor'. It can be made
+  from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -56,8 +57,9 @@ class QTimer(QObject):
   What has no ritual
   ------------------
 
-  32 of the 52 functions Qt declares: 12 takes or gives a type that cannot be
-  passed yet; 11 private; 6 a template; 2 forbidden; 1 a signal.
+  29 of the 52 functions Qt declares: 19 takes or gives a type that cannot be
+  passed yet; 6 a template; 2 forbidden; 1 declared and nowhere to be found;
+  1 a signal.
 
   What to expect
   --------------
@@ -196,6 +198,33 @@ class QTimer(QObject):
         msec, timerType.value, CuteMixin._addressOf(receiver),
         CuteMixin._bytesOf(member),
     )
+
+  @staticmethod
+  @overload(int)
+  def defaultTypeFor(msecs: int) -> Qt.TimerType:
+    """
+    Calls Qt's 'Qt::TimerType QTimer::defaultTypeFor(int msecs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtimer.html#defaultTypeFor
+
+    Parameters
+    ----------
+
+    msecs : int
+      Passed on as it is.
+
+    Returns
+    -------
+
+    Qt.TimerType
+      The member standing for the number Qt gave back. For a number Qt gives
+      no name it is the member without a name that 'Qt.TimerType(number)'
+      gives.
+    """
+    #  Qt::TimerType QTimer::defaultTypeFor(int msecs)
+    return Qt.TimerType(Rituals.call(
+        'ritual_ZN6QTimer14defaultTypeForEi', msecs,
+    ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -478,7 +507,39 @@ class QTimer(QObject):
       object.
     """
     #  void QTimer::timerEvent(QTimerEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN6QTimer10timerEventEP11QTimerEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN6QTimer10timerEventEP11QTimerEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN6QTimer10timerEventEP11QTimerEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
+
+  @overload(int)
+  def startTimer(self, a0: int) -> int:
+    """
+    Calls Qt's 'int QTimer::startTimer(int a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtimer.html#startTimer
+
+    Parameters
+    ----------
+
+    a0 : int
+      Passed on as it is.
+    """
+    #  int QTimer::startTimer(int a0)
+    return self.uglySide.call('ritual_ZN6QTimer10startTimerEi', a0)
+
+  @overload(int)
+  def killTimer(self, a0: int) -> None:
+    """
+    Calls Qt's 'void QTimer::killTimer(int a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtimer.html#killTimer
+
+    Parameters
+    ----------
+
+    a0 : int
+      Passed on as it is.
+    """
+    #  void QTimer::killTimer(int a0)
+    self.uglySide.call('ritual_ZN6QTimer9killTimerEi', a0)

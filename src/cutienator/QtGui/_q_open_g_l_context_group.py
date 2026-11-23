@@ -39,8 +39,8 @@ class QOpenGLContextGroup(QObject):
 
   Every function of Qt's QOpenGLContextGroup that has a ritual and that
   Python can call so far, 4 names in all: 'metaObject', 'tr', 'shares',
-  'currentContextGroup'. None can be made from Python: one comes out of a
-  function of another class that gives one back.
+  'currentContextGroup'. It can be made from Python, in 1 way; see
+  '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -51,8 +51,8 @@ class QOpenGLContextGroup(QObject):
   What has no ritual
   ------------------
 
-  7 of the 12 functions Qt declares: 4 private; 2 takes or gives a type that
-  cannot be passed yet; 1 a template.
+  6 of the 12 functions Qt declares: 4 takes or gives a type that cannot be
+  passed yet; 1 a template; 1 declared and nowhere to be found.
 
   What to expect
   --------------
@@ -217,6 +217,21 @@ class QOpenGLContextGroup(QObject):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload()
+  def __init__(self) -> None:
+    """
+    Notes what was given, for Qt's
+    'QOpenGLContextGroup::QOpenGLContextGroup()', which is called at the
+    first use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qopenglcontextgroup.html#QOpenGLContextGroup
+    """
+    #  QOpenGLContextGroup::QOpenGLContextGroup()
+    self._noteCreation(QOpenGLContextGroup, lambda: Rituals.call(
+        'ritual_ZN19QOpenGLContextGroupC1Ev',
+    ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #

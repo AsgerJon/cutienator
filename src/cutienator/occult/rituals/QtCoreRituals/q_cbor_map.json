@@ -78,12 +78,19 @@
     "ritual_ZNK8QCborMap12toVariantMapEv": ["address", "address"],
     "ritual_ZNK8QCborMap13toVariantHashEv": ["address", "address"],
     "ritual_ZNK8QCborMap12toJsonObjectEv": ["address", "address"],
+    "ritual_ZN8QCborMap6detachEx": ["nothing", "address", "long long"],
     "ritual_ZeqRK8QCborMapS1_": ["bool", "address", "address"],
     "ritual_ZneRK8QCborMapS1_": ["bool", "address", "address"],
     "ritual_ZltRK8QCborMapS1_": ["bool", "address", "address"],
     "ritual_ZgtRK8QCborMapS1_": ["bool", "address", "address"],
     "ritual_ZleRK8QCborMapS1_": ["bool", "address", "address"],
     "ritual_ZgeRK8QCborMapS1_": ["bool", "address", "address"],
+    "ritual_ZN8QCborMap20comparesEqual_helperERKS_RK10QCborValue": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN8QCborMap22compareThreeWay_helperERKS_RK10QCborValue": [
+      "address", "address", "address"
+    ],
     "ritual_ZeqRK8QCborMapRK10QCborValue": ["bool", "address", "address"],
     "ritual_ZneRK8QCborMapRK10QCborValue": ["bool", "address", "address"],
     "ritual_ZltRK8QCborMapRK10QCborValue": ["bool", "address", "address"],
@@ -96,6 +103,12 @@
     "ritual_ZgtRK10QCborValueRK8QCborMap": ["bool", "address", "address"],
     "ritual_ZleRK10QCborValueRK8QCborMap": ["bool", "address", "address"],
     "ritual_ZgeRK10QCborValueRK8QCborMap": ["bool", "address", "address"],
+    "ritual_ZN8QCborMap20comparesEqual_helperERKS_18QCborValueConstRef": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN8QCborMap22compareThreeWay_helperERKS_18QCborValueConstRef": [
+      "address", "address", "address"
+    ],
     "ritual_ZeqRK8QCborMapRK18QCborValueConstRef": [
       "bool", "address", "address"
     ],

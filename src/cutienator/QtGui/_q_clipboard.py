@@ -46,18 +46,25 @@ class QClipboard(QObject):
   -----------
 
   Every function of Qt's QClipboard that has a ritual and that Python can
-  call so far, 16 names in all: 'metaObject', 'tr', 'clear',
+  call so far, 19 names in all: 'metaObject', 'tr', 'clear',
   'supportsSelection', 'supportsFindBuffer', 'ownsSelection',
   'ownsClipboard', 'ownsFindBuffer', 'text', 'setText', 'mimeData',
-  'setMimeData', 'image', 'pixmap', 'setImage', 'setPixmap'. None can be made
-  from Python: one comes out of a function of another class that gives one
-  back.
+  'setMimeData', 'image', 'pixmap', 'setImage', 'setPixmap', 'supportsMode',
+  'ownsMode', 'emitChanged'. It can be made from Python, in 1 way; see
+  '__init__'.
+
+  What has a ritual and is left out, and why
+  ------------------------------------------
+
+  - Qt's 'QClipboard::~QClipboard()': the destructor: Python never removes a
+    C++ QClipboard.
 
   What has no ritual
   ------------------
 
-  16 of the 32 functions Qt declares: 6 private; 4 a signal; 3 takes or gives
-  a type that cannot be passed yet; 2 forbidden; 1 a template.
+  11 of the 32 functions Qt declares: 4 a signal; 3 takes or gives a type
+  that cannot be passed yet; 2 forbidden; 1 a template; 1 declared and
+  nowhere to be found.
 
   What to expect
   --------------
@@ -325,6 +332,42 @@ class QClipboard(QObject):
     from . import QPixmap
     return QPixmap._cuteOwning(address)
 
+  @overload(Mode)
+  def supportsMode(self, mode: Mode) -> bool:
+    """
+    Calls Qt's 'bool QClipboard::supportsMode(Mode mode) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qclipboard.html#supportsMode
+
+    Parameters
+    ----------
+
+    mode : Mode
+      Passed on as its number.
+    """
+    #  bool QClipboard::supportsMode(Mode mode) const
+    return self.uglySide.call(
+        'ritual_ZNK10QClipboard12supportsModeENS_4ModeE', mode.value,
+    )
+
+  @overload(Mode)
+  def ownsMode(self, mode: Mode) -> bool:
+    """
+    Calls Qt's 'bool QClipboard::ownsMode(Mode mode) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qclipboard.html#ownsMode
+
+    Parameters
+    ----------
+
+    mode : Mode
+      Passed on as its number.
+    """
+    #  bool QClipboard::ownsMode(Mode mode) const
+    return self.uglySide.call(
+        'ritual_ZNK10QClipboard8ownsModeENS_4ModeE', mode.value,
+    )
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -445,6 +488,27 @@ class QClipboard(QObject):
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @overload(QObject)
+  @overload(NoneType)
+  def __init__(self, parent: Optional[QObject]) -> None:
+    """
+    Notes what was given, for Qt's 'QClipboard::QClipboard(QObject *parent)',
+    which is called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qclipboard.html#QClipboard
+
+    Parameters
+    ----------
+
+    parent : Optional[QObject]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  QClipboard::QClipboard(QObject *parent)
+    self._noteCreation(QClipboard, lambda: Rituals.call(
+        'ritual_ZN10QClipboardC1EP7QObject', self._addressOf(parent),
+    ))
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -482,3 +546,21 @@ class QClipboard(QObject):
     """
     #  void QClipboard::clear(Mode mode)
     self.uglySide.call('ritual_ZN10QClipboard5clearENS_4ModeE', mode.value)
+
+  @overload(Mode)
+  def emitChanged(self, mode: Mode) -> None:
+    """
+    Calls Qt's 'void QClipboard::emitChanged(Mode mode)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qclipboard.html#emitChanged
+
+    Parameters
+    ----------
+
+    mode : Mode
+      Passed on as its number.
+    """
+    #  void QClipboard::emitChanged(Mode mode)
+    self.uglySide.call(
+        'ritual_ZN10QClipboard11emitChangedENS_4ModeE', mode.value,
+    )

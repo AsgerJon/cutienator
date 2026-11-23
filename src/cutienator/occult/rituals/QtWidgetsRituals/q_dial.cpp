@@ -862,6 +862,68 @@ void ritual_ZN5QDial11setWrappingEb(QDial *self, bool on) {
   self->setWrapping(on);
 }
 
+//  bool QDial::event(QEvent *e)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN5QDial5eventEP6QEvent(QDial *self, QEvent *e) {
+  return self->event(e);
+}
+
+//  void QDial::resizeEvent(QResizeEvent *re)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN5QDial11resizeEventEP12QResizeEvent(
+    QDial *self,
+    QResizeEvent *re) {
+  self->resizeEvent(re);
+}
+
+//  void QDial::paintEvent(QPaintEvent *pe)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN5QDial10paintEventEP11QPaintEvent(
+    QDial *self,
+    QPaintEvent *pe) {
+  self->paintEvent(pe);
+}
+
+//  void QDial::mousePressEvent(QMouseEvent *me)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN5QDial15mousePressEventEP11QMouseEvent(
+    QDial *self,
+    QMouseEvent *me) {
+  self->mousePressEvent(me);
+}
+
+//  void QDial::mouseReleaseEvent(QMouseEvent *me)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN5QDial17mouseReleaseEventEP11QMouseEvent(
+    QDial *self,
+    QMouseEvent *me) {
+  self->mouseReleaseEvent(me);
+}
+
+//  void QDial::mouseMoveEvent(QMouseEvent *me)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN5QDial14mouseMoveEventEP11QMouseEvent(
+    QDial *self,
+    QMouseEvent *me) {
+  self->mouseMoveEvent(me);
+}
+
+//  void QDial::sliderChange(SliderChange change)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN5QDial12sliderChangeEN15QAbstractSlider12SliderChangeE(
+    QDial *self,
+    QAbstractSlider::SliderChange change) {
+  self->sliderChange(change);
+}
+
+//  void QDial::initStyleOption(QStyleOptionSlider *option) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK5QDial15initStyleOptionEP18QStyleOptionSlider(
+    const QDial *self,
+    QStyleOptionSlider *option) {
+  self->initStyleOption(option);
+}
+
 //  a Python function taken by a CuteQDial, for the function named by the key
 extern "C" Q_DECL_EXPORT
 bool ritual_take_QDial(QDial *self, const char *key, void *call) {

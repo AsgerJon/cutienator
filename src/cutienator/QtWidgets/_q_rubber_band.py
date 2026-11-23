@@ -67,8 +67,8 @@ class QRubberBand(QWidget):
   What has no ritual
   ------------------
 
-  6 of the 24 functions Qt declares: 3 private; 2 takes or gives a type that
-  cannot be passed yet; 1 a template.
+  6 of the 24 functions Qt declares: 4 takes or gives a type that cannot be
+  passed yet; 1 a template; 1 declared and nowhere to be found.
 
   What to expect
   --------------
@@ -417,9 +417,10 @@ class QRubberBand(QWidget):
       object.
     """
     #  bool QRubberBand::event(QEvent *e)
-    return self.uglySide.call(
-        'ritual_own_ZN11QRubberBand5eventEP6QEvent', self._addressOf(e),
-    )
+    ritual = 'ritual_ZN11QRubberBand5eventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QRubberBand5eventEP6QEvent'
+    return self.uglySide.call(ritual, self._addressOf(e))
 
   @overload(QPaintEvent)
   @overload(NoneType)
@@ -437,10 +438,10 @@ class QRubberBand(QWidget):
       object.
     """
     #  void QRubberBand::paintEvent(QPaintEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN11QRubberBand10paintEventEP11QPaintEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN11QRubberBand10paintEventEP11QPaintEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QRubberBand10paintEventEP11QPaintEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QEvent)
   @overload(NoneType)
@@ -458,10 +459,10 @@ class QRubberBand(QWidget):
       object.
     """
     #  void QRubberBand::changeEvent(QEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN11QRubberBand11changeEventEP6QEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN11QRubberBand11changeEventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QRubberBand11changeEventEP6QEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QShowEvent)
   @overload(NoneType)
@@ -479,10 +480,10 @@ class QRubberBand(QWidget):
       object.
     """
     #  void QRubberBand::showEvent(QShowEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN11QRubberBand9showEventEP10QShowEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN11QRubberBand9showEventEP10QShowEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QRubberBand9showEventEP10QShowEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QResizeEvent)
   @overload(NoneType)
@@ -500,10 +501,10 @@ class QRubberBand(QWidget):
       object.
     """
     #  void QRubberBand::resizeEvent(QResizeEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN11QRubberBand11resizeEventEP12QResizeEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN11QRubberBand11resizeEventEP12QResizeEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QRubberBand11resizeEventEP12QResizeEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QMoveEvent)
   @overload(NoneType)
@@ -521,10 +522,10 @@ class QRubberBand(QWidget):
       object.
     """
     #  void QRubberBand::moveEvent(QMoveEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN11QRubberBand9moveEventEP10QMoveEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN11QRubberBand9moveEventEP10QMoveEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QRubberBand9moveEventEP10QMoveEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QStyleOptionRubberBand)
   @overload(NoneType)
@@ -547,8 +548,10 @@ class QRubberBand(QWidget):
     """
     #  void QRubberBand::initStyleOption(QStyleOptionRubberBand *option)
     #      const
-    self.uglySide.call(
-        'ritual_own_ZNK11QRubberBand15initStyleOptionEP22QStyleOptionRubber'
-        'Band',
-        self._addressOf(option),
-    )
+    ritual = (
+        'ritual_ZNK11QRubberBand15initStyleOptionEP22QStyleOptionRubberBand')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK11QRubberBand15initStyleOptionEP22QStyleOptionRubb'
+          'erBand')
+    self.uglySide.call(ritual, self._addressOf(option))

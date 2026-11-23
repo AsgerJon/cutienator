@@ -46,7 +46,7 @@ class QFormLayout(QLayout):
   -----------
 
   Every function of Qt's QFormLayout that has a ritual and that Python can
-  call so far, 38 names in all: 'metaObject', 'tr', 'setFieldGrowthPolicy',
+  call so far, 42 names in all: 'metaObject', 'tr', 'setFieldGrowthPolicy',
   'fieldGrowthPolicy', 'setRowWrapPolicy', 'rowWrapPolicy',
   'setLabelAlignment', 'labelAlignment', 'setFormAlignment', 'formAlignment',
   'setHorizontalSpacing', 'horizontalSpacing', 'setVerticalSpacing',
@@ -55,7 +55,9 @@ class QFormLayout(QLayout):
   'setRowVisible', 'isRowVisible', 'itemAt', 'labelForField', 'addItem',
   'takeAt', 'setGeometry', 'minimumSize', 'sizeHint', 'invalidate',
   'hasHeightForWidth', 'heightForWidth', 'expandingDirections', 'count',
-  'rowCount'. It can be made from Python, in 1 way; see '__init__'.
+  'rowCount', 'resetFieldGrowthPolicy', 'resetRowWrapPolicy',
+  'resetLabelAlignment', 'resetFormAlignment'. It can be made from Python, in
+  1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -66,8 +68,8 @@ class QFormLayout(QLayout):
   What has no ritual
   ------------------
 
-  13 of the 73 functions Qt declares: 7 private; 5 takes or gives a type that
-  cannot be passed yet; 1 a template.
+  9 of the 73 functions Qt declares: 7 takes or gives a type that cannot be
+  passed yet; 1 a template; 1 declared and nowhere to be found.
 
   What to expect
   --------------
@@ -1606,3 +1608,43 @@ class QFormLayout(QLayout):
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZN11QFormLayout10invalidateEv'
     self.uglySide.call(ritual)
+
+  def resetFieldGrowthPolicy(self) -> None:
+    """
+    Calls Qt's 'void QFormLayout::resetFieldGrowthPolicy()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qformlayout.html#resetFieldGrowthPolicy
+    """
+    #  void QFormLayout::resetFieldGrowthPolicy()
+    self.uglySide.call('ritual_ZN11QFormLayout22resetFieldGrowthPolicyEv')
+
+  def resetRowWrapPolicy(self) -> None:
+    """
+    Calls Qt's 'void QFormLayout::resetRowWrapPolicy()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qformlayout.html#resetRowWrapPolicy
+    """
+    #  void QFormLayout::resetRowWrapPolicy()
+    self.uglySide.call('ritual_ZN11QFormLayout18resetRowWrapPolicyEv')
+
+  def resetLabelAlignment(self) -> None:
+    """
+    Calls Qt's 'void QFormLayout::resetLabelAlignment()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qformlayout.html#resetLabelAlignment
+    """
+    #  void QFormLayout::resetLabelAlignment()
+    self.uglySide.call('ritual_ZN11QFormLayout19resetLabelAlignmentEv')
+
+  def resetFormAlignment(self) -> None:
+    """
+    Calls Qt's 'void QFormLayout::resetFormAlignment()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qformlayout.html#resetFormAlignment
+    """
+    #  void QFormLayout::resetFormAlignment()
+    self.uglySide.call('ritual_ZN11QFormLayout18resetFormAlignmentEv')

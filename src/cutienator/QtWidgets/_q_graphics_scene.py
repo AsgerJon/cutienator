@@ -111,9 +111,9 @@ class QGraphicsScene(QObject):
   What has no ritual
   ------------------
 
-  13 of the 117 functions Qt declares: 4 a signal; 3 private; 2 takes or
-  gives a type that cannot be passed yet; 2 forbidden; 1 a template; 1
-  protected.
+  13 of the 117 functions Qt declares: 5 takes or gives a type that cannot be
+  passed yet; 4 a signal; 2 forbidden; 1 a template; 1 declared and nowhere
+  to be found.
 
   What to expect
   --------------
@@ -2792,10 +2792,10 @@ class QGraphicsScene(QObject):
       object.
     """
     #  bool QGraphicsScene::event(QEvent *event)
-    return self.uglySide.call(
-        'ritual_own_ZN14QGraphicsScene5eventEP6QEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN14QGraphicsScene5eventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN14QGraphicsScene5eventEP6QEvent'
+    return self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QObject, QEvent)
   @overload(QObject, NoneType)
@@ -2824,9 +2824,11 @@ class QGraphicsScene(QObject):
       object.
     """
     #  bool QGraphicsScene::eventFilter(QObject *watched, QEvent *event)
+    ritual = 'ritual_ZN14QGraphicsScene11eventFilterEP7QObjectP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN14QGraphicsScene11eventFilterEP7QObjectP6QEvent'
     return self.uglySide.call(
-        'ritual_own_ZN14QGraphicsScene11eventFilterEP7QObjectP6QEvent',
-        self._addressOf(watched), self._addressOf(event),
+        ritual, self._addressOf(watched), self._addressOf(event),
     )
 
   @overload(QGraphicsSceneContextMenuEvent)
@@ -2851,11 +2853,14 @@ class QGraphicsScene(QObject):
     """
     #  void QGraphicsScene::contextMenuEvent(QGraphicsSceneContextMenuEvent
     #      *event)
-    self.uglySide.call(
-        'ritual_own_ZN14QGraphicsScene16contextMenuEventEP30QGraphicsSceneC'
-        'ontextMenuEvent',
-        self._addressOf(event),
-    )
+    ritual = (
+        'ritual_ZN14QGraphicsScene16contextMenuEventEP30QGraphicsSceneConte'
+        'xtMenuEvent')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN14QGraphicsScene16contextMenuEventEP30QGraphicsScen'
+          'eContextMenuEvent')
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QGraphicsSceneDragDropEvent)
   @overload(NoneType)
@@ -2878,11 +2883,14 @@ class QGraphicsScene(QObject):
     """
     #  void QGraphicsScene::dragEnterEvent(QGraphicsSceneDragDropEvent
     #      *event)
-    self.uglySide.call(
-        'ritual_own_ZN14QGraphicsScene14dragEnterEventEP27QGraphicsSceneDra'
-        'gDropEvent',
-        self._addressOf(event),
-    )
+    ritual = (
+        'ritual_ZN14QGraphicsScene14dragEnterEventEP27QGraphicsSceneDragDro'
+        'pEvent')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN14QGraphicsScene14dragEnterEventEP27QGraphicsSceneD'
+          'ragDropEvent')
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QGraphicsSceneDragDropEvent)
   @overload(NoneType)
@@ -2904,11 +2912,14 @@ class QGraphicsScene(QObject):
       object.
     """
     #  void QGraphicsScene::dragMoveEvent(QGraphicsSceneDragDropEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN14QGraphicsScene13dragMoveEventEP27QGraphicsSceneDrag'
-        'DropEvent',
-        self._addressOf(event),
-    )
+    ritual = (
+        'ritual_ZN14QGraphicsScene13dragMoveEventEP27QGraphicsSceneDragDrop'
+        'Event')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN14QGraphicsScene13dragMoveEventEP27QGraphicsSceneDr'
+          'agDropEvent')
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QGraphicsSceneDragDropEvent)
   @overload(NoneType)
@@ -2931,11 +2942,14 @@ class QGraphicsScene(QObject):
     """
     #  void QGraphicsScene::dragLeaveEvent(QGraphicsSceneDragDropEvent
     #      *event)
-    self.uglySide.call(
-        'ritual_own_ZN14QGraphicsScene14dragLeaveEventEP27QGraphicsSceneDra'
-        'gDropEvent',
-        self._addressOf(event),
-    )
+    ritual = (
+        'ritual_ZN14QGraphicsScene14dragLeaveEventEP27QGraphicsSceneDragDro'
+        'pEvent')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN14QGraphicsScene14dragLeaveEventEP27QGraphicsSceneD'
+          'ragDropEvent')
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QGraphicsSceneDragDropEvent)
   @overload(NoneType)
@@ -2954,11 +2968,13 @@ class QGraphicsScene(QObject):
       object.
     """
     #  void QGraphicsScene::dropEvent(QGraphicsSceneDragDropEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN14QGraphicsScene9dropEventEP27QGraphicsSceneDragDropE'
-        'vent',
-        self._addressOf(event),
-    )
+    ritual = (
+        'ritual_ZN14QGraphicsScene9dropEventEP27QGraphicsSceneDragDropEvent')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN14QGraphicsScene9dropEventEP27QGraphicsSceneDragDro'
+          'pEvent')
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QFocusEvent)
   @overload(NoneType)
@@ -2976,10 +2992,10 @@ class QGraphicsScene(QObject):
       object.
     """
     #  void QGraphicsScene::focusInEvent(QFocusEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN14QGraphicsScene12focusInEventEP11QFocusEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN14QGraphicsScene12focusInEventEP11QFocusEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN14QGraphicsScene12focusInEventEP11QFocusEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QFocusEvent)
   @overload(NoneType)
@@ -2997,10 +3013,10 @@ class QGraphicsScene(QObject):
       object.
     """
     #  void QGraphicsScene::focusOutEvent(QFocusEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN14QGraphicsScene13focusOutEventEP11QFocusEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN14QGraphicsScene13focusOutEventEP11QFocusEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN14QGraphicsScene13focusOutEventEP11QFocusEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QGraphicsSceneHelpEvent)
   @overload(NoneType)
@@ -3019,10 +3035,12 @@ class QGraphicsScene(QObject):
       object.
     """
     #  void QGraphicsScene::helpEvent(QGraphicsSceneHelpEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN14QGraphicsScene9helpEventEP23QGraphicsSceneHelpEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN14QGraphicsScene9helpEventEP23QGraphicsSceneHelpEvent'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN14QGraphicsScene9helpEventEP23QGraphicsSceneHelpEve'
+          'nt')
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QKeyEvent)
   @overload(NoneType)
@@ -3040,10 +3058,10 @@ class QGraphicsScene(QObject):
       object.
     """
     #  void QGraphicsScene::keyPressEvent(QKeyEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN14QGraphicsScene13keyPressEventEP9QKeyEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN14QGraphicsScene13keyPressEventEP9QKeyEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN14QGraphicsScene13keyPressEventEP9QKeyEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QKeyEvent)
   @overload(NoneType)
@@ -3062,10 +3080,10 @@ class QGraphicsScene(QObject):
       object.
     """
     #  void QGraphicsScene::keyReleaseEvent(QKeyEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN14QGraphicsScene15keyReleaseEventEP9QKeyEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN14QGraphicsScene15keyReleaseEventEP9QKeyEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN14QGraphicsScene15keyReleaseEventEP9QKeyEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QGraphicsSceneMouseEvent)
   @overload(NoneType)
@@ -3088,11 +3106,14 @@ class QGraphicsScene(QObject):
       object.
     """
     #  void QGraphicsScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN14QGraphicsScene15mousePressEventEP24QGraphicsSceneMo'
-        'useEvent',
-        self._addressOf(event),
-    )
+    ritual = (
+        'ritual_ZN14QGraphicsScene15mousePressEventEP24QGraphicsSceneMouseE'
+        'vent')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN14QGraphicsScene15mousePressEventEP24QGraphicsScene'
+          'MouseEvent')
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QGraphicsSceneMouseEvent)
   @overload(NoneType)
@@ -3114,11 +3135,14 @@ class QGraphicsScene(QObject):
       object.
     """
     #  void QGraphicsScene::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN14QGraphicsScene14mouseMoveEventEP24QGraphicsSceneMou'
-        'seEvent',
-        self._addressOf(event),
-    )
+    ritual = (
+        'ritual_ZN14QGraphicsScene14mouseMoveEventEP24QGraphicsSceneMouseEv'
+        'ent')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN14QGraphicsScene14mouseMoveEventEP24QGraphicsSceneM'
+          'ouseEvent')
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QGraphicsSceneMouseEvent)
   @overload(NoneType)
@@ -3142,11 +3166,14 @@ class QGraphicsScene(QObject):
     """
     #  void QGraphicsScene::mouseReleaseEvent(QGraphicsSceneMouseEvent
     #      *event)
-    self.uglySide.call(
-        'ritual_own_ZN14QGraphicsScene17mouseReleaseEventEP24QGraphicsScene'
-        'MouseEvent',
-        self._addressOf(event),
-    )
+    ritual = (
+        'ritual_ZN14QGraphicsScene17mouseReleaseEventEP24QGraphicsSceneMous'
+        'eEvent')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN14QGraphicsScene17mouseReleaseEventEP24QGraphicsSce'
+          'neMouseEvent')
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QGraphicsSceneMouseEvent)
   @overload(NoneType)
@@ -3170,11 +3197,14 @@ class QGraphicsScene(QObject):
     """
     #  void QGraphicsScene::mouseDoubleClickEvent(QGraphicsSceneMouseEvent
     #      *event)
-    self.uglySide.call(
-        'ritual_own_ZN14QGraphicsScene21mouseDoubleClickEventEP24QGraphicsS'
-        'ceneMouseEvent',
-        self._addressOf(event),
-    )
+    ritual = (
+        'ritual_ZN14QGraphicsScene21mouseDoubleClickEventEP24QGraphicsScene'
+        'MouseEvent')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN14QGraphicsScene21mouseDoubleClickEventEP24QGraphic'
+          'sSceneMouseEvent')
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QGraphicsSceneWheelEvent)
   @overload(NoneType)
@@ -3193,11 +3223,13 @@ class QGraphicsScene(QObject):
       object.
     """
     #  void QGraphicsScene::wheelEvent(QGraphicsSceneWheelEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN14QGraphicsScene10wheelEventEP24QGraphicsSceneWheelEv'
-        'ent',
-        self._addressOf(event),
-    )
+    ritual = (
+        'ritual_ZN14QGraphicsScene10wheelEventEP24QGraphicsSceneWheelEvent')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN14QGraphicsScene10wheelEventEP24QGraphicsSceneWheel'
+          'Event')
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QInputMethodEvent)
   @overload(NoneType)
@@ -3217,11 +3249,13 @@ class QGraphicsScene(QObject):
       object.
     """
     #  void QGraphicsScene::inputMethodEvent(QInputMethodEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN14QGraphicsScene16inputMethodEventEP17QInputMethodEve'
-        'nt',
-        self._addressOf(event),
-    )
+    ritual = (
+        'ritual_ZN14QGraphicsScene16inputMethodEventEP17QInputMethodEvent')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN14QGraphicsScene16inputMethodEventEP17QInputMethodE'
+          'vent')
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QPainter, QRectF)
   @overload(NoneType, QRectF)
@@ -3249,10 +3283,12 @@ class QGraphicsScene(QObject):
     """
     #  void QGraphicsScene::drawBackground(QPainter *painter, const QRectF
     #      &rect)
-    self.uglySide.call(
-        'ritual_own_ZN14QGraphicsScene14drawBackgroundEP8QPainterRK6QRectF',
-        self._addressOf(painter), self._valueOf(rect),
-    )
+    ritual = 'ritual_ZN14QGraphicsScene14drawBackgroundEP8QPainterRK6QRectF'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN14QGraphicsScene14drawBackgroundEP8QPainterRK6QRect'
+          'F')
+    self.uglySide.call(ritual, self._addressOf(painter), self._valueOf(rect))
 
   @overload(QPainter, QRectF)
   @overload(NoneType, QRectF)
@@ -3280,10 +3316,12 @@ class QGraphicsScene(QObject):
     """
     #  void QGraphicsScene::drawForeground(QPainter *painter, const QRectF
     #      &rect)
-    self.uglySide.call(
-        'ritual_own_ZN14QGraphicsScene14drawForegroundEP8QPainterRK6QRectF',
-        self._addressOf(painter), self._valueOf(rect),
-    )
+    ritual = 'ritual_ZN14QGraphicsScene14drawForegroundEP8QPainterRK6QRectF'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN14QGraphicsScene14drawForegroundEP8QPainterRK6QRect'
+          'F')
+    self.uglySide.call(ritual, self._addressOf(painter), self._valueOf(rect))
 
   @overload(bool)
   def focusNextPrevChild(self, next: bool) -> bool:
@@ -3300,6 +3338,7 @@ class QGraphicsScene(QObject):
       Passed on as it is.
     """
     #  bool QGraphicsScene::focusNextPrevChild(bool next)
-    return self.uglySide.call(
-        'ritual_own_ZN14QGraphicsScene18focusNextPrevChildEb', next,
-    )
+    ritual = 'ritual_ZN14QGraphicsScene18focusNextPrevChildEb'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN14QGraphicsScene18focusNextPrevChildEb'
+    return self.uglySide.call(ritual, next)

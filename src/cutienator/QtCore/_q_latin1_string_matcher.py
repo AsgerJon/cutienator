@@ -51,7 +51,8 @@ class QLatin1StringMatcher(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  3 of the 12 functions Qt declares: 2 private; 1 a template.
+  3 of the 12 functions Qt declares: 2 declared and nowhere to be found; 1 a
+  template.
 
   What to expect
   --------------

@@ -3,8 +3,8 @@
 #include <QtWidgets/qwizard.h>
 #include <QtCore/qstring.h>
 #include <QtGui/qpixmap.h>
-#include <QtCore/qsize.h>
 #include <QtCore/qvariant.h>
+#include <QtCore/qsize.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 
@@ -985,6 +985,41 @@ bool ritual_ZNK11QWizardPage10isCompleteEv(const QWizardPage *self) {
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK11QWizardPage6nextIdEv(const QWizardPage *self) {
   return self->nextId();
+}
+
+//  void QWizardPage::setField(const QString &name, const QVariant &value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QWizardPage8setFieldERK7QStringRK8QVariant(
+    QWizardPage *self,
+    const QString *name,
+    const QVariant *value) {
+  self->setField(*name, *value);
+}
+
+//  QVariant QWizardPage::field(const QString &name) const
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZNK11QWizardPage5fieldERK7QString(
+    const QWizardPage *self,
+    const QString *name) {
+  return new QVariant(self->field(*name));
+}
+
+//  void QWizardPage::registerField(const QString &name, QWidget *widget,
+//      const char *property, const char *changedSignal)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QWizardPage13registerFieldERK7QStringP7QWidgetPKcS6_(
+    QWizardPage *self,
+    const QString *name,
+    QWidget *widget,
+    const char *property,
+    const char *changedSignal) {
+  self->registerField(*name, widget, property, changedSignal);
+}
+
+//  QWizard *QWizardPage::wizard() const
+extern "C" Q_DECL_EXPORT
+QWizard *ritual_ZNK11QWizardPage6wizardEv(const QWizardPage *self) {
+  return self->wizard();
 }
 
 //  a Python function taken by a CuteQWizardPage, for the function named by

@@ -34,6 +34,15 @@
     ],
     "ritual_ZNK20QGraphicsPolygonItem10opaqueAreaEv": ["address", "address"],
     "ritual_ZNK20QGraphicsPolygonItem4typeEv": ["int", "address"],
+    "ritual_ZNK20QGraphicsPolygonItem17supportsExtensionEN13QGraphicsItem9ExtensionE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN20QGraphicsPolygonItem12setExtensionEN13QGraphicsItem9ExtensionERK8QVariant": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZNK20QGraphicsPolygonItem9extensionERK8QVariant": [
+      "address", "address", "address"
+    ],
     "ritual_take_QGraphicsPolygonItem": [
       "bool", "address", "chars", "address"
     ],

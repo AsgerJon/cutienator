@@ -47,7 +47,7 @@ class QPainterPath(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QPainterPath that has a ritual and that Python can
-  call so far, 57 names in all: 'clear', 'reserve', 'capacity',
+  call so far, 62 names in all: 'clear', 'reserve', 'capacity',
   'closeSubpath', 'moveTo', 'lineTo', 'arcMoveTo', 'arcTo', 'cubicTo',
   'quadTo', 'currentPosition', 'addRect', 'addEllipse', 'addPolygon',
   'addText', 'addPath', 'addRegion', 'addRoundedRect', 'connectPath',
@@ -58,8 +58,10 @@ class QPainterPath(CuteMixin, metaclass=MetaCute):
   'setCachingEnabled', 'length', 'percentAtLength', 'pointAtPercent',
   'angleAtPercent', 'slopeAtPercent', 'trimmed', 'united', 'intersected',
   'subtracted', 'simplified', '__eq__', '__ne__', '__and__', '__or__',
-  '__add__', '__sub__', '__iand__', '__ior__', '__iadd__', '__isub__'. It can
-  be made from Python, in 3 ways; see '__init__'.
+  '__add__', '__sub__', '__iand__', '__ior__', '__iadd__', '__isub__',
+  'ensureData', 'ensureData_helper', 'setDirty', 'computeBoundingRect',
+  'computeControlPointRect'. It can be made from Python, in 3 ways; see
+  '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -70,8 +72,8 @@ class QPainterPath(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  12 of the 89 functions Qt declares: 6 takes or gives a type that cannot be
-  passed yet; 6 private.
+  7 of the 89 functions Qt declares: 7 takes or gives a type that cannot be
+  passed yet.
 
   What to expect
   --------------
@@ -1037,6 +1039,22 @@ class QPainterPath(CuteMixin, metaclass=MetaCute):
     self.uglySide.call(
         'ritual_ZN12QPainterPath17setCachingEnabledEb', enabled,
     )
+
+  @overload(bool)
+  def setDirty(self, a0: bool) -> None:
+    """
+    Calls Qt's 'void QPainterPath::setDirty(bool a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpainterpath.html#setDirty
+
+    Parameters
+    ----------
+
+    a0 : bool
+      Passed on as it is.
+    """
+    #  void QPainterPath::setDirty(bool a0)
+    self.uglySide.call('ritual_ZN12QPainterPath8setDirtyEb', a0)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -2213,3 +2231,42 @@ class QPainterPath(CuteMixin, metaclass=MetaCute):
         'ritual_ZN12QPainterPath9translateERK7QPointF',
         self._valueOf(offset),
     )
+
+  def ensureData(self) -> None:
+    """
+    Calls Qt's 'void QPainterPath::ensureData()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpainterpath.html#ensureData
+    """
+    #  void QPainterPath::ensureData()
+    self.uglySide.call('ritual_ZN12QPainterPath10ensureDataEv')
+
+  def ensureData_helper(self) -> None:
+    """
+    Calls Qt's 'void QPainterPath::ensureData_helper()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qpainterpath.html#ensureData_helper
+    """
+    #  void QPainterPath::ensureData_helper()
+    self.uglySide.call('ritual_ZN12QPainterPath17ensureData_helperEv')
+
+  def computeBoundingRect(self) -> None:
+    """
+    Calls Qt's 'void QPainterPath::computeBoundingRect() const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qpainterpath.html#computeBoundingRect
+    """
+    #  void QPainterPath::computeBoundingRect() const
+    self.uglySide.call('ritual_ZNK12QPainterPath19computeBoundingRectEv')
+
+  def computeControlPointRect(self) -> None:
+    """
+    Calls Qt's 'void QPainterPath::computeControlPointRect() const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qpainterpath.html#computeControlPointRect
+    """
+    #  void QPainterPath::computeControlPointRect() const
+    self.uglySide.call('ritual_ZNK12QPainterPath23computeControlPointRectEv')

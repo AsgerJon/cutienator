@@ -43,7 +43,7 @@ class QStyleOptionGraphicsItem(QStyleOption):
 
   Every function of Qt's QStyleOptionGraphicsItem that has a ritual and that
   Python can call so far, 1 name in all: 'levelOfDetailFromTransform'. It can
-  be made from Python, in 2 ways; see '__init__'.
+  be made from Python, in 3 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -55,8 +55,8 @@ class QStyleOptionGraphicsItem(QStyleOption):
   What has no ritual
   ------------------
 
-  2 of the 6 functions Qt declares: 1 takes or gives a type that cannot be
-  passed yet; 1 protected.
+  1 of the 6 functions Qt declares: 1 takes or gives a type that cannot be
+  passed yet.
 
   What to expect
   --------------
@@ -199,6 +199,27 @@ class QStyleOptionGraphicsItem(QStyleOption):
     #      QStyleOptionGraphicsItem &other)
     self._noteCreation(QStyleOptionGraphicsItem, lambda: Rituals.call(
         'ritual_ZN24QStyleOptionGraphicsItemC1ERKS_', self._valueOf(other),
+    ))
+
+  @overload(int)
+  def __init__(self, version: int) -> None:
+    """
+    Notes what was given, for Qt's
+    'QStyleOptionGraphicsItem::QStyleOptionGraphicsItem(int version)', which
+    is called at the first use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qstyleoptiongraphicsitem.html
+
+    Parameters
+    ----------
+
+    version : int
+      Passed on as it is.
+    """
+    #  QStyleOptionGraphicsItem::QStyleOptionGraphicsItem(int version)
+    self._noteCreation(QStyleOptionGraphicsItem, lambda: Rituals.call(
+        'ritual_ZN24QStyleOptionGraphicsItemC1Ei', version,
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -57,7 +57,8 @@ class QGraphicsSceneMouseEvent(QGraphicsSceneEvent):
   What has no ritual
   ------------------
 
-  4 of the 34 functions Qt declares: 2 private; 2 forbidden.
+  4 of the 34 functions Qt declares: 2 takes or gives a type that cannot be
+  passed yet; 2 forbidden.
 
   What to expect
   --------------

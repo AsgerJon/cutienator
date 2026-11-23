@@ -36,6 +36,9 @@
     "ritual_ZN13QFontComboBox14setCurrentFontERK5QFont": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN13QFontComboBox5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
     "ritual_take_QFontComboBox": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK13QFontComboBox8sizeHintEv": ["address", "address"],
     "ritual_own_ZN13QFontComboBox5eventEP6QEvent": [

@@ -28,6 +28,7 @@ else:
   #  see 'WAIT'.
   QGenericArgument = WAIT['QGenericArgument']
   QGenericReturnArgument = WAIT['QGenericReturnArgument']
+  QMetaObject = WAIT['QMetaObject']
   QObject = WAIT['QObject']
 
 #  The class of None, for a signature that takes None in the place of an
@@ -48,13 +49,14 @@ class QMetaMethod(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QMetaMethod that has a ritual and that Python can
-  call so far, 25 names in all: 'methodSignature', 'name', 'nameView',
+  call so far, 27 names in all: 'methodSignature', 'name', 'nameView',
   'typeName', 'returnType', 'returnMetaType', 'parameterCount',
   'parameterType', 'parameterMetaType', 'parameterTypes',
   'parameterTypeName', 'parameterNames', 'tag', 'access', 'methodType',
   'attributes', 'methodIndex', 'relativeMethodIndex', 'revision', 'isConst',
-  'enclosingMetaObject', 'invoke', 'isValid', '__eq__', '__ne__'. It can be
-  made from Python, in 1 way; see '__init__'.
+  'enclosingMetaObject', 'invoke', 'isValid', 'fromRelativeMethodIndex',
+  'fromRelativeConstructorIndex', '__eq__', '__ne__'. It can be made from
+  Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -67,8 +69,8 @@ class QMetaMethod(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  14 of the 45 functions Qt declares: 7 a template; 5 private; 2 takes or
-  gives a type that cannot be passed yet.
+  12 of the 45 functions Qt declares: 7 a template; 5 takes or gives a type
+  that cannot be passed yet.
 
   What to expect
   --------------
@@ -120,6 +122,83 @@ class QMetaMethod(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  @overload(QMetaObject, int)
+  @overload(NoneType, int)
+  def fromRelativeMethodIndex(
+      mobj: Optional[QMetaObject],
+      index: int,
+  ) -> QMetaMethod:
+    """
+    Calls Qt's 'QMetaMethod QMetaMethod::fromRelativeMethodIndex(const
+    QMetaObject *mobj, int index)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qmetamethod.html#fromRelativeMethodIndex
+
+    Parameters
+    ----------
+
+    mobj : Optional[QMetaObject]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    index : int
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QMetaMethod
+      A new cute QMetaMethod around the copy Qt gave back. Python owns it.
+    """
+    #  QMetaMethod QMetaMethod::fromRelativeMethodIndex(const QMetaObject
+    #      *mobj, int index)
+    address = Rituals.call(
+        'ritual_ZN11QMetaMethod23fromRelativeMethodIndexEPK11QMetaObjecti',
+        CuteMixin._addressOf(mobj), index,
+    )
+    return QMetaMethod._cuteOwning(address)
+
+  @staticmethod
+  @overload(QMetaObject, int)
+  @overload(NoneType, int)
+  def fromRelativeConstructorIndex(
+      mobj: Optional[QMetaObject],
+      index: int,
+  ) -> QMetaMethod:
+    """
+    Calls Qt's 'QMetaMethod QMetaMethod::fromRelativeConstructorIndex(const
+    QMetaObject *mobj, int index)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qmetamethod.html#fromRelativeConstructorIndex
+
+    Parameters
+    ----------
+
+    mobj : Optional[QMetaObject]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    index : int
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QMetaMethod
+      A new cute QMetaMethod around the copy Qt gave back. Python owns it.
+    """
+    #  QMetaMethod QMetaMethod::fromRelativeConstructorIndex(const
+    #      QMetaObject *mobj, int index)
+    address = Rituals.call(
+        'ritual_ZN11QMetaMethod28fromRelativeConstructorIndexEPK11QMetaObje'
+        'cti',
+        CuteMixin._addressOf(mobj), index,
+    )
+    return QMetaMethod._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

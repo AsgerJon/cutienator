@@ -927,6 +927,84 @@ QImage::Format ritual_ZN6QImage13toImageFormatE12QPixelFormat(
   return QImage::toImageFormat(*format);
 }
 
+//  int QImage::metric(PaintDeviceMetric metric) const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK6QImage6metricEN12QPaintDevice17PaintDeviceMetricE(
+    const QImage *self,
+    QPaintDevice::PaintDeviceMetric metric) {
+  return self->metric(metric);
+}
+
+//  QImage QImage::mirrored_helper(bool horizontal, bool vertical) const
+extern "C" Q_DECL_EXPORT
+QImage *ritual_ZNK6QImage15mirrored_helperEbb(
+    const QImage *self,
+    bool horizontal,
+    bool vertical) {
+  return new QImage(self->mirrored_helper(horizontal, vertical));
+}
+
+//  QImage QImage::rgbSwapped_helper() const
+extern "C" Q_DECL_EXPORT
+QImage *ritual_ZNK6QImage17rgbSwapped_helperEv(const QImage *self) {
+  return new QImage(self->rgbSwapped_helper());
+}
+
+//  void QImage::mirrored_inplace(bool horizontal, bool vertical)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QImage16mirrored_inplaceEbb(
+    QImage *self,
+    bool horizontal,
+    bool vertical) {
+  self->mirrored_inplace(horizontal, vertical);
+}
+
+//  void QImage::rgbSwapped_inplace()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QImage18rgbSwapped_inplaceEv(QImage *self) {
+  self->rgbSwapped_inplace();
+}
+
+//  QImage QImage::convertToFormat_helper(Format format,
+//      Qt::ImageConversionFlags flags) const
+extern "C" Q_DECL_EXPORT
+QImage *ritual_ZNK6QImage22convertToFormat_helperENS_6FormatE6QFlagsIN2Qt19ImageConversionFlagEE(
+    const QImage *self,
+    QImage::Format format,
+    int flags) {
+  return new QImage(
+      self->convertToFormat_helper(
+          format,
+          QFlags<Qt::ImageConversionFlag>::fromInt(flags)));
+}
+
+//  bool QImage::convertToFormat_inplace(Format format,
+//      Qt::ImageConversionFlags flags)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN6QImage23convertToFormat_inplaceENS_6FormatE6QFlagsIN2Qt19ImageConversionFlagEE(
+    QImage *self,
+    QImage::Format format,
+    int flags) {
+  return self->convertToFormat_inplace(
+      format,
+      QFlags<Qt::ImageConversionFlag>::fromInt(flags));
+}
+
+//  QImage QImage::smoothScaled(int w, int h) const
+extern "C" Q_DECL_EXPORT
+QImage *ritual_ZNK6QImage12smoothScaledEii(
+    const QImage *self,
+    int w,
+    int h) {
+  return new QImage(self->smoothScaled(w, h));
+}
+
+//  void QImage::detachMetadata(bool invalidateCache)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QImage14detachMetadataEb(QImage *self, bool invalidateCache) {
+  self->detachMetadata(invalidateCache);
+}
+
 //  a Python function taken by a CuteQImage, for the function named by the
 //      key
 extern "C" Q_DECL_EXPORT

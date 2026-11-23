@@ -57,8 +57,8 @@ class QGesture(QObject):
   What has no ritual
   ------------------
 
-  7 of the 19 functions Qt declares: 3 private; 2 takes or gives a type that
-  cannot be passed yet; 1 a template; 1 protected.
+  7 of the 19 functions Qt declares: 5 takes or gives a type that cannot be
+  passed yet; 1 a template; 1 declared and nowhere to be found.
 
   What to expect
   --------------

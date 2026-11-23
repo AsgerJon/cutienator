@@ -4,5 +4,7 @@
     "QtGui/qbrush.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10QBrushDataC1Ev": ["address"],
+    "ritual_ZN10QBrushDataD1Ev": ["nothing", "address"]
   }
 }

@@ -69,6 +69,35 @@
     "ritual_ZN6QLabel6setNumEi": ["nothing", "address", "int"],
     "ritual_ZN6QLabel6setNumEd": ["nothing", "address", "double"],
     "ritual_ZN6QLabel5clearEv": ["nothing", "address"],
+    "ritual_ZN6QLabel5eventEP6QEvent": ["bool", "address", "address"],
+    "ritual_ZN6QLabel13keyPressEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QLabel10paintEventEP11QPaintEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QLabel11changeEventEP6QEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QLabel15mousePressEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QLabel14mouseMoveEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QLabel17mouseReleaseEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QLabel16contextMenuEventEP17QContextMenuEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QLabel12focusInEventEP11QFocusEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QLabel13focusOutEventEP11QFocusEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QLabel18focusNextPrevChildEb": ["bool", "address", "bool"],
     "ritual_take_QLabel": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK6QLabel8sizeHintEv": ["address", "address"],
     "ritual_own_ZNK6QLabel15minimumSizeHintEv": ["address", "address"],

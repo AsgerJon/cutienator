@@ -19,14 +19,15 @@ from . import QAbstractItemView, QTableView, QWidget
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from ..QtCore import QEvent, QMetaObject, QMimeData, QModelIndex, QPoint
-  from ..QtCore import QRect
+  from ..QtCore import QAbstractItemModel, QEvent, QMetaObject, QMimeData
+  from ..QtCore import QModelIndex, QPoint, QRect
   from ..QtGui import QDropEvent
   from . import QTableWidgetItem, QTableWidgetSelectionRange
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
+  QAbstractItemModel = WAIT['QAbstractItemModel']
   QDropEvent = WAIT['QDropEvent']
   QEvent = WAIT['QEvent']
   QMimeData = WAIT['QMimeData']
@@ -52,7 +53,7 @@ class QTableWidget(QTableView):
   -----------
 
   Every function of Qt's QTableWidget that has a ritual and that Python can
-  call so far, 60 names in all: 'metaObject', 'tr', 'setRowCount',
+  call so far, 63 names in all: 'metaObject', 'tr', 'setRowCount',
   'rowCount', 'setColumnCount', 'columnCount', 'row', 'column', 'item',
   'setItem', 'takeItem', 'items', 'indexFromItem', 'itemFromIndex',
   'verticalHeaderItem', 'setVerticalHeaderItem', 'takeVerticalHeaderItem',
@@ -67,8 +68,9 @@ class QTableWidget(QTableView):
   'visualItemRect', 'itemPrototype', 'setItemPrototype',
   'supportedDragActions', 'setSupportedDragActions', 'scrollToItem',
   'insertRow', 'insertColumn', 'removeRow', 'removeColumn', 'clear',
-  'clearContents', 'event', 'dropMimeData', 'supportedDropActions',
-  'dropEvent'. It can be made from Python, in 2 ways; see '__init__'.
+  'clearContents', 'event', 'mimeTypes', 'mimeData', 'dropMimeData',
+  'supportedDropActions', 'dropEvent', 'setModel'. It can be made from
+  Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -79,9 +81,9 @@ class QTableWidget(QTableView):
   What has no ritual
   ------------------
 
-  26 of the 92 functions Qt declares: 15 a signal; 4 private; 2 takes or
-  gives a type that cannot be passed yet; 2 protected; 2 forbidden; 1 a
-  template.
+  23 of the 92 functions Qt declares: 15 a signal; 4 takes or gives a type
+  that cannot be passed yet; 2 forbidden; 1 a template; 1 declared and
+  nowhere to be found.
 
   What to expect
   --------------
@@ -801,6 +803,54 @@ class QTableWidget(QTableView):
         'ritual_ZNK12QTableWidget20supportedDragActionsEv',
     ))
 
+  def mimeTypes(self) -> QStringList:
+    """
+    Calls Qt's 'QStringList QTableWidget::mimeTypes() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtablewidget.html#mimeTypes
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QTableWidget::mimeTypes() const
+    address = self.uglySide.call('ritual_ZNK12QTableWidget9mimeTypesEv')
+    return QStringList._cuteOwning(address)
+
+  @overload(QList[QTableWidgetItem])
+  def mimeData(self, items: QList[QTableWidgetItem]) -> Optional[QMimeData]:
+    """
+    Calls Qt's 'QMimeData *QTableWidget::mimeData(const
+    QList<QTableWidgetItem *> &items) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtablewidget.html#mimeData
+
+    Parameters
+    ----------
+
+    items : QList[QTableWidgetItem]
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+
+    Returns
+    -------
+
+    Optional[QMimeData]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QMimeData *QTableWidget::mimeData(const QList<QTableWidgetItem *>
+    #      &items) const
+    address = self.uglySide.call(
+        'ritual_ZNK12QTableWidget8mimeDataERK5QListIP16QTableWidgetItemE',
+        self._valueOf(items),
+    )
+    from ..QtCore import QMimeData
+    return QMimeData._cuteAt(address)
+
   def supportedDropActions(self) -> Qt.DropActions:
     """
     Calls Qt's 'Qt::DropActions QTableWidget::supportedDropActions() const'.
@@ -815,9 +865,10 @@ class QTableWidget(QTableView):
       The value standing for the combination Qt gave back.
     """
     #  Qt::DropActions QTableWidget::supportedDropActions() const
-    return Qt.DropActions(self.uglySide.call(
-        'ritual_own_ZNK12QTableWidget20supportedDropActionsEv',
-    ))
+    ritual = 'ritual_ZNK12QTableWidget20supportedDropActionsEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK12QTableWidget20supportedDropActionsEv'
+    return Qt.DropActions(self.uglySide.call(ritual))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1233,6 +1284,27 @@ class QTableWidget(QTableView):
         'pActionEE',
         actions.value,
     )
+
+  @overload(QAbstractItemModel)
+  @overload(NoneType)
+  def setModel(self, model: Optional[QAbstractItemModel]) -> None:
+    """
+    Calls Qt's 'void QTableWidget::setModel(QAbstractItemModel *model)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtablewidget.html#setModel
+
+    Parameters
+    ----------
+
+    model : Optional[QAbstractItemModel]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QTableWidget::setModel(QAbstractItemModel *model)
+    ritual = 'ritual_ZN12QTableWidget8setModelEP18QAbstractItemModel'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN12QTableWidget8setModelEP18QAbstractItemModel'
+    self.uglySide.call(ritual, self._addressOf(model))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1664,9 +1736,10 @@ class QTableWidget(QTableView):
       object.
     """
     #  bool QTableWidget::event(QEvent *e)
-    return self.uglySide.call(
-        'ritual_own_ZN12QTableWidget5eventEP6QEvent', self._addressOf(e),
-    )
+    ritual = 'ritual_ZN12QTableWidget5eventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN12QTableWidget5eventEP6QEvent'
+    return self.uglySide.call(ritual, self._addressOf(e))
 
   @overload(int, int, QMimeData, Qt.DropAction)
   @overload(int, int, NoneType, Qt.DropAction)
@@ -1701,10 +1774,15 @@ class QTableWidget(QTableView):
     """
     #  bool QTableWidget::dropMimeData(int row, int column, const QMimeData
     #      *data, Qt::DropAction action)
+    ritual = (
+        'ritual_ZN12QTableWidget12dropMimeDataEiiPK9QMimeDataN2Qt10DropActi'
+        'onE')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN12QTableWidget12dropMimeDataEiiPK9QMimeDataN2Qt10Dr'
+          'opActionE')
     return self.uglySide.call(
-        'ritual_own_ZN12QTableWidget12dropMimeDataEiiPK9QMimeDataN2Qt10Drop'
-        'ActionE',
-        row, column, self._addressOf(data), action.value,
+        ritual, row, column, self._addressOf(data), action.value,
     )
 
   @overload(QDropEvent)
@@ -1723,7 +1801,7 @@ class QTableWidget(QTableView):
       object.
     """
     #  void QTableWidget::dropEvent(QDropEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN12QTableWidget9dropEventEP10QDropEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN12QTableWidget9dropEventEP10QDropEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN12QTableWidget9dropEventEP10QDropEvent'
+    self.uglySide.call(ritual, self._addressOf(event))

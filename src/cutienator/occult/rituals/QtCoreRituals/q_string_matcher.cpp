@@ -4,6 +4,12 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qstringview.h>
 
+//  void QStringMatcher::updateSkipTable()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QStringMatcher15updateSkipTableEv(QStringMatcher *self) {
+  self->updateSkipTable();
+}
+
 //  QStringMatcher::QStringMatcher()
 extern "C" Q_DECL_EXPORT
 QStringMatcher *ritual_ZN14QStringMatcherC1Ev() {

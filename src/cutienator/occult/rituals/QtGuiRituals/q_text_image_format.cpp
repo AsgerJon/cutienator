@@ -92,6 +92,13 @@ int ritual_ZNK16QTextImageFormat7qualityEv(const QTextImageFormat *self) {
   return self->quality();
 }
 
+//  QTextImageFormat::QTextImageFormat(const QTextFormat &format)
+extern "C" Q_DECL_EXPORT
+QTextImageFormat *ritual_ZN16QTextImageFormatC1ERK11QTextFormat(
+    const QTextFormat *format) {
+  return new QTextImageFormat(*format);
+}
+
 //  QTextImageFormat::~QTextImageFormat()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QTextImageFormatD1Ev(QTextImageFormat *self) {

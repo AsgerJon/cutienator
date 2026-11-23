@@ -19,13 +19,14 @@ from . import QList
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from . import QIODevice, QXmlStreamAttributes, QXmlStreamEntityDeclaration
-  from . import QXmlStreamEntityResolver, QXmlStreamNamespaceDeclaration
-  from . import QXmlStreamNotationDeclaration
+  from . import QByteArray, QIODevice, QXmlStreamAttributes
+  from . import QXmlStreamEntityDeclaration, QXmlStreamEntityResolver
+  from . import QXmlStreamNamespaceDeclaration, QXmlStreamNotationDeclaration
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
+  QByteArray = WAIT['QByteArray']
   QIODevice = WAIT['QIODevice']
   QXmlStreamEntityResolver = WAIT['QXmlStreamEntityResolver']
   QXmlStreamNamespaceDeclaration = WAIT['QXmlStreamNamespaceDeclaration']
@@ -44,7 +45,7 @@ class QXmlStreamReader(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QXmlStreamReader that has a ritual and that Python
-  can call so far, 56 names in all: 'setDevice', 'device', 'addData',
+  can call so far, 57 names in all: 'setDevice', 'device', 'addData',
   'clear', 'atEnd', 'readNext', 'readNextStartElement', 'skipCurrentElement',
   'readRawInnerData', 'tokenType', 'tokenString', 'setNamespaceProcessing',
   'namespaceProcessing', 'isStartDocument', 'isEndDocument',
@@ -59,8 +60,8 @@ class QXmlStreamReader(CuteMixin, metaclass=MetaCute):
   'addExtraNamespaceDeclarations', 'notationDeclarations',
   'entityDeclarations', 'dtdName', 'dtdPublicId', 'dtdSystemId',
   'entityExpansionLimit', 'setEntityExpansionLimit', 'raiseError',
-  'errorString', 'error', 'hasError', 'setEntityResolver', 'entityResolver'.
-  It can be made from Python, in 3 ways; see '__init__'.
+  'errorString', 'error', 'hasError', 'setEntityResolver', 'entityResolver',
+  'addDataImpl'. It can be made from Python, in 3 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -71,7 +72,8 @@ class QXmlStreamReader(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  8 of the 68 functions Qt declares: 4 private; 2 a template; 2 forbidden.
+  7 of the 68 functions Qt declares: 3 takes or gives a type that cannot be
+  passed yet; 2 a template; 2 forbidden.
 
   What to expect
   --------------
@@ -1126,4 +1128,24 @@ class QXmlStreamReader(CuteMixin, metaclass=MetaCute):
     #  void QXmlStreamReader::raiseError(const QString &message)
     self.uglySide.call(
         'ritual_ZN16QXmlStreamReader10raiseErrorERK7QString', message,
+    )
+
+  @overload(QByteArray)
+  def addDataImpl(self, data: QByteArray) -> None:
+    """
+    Calls Qt's 'void QXmlStreamReader::addDataImpl(const QByteArray &data)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qxmlstreamreader.html#addDataImpl
+
+    Parameters
+    ----------
+
+    data : QByteArray
+      Passed on as a value: Qt reads the C++ QByteArray, which stays Python's
+      own.
+    """
+    #  void QXmlStreamReader::addDataImpl(const QByteArray &data)
+    self.uglySide.call(
+        'ritual_ZN16QXmlStreamReader11addDataImplERK10QByteArray',
+        self._valueOf(data),
     )

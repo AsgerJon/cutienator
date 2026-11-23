@@ -41,7 +41,7 @@ class QColormap(CuteMixin, metaclass=MetaCute):
   Every function of Qt's QColormap that has a ritual and that Python can call
   so far, 9 names in all: 'initialize', 'cleanup', 'instance', 'mode',
   'depth', 'size', 'pixel', 'colorAt', 'colormap'. It can be made from
-  Python, in 1 way; see '__init__'.
+  Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -52,8 +52,8 @@ class QColormap(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  2 of the 13 functions Qt declares: 1 takes or gives a type that cannot be
-  passed yet; 1 private.
+  1 of the 13 functions Qt declares: 1 takes or gives a type that cannot be
+  passed yet.
 
   What to expect
   --------------
@@ -279,6 +279,19 @@ class QColormap(CuteMixin, metaclass=MetaCute):
     #  QColormap::QColormap(const QColormap &colormap)
     self._noteCreation(QColormap, lambda: Rituals.call(
         'ritual_ZN9QColormapC1ERKS_', self._valueOf(colormap),
+    ))
+
+  @overload()
+  def __init__(self) -> None:
+    """
+    Notes what was given, for Qt's 'QColormap::QColormap()', which is called
+    at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcolormap.html#QColormap
+    """
+    #  QColormap::QColormap()
+    self._noteCreation(QColormap, lambda: Rituals.call(
+        'ritual_ZN9QColormapC1Ev',
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

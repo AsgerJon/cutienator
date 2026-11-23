@@ -39,6 +39,7 @@ else:
   #  see 'WAIT'.
   QAction = WAIT['QAction']
   QActionEvent = WAIT['QActionEvent']
+  QBackingStore = WAIT['QBackingStore']
   QBitmap = WAIT['QBitmap']
   QByteArray = WAIT['QByteArray']
   QCloseEvent = WAIT['QCloseEvent']
@@ -97,7 +98,7 @@ class QWidget(QObject, QPaintDevice):
   -----------
 
   Every function of Qt's QWidget that has a ritual and that Python can call
-  so far, 259 names in all: 'metaObject', 'tr', 'devType', 'winId',
+  so far, 267 names in all: 'metaObject', 'tr', 'devType', 'winId',
   'createWinId', 'internalWinId', 'effectiveWinId', 'style', 'setStyle',
   'isTopLevel', 'isWindow', 'isModal', 'windowModality', 'setWindowModality',
   'isEnabled', 'isEnabledTo', 'setEnabled', 'setDisabled',
@@ -149,8 +150,7 @@ class QWidget(QObject, QPaintDevice):
   'windowType', 'find', 'childAt', 'setAttribute', 'testAttribute',
   'paintEngine', 'ensurePolished', 'isAncestorOf', 'autoFillBackground',
   'setAutoFillBackground', 'backingStore', 'windowHandle', 'screen',
-  'setScreen', 'createWindowContainer', 'inputMethodQuery',
-  'inputMethodHints', 'setInputMethodHints', 'event', 'mousePressEvent',
+  'setScreen', 'createWindowContainer', 'event', 'mousePressEvent',
   'mouseReleaseEvent', 'mouseDoubleClickEvent', 'mouseMoveEvent',
   'wheelEvent', 'keyPressEvent', 'keyReleaseEvent', 'focusInEvent',
   'focusOutEvent', 'enterEvent', 'leaveEvent', 'paintEvent', 'moveEvent',
@@ -158,7 +158,11 @@ class QWidget(QObject, QPaintDevice):
   'actionEvent', 'dragEnterEvent', 'dragMoveEvent', 'dragLeaveEvent',
   'dropEvent', 'showEvent', 'hideEvent', 'changeEvent', 'metric',
   'initPainter', 'redirected', 'sharedPainter', 'inputMethodEvent',
-  'focusNextPrevChild'. It can be made from Python, in 1 way; see '__init__'.
+  'inputMethodQuery', 'inputMethodHints', 'setInputMethodHints',
+  'updateMicroFocus', 'create', 'destroy', 'focusNextPrevChild',
+  'focusNextChild', 'focusPreviousChild', 'setBackingStore',
+  'testAttribute_helper', 'takeLayout'. It can be made from Python, in 1 way;
+  see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -169,8 +173,9 @@ class QWidget(QObject, QPaintDevice):
   What has no ritual
   ------------------
 
-  27 of the 326 functions Qt declares: 7 protected; 6 private; 5 a template;
-  4 a signal; 3 takes or gives a type that cannot be passed yet; 2 forbidden.
+  19 of the 326 functions Qt declares: 7 takes or gives a type that cannot be
+  passed yet; 5 a template; 4 a signal; 2 forbidden; 1 declared and nowhere
+  to be found.
 
   What to expect
   --------------
@@ -2649,6 +2654,77 @@ class QWidget(QObject, QPaintDevice):
     from ..QtGui import QScreen
     return QScreen._cuteAt(address)
 
+  @overload(QPaintDevice.PaintDeviceMetric)
+  def metric(self, a0: QPaintDevice.PaintDeviceMetric) -> int:
+    """
+    Calls Qt's 'int QWidget::metric(PaintDeviceMetric a0) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwidget.html#metric
+
+    Parameters
+    ----------
+
+    a0 : QPaintDevice.PaintDeviceMetric
+      Passed on as its number.
+    """
+    #  int QWidget::metric(PaintDeviceMetric a0) const
+    ritual = 'ritual_ZNK7QWidget6metricEN12QPaintDevice17PaintDeviceMetricE'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK7QWidget6metricEN12QPaintDevice17PaintDeviceMetric'
+          'E')
+    return self.uglySide.call(ritual, a0.value)
+
+  @overload(QPoint)
+  @overload(NoneType)
+  def redirected(self, offset: Optional[QPoint]) -> Optional[QPaintDevice]:
+    """
+    Calls Qt's 'QPaintDevice *QWidget::redirected(QPoint *offset) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwidget.html#redirected
+
+    Parameters
+    ----------
+
+    offset : Optional[QPoint]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    Returns
+    -------
+
+    Optional[QPaintDevice]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QPaintDevice *QWidget::redirected(QPoint *offset) const
+    ritual = 'ritual_ZNK7QWidget10redirectedEP6QPoint'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK7QWidget10redirectedEP6QPoint'
+    address = self.uglySide.call(ritual, self._addressOf(offset))
+    return QPaintDevice._cuteAt(address)
+
+  def sharedPainter(self) -> Optional[QPainter]:
+    """
+    Calls Qt's 'QPainter *QWidget::sharedPainter() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwidget.html#sharedPainter
+
+    Returns
+    -------
+
+    Optional[QPainter]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QPainter *QWidget::sharedPainter() const
+    ritual = 'ritual_ZNK7QWidget13sharedPainterEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK7QWidget13sharedPainterEv'
+    address = self.uglySide.call(ritual)
+    from ..QtGui import QPainter
+    return QPainter._cuteAt(address)
+
   @overload(Qt.InputMethodQuery)
   def inputMethodQuery(self, a0: Qt.InputMethodQuery) -> QVariant:
     """
@@ -2695,71 +2771,25 @@ class QWidget(QObject, QPaintDevice):
         'ritual_ZNK7QWidget16inputMethodHintsEv',
     ))
 
-  @overload(QPaintDevice.PaintDeviceMetric)
-  def metric(self, a0: QPaintDevice.PaintDeviceMetric) -> int:
+  @overload(Qt.WidgetAttribute)
+  def testAttribute_helper(self, a0: Qt.WidgetAttribute) -> bool:
     """
-    Calls Qt's 'int QWidget::metric(PaintDeviceMetric a0) const'.
+    Calls Qt's 'bool QWidget::testAttribute_helper(Qt::WidgetAttribute a0)
+    const'.
 
-    Qt's own words: https://doc.qt.io/qt-6/qwidget.html#metric
+    Qt's own words: https://doc.qt.io/qt-6/qwidget.html#testAttribute_helper
 
     Parameters
     ----------
 
-    a0 : QPaintDevice.PaintDeviceMetric
+    a0 : Qt.WidgetAttribute
       Passed on as its number.
     """
-    #  int QWidget::metric(PaintDeviceMetric a0) const
+    #  bool QWidget::testAttribute_helper(Qt::WidgetAttribute a0) const
     return self.uglySide.call(
-        'ritual_own_ZNK7QWidget6metricEN12QPaintDevice17PaintDeviceMetricE',
+        'ritual_ZNK7QWidget20testAttribute_helperEN2Qt15WidgetAttributeE',
         a0.value,
     )
-
-  @overload(QPoint)
-  @overload(NoneType)
-  def redirected(self, offset: Optional[QPoint]) -> Optional[QPaintDevice]:
-    """
-    Calls Qt's 'QPaintDevice *QWidget::redirected(QPoint *offset) const'.
-
-    Qt's own words: https://doc.qt.io/qt-6/qwidget.html#redirected
-
-    Parameters
-    ----------
-
-    offset : Optional[QPoint]
-      Passed on as the address of its C++ object. None is passed on as no
-      object.
-
-    Returns
-    -------
-
-    Optional[QPaintDevice]
-      The cute object standing for what Qt gave back. None when Qt gave back
-      no object.
-    """
-    #  QPaintDevice *QWidget::redirected(QPoint *offset) const
-    address = self.uglySide.call(
-        'ritual_own_ZNK7QWidget10redirectedEP6QPoint',
-        self._addressOf(offset),
-    )
-    return QPaintDevice._cuteAt(address)
-
-  def sharedPainter(self) -> Optional[QPainter]:
-    """
-    Calls Qt's 'QPainter *QWidget::sharedPainter() const'.
-
-    Qt's own words: https://doc.qt.io/qt-6/qwidget.html#sharedPainter
-
-    Returns
-    -------
-
-    Optional[QPainter]
-      The cute object standing for what Qt gave back. None when Qt gave back
-      no object.
-    """
-    #  QPainter *QWidget::sharedPainter() const
-    address = self.uglySide.call('ritual_own_ZNK7QWidget13sharedPainterEv')
-    from ..QtGui import QPainter
-    return QPainter._cuteAt(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -4144,6 +4174,27 @@ class QWidget(QObject, QPaintDevice):
         'ritual_ZN7QWidget19setInputMethodHintsE6QFlagsIN2Qt15InputMethodHi'
         'ntEE',
         hints.value,
+    )
+
+  @overload(QBackingStore)
+  @overload(NoneType)
+  def setBackingStore(self, store: Optional[QBackingStore]) -> None:
+    """
+    Calls Qt's 'void QWidget::setBackingStore(QBackingStore *store)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwidget.html#setBackingStore
+
+    Parameters
+    ----------
+
+    store : Optional[QBackingStore]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QWidget::setBackingStore(QBackingStore *store)
+    self.uglySide.call(
+        'ritual_ZN7QWidget15setBackingStoreEP13QBackingStore',
+        self._addressOf(store),
     )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -5542,9 +5593,10 @@ class QWidget(QObject, QPaintDevice):
       object.
     """
     #  bool QWidget::event(QEvent *event)
-    return self.uglySide.call(
-        'ritual_own_ZN7QWidget5eventEP6QEvent', self._addressOf(event),
-    )
+    ritual = 'ritual_ZN7QWidget5eventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QWidget5eventEP6QEvent'
+    return self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QMouseEvent)
   @overload(NoneType)
@@ -5562,10 +5614,10 @@ class QWidget(QObject, QPaintDevice):
       object.
     """
     #  void QWidget::mousePressEvent(QMouseEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN7QWidget15mousePressEventEP11QMouseEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN7QWidget15mousePressEventEP11QMouseEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QWidget15mousePressEventEP11QMouseEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QMouseEvent)
   @overload(NoneType)
@@ -5583,10 +5635,10 @@ class QWidget(QObject, QPaintDevice):
       object.
     """
     #  void QWidget::mouseReleaseEvent(QMouseEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN7QWidget17mouseReleaseEventEP11QMouseEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN7QWidget17mouseReleaseEventEP11QMouseEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QWidget17mouseReleaseEventEP11QMouseEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QMouseEvent)
   @overload(NoneType)
@@ -5604,10 +5656,10 @@ class QWidget(QObject, QPaintDevice):
       object.
     """
     #  void QWidget::mouseDoubleClickEvent(QMouseEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN7QWidget21mouseDoubleClickEventEP11QMouseEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN7QWidget21mouseDoubleClickEventEP11QMouseEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QWidget21mouseDoubleClickEventEP11QMouseEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QMouseEvent)
   @overload(NoneType)
@@ -5625,10 +5677,10 @@ class QWidget(QObject, QPaintDevice):
       object.
     """
     #  void QWidget::mouseMoveEvent(QMouseEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN7QWidget14mouseMoveEventEP11QMouseEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN7QWidget14mouseMoveEventEP11QMouseEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QWidget14mouseMoveEventEP11QMouseEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QWheelEvent)
   @overload(NoneType)
@@ -5646,10 +5698,10 @@ class QWidget(QObject, QPaintDevice):
       object.
     """
     #  void QWidget::wheelEvent(QWheelEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN7QWidget10wheelEventEP11QWheelEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN7QWidget10wheelEventEP11QWheelEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QWidget10wheelEventEP11QWheelEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QKeyEvent)
   @overload(NoneType)
@@ -5667,10 +5719,10 @@ class QWidget(QObject, QPaintDevice):
       object.
     """
     #  void QWidget::keyPressEvent(QKeyEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN7QWidget13keyPressEventEP9QKeyEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN7QWidget13keyPressEventEP9QKeyEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QWidget13keyPressEventEP9QKeyEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QKeyEvent)
   @overload(NoneType)
@@ -5688,10 +5740,10 @@ class QWidget(QObject, QPaintDevice):
       object.
     """
     #  void QWidget::keyReleaseEvent(QKeyEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN7QWidget15keyReleaseEventEP9QKeyEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN7QWidget15keyReleaseEventEP9QKeyEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QWidget15keyReleaseEventEP9QKeyEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QFocusEvent)
   @overload(NoneType)
@@ -5709,10 +5761,10 @@ class QWidget(QObject, QPaintDevice):
       object.
     """
     #  void QWidget::focusInEvent(QFocusEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN7QWidget12focusInEventEP11QFocusEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN7QWidget12focusInEventEP11QFocusEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QWidget12focusInEventEP11QFocusEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QFocusEvent)
   @overload(NoneType)
@@ -5730,10 +5782,10 @@ class QWidget(QObject, QPaintDevice):
       object.
     """
     #  void QWidget::focusOutEvent(QFocusEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN7QWidget13focusOutEventEP11QFocusEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN7QWidget13focusOutEventEP11QFocusEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QWidget13focusOutEventEP11QFocusEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QEnterEvent)
   @overload(NoneType)
@@ -5751,10 +5803,10 @@ class QWidget(QObject, QPaintDevice):
       object.
     """
     #  void QWidget::enterEvent(QEnterEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN7QWidget10enterEventEP11QEnterEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN7QWidget10enterEventEP11QEnterEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QWidget10enterEventEP11QEnterEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QEvent)
   @overload(NoneType)
@@ -5772,9 +5824,10 @@ class QWidget(QObject, QPaintDevice):
       object.
     """
     #  void QWidget::leaveEvent(QEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN7QWidget10leaveEventEP6QEvent', self._addressOf(event),
-    )
+    ritual = 'ritual_ZN7QWidget10leaveEventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QWidget10leaveEventEP6QEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QPaintEvent)
   @overload(NoneType)
@@ -5792,10 +5845,10 @@ class QWidget(QObject, QPaintDevice):
       object.
     """
     #  void QWidget::paintEvent(QPaintEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN7QWidget10paintEventEP11QPaintEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN7QWidget10paintEventEP11QPaintEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QWidget10paintEventEP11QPaintEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QMoveEvent)
   @overload(NoneType)
@@ -5813,10 +5866,10 @@ class QWidget(QObject, QPaintDevice):
       object.
     """
     #  void QWidget::moveEvent(QMoveEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN7QWidget9moveEventEP10QMoveEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN7QWidget9moveEventEP10QMoveEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QWidget9moveEventEP10QMoveEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QResizeEvent)
   @overload(NoneType)
@@ -5834,10 +5887,10 @@ class QWidget(QObject, QPaintDevice):
       object.
     """
     #  void QWidget::resizeEvent(QResizeEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN7QWidget11resizeEventEP12QResizeEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN7QWidget11resizeEventEP12QResizeEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QWidget11resizeEventEP12QResizeEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QCloseEvent)
   @overload(NoneType)
@@ -5855,10 +5908,10 @@ class QWidget(QObject, QPaintDevice):
       object.
     """
     #  void QWidget::closeEvent(QCloseEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN7QWidget10closeEventEP11QCloseEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN7QWidget10closeEventEP11QCloseEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QWidget10closeEventEP11QCloseEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QContextMenuEvent)
   @overload(NoneType)
@@ -5876,10 +5929,10 @@ class QWidget(QObject, QPaintDevice):
       object.
     """
     #  void QWidget::contextMenuEvent(QContextMenuEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN7QWidget16contextMenuEventEP17QContextMenuEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN7QWidget16contextMenuEventEP17QContextMenuEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QWidget16contextMenuEventEP17QContextMenuEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QTabletEvent)
   @overload(NoneType)
@@ -5897,10 +5950,10 @@ class QWidget(QObject, QPaintDevice):
       object.
     """
     #  void QWidget::tabletEvent(QTabletEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN7QWidget11tabletEventEP12QTabletEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN7QWidget11tabletEventEP12QTabletEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QWidget11tabletEventEP12QTabletEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QActionEvent)
   @overload(NoneType)
@@ -5918,10 +5971,10 @@ class QWidget(QObject, QPaintDevice):
       object.
     """
     #  void QWidget::actionEvent(QActionEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN7QWidget11actionEventEP12QActionEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN7QWidget11actionEventEP12QActionEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QWidget11actionEventEP12QActionEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QDragEnterEvent)
   @overload(NoneType)
@@ -5939,10 +5992,10 @@ class QWidget(QObject, QPaintDevice):
       object.
     """
     #  void QWidget::dragEnterEvent(QDragEnterEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN7QWidget14dragEnterEventEP15QDragEnterEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN7QWidget14dragEnterEventEP15QDragEnterEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QWidget14dragEnterEventEP15QDragEnterEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QDragMoveEvent)
   @overload(NoneType)
@@ -5960,10 +6013,10 @@ class QWidget(QObject, QPaintDevice):
       object.
     """
     #  void QWidget::dragMoveEvent(QDragMoveEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN7QWidget13dragMoveEventEP14QDragMoveEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN7QWidget13dragMoveEventEP14QDragMoveEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QWidget13dragMoveEventEP14QDragMoveEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QDragLeaveEvent)
   @overload(NoneType)
@@ -5981,10 +6034,10 @@ class QWidget(QObject, QPaintDevice):
       object.
     """
     #  void QWidget::dragLeaveEvent(QDragLeaveEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN7QWidget14dragLeaveEventEP15QDragLeaveEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN7QWidget14dragLeaveEventEP15QDragLeaveEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QWidget14dragLeaveEventEP15QDragLeaveEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QDropEvent)
   @overload(NoneType)
@@ -6002,10 +6055,10 @@ class QWidget(QObject, QPaintDevice):
       object.
     """
     #  void QWidget::dropEvent(QDropEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN7QWidget9dropEventEP10QDropEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN7QWidget9dropEventEP10QDropEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QWidget9dropEventEP10QDropEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QShowEvent)
   @overload(NoneType)
@@ -6023,10 +6076,10 @@ class QWidget(QObject, QPaintDevice):
       object.
     """
     #  void QWidget::showEvent(QShowEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN7QWidget9showEventEP10QShowEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN7QWidget9showEventEP10QShowEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QWidget9showEventEP10QShowEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QHideEvent)
   @overload(NoneType)
@@ -6044,10 +6097,10 @@ class QWidget(QObject, QPaintDevice):
       object.
     """
     #  void QWidget::hideEvent(QHideEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN7QWidget9hideEventEP10QHideEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN7QWidget9hideEventEP10QHideEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QWidget9hideEventEP10QHideEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QEvent)
   @overload(NoneType)
@@ -6065,9 +6118,10 @@ class QWidget(QObject, QPaintDevice):
       object.
     """
     #  void QWidget::changeEvent(QEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN7QWidget11changeEventEP6QEvent', self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN7QWidget11changeEventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QWidget11changeEventEP6QEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QPainter)
   @overload(NoneType)
@@ -6085,10 +6139,10 @@ class QWidget(QObject, QPaintDevice):
       object.
     """
     #  void QWidget::initPainter(QPainter *painter) const
-    self.uglySide.call(
-        'ritual_own_ZNK7QWidget11initPainterEP8QPainter',
-        self._addressOf(painter),
-    )
+    ritual = 'ritual_ZNK7QWidget11initPainterEP8QPainter'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK7QWidget11initPainterEP8QPainter'
+    self.uglySide.call(ritual, self._addressOf(painter))
 
   @overload(QInputMethodEvent)
   @overload(NoneType)
@@ -6106,9 +6160,96 @@ class QWidget(QObject, QPaintDevice):
       object.
     """
     #  void QWidget::inputMethodEvent(QInputMethodEvent *a0)
+    ritual = 'ritual_ZN7QWidget16inputMethodEventEP17QInputMethodEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QWidget16inputMethodEventEP17QInputMethodEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
+
+  @overload()
+  @overload(Qt.InputMethodQuery)
+  def updateMicroFocus(
+      self,
+      query: Qt.InputMethodQuery = Qt.InputMethodQuery.ImQueryAll,
+  ) -> None:
+    """
+    Calls Qt's 'void QWidget::updateMicroFocus(Qt::InputMethodQuery query)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus
+
+    Parameters
+    ----------
+
+    query : Qt.InputMethodQuery
+      Passed on as its number. May be left out, as in Qt: it is then
+      Qt.InputMethodQuery.ImQueryAll.
+    """
+    #  void QWidget::updateMicroFocus(Qt::InputMethodQuery query)
     self.uglySide.call(
-        'ritual_own_ZN7QWidget16inputMethodEventEP17QInputMethodEvent',
-        self._addressOf(a0),
+        'ritual_ZN7QWidget16updateMicroFocusEN2Qt16InputMethodQueryE',
+        query.value,
+    )
+
+  @overload()
+  @overload(int)
+  @overload(int, bool)
+  @overload(int, bool, bool)
+  def create(
+      self,
+      a0: int = 0,
+      initializeWindow: bool = True,
+      destroyOldWindow: bool = True,
+  ) -> None:
+    """
+    Calls Qt's 'void QWidget::create(WId a0, bool initializeWindow, bool
+    destroyOldWindow)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwidget.html#create
+
+    Parameters
+    ----------
+
+    a0 : int
+      Passed on as it is. May be left out, as in Qt: it is then 0.
+
+    initializeWindow : bool
+      Passed on as it is. May be left out, as in Qt: it is then True.
+
+    destroyOldWindow : bool
+      Passed on as it is. May be left out, as in Qt: it is then True.
+    """
+    #  void QWidget::create(WId a0, bool initializeWindow, bool
+    #      destroyOldWindow)
+    self.uglySide.call(
+        'ritual_ZN7QWidget6createEybb',
+        a0, initializeWindow, destroyOldWindow,
+    )
+
+  @overload()
+  @overload(bool)
+  @overload(bool, bool)
+  def destroy(
+      self,
+      destroyWindow: bool = True,
+      destroySubWindows: bool = True,
+  ) -> None:
+    """
+    Calls Qt's 'void QWidget::destroy(bool destroyWindow, bool
+    destroySubWindows)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwidget.html#destroy
+
+    Parameters
+    ----------
+
+    destroyWindow : bool
+      Passed on as it is. May be left out, as in Qt: it is then True.
+
+    destroySubWindows : bool
+      Passed on as it is. May be left out, as in Qt: it is then True.
+    """
+    #  void QWidget::destroy(bool destroyWindow, bool destroySubWindows)
+    self.uglySide.call(
+        'ritual_ZN7QWidget7destroyEbb', destroyWindow, destroySubWindows,
     )
 
   @overload(bool)
@@ -6125,9 +6266,46 @@ class QWidget(QObject, QPaintDevice):
       Passed on as it is.
     """
     #  bool QWidget::focusNextPrevChild(bool next)
-    return self.uglySide.call(
-        'ritual_own_ZN7QWidget18focusNextPrevChildEb', next,
-    )
+    ritual = 'ritual_ZN7QWidget18focusNextPrevChildEb'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QWidget18focusNextPrevChildEb'
+    return self.uglySide.call(ritual, next)
+
+  def focusNextChild(self) -> bool:
+    """
+    Calls Qt's 'bool QWidget::focusNextChild()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwidget.html#focusNextChild
+    """
+    #  bool QWidget::focusNextChild()
+    return self.uglySide.call('ritual_ZN7QWidget14focusNextChildEv')
+
+  def focusPreviousChild(self) -> bool:
+    """
+    Calls Qt's 'bool QWidget::focusPreviousChild()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild
+    """
+    #  bool QWidget::focusPreviousChild()
+    return self.uglySide.call('ritual_ZN7QWidget18focusPreviousChildEv')
+
+  def takeLayout(self) -> Optional[QLayout]:
+    """
+    Calls Qt's 'QLayout *QWidget::takeLayout()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwidget.html#takeLayout
+
+    Returns
+    -------
+
+    Optional[QLayout]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QLayout *QWidget::takeLayout()
+    address = self.uglySide.call('ritual_ZN7QWidget10takeLayoutEv')
+    from . import QLayout
+    return QLayout._cuteAt(address)
 
 
 #  Qt's 'QList<QWidget *>': the list of QWidget, which 'QList[QWidget]'

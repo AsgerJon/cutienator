@@ -29,9 +29,9 @@ class QPageRanges(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QPageRanges that has a ritual and that Python can
-  call so far, 12 names in all: '__eq__', '__ne__', 'addPage', 'addRange',
+  call so far, 13 names in all: '__eq__', '__ne__', 'addPage', 'addRange',
   'clear', 'toString', 'fromString', 'contains', 'isEmpty', 'firstPage',
-  'lastPage', 'detach'. It can be made from Python, in 2 ways; see
+  'lastPage', 'detach', 'isEqual'. It can be made from Python, in 2 ways; see
   '__init__'.
 
   What has a ritual and is left out, and why
@@ -43,8 +43,8 @@ class QPageRanges(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  6 of the 21 functions Qt declares: 5 takes or gives a type that cannot be
-  passed yet; 1 private.
+  5 of the 21 functions Qt declares: 5 takes or gives a type that cannot be
+  passed yet.
 
   What to expect
   --------------
@@ -385,6 +385,25 @@ class QPageRanges(CuteMixin, metaclass=MetaCute):
     """
     #  int QPageRanges::lastPage() const
     return self.uglySide.call('ritual_ZNK11QPageRanges8lastPageEv')
+
+  @overload(THIS)
+  def isEqual(self, other: QPageRanges) -> bool:
+    """
+    Calls Qt's 'bool QPageRanges::isEqual(const QPageRanges &other) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpageranges.html#isEqual
+
+    Parameters
+    ----------
+
+    other : QPageRanges
+      Passed on as a value: Qt reads the C++ QPageRanges, which stays
+      Python's own.
+    """
+    #  bool QPageRanges::isEqual(const QPageRanges &other) const
+    return self.uglySide.call(
+        'ritual_ZNK11QPageRanges7isEqualERKS_', self._valueOf(other),
+    )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

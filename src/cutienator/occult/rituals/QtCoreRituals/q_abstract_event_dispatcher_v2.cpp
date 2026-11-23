@@ -338,6 +338,34 @@ bool ritual_ZN26QAbstractEventDispatcherV225processEventsWithDeadlineE6QFlagsIN1
       *deadline);
 }
 
+//  void QAbstractEventDispatcherV2::registerTimer(int timerId, qint64
+//      interval, Qt::TimerType timerType, QObject *object)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QAbstractEventDispatcherV213registerTimerEixN2Qt9TimerTypeEP7QObject(
+    QAbstractEventDispatcherV2 *self,
+    int timerId,
+    qint64 interval,
+    Qt::TimerType timerType,
+    QObject *object) {
+  self->registerTimer(timerId, interval, timerType, object);
+}
+
+//  bool QAbstractEventDispatcherV2::unregisterTimer(int timerId)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN26QAbstractEventDispatcherV215unregisterTimerEi(
+    QAbstractEventDispatcherV2 *self,
+    int timerId) {
+  return self->unregisterTimer(timerId);
+}
+
+//  int QAbstractEventDispatcherV2::remainingTime(int timerId)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN26QAbstractEventDispatcherV213remainingTimeEi(
+    QAbstractEventDispatcherV2 *self,
+    int timerId) {
+  return self->remainingTime(timerId);
+}
+
 //  a Python function taken by a CuteQAbstractEventDispatcherV2, for the
 //      function named by the key
 extern "C" Q_DECL_EXPORT

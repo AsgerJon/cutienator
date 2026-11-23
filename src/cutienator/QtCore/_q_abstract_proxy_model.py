@@ -65,9 +65,9 @@ class QAbstractProxyModel(QAbstractItemModel):
   What has no ritual
   ------------------
 
-  13 of the 46 functions Qt declares: 3 takes or gives a type that cannot be
-  passed yet; 3 private; 2 protected; 2 forbidden; 1 a template; 1 the class
-  is abstract, so C++ cannot make one; 1 a signal.
+  13 of the 46 functions Qt declares: 6 takes or gives a type that cannot be
+  passed yet; 2 the class is abstract, so C++ cannot make one; 2 forbidden; 1
+  a template; 1 declared and nowhere to be found; 1 a signal.
 
   What to expect
   --------------

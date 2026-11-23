@@ -44,13 +44,13 @@ class QItemSelectionModel(QObject):
   -----------
 
   Every function of Qt's QItemSelectionModel that has a ritual and that
-  Python can call so far, 21 names in all: 'metaObject', 'tr',
+  Python can call so far, 22 names in all: 'metaObject', 'tr',
   'currentIndex', 'isSelected', 'isRowSelected', 'isColumnSelected',
   'rowIntersectsSelection', 'columnIntersectsSelection', 'hasSelection',
   'selectedIndexes', 'selectedRows', 'selectedColumns', 'selection', 'model',
   'setModel', 'setCurrentIndex', 'select', 'clear', 'reset',
-  'clearSelection', 'clearCurrentIndex'. It can be made from Python, in 2
-  ways; see '__init__'.
+  'clearSelection', 'clearCurrentIndex', 'emitSelectionChanged'. It can be
+  made from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -64,9 +64,9 @@ class QItemSelectionModel(QObject):
   What has no ritual
   ------------------
 
-  16 of the 42 functions Qt declares: 5 a signal; 3 takes or gives a type
-  that cannot be passed yet; 3 private; 2 protected; 2 forbidden; 1 a
-  template.
+  15 of the 42 functions Qt declares: 6 takes or gives a type that cannot be
+  passed yet; 5 a signal; 2 forbidden; 1 a template; 1 declared and nowhere
+  to be found.
 
   What to expect
   --------------
@@ -821,3 +821,35 @@ class QItemSelectionModel(QObject):
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZN19QItemSelectionModel17clearCurrentIndexEv'
     self.uglySide.call(ritual)
+
+  @overload(QItemSelection, QItemSelection)
+  def emitSelectionChanged(
+      self,
+      newSelection: QItemSelection,
+      oldSelection: QItemSelection,
+  ) -> None:
+    """
+    Calls Qt's 'void QItemSelectionModel::emitSelectionChanged(const
+    QItemSelection &newSelection, const QItemSelection &oldSelection)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qitemselectionmodel.html#emitSelectionChanged
+
+    Parameters
+    ----------
+
+    newSelection : QItemSelection
+      Passed on as a value: Qt reads the C++ QItemSelection, which stays
+      Python's own.
+
+    oldSelection : QItemSelection
+      Passed on as a value: Qt reads the C++ QItemSelection, which stays
+      Python's own.
+    """
+    #  void QItemSelectionModel::emitSelectionChanged(const QItemSelection
+    #      &newSelection, const QItemSelection &oldSelection)
+    self.uglySide.call(
+        'ritual_ZN19QItemSelectionModel20emitSelectionChangedERK14QItemSele'
+        'ctionS2_',
+        self._valueOf(newSelection), self._valueOf(oldSelection),
+    )

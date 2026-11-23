@@ -39,10 +39,11 @@ class QKeySequence(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QKeySequence that has a ritual and that Python can
-  call so far, 17 names in all: 'count', 'isEmpty', 'toString', 'fromString',
+  call so far, 19 names in all: 'count', 'isEmpty', 'toString', 'fromString',
   'listFromString', 'listToString', 'matches', 'mnemonic', 'keyBindings',
   '__getitem__', '__eq__', '__ne__', '__lt__', '__gt__', '__le__', '__ge__',
-  'isDetached'. It can be made from Python, in 6 ways; see '__init__'.
+  'isDetached', 'assign', 'setKey'. It can be made from Python, in 6 ways;
+  see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -55,8 +56,8 @@ class QKeySequence(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  12 of the 37 functions Qt declares: 6 takes or gives a type that cannot be
-  passed yet; 4 private; 1 declared and nowhere to be found; 1 a template.
+  9 of the 37 functions Qt declares: 6 takes or gives a type that cannot be
+  passed yet; 2 declared and nowhere to be found; 1 a template.
 
   What to expect
   --------------
@@ -456,6 +457,29 @@ class QKeySequence(CuteMixin, metaclass=MetaCute):
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @overload(QKeyCombination, int)
+  def setKey(self, key: QKeyCombination, index: int) -> None:
+    """
+    Calls Qt's 'void QKeySequence::setKey(QKeyCombination key, int index)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qkeysequence.html#setKey
+
+    Parameters
+    ----------
+
+    key : QKeyCombination
+      Passed on as a value: Qt reads the C++ QKeyCombination, which stays
+      Python's own.
+
+    index : int
+      Passed on as it is.
+    """
+    #  void QKeySequence::setKey(QKeyCombination key, int index)
+    self.uglySide.call(
+        'ritual_ZN12QKeySequence6setKeyE15QKeyCombinationi',
+        self._valueOf(key), index,
+    )
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -842,6 +866,47 @@ class QKeySequence(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(str)
+  def assign(self, str: str) -> int:
+    """
+    Calls Qt's 'int QKeySequence::assign(const QString &str)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qkeysequence.html#assign
+
+    Parameters
+    ----------
+
+    str : str
+      Passed on as it is: a QString is made of it for the call.
+    """
+    #  int QKeySequence::assign(const QString &str)
+    return self.uglySide.call(
+        'ritual_ZN12QKeySequence6assignERK7QString', str,
+    )
+
+  @overload(str, SequenceFormat)
+  def assign(self, str: str, format: SequenceFormat) -> int:
+    """
+    Calls Qt's 'int QKeySequence::assign(const QString &str, SequenceFormat
+    format)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qkeysequence.html#assign
+
+    Parameters
+    ----------
+
+    str : str
+      Passed on as it is: a QString is made of it for the call.
+
+    format : SequenceFormat
+      Passed on as its number.
+    """
+    #  int QKeySequence::assign(const QString &str, SequenceFormat format)
+    return self.uglySide.call(
+        'ritual_ZN12QKeySequence6assignERK7QStringNS_14SequenceFormatE',
+        str, format.value,
+    )
 
 
 #  Qt's 'QList<QKeySequence>': the list of QKeySequence, which

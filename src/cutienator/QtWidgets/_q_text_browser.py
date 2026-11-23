@@ -69,8 +69,9 @@ class QTextBrowser(QTextEdit):
   What has no ritual
   ------------------
 
-  14 of the 48 functions Qt declares: 6 a signal; 3 private; 2 takes or gives
-  a type that cannot be passed yet; 2 forbidden; 1 a template.
+  14 of the 48 functions Qt declares: 6 a signal; 4 takes or gives a type
+  that cannot be passed yet; 2 forbidden; 1 a template; 1 declared and
+  nowhere to be found.
 
   What to expect
   --------------
@@ -634,9 +635,10 @@ class QTextBrowser(QTextEdit):
       object.
     """
     #  bool QTextBrowser::event(QEvent *e)
-    return self.uglySide.call(
-        'ritual_own_ZN12QTextBrowser5eventEP6QEvent', self._addressOf(e),
-    )
+    ritual = 'ritual_ZN12QTextBrowser5eventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN12QTextBrowser5eventEP6QEvent'
+    return self.uglySide.call(ritual, self._addressOf(e))
 
   @overload(QKeyEvent)
   @overload(NoneType)
@@ -654,10 +656,10 @@ class QTextBrowser(QTextEdit):
       object.
     """
     #  void QTextBrowser::keyPressEvent(QKeyEvent *ev)
-    self.uglySide.call(
-        'ritual_own_ZN12QTextBrowser13keyPressEventEP9QKeyEvent',
-        self._addressOf(ev),
-    )
+    ritual = 'ritual_ZN12QTextBrowser13keyPressEventEP9QKeyEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN12QTextBrowser13keyPressEventEP9QKeyEvent'
+    self.uglySide.call(ritual, self._addressOf(ev))
 
   @overload(QMouseEvent)
   @overload(NoneType)
@@ -675,10 +677,10 @@ class QTextBrowser(QTextEdit):
       object.
     """
     #  void QTextBrowser::mouseMoveEvent(QMouseEvent *ev)
-    self.uglySide.call(
-        'ritual_own_ZN12QTextBrowser14mouseMoveEventEP11QMouseEvent',
-        self._addressOf(ev),
-    )
+    ritual = 'ritual_ZN12QTextBrowser14mouseMoveEventEP11QMouseEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN12QTextBrowser14mouseMoveEventEP11QMouseEvent'
+    self.uglySide.call(ritual, self._addressOf(ev))
 
   @overload(QMouseEvent)
   @overload(NoneType)
@@ -696,10 +698,10 @@ class QTextBrowser(QTextEdit):
       object.
     """
     #  void QTextBrowser::mousePressEvent(QMouseEvent *ev)
-    self.uglySide.call(
-        'ritual_own_ZN12QTextBrowser15mousePressEventEP11QMouseEvent',
-        self._addressOf(ev),
-    )
+    ritual = 'ritual_ZN12QTextBrowser15mousePressEventEP11QMouseEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN12QTextBrowser15mousePressEventEP11QMouseEvent'
+    self.uglySide.call(ritual, self._addressOf(ev))
 
   @overload(QMouseEvent)
   @overload(NoneType)
@@ -718,10 +720,11 @@ class QTextBrowser(QTextEdit):
       object.
     """
     #  void QTextBrowser::mouseReleaseEvent(QMouseEvent *ev)
-    self.uglySide.call(
-        'ritual_own_ZN12QTextBrowser17mouseReleaseEventEP11QMouseEvent',
-        self._addressOf(ev),
-    )
+    ritual = 'ritual_ZN12QTextBrowser17mouseReleaseEventEP11QMouseEvent'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN12QTextBrowser17mouseReleaseEventEP11QMouseEvent')
+    self.uglySide.call(ritual, self._addressOf(ev))
 
   @overload(QFocusEvent)
   @overload(NoneType)
@@ -739,10 +742,10 @@ class QTextBrowser(QTextEdit):
       object.
     """
     #  void QTextBrowser::focusOutEvent(QFocusEvent *ev)
-    self.uglySide.call(
-        'ritual_own_ZN12QTextBrowser13focusOutEventEP11QFocusEvent',
-        self._addressOf(ev),
-    )
+    ritual = 'ritual_ZN12QTextBrowser13focusOutEventEP11QFocusEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN12QTextBrowser13focusOutEventEP11QFocusEvent'
+    self.uglySide.call(ritual, self._addressOf(ev))
 
   @overload(bool)
   def focusNextPrevChild(self, next: bool) -> bool:
@@ -759,9 +762,10 @@ class QTextBrowser(QTextEdit):
       Passed on as it is.
     """
     #  bool QTextBrowser::focusNextPrevChild(bool next)
-    return self.uglySide.call(
-        'ritual_own_ZN12QTextBrowser18focusNextPrevChildEb', next,
-    )
+    ritual = 'ritual_ZN12QTextBrowser18focusNextPrevChildEb'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN12QTextBrowser18focusNextPrevChildEb'
+    return self.uglySide.call(ritual, next)
 
   @overload(QPaintEvent)
   @overload(NoneType)
@@ -779,10 +783,10 @@ class QTextBrowser(QTextEdit):
       object.
     """
     #  void QTextBrowser::paintEvent(QPaintEvent *e)
-    self.uglySide.call(
-        'ritual_own_ZN12QTextBrowser10paintEventEP11QPaintEvent',
-        self._addressOf(e),
-    )
+    ritual = 'ritual_ZN12QTextBrowser10paintEventEP11QPaintEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN12QTextBrowser10paintEventEP11QPaintEvent'
+    self.uglySide.call(ritual, self._addressOf(e))
 
   @overload(QUrl)
   @overload(QUrl, QTextDocument.ResourceType)
@@ -810,8 +814,11 @@ class QTextBrowser(QTextEdit):
     """
     #  void QTextBrowser::doSetSource(const QUrl &name,
     #      QTextDocument::ResourceType type)
-    self.uglySide.call(
-        'ritual_own_ZN12QTextBrowser11doSetSourceERK4QUrlN13QTextDocument12'
-        'ResourceTypeE',
-        self._valueOf(name), type.value,
-    )
+    ritual = (
+        'ritual_ZN12QTextBrowser11doSetSourceERK4QUrlN13QTextDocument12Reso'
+        'urceTypeE')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN12QTextBrowser11doSetSourceERK4QUrlN13QTextDocument'
+          '12ResourceTypeE')
+    self.uglySide.call(ritual, self._valueOf(name), type.value)

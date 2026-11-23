@@ -54,7 +54,7 @@ class QCalendarWidget(QWidget):
   -----------
 
   Every function of Qt's QCalendarWidget that has a ritual and that Python
-  can call so far, 52 names in all: 'metaObject', 'tr', 'sizeHint',
+  can call so far, 54 names in all: 'metaObject', 'tr', 'sizeHint',
   'minimumSizeHint', 'selectedDate', 'yearShown', 'monthShown',
   'minimumDate', 'setMinimumDate', 'clearMinimumDate', 'maximumDate',
   'setMaximumDate', 'clearMaximumDate', 'firstDayOfWeek',
@@ -65,11 +65,12 @@ class QCalendarWidget(QWidget):
   'setHeaderTextFormat', 'weekdayTextFormat', 'setWeekdayTextFormat',
   'dateTextFormat', 'setDateTextFormat', 'isDateEditEnabled',
   'setDateEditEnabled', 'dateEditAcceptDelay', 'setDateEditAcceptDelay',
-  'setSelectedDate', 'setDateRange', 'setCurrentPage', 'setGridVisible',
-  'setNavigationBarVisible', 'showNextMonth', 'showPreviousMonth',
-  'showNextYear', 'showPreviousYear', 'showSelectedDate', 'showToday',
   'event', 'eventFilter', 'mousePressEvent', 'resizeEvent', 'keyPressEvent',
-  'paintCell'. It can be made from Python, in 1 way; see '__init__'.
+  'paintCell', 'updateCell', 'updateCells', 'setSelectedDate',
+  'setDateRange', 'setCurrentPage', 'setGridVisible',
+  'setNavigationBarVisible', 'showNextMonth', 'showPreviousMonth',
+  'showNextYear', 'showPreviousYear', 'showSelectedDate', 'showToday'. It can
+  be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -80,9 +81,9 @@ class QCalendarWidget(QWidget):
   What has no ritual
   ------------------
 
-  15 of the 69 functions Qt declares: 4 a signal; 3 takes or gives a type
-  that cannot be passed yet; 3 private; 2 protected; 2 forbidden; 1 a
-  template.
+  13 of the 69 functions Qt declares: 5 takes or gives a type that cannot be
+  passed yet; 4 a signal; 2 forbidden; 1 a template; 1 declared and nowhere
+  to be found.
 
   What to expect
   --------------
@@ -1029,6 +1030,193 @@ class QCalendarWidget(QWidget):
     #  void QCalendarWidget::clearMaximumDate()
     self.uglySide.call('ritual_ZN15QCalendarWidget16clearMaximumDateEv')
 
+  @overload(QEvent)
+  @overload(NoneType)
+  def event(self, event: Optional[QEvent]) -> bool:
+    """
+    Calls Qt's 'bool QCalendarWidget::event(QEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcalendarwidget.html#event
+
+    Parameters
+    ----------
+
+    event : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QCalendarWidget::event(QEvent *event)
+    ritual = 'ritual_ZN15QCalendarWidget5eventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN15QCalendarWidget5eventEP6QEvent'
+    return self.uglySide.call(ritual, self._addressOf(event))
+
+  @overload(QObject, QEvent)
+  @overload(QObject, NoneType)
+  @overload(NoneType, QEvent)
+  @overload(NoneType, NoneType)
+  def eventFilter(
+      self,
+      watched: Optional[QObject],
+      event: Optional[QEvent],
+  ) -> bool:
+    """
+    Calls Qt's 'bool QCalendarWidget::eventFilter(QObject *watched, QEvent
+    *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcalendarwidget.html#eventFilter
+
+    Parameters
+    ----------
+
+    watched : Optional[QObject]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    event : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QCalendarWidget::eventFilter(QObject *watched, QEvent *event)
+    ritual = 'ritual_ZN15QCalendarWidget11eventFilterEP7QObjectP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN15QCalendarWidget11eventFilterEP7QObjectP6QEvent')
+    return self.uglySide.call(
+        ritual, self._addressOf(watched), self._addressOf(event),
+    )
+
+  @overload(QMouseEvent)
+  @overload(NoneType)
+  def mousePressEvent(self, event: Optional[QMouseEvent]) -> None:
+    """
+    Calls Qt's 'void QCalendarWidget::mousePressEvent(QMouseEvent *event)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qcalendarwidget.html#mousePressEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QMouseEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QCalendarWidget::mousePressEvent(QMouseEvent *event)
+    ritual = 'ritual_ZN15QCalendarWidget15mousePressEventEP11QMouseEvent'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN15QCalendarWidget15mousePressEventEP11QMouseEvent')
+    self.uglySide.call(ritual, self._addressOf(event))
+
+  @overload(QResizeEvent)
+  @overload(NoneType)
+  def resizeEvent(self, event: Optional[QResizeEvent]) -> None:
+    """
+    Calls Qt's 'void QCalendarWidget::resizeEvent(QResizeEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcalendarwidget.html#resizeEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QResizeEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QCalendarWidget::resizeEvent(QResizeEvent *event)
+    ritual = 'ritual_ZN15QCalendarWidget11resizeEventEP12QResizeEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN15QCalendarWidget11resizeEventEP12QResizeEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
+
+  @overload(QKeyEvent)
+  @overload(NoneType)
+  def keyPressEvent(self, event: Optional[QKeyEvent]) -> None:
+    """
+    Calls Qt's 'void QCalendarWidget::keyPressEvent(QKeyEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcalendarwidget.html#keyPressEvent
+
+    Parameters
+    ----------
+
+    event : Optional[QKeyEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QCalendarWidget::keyPressEvent(QKeyEvent *event)
+    ritual = 'ritual_ZN15QCalendarWidget13keyPressEventEP9QKeyEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN15QCalendarWidget13keyPressEventEP9QKeyEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
+
+  @overload(QPainter, QRect, QDate)
+  @overload(NoneType, QRect, QDate)
+  def paintCell(
+      self,
+      painter: Optional[QPainter],
+      rect: QRect,
+      date: QDate,
+  ) -> None:
+    """
+    Calls Qt's 'void QCalendarWidget::paintCell(QPainter *painter, const
+    QRect &rect, QDate date) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcalendarwidget.html#paintCell
+
+    Parameters
+    ----------
+
+    painter : Optional[QPainter]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    rect : QRect
+      Passed on as a value: Qt reads the C++ QRect, which stays Python's own.
+
+    date : QDate
+      Passed on as a value: Qt reads the C++ QDate, which stays Python's own.
+    """
+    #  void QCalendarWidget::paintCell(QPainter *painter, const QRect &rect,
+    #      QDate date) const
+    ritual = 'ritual_ZNK15QCalendarWidget9paintCellEP8QPainterRK5QRect5QDate'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK15QCalendarWidget9paintCellEP8QPainterRK5QRect5QDa'
+          'te')
+    self.uglySide.call(
+        ritual,
+        self._addressOf(painter), self._valueOf(rect), self._valueOf(date),
+    )
+
+  @overload(QDate)
+  def updateCell(self, date: QDate) -> None:
+    """
+    Calls Qt's 'void QCalendarWidget::updateCell(QDate date)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcalendarwidget.html#updateCell
+
+    Parameters
+    ----------
+
+    date : QDate
+      Passed on as a value: Qt reads the C++ QDate, which stays Python's own.
+    """
+    #  void QCalendarWidget::updateCell(QDate date)
+    self.uglySide.call(
+        'ritual_ZN15QCalendarWidget10updateCellE5QDate', self._valueOf(date),
+    )
+
+  def updateCells(self) -> None:
+    """
+    Calls Qt's 'void QCalendarWidget::updateCells()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcalendarwidget.html#updateCells
+    """
+    #  void QCalendarWidget::updateCells()
+    self.uglySide.call('ritual_ZN15QCalendarWidget11updateCellsEv')
+
   def showNextMonth(self) -> None:
     """
     Calls Qt's 'void QCalendarWidget::showNextMonth()'.
@@ -1085,154 +1273,3 @@ class QCalendarWidget(QWidget):
     """
     #  void QCalendarWidget::showToday()
     self.uglySide.call('ritual_ZN15QCalendarWidget9showTodayEv')
-
-  @overload(QEvent)
-  @overload(NoneType)
-  def event(self, event: Optional[QEvent]) -> bool:
-    """
-    Calls Qt's 'bool QCalendarWidget::event(QEvent *event)'.
-
-    Qt's own words: https://doc.qt.io/qt-6/qcalendarwidget.html#event
-
-    Parameters
-    ----------
-
-    event : Optional[QEvent]
-      Passed on as the address of its C++ object. None is passed on as no
-      object.
-    """
-    #  bool QCalendarWidget::event(QEvent *event)
-    return self.uglySide.call(
-        'ritual_own_ZN15QCalendarWidget5eventEP6QEvent',
-        self._addressOf(event),
-    )
-
-  @overload(QObject, QEvent)
-  @overload(QObject, NoneType)
-  @overload(NoneType, QEvent)
-  @overload(NoneType, NoneType)
-  def eventFilter(
-      self,
-      watched: Optional[QObject],
-      event: Optional[QEvent],
-  ) -> bool:
-    """
-    Calls Qt's 'bool QCalendarWidget::eventFilter(QObject *watched, QEvent
-    *event)'.
-
-    Qt's own words: https://doc.qt.io/qt-6/qcalendarwidget.html#eventFilter
-
-    Parameters
-    ----------
-
-    watched : Optional[QObject]
-      Passed on as the address of its C++ object. None is passed on as no
-      object.
-
-    event : Optional[QEvent]
-      Passed on as the address of its C++ object. None is passed on as no
-      object.
-    """
-    #  bool QCalendarWidget::eventFilter(QObject *watched, QEvent *event)
-    return self.uglySide.call(
-        'ritual_own_ZN15QCalendarWidget11eventFilterEP7QObjectP6QEvent',
-        self._addressOf(watched), self._addressOf(event),
-    )
-
-  @overload(QMouseEvent)
-  @overload(NoneType)
-  def mousePressEvent(self, event: Optional[QMouseEvent]) -> None:
-    """
-    Calls Qt's 'void QCalendarWidget::mousePressEvent(QMouseEvent *event)'.
-
-    Qt's own words:
-    https://doc.qt.io/qt-6/qcalendarwidget.html#mousePressEvent
-
-    Parameters
-    ----------
-
-    event : Optional[QMouseEvent]
-      Passed on as the address of its C++ object. None is passed on as no
-      object.
-    """
-    #  void QCalendarWidget::mousePressEvent(QMouseEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN15QCalendarWidget15mousePressEventEP11QMouseEvent',
-        self._addressOf(event),
-    )
-
-  @overload(QResizeEvent)
-  @overload(NoneType)
-  def resizeEvent(self, event: Optional[QResizeEvent]) -> None:
-    """
-    Calls Qt's 'void QCalendarWidget::resizeEvent(QResizeEvent *event)'.
-
-    Qt's own words: https://doc.qt.io/qt-6/qcalendarwidget.html#resizeEvent
-
-    Parameters
-    ----------
-
-    event : Optional[QResizeEvent]
-      Passed on as the address of its C++ object. None is passed on as no
-      object.
-    """
-    #  void QCalendarWidget::resizeEvent(QResizeEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN15QCalendarWidget11resizeEventEP12QResizeEvent',
-        self._addressOf(event),
-    )
-
-  @overload(QKeyEvent)
-  @overload(NoneType)
-  def keyPressEvent(self, event: Optional[QKeyEvent]) -> None:
-    """
-    Calls Qt's 'void QCalendarWidget::keyPressEvent(QKeyEvent *event)'.
-
-    Qt's own words: https://doc.qt.io/qt-6/qcalendarwidget.html#keyPressEvent
-
-    Parameters
-    ----------
-
-    event : Optional[QKeyEvent]
-      Passed on as the address of its C++ object. None is passed on as no
-      object.
-    """
-    #  void QCalendarWidget::keyPressEvent(QKeyEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN15QCalendarWidget13keyPressEventEP9QKeyEvent',
-        self._addressOf(event),
-    )
-
-  @overload(QPainter, QRect, QDate)
-  @overload(NoneType, QRect, QDate)
-  def paintCell(
-      self,
-      painter: Optional[QPainter],
-      rect: QRect,
-      date: QDate,
-  ) -> None:
-    """
-    Calls Qt's 'void QCalendarWidget::paintCell(QPainter *painter, const
-    QRect &rect, QDate date) const'.
-
-    Qt's own words: https://doc.qt.io/qt-6/qcalendarwidget.html#paintCell
-
-    Parameters
-    ----------
-
-    painter : Optional[QPainter]
-      Passed on as the address of its C++ object. None is passed on as no
-      object.
-
-    rect : QRect
-      Passed on as a value: Qt reads the C++ QRect, which stays Python's own.
-
-    date : QDate
-      Passed on as a value: Qt reads the C++ QDate, which stays Python's own.
-    """
-    #  void QCalendarWidget::paintCell(QPainter *painter, const QRect &rect,
-    #      QDate date) const
-    self.uglySide.call(
-        'ritual_own_ZNK15QCalendarWidget9paintCellEP8QPainterRK5QRect5QDate',
-        self._addressOf(painter), self._valueOf(rect), self._valueOf(date),
-    )

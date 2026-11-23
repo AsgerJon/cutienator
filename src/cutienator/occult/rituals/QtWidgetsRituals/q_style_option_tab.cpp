@@ -15,6 +15,12 @@ QStyleOptionTab *ritual_ZN15QStyleOptionTabC1ERKS_(
   return new QStyleOptionTab(*other);
 }
 
+//  QStyleOptionTab::QStyleOptionTab(int version)
+extern "C" Q_DECL_EXPORT
+QStyleOptionTab *ritual_ZN15QStyleOptionTabC1Ei(int version) {
+  return new QStyleOptionTab(version);
+}
+
 //  QStyleOptionTab::~QStyleOptionTab()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QStyleOptionTabD1Ev(QStyleOptionTab *self) {

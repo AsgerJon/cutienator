@@ -34,6 +34,15 @@
     ],
     "ritual_ZNK17QGraphicsRectItem10opaqueAreaEv": ["address", "address"],
     "ritual_ZNK17QGraphicsRectItem4typeEv": ["int", "address"],
+    "ritual_ZNK17QGraphicsRectItem17supportsExtensionEN13QGraphicsItem9ExtensionE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN17QGraphicsRectItem12setExtensionEN13QGraphicsItem9ExtensionERK8QVariant": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZNK17QGraphicsRectItem9extensionERK8QVariant": [
+      "address", "address", "address"
+    ],
     "ritual_take_QGraphicsRectItem": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK17QGraphicsRectItem12boundingRectEv": [
       "address", "address"

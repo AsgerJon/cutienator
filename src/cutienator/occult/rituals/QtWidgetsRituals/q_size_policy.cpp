@@ -171,6 +171,19 @@ QSizePolicy *ritual_ZNK11QSizePolicy10transposedEv(const QSizePolicy *self) {
   return new QSizePolicy(self->transposed());
 }
 
+//  QSizePolicy::QSizePolicy(int i)
+extern "C" Q_DECL_EXPORT
+QSizePolicy *ritual_ZN11QSizePolicyC1Ei(int i) {
+  return new QSizePolicy(i);
+}
+
+//  quint32 QSizePolicy::toControlTypeFieldValue(ControlType type)
+extern "C" Q_DECL_EXPORT
+quint32 ritual_ZN11QSizePolicy23toControlTypeFieldValueENS_11ControlTypeE(
+    QSizePolicy::ControlType type) {
+  return QSizePolicy::toControlTypeFieldValue(type);
+}
+
 //  QSizePolicy::~QSizePolicy()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QSizePolicyD1Ev(QSizePolicy *self) {

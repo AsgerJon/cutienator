@@ -407,3 +407,118 @@ void ritual_ZN8QPalette14setResolveMaskEy(
     QPalette::ResolveMask mask) {
   self->setResolveMask(mask);
 }
+
+//  void QPalette::setColorGroup(ColorGroup cr, const QBrush &windowText,
+//      const QBrush &button, const QBrush &light, const QBrush &dark, const
+//      QBrush &mid, const QBrush &text, const QBrush &bright_text, const
+//      QBrush &base, const QBrush &alternate_base, const QBrush &window,
+//      const QBrush &midlight, const QBrush &button_text, const QBrush
+//      &shadow, const QBrush &highlight, const QBrush &highlighted_text,
+//      const QBrush &link, const QBrush &link_visited)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QPalette13setColorGroupENS_10ColorGroupERK6QBrushS3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_(
+    QPalette *self,
+    QPalette::ColorGroup cr,
+    const QBrush *windowText,
+    const QBrush *button,
+    const QBrush *light,
+    const QBrush *dark,
+    const QBrush *mid,
+    const QBrush *text,
+    const QBrush *bright_text,
+    const QBrush *base,
+    const QBrush *alternate_base,
+    const QBrush *window,
+    const QBrush *midlight,
+    const QBrush *button_text,
+    const QBrush *shadow,
+    const QBrush *highlight,
+    const QBrush *highlighted_text,
+    const QBrush *link,
+    const QBrush *link_visited) {
+  self->setColorGroup(
+      cr,
+      *windowText,
+      *button,
+      *light,
+      *dark,
+      *mid,
+      *text,
+      *bright_text,
+      *base,
+      *alternate_base,
+      *window,
+      *midlight,
+      *button_text,
+      *shadow,
+      *highlight,
+      *highlighted_text,
+      *link,
+      *link_visited);
+}
+
+//  void QPalette::setColorGroup(ColorGroup cr, const QBrush &windowText,
+//      const QBrush &button, const QBrush &light, const QBrush &dark, const
+//      QBrush &mid, const QBrush &text, const QBrush &bright_text, const
+//      QBrush &base, const QBrush &alternate_base, const QBrush &window,
+//      const QBrush &midlight, const QBrush &button_text, const QBrush
+//      &shadow, const QBrush &highlight, const QBrush &highlighted_text,
+//      const QBrush &link, const QBrush &link_visited, const QBrush
+//      &toolTipBase, const QBrush &toolTipText)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QPalette13setColorGroupENS_10ColorGroupERK6QBrushS3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_(
+    QPalette *self,
+    QPalette::ColorGroup cr,
+    const QBrush *windowText,
+    const QBrush *button,
+    const QBrush *light,
+    const QBrush *dark,
+    const QBrush *mid,
+    const QBrush *text,
+    const QBrush *bright_text,
+    const QBrush *base,
+    const QBrush *alternate_base,
+    const QBrush *window,
+    const QBrush *midlight,
+    const QBrush *button_text,
+    const QBrush *shadow,
+    const QBrush *highlight,
+    const QBrush *highlighted_text,
+    const QBrush *link,
+    const QBrush *link_visited,
+    const QBrush *toolTipBase,
+    const QBrush *toolTipText) {
+  self->setColorGroup(
+      cr,
+      *windowText,
+      *button,
+      *light,
+      *dark,
+      *mid,
+      *text,
+      *bright_text,
+      *base,
+      *alternate_base,
+      *window,
+      *midlight,
+      *button_text,
+      *shadow,
+      *highlight,
+      *highlighted_text,
+      *link,
+      *link_visited,
+      *toolTipBase,
+      *toolTipText);
+}
+
+//  void QPalette::init()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QPalette4initEv(QPalette *self) {
+  self->init();
+}
+
+//  void QPalette::detach()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QPalette6detachEv(QPalette *self) {
+  self->detach();
+}

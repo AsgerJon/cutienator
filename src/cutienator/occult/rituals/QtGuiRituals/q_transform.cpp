@@ -397,6 +397,24 @@ QTransform *ritual_ZN10QTransform9fromScaleEdd(qreal dx, qreal dy) {
   return new QTransform(QTransform::fromScale(dx, dy));
 }
 
+//  TransformationType QTransform::inline_type() const
+extern "C" Q_DECL_EXPORT
+QTransform::TransformationType ritual_ZNK10QTransform11inline_typeEv(
+    const QTransform *self) {
+  return self->inline_type();
+}
+
+//  void QTransform::do_map(qreal x, qreal y, qreal &nx, qreal &ny) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK10QTransform6do_mapEddRdS0_(
+    const QTransform *self,
+    qreal x,
+    qreal y,
+    qreal *nx,
+    qreal *ny) {
+  self->do_map(x, y, *nx, *ny);
+}
+
 //  QTransform::~QTransform()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN10QTransformD1Ev(QTransform *self) {

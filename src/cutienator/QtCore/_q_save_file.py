@@ -37,10 +37,10 @@ class QSaveFile(QFileDevice):
   -----------
 
   Every function of Qt's QSaveFile that has a ritual and that Python can call
-  so far, 9 names in all: 'metaObject', 'tr', 'fileName', 'setFileName',
+  so far, 11 names in all: 'metaObject', 'tr', 'fileName', 'setFileName',
   'open', 'commit', 'cancelWriting', 'setDirectWriteFallback',
-  'directWriteFallback'. It can be made from Python, in 2 ways; see
-  '__init__'.
+  'directWriteFallback', 'writeData', 'close'. It can be made from Python, in
+  2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -51,8 +51,8 @@ class QSaveFile(QFileDevice):
   What has no ritual
   ------------------
 
-  13 of the 25 functions Qt declares: 4 private; 3 takes or gives a type that
-  cannot be passed yet; 3 a template; 2 forbidden; 1 protected.
+  11 of the 25 functions Qt declares: 5 takes or gives a type that cannot be
+  passed yet; 3 a template; 2 forbidden; 1 declared and nowhere to be found.
 
   What to expect
   --------------
@@ -343,3 +343,37 @@ class QSaveFile(QFileDevice):
     """
     #  void QSaveFile::cancelWriting()
     self.uglySide.call('ritual_ZN9QSaveFile13cancelWritingEv')
+
+  @overload(str, int)
+  @overload(NoneType, int)
+  def writeData(self, data: Optional[str], len: int) -> int:
+    """
+    Calls Qt's 'qint64 QSaveFile::writeData(const char *data, qint64 len)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qsavefile.html#writeData
+
+    Parameters
+    ----------
+
+    data : Optional[str]
+      Passed on as the bytes of the text. None is passed on as no text.
+
+    len : int
+      Passed on as it is.
+    """
+    #  qint64 QSaveFile::writeData(const char *data, qint64 len)
+    return self.uglySide.call(
+        'ritual_ZN9QSaveFile9writeDataEPKcx', self._bytesOf(data), len,
+    )
+
+  def close(self) -> None:
+    """
+    Calls Qt's 'void QSaveFile::close()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qsavefile.html#close
+    """
+    #  void QSaveFile::close()
+    ritual = 'ritual_ZN9QSaveFile5closeEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QSaveFile5closeEv'
+    self.uglySide.call(ritual)

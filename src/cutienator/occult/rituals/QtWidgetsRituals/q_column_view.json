@@ -40,6 +40,38 @@
     "ritual_ZN11QColumnView16setPreviewWidgetEP7QWidget": [
       "nothing", "address", "address"
     ],
+    "ritual_ZNK11QColumnView13isIndexHiddenERK11QModelIndex": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN11QColumnView10moveCursorEN17QAbstractItemView12CursorActionE6QFlagsIN2Qt16KeyboardModifierEE": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZN11QColumnView11resizeEventEP12QResizeEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QColumnView12setSelectionERK5QRect6QFlagsIN19QItemSelectionModel13SelectionFlagEE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZNK11QColumnView24visualRegionForSelectionERK14QItemSelection": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK11QColumnView16horizontalOffsetEv": ["int", "address"],
+    "ritual_ZNK11QColumnView14verticalOffsetEv": ["int", "address"],
+    "ritual_ZN11QColumnView12rowsInsertedERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN11QColumnView14currentChangedERK11QModelIndexS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN11QColumnView16scrollContentsByEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN11QColumnView12createColumnERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK11QColumnView16initializeColumnEP17QAbstractItemView": [
+      "nothing", "address", "address"
+    ],
     "ritual_take_QColumnView": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK11QColumnView7indexAtERK6QPoint": [
       "address", "address", "address"

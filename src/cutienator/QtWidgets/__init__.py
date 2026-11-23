@@ -16,7 +16,6 @@ import importlib
 from typing import TYPE_CHECKING
 
 __all__ = (
-    'QSizePolicy',
     'QStyleHintReturn',
     'QTableWidgetSelectionRange',
     'QTileRules',
@@ -26,19 +25,19 @@ __all__ = (
     'QLayoutItem',
     'QStyleFactory',
     'QColormap',
-    'QSpacerItem',
     'QGesture',
-    'QGraphicsAnchor',
     'QScrollerProperties',
+    'QSizePolicy',
     'QStylePlugin',
     'QGestureRecognizer',
-    'QGraphicsEffect',
     'QPanGesture',
     'QPinchGesture',
     'QScroller',
+    'QSpacerItem',
     'QSwipeGesture',
     'QTapAndHoldGesture',
     'QTapGesture',
+    'QGraphicsEffect',
     'QGraphicsBlurEffect',
     'QGraphicsColorizeEffect',
     'QGraphicsDropShadowEffect',
@@ -196,6 +195,7 @@ __all__ = (
     'QUndoView',
     'QAbstractSpinBox',
     'QComboBox',
+    'QGraphicsAnchor',
     'QGraphicsProxyWidget',
     'QGraphicsScene',
     'QInputDialog',
@@ -216,7 +216,6 @@ __all__ = (
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Any, List
 
-  from ._q_size_policy import QSizePolicy
   from ._q_style_hint_return import QStyleHintReturn
   from ._q_table_widget_selection_range import QTableWidgetSelectionRange
   from ._q_tile_rules import QTileRules
@@ -226,19 +225,19 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from ._q_layout_item import QLayoutItem
   from ._q_style_factory import QStyleFactory
   from ._q_colormap import QColormap
-  from ._q_spacer_item import QSpacerItem
   from ._q_gesture import QGesture
-  from ._q_graphics_anchor import QGraphicsAnchor
   from ._q_scroller_properties import QScrollerProperties
+  from ._q_size_policy import QSizePolicy
   from ._q_style_plugin import QStylePlugin
   from ._q_gesture_recognizer import QGestureRecognizer
-  from ._q_graphics_effect import QGraphicsEffect
   from ._q_pan_gesture import QPanGesture
   from ._q_pinch_gesture import QPinchGesture
   from ._q_scroller import QScroller
+  from ._q_spacer_item import QSpacerItem
   from ._q_swipe_gesture import QSwipeGesture
   from ._q_tap_and_hold_gesture import QTapAndHoldGesture
   from ._q_tap_gesture import QTapGesture
+  from ._q_graphics_effect import QGraphicsEffect
   from ._q_graphics_blur_effect import QGraphicsBlurEffect
   from ._q_graphics_colorize_effect import QGraphicsColorizeEffect
   from ._q_graphics_drop_shadow_effect import QGraphicsDropShadowEffect
@@ -396,6 +395,7 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from ._q_undo_view import QUndoView
   from ._q_abstract_spin_box import QAbstractSpinBox
   from ._q_combo_box import QComboBox
+  from ._q_graphics_anchor import QGraphicsAnchor
   from ._q_graphics_proxy_widget import QGraphicsProxyWidget
   from ._q_graphics_scene import QGraphicsScene
   from ._q_input_dialog import QInputDialog
@@ -415,7 +415,6 @@ else:
   #  Where each class is: the file that is brought in the first
   #  time the class is asked for.
   __class_files__ = {
-      'QSizePolicy': '_q_size_policy',
       'QStyleHintReturn': '_q_style_hint_return',
       'QTableWidgetSelectionRange': '_q_table_widget_selection_range',
       'QTileRules': '_q_tile_rules',
@@ -425,19 +424,19 @@ else:
       'QLayoutItem': '_q_layout_item',
       'QStyleFactory': '_q_style_factory',
       'QColormap': '_q_colormap',
-      'QSpacerItem': '_q_spacer_item',
       'QGesture': '_q_gesture',
-      'QGraphicsAnchor': '_q_graphics_anchor',
       'QScrollerProperties': '_q_scroller_properties',
+      'QSizePolicy': '_q_size_policy',
       'QStylePlugin': '_q_style_plugin',
       'QGestureRecognizer': '_q_gesture_recognizer',
-      'QGraphicsEffect': '_q_graphics_effect',
       'QPanGesture': '_q_pan_gesture',
       'QPinchGesture': '_q_pinch_gesture',
       'QScroller': '_q_scroller',
+      'QSpacerItem': '_q_spacer_item',
       'QSwipeGesture': '_q_swipe_gesture',
       'QTapAndHoldGesture': '_q_tap_and_hold_gesture',
       'QTapGesture': '_q_tap_gesture',
+      'QGraphicsEffect': '_q_graphics_effect',
       'QGraphicsBlurEffect': '_q_graphics_blur_effect',
       'QGraphicsColorizeEffect': '_q_graphics_colorize_effect',
       'QGraphicsDropShadowEffect': '_q_graphics_drop_shadow_effect',
@@ -595,6 +594,7 @@ else:
       'QUndoView': '_q_undo_view',
       'QAbstractSpinBox': '_q_abstract_spin_box',
       'QComboBox': '_q_combo_box',
+      'QGraphicsAnchor': '_q_graphics_anchor',
       'QGraphicsProxyWidget': '_q_graphics_proxy_widget',
       'QGraphicsScene': '_q_graphics_scene',
       'QInputDialog': '_q_input_dialog',

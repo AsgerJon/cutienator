@@ -35,7 +35,7 @@ class QOperatingSystemVersion(QOperatingSystemVersionUnexported):
 
   Every function of Qt's QOperatingSystemVersion that has a ritual and that
   Python can call so far, 3 names in all: 'current', 'currentType', 'type'.
-  It can be made from Python, in 2 ways; see '__init__'.
+  It can be made from Python, in 3 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -47,8 +47,8 @@ class QOperatingSystemVersion(QOperatingSystemVersionUnexported):
   What has no ritual
   ------------------
 
-  2 of the 8 functions Qt declares: 1 takes or gives a type that cannot be
-  passed yet; 1 private.
+  1 of the 8 functions Qt declares: 1 takes or gives a type that cannot be
+  passed yet.
 
   What to expect
   --------------
@@ -249,6 +249,21 @@ class QOperatingSystemVersion(QOperatingSystemVersionUnexported):
     self._noteCreation(QOperatingSystemVersion, lambda: Rituals.call(
         'ritual_ZN23QOperatingSystemVersionC1ENS_6OSTypeEiii',
         osType.value, vmajor, vminor, vmicro,
+    ))
+
+  @overload()
+  def __init__(self) -> None:
+    """
+    Notes what was given, for Qt's
+    'QOperatingSystemVersion::QOperatingSystemVersion()', which is called at
+    the first use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qoperatingsystemversion.html
+    """
+    #  QOperatingSystemVersion::QOperatingSystemVersion()
+    self._noteCreation(QOperatingSystemVersion, lambda: Rituals.call(
+        'ritual_ZN23QOperatingSystemVersionC1Ev',
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

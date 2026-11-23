@@ -11,6 +11,7 @@
 #include <QtCore/qsize.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  Only a class built on QTreeView may call these functions of it.
@@ -1999,6 +2000,331 @@ void ritual_ZN9QTreeView11collapseAllEv(QTreeView *self) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN9QTreeView13expandToDepthEi(QTreeView *self, int depth) {
   self->expandToDepth(depth);
+}
+
+//  void QTreeView::columnResized(int column, int oldSize, int newSize)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QTreeView13columnResizedEiii(
+    QTreeView *self,
+    int column,
+    int oldSize,
+    int newSize) {
+  self->columnResized(column, oldSize, newSize);
+}
+
+//  void QTreeView::columnCountChanged(int oldCount, int newCount)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QTreeView18columnCountChangedEii(
+    QTreeView *self,
+    int oldCount,
+    int newCount) {
+  self->columnCountChanged(oldCount, newCount);
+}
+
+//  void QTreeView::columnMoved()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QTreeView11columnMovedEv(QTreeView *self) {
+  self->columnMoved();
+}
+
+//  void QTreeView::reexpand()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QTreeView8reexpandEv(QTreeView *self) {
+  self->reexpand();
+}
+
+//  void QTreeView::rowsRemoved(const QModelIndex &parent, int first, int
+//      last)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QTreeView11rowsRemovedERK11QModelIndexii(
+    QTreeView *self,
+    const QModelIndex *parent,
+    int first,
+    int last) {
+  self->rowsRemoved(*parent, first, last);
+}
+
+//  void QTreeView::verticalScrollbarValueChanged(int value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QTreeView29verticalScrollbarValueChangedEi(
+    QTreeView *self,
+    int value) {
+  self->verticalScrollbarValueChanged(value);
+}
+
+//  void QTreeView::scrollContentsBy(int dx, int dy)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QTreeView16scrollContentsByEii(
+    QTreeView *self,
+    int dx,
+    int dy) {
+  self->scrollContentsBy(dx, dy);
+}
+
+//  void QTreeView::rowsInserted(const QModelIndex &parent, int start, int
+//      end)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QTreeView12rowsInsertedERK11QModelIndexii(
+    QTreeView *self,
+    const QModelIndex *parent,
+    int start,
+    int end) {
+  self->rowsInserted(*parent, start, end);
+}
+
+//  void QTreeView::rowsAboutToBeRemoved(const QModelIndex &parent, int
+//      start, int end)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QTreeView20rowsAboutToBeRemovedERK11QModelIndexii(
+    QTreeView *self,
+    const QModelIndex *parent,
+    int start,
+    int end) {
+  self->rowsAboutToBeRemoved(*parent, start, end);
+}
+
+//  QModelIndex QTreeView::moveCursor(CursorAction cursorAction,
+//      Qt::KeyboardModifiers modifiers)
+extern "C" Q_DECL_EXPORT
+QModelIndex *ritual_ZN9QTreeView10moveCursorEN17QAbstractItemView12CursorActionE6QFlagsIN2Qt16KeyboardModifierEE(
+    QTreeView *self,
+    QAbstractItemView::CursorAction cursorAction,
+    int modifiers) {
+  return new QModelIndex(
+      self->moveCursor(
+          cursorAction,
+          QFlags<Qt::KeyboardModifier>::fromInt(modifiers)));
+}
+
+//  int QTreeView::horizontalOffset() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK9QTreeView16horizontalOffsetEv(const QTreeView *self) {
+  return self->horizontalOffset();
+}
+
+//  int QTreeView::verticalOffset() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK9QTreeView14verticalOffsetEv(const QTreeView *self) {
+  return self->verticalOffset();
+}
+
+//  void QTreeView::setSelection(const QRect &rect,
+//      QItemSelectionModel::SelectionFlags command)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QTreeView12setSelectionERK5QRect6QFlagsIN19QItemSelectionModel13SelectionFlagEE(
+    QTreeView *self,
+    const QRect *rect,
+    int command) {
+  self->setSelection(
+      *rect,
+      QFlags<QItemSelectionModel::SelectionFlag>::fromInt(command));
+}
+
+//  QRegion QTreeView::visualRegionForSelection(const QItemSelection
+//      &selection) const
+extern "C" Q_DECL_EXPORT
+QRegion *ritual_ZNK9QTreeView24visualRegionForSelectionERK14QItemSelection(
+    const QTreeView *self,
+    const QItemSelection *selection) {
+  return new QRegion(self->visualRegionForSelection(*selection));
+}
+
+//  QModelIndexList QTreeView::selectedIndexes() const
+extern "C" Q_DECL_EXPORT
+QList<QModelIndex> *ritual_ZNK9QTreeView15selectedIndexesEv(
+    const QTreeView *self) {
+  return new QList<QModelIndex>(self->selectedIndexes());
+}
+
+//  void QTreeView::changeEvent(QEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QTreeView11changeEventEP6QEvent(
+    QTreeView *self,
+    QEvent *event) {
+  self->changeEvent(event);
+}
+
+//  void QTreeView::timerEvent(QTimerEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QTreeView10timerEventEP11QTimerEvent(
+    QTreeView *self,
+    QTimerEvent *event) {
+  self->timerEvent(event);
+}
+
+//  void QTreeView::paintEvent(QPaintEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QTreeView10paintEventEP11QPaintEvent(
+    QTreeView *self,
+    QPaintEvent *event) {
+  self->paintEvent(event);
+}
+
+//  void QTreeView::drawTree(QPainter *painter, const QRegion &region) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK9QTreeView8drawTreeEP8QPainterRK7QRegion(
+    const QTreeView *self,
+    QPainter *painter,
+    const QRegion *region) {
+  self->drawTree(painter, *region);
+}
+
+//  void QTreeView::drawRow(QPainter *painter, const QStyleOptionViewItem
+//      &options, const QModelIndex &index) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK9QTreeView7drawRowEP8QPainterRK20QStyleOptionViewItemRK11QModelIndex(
+    const QTreeView *self,
+    QPainter *painter,
+    const QStyleOptionViewItem *options,
+    const QModelIndex *index) {
+  self->drawRow(painter, *options, *index);
+}
+
+//  void QTreeView::drawBranches(QPainter *painter, const QRect &rect, const
+//      QModelIndex &index) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK9QTreeView12drawBranchesEP8QPainterRK5QRectRK11QModelIndex(
+    const QTreeView *self,
+    QPainter *painter,
+    const QRect *rect,
+    const QModelIndex *index) {
+  self->drawBranches(painter, *rect, *index);
+}
+
+//  void QTreeView::mousePressEvent(QMouseEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QTreeView15mousePressEventEP11QMouseEvent(
+    QTreeView *self,
+    QMouseEvent *event) {
+  self->mousePressEvent(event);
+}
+
+//  void QTreeView::mouseReleaseEvent(QMouseEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QTreeView17mouseReleaseEventEP11QMouseEvent(
+    QTreeView *self,
+    QMouseEvent *event) {
+  self->mouseReleaseEvent(event);
+}
+
+//  void QTreeView::mouseDoubleClickEvent(QMouseEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QTreeView21mouseDoubleClickEventEP11QMouseEvent(
+    QTreeView *self,
+    QMouseEvent *event) {
+  self->mouseDoubleClickEvent(event);
+}
+
+//  void QTreeView::mouseMoveEvent(QMouseEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QTreeView14mouseMoveEventEP11QMouseEvent(
+    QTreeView *self,
+    QMouseEvent *event) {
+  self->mouseMoveEvent(event);
+}
+
+//  void QTreeView::keyPressEvent(QKeyEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QTreeView13keyPressEventEP9QKeyEvent(
+    QTreeView *self,
+    QKeyEvent *event) {
+  self->keyPressEvent(event);
+}
+
+//  void QTreeView::dragMoveEvent(QDragMoveEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QTreeView13dragMoveEventEP14QDragMoveEvent(
+    QTreeView *self,
+    QDragMoveEvent *event) {
+  self->dragMoveEvent(event);
+}
+
+//  bool QTreeView::viewportEvent(QEvent *event)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN9QTreeView13viewportEventEP6QEvent(
+    QTreeView *self,
+    QEvent *event) {
+  return self->viewportEvent(event);
+}
+
+//  void QTreeView::updateGeometries()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QTreeView16updateGeometriesEv(QTreeView *self) {
+  self->updateGeometries();
+}
+
+//  QSize QTreeView::viewportSizeHint() const
+extern "C" Q_DECL_EXPORT
+QSize *ritual_ZNK9QTreeView16viewportSizeHintEv(const QTreeView *self) {
+  return new QSize(self->viewportSizeHint());
+}
+
+//  int QTreeView::sizeHintForColumn(int column) const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK9QTreeView17sizeHintForColumnEi(
+    const QTreeView *self,
+    int column) {
+  return self->sizeHintForColumn(column);
+}
+
+//  int QTreeView::indexRowSizeHint(const QModelIndex &index) const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK9QTreeView16indexRowSizeHintERK11QModelIndex(
+    const QTreeView *self,
+    const QModelIndex *index) {
+  return self->indexRowSizeHint(*index);
+}
+
+//  int QTreeView::rowHeight(const QModelIndex &index) const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK9QTreeView9rowHeightERK11QModelIndex(
+    const QTreeView *self,
+    const QModelIndex *index) {
+  return self->rowHeight(*index);
+}
+
+//  void QTreeView::horizontalScrollbarAction(int action)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QTreeView25horizontalScrollbarActionEi(
+    QTreeView *self,
+    int action) {
+  self->horizontalScrollbarAction(action);
+}
+
+//  bool QTreeView::isIndexHidden(const QModelIndex &index) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK9QTreeView13isIndexHiddenERK11QModelIndex(
+    const QTreeView *self,
+    const QModelIndex *index) {
+  return self->isIndexHidden(*index);
+}
+
+//  void QTreeView::selectionChanged(const QItemSelection &selected, const
+//      QItemSelection &deselected)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QTreeView16selectionChangedERK14QItemSelectionS2_(
+    QTreeView *self,
+    const QItemSelection *selected,
+    const QItemSelection *deselected) {
+  self->selectionChanged(*selected, *deselected);
+}
+
+//  void QTreeView::currentChanged(const QModelIndex &current, const
+//      QModelIndex &previous)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QTreeView14currentChangedERK11QModelIndexS2_(
+    QTreeView *self,
+    const QModelIndex *current,
+    const QModelIndex *previous) {
+  self->currentChanged(*current, *previous);
+}
+
+//  int QTreeView::visualIndex(const QModelIndex &index) const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK9QTreeView11visualIndexERK11QModelIndex(
+    const QTreeView *self,
+    const QModelIndex *index) {
+  return self->visualIndex(*index);
 }
 
 //  a Python function taken by a CuteQTreeView, for the function named by the

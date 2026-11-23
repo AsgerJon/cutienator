@@ -24,6 +24,7 @@ else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
+  QMetaObject = WAIT['QMetaObject']
   QObject = WAIT['QObject']
 
 #  The class of None, for a signature that takes None in the place of an
@@ -44,15 +45,15 @@ class QMetaProperty(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QMetaProperty that has a ritual and that Python can
-  call so far, 36 names in all: 'name', 'typeName', 'type', 'userType',
+  call so far, 37 names in all: 'name', 'typeName', 'type', 'userType',
   'typeId', 'metaType', 'propertyIndex', 'relativePropertyIndex',
   'isReadable', 'isWritable', 'isResettable', 'isDesignable', 'isScriptable',
   'isStored', 'isUser', 'isConstant', 'isFinal', 'isVirtual', 'isOverride',
   'isRequired', 'isBindable', 'isFlagType', 'isEnumType', 'enumerator',
   'hasNotifySignal', 'notifySignal', 'notifySignalIndex', 'revision', 'read',
   'write', 'reset', 'bindable', 'hasStdCppSet', 'isAlias', 'isValid',
-  'enclosingMetaObject'. It can be made from Python, in 1 way; see
-  '__init__'.
+  'enclosingMetaObject', 'registerPropertyType'. It can be made from Python,
+  in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -63,8 +64,8 @@ class QMetaProperty(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  8 of the 46 functions Qt declares: 5 takes or gives a type that cannot be
-  passed yet; 3 private.
+  6 of the 46 functions Qt declares: 6 takes or gives a type that cannot be
+  passed yet.
 
   What to expect
   --------------
@@ -568,6 +569,18 @@ class QMetaProperty(CuteMixin, metaclass=MetaCute):
     from . import QMetaObject
     return QMetaObject._cuteAt(address)
 
+  def registerPropertyType(self) -> int:
+    """
+    Calls Qt's 'int QMetaProperty::registerPropertyType() const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qmetaproperty.html#registerPropertyType
+    """
+    #  int QMetaProperty::registerPropertyType() const
+    return self.uglySide.call(
+        'ritual_ZNK13QMetaProperty20registerPropertyTypeEv',
+    )
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -595,6 +608,31 @@ class QMetaProperty(CuteMixin, metaclass=MetaCute):
     #  QMetaProperty::QMetaProperty()
     self._noteCreation(QMetaProperty, lambda: Rituals.call(
         'ritual_ZN13QMetaPropertyC1Ev',
+    ))
+
+  @overload(QMetaObject, int)
+  @overload(NoneType, int)
+  def __init__(self, mobj: Optional[QMetaObject], index: int) -> None:
+    """
+    Notes what was given, for Qt's 'QMetaProperty::QMetaProperty(const
+    QMetaObject *mobj, int index)', which is called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmetaproperty.html#QMetaProperty
+
+    Parameters
+    ----------
+
+    mobj : Optional[QMetaObject]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    index : int
+      Passed on as it is.
+    """
+    #  QMetaProperty::QMetaProperty(const QMetaObject *mobj, int index)
+    self._noteCreation(QMetaProperty, lambda: Rituals.call(
+        'ritual_ZN13QMetaPropertyC1EPK11QMetaObjecti',
+        self._addressOf(mobj), index,
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -25,6 +25,18 @@
       "address", "address"
     ],
     "ritual_ZNK25QSequentialAnimationGroup8durationEv": ["int", "address"],
+    "ritual_ZN25QSequentialAnimationGroup5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN25QSequentialAnimationGroup17updateCurrentTimeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN25QSequentialAnimationGroup11updateStateEN18QAbstractAnimation5StateES1_": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN25QSequentialAnimationGroup15updateDirectionEN18QAbstractAnimation9DirectionE": [
+      "nothing", "address", "int"
+    ],
     "ritual_take_QSequentialAnimationGroup": [
       "bool", "address", "chars", "address"
     ],

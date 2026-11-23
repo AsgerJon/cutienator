@@ -54,7 +54,8 @@ class QChildWindowEvent(QEvent):
   What has no ritual
   ------------------
 
-  4 of the 8 functions Qt declares: 2 protected; 2 forbidden.
+  4 of the 8 functions Qt declares: 2 takes or gives a type that cannot be
+  passed yet; 2 forbidden.
 
   What to expect
   --------------

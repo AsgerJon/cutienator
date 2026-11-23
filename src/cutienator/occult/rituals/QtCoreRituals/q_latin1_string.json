@@ -295,6 +295,21 @@
     "ritual_ZgeRK10QByteArrayRK13QLatin1String": [
       "bool", "address", "address"
     ],
+    "ritual_ZNK13QLatin1String6verifyExx": [
+      "nothing", "address", "long long", "long long"
+    ],
+    "ritual_ZN13QLatin1String14compare_helperERKS_PKc": [
+      "int", "address", "chars"
+    ],
+    "ritual_ZN13QLatin1String12equal_helperES_PKcx": [
+      "bool", "address", "chars", "long long"
+    ],
+    "ritual_ZN13QLatin1String14compare_helperERKS_PKcx": [
+      "int", "address", "chars", "long long"
+    ],
+    "ritual_ZN13QLatin1String14compare_helperEPK5QCharxS_N2Qt15CaseSensitivityE": [
+      "int", "address", "long long", "address", "int"
+    ],
     "ritual_ZN13QLatin1StringD1Ev": ["nothing", "address"]
   }
 }

@@ -21,6 +21,9 @@
     "ritual_ZN23QGraphicsColorizeEffect11setStrengthEd": [
       "nothing", "address", "double"
     ],
+    "ritual_ZN23QGraphicsColorizeEffect4drawEP8QPainter": [
+      "nothing", "address", "address"
+    ],
     "ritual_take_QGraphicsColorizeEffect": [
       "bool", "address", "chars", "address"
     ],

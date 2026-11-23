@@ -29,6 +29,28 @@
     "ritual_ZN11QPushButton7setFlatEb": ["nothing", "address", "bool"],
     "ritual_ZNK11QPushButton6isFlatEv": ["bool", "address"],
     "ritual_ZN11QPushButton8showMenuEv": ["nothing", "address"],
+    "ritual_ZN11QPushButton5eventEP6QEvent": ["bool", "address", "address"],
+    "ritual_ZN11QPushButton10paintEventEP11QPaintEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QPushButton13keyPressEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QPushButton12focusInEventEP11QFocusEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QPushButton13focusOutEventEP11QFocusEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QPushButton14mouseMoveEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QPushButton15initStyleOptionEP18QStyleOptionButton": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QPushButton9hitButtonERK6QPoint": [
+      "bool", "address", "address"
+    ],
     "ritual_take_QPushButton": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK11QPushButton8sizeHintEv": ["address", "address"],
     "ritual_own_ZNK11QPushButton15minimumSizeHintEv": ["address", "address"],

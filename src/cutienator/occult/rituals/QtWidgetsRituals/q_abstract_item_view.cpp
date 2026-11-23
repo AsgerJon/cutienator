@@ -10,6 +10,7 @@
 #include <QtCore/qitemselectionmodel.h>
 #include <QtGui/qregion.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  Only a class built on QAbstractItemView may call these functions of it.
@@ -2097,6 +2098,461 @@ void ritual_ZN17QAbstractItemView6updateERK11QModelIndex(
     QAbstractItemView *self,
     const QModelIndex *index) {
   self->update(*index);
+}
+
+//  void QAbstractItemView::rowsInserted(const QModelIndex &parent, int
+//      start, int end)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QAbstractItemView12rowsInsertedERK11QModelIndexii(
+    QAbstractItemView *self,
+    const QModelIndex *parent,
+    int start,
+    int end) {
+  self->rowsInserted(*parent, start, end);
+}
+
+//  void QAbstractItemView::rowsAboutToBeRemoved(const QModelIndex &parent,
+//      int start, int end)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QAbstractItemView20rowsAboutToBeRemovedERK11QModelIndexii(
+    QAbstractItemView *self,
+    const QModelIndex *parent,
+    int start,
+    int end) {
+  self->rowsAboutToBeRemoved(*parent, start, end);
+}
+
+//  void QAbstractItemView::selectionChanged(const QItemSelection &selected,
+//      const QItemSelection &deselected)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QAbstractItemView16selectionChangedERK14QItemSelectionS2_(
+    QAbstractItemView *self,
+    const QItemSelection *selected,
+    const QItemSelection *deselected) {
+  self->selectionChanged(*selected, *deselected);
+}
+
+//  void QAbstractItemView::currentChanged(const QModelIndex &current, const
+//      QModelIndex &previous)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QAbstractItemView14currentChangedERK11QModelIndexS2_(
+    QAbstractItemView *self,
+    const QModelIndex *current,
+    const QModelIndex *previous) {
+  self->currentChanged(*current, *previous);
+}
+
+//  void QAbstractItemView::updateEditorData()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QAbstractItemView16updateEditorDataEv(
+    QAbstractItemView *self) {
+  self->updateEditorData();
+}
+
+//  void QAbstractItemView::updateEditorGeometries()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QAbstractItemView22updateEditorGeometriesEv(
+    QAbstractItemView *self) {
+  self->updateEditorGeometries();
+}
+
+//  void QAbstractItemView::updateGeometries()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QAbstractItemView16updateGeometriesEv(
+    QAbstractItemView *self) {
+  self->updateGeometries();
+}
+
+//  void QAbstractItemView::verticalScrollbarAction(int action)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QAbstractItemView23verticalScrollbarActionEi(
+    QAbstractItemView *self,
+    int action) {
+  self->verticalScrollbarAction(action);
+}
+
+//  void QAbstractItemView::horizontalScrollbarAction(int action)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QAbstractItemView25horizontalScrollbarActionEi(
+    QAbstractItemView *self,
+    int action) {
+  self->horizontalScrollbarAction(action);
+}
+
+//  void QAbstractItemView::verticalScrollbarValueChanged(int value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QAbstractItemView29verticalScrollbarValueChangedEi(
+    QAbstractItemView *self,
+    int value) {
+  self->verticalScrollbarValueChanged(value);
+}
+
+//  void QAbstractItemView::horizontalScrollbarValueChanged(int value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QAbstractItemView31horizontalScrollbarValueChangedEi(
+    QAbstractItemView *self,
+    int value) {
+  self->horizontalScrollbarValueChanged(value);
+}
+
+//  void QAbstractItemView::closeEditor(QWidget *editor,
+//      QAbstractItemDelegate::EndEditHint hint)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QAbstractItemView11closeEditorEP7QWidgetN21QAbstractItemDelegate11EndEditHintE(
+    QAbstractItemView *self,
+    QWidget *editor,
+    QAbstractItemDelegate::EndEditHint hint) {
+  self->closeEditor(editor, hint);
+}
+
+//  void QAbstractItemView::commitData(QWidget *editor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QAbstractItemView10commitDataEP7QWidget(
+    QAbstractItemView *self,
+    QWidget *editor) {
+  self->commitData(editor);
+}
+
+//  void QAbstractItemView::editorDestroyed(QObject *editor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QAbstractItemView15editorDestroyedEP7QObject(
+    QAbstractItemView *self,
+    QObject *editor) {
+  self->editorDestroyed(editor);
+}
+
+//  QModelIndex QAbstractItemView::moveCursor(CursorAction cursorAction,
+//      Qt::KeyboardModifiers modifiers)
+extern "C" Q_DECL_EXPORT
+QModelIndex *ritual_ZN17QAbstractItemView10moveCursorENS_12CursorActionE6QFlagsIN2Qt16KeyboardModifierEE(
+    QAbstractItemView *self,
+    QAbstractItemView::CursorAction cursorAction,
+    int modifiers) {
+  return new QModelIndex(
+      self->moveCursor(
+          cursorAction,
+          QFlags<Qt::KeyboardModifier>::fromInt(modifiers)));
+}
+
+//  int QAbstractItemView::horizontalOffset() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK17QAbstractItemView16horizontalOffsetEv(
+    const QAbstractItemView *self) {
+  return self->horizontalOffset();
+}
+
+//  int QAbstractItemView::verticalOffset() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK17QAbstractItemView14verticalOffsetEv(
+    const QAbstractItemView *self) {
+  return self->verticalOffset();
+}
+
+//  bool QAbstractItemView::isIndexHidden(const QModelIndex &index) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK17QAbstractItemView13isIndexHiddenERK11QModelIndex(
+    const QAbstractItemView *self,
+    const QModelIndex *index) {
+  return self->isIndexHidden(*index);
+}
+
+//  void QAbstractItemView::setSelection(const QRect &rect,
+//      QItemSelectionModel::SelectionFlags command)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QAbstractItemView12setSelectionERK5QRect6QFlagsIN19QItemSelectionModel13SelectionFlagEE(
+    QAbstractItemView *self,
+    const QRect *rect,
+    int command) {
+  self->setSelection(
+      *rect,
+      QFlags<QItemSelectionModel::SelectionFlag>::fromInt(command));
+}
+
+//  QRegion QAbstractItemView::visualRegionForSelection(const QItemSelection
+//      &selection) const
+extern "C" Q_DECL_EXPORT
+QRegion *ritual_ZNK17QAbstractItemView24visualRegionForSelectionERK14QItemSelection(
+    const QAbstractItemView *self,
+    const QItemSelection *selection) {
+  return new QRegion(self->visualRegionForSelection(*selection));
+}
+
+//  QModelIndexList QAbstractItemView::selectedIndexes() const
+extern "C" Q_DECL_EXPORT
+QList<QModelIndex> *ritual_ZNK17QAbstractItemView15selectedIndexesEv(
+    const QAbstractItemView *self) {
+  return new QList<QModelIndex>(self->selectedIndexes());
+}
+
+//  bool QAbstractItemView::edit(const QModelIndex &index, EditTrigger
+//      trigger, QEvent *event)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN17QAbstractItemView4editERK11QModelIndexNS_11EditTriggerEP6QEvent(
+    QAbstractItemView *self,
+    const QModelIndex *index,
+    QAbstractItemView::EditTrigger trigger,
+    QEvent *event) {
+  return self->edit(*index, trigger, event);
+}
+
+//  QItemSelectionModel::SelectionFlags
+//      QAbstractItemView::selectionCommand(const QModelIndex &index, const
+//      QEvent *event) const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK17QAbstractItemView16selectionCommandERK11QModelIndexPK6QEvent(
+    const QAbstractItemView *self,
+    const QModelIndex *index,
+    const QEvent *event) {
+  return static_cast<int>(self->selectionCommand(*index, event).toInt());
+}
+
+//  void QAbstractItemView::startDrag(Qt::DropActions supportedActions)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QAbstractItemView9startDragE6QFlagsIN2Qt10DropActionEE(
+    QAbstractItemView *self,
+    int supportedActions) {
+  self->startDrag(QFlags<Qt::DropAction>::fromInt(supportedActions));
+}
+
+//  void QAbstractItemView::initViewItemOption(QStyleOptionViewItem *option)
+//      const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK17QAbstractItemView18initViewItemOptionEP20QStyleOptionViewItem(
+    const QAbstractItemView *self,
+    QStyleOptionViewItem *option) {
+  self->initViewItemOption(option);
+}
+
+//  State QAbstractItemView::state() const
+extern "C" Q_DECL_EXPORT
+QAbstractItemView::State ritual_ZNK17QAbstractItemView5stateEv(
+    const QAbstractItemView *self) {
+  return self->state();
+}
+
+//  void QAbstractItemView::setState(State state)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QAbstractItemView8setStateENS_5StateE(
+    QAbstractItemView *self,
+    QAbstractItemView::State state) {
+  self->setState(state);
+}
+
+//  void QAbstractItemView::scheduleDelayedItemsLayout()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QAbstractItemView26scheduleDelayedItemsLayoutEv(
+    QAbstractItemView *self) {
+  self->scheduleDelayedItemsLayout();
+}
+
+//  void QAbstractItemView::executeDelayedItemsLayout()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QAbstractItemView25executeDelayedItemsLayoutEv(
+    QAbstractItemView *self) {
+  self->executeDelayedItemsLayout();
+}
+
+//  void QAbstractItemView::setDirtyRegion(const QRegion &region)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QAbstractItemView14setDirtyRegionERK7QRegion(
+    QAbstractItemView *self,
+    const QRegion *region) {
+  self->setDirtyRegion(*region);
+}
+
+//  void QAbstractItemView::scrollDirtyRegion(int dx, int dy)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QAbstractItemView17scrollDirtyRegionEii(
+    QAbstractItemView *self,
+    int dx,
+    int dy) {
+  self->scrollDirtyRegion(dx, dy);
+}
+
+//  QPoint QAbstractItemView::dirtyRegionOffset() const
+extern "C" Q_DECL_EXPORT
+QPoint *ritual_ZNK17QAbstractItemView17dirtyRegionOffsetEv(
+    const QAbstractItemView *self) {
+  return new QPoint(self->dirtyRegionOffset());
+}
+
+//  void QAbstractItemView::startAutoScroll()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QAbstractItemView15startAutoScrollEv(
+    QAbstractItemView *self) {
+  self->startAutoScroll();
+}
+
+//  void QAbstractItemView::stopAutoScroll()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QAbstractItemView14stopAutoScrollEv(
+    QAbstractItemView *self) {
+  self->stopAutoScroll();
+}
+
+//  void QAbstractItemView::doAutoScroll()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QAbstractItemView12doAutoScrollEv(QAbstractItemView *self) {
+  self->doAutoScroll();
+}
+
+//  bool QAbstractItemView::focusNextPrevChild(bool next)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN17QAbstractItemView18focusNextPrevChildEb(
+    QAbstractItemView *self,
+    bool next) {
+  return self->focusNextPrevChild(next);
+}
+
+//  bool QAbstractItemView::event(QEvent *event)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN17QAbstractItemView5eventEP6QEvent(
+    QAbstractItemView *self,
+    QEvent *event) {
+  return self->event(event);
+}
+
+//  bool QAbstractItemView::viewportEvent(QEvent *event)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN17QAbstractItemView13viewportEventEP6QEvent(
+    QAbstractItemView *self,
+    QEvent *event) {
+  return self->viewportEvent(event);
+}
+
+//  void QAbstractItemView::mousePressEvent(QMouseEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QAbstractItemView15mousePressEventEP11QMouseEvent(
+    QAbstractItemView *self,
+    QMouseEvent *event) {
+  self->mousePressEvent(event);
+}
+
+//  void QAbstractItemView::mouseMoveEvent(QMouseEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QAbstractItemView14mouseMoveEventEP11QMouseEvent(
+    QAbstractItemView *self,
+    QMouseEvent *event) {
+  self->mouseMoveEvent(event);
+}
+
+//  void QAbstractItemView::mouseReleaseEvent(QMouseEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QAbstractItemView17mouseReleaseEventEP11QMouseEvent(
+    QAbstractItemView *self,
+    QMouseEvent *event) {
+  self->mouseReleaseEvent(event);
+}
+
+//  void QAbstractItemView::mouseDoubleClickEvent(QMouseEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QAbstractItemView21mouseDoubleClickEventEP11QMouseEvent(
+    QAbstractItemView *self,
+    QMouseEvent *event) {
+  self->mouseDoubleClickEvent(event);
+}
+
+//  void QAbstractItemView::dragEnterEvent(QDragEnterEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QAbstractItemView14dragEnterEventEP15QDragEnterEvent(
+    QAbstractItemView *self,
+    QDragEnterEvent *event) {
+  self->dragEnterEvent(event);
+}
+
+//  void QAbstractItemView::dragMoveEvent(QDragMoveEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QAbstractItemView13dragMoveEventEP14QDragMoveEvent(
+    QAbstractItemView *self,
+    QDragMoveEvent *event) {
+  self->dragMoveEvent(event);
+}
+
+//  void QAbstractItemView::dragLeaveEvent(QDragLeaveEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QAbstractItemView14dragLeaveEventEP15QDragLeaveEvent(
+    QAbstractItemView *self,
+    QDragLeaveEvent *event) {
+  self->dragLeaveEvent(event);
+}
+
+//  void QAbstractItemView::dropEvent(QDropEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QAbstractItemView9dropEventEP10QDropEvent(
+    QAbstractItemView *self,
+    QDropEvent *event) {
+  self->dropEvent(event);
+}
+
+//  void QAbstractItemView::focusInEvent(QFocusEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QAbstractItemView12focusInEventEP11QFocusEvent(
+    QAbstractItemView *self,
+    QFocusEvent *event) {
+  self->focusInEvent(event);
+}
+
+//  void QAbstractItemView::focusOutEvent(QFocusEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QAbstractItemView13focusOutEventEP11QFocusEvent(
+    QAbstractItemView *self,
+    QFocusEvent *event) {
+  self->focusOutEvent(event);
+}
+
+//  void QAbstractItemView::keyPressEvent(QKeyEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QAbstractItemView13keyPressEventEP9QKeyEvent(
+    QAbstractItemView *self,
+    QKeyEvent *event) {
+  self->keyPressEvent(event);
+}
+
+//  void QAbstractItemView::resizeEvent(QResizeEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QAbstractItemView11resizeEventEP12QResizeEvent(
+    QAbstractItemView *self,
+    QResizeEvent *event) {
+  self->resizeEvent(event);
+}
+
+//  void QAbstractItemView::timerEvent(QTimerEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QAbstractItemView10timerEventEP11QTimerEvent(
+    QAbstractItemView *self,
+    QTimerEvent *event) {
+  self->timerEvent(event);
+}
+
+//  void QAbstractItemView::inputMethodEvent(QInputMethodEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QAbstractItemView16inputMethodEventEP17QInputMethodEvent(
+    QAbstractItemView *self,
+    QInputMethodEvent *event) {
+  self->inputMethodEvent(event);
+}
+
+//  bool QAbstractItemView::eventFilter(QObject *object, QEvent *event)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN17QAbstractItemView11eventFilterEP7QObjectP6QEvent(
+    QAbstractItemView *self,
+    QObject *object,
+    QEvent *event) {
+  return self->eventFilter(object, event);
+}
+
+//  DropIndicatorPosition QAbstractItemView::dropIndicatorPosition() const
+extern "C" Q_DECL_EXPORT
+QAbstractItemView::DropIndicatorPosition ritual_ZNK17QAbstractItemView21dropIndicatorPositionEv(
+    const QAbstractItemView *self) {
+  return self->dropIndicatorPosition();
+}
+
+//  QSize QAbstractItemView::viewportSizeHint() const
+extern "C" Q_DECL_EXPORT
+QSize *ritual_ZNK17QAbstractItemView16viewportSizeHintEv(
+    const QAbstractItemView *self) {
+  return new QSize(self->viewportSizeHint());
 }
 
 //  a Python function taken by a CuteQAbstractItemView, for the function

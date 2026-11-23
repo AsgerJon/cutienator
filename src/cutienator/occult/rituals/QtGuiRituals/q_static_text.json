@@ -33,6 +33,7 @@
     ],
     "ritual_ZNK11QStaticText15performanceHintEv": ["int", "address"],
     "ritual_ZNK11QStaticTexteqERKS_": ["bool", "address", "address"],
-    "ritual_ZNK11QStaticTextneERKS_": ["bool", "address", "address"]
+    "ritual_ZNK11QStaticTextneERKS_": ["bool", "address", "address"],
+    "ritual_ZN11QStaticText6detachEv": ["nothing", "address"]
   }
 }

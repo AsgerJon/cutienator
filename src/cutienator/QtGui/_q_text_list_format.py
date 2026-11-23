@@ -36,18 +36,13 @@ class QTextListFormat(QTextFormat):
   can call so far, 11 names in all: 'isValid', 'setStyle', 'style',
   'setIndent', 'indent', 'setNumberPrefix', 'numberPrefix',
   'setNumberSuffix', 'numberSuffix', 'setStart', 'start'. It can be made from
-  Python, in 1 way; see '__init__'.
+  Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QTextListFormat::~QTextListFormat()': the destructor: Python
     removes its C++ QTextListFormat by it, and has no other use for it.
-
-  What has no ritual
-  ------------------
-
-  1 of the 14 functions Qt declares: 1 protected.
 
   What to expect
   --------------
@@ -305,6 +300,27 @@ class QTextListFormat(QTextFormat):
     #  QTextListFormat::QTextListFormat()
     self._noteCreation(QTextListFormat, lambda: Rituals.call(
         'ritual_ZN15QTextListFormatC1Ev',
+    ))
+
+  @overload(QTextFormat)
+  def __init__(self, fmt: QTextFormat) -> None:
+    """
+    Notes what was given, for Qt's 'QTextListFormat::QTextListFormat(const
+    QTextFormat &fmt)', which is called at the first use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qtextlistformat.html#QTextListFormat
+
+    Parameters
+    ----------
+
+    fmt : QTextFormat
+      Passed on as a value: Qt reads the C++ QTextFormat, which stays
+      Python's own.
+    """
+    #  QTextListFormat::QTextListFormat(const QTextFormat &fmt)
+    self._noteCreation(QTextListFormat, lambda: Rituals.call(
+        'ritual_ZN15QTextListFormatC1ERK11QTextFormat', self._valueOf(fmt),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

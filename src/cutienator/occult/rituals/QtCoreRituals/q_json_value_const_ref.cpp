@@ -226,6 +226,127 @@ bool ritual_ZneRK10QJsonValueRK18QJsonValueConstRef(
   return operator!=(*lhs, *rhs);
 }
 
+//  QJsonValue::Type QJsonValueConstRef::concreteType(QJsonValueConstRef
+//      self_)
+extern "C" Q_DECL_EXPORT
+QJsonValue::Type ritual_ZN18QJsonValueConstRef12concreteTypeES_(
+    const QJsonValueConstRef *self_) {
+  return QJsonValueConstRef::concreteType(*self_);
+}
+
+//  bool QJsonValueConstRef::concreteBool(QJsonValueConstRef self_, bool
+//      defaultValue)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN18QJsonValueConstRef12concreteBoolES_b(
+    const QJsonValueConstRef *self_,
+    bool defaultValue) {
+  return QJsonValueConstRef::concreteBool(*self_, defaultValue);
+}
+
+//  qint64 QJsonValueConstRef::concreteInt(QJsonValueConstRef self_, qint64
+//      defaultValue, bool clamp)
+extern "C" Q_DECL_EXPORT
+qint64 ritual_ZN18QJsonValueConstRef11concreteIntES_xb(
+    const QJsonValueConstRef *self_,
+    qint64 defaultValue,
+    bool clamp) {
+  return QJsonValueConstRef::concreteInt(*self_, defaultValue, clamp);
+}
+
+//  double QJsonValueConstRef::concreteDouble(QJsonValueConstRef self_,
+//      double defaultValue)
+extern "C" Q_DECL_EXPORT
+double ritual_ZN18QJsonValueConstRef14concreteDoubleES_d(
+    const QJsonValueConstRef *self_,
+    double defaultValue) {
+  return QJsonValueConstRef::concreteDouble(*self_, defaultValue);
+}
+
+//  QString QJsonValueConstRef::concreteString(QJsonValueConstRef self_,
+//      const QString &defaultValue)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN18QJsonValueConstRef14concreteStringES_RK7QString(
+    const QJsonValueConstRef *self_,
+    const QString *defaultValue) {
+  return new QString(
+      QJsonValueConstRef::concreteString(
+          *self_,
+          *defaultValue));
+}
+
+//  QAnyStringView QJsonValueConstRef::concreteStringView(QJsonValueConstRef
+//      self_, QAnyStringView defaultValue)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN18QJsonValueConstRef18concreteStringViewES_14QAnyStringView(
+    const QJsonValueConstRef *self_,
+    const QString *defaultValue) {
+  return new QString(
+      QJsonValueConstRef::concreteStringView(
+          *self_,
+          QAnyStringView(*defaultValue)).toString());
+}
+
+//  QJsonValue QJsonValueConstRef::concrete(QJsonValueConstRef self_)
+extern "C" Q_DECL_EXPORT
+QJsonValue *ritual_ZN18QJsonValueConstRef8concreteES_(
+    const QJsonValueConstRef *self_) {
+  return new QJsonValue(QJsonValueConstRef::concrete(*self_));
+}
+
+//  QString QJsonValueConstRef::objectKey(QJsonValueConstRef self_)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN18QJsonValueConstRef9objectKeyES_(
+    const QJsonValueConstRef *self_) {
+  return new QString(QJsonValueConstRef::objectKey(*self_));
+}
+
+//  QString QJsonValueConstRef::objectKey() const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK18QJsonValueConstRef9objectKeyEv(
+    const QJsonValueConstRef *self) {
+  return new QString(self->objectKey());
+}
+
+//  QAnyStringView QJsonValueConstRef::objectKeyView(QJsonValueConstRef
+//      self_)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN18QJsonValueConstRef13objectKeyViewES_(
+    const QJsonValueConstRef *self_) {
+  return new QString(QJsonValueConstRef::objectKeyView(*self_).toString());
+}
+
+//  QAnyStringView QJsonValueConstRef::objectKeyView() const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK18QJsonValueConstRef13objectKeyViewEv(
+    const QJsonValueConstRef *self) {
+  return new QString(self->objectKeyView().toString());
+}
+
+//  QJsonValueConstRef::QJsonValueConstRef(QJsonArray *array, qsizetype idx)
+extern "C" Q_DECL_EXPORT
+QJsonValueConstRef *ritual_ZN18QJsonValueConstRefC1EP10QJsonArrayx(
+    QJsonArray *array,
+    qsizetype idx) {
+  return new QJsonValueConstRef(array, idx);
+}
+
+//  QJsonValueConstRef::QJsonValueConstRef(QJsonObject *object, qsizetype
+//      idx)
+extern "C" Q_DECL_EXPORT
+QJsonValueConstRef *ritual_ZN18QJsonValueConstRefC1EP11QJsonObjectx(
+    QJsonObject *object,
+    qsizetype idx) {
+  return new QJsonValueConstRef(object, idx);
+}
+
+//  void QJsonValueConstRef::rebind(QJsonValueConstRef other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QJsonValueConstRef6rebindES_(
+    QJsonValueConstRef *self,
+    const QJsonValueConstRef *other) {
+  self->rebind(*other);
+}
+
 //  QJsonValueConstRef::~QJsonValueConstRef()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18QJsonValueConstRefD1Ev(QJsonValueConstRef *self) {

@@ -6,6 +6,7 @@
   "rows": {
     "ritual_ZN18QStyleOptionButtonC1Ev": ["address"],
     "ritual_ZN18QStyleOptionButtonC1ERKS_": ["address", "address"],
+    "ritual_ZN18QStyleOptionButtonC1Ei": ["address", "int"],
     "ritual_ZN18QStyleOptionButtonD1Ev": ["nothing", "address"]
   }
 }

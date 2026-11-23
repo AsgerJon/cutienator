@@ -55,8 +55,8 @@ class QParallelAnimationGroup(QAnimationGroup):
   What has no ritual
   ------------------
 
-  9 of the 18 functions Qt declares: 3 private; 2 takes or gives a type that
-  cannot be passed yet; 2 forbidden; 1 a template; 1 protected.
+  9 of the 18 functions Qt declares: 5 takes or gives a type that cannot be
+  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found.
 
   What to expect
   --------------
@@ -259,10 +259,10 @@ class QParallelAnimationGroup(QAnimationGroup):
       object.
     """
     #  bool QParallelAnimationGroup::event(QEvent *event)
-    return self.uglySide.call(
-        'ritual_own_ZN23QParallelAnimationGroup5eventEP6QEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN23QParallelAnimationGroup5eventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN23QParallelAnimationGroup5eventEP6QEvent'
+    return self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(int)
   def updateCurrentTime(self, currentTime: int) -> None:
@@ -280,10 +280,10 @@ class QParallelAnimationGroup(QAnimationGroup):
       Passed on as it is.
     """
     #  void QParallelAnimationGroup::updateCurrentTime(int currentTime)
-    self.uglySide.call(
-        'ritual_own_ZN23QParallelAnimationGroup17updateCurrentTimeEi',
-        currentTime,
-    )
+    ritual = 'ritual_ZN23QParallelAnimationGroup17updateCurrentTimeEi'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN23QParallelAnimationGroup17updateCurrentTimeEi'
+    self.uglySide.call(ritual, currentTime)
 
   @overload(QAbstractAnimation.State, QAbstractAnimation.State)
   def updateState(
@@ -310,11 +310,14 @@ class QParallelAnimationGroup(QAnimationGroup):
     """
     #  void QParallelAnimationGroup::updateState(QAbstractAnimation::State
     #      newState, QAbstractAnimation::State oldState)
-    self.uglySide.call(
-        'ritual_own_ZN23QParallelAnimationGroup11updateStateEN18QAbstractAn'
-        'imation5StateES1_',
-        newState.value, oldState.value,
-    )
+    ritual = (
+        'ritual_ZN23QParallelAnimationGroup11updateStateEN18QAbstractAnimat'
+        'ion5StateES1_')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN23QParallelAnimationGroup11updateStateEN18QAbstract'
+          'Animation5StateES1_')
+    self.uglySide.call(ritual, newState.value, oldState.value)
 
   @overload(QAbstractAnimation.Direction)
   def updateDirection(self, direction: QAbstractAnimation.Direction) -> None:
@@ -334,8 +337,11 @@ class QParallelAnimationGroup(QAnimationGroup):
     """
     #  void QParallelAnimationGroup::updateDirection(QAbstractAnimation::
     #      Direction direction)
-    self.uglySide.call(
-        'ritual_own_ZN23QParallelAnimationGroup15updateDirectionEN18QAbstra'
-        'ctAnimation9DirectionE',
-        direction.value,
-    )
+    ritual = (
+        'ritual_ZN23QParallelAnimationGroup15updateDirectionEN18QAbstractAn'
+        'imation9DirectionE')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN23QParallelAnimationGroup15updateDirectionEN18QAbst'
+          'ractAnimation9DirectionE')
+    self.uglySide.call(ritual, direction.value)

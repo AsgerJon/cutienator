@@ -75,8 +75,9 @@ class QLabel(QFrame):
   What has no ritual
   ------------------
 
-  12 of the 66 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 3 private; 2 a signal; 2 forbidden; 1 a template.
+  12 of the 66 functions Qt declares: 6 takes or gives a type that cannot be
+  passed yet; 2 a signal; 2 forbidden; 1 a template; 1 declared and nowhere
+  to be found.
 
   What to expect
   --------------
@@ -926,9 +927,10 @@ class QLabel(QFrame):
       object.
     """
     #  bool QLabel::event(QEvent *e)
-    return self.uglySide.call(
-        'ritual_own_ZN6QLabel5eventEP6QEvent', self._addressOf(e),
-    )
+    ritual = 'ritual_ZN6QLabel5eventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN6QLabel5eventEP6QEvent'
+    return self.uglySide.call(ritual, self._addressOf(e))
 
   @overload(QKeyEvent)
   @overload(NoneType)
@@ -946,10 +948,10 @@ class QLabel(QFrame):
       object.
     """
     #  void QLabel::keyPressEvent(QKeyEvent *ev)
-    self.uglySide.call(
-        'ritual_own_ZN6QLabel13keyPressEventEP9QKeyEvent',
-        self._addressOf(ev),
-    )
+    ritual = 'ritual_ZN6QLabel13keyPressEventEP9QKeyEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN6QLabel13keyPressEventEP9QKeyEvent'
+    self.uglySide.call(ritual, self._addressOf(ev))
 
   @overload(QPaintEvent)
   @overload(NoneType)
@@ -967,10 +969,10 @@ class QLabel(QFrame):
       object.
     """
     #  void QLabel::paintEvent(QPaintEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN6QLabel10paintEventEP11QPaintEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN6QLabel10paintEventEP11QPaintEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN6QLabel10paintEventEP11QPaintEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QEvent)
   @overload(NoneType)
@@ -988,9 +990,10 @@ class QLabel(QFrame):
       object.
     """
     #  void QLabel::changeEvent(QEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN6QLabel11changeEventEP6QEvent', self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN6QLabel11changeEventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN6QLabel11changeEventEP6QEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QMouseEvent)
   @overload(NoneType)
@@ -1008,10 +1011,10 @@ class QLabel(QFrame):
       object.
     """
     #  void QLabel::mousePressEvent(QMouseEvent *ev)
-    self.uglySide.call(
-        'ritual_own_ZN6QLabel15mousePressEventEP11QMouseEvent',
-        self._addressOf(ev),
-    )
+    ritual = 'ritual_ZN6QLabel15mousePressEventEP11QMouseEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN6QLabel15mousePressEventEP11QMouseEvent'
+    self.uglySide.call(ritual, self._addressOf(ev))
 
   @overload(QMouseEvent)
   @overload(NoneType)
@@ -1029,10 +1032,10 @@ class QLabel(QFrame):
       object.
     """
     #  void QLabel::mouseMoveEvent(QMouseEvent *ev)
-    self.uglySide.call(
-        'ritual_own_ZN6QLabel14mouseMoveEventEP11QMouseEvent',
-        self._addressOf(ev),
-    )
+    ritual = 'ritual_ZN6QLabel14mouseMoveEventEP11QMouseEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN6QLabel14mouseMoveEventEP11QMouseEvent'
+    self.uglySide.call(ritual, self._addressOf(ev))
 
   @overload(QMouseEvent)
   @overload(NoneType)
@@ -1050,10 +1053,10 @@ class QLabel(QFrame):
       object.
     """
     #  void QLabel::mouseReleaseEvent(QMouseEvent *ev)
-    self.uglySide.call(
-        'ritual_own_ZN6QLabel17mouseReleaseEventEP11QMouseEvent',
-        self._addressOf(ev),
-    )
+    ritual = 'ritual_ZN6QLabel17mouseReleaseEventEP11QMouseEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN6QLabel17mouseReleaseEventEP11QMouseEvent'
+    self.uglySide.call(ritual, self._addressOf(ev))
 
   @overload(QContextMenuEvent)
   @overload(NoneType)
@@ -1071,10 +1074,10 @@ class QLabel(QFrame):
       object.
     """
     #  void QLabel::contextMenuEvent(QContextMenuEvent *ev)
-    self.uglySide.call(
-        'ritual_own_ZN6QLabel16contextMenuEventEP17QContextMenuEvent',
-        self._addressOf(ev),
-    )
+    ritual = 'ritual_ZN6QLabel16contextMenuEventEP17QContextMenuEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN6QLabel16contextMenuEventEP17QContextMenuEvent'
+    self.uglySide.call(ritual, self._addressOf(ev))
 
   @overload(QFocusEvent)
   @overload(NoneType)
@@ -1092,10 +1095,10 @@ class QLabel(QFrame):
       object.
     """
     #  void QLabel::focusInEvent(QFocusEvent *ev)
-    self.uglySide.call(
-        'ritual_own_ZN6QLabel12focusInEventEP11QFocusEvent',
-        self._addressOf(ev),
-    )
+    ritual = 'ritual_ZN6QLabel12focusInEventEP11QFocusEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN6QLabel12focusInEventEP11QFocusEvent'
+    self.uglySide.call(ritual, self._addressOf(ev))
 
   @overload(QFocusEvent)
   @overload(NoneType)
@@ -1113,10 +1116,10 @@ class QLabel(QFrame):
       object.
     """
     #  void QLabel::focusOutEvent(QFocusEvent *ev)
-    self.uglySide.call(
-        'ritual_own_ZN6QLabel13focusOutEventEP11QFocusEvent',
-        self._addressOf(ev),
-    )
+    ritual = 'ritual_ZN6QLabel13focusOutEventEP11QFocusEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN6QLabel13focusOutEventEP11QFocusEvent'
+    self.uglySide.call(ritual, self._addressOf(ev))
 
   @overload(bool)
   def focusNextPrevChild(self, next: bool) -> bool:
@@ -1132,6 +1135,7 @@ class QLabel(QFrame):
       Passed on as it is.
     """
     #  bool QLabel::focusNextPrevChild(bool next)
-    return self.uglySide.call(
-        'ritual_own_ZN6QLabel18focusNextPrevChildEb', next,
-    )
+    ritual = 'ritual_ZN6QLabel18focusNextPrevChildEb'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN6QLabel18focusNextPrevChildEb'
+    return self.uglySide.call(ritual, next)

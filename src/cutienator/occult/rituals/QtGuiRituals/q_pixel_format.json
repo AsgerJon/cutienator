@@ -4,6 +4,12 @@
     "QtGui/qpixelformat.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZNK12QPixelFormat3getENS_5FieldENS_10FieldWidthE": [
+      "unsigned char", "address", "int", "int"
+    ],
+    "ritual_ZN12QPixelFormat3setENS_5FieldENS_10FieldWidthEh": [
+      "unsigned long long", "int", "int", "unsigned char"
+    ],
     "ritual_ZN12QPixelFormatC1Ev": ["address"],
     "ritual_ZN12QPixelFormatC1ENS_10ColorModelEhhhhhhNS_10AlphaUsageENS_13AlphaPositionENS_18AlphaPremultipliedENS_18TypeInterpretationENS_9ByteOrderEh": [
       "address", "int", "unsigned char", "unsigned char", "unsigned char",
@@ -38,6 +44,12 @@
     "ritual_ZNK12QPixelFormat9byteOrderEv": ["int", "address"],
     "ritual_ZNK12QPixelFormat9yuvLayoutEv": ["int", "address"],
     "ritual_ZNK12QPixelFormat7subEnumEv": ["unsigned char", "address"],
+    "ritual_ZN12QPixelFormat16resolveByteOrderENS_9ByteOrderE": [
+      "int", "int"
+    ],
+    "ritual_ZN12QPixelFormat16resolveByteOrderENS_9ByteOrderENS_18TypeInterpretationE": [
+      "int", "int", "int"
+    ],
     "ritual_Zeq12QPixelFormatS_": ["bool", "address", "address"],
     "ritual_Zne12QPixelFormatS_": ["bool", "address", "address"],
     "ritual_Zls6QDebugRK12QPixelFormat": ["address", "address", "address"],

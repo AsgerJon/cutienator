@@ -56,8 +56,9 @@ class QSocketNotifier(QObject):
   What has no ritual
   ------------------
 
-  9 of the 21 functions Qt declares: 3 private; 2 takes or gives a type that
-  cannot be passed yet; 2 forbidden; 1 a template; 1 a signal.
+  9 of the 21 functions Qt declares: 4 takes or gives a type that cannot be
+  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found;
+  1 a signal.
 
   What to expect
   --------------
@@ -369,6 +370,7 @@ class QSocketNotifier(QObject):
       object.
     """
     #  bool QSocketNotifier::event(QEvent *a0)
-    return self.uglySide.call(
-        'ritual_own_ZN15QSocketNotifier5eventEP6QEvent', self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN15QSocketNotifier5eventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN15QSocketNotifier5eventEP6QEvent'
+    return self.uglySide.call(ritual, self._addressOf(a0))

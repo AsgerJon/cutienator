@@ -40,8 +40,8 @@ class QLockFile(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  7 of the 19 functions Qt declares: 3 takes or gives a type that cannot be
-  passed yet; 2 private; 2 forbidden.
+  7 of the 19 functions Qt declares: 5 takes or gives a type that cannot be
+  passed yet; 2 forbidden.
 
   What to expect
   --------------

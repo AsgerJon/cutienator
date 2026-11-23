@@ -16,6 +16,13 @@ QStyleOptionProgressBar *ritual_ZN23QStyleOptionProgressBarC1ERKS_(
   return new QStyleOptionProgressBar(*other);
 }
 
+//  QStyleOptionProgressBar::QStyleOptionProgressBar(int version)
+extern "C" Q_DECL_EXPORT
+QStyleOptionProgressBar *ritual_ZN23QStyleOptionProgressBarC1Ei(
+    int version) {
+  return new QStyleOptionProgressBar(version);
+}
+
 //  QStyleOptionProgressBar::~QStyleOptionProgressBar()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN23QStyleOptionProgressBarD1Ev(QStyleOptionProgressBar *self) {

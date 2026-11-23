@@ -6,6 +6,7 @@
   "rows": {
     "ritual_ZN20QStyleOptionHeaderV2C1Ev": ["address"],
     "ritual_ZN20QStyleOptionHeaderV2C1ERKS_": ["address", "address"],
+    "ritual_ZN20QStyleOptionHeaderV2C1Ei": ["address", "int"],
     "ritual_ZN20QStyleOptionHeaderV2D1Ev": ["nothing", "address"]
   }
 }

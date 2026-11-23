@@ -55,8 +55,8 @@ class QAbstractGraphicsShapeItem(QGraphicsItem):
   What has no ritual
   ------------------
 
-  6 of the 13 functions Qt declares: 2 forbidden; 2 private; 1 the class is
-  abstract, so C++ cannot make one; 1 protected.
+  6 of the 13 functions Qt declares: 2 the class is abstract, so C++ cannot
+  make one; 2 forbidden; 2 takes or gives a type that cannot be passed yet.
 
   What to expect
   --------------

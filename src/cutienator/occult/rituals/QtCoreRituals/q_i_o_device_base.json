@@ -4,5 +4,6 @@
     "QtCore/qiodevicebase.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN13QIODeviceBaseD1Ev": ["nothing", "address"]
   }
 }

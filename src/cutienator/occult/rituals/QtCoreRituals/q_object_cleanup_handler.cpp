@@ -187,6 +187,14 @@ void ritual_ZN21QObjectCleanupHandler5clearEv(QObjectCleanupHandler *self) {
   self->clear();
 }
 
+//  void QObjectCleanupHandler::objectDestroyed(QObject *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QObjectCleanupHandler15objectDestroyedEP7QObject(
+    QObjectCleanupHandler *self,
+    QObject *a0) {
+  self->objectDestroyed(a0);
+}
+
 //  a Python function taken by a CuteQObjectCleanupHandler, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT

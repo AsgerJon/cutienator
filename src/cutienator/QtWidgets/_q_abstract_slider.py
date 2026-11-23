@@ -48,26 +48,30 @@ class QAbstractSlider(QWidget):
   -----------
 
   Every function of Qt's QAbstractSlider that has a ritual and that Python
-  can call so far, 31 names in all: 'metaObject', 'tr', 'orientation',
+  can call so far, 33 names in all: 'metaObject', 'tr', 'orientation',
   'setMinimum', 'minimum', 'setMaximum', 'maximum', 'setSingleStep',
   'singleStep', 'setPageStep', 'pageStep', 'setTracking', 'hasTracking',
   'setSliderDown', 'isSliderDown', 'setSliderPosition', 'sliderPosition',
   'setInvertedAppearance', 'invertedAppearance', 'setInvertedControls',
   'invertedControls', 'value', 'triggerAction', 'setValue', 'setOrientation',
-  'setRange', 'event', 'keyPressEvent', 'timerEvent', 'wheelEvent',
-  'changeEvent'. It can be made from Python, in 1 way; see '__init__'.
+  'setRange', 'event', 'setRepeatAction', 'repeatAction', 'keyPressEvent',
+  'timerEvent', 'wheelEvent', 'changeEvent'. It can be made from Python, in 1
+  way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QAbstractSlider::~QAbstractSlider()': the destructor: Python never
     removes a C++ QAbstractSlider.
+  - Qt's 'void QAbstractSlider::sliderChange(SliderChange change)': names the
+    enum 'QAbstractSlider::SliderChange', whose class cannot be named here.
 
   What has no ritual
   ------------------
 
-  18 of the 51 functions Qt declares: 6 a signal; 4 protected; 3 private; 2
-  takes or gives a type that cannot be passed yet; 2 forbidden; 1 a template.
+  15 of the 51 functions Qt declares: 6 a signal; 5 takes or gives a type
+  that cannot be passed yet; 2 forbidden; 1 a template; 1 declared and
+  nowhere to be found.
 
   What to expect
   --------------
@@ -321,6 +325,25 @@ class QAbstractSlider(QWidget):
     #  int QAbstractSlider::value() const
     return self.uglySide.call('ritual_ZNK15QAbstractSlider5valueEv')
 
+  def repeatAction(self) -> SliderAction:
+    """
+    Calls Qt's 'SliderAction QAbstractSlider::repeatAction() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qabstractslider.html#repeatAction
+
+    Returns
+    -------
+
+    SliderAction
+      The member standing for the number Qt gave back. For a number Qt gives
+      no name it is the member without a name that 'SliderAction(number)'
+      gives.
+    """
+    #  SliderAction QAbstractSlider::repeatAction() const
+    return QAbstractSlider.SliderAction(self.uglySide.call(
+        'ritual_ZNK15QAbstractSlider12repeatActionEv',
+    ))
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -531,6 +554,41 @@ class QAbstractSlider(QWidget):
     #  void QAbstractSlider::setRange(int min, int max)
     self.uglySide.call('ritual_ZN15QAbstractSlider8setRangeEii', min, max)
 
+  @overload(SliderAction)
+  @overload(SliderAction, int)
+  @overload(SliderAction, int, int)
+  def setRepeatAction(
+      self,
+      action: SliderAction,
+      thresholdTime: int = 500,
+      repeatTime: int = 50,
+  ) -> None:
+    """
+    Calls Qt's 'void QAbstractSlider::setRepeatAction(SliderAction action,
+    int thresholdTime, int repeatTime)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractslider.html#setRepeatAction
+
+    Parameters
+    ----------
+
+    action : SliderAction
+      Passed on as its number.
+
+    thresholdTime : int
+      Passed on as it is. May be left out, as in Qt: it is then 500.
+
+    repeatTime : int
+      Passed on as it is. May be left out, as in Qt: it is then 50.
+    """
+    #  void QAbstractSlider::setRepeatAction(SliderAction action, int
+    #      thresholdTime, int repeatTime)
+    self.uglySide.call(
+        'ritual_ZN15QAbstractSlider15setRepeatActionENS_12SliderActionEii',
+        action.value, thresholdTime, repeatTime,
+    )
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -621,9 +679,10 @@ class QAbstractSlider(QWidget):
       object.
     """
     #  bool QAbstractSlider::event(QEvent *e)
-    return self.uglySide.call(
-        'ritual_own_ZN15QAbstractSlider5eventEP6QEvent', self._addressOf(e),
-    )
+    ritual = 'ritual_ZN15QAbstractSlider5eventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN15QAbstractSlider5eventEP6QEvent'
+    return self.uglySide.call(ritual, self._addressOf(e))
 
   @overload(QKeyEvent)
   @overload(NoneType)
@@ -641,10 +700,10 @@ class QAbstractSlider(QWidget):
       object.
     """
     #  void QAbstractSlider::keyPressEvent(QKeyEvent *ev)
-    self.uglySide.call(
-        'ritual_own_ZN15QAbstractSlider13keyPressEventEP9QKeyEvent',
-        self._addressOf(ev),
-    )
+    ritual = 'ritual_ZN15QAbstractSlider13keyPressEventEP9QKeyEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN15QAbstractSlider13keyPressEventEP9QKeyEvent'
+    self.uglySide.call(ritual, self._addressOf(ev))
 
   @overload(QTimerEvent)
   @overload(NoneType)
@@ -662,10 +721,10 @@ class QAbstractSlider(QWidget):
       object.
     """
     #  void QAbstractSlider::timerEvent(QTimerEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN15QAbstractSlider10timerEventEP11QTimerEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN15QAbstractSlider10timerEventEP11QTimerEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN15QAbstractSlider10timerEventEP11QTimerEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QWheelEvent)
   @overload(NoneType)
@@ -683,10 +742,10 @@ class QAbstractSlider(QWidget):
       object.
     """
     #  void QAbstractSlider::wheelEvent(QWheelEvent *e)
-    self.uglySide.call(
-        'ritual_own_ZN15QAbstractSlider10wheelEventEP11QWheelEvent',
-        self._addressOf(e),
-    )
+    ritual = 'ritual_ZN15QAbstractSlider10wheelEventEP11QWheelEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN15QAbstractSlider10wheelEventEP11QWheelEvent'
+    self.uglySide.call(ritual, self._addressOf(e))
 
   @overload(QEvent)
   @overload(NoneType)
@@ -704,7 +763,7 @@ class QAbstractSlider(QWidget):
       object.
     """
     #  void QAbstractSlider::changeEvent(QEvent *e)
-    self.uglySide.call(
-        'ritual_own_ZN15QAbstractSlider11changeEventEP6QEvent',
-        self._addressOf(e),
-    )
+    ritual = 'ritual_ZN15QAbstractSlider11changeEventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN15QAbstractSlider11changeEventEP6QEvent'
+    self.uglySide.call(ritual, self._addressOf(e))

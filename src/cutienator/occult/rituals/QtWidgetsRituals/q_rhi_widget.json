@@ -36,6 +36,20 @@
       "nothing", "address", "bool"
     ],
     "ritual_ZNK10QRhiWidget15grabFramebufferEv": ["address", "address"],
+    "ritual_ZNK10QRhiWidget25isAutoRenderTargetEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN10QRhiWidget19setAutoRenderTargetEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN10QRhiWidget16releaseResourcesEv": ["nothing", "address"],
+    "ritual_ZN10QRhiWidget11resizeEventEP12QResizeEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QRhiWidget10paintEventEP11QPaintEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QRhiWidget5eventEP6QEvent": ["bool", "address", "address"],
     "ritual_take_QRhiWidget": ["bool", "address", "chars", "address"],
     "ritual_own_ZN10QRhiWidget16releaseResourcesEv": ["nothing", "address"],
     "ritual_own_ZN10QRhiWidget11resizeEventEP12QResizeEvent": [

@@ -684,6 +684,32 @@ int ritual_ZNK20QGraphicsPolygonItem4typeEv(
   return self->type();
 }
 
+//  bool QGraphicsPolygonItem::supportsExtension(Extension extension) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK20QGraphicsPolygonItem17supportsExtensionEN13QGraphicsItem9ExtensionE(
+    const QGraphicsPolygonItem *self,
+    QGraphicsItem::Extension extension) {
+  return self->supportsExtension(extension);
+}
+
+//  void QGraphicsPolygonItem::setExtension(Extension extension, const
+//      QVariant &variant)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QGraphicsPolygonItem12setExtensionEN13QGraphicsItem9ExtensionERK8QVariant(
+    QGraphicsPolygonItem *self,
+    QGraphicsItem::Extension extension,
+    const QVariant *variant) {
+  self->setExtension(extension, *variant);
+}
+
+//  QVariant QGraphicsPolygonItem::extension(const QVariant &variant) const
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZNK20QGraphicsPolygonItem9extensionERK8QVariant(
+    const QGraphicsPolygonItem *self,
+    const QVariant *variant) {
+  return new QVariant(self->extension(*variant));
+}
+
 //  a Python function taken by a CuteQGraphicsPolygonItem, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT

@@ -313,6 +313,12 @@ QOpenGLContext *ritual_ZN14QOpenGLContext18globalShareContextEv() {
   return QOpenGLContext::globalShareContext();
 }
 
+//  void QOpenGLContext::destroy()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QOpenGLContext7destroyEv(QOpenGLContext *self) {
+  self->destroy();
+}
+
 //  a Python function taken by a CuteQOpenGLContext, for the function named
 //      by the key
 extern "C" Q_DECL_EXPORT

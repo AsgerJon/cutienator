@@ -52,8 +52,8 @@ class QAccessiblePlugin(QObject):
   ------------------
 
   5 of the 9 functions Qt declares: 2 takes or gives a type that cannot be
-  passed yet; 1 a template; 1 private; 1 the class is abstract, so C++ cannot
-  make one.
+  passed yet; 1 a template; 1 declared and nowhere to be found; 1 the class
+  is abstract, so C++ cannot make one.
 
   What to expect
   --------------

@@ -117,6 +117,14 @@ bool ritual_ZNK9QMetaEnum7isValidEv(const QMetaEnum *self) {
   return self->isValid();
 }
 
+//  QMetaEnum::QMetaEnum(const QMetaObject *mobj, int index)
+extern "C" Q_DECL_EXPORT
+QMetaEnum *ritual_ZN9QMetaEnumC1EPK11QMetaObjecti(
+    const QMetaObject *mobj,
+    int index) {
+  return new QMetaEnum(mobj, index);
+}
+
 //  QMetaEnum::~QMetaEnum()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN9QMetaEnumD1Ev(QMetaEnum *self) {

@@ -55,8 +55,8 @@ class QPauseAnimation(QAbstractAnimation):
   What has no ritual
   ------------------
 
-  9 of the 18 functions Qt declares: 3 takes or gives a type that cannot be
-  passed yet; 3 private; 2 forbidden; 1 a template.
+  9 of the 18 functions Qt declares: 5 takes or gives a type that cannot be
+  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found.
 
   What to expect
   --------------
@@ -294,9 +294,10 @@ class QPauseAnimation(QAbstractAnimation):
       object.
     """
     #  bool QPauseAnimation::event(QEvent *e)
-    return self.uglySide.call(
-        'ritual_own_ZN15QPauseAnimation5eventEP6QEvent', self._addressOf(e),
-    )
+    ritual = 'ritual_ZN15QPauseAnimation5eventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN15QPauseAnimation5eventEP6QEvent'
+    return self.uglySide.call(ritual, self._addressOf(e))
 
   @overload(int)
   def updateCurrentTime(self, a0: int) -> None:
@@ -313,6 +314,7 @@ class QPauseAnimation(QAbstractAnimation):
       Passed on as it is.
     """
     #  void QPauseAnimation::updateCurrentTime(int a0)
-    self.uglySide.call(
-        'ritual_own_ZN15QPauseAnimation17updateCurrentTimeEi', a0,
-    )
+    ritual = 'ritual_ZN15QPauseAnimation17updateCurrentTimeEi'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN15QPauseAnimation17updateCurrentTimeEi'
+    self.uglySide.call(ritual, a0)

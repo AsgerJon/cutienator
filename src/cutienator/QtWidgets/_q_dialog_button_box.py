@@ -63,8 +63,9 @@ class QDialogButtonBox(QWidget):
   What has no ritual
   ------------------
 
-  12 of the 38 functions Qt declares: 4 a signal; 3 private; 2 takes or gives
-  a type that cannot be passed yet; 2 forbidden; 1 a template.
+  12 of the 38 functions Qt declares: 4 takes or gives a type that cannot be
+  passed yet; 4 a signal; 2 forbidden; 1 a template; 1 declared and nowhere
+  to be found.
 
   What to expect
   --------------
@@ -827,10 +828,10 @@ class QDialogButtonBox(QWidget):
       object.
     """
     #  void QDialogButtonBox::changeEvent(QEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN16QDialogButtonBox11changeEventEP6QEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN16QDialogButtonBox11changeEventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN16QDialogButtonBox11changeEventEP6QEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QEvent)
   @overload(NoneType)
@@ -848,7 +849,7 @@ class QDialogButtonBox(QWidget):
       object.
     """
     #  bool QDialogButtonBox::event(QEvent *event)
-    return self.uglySide.call(
-        'ritual_own_ZN16QDialogButtonBox5eventEP6QEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN16QDialogButtonBox5eventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN16QDialogButtonBox5eventEP6QEvent'
+    return self.uglySide.call(ritual, self._addressOf(event))

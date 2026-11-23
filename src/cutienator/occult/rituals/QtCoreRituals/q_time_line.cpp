@@ -353,6 +353,14 @@ void ritual_ZN9QTimeLine15toggleDirectionEv(QTimeLine *self) {
   self->toggleDirection();
 }
 
+//  void QTimeLine::timerEvent(QTimerEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QTimeLine10timerEventEP11QTimerEvent(
+    QTimeLine *self,
+    QTimerEvent *event) {
+  self->timerEvent(event);
+}
+
 //  a Python function taken by a CuteQTimeLine, for the function named by the
 //      key
 extern "C" Q_DECL_EXPORT

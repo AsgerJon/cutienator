@@ -14,17 +14,22 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
-from . import QHash
+from . import Qt, QHash, QList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from . import QByteArray, QRangeModel
+  from . import QByteArray, QCollator, QMetaObject, QMetaProperty, QMimeData
+  from . import QModelIndex, QRangeModel, QVariant
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
+  QMetaObject = WAIT['QMetaObject']
+  QMimeData = WAIT['QMimeData']
+  QModelIndex = WAIT['QModelIndex']
   QRangeModel = WAIT['QRangeModel']
+  QVariant = WAIT['QVariant']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -40,9 +45,16 @@ class QRangeModelImplBase(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QRangeModelImplBase that has a ritual and that
-  Python can call so far, 3 names in all: 'roleNames', 'getImplementation',
-  'roleNamesForSimpleType'. None can be made from Python: one comes out of a
-  function of another class that gives one back.
+  Python can call so far, 28 names in all: 'roleNames', 'getImplementation',
+  'persistentIndexList', 'changePersistentIndex', 'beginResetModel',
+  'endResetModel', 'beginInsertColumns', 'endInsertColumns',
+  'beginRemoveColumns', 'endRemoveColumns', 'beginMoveColumns',
+  'endMoveColumns', 'beginInsertRows', 'endInsertRows', 'beginRemoveRows',
+  'endRemoveRows', 'beginMoveRows', 'endMoveRows', 'beginLayoutChange',
+  'endLayoutChange', 'autoConnectPolicy', 'roleNamesForSimpleType',
+  'columnProperties', 'sortRole', 'sortCollator', 'convertMatchValue',
+  'matchValue', 'dropDataOnItem'. It can be made from Python, in 1 way; see
+  '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -51,12 +63,31 @@ class QRangeModelImplBase(CuteMixin, metaclass=MetaCute):
     *QRangeModelImplBase::getImplementation(const QRangeModel *model)': takes
     in Python what 'QRangeModelImplBase
     *QRangeModelImplBase::getImplementation(QRangeModel *model)' takes.
+  - Qt's 'Qt::weak_ordering QRangeModelImplBase::compareData(const QVariant
+    &lhs, const QVariant &rhs, const QCollator *collator)': gives
+    'Qt::weak_ordering', which has no cute class yet.
+  - Qt's 'bool QRangeModelImplBase::connectProperty(const QModelIndex &index,
+    const QObject *item, QRangeModelDetails::AutoConnectContext *context, int
+    role, const QMetaProperty &property)': names
+    'QRangeModelDetails::AutoConnectContext', which has no cute class yet.
+  - Qt's 'bool QRangeModelImplBase::connectPropertyConst(const QModelIndex
+    &index, const QObject *item, QRangeModelDetails::AutoConnectContext
+    *context, int role, const QMetaProperty &property)': names
+    'QRangeModelDetails::AutoConnectContext', which has no cute class yet.
+  - Qt's 'bool QRangeModelImplBase::connectProperties(const QModelIndex
+    &index, const QObject *item, QRangeModelDetails::AutoConnectContext
+    *context, const QHash<int, QMetaProperty> &properties)': names
+    'QRangeModelDetails::AutoConnectContext', which has no cute class yet.
+  - Qt's 'bool QRangeModelImplBase::connectPropertiesConst(const QModelIndex
+    &index, const QObject *item, QRangeModelDetails::AutoConnectContext
+    *context, const QHash<int, QMetaProperty> &properties)': names
+    'QRangeModelDetails::AutoConnectContext', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  70 of the 74 functions Qt declares: 36 protected; 31 declared and nowhere
-  to be found; 3 takes or gives a type that cannot be passed yet.
+  38 of the 74 functions Qt declares: 31 declared and nowhere to be found; 7
+  takes or gives a type that cannot be passed yet.
 
   What to expect
   --------------
@@ -160,6 +191,145 @@ class QRangeModelImplBase(CuteMixin, metaclass=MetaCute):
     from . import QByteArray
     return QHash[int, QByteArray]._cuteOwning(address)
 
+  @staticmethod
+  @overload(QMetaObject)
+  def columnProperties(metaObject: QMetaObject) -> QHash[int, QMetaProperty]:
+    """
+    Calls Qt's 'QHash<int, QMetaProperty>
+    QRangeModelImplBase::columnProperties(const QMetaObject &metaObject)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qrangemodelimplbase.html#columnProperties
+
+    Parameters
+    ----------
+
+    metaObject : QMetaObject
+      Passed on as a value: Qt reads the C++ QMetaObject, which stays
+      Python's own.
+
+    Returns
+    -------
+
+    QHash[int, QMetaProperty]
+      A new cute map around the copy Qt gave back. Python owns it.
+    """
+    #  QHash<int, QMetaProperty> QRangeModelImplBase::columnProperties(const
+    #      QMetaObject &metaObject)
+    address = Rituals.call(
+        'ritual_ZN19QRangeModelImplBase16columnPropertiesERK11QMetaObject',
+        CuteMixin._valueOf(metaObject),
+    )
+    from . import QMetaProperty
+    return QHash[int, QMetaProperty]._cuteOwning(address)
+
+  @staticmethod
+  @overload(QVariant, Qt.MatchFlags)
+  def convertMatchValue(value: QVariant, flags: Qt.MatchFlags) -> QVariant:
+    """
+    Calls Qt's 'QVariant QRangeModelImplBase::convertMatchValue(const
+    QVariant &value, Qt::MatchFlags flags)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qrangemodelimplbase.html#convertMatchValue
+
+    Parameters
+    ----------
+
+    value : QVariant
+      Passed on as a value: Qt reads the C++ QVariant, which stays Python's
+      own.
+
+    flags : Qt.MatchFlags
+      Passed on as its number.
+
+    Returns
+    -------
+
+    QVariant
+      A new cute QVariant around the copy Qt gave back. Python owns it.
+    """
+    #  QVariant QRangeModelImplBase::convertMatchValue(const QVariant &value,
+    #      Qt::MatchFlags flags)
+    address = Rituals.call(
+        'ritual_ZN19QRangeModelImplBase17convertMatchValueERK8QVariant6QFla'
+        'gsIN2Qt9MatchFlagEE',
+        CuteMixin._valueOf(value), flags.value,
+    )
+    from . import QVariant
+    return QVariant._cuteOwning(address)
+
+  @staticmethod
+  @overload(str, QVariant, Qt.MatchFlags)
+  def matchValue(
+      itemData: str,
+      value: QVariant,
+      flags: Qt.MatchFlags,
+  ) -> bool:
+    """
+    Calls Qt's 'bool QRangeModelImplBase::matchValue(const QString &itemData,
+    const QVariant &value, Qt::MatchFlags flags)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qrangemodelimplbase.html#matchValue
+
+    Parameters
+    ----------
+
+    itemData : str
+      Passed on as it is: a QString is made of it for the call.
+
+    value : QVariant
+      Passed on as a value: Qt reads the C++ QVariant, which stays Python's
+      own.
+
+    flags : Qt.MatchFlags
+      Passed on as its number.
+    """
+    #  bool QRangeModelImplBase::matchValue(const QString &itemData, const
+    #      QVariant &value, Qt::MatchFlags flags)
+    return Rituals.call(
+        'ritual_ZN19QRangeModelImplBase10matchValueERK7QStringRK8QVariant6Q'
+        'FlagsIN2Qt9MatchFlagEE',
+        itemData, CuteMixin._valueOf(value), flags.value,
+    )
+
+  @staticmethod
+  @overload(QVariant, QVariant, Qt.MatchFlags)
+  def matchValue(
+      itemData: QVariant,
+      value: QVariant,
+      flags: Qt.MatchFlags,
+  ) -> bool:
+    """
+    Calls Qt's 'bool QRangeModelImplBase::matchValue(const QVariant
+    &itemData, const QVariant &value, Qt::MatchFlags flags)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qrangemodelimplbase.html#matchValue
+
+    Parameters
+    ----------
+
+    itemData : QVariant
+      Passed on as a value: Qt reads the C++ QVariant, which stays Python's
+      own.
+
+    value : QVariant
+      Passed on as a value: Qt reads the C++ QVariant, which stays Python's
+      own.
+
+    flags : Qt.MatchFlags
+      Passed on as its number.
+    """
+    #  bool QRangeModelImplBase::matchValue(const QVariant &itemData, const
+    #      QVariant &value, Qt::MatchFlags flags)
+    return Rituals.call(
+        'ritual_ZN19QRangeModelImplBase10matchValueERK8QVariantS2_6QFlagsIN'
+        '2Qt9MatchFlagEE',
+        CuteMixin._valueOf(itemData), CuteMixin._valueOf(value), flags.value,
+    )
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -200,6 +370,78 @@ class QRangeModelImplBase(CuteMixin, metaclass=MetaCute):
     from . import QByteArray
     return QHash[int, QByteArray]._cuteOwning(address)
 
+  def persistentIndexList(self) -> QList[QModelIndex]:
+    """
+    Calls Qt's 'QModelIndexList QRangeModelImplBase::persistentIndexList()
+    const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qrangemodelimplbase.html#persistentIndexList
+
+    Returns
+    -------
+
+    QList[QModelIndex]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QModelIndexList QRangeModelImplBase::persistentIndexList() const
+    address = self.uglySide.call(
+        'ritual_ZNK19QRangeModelImplBase19persistentIndexListEv',
+    )
+    from . import QModelIndex
+    return QList[QModelIndex]._cuteOwning(address)
+
+  def autoConnectPolicy(self) -> AutoConnectPolicy:
+    """
+    Calls Qt's 'AutoConnectPolicy QRangeModelImplBase::autoConnectPolicy()
+    const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qrangemodelimplbase.html#autoConnectPolicy
+
+    Returns
+    -------
+
+    AutoConnectPolicy
+      The member standing for the number Qt gave back. For a number Qt gives
+      no name it is the member without a name that
+      'AutoConnectPolicy(number)' gives.
+    """
+    #  AutoConnectPolicy QRangeModelImplBase::autoConnectPolicy() const
+    return QRangeModelImplBase.AutoConnectPolicy(self.uglySide.call(
+        'ritual_ZNK19QRangeModelImplBase17autoConnectPolicyEv',
+    ))
+
+  def sortRole(self) -> int:
+    """
+    Calls Qt's 'int QRangeModelImplBase::sortRole() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qrangemodelimplbase.html#sortRole
+    """
+    #  int QRangeModelImplBase::sortRole() const
+    return self.uglySide.call('ritual_ZNK19QRangeModelImplBase8sortRoleEv')
+
+  def sortCollator(self) -> Optional[QCollator]:
+    """
+    Calls Qt's 'const QCollator *QRangeModelImplBase::sortCollator() const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qrangemodelimplbase.html#sortCollator
+
+    Returns
+    -------
+
+    Optional[QCollator]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  const QCollator *QRangeModelImplBase::sortCollator() const
+    address = self.uglySide.call(
+        'ritual_ZNK19QRangeModelImplBase12sortCollatorEv',
+    )
+    from . import QCollator
+    return QCollator._cuteAt(address)
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -215,6 +457,30 @@ class QRangeModelImplBase(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(QRangeModel)
+  @overload(NoneType)
+  def __init__(self, itemModel: Optional[QRangeModel]) -> None:
+    """
+    Notes what was given, for Qt's
+    'QRangeModelImplBase::QRangeModelImplBase(QRangeModel *itemModel)', which
+    is called at the first use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qrangemodelimplbase.html#QRangeModelImplBase
+
+    Parameters
+    ----------
+
+    itemModel : Optional[QRangeModel]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  QRangeModelImplBase::QRangeModelImplBase(QRangeModel *itemModel)
+    self._noteCreation(QRangeModelImplBase, lambda: Rituals.call(
+        'ritual_ZN19QRangeModelImplBaseC1EP11QRangeModel',
+        self._addressOf(itemModel),
+    ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -235,3 +501,400 @@ class QRangeModelImplBase(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(QModelIndex, QModelIndex)
+  def changePersistentIndex(
+      self,
+      from_: QModelIndex,
+      to: QModelIndex,
+  ) -> None:
+    """
+    Calls Qt's 'void QRangeModelImplBase::changePersistentIndex(const
+    QModelIndex &from, const QModelIndex &to)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qrangemodelimplbase.html#changePersistentIndex
+
+    Parameters
+    ----------
+
+    from_ : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+
+    to : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+    """
+    #  void QRangeModelImplBase::changePersistentIndex(const QModelIndex
+    #      &from, const QModelIndex &to)
+    self.uglySide.call(
+        'ritual_ZN19QRangeModelImplBase21changePersistentIndexERK11QModelIn'
+        'dexS2_',
+        self._valueOf(from_), self._valueOf(to),
+    )
+
+  def beginResetModel(self) -> None:
+    """
+    Calls Qt's 'void QRangeModelImplBase::beginResetModel()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qrangemodelimplbase.html#beginResetModel
+    """
+    #  void QRangeModelImplBase::beginResetModel()
+    self.uglySide.call('ritual_ZN19QRangeModelImplBase15beginResetModelEv')
+
+  def endResetModel(self) -> None:
+    """
+    Calls Qt's 'void QRangeModelImplBase::endResetModel()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qrangemodelimplbase.html#endResetModel
+    """
+    #  void QRangeModelImplBase::endResetModel()
+    self.uglySide.call('ritual_ZN19QRangeModelImplBase13endResetModelEv')
+
+  @overload(QModelIndex, int, int)
+  def beginInsertColumns(
+      self,
+      parent: QModelIndex,
+      start: int,
+      count: int,
+  ) -> None:
+    """
+    Calls Qt's 'void QRangeModelImplBase::beginInsertColumns(const
+    QModelIndex &parent, int start, int count)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qrangemodelimplbase.html#beginInsertColumns
+
+    Parameters
+    ----------
+
+    parent : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+
+    start : int
+      Passed on as it is.
+
+    count : int
+      Passed on as it is.
+    """
+    #  void QRangeModelImplBase::beginInsertColumns(const QModelIndex
+    #      &parent, int start, int count)
+    self.uglySide.call(
+        'ritual_ZN19QRangeModelImplBase18beginInsertColumnsERK11QModelIndex'
+        'ii',
+        self._valueOf(parent), start, count,
+    )
+
+  def endInsertColumns(self) -> None:
+    """
+    Calls Qt's 'void QRangeModelImplBase::endInsertColumns()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qrangemodelimplbase.html#endInsertColumns
+    """
+    #  void QRangeModelImplBase::endInsertColumns()
+    self.uglySide.call('ritual_ZN19QRangeModelImplBase16endInsertColumnsEv')
+
+  @overload(QModelIndex, int, int)
+  def beginRemoveColumns(
+      self,
+      parent: QModelIndex,
+      start: int,
+      count: int,
+  ) -> None:
+    """
+    Calls Qt's 'void QRangeModelImplBase::beginRemoveColumns(const
+    QModelIndex &parent, int start, int count)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qrangemodelimplbase.html#beginRemoveColumns
+
+    Parameters
+    ----------
+
+    parent : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+
+    start : int
+      Passed on as it is.
+
+    count : int
+      Passed on as it is.
+    """
+    #  void QRangeModelImplBase::beginRemoveColumns(const QModelIndex
+    #      &parent, int start, int count)
+    self.uglySide.call(
+        'ritual_ZN19QRangeModelImplBase18beginRemoveColumnsERK11QModelIndex'
+        'ii',
+        self._valueOf(parent), start, count,
+    )
+
+  def endRemoveColumns(self) -> None:
+    """
+    Calls Qt's 'void QRangeModelImplBase::endRemoveColumns()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qrangemodelimplbase.html#endRemoveColumns
+    """
+    #  void QRangeModelImplBase::endRemoveColumns()
+    self.uglySide.call('ritual_ZN19QRangeModelImplBase16endRemoveColumnsEv')
+
+  @overload(QModelIndex, int, int, QModelIndex, int)
+  def beginMoveColumns(
+      self,
+      sourceParent: QModelIndex,
+      sourceFirst: int,
+      sourceLast: int,
+      destParent: QModelIndex,
+      destRow: int,
+  ) -> bool:
+    """
+    Calls Qt's 'bool QRangeModelImplBase::beginMoveColumns(const QModelIndex
+    &sourceParent, int sourceFirst, int sourceLast, const QModelIndex
+    &destParent, int destRow)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qrangemodelimplbase.html#beginMoveColumns
+
+    Parameters
+    ----------
+
+    sourceParent : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+
+    sourceFirst : int
+      Passed on as it is.
+
+    sourceLast : int
+      Passed on as it is.
+
+    destParent : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+
+    destRow : int
+      Passed on as it is.
+    """
+    #  bool QRangeModelImplBase::beginMoveColumns(const QModelIndex
+    #      &sourceParent, int sourceFirst, int sourceLast, const QModelIndex
+    #      &destParent, int destRow)
+    return self.uglySide.call(
+        'ritual_ZN19QRangeModelImplBase16beginMoveColumnsERK11QModelIndexii'
+        'S2_i',
+        self._valueOf(sourceParent), sourceFirst, sourceLast,
+        self._valueOf(destParent), destRow,
+    )
+
+  def endMoveColumns(self) -> None:
+    """
+    Calls Qt's 'void QRangeModelImplBase::endMoveColumns()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qrangemodelimplbase.html#endMoveColumns
+    """
+    #  void QRangeModelImplBase::endMoveColumns()
+    self.uglySide.call('ritual_ZN19QRangeModelImplBase14endMoveColumnsEv')
+
+  @overload(QModelIndex, int, int)
+  def beginInsertRows(
+      self,
+      parent: QModelIndex,
+      start: int,
+      count: int,
+  ) -> None:
+    """
+    Calls Qt's 'void QRangeModelImplBase::beginInsertRows(const QModelIndex
+    &parent, int start, int count)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qrangemodelimplbase.html#beginInsertRows
+
+    Parameters
+    ----------
+
+    parent : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+
+    start : int
+      Passed on as it is.
+
+    count : int
+      Passed on as it is.
+    """
+    #  void QRangeModelImplBase::beginInsertRows(const QModelIndex &parent,
+    #      int start, int count)
+    self.uglySide.call(
+        'ritual_ZN19QRangeModelImplBase15beginInsertRowsERK11QModelIndexii',
+        self._valueOf(parent), start, count,
+    )
+
+  def endInsertRows(self) -> None:
+    """
+    Calls Qt's 'void QRangeModelImplBase::endInsertRows()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qrangemodelimplbase.html#endInsertRows
+    """
+    #  void QRangeModelImplBase::endInsertRows()
+    self.uglySide.call('ritual_ZN19QRangeModelImplBase13endInsertRowsEv')
+
+  @overload(QModelIndex, int, int)
+  def beginRemoveRows(
+      self,
+      parent: QModelIndex,
+      start: int,
+      count: int,
+  ) -> None:
+    """
+    Calls Qt's 'void QRangeModelImplBase::beginRemoveRows(const QModelIndex
+    &parent, int start, int count)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qrangemodelimplbase.html#beginRemoveRows
+
+    Parameters
+    ----------
+
+    parent : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+
+    start : int
+      Passed on as it is.
+
+    count : int
+      Passed on as it is.
+    """
+    #  void QRangeModelImplBase::beginRemoveRows(const QModelIndex &parent,
+    #      int start, int count)
+    self.uglySide.call(
+        'ritual_ZN19QRangeModelImplBase15beginRemoveRowsERK11QModelIndexii',
+        self._valueOf(parent), start, count,
+    )
+
+  def endRemoveRows(self) -> None:
+    """
+    Calls Qt's 'void QRangeModelImplBase::endRemoveRows()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qrangemodelimplbase.html#endRemoveRows
+    """
+    #  void QRangeModelImplBase::endRemoveRows()
+    self.uglySide.call('ritual_ZN19QRangeModelImplBase13endRemoveRowsEv')
+
+  @overload(QModelIndex, int, int, QModelIndex, int)
+  def beginMoveRows(
+      self,
+      sourceParent: QModelIndex,
+      sourceFirst: int,
+      sourceLast: int,
+      destParent: QModelIndex,
+      destRow: int,
+  ) -> bool:
+    """
+    Calls Qt's 'bool QRangeModelImplBase::beginMoveRows(const QModelIndex
+    &sourceParent, int sourceFirst, int sourceLast, const QModelIndex
+    &destParent, int destRow)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qrangemodelimplbase.html#beginMoveRows
+
+    Parameters
+    ----------
+
+    sourceParent : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+
+    sourceFirst : int
+      Passed on as it is.
+
+    sourceLast : int
+      Passed on as it is.
+
+    destParent : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+
+    destRow : int
+      Passed on as it is.
+    """
+    #  bool QRangeModelImplBase::beginMoveRows(const QModelIndex
+    #      &sourceParent, int sourceFirst, int sourceLast, const QModelIndex
+    #      &destParent, int destRow)
+    return self.uglySide.call(
+        'ritual_ZN19QRangeModelImplBase13beginMoveRowsERK11QModelIndexiiS2_'
+        'i',
+        self._valueOf(sourceParent), sourceFirst, sourceLast,
+        self._valueOf(destParent), destRow,
+    )
+
+  def endMoveRows(self) -> None:
+    """
+    Calls Qt's 'void QRangeModelImplBase::endMoveRows()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qrangemodelimplbase.html#endMoveRows
+    """
+    #  void QRangeModelImplBase::endMoveRows()
+    self.uglySide.call('ritual_ZN19QRangeModelImplBase11endMoveRowsEv')
+
+  def beginLayoutChange(self) -> None:
+    """
+    Calls Qt's 'void QRangeModelImplBase::beginLayoutChange()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qrangemodelimplbase.html#beginLayoutChange
+    """
+    #  void QRangeModelImplBase::beginLayoutChange()
+    self.uglySide.call('ritual_ZN19QRangeModelImplBase17beginLayoutChangeEv')
+
+  def endLayoutChange(self) -> None:
+    """
+    Calls Qt's 'void QRangeModelImplBase::endLayoutChange()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qrangemodelimplbase.html#endLayoutChange
+    """
+    #  void QRangeModelImplBase::endLayoutChange()
+    self.uglySide.call('ritual_ZN19QRangeModelImplBase15endLayoutChangeEv')
+
+  @overload(QMimeData, QModelIndex)
+  @overload(NoneType, QModelIndex)
+  def dropDataOnItem(
+      self,
+      data: Optional[QMimeData],
+      index: QModelIndex,
+  ) -> bool:
+    """
+    Calls Qt's 'bool QRangeModelImplBase::dropDataOnItem(const QMimeData
+    *data, const QModelIndex &index)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qrangemodelimplbase.html#dropDataOnItem
+
+    Parameters
+    ----------
+
+    data : Optional[QMimeData]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    index : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+    """
+    #  bool QRangeModelImplBase::dropDataOnItem(const QMimeData *data, const
+    #      QModelIndex &index)
+    return self.uglySide.call(
+        'ritual_ZN19QRangeModelImplBase14dropDataOnItemEPK9QMimeDataRK11QMo'
+        'delIndex',
+        self._addressOf(data), self._valueOf(index),
+    )

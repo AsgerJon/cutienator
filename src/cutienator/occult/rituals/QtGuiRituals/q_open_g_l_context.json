@@ -46,6 +46,7 @@
     "ritual_ZNK14QOpenGLContext10isOpenGLESEv": ["bool", "address"],
     "ritual_ZN14QOpenGLContext22supportsThreadedOpenGLEv": ["bool"],
     "ritual_ZN14QOpenGLContext18globalShareContextEv": ["address"],
+    "ritual_ZN14QOpenGLContext7destroyEv": ["nothing", "address"],
     "ritual_take_QOpenGLContext": ["bool", "address", "chars", "address"],
     "ritual_list_make_QOpenGLContext_ptr": ["address"],
     "ritual_list_add_QOpenGLContext_ptr": ["nothing", "address", "address"],

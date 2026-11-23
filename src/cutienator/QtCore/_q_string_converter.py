@@ -33,14 +33,20 @@ class QStringConverter(QStringConverterBase):
 
   Every function of Qt's QStringConverter that has a ritual and that Python
   can call so far, 6 names in all: 'isValid', 'resetState', 'hasError',
-  'name', 'nameForEncoding', 'availableCodecs'. None can be made from Python:
-  one comes out of a function of another class that gives one back.
+  'name', 'nameForEncoding', 'availableCodecs'. It can be made from Python,
+  in 3 ways; see '__init__'.
+
+  What has a ritual and is left out, and why
+  ------------------------------------------
+
+  - Qt's 'QStringConverter::~QStringConverter()': the destructor: Python
+    never removes a C++ QStringConverter.
 
   What has no ritual
   ------------------
 
-  10 of the 16 functions Qt declares: 5 protected; 5 takes or gives a type
-  that cannot be passed yet.
+  6 of the 16 functions Qt declares: 6 takes or gives a type that cannot be
+  passed yet.
 
   What to expect
   --------------
@@ -205,6 +211,76 @@ class QStringConverter(QStringConverterBase):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload()
+  def __init__(self) -> None:
+    """
+    Notes what was given, for Qt's 'QStringConverter::QStringConverter()',
+    which is called at the first use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qstringconverter.html#QStringConverter
+    """
+    #  QStringConverter::QStringConverter()
+    self._noteCreation(QStringConverter, lambda: Rituals.call(
+        'ritual_ZN16QStringConverterC1Ev',
+    ))
+
+  @overload(Encoding, QStringConverterBase.Flags)
+  def __init__(
+      self,
+      encoding: Encoding,
+      f: QStringConverterBase.Flags,
+  ) -> None:
+    """
+    Notes what was given, for Qt's
+    'QStringConverter::QStringConverter(Encoding encoding, Flags f)', which
+    is called at the first use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qstringconverter.html#QStringConverter
+
+    Parameters
+    ----------
+
+    encoding : Encoding
+      Passed on as its number.
+
+    f : QStringConverterBase.Flags
+      Passed on as its number.
+    """
+    #  QStringConverter::QStringConverter(Encoding encoding, Flags f)
+    self._noteCreation(QStringConverter, lambda: Rituals.call(
+        'ritual_ZN16QStringConverterC1ENS_8EncodingE6QFlagsIN20QStringConve'
+        'rterBase4FlagEE',
+        encoding.value, f.value,
+    ))
+
+  @overload(str, QStringConverterBase.Flags)
+  def __init__(self, name: str, f: QStringConverterBase.Flags) -> None:
+    """
+    Notes what was given, for Qt's
+    'QStringConverter::QStringConverter(QAnyStringView name, Flags f)', which
+    is called at the first use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qstringconverter.html#QStringConverter
+
+    Parameters
+    ----------
+
+    name : str
+      Passed on as it is: a QString is made of it for the call.
+
+    f : QStringConverterBase.Flags
+      Passed on as its number.
+    """
+    #  QStringConverter::QStringConverter(QAnyStringView name, Flags f)
+    self._noteCreation(QStringConverter, lambda: Rituals.call(
+        'ritual_ZN16QStringConverterC1E14QAnyStringView6QFlagsIN20QStringCo'
+        'nverterBase4FlagEE',
+        name, f.value,
+    ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #

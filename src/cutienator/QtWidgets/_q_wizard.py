@@ -73,8 +73,9 @@ class QWizard(QDialog):
   What has no ritual
   ------------------
 
-  16 of the 64 functions Qt declares: 5 takes or gives a type that cannot be
-  passed yet; 5 a signal; 3 private; 2 forbidden; 1 a template.
+  16 of the 64 functions Qt declares: 7 takes or gives a type that cannot be
+  passed yet; 5 a signal; 2 forbidden; 1 a template; 1 declared and nowhere
+  to be found.
 
   What to expect
   --------------
@@ -1093,9 +1094,10 @@ class QWizard(QDialog):
       object.
     """
     #  bool QWizard::event(QEvent *event)
-    return self.uglySide.call(
-        'ritual_own_ZN7QWizard5eventEP6QEvent', self._addressOf(event),
-    )
+    ritual = 'ritual_ZN7QWizard5eventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QWizard5eventEP6QEvent'
+    return self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QResizeEvent)
   @overload(NoneType)
@@ -1113,10 +1115,10 @@ class QWizard(QDialog):
       object.
     """
     #  void QWizard::resizeEvent(QResizeEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN7QWizard11resizeEventEP12QResizeEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN7QWizard11resizeEventEP12QResizeEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QWizard11resizeEventEP12QResizeEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QPaintEvent)
   @overload(NoneType)
@@ -1134,10 +1136,10 @@ class QWizard(QDialog):
       object.
     """
     #  void QWizard::paintEvent(QPaintEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN7QWizard10paintEventEP11QPaintEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN7QWizard10paintEventEP11QPaintEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QWizard10paintEventEP11QPaintEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(int)
   def done(self, result: int) -> None:
@@ -1153,7 +1155,10 @@ class QWizard(QDialog):
       Passed on as it is.
     """
     #  void QWizard::done(int result)
-    self.uglySide.call('ritual_own_ZN7QWizard4doneEi', result)
+    ritual = 'ritual_ZN7QWizard4doneEi'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QWizard4doneEi'
+    self.uglySide.call(ritual, result)
 
   @overload(int)
   def initializePage(self, id: int) -> None:
@@ -1169,7 +1174,10 @@ class QWizard(QDialog):
       Passed on as it is.
     """
     #  void QWizard::initializePage(int id)
-    self.uglySide.call('ritual_own_ZN7QWizard14initializePageEi', id)
+    ritual = 'ritual_ZN7QWizard14initializePageEi'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QWizard14initializePageEi'
+    self.uglySide.call(ritual, id)
 
   @overload(int)
   def cleanupPage(self, id: int) -> None:
@@ -1185,4 +1193,7 @@ class QWizard(QDialog):
       Passed on as it is.
     """
     #  void QWizard::cleanupPage(int id)
-    self.uglySide.call('ritual_own_ZN7QWizard11cleanupPageEi', id)
+    ritual = 'ritual_ZN7QWizard11cleanupPageEi'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QWizard11cleanupPageEi'
+    self.uglySide.call(ritual, id)

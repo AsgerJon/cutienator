@@ -16,6 +16,12 @@ QStyleOptionViewItem *ritual_ZN20QStyleOptionViewItemC1ERKS_(
   return new QStyleOptionViewItem(*other);
 }
 
+//  QStyleOptionViewItem::QStyleOptionViewItem(int version)
+extern "C" Q_DECL_EXPORT
+QStyleOptionViewItem *ritual_ZN20QStyleOptionViewItemC1Ei(int version) {
+  return new QStyleOptionViewItem(version);
+}
+
 //  QStyleOptionViewItem::~QStyleOptionViewItem()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QStyleOptionViewItemD1Ev(QStyleOptionViewItem *self) {

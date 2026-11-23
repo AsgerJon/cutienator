@@ -55,8 +55,9 @@ class QChronoTimer(QObject):
   What has no ritual
   ------------------
 
-  20 of the 33 functions Qt declares: 10 takes or gives a type that cannot be
-  passed yet; 4 forbidden; 3 private; 2 a template; 1 a signal.
+  20 of the 33 functions Qt declares: 12 takes or gives a type that cannot be
+  passed yet; 4 forbidden; 2 a template; 1 declared and nowhere to be found;
+  1 a signal.
 
   What to expect
   --------------
@@ -346,7 +347,7 @@ class QChronoTimer(QObject):
       object.
     """
     #  void QChronoTimer::timerEvent(QTimerEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN12QChronoTimer10timerEventEP11QTimerEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN12QChronoTimer10timerEventEP11QTimerEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN12QChronoTimer10timerEventEP11QTimerEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))

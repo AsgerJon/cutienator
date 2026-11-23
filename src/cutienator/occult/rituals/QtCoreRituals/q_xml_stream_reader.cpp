@@ -4,6 +4,7 @@
 #include <QtCore/qanystringview.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qstringview.h>
+#include <QtCore/qbytearray.h>
 #include <QtCore/qlist.h>
 
 //  QXmlStreamReader::QXmlStreamReader()
@@ -431,4 +432,12 @@ extern "C" Q_DECL_EXPORT
 QXmlStreamEntityResolver *ritual_ZNK16QXmlStreamReader14entityResolverEv(
     const QXmlStreamReader *self) {
   return self->entityResolver();
+}
+
+//  void QXmlStreamReader::addDataImpl(const QByteArray &data)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QXmlStreamReader11addDataImplERK10QByteArray(
+    QXmlStreamReader *self,
+    const QByteArray *data) {
+  self->addDataImpl(*data);
 }

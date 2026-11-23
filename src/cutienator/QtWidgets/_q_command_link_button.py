@@ -60,8 +60,8 @@ class QCommandLinkButton(QPushButton):
   What has no ritual
   ------------------
 
-  8 of the 22 functions Qt declares: 3 private; 2 takes or gives a type that
-  cannot be passed yet; 2 forbidden; 1 a template.
+  8 of the 22 functions Qt declares: 4 takes or gives a type that cannot be
+  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found.
 
   What to expect
   --------------
@@ -442,10 +442,10 @@ class QCommandLinkButton(QPushButton):
       object.
     """
     #  bool QCommandLinkButton::event(QEvent *e)
-    return self.uglySide.call(
-        'ritual_own_ZN18QCommandLinkButton5eventEP6QEvent',
-        self._addressOf(e),
-    )
+    ritual = 'ritual_ZN18QCommandLinkButton5eventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN18QCommandLinkButton5eventEP6QEvent'
+    return self.uglySide.call(ritual, self._addressOf(e))
 
   @overload(QPaintEvent)
   @overload(NoneType)
@@ -463,7 +463,7 @@ class QCommandLinkButton(QPushButton):
       object.
     """
     #  void QCommandLinkButton::paintEvent(QPaintEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN18QCommandLinkButton10paintEventEP11QPaintEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN18QCommandLinkButton10paintEventEP11QPaintEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN18QCommandLinkButton10paintEventEP11QPaintEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))

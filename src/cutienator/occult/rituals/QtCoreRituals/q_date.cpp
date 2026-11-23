@@ -6,6 +6,12 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qstringview.h>
 
+//  QDate::QDate(qint64 julianDay)
+extern "C" Q_DECL_EXPORT
+QDate *ritual_ZN5QDateC1Ex(qint64 julianDay) {
+  return new QDate(julianDay);
+}
+
 //  QDate::QDate()
 extern "C" Q_DECL_EXPORT
 QDate *ritual_ZN5QDateC1Ev() {
@@ -460,6 +466,30 @@ QDate *ritual_ZN5QDate13fromJulianDayEx(qint64 jd_) {
 extern "C" Q_DECL_EXPORT
 qint64 ritual_ZNK5QDate11toJulianDayEv(const QDate *self) {
   return self->toJulianDay();
+}
+
+//  qint64 QDate::nullJd()
+extern "C" Q_DECL_EXPORT
+qint64 ritual_ZN5QDate6nullJdEv() {
+  return QDate::nullJd();
+}
+
+//  qint64 QDate::minJd()
+extern "C" Q_DECL_EXPORT
+qint64 ritual_ZN5QDate5minJdEv() {
+  return QDate::minJd();
+}
+
+//  qint64 QDate::maxJd()
+extern "C" Q_DECL_EXPORT
+qint64 ritual_ZN5QDate5maxJdEv() {
+  return QDate::maxJd();
+}
+
+//  qint64 QDate::unixEpochJd()
+extern "C" Q_DECL_EXPORT
+qint64 ritual_ZN5QDate11unixEpochJdEv() {
+  return QDate::unixEpochJd();
 }
 
 //  bool operator==(const QDate &lhs, const QDate &rhs)

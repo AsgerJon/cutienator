@@ -246,6 +246,14 @@ void ritual_ZN23QGraphicsColorizeEffect11setStrengthEd(
   self->setStrength(strength);
 }
 
+//  void QGraphicsColorizeEffect::draw(QPainter *painter)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QGraphicsColorizeEffect4drawEP8QPainter(
+    QGraphicsColorizeEffect *self,
+    QPainter *painter) {
+  self->draw(painter);
+}
+
 //  a Python function taken by a CuteQGraphicsColorizeEffect, for the
 //      function named by the key
 extern "C" Q_DECL_EXPORT

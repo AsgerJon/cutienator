@@ -76,6 +76,7 @@
     "ritual_ZeqRK10QJsonArrayRK10QJsonValue": ["bool", "address", "address"],
     "ritual_ZneRK10QJsonArrayRK10QJsonValue": ["bool", "address", "address"],
     "ritual_ZeqRK10QJsonValueRK10QJsonArray": ["bool", "address", "address"],
-    "ritual_ZneRK10QJsonValueRK10QJsonArray": ["bool", "address", "address"]
+    "ritual_ZneRK10QJsonValueRK10QJsonArray": ["bool", "address", "address"],
+    "ritual_ZN10QJsonArray6detachEx": ["bool", "address", "long long"]
   }
 }

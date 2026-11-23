@@ -24,7 +24,7 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from ..QtGui import QCloseEvent, QContextMenuEvent, QFocusEvent, QHideEvent
   from ..QtGui import QKeyEvent, QMouseEvent, QPaintEvent, QResizeEvent
   from ..QtGui import QShowEvent, QWheelEvent
-  from . import QStyleOptionSpinBox
+  from . import QLineEdit, QStyleOptionSpinBox
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -35,6 +35,7 @@ else:
   QFocusEvent = WAIT['QFocusEvent']
   QHideEvent = WAIT['QHideEvent']
   QKeyEvent = WAIT['QKeyEvent']
+  QLineEdit = WAIT['QLineEdit']
   QMouseEvent = WAIT['QMouseEvent']
   QPaintEvent = WAIT['QPaintEvent']
   QResizeEvent = WAIT['QResizeEvent']
@@ -60,7 +61,7 @@ class QAbstractSpinBox(QWidget):
   -----------
 
   Every function of Qt's QAbstractSpinBox that has a ritual and that Python
-  can call so far, 52 names in all: 'metaObject', 'tr', 'buttonSymbols',
+  can call so far, 54 names in all: 'metaObject', 'tr', 'buttonSymbols',
   'setButtonSymbols', 'setCorrectionMode', 'correctionMode',
   'hasAcceptableInput', 'text', 'specialValueText', 'setSpecialValueText',
   'wrapping', 'setWrapping', 'setReadOnly', 'isReadOnly',
@@ -72,8 +73,8 @@ class QAbstractSpinBox(QWidget):
   'keyReleaseEvent', 'wheelEvent', 'focusInEvent', 'focusOutEvent',
   'contextMenuEvent', 'changeEvent', 'closeEvent', 'hideEvent',
   'mousePressEvent', 'mouseReleaseEvent', 'mouseMoveEvent', 'timerEvent',
-  'paintEvent', 'showEvent', 'initStyleOption', 'stepEnabled'. It can be made
-  from Python, in 1 way; see '__init__'.
+  'paintEvent', 'showEvent', 'initStyleOption', 'lineEdit', 'setLineEdit',
+  'stepEnabled'. It can be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -84,8 +85,9 @@ class QAbstractSpinBox(QWidget):
   What has no ritual
   ------------------
 
-  15 of the 69 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 3 private; 3 protected; 2 a signal; 2 forbidden; 1 a template.
+  13 of the 69 functions Qt declares: 7 takes or gives a type that cannot be
+  passed yet; 2 a signal; 2 forbidden; 1 a template; 1 declared and nowhere
+  to be found.
 
   What to expect
   --------------
@@ -524,6 +526,24 @@ class QAbstractSpinBox(QWidget):
     from ..QtCore import QVariant
     return QVariant._cuteOwning(address)
 
+  def lineEdit(self) -> Optional[QLineEdit]:
+    """
+    Calls Qt's 'QLineEdit *QAbstractSpinBox::lineEdit() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qabstractspinbox.html#lineEdit
+
+    Returns
+    -------
+
+    Optional[QLineEdit]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QLineEdit *QAbstractSpinBox::lineEdit() const
+    address = self.uglySide.call('ritual_ZNK16QAbstractSpinBox8lineEditEv')
+    from . import QLineEdit
+    return QLineEdit._cuteAt(address)
+
   def stepEnabled(self) -> StepEnabled:
     """
     Calls Qt's 'StepEnabled QAbstractSpinBox::stepEnabled() const'.
@@ -537,9 +557,10 @@ class QAbstractSpinBox(QWidget):
       The value standing for the combination Qt gave back.
     """
     #  StepEnabled QAbstractSpinBox::stepEnabled() const
-    return QAbstractSpinBox.StepEnabled(self.uglySide.call(
-        'ritual_own_ZNK16QAbstractSpinBox11stepEnabledEv',
-    ))
+    ritual = 'ritual_ZNK16QAbstractSpinBox11stepEnabledEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK16QAbstractSpinBox11stepEnabledEv'
+    return QAbstractSpinBox.StepEnabled(self.uglySide.call(ritual))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -729,6 +750,27 @@ class QAbstractSpinBox(QWidget):
         'ritual_ZN16QAbstractSpinBox22setGroupSeparatorShownEb', shown,
     )
 
+  @overload(QLineEdit)
+  @overload(NoneType)
+  def setLineEdit(self, edit: Optional[QLineEdit]) -> None:
+    """
+    Calls Qt's 'void QAbstractSpinBox::setLineEdit(QLineEdit *edit)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qabstractspinbox.html#setLineEdit
+
+    Parameters
+    ----------
+
+    edit : Optional[QLineEdit]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QAbstractSpinBox::setLineEdit(QLineEdit *edit)
+    self.uglySide.call(
+        'ritual_ZN16QAbstractSpinBox11setLineEditEP9QLineEdit',
+        self._addressOf(edit),
+    )
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -890,10 +932,10 @@ class QAbstractSpinBox(QWidget):
       object.
     """
     #  void QAbstractSpinBox::resizeEvent(QResizeEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN16QAbstractSpinBox11resizeEventEP12QResizeEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN16QAbstractSpinBox11resizeEventEP12QResizeEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN16QAbstractSpinBox11resizeEventEP12QResizeEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QKeyEvent)
   @overload(NoneType)
@@ -912,10 +954,10 @@ class QAbstractSpinBox(QWidget):
       object.
     """
     #  void QAbstractSpinBox::keyPressEvent(QKeyEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN16QAbstractSpinBox13keyPressEventEP9QKeyEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN16QAbstractSpinBox13keyPressEventEP9QKeyEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN16QAbstractSpinBox13keyPressEventEP9QKeyEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QKeyEvent)
   @overload(NoneType)
@@ -934,10 +976,10 @@ class QAbstractSpinBox(QWidget):
       object.
     """
     #  void QAbstractSpinBox::keyReleaseEvent(QKeyEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN16QAbstractSpinBox15keyReleaseEventEP9QKeyEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN16QAbstractSpinBox15keyReleaseEventEP9QKeyEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN16QAbstractSpinBox15keyReleaseEventEP9QKeyEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QWheelEvent)
   @overload(NoneType)
@@ -955,10 +997,10 @@ class QAbstractSpinBox(QWidget):
       object.
     """
     #  void QAbstractSpinBox::wheelEvent(QWheelEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN16QAbstractSpinBox10wheelEventEP11QWheelEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN16QAbstractSpinBox10wheelEventEP11QWheelEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN16QAbstractSpinBox10wheelEventEP11QWheelEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QFocusEvent)
   @overload(NoneType)
@@ -976,10 +1018,10 @@ class QAbstractSpinBox(QWidget):
       object.
     """
     #  void QAbstractSpinBox::focusInEvent(QFocusEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN16QAbstractSpinBox12focusInEventEP11QFocusEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN16QAbstractSpinBox12focusInEventEP11QFocusEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN16QAbstractSpinBox12focusInEventEP11QFocusEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QFocusEvent)
   @overload(NoneType)
@@ -998,10 +1040,11 @@ class QAbstractSpinBox(QWidget):
       object.
     """
     #  void QAbstractSpinBox::focusOutEvent(QFocusEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN16QAbstractSpinBox13focusOutEventEP11QFocusEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN16QAbstractSpinBox13focusOutEventEP11QFocusEvent'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN16QAbstractSpinBox13focusOutEventEP11QFocusEvent')
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QContextMenuEvent)
   @overload(NoneType)
@@ -1021,11 +1064,13 @@ class QAbstractSpinBox(QWidget):
       object.
     """
     #  void QAbstractSpinBox::contextMenuEvent(QContextMenuEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN16QAbstractSpinBox16contextMenuEventEP17QContextMenuE'
-        'vent',
-        self._addressOf(event),
-    )
+    ritual = (
+        'ritual_ZN16QAbstractSpinBox16contextMenuEventEP17QContextMenuEvent')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN16QAbstractSpinBox16contextMenuEventEP17QContextMen'
+          'uEvent')
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QEvent)
   @overload(NoneType)
@@ -1043,10 +1088,10 @@ class QAbstractSpinBox(QWidget):
       object.
     """
     #  void QAbstractSpinBox::changeEvent(QEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN16QAbstractSpinBox11changeEventEP6QEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN16QAbstractSpinBox11changeEventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN16QAbstractSpinBox11changeEventEP6QEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QCloseEvent)
   @overload(NoneType)
@@ -1064,10 +1109,10 @@ class QAbstractSpinBox(QWidget):
       object.
     """
     #  void QAbstractSpinBox::closeEvent(QCloseEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN16QAbstractSpinBox10closeEventEP11QCloseEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN16QAbstractSpinBox10closeEventEP11QCloseEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN16QAbstractSpinBox10closeEventEP11QCloseEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QHideEvent)
   @overload(NoneType)
@@ -1085,10 +1130,10 @@ class QAbstractSpinBox(QWidget):
       object.
     """
     #  void QAbstractSpinBox::hideEvent(QHideEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN16QAbstractSpinBox9hideEventEP10QHideEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN16QAbstractSpinBox9hideEventEP10QHideEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN16QAbstractSpinBox9hideEventEP10QHideEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QMouseEvent)
   @overload(NoneType)
@@ -1107,10 +1152,11 @@ class QAbstractSpinBox(QWidget):
       object.
     """
     #  void QAbstractSpinBox::mousePressEvent(QMouseEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN16QAbstractSpinBox15mousePressEventEP11QMouseEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN16QAbstractSpinBox15mousePressEventEP11QMouseEvent'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN16QAbstractSpinBox15mousePressEventEP11QMouseEvent')
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QMouseEvent)
   @overload(NoneType)
@@ -1130,10 +1176,12 @@ class QAbstractSpinBox(QWidget):
       object.
     """
     #  void QAbstractSpinBox::mouseReleaseEvent(QMouseEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN16QAbstractSpinBox17mouseReleaseEventEP11QMouseEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN16QAbstractSpinBox17mouseReleaseEventEP11QMouseEvent'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN16QAbstractSpinBox17mouseReleaseEventEP11QMouseEven'
+          't')
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QMouseEvent)
   @overload(NoneType)
@@ -1152,10 +1200,11 @@ class QAbstractSpinBox(QWidget):
       object.
     """
     #  void QAbstractSpinBox::mouseMoveEvent(QMouseEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN16QAbstractSpinBox14mouseMoveEventEP11QMouseEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN16QAbstractSpinBox14mouseMoveEventEP11QMouseEvent'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN16QAbstractSpinBox14mouseMoveEventEP11QMouseEvent')
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QTimerEvent)
   @overload(NoneType)
@@ -1173,10 +1222,10 @@ class QAbstractSpinBox(QWidget):
       object.
     """
     #  void QAbstractSpinBox::timerEvent(QTimerEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN16QAbstractSpinBox10timerEventEP11QTimerEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN16QAbstractSpinBox10timerEventEP11QTimerEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN16QAbstractSpinBox10timerEventEP11QTimerEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QPaintEvent)
   @overload(NoneType)
@@ -1194,10 +1243,10 @@ class QAbstractSpinBox(QWidget):
       object.
     """
     #  void QAbstractSpinBox::paintEvent(QPaintEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN16QAbstractSpinBox10paintEventEP11QPaintEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN16QAbstractSpinBox10paintEventEP11QPaintEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN16QAbstractSpinBox10paintEventEP11QPaintEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QShowEvent)
   @overload(NoneType)
@@ -1215,10 +1264,10 @@ class QAbstractSpinBox(QWidget):
       object.
     """
     #  void QAbstractSpinBox::showEvent(QShowEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN16QAbstractSpinBox9showEventEP10QShowEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN16QAbstractSpinBox9showEventEP10QShowEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN16QAbstractSpinBox9showEventEP10QShowEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QStyleOptionSpinBox)
   @overload(NoneType)
@@ -1239,8 +1288,11 @@ class QAbstractSpinBox(QWidget):
     """
     #  void QAbstractSpinBox::initStyleOption(QStyleOptionSpinBox *option)
     #      const
-    self.uglySide.call(
-        'ritual_own_ZNK16QAbstractSpinBox15initStyleOptionEP19QStyleOptionS'
-        'pinBox',
-        self._addressOf(option),
-    )
+    ritual = (
+        'ritual_ZNK16QAbstractSpinBox15initStyleOptionEP19QStyleOptionSpinB'
+        'ox')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK16QAbstractSpinBox15initStyleOptionEP19QStyleOptio'
+          'nSpinBox')
+    self.uglySide.call(ritual, self._addressOf(option))

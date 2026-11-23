@@ -34,10 +34,10 @@ class QOperatingSystemVersionBase(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QOperatingSystemVersionBase that has a ritual and
-  that Python can call so far, 13 names in all: 'current', 'name',
+  that Python can call so far, 14 names in all: 'current', 'name',
   'currentType', 'version', 'majorVersion', 'minorVersion', 'microVersion',
-  'segmentCount', 'type', '__gt__', '__ge__', '__lt__', '__le__'. It can be
-  made from Python, in 1 way; see '__init__'.
+  'segmentCount', 'type', 'compare', '__gt__', '__ge__', '__lt__', '__le__'.
+  It can be made from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -49,8 +49,8 @@ class QOperatingSystemVersionBase(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  5 of the 21 functions Qt declares: 2 takes or gives a type that cannot be
-  passed yet; 2 protected; 1 private.
+  3 of the 21 functions Qt declares: 2 takes or gives a type that cannot be
+  passed yet; 1 declared and nowhere to be found.
 
   What to expect
   --------------
@@ -181,6 +181,38 @@ class QOperatingSystemVersionBase(CuteMixin, metaclass=MetaCute):
     return QOperatingSystemVersionBase.OSType(Rituals.call(
         'ritual_ZN27QOperatingSystemVersionBase11currentTypeEv',
     ))
+
+  @staticmethod
+  @overload(THIS, THIS)
+  def compare(
+      v1: QOperatingSystemVersionBase,
+      v2: QOperatingSystemVersionBase,
+  ) -> int:
+    """
+    Calls Qt's 'int
+    QOperatingSystemVersionBase::compare(QOperatingSystemVersionBase v1,
+    QOperatingSystemVersionBase v2)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qoperatingsystemversionbase.html#compare
+
+    Parameters
+    ----------
+
+    v1 : QOperatingSystemVersionBase
+      Passed on as a value: Qt reads the C++ QOperatingSystemVersionBase,
+      which stays Python's own.
+
+    v2 : QOperatingSystemVersionBase
+      Passed on as a value: Qt reads the C++ QOperatingSystemVersionBase,
+      which stays Python's own.
+    """
+    #  int QOperatingSystemVersionBase::compare(QOperatingSystemVersionBase
+    #      v1, QOperatingSystemVersionBase v2)
+    return Rituals.call(
+        'ritual_ZN27QOperatingSystemVersionBase7compareES_S_',
+        CuteMixin._valueOf(v1), CuteMixin._valueOf(v2),
+    )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -476,6 +508,21 @@ class QOperatingSystemVersionBase(CuteMixin, metaclass=MetaCute):
     self._noteCreation(QOperatingSystemVersionBase, lambda: Rituals.call(
         'ritual_ZN27QOperatingSystemVersionBaseC1ENS_6OSTypeEiii',
         osType.value, vmajor, vminor, vmicro,
+    ))
+
+  @overload()
+  def __init__(self) -> None:
+    """
+    Notes what was given, for Qt's
+    'QOperatingSystemVersionBase::QOperatingSystemVersionBase()', which is
+    called at the first use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qoperatingsystemversionbase.html
+    """
+    #  QOperatingSystemVersionBase::QOperatingSystemVersionBase()
+    self._noteCreation(QOperatingSystemVersionBase, lambda: Rituals.call(
+        'ritual_ZN27QOperatingSystemVersionBaseC1Ev',
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -19,14 +19,15 @@ from . import QAbstractItemView, QTreeView, QWidget
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from ..QtCore import QEvent, QMetaObject, QMimeData, QModelIndex, QPoint
-  from ..QtCore import QRect
+  from ..QtCore import QAbstractItemModel, QEvent, QMetaObject, QMimeData
+  from ..QtCore import QModelIndex, QPoint, QRect
   from ..QtGui import QDropEvent
   from . import QTreeWidgetItem
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
+  QAbstractItemModel = WAIT['QAbstractItemModel']
   QDropEvent = WAIT['QDropEvent']
   QEvent = WAIT['QEvent']
   QMimeData = WAIT['QMimeData']
@@ -51,7 +52,7 @@ class QTreeWidget(QTreeView):
   -----------
 
   Every function of Qt's QTreeWidget that has a ritual and that Python can
-  call so far, 48 names in all: 'metaObject', 'tr', 'columnCount',
+  call so far, 51 names in all: 'metaObject', 'tr', 'columnCount',
   'setColumnCount', 'invisibleRootItem', 'topLevelItem', 'topLevelItemCount',
   'insertTopLevelItem', 'addTopLevelItem', 'takeTopLevelItem',
   'indexOfTopLevelItem', 'insertTopLevelItems', 'addTopLevelItems',
@@ -63,8 +64,9 @@ class QTreeWidget(QTreeView):
   'findItems', 'itemAbove', 'itemBelow', 'indexFromItem', 'itemFromIndex',
   'setSelectionModel', 'supportedDragActions', 'setSupportedDragActions',
   'scrollToItem', 'expandItem', 'collapseItem', 'clear', 'event',
-  'dropMimeData', 'supportedDropActions', 'dropEvent'. It can be made from
-  Python, in 1 way; see '__init__'.
+  'mimeTypes', 'mimeData', 'dropMimeData', 'supportedDropActions',
+  'dropEvent', 'setModel'. It can be made from Python, in 1 way; see
+  '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -75,9 +77,9 @@ class QTreeWidget(QTreeView):
   What has no ritual
   ------------------
 
-  21 of the 74 functions Qt declares: 10 a signal; 4 private; 2 takes or
-  gives a type that cannot be passed yet; 2 protected; 2 forbidden; 1 a
-  template.
+  18 of the 74 functions Qt declares: 10 a signal; 4 takes or gives a type
+  that cannot be passed yet; 2 forbidden; 1 a template; 1 declared and
+  nowhere to be found.
 
   What to expect
   --------------
@@ -740,6 +742,54 @@ class QTreeWidget(QTreeView):
         'ritual_ZNK11QTreeWidget20supportedDragActionsEv',
     ))
 
+  def mimeTypes(self) -> QStringList:
+    """
+    Calls Qt's 'QStringList QTreeWidget::mimeTypes() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtreewidget.html#mimeTypes
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QTreeWidget::mimeTypes() const
+    address = self.uglySide.call('ritual_ZNK11QTreeWidget9mimeTypesEv')
+    return QStringList._cuteOwning(address)
+
+  @overload(QList[QTreeWidgetItem])
+  def mimeData(self, items: QList[QTreeWidgetItem]) -> Optional[QMimeData]:
+    """
+    Calls Qt's 'QMimeData *QTreeWidget::mimeData(const QList<QTreeWidgetItem
+    *> &items) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtreewidget.html#mimeData
+
+    Parameters
+    ----------
+
+    items : QList[QTreeWidgetItem]
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+
+    Returns
+    -------
+
+    Optional[QMimeData]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QMimeData *QTreeWidget::mimeData(const QList<QTreeWidgetItem *>
+    #      &items) const
+    address = self.uglySide.call(
+        'ritual_ZNK11QTreeWidget8mimeDataERK5QListIP15QTreeWidgetItemE',
+        self._valueOf(items),
+    )
+    from ..QtCore import QMimeData
+    return QMimeData._cuteAt(address)
+
   def supportedDropActions(self) -> Qt.DropActions:
     """
     Calls Qt's 'Qt::DropActions QTreeWidget::supportedDropActions() const'.
@@ -754,9 +804,10 @@ class QTreeWidget(QTreeView):
       The value standing for the combination Qt gave back.
     """
     #  Qt::DropActions QTreeWidget::supportedDropActions() const
-    return Qt.DropActions(self.uglySide.call(
-        'ritual_own_ZNK11QTreeWidget20supportedDropActionsEv',
-    ))
+    ritual = 'ritual_ZNK11QTreeWidget20supportedDropActionsEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK11QTreeWidget20supportedDropActionsEv'
+    return Qt.DropActions(self.uglySide.call(ritual))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1011,6 +1062,27 @@ class QTreeWidget(QTreeView):
         'ActionEE',
         actions.value,
     )
+
+  @overload(QAbstractItemModel)
+  @overload(NoneType)
+  def setModel(self, model: Optional[QAbstractItemModel]) -> None:
+    """
+    Calls Qt's 'void QTreeWidget::setModel(QAbstractItemModel *model)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtreewidget.html#setModel
+
+    Parameters
+    ----------
+
+    model : Optional[QAbstractItemModel]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QTreeWidget::setModel(QAbstractItemModel *model)
+    ritual = 'ritual_ZN11QTreeWidget8setModelEP18QAbstractItemModel'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QTreeWidget8setModelEP18QAbstractItemModel'
+    self.uglySide.call(ritual, self._addressOf(model))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1451,9 +1523,10 @@ class QTreeWidget(QTreeView):
       object.
     """
     #  bool QTreeWidget::event(QEvent *e)
-    return self.uglySide.call(
-        'ritual_own_ZN11QTreeWidget5eventEP6QEvent', self._addressOf(e),
-    )
+    ritual = 'ritual_ZN11QTreeWidget5eventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QTreeWidget5eventEP6QEvent'
+    return self.uglySide.call(ritual, self._addressOf(e))
 
   @overload(QTreeWidgetItem, int, QMimeData, Qt.DropAction)
   @overload(QTreeWidgetItem, int, NoneType, Qt.DropAction)
@@ -1491,9 +1564,15 @@ class QTreeWidget(QTreeView):
     """
     #  bool QTreeWidget::dropMimeData(QTreeWidgetItem *parent, int index,
     #      const QMimeData *data, Qt::DropAction action)
+    ritual = (
+        'ritual_ZN11QTreeWidget12dropMimeDataEP15QTreeWidgetItemiPK9QMimeDa'
+        'taN2Qt10DropActionE')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN11QTreeWidget12dropMimeDataEP15QTreeWidgetItemiPK9Q'
+          'MimeDataN2Qt10DropActionE')
     return self.uglySide.call(
-        'ritual_own_ZN11QTreeWidget12dropMimeDataEP15QTreeWidgetItemiPK9QMi'
-        'meDataN2Qt10DropActionE',
+        ritual,
         self._addressOf(parent), index, self._addressOf(data), action.value,
     )
 
@@ -1513,7 +1592,7 @@ class QTreeWidget(QTreeView):
       object.
     """
     #  void QTreeWidget::dropEvent(QDropEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN11QTreeWidget9dropEventEP10QDropEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN11QTreeWidget9dropEventEP10QDropEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QTreeWidget9dropEventEP10QDropEvent'
+    self.uglySide.call(ritual, self._addressOf(event))

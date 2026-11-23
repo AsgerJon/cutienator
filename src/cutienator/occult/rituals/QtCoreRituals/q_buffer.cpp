@@ -475,6 +475,31 @@ bool ritual_ZNK7QBuffer11canReadLineEv(const QBuffer *self) {
   return self->canReadLine();
 }
 
+//  void QBuffer::connectNotify(const QMetaMethod &a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QBuffer13connectNotifyERK11QMetaMethod(
+    QBuffer *self,
+    const QMetaMethod *a0) {
+  self->connectNotify(*a0);
+}
+
+//  void QBuffer::disconnectNotify(const QMetaMethod &a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QBuffer16disconnectNotifyERK11QMetaMethod(
+    QBuffer *self,
+    const QMetaMethod *a0) {
+  self->disconnectNotify(*a0);
+}
+
+//  qint64 QBuffer::writeData(const char *data, qint64 len)
+extern "C" Q_DECL_EXPORT
+qint64 ritual_ZN7QBuffer9writeDataEPKcx(
+    QBuffer *self,
+    const char *data,
+    qint64 len) {
+  return self->writeData(data, len);
+}
+
 //  a Python function taken by a CuteQBuffer, for the function named by the
 //      key
 extern "C" Q_DECL_EXPORT

@@ -66,8 +66,9 @@ class QDockWidget(QWidget):
   What has no ritual
   ------------------
 
-  13 of the 38 functions Qt declares: 5 a signal; 3 private; 2 takes or gives
-  a type that cannot be passed yet; 2 forbidden; 1 a template.
+  13 of the 38 functions Qt declares: 5 a signal; 4 takes or gives a type
+  that cannot be passed yet; 2 forbidden; 1 a template; 1 declared and
+  nowhere to be found.
 
   What to expect
   --------------
@@ -588,10 +589,10 @@ class QDockWidget(QWidget):
       object.
     """
     #  void QDockWidget::changeEvent(QEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN11QDockWidget11changeEventEP6QEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN11QDockWidget11changeEventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QDockWidget11changeEventEP6QEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QCloseEvent)
   @overload(NoneType)
@@ -609,10 +610,10 @@ class QDockWidget(QWidget):
       object.
     """
     #  void QDockWidget::closeEvent(QCloseEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN11QDockWidget10closeEventEP11QCloseEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN11QDockWidget10closeEventEP11QCloseEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QDockWidget10closeEventEP11QCloseEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QPaintEvent)
   @overload(NoneType)
@@ -630,10 +631,10 @@ class QDockWidget(QWidget):
       object.
     """
     #  void QDockWidget::paintEvent(QPaintEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN11QDockWidget10paintEventEP11QPaintEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN11QDockWidget10paintEventEP11QPaintEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QDockWidget10paintEventEP11QPaintEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QEvent)
   @overload(NoneType)
@@ -651,9 +652,10 @@ class QDockWidget(QWidget):
       object.
     """
     #  bool QDockWidget::event(QEvent *event)
-    return self.uglySide.call(
-        'ritual_own_ZN11QDockWidget5eventEP6QEvent', self._addressOf(event),
-    )
+    ritual = 'ritual_ZN11QDockWidget5eventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QDockWidget5eventEP6QEvent'
+    return self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QStyleOptionDockWidget)
   @overload(NoneType)
@@ -676,11 +678,13 @@ class QDockWidget(QWidget):
     """
     #  void QDockWidget::initStyleOption(QStyleOptionDockWidget *option)
     #      const
-    self.uglySide.call(
-        'ritual_own_ZNK11QDockWidget15initStyleOptionEP22QStyleOptionDockWi'
-        'dget',
-        self._addressOf(option),
-    )
+    ritual = (
+        'ritual_ZNK11QDockWidget15initStyleOptionEP22QStyleOptionDockWidget')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK11QDockWidget15initStyleOptionEP22QStyleOptionDock'
+          'Widget')
+    self.uglySide.call(ritual, self._addressOf(option))
 
 
 #  Qt's 'QList<QDockWidget *>': the list of QDockWidget, which

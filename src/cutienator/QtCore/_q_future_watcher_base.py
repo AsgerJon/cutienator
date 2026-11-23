@@ -18,7 +18,7 @@ from . import QObject
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from . import QEvent, QMetaMethod, QMetaObject
+  from . import QEvent, QFutureInterfaceBase, QMetaMethod, QMetaObject
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -43,21 +43,22 @@ class QFutureWatcherBase(QObject):
   -----------
 
   Every function of Qt's QFutureWatcherBase that has a ritual and that Python
-  can call so far, 26 names in all: 'metaObject', 'tr', 'progressValue',
+  can call so far, 29 names in all: 'metaObject', 'tr', 'progressValue',
   'progressMinimum', 'progressMaximum', 'progressText', 'isStarted',
   'isFinished', 'isRunning', 'isCanceled', 'isPaused', 'isSuspending',
   'isSuspended', 'waitForFinished', 'setPendingResultsLimit', 'event',
   'cancel', 'setSuspended', 'suspend', 'resume', 'toggleSuspended',
-  'setPaused', 'pause', 'togglePaused', 'connectNotify', 'disconnectNotify'.
+  'setPaused', 'pause', 'togglePaused', 'connectNotify', 'disconnectNotify',
+  'connectOutputInterface', 'disconnectOutputInterface', 'futureInterface'.
   None can be made from Python: one comes out of a function of another class
   that gives one back.
 
   What has no ritual
   ------------------
 
-  23 of the 49 functions Qt declares: 12 a signal; 5 private; 2 takes or
-  gives a type that cannot be passed yet; 2 protected; 1 a template; 1 the
-  class is abstract, so C++ cannot make one.
+  20 of the 49 functions Qt declares: 12 a signal; 5 takes or gives a type
+  that cannot be passed yet; 1 a template; 1 declared and nowhere to be
+  found; 1 the class is abstract, so C++ cannot make one.
 
   What to expect
   --------------
@@ -129,6 +130,18 @@ class QFutureWatcherBase(QObject):
   #  Class Variables
   #  The class of Qt this class stands for.
   __qt_class__ = 'QFutureWatcherBase'
+
+  #  The functions Qt calls itself that QFutureWatcherBase is the first to
+  #  declare. A class of a program built on it can write one anew, and Qt
+  #  then calls that. For each name: the key C++ knows the function by, what
+  #  it gives, and what it takes.
+  __virtual_functions__ = {
+      'futureInterface': (
+          ('_ZNK18QFutureWatcherBase15futureInterfaceEv',
+           ('address', 'value', 'QtCore:QFutureInterfaceBase'),
+           ()),
+      ),
+  }
 
   #  Fallback Variables
 
@@ -284,6 +297,29 @@ class QFutureWatcherBase(QObject):
     return self.uglySide.call(
         'ritual_ZNK18QFutureWatcherBase11isSuspendedEv',
     )
+
+  def futureInterface(self) -> QFutureInterfaceBase:
+    """
+    Calls Qt's 'const QFutureInterfaceBase
+    &QFutureWatcherBase::futureInterface() const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qfuturewatcherbase.html#futureInterface
+
+    Returns
+    -------
+
+    QFutureInterfaceBase
+      A new cute QFutureInterfaceBase around the copy Qt gave back. Python
+      owns it.
+    """
+    #  const QFutureInterfaceBase &QFutureWatcherBase::futureInterface()
+    #      const
+    address = self.uglySide.call(
+        'ritual_ZNK18QFutureWatcherBase15futureInterfaceEv',
+    )
+    from . import QFutureInterfaceBase
+    return QFutureInterfaceBase._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -479,10 +515,11 @@ class QFutureWatcherBase(QObject):
       Python's own.
     """
     #  void QFutureWatcherBase::connectNotify(const QMetaMethod &signal)
-    self.uglySide.call(
-        'ritual_own_ZN18QFutureWatcherBase13connectNotifyERK11QMetaMethod',
-        self._valueOf(signal),
-    )
+    ritual = 'ritual_ZN18QFutureWatcherBase13connectNotifyERK11QMetaMethod'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN18QFutureWatcherBase13connectNotifyERK11QMetaMethod')
+    self.uglySide.call(ritual, self._valueOf(signal))
 
   @overload(QMetaMethod)
   def disconnectNotify(self, signal: QMetaMethod) -> None:
@@ -501,8 +538,48 @@ class QFutureWatcherBase(QObject):
       Python's own.
     """
     #  void QFutureWatcherBase::disconnectNotify(const QMetaMethod &signal)
+    ritual = (
+        'ritual_ZN18QFutureWatcherBase16disconnectNotifyERK11QMetaMethod')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN18QFutureWatcherBase16disconnectNotifyERK11QMetaMet'
+          'hod')
+    self.uglySide.call(ritual, self._valueOf(signal))
+
+  def connectOutputInterface(self) -> None:
+    """
+    Calls Qt's 'void QFutureWatcherBase::connectOutputInterface()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qfuturewatcherbase.html#connectOutputInterface
+    """
+    #  void QFutureWatcherBase::connectOutputInterface()
     self.uglySide.call(
-        'ritual_own_ZN18QFutureWatcherBase16disconnectNotifyERK11QMetaMetho'
-        'd',
-        self._valueOf(signal),
+        'ritual_ZN18QFutureWatcherBase22connectOutputInterfaceEv',
+    )
+
+  @overload()
+  @overload(bool)
+  def disconnectOutputInterface(
+      self,
+      pendingAssignment: bool = False,
+  ) -> None:
+    """
+    Calls Qt's 'void QFutureWatcherBase::disconnectOutputInterface(bool
+    pendingAssignment)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qfuturewatcherbase.html#disconnectOutputInterface
+
+    Parameters
+    ----------
+
+    pendingAssignment : bool
+      Passed on as it is. May be left out, as in Qt: it is then False.
+    """
+    #  void QFutureWatcherBase::disconnectOutputInterface(bool
+    #      pendingAssignment)
+    self.uglySide.call(
+        'ritual_ZN18QFutureWatcherBase25disconnectOutputInterfaceEb',
+        pendingAssignment,
     )

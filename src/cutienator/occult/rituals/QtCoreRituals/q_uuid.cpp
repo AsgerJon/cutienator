@@ -6,6 +6,13 @@
 #include <QtCore/qbytearray.h>
 #include <QtCore/qbytearrayview.h>
 #include <QtCore/qnamespace.h>
+#include <QtCore/qcompare.h>
+
+//  QUuid::QUuid(Qt::Initialization a0)
+extern "C" Q_DECL_EXPORT
+QUuid *ritual_ZN5QUuidC1EN2Qt14InitializationE(Qt::Initialization a0) {
+  return new QUuid(a0);
+}
 
 //  QUuid::QUuid()
 extern "C" Q_DECL_EXPORT
@@ -96,6 +103,15 @@ bool ritual_ZNK5QUuid6isNullEN2Qt15Disambiguated_tE(
   return self->isNull(*a0);
 }
 
+//  Qt::strong_ordering QUuid::compareThreeWay_helper(const QUuid &lhs, const
+//      QUuid &rhs)
+extern "C" Q_DECL_EXPORT
+Qt::strong_ordering *ritual_ZN5QUuid22compareThreeWay_helperERKS_S1_(
+    const QUuid *lhs,
+    const QUuid *rhs) {
+  return new Qt::strong_ordering(QUuid::compareThreeWay_helper(*lhs, *rhs));
+}
+
 //  bool operator==(const QUuid &lhs, const QUuid &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZeqRK5QUuidS1_(const QUuid *lhs, const QUuid *rhs) {
@@ -158,6 +174,12 @@ QUuid *ritual_ZN5QUuid12createUuidV3ES_14QByteArrayView(
 extern "C" Q_DECL_EXPORT
 QUuid *ritual_ZN5QUuid12createUuidV7Ev() {
   return new QUuid(QUuid::createUuidV7());
+}
+
+//  bool QUuid::isKnownVersion(Version v)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN5QUuid14isKnownVersionENS_7VersionE(QUuid::Version v) {
+  return QUuid::isKnownVersion(v);
 }
 
 //  Variant QUuid::variant(Qt::Disambiguated_t a0) const

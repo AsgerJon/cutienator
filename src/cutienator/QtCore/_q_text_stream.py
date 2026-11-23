@@ -77,8 +77,8 @@ class QTextStream(QIODeviceBase):
   What has no ritual
   ------------------
 
-  40 of the 86 functions Qt declares: 36 takes or gives a type that cannot be
-  passed yet; 2 private; 2 forbidden.
+  40 of the 86 functions Qt declares: 38 takes or gives a type that cannot be
+  passed yet; 2 forbidden.
 
   What to expect
   --------------

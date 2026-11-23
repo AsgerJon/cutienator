@@ -51,6 +51,8 @@
     "ritual_ZgtRK5QCharS1_": ["bool", "address", "address"],
     "ritual_ZleRK5QCharS1_": ["bool", "address", "address"],
     "ritual_ZgeRK5QCharS1_": ["bool", "address", "address"],
+    "ritual_ZN5QChar12equal_helperES_PKc": ["bool", "address", "chars"],
+    "ritual_ZN5QChar14compare_helperES_PKc": ["int", "address", "chars"],
     "ritual_ZN5QCharD1Ev": ["nothing", "address"]
   }
 }

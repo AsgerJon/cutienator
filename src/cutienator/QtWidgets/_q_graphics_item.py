@@ -70,7 +70,7 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QGraphicsItem that has a ritual and that Python can
-  call so far, 158 names in all: 'scene', 'parentItem', 'topLevelItem',
+  call so far, 162 names in all: 'scene', 'parentItem', 'topLevelItem',
   'parentObject', 'parentWidget', 'topLevelWidget', 'window', 'panel',
   'setParentItem', 'childItems', 'isWidget', 'isWindow', 'isPanel',
   'toGraphicsObject', 'group', 'setGroup', 'flags', 'setFlag', 'setFlags',
@@ -100,15 +100,16 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
   'mapFromParent', 'mapFromScene', 'mapRectFromItem', 'mapRectFromParent',
   'mapRectFromScene', 'isAncestorOf', 'commonAncestorItem', 'isUnderMouse',
   'data', 'setData', 'inputMethodHints', 'setInputMethodHints', 'type',
-  'installSceneEventFilter', 'removeSceneEventFilter', 'sceneEventFilter',
-  'sceneEvent', 'contextMenuEvent', 'dragEnterEvent', 'dragLeaveEvent',
-  'dragMoveEvent', 'dropEvent', 'focusInEvent', 'focusOutEvent',
-  'hoverEnterEvent', 'hoverMoveEvent', 'hoverLeaveEvent', 'keyPressEvent',
-  'keyReleaseEvent', 'mousePressEvent', 'mouseMoveEvent',
+  'installSceneEventFilter', 'removeSceneEventFilter', 'updateMicroFocus',
+  'sceneEventFilter', 'sceneEvent', 'contextMenuEvent', 'dragEnterEvent',
+  'dragLeaveEvent', 'dragMoveEvent', 'dropEvent', 'focusInEvent',
+  'focusOutEvent', 'hoverEnterEvent', 'hoverMoveEvent', 'hoverLeaveEvent',
+  'keyPressEvent', 'keyReleaseEvent', 'mousePressEvent', 'mouseMoveEvent',
   'mouseReleaseEvent', 'mouseDoubleClickEvent', 'wheelEvent',
-  'inputMethodEvent', 'inputMethodQuery', 'itemChange', 'extension'. None can
-  be made from Python: one comes out of a function of another class that
-  gives one back.
+  'inputMethodEvent', 'inputMethodQuery', 'itemChange', 'extension',
+  'addToIndex', 'removeFromIndex', 'prepareGeometryChange'. None can be made
+  from Python: one comes out of a function of another class that gives one
+  back.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -120,13 +121,18 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     takes.
   - Qt's 'QTransform QGraphicsItem::itemTransform(const QGraphicsItem *other,
     bool *ok) const': takes a number to change where it is.
+  - Qt's 'bool QGraphicsItem::supportsExtension(Extension extension) const':
+    names the enum 'QGraphicsItem::Extension', whose class cannot be named
+    here.
+  - Qt's 'void QGraphicsItem::setExtension(Extension extension, const
+    QVariant &variant)': names the enum 'QGraphicsItem::Extension', whose
+    class cannot be named here.
 
   What has no ritual
   ------------------
 
-  13 of the 215 functions Qt declares: 7 protected; 2 forbidden; 2 private; 1
-  the class is abstract, so C++ cannot make one; 1 takes or gives a type that
-  cannot be passed yet.
+  7 of the 215 functions Qt declares: 3 takes or gives a type that cannot be
+  passed yet; 2 the class is abstract, so C++ cannot make one; 2 forbidden.
 
   What to expect
   --------------
@@ -3577,12 +3583,14 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     """
     #  QVariant QGraphicsItem::inputMethodQuery(Qt::InputMethodQuery query)
     #      const
-    address = self._callAs(
-        'QGraphicsItem',
-        'ritual_own_ZNK13QGraphicsItem16inputMethodQueryEN2Qt16InputMethodQ'
-        'ueryE',
-        query.value,
-    )
+    ritual = (
+        'ritual_ZNK13QGraphicsItem16inputMethodQueryEN2Qt16InputMethodQuery'
+        'E')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK13QGraphicsItem16inputMethodQueryEN2Qt16InputMetho'
+          'dQueryE')
+    address = self._callAs('QGraphicsItem', ritual, query.value)
     from ..QtCore import QVariant
     return QVariant._cuteOwning(address)
 
@@ -3608,11 +3616,10 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       A new cute QVariant around the copy Qt gave back. Python owns it.
     """
     #  QVariant QGraphicsItem::extension(const QVariant &variant) const
-    address = self._callAs(
-        'QGraphicsItem',
-        'ritual_own_ZNK13QGraphicsItem9extensionERK8QVariant',
-        self._valueOf(variant),
-    )
+    ritual = 'ritual_ZNK13QGraphicsItem9extensionERK8QVariant'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK13QGraphicsItem9extensionERK8QVariant'
+    address = self._callAs('QGraphicsItem', ritual, self._valueOf(variant))
     from ..QtCore import QVariant
     return QVariant._cuteOwning(address)
 
@@ -4858,6 +4865,18 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
         self._addressOf(filterItem, 'QGraphicsItem'),
     )
 
+  def updateMicroFocus(self) -> None:
+    """
+    Calls Qt's 'void QGraphicsItem::updateMicroFocus()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicsitem.html#updateMicroFocus
+    """
+    #  void QGraphicsItem::updateMicroFocus()
+    self._callAs(
+        'QGraphicsItem', 'ritual_ZN13QGraphicsItem16updateMicroFocusEv',
+    )
+
   @overload(THIS, QEvent)
   @overload(THIS, NoneType)
   @overload(NoneType, QEvent)
@@ -4887,9 +4906,11 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     """
     #  bool QGraphicsItem::sceneEventFilter(QGraphicsItem *watched, QEvent
     #      *event)
+    ritual = 'ritual_ZN13QGraphicsItem16sceneEventFilterEPS_P6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN13QGraphicsItem16sceneEventFilterEPS_P6QEvent'
     return self._callAs(
-        'QGraphicsItem',
-        'ritual_own_ZN13QGraphicsItem16sceneEventFilterEPS_P6QEvent',
+        'QGraphicsItem', ritual,
         self._addressOf(watched, 'QGraphicsItem'), self._addressOf(event),
     )
 
@@ -4909,10 +4930,10 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       object.
     """
     #  bool QGraphicsItem::sceneEvent(QEvent *event)
-    return self._callAs(
-        'QGraphicsItem', 'ritual_own_ZN13QGraphicsItem10sceneEventEP6QEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN13QGraphicsItem10sceneEventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN13QGraphicsItem10sceneEventEP6QEvent'
+    return self._callAs('QGraphicsItem', ritual, self._addressOf(event))
 
   @overload(QGraphicsSceneContextMenuEvent)
   @overload(NoneType)
@@ -4936,12 +4957,14 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     """
     #  void QGraphicsItem::contextMenuEvent(QGraphicsSceneContextMenuEvent
     #      *event)
-    self._callAs(
-        'QGraphicsItem',
-        'ritual_own_ZN13QGraphicsItem16contextMenuEventEP30QGraphicsSceneCo'
-        'ntextMenuEvent',
-        self._addressOf(event),
-    )
+    ritual = (
+        'ritual_ZN13QGraphicsItem16contextMenuEventEP30QGraphicsSceneContex'
+        'tMenuEvent')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN13QGraphicsItem16contextMenuEventEP30QGraphicsScene'
+          'ContextMenuEvent')
+    self._callAs('QGraphicsItem', ritual, self._addressOf(event))
 
   @overload(QGraphicsSceneDragDropEvent)
   @overload(NoneType)
@@ -4963,12 +4986,14 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       object.
     """
     #  void QGraphicsItem::dragEnterEvent(QGraphicsSceneDragDropEvent *event)
-    self._callAs(
-        'QGraphicsItem',
-        'ritual_own_ZN13QGraphicsItem14dragEnterEventEP27QGraphicsSceneDrag'
-        'DropEvent',
-        self._addressOf(event),
-    )
+    ritual = (
+        'ritual_ZN13QGraphicsItem14dragEnterEventEP27QGraphicsSceneDragDrop'
+        'Event')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN13QGraphicsItem14dragEnterEventEP27QGraphicsSceneDr'
+          'agDropEvent')
+    self._callAs('QGraphicsItem', ritual, self._addressOf(event))
 
   @overload(QGraphicsSceneDragDropEvent)
   @overload(NoneType)
@@ -4990,12 +5015,14 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       object.
     """
     #  void QGraphicsItem::dragLeaveEvent(QGraphicsSceneDragDropEvent *event)
-    self._callAs(
-        'QGraphicsItem',
-        'ritual_own_ZN13QGraphicsItem14dragLeaveEventEP27QGraphicsSceneDrag'
-        'DropEvent',
-        self._addressOf(event),
-    )
+    ritual = (
+        'ritual_ZN13QGraphicsItem14dragLeaveEventEP27QGraphicsSceneDragDrop'
+        'Event')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN13QGraphicsItem14dragLeaveEventEP27QGraphicsSceneDr'
+          'agDropEvent')
+    self._callAs('QGraphicsItem', ritual, self._addressOf(event))
 
   @overload(QGraphicsSceneDragDropEvent)
   @overload(NoneType)
@@ -5017,12 +5044,14 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       object.
     """
     #  void QGraphicsItem::dragMoveEvent(QGraphicsSceneDragDropEvent *event)
-    self._callAs(
-        'QGraphicsItem',
-        'ritual_own_ZN13QGraphicsItem13dragMoveEventEP27QGraphicsSceneDragD'
-        'ropEvent',
-        self._addressOf(event),
-    )
+    ritual = (
+        'ritual_ZN13QGraphicsItem13dragMoveEventEP27QGraphicsSceneDragDropE'
+        'vent')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN13QGraphicsItem13dragMoveEventEP27QGraphicsSceneDra'
+          'gDropEvent')
+    self._callAs('QGraphicsItem', ritual, self._addressOf(event))
 
   @overload(QGraphicsSceneDragDropEvent)
   @overload(NoneType)
@@ -5041,12 +5070,13 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       object.
     """
     #  void QGraphicsItem::dropEvent(QGraphicsSceneDragDropEvent *event)
-    self._callAs(
-        'QGraphicsItem',
-        'ritual_own_ZN13QGraphicsItem9dropEventEP27QGraphicsSceneDragDropEv'
-        'ent',
-        self._addressOf(event),
-    )
+    ritual = (
+        'ritual_ZN13QGraphicsItem9dropEventEP27QGraphicsSceneDragDropEvent')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN13QGraphicsItem9dropEventEP27QGraphicsSceneDragDrop'
+          'Event')
+    self._callAs('QGraphicsItem', ritual, self._addressOf(event))
 
   @overload(QFocusEvent)
   @overload(NoneType)
@@ -5064,11 +5094,10 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       object.
     """
     #  void QGraphicsItem::focusInEvent(QFocusEvent *event)
-    self._callAs(
-        'QGraphicsItem',
-        'ritual_own_ZN13QGraphicsItem12focusInEventEP11QFocusEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN13QGraphicsItem12focusInEventEP11QFocusEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN13QGraphicsItem12focusInEventEP11QFocusEvent'
+    self._callAs('QGraphicsItem', ritual, self._addressOf(event))
 
   @overload(QFocusEvent)
   @overload(NoneType)
@@ -5086,11 +5115,10 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       object.
     """
     #  void QGraphicsItem::focusOutEvent(QFocusEvent *event)
-    self._callAs(
-        'QGraphicsItem',
-        'ritual_own_ZN13QGraphicsItem13focusOutEventEP11QFocusEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN13QGraphicsItem13focusOutEventEP11QFocusEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN13QGraphicsItem13focusOutEventEP11QFocusEvent'
+    self._callAs('QGraphicsItem', ritual, self._addressOf(event))
 
   @overload(QGraphicsSceneHoverEvent)
   @overload(NoneType)
@@ -5112,12 +5140,14 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       object.
     """
     #  void QGraphicsItem::hoverEnterEvent(QGraphicsSceneHoverEvent *event)
-    self._callAs(
-        'QGraphicsItem',
-        'ritual_own_ZN13QGraphicsItem15hoverEnterEventEP24QGraphicsSceneHov'
-        'erEvent',
-        self._addressOf(event),
-    )
+    ritual = (
+        'ritual_ZN13QGraphicsItem15hoverEnterEventEP24QGraphicsSceneHoverEv'
+        'ent')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN13QGraphicsItem15hoverEnterEventEP24QGraphicsSceneH'
+          'overEvent')
+    self._callAs('QGraphicsItem', ritual, self._addressOf(event))
 
   @overload(QGraphicsSceneHoverEvent)
   @overload(NoneType)
@@ -5139,12 +5169,14 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       object.
     """
     #  void QGraphicsItem::hoverMoveEvent(QGraphicsSceneHoverEvent *event)
-    self._callAs(
-        'QGraphicsItem',
-        'ritual_own_ZN13QGraphicsItem14hoverMoveEventEP24QGraphicsSceneHove'
-        'rEvent',
-        self._addressOf(event),
-    )
+    ritual = (
+        'ritual_ZN13QGraphicsItem14hoverMoveEventEP24QGraphicsSceneHoverEve'
+        'nt')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN13QGraphicsItem14hoverMoveEventEP24QGraphicsSceneHo'
+          'verEvent')
+    self._callAs('QGraphicsItem', ritual, self._addressOf(event))
 
   @overload(QGraphicsSceneHoverEvent)
   @overload(NoneType)
@@ -5166,12 +5198,14 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       object.
     """
     #  void QGraphicsItem::hoverLeaveEvent(QGraphicsSceneHoverEvent *event)
-    self._callAs(
-        'QGraphicsItem',
-        'ritual_own_ZN13QGraphicsItem15hoverLeaveEventEP24QGraphicsSceneHov'
-        'erEvent',
-        self._addressOf(event),
-    )
+    ritual = (
+        'ritual_ZN13QGraphicsItem15hoverLeaveEventEP24QGraphicsSceneHoverEv'
+        'ent')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN13QGraphicsItem15hoverLeaveEventEP24QGraphicsSceneH'
+          'overEvent')
+    self._callAs('QGraphicsItem', ritual, self._addressOf(event))
 
   @overload(QKeyEvent)
   @overload(NoneType)
@@ -5189,11 +5223,10 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       object.
     """
     #  void QGraphicsItem::keyPressEvent(QKeyEvent *event)
-    self._callAs(
-        'QGraphicsItem',
-        'ritual_own_ZN13QGraphicsItem13keyPressEventEP9QKeyEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN13QGraphicsItem13keyPressEventEP9QKeyEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN13QGraphicsItem13keyPressEventEP9QKeyEvent'
+    self._callAs('QGraphicsItem', ritual, self._addressOf(event))
 
   @overload(QKeyEvent)
   @overload(NoneType)
@@ -5211,11 +5244,10 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       object.
     """
     #  void QGraphicsItem::keyReleaseEvent(QKeyEvent *event)
-    self._callAs(
-        'QGraphicsItem',
-        'ritual_own_ZN13QGraphicsItem15keyReleaseEventEP9QKeyEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN13QGraphicsItem15keyReleaseEventEP9QKeyEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN13QGraphicsItem15keyReleaseEventEP9QKeyEvent'
+    self._callAs('QGraphicsItem', ritual, self._addressOf(event))
 
   @overload(QGraphicsSceneMouseEvent)
   @overload(NoneType)
@@ -5237,12 +5269,14 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       object.
     """
     #  void QGraphicsItem::mousePressEvent(QGraphicsSceneMouseEvent *event)
-    self._callAs(
-        'QGraphicsItem',
-        'ritual_own_ZN13QGraphicsItem15mousePressEventEP24QGraphicsSceneMou'
-        'seEvent',
-        self._addressOf(event),
-    )
+    ritual = (
+        'ritual_ZN13QGraphicsItem15mousePressEventEP24QGraphicsSceneMouseEv'
+        'ent')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN13QGraphicsItem15mousePressEventEP24QGraphicsSceneM'
+          'ouseEvent')
+    self._callAs('QGraphicsItem', ritual, self._addressOf(event))
 
   @overload(QGraphicsSceneMouseEvent)
   @overload(NoneType)
@@ -5264,12 +5298,14 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       object.
     """
     #  void QGraphicsItem::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
-    self._callAs(
-        'QGraphicsItem',
-        'ritual_own_ZN13QGraphicsItem14mouseMoveEventEP24QGraphicsSceneMous'
-        'eEvent',
-        self._addressOf(event),
-    )
+    ritual = (
+        'ritual_ZN13QGraphicsItem14mouseMoveEventEP24QGraphicsSceneMouseEve'
+        'nt')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN13QGraphicsItem14mouseMoveEventEP24QGraphicsSceneMo'
+          'useEvent')
+    self._callAs('QGraphicsItem', ritual, self._addressOf(event))
 
   @overload(QGraphicsSceneMouseEvent)
   @overload(NoneType)
@@ -5292,12 +5328,14 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       object.
     """
     #  void QGraphicsItem::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
-    self._callAs(
-        'QGraphicsItem',
-        'ritual_own_ZN13QGraphicsItem17mouseReleaseEventEP24QGraphicsSceneM'
-        'ouseEvent',
-        self._addressOf(event),
-    )
+    ritual = (
+        'ritual_ZN13QGraphicsItem17mouseReleaseEventEP24QGraphicsSceneMouse'
+        'Event')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN13QGraphicsItem17mouseReleaseEventEP24QGraphicsScen'
+          'eMouseEvent')
+    self._callAs('QGraphicsItem', ritual, self._addressOf(event))
 
   @overload(QGraphicsSceneMouseEvent)
   @overload(NoneType)
@@ -5321,12 +5359,14 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     """
     #  void QGraphicsItem::mouseDoubleClickEvent(QGraphicsSceneMouseEvent
     #      *event)
-    self._callAs(
-        'QGraphicsItem',
-        'ritual_own_ZN13QGraphicsItem21mouseDoubleClickEventEP24QGraphicsSc'
-        'eneMouseEvent',
-        self._addressOf(event),
-    )
+    ritual = (
+        'ritual_ZN13QGraphicsItem21mouseDoubleClickEventEP24QGraphicsSceneM'
+        'ouseEvent')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN13QGraphicsItem21mouseDoubleClickEventEP24QGraphics'
+          'SceneMouseEvent')
+    self._callAs('QGraphicsItem', ritual, self._addressOf(event))
 
   @overload(QGraphicsSceneWheelEvent)
   @overload(NoneType)
@@ -5345,12 +5385,13 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       object.
     """
     #  void QGraphicsItem::wheelEvent(QGraphicsSceneWheelEvent *event)
-    self._callAs(
-        'QGraphicsItem',
-        'ritual_own_ZN13QGraphicsItem10wheelEventEP24QGraphicsSceneWheelEve'
-        'nt',
-        self._addressOf(event),
-    )
+    ritual = (
+        'ritual_ZN13QGraphicsItem10wheelEventEP24QGraphicsSceneWheelEvent')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN13QGraphicsItem10wheelEventEP24QGraphicsSceneWheelE'
+          'vent')
+    self._callAs('QGraphicsItem', ritual, self._addressOf(event))
 
   @overload(QInputMethodEvent)
   @overload(NoneType)
@@ -5370,12 +5411,13 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
       object.
     """
     #  void QGraphicsItem::inputMethodEvent(QInputMethodEvent *event)
-    self._callAs(
-        'QGraphicsItem',
-        'ritual_own_ZN13QGraphicsItem16inputMethodEventEP17QInputMethodEven'
-        't',
-        self._addressOf(event),
-    )
+    ritual = (
+        'ritual_ZN13QGraphicsItem16inputMethodEventEP17QInputMethodEvent')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN13QGraphicsItem16inputMethodEventEP17QInputMethodEv'
+          'ent')
+    self._callAs('QGraphicsItem', ritual, self._addressOf(event))
 
   @overload(GraphicsItemChange, QVariant)
   def itemChange(
@@ -5407,14 +5449,50 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     """
     #  QVariant QGraphicsItem::itemChange(GraphicsItemChange change, const
     #      QVariant &value)
+    ritual = (
+        'ritual_ZN13QGraphicsItem10itemChangeENS_18GraphicsItemChangeERK8QV'
+        'ariant')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN13QGraphicsItem10itemChangeENS_18GraphicsItemChange'
+          'ERK8QVariant')
     address = self._callAs(
-        'QGraphicsItem',
-        'ritual_own_ZN13QGraphicsItem10itemChangeENS_18GraphicsItemChangeER'
-        'K8QVariant',
-        change.value, self._valueOf(value),
+        'QGraphicsItem', ritual, change.value, self._valueOf(value),
     )
     from ..QtCore import QVariant
     return QVariant._cuteOwning(address)
+
+  def addToIndex(self) -> None:
+    """
+    Calls Qt's 'void QGraphicsItem::addToIndex()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#addToIndex
+    """
+    #  void QGraphicsItem::addToIndex()
+    self._callAs('QGraphicsItem', 'ritual_ZN13QGraphicsItem10addToIndexEv')
+
+  def removeFromIndex(self) -> None:
+    """
+    Calls Qt's 'void QGraphicsItem::removeFromIndex()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#removeFromIndex
+    """
+    #  void QGraphicsItem::removeFromIndex()
+    self._callAs(
+        'QGraphicsItem', 'ritual_ZN13QGraphicsItem15removeFromIndexEv',
+    )
+
+  def prepareGeometryChange(self) -> None:
+    """
+    Calls Qt's 'void QGraphicsItem::prepareGeometryChange()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicsitem.html#prepareGeometryChange
+    """
+    #  void QGraphicsItem::prepareGeometryChange()
+    self._callAs(
+        'QGraphicsItem', 'ritual_ZN13QGraphicsItem21prepareGeometryChangeEv',
+    )
 
 
 #  Qt's 'QList<QGraphicsItem *>': the list of QGraphicsItem, which

@@ -146,6 +146,86 @@
     "ritual_ZN11QHeaderView17headerDataChangedEN2Qt11OrientationEii": [
       "nothing", "address", "int", "int", "int"
     ],
+    "ritual_ZN11QHeaderView13updateSectionEi": ["nothing", "address", "int"],
+    "ritual_ZN11QHeaderView14resizeSectionsEv": ["nothing", "address"],
+    "ritual_ZN11QHeaderView16sectionsInsertedERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN11QHeaderView24sectionsAboutToBeRemovedERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN11QHeaderView10initializeEv": ["nothing", "address"],
+    "ritual_ZN11QHeaderView18initializeSectionsEv": ["nothing", "address"],
+    "ritual_ZN11QHeaderView18initializeSectionsEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN11QHeaderView14currentChangedERK11QModelIndexS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN11QHeaderView5eventEP6QEvent": ["bool", "address", "address"],
+    "ritual_ZN11QHeaderView10paintEventEP11QPaintEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QHeaderView15mousePressEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QHeaderView14mouseMoveEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QHeaderView17mouseReleaseEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QHeaderView21mouseDoubleClickEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QHeaderView13viewportEventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK11QHeaderView12paintSectionEP8QPainterRK5QRecti": [
+      "nothing", "address", "address", "address", "int"
+    ],
+    "ritual_ZNK11QHeaderView23sectionSizeFromContentsEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK11QHeaderView16horizontalOffsetEv": ["int", "address"],
+    "ritual_ZNK11QHeaderView14verticalOffsetEv": ["int", "address"],
+    "ritual_ZN11QHeaderView16updateGeometriesEv": ["nothing", "address"],
+    "ritual_ZN11QHeaderView16scrollContentsByEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN11QHeaderView12rowsInsertedERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZNK11QHeaderView10visualRectERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN11QHeaderView8scrollToERK11QModelIndexN17QAbstractItemView10ScrollHintE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZNK11QHeaderView7indexAtERK6QPoint": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK11QHeaderView13isIndexHiddenERK11QModelIndex": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN11QHeaderView10moveCursorEN17QAbstractItemView12CursorActionE6QFlagsIN2Qt16KeyboardModifierEE": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZN11QHeaderView12setSelectionERK5QRect6QFlagsIN19QItemSelectionModel13SelectionFlagEE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZNK11QHeaderView24visualRegionForSelectionERK14QItemSelection": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK11QHeaderView23initStyleOptionForIndexEP18QStyleOptionHeaderi": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZNK11QHeaderView15initStyleOptionEP18QStyleOptionHeader": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QHeaderView15initStyleOptionEP17QStyleOptionFrame": [
+      "nothing", "address", "address"
+    ],
     "ritual_take_QHeaderView": ["bool", "address", "chars", "address"],
     "ritual_own_ZN11QHeaderView8setModelEP18QAbstractItemModel": [
       "nothing", "address", "address"
@@ -215,6 +295,9 @@
     ],
     "ritual_own_ZNK11QHeaderView23initStyleOptionForIndexEP18QStyleOptionHeaderi": [
       "nothing", "address", "address", "int"
+    ],
+    "ritual_own_ZNK11QHeaderView15initStyleOptionEP17QStyleOptionFrame": [
+      "nothing", "address", "address"
     ]
   }
 }

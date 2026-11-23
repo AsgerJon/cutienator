@@ -4,6 +4,12 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qstringview.h>
 
+//  QTime::QTime(int ms)
+extern "C" Q_DECL_EXPORT
+QTime *ritual_ZN5QTimeC1Ei(int ms) {
+  return new QTime(ms);
+}
+
 //  QTime::QTime()
 extern "C" Q_DECL_EXPORT
 QTime *ritual_ZN5QTimeC1Ev() {
@@ -171,6 +177,12 @@ QTime *ritual_ZN5QTime10fromStringERK7QStringS2_(
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN5QTime7isValidEiiii(int h, int m, int s, int ms) {
   return QTime::isValid(h, m, s, ms);
+}
+
+//  int QTime::ds() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK5QTime2dsEv(const QTime *self) {
+  return self->ds();
 }
 
 //  bool operator==(const QTime &lhs, const QTime &rhs)

@@ -29,6 +29,9 @@
       "address", "address", "int"
     ],
     "ritual_ZN15QAnimationGroup5clearEv": ["nothing", "address"],
+    "ritual_ZN15QAnimationGroup5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
     "ritual_take_QAnimationGroup": ["bool", "address", "chars", "address"],
     "ritual_own_ZN15QAnimationGroup5eventEP6QEvent": [
       "bool", "address", "address"

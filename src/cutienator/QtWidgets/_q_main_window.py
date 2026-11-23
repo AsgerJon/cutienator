@@ -78,8 +78,9 @@ class QMainWindow(QWidget):
   What has no ritual
   ------------------
 
-  12 of the 69 functions Qt declares: 3 takes or gives a type that cannot be
-  passed yet; 3 private; 3 a signal; 2 forbidden; 1 a template.
+  12 of the 69 functions Qt declares: 5 takes or gives a type that cannot be
+  passed yet; 3 a signal; 2 forbidden; 1 a template; 1 declared and nowhere
+  to be found.
 
   What to expect
   --------------
@@ -1441,10 +1442,12 @@ class QMainWindow(QWidget):
       object.
     """
     #  void QMainWindow::contextMenuEvent(QContextMenuEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN11QMainWindow16contextMenuEventEP17QContextMenuEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN11QMainWindow16contextMenuEventEP17QContextMenuEvent'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN11QMainWindow16contextMenuEventEP17QContextMenuEven'
+          't')
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QEvent)
   @overload(NoneType)
@@ -1462,6 +1465,7 @@ class QMainWindow(QWidget):
       object.
     """
     #  bool QMainWindow::event(QEvent *event)
-    return self.uglySide.call(
-        'ritual_own_ZN11QMainWindow5eventEP6QEvent', self._addressOf(event),
-    )
+    ritual = 'ritual_ZN11QMainWindow5eventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN11QMainWindow5eventEP6QEvent'
+    return self.uglySide.call(ritual, self._addressOf(event))

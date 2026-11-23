@@ -17,6 +17,9 @@
     "ritual_ZN23QTreeWidgetItemIteratorpLEi": ["nothing", "address", "int"],
     "ritual_ZN23QTreeWidgetItemIteratormmEi": ["address", "address", "int"],
     "ritual_ZN23QTreeWidgetItemIteratormIEi": ["nothing", "address", "int"],
-    "ritual_ZNK23QTreeWidgetItemIteratordeEv": ["address", "address"]
+    "ritual_ZNK23QTreeWidgetItemIteratordeEv": ["address", "address"],
+    "ritual_ZNK23QTreeWidgetItemIterator12matchesFlagsEPK15QTreeWidgetItem": [
+      "bool", "address", "address"
+    ]
   }
 }

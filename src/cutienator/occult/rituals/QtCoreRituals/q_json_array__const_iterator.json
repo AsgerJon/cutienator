@@ -38,6 +38,12 @@
     "ritual_ZNK10QJsonArray14const_iteratormiES0_": [
       "long long", "address", "address"
     ],
+    "ritual_ZN10QJsonArray14const_iterator20comparesEqual_helperERKS0_S2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN10QJsonArray14const_iterator22compareThreeWay_helperERKS0_S2_": [
+      "address", "address", "address"
+    ],
     "ritual_ZeqRKN10QJsonArray14const_iteratorES2_": [
       "bool", "address", "address"
     ],

@@ -958,6 +958,44 @@ void ritual_ZN11QScrollArea19ensureWidgetVisibleEP7QWidgetii(
   self->ensureWidgetVisible(childWidget, xmargin, ymargin);
 }
 
+//  bool QScrollArea::event(QEvent *a0)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN11QScrollArea5eventEP6QEvent(QScrollArea *self, QEvent *a0) {
+  return self->event(a0);
+}
+
+//  bool QScrollArea::eventFilter(QObject *a0, QEvent *a1)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN11QScrollArea11eventFilterEP7QObjectP6QEvent(
+    QScrollArea *self,
+    QObject *a0,
+    QEvent *a1) {
+  return self->eventFilter(a0, a1);
+}
+
+//  void QScrollArea::resizeEvent(QResizeEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QScrollArea11resizeEventEP12QResizeEvent(
+    QScrollArea *self,
+    QResizeEvent *a0) {
+  self->resizeEvent(a0);
+}
+
+//  void QScrollArea::scrollContentsBy(int dx, int dy)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QScrollArea16scrollContentsByEii(
+    QScrollArea *self,
+    int dx,
+    int dy) {
+  self->scrollContentsBy(dx, dy);
+}
+
+//  QSize QScrollArea::viewportSizeHint() const
+extern "C" Q_DECL_EXPORT
+QSize *ritual_ZNK11QScrollArea16viewportSizeHintEv(const QScrollArea *self) {
+  return new QSize(self->viewportSizeHint());
+}
+
 //  a Python function taken by a CuteQScrollArea, for the function named by
 //      the key
 extern "C" Q_DECL_EXPORT

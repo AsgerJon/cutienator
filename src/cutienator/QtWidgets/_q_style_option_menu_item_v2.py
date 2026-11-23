@@ -35,7 +35,7 @@ class QStyleOptionMenuItemV2(QStyleOptionMenuItem):
   -----------
 
   No function of Qt's QStyleOptionMenuItemV2 yet. It can be made from Python,
-  in 2 ways; see '__init__'.
+  in 3 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -47,8 +47,8 @@ class QStyleOptionMenuItemV2(QStyleOptionMenuItem):
   What has no ritual
   ------------------
 
-  2 of the 5 functions Qt declares: 1 takes or gives a type that cannot be
-  passed yet; 1 protected.
+  1 of the 5 functions Qt declares: 1 takes or gives a type that cannot be
+  passed yet.
 
   What to expect
   --------------
@@ -156,6 +156,27 @@ class QStyleOptionMenuItemV2(QStyleOptionMenuItem):
     #      QStyleOptionMenuItemV2 &other)
     self._noteCreation(QStyleOptionMenuItemV2, lambda: Rituals.call(
         'ritual_ZN22QStyleOptionMenuItemV2C1ERKS_', self._valueOf(other),
+    ))
+
+  @overload(int)
+  def __init__(self, version: int) -> None:
+    """
+    Notes what was given, for Qt's
+    'QStyleOptionMenuItemV2::QStyleOptionMenuItemV2(int version)', which is
+    called at the first use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qstyleoptionmenuitemv2.html#QStyleOptionMenuItemV2
+
+    Parameters
+    ----------
+
+    version : int
+      Passed on as it is.
+    """
+    #  QStyleOptionMenuItemV2::QStyleOptionMenuItemV2(int version)
+    self._noteCreation(QStyleOptionMenuItemV2, lambda: Rituals.call(
+        'ritual_ZN22QStyleOptionMenuItemV2C1Ei', version,
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -37,6 +37,8 @@
     "ritual_ZN12QInputMethod6commitEv": ["nothing", "address"],
     "ritual_ZN12QInputMethod12invokeActionENS_6ActionEi": [
       "nothing", "address", "int", "int"
-    ]
+    ],
+    "ritual_ZN12QInputMethodC1Ev": ["address"],
+    "ritual_ZN12QInputMethodD1Ev": ["nothing", "address"]
   }
 }

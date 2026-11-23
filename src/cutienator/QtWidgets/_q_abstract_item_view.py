@@ -14,7 +14,7 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteFlags, CuteNum, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt, QItemSelectionModel, QObject
+from ..QtCore import Qt, QItemSelectionModel, QList, QObject
 from . import QAbstractItemDelegate, QAbstractScrollArea, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
@@ -25,7 +25,7 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from ..QtCore import QTimerEvent, QVariant
   from ..QtGui import QDragEnterEvent, QDragLeaveEvent, QDragMoveEvent
   from ..QtGui import QDropEvent, QFocusEvent, QInputMethodEvent, QKeyEvent
-  from ..QtGui import QMouseEvent, QResizeEvent
+  from ..QtGui import QMouseEvent, QRegion, QResizeEvent
   from . import QStyleOptionViewItem
 else:
   #  The cute classes this file names and is not built on. Each is brought in
@@ -44,6 +44,8 @@ else:
   QModelIndex = WAIT['QModelIndex']
   QMouseEvent = WAIT['QMouseEvent']
   QPoint = WAIT['QPoint']
+  QRect = WAIT['QRect']
+  QRegion = WAIT['QRegion']
   QResizeEvent = WAIT['QResizeEvent']
   QSize = WAIT['QSize']
   QStyleOptionViewItem = WAIT['QStyleOptionViewItem']
@@ -66,7 +68,7 @@ class QAbstractItemView(QAbstractScrollArea):
   -----------
 
   Every function of Qt's QAbstractItemView that has a ritual and that Python
-  can call so far, 112 names in all: 'metaObject', 'tr', 'setModel', 'model',
+  can call so far, 126 names in all: 'metaObject', 'tr', 'setModel', 'model',
   'setSelectionModel', 'selectionModel', 'setItemDelegate', 'itemDelegate',
   'setSelectionMode', 'selectionMode', 'setSelectionBehavior',
   'selectionBehavior', 'currentIndex', 'rootIndex', 'setEditTriggers',
@@ -93,27 +95,42 @@ class QAbstractItemView(QAbstractScrollArea):
   'updateEditorData', 'updateEditorGeometries', 'updateGeometries',
   'verticalScrollbarAction', 'horizontalScrollbarAction',
   'verticalScrollbarValueChanged', 'horizontalScrollbarValueChanged',
-  'closeEditor', 'commitData', 'editorDestroyed', 'selectionCommand',
-  'startDrag', 'initViewItemOption', 'focusNextPrevChild', 'event',
-  'viewportEvent', 'mousePressEvent', 'mouseMoveEvent', 'mouseReleaseEvent',
-  'mouseDoubleClickEvent', 'dragEnterEvent', 'dragMoveEvent',
-  'dragLeaveEvent', 'dropEvent', 'focusInEvent', 'focusOutEvent',
-  'keyPressEvent', 'resizeEvent', 'timerEvent', 'inputMethodEvent',
-  'eventFilter', 'viewportSizeHint'. None can be made from Python: one comes
-  out of a function of another class that gives one back.
+  'closeEditor', 'commitData', 'editorDestroyed', 'horizontalOffset',
+  'verticalOffset', 'isIndexHidden', 'setSelection',
+  'visualRegionForSelection', 'selectedIndexes', 'selectionCommand',
+  'startDrag', 'initViewItemOption', 'scheduleDelayedItemsLayout',
+  'executeDelayedItemsLayout', 'setDirtyRegion', 'scrollDirtyRegion',
+  'dirtyRegionOffset', 'startAutoScroll', 'stopAutoScroll', 'doAutoScroll',
+  'focusNextPrevChild', 'event', 'viewportEvent', 'mousePressEvent',
+  'mouseMoveEvent', 'mouseReleaseEvent', 'mouseDoubleClickEvent',
+  'dragEnterEvent', 'dragMoveEvent', 'dragLeaveEvent', 'dropEvent',
+  'focusInEvent', 'focusOutEvent', 'keyPressEvent', 'resizeEvent',
+  'timerEvent', 'inputMethodEvent', 'eventFilter', 'viewportSizeHint'. None
+  can be made from Python: one comes out of a function of another class that
+  gives one back.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QAbstractItemView::~QAbstractItemView()': the destructor: Python
     never removes a C++ QAbstractItemView.
+  - Qt's 'QModelIndex QAbstractItemView::moveCursor(CursorAction
+    cursorAction, Qt::KeyboardModifiers modifiers)': names the enum
+    'QAbstractItemView::CursorAction', whose class cannot be named here.
+  - Qt's 'State QAbstractItemView::state() const': gives the enum
+    'QAbstractItemView::State', whose class cannot be named here.
+  - Qt's 'void QAbstractItemView::setState(State state)': names the enum
+    'QAbstractItemView::State', whose class cannot be named here.
+  - Qt's 'DropIndicatorPosition QAbstractItemView::dropIndicatorPosition()
+    const': gives the enum 'QAbstractItemView::DropIndicatorPosition', whose
+    class cannot be named here.
 
   What has no ritual
   ------------------
 
-  36 of the 151 functions Qt declares: 20 protected; 7 a signal; 3 private; 2
-  takes or gives a type that cannot be passed yet; 2 forbidden; 1 a template;
-  1 the class is abstract, so C++ cannot make one.
+  18 of the 151 functions Qt declares: 7 a signal; 5 takes or gives a type
+  that cannot be passed yet; 2 the class is abstract, so C++ cannot make one;
+  2 forbidden; 1 a template; 1 declared and nowhere to be found.
 
   What to expect
   --------------
@@ -1318,6 +1335,104 @@ class QAbstractItemView(QAbstractScrollArea):
     from ..QtCore import QVariant
     return QVariant._cuteOwning(address)
 
+  def horizontalOffset(self) -> int:
+    """
+    Calls Qt's 'int QAbstractItemView::horizontalOffset() const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractitemview.html#horizontalOffset
+    """
+    #  int QAbstractItemView::horizontalOffset() const
+    return self.uglySide.call(
+        'ritual_ZNK17QAbstractItemView16horizontalOffsetEv',
+    )
+
+  def verticalOffset(self) -> int:
+    """
+    Calls Qt's 'int QAbstractItemView::verticalOffset() const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractitemview.html#verticalOffset
+    """
+    #  int QAbstractItemView::verticalOffset() const
+    return self.uglySide.call(
+        'ritual_ZNK17QAbstractItemView14verticalOffsetEv',
+    )
+
+  @overload(QModelIndex)
+  def isIndexHidden(self, index: QModelIndex) -> bool:
+    """
+    Calls Qt's 'bool QAbstractItemView::isIndexHidden(const QModelIndex
+    &index) const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractitemview.html#isIndexHidden
+
+    Parameters
+    ----------
+
+    index : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+    """
+    #  bool QAbstractItemView::isIndexHidden(const QModelIndex &index) const
+    return self.uglySide.call(
+        'ritual_ZNK17QAbstractItemView13isIndexHiddenERK11QModelIndex',
+        self._valueOf(index),
+    )
+
+  @overload(QItemSelection)
+  def visualRegionForSelection(self, selection: QItemSelection) -> QRegion:
+    """
+    Calls Qt's 'QRegion QAbstractItemView::visualRegionForSelection(const
+    QItemSelection &selection) const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractitemview.html#visualRegionForSelection
+
+    Parameters
+    ----------
+
+    selection : QItemSelection
+      Passed on as a value: Qt reads the C++ QItemSelection, which stays
+      Python's own.
+
+    Returns
+    -------
+
+    QRegion
+      A new cute QRegion around the copy Qt gave back. Python owns it.
+    """
+    #  QRegion QAbstractItemView::visualRegionForSelection(const
+    #      QItemSelection &selection) const
+    address = self.uglySide.call(
+        'ritual_ZNK17QAbstractItemView24visualRegionForSelectionERK14QItemS'
+        'election',
+        self._valueOf(selection),
+    )
+    from ..QtGui import QRegion
+    return QRegion._cuteOwning(address)
+
+  def selectedIndexes(self) -> QList[QModelIndex]:
+    """
+    Calls Qt's 'QModelIndexList QAbstractItemView::selectedIndexes() const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractitemview.html#selectedIndexes
+
+    Returns
+    -------
+
+    QList[QModelIndex]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QModelIndexList QAbstractItemView::selectedIndexes() const
+    address = self.uglySide.call(
+        'ritual_ZNK17QAbstractItemView15selectedIndexesEv',
+    )
+    from ..QtCore import QModelIndex
+    return QList[QModelIndex]._cuteOwning(address)
+
   @overload(QModelIndex)
   @overload(QModelIndex, QEvent)
   @overload(QModelIndex, NoneType)
@@ -1354,11 +1469,36 @@ class QAbstractItemView(QAbstractScrollArea):
     #  QItemSelectionModel::SelectionFlags
     #      QAbstractItemView::selectionCommand(const QModelIndex &index,
     #      const QEvent *event) const
+    ritual = (
+        'ritual_ZNK17QAbstractItemView16selectionCommandERK11QModelIndexPK6'
+        'QEvent')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK17QAbstractItemView16selectionCommandERK11QModelIn'
+          'dexPK6QEvent')
     return QItemSelectionModel.SelectionFlags(self.uglySide.call(
-        'ritual_own_ZNK17QAbstractItemView16selectionCommandERK11QModelInde'
-        'xPK6QEvent',
-        self._valueOf(index), self._addressOf(event),
+        ritual, self._valueOf(index), self._addressOf(event),
     ))
+
+  def dirtyRegionOffset(self) -> QPoint:
+    """
+    Calls Qt's 'QPoint QAbstractItemView::dirtyRegionOffset() const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractitemview.html#dirtyRegionOffset
+
+    Returns
+    -------
+
+    QPoint
+      A new cute QPoint around the copy Qt gave back. Python owns it.
+    """
+    #  QPoint QAbstractItemView::dirtyRegionOffset() const
+    address = self.uglySide.call(
+        'ritual_ZNK17QAbstractItemView17dirtyRegionOffsetEv',
+    )
+    from ..QtCore import QPoint
+    return QPoint._cuteOwning(address)
 
   def viewportSizeHint(self) -> QSize:
     """
@@ -1374,9 +1514,10 @@ class QAbstractItemView(QAbstractScrollArea):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QAbstractItemView::viewportSizeHint() const
-    address = self.uglySide.call(
-        'ritual_own_ZNK17QAbstractItemView16viewportSizeHintEv',
-    )
+    ritual = 'ritual_ZNK17QAbstractItemView16viewportSizeHintEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK17QAbstractItemView16viewportSizeHintEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
@@ -1983,6 +2124,58 @@ class QAbstractItemView(QAbstractScrollArea):
         self._valueOf(index),
     )
 
+  @overload(QRect, QItemSelectionModel.SelectionFlags)
+  def setSelection(
+      self,
+      rect: QRect,
+      command: QItemSelectionModel.SelectionFlags,
+  ) -> None:
+    """
+    Calls Qt's 'void QAbstractItemView::setSelection(const QRect &rect,
+    QItemSelectionModel::SelectionFlags command)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractitemview.html#setSelection
+
+    Parameters
+    ----------
+
+    rect : QRect
+      Passed on as a value: Qt reads the C++ QRect, which stays Python's own.
+
+    command : QItemSelectionModel.SelectionFlags
+      Passed on as its number.
+    """
+    #  void QAbstractItemView::setSelection(const QRect &rect,
+    #      QItemSelectionModel::SelectionFlags command)
+    self.uglySide.call(
+        'ritual_ZN17QAbstractItemView12setSelectionERK5QRect6QFlagsIN19QIte'
+        'mSelectionModel13SelectionFlagEE',
+        self._valueOf(rect), command.value,
+    )
+
+  @overload(QRegion)
+  def setDirtyRegion(self, region: QRegion) -> None:
+    """
+    Calls Qt's 'void QAbstractItemView::setDirtyRegion(const QRegion
+    &region)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractitemview.html#setDirtyRegion
+
+    Parameters
+    ----------
+
+    region : QRegion
+      Passed on as a value: Qt reads the C++ QRegion, which stays Python's
+      own.
+    """
+    #  void QAbstractItemView::setDirtyRegion(const QRegion &region)
+    self.uglySide.call(
+        'ritual_ZN17QAbstractItemView14setDirtyRegionERK7QRegion',
+        self._valueOf(region),
+    )
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -2225,10 +2418,15 @@ class QAbstractItemView(QAbstractScrollArea):
     """
     #  bool QAbstractItemView::edit(const QModelIndex &index, EditTrigger
     #      trigger, QEvent *event)
+    ritual = (
+        'ritual_ZN17QAbstractItemView4editERK11QModelIndexNS_11EditTriggerE'
+        'P6QEvent')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN17QAbstractItemView4editERK11QModelIndexNS_11EditTr'
+          'iggerEP6QEvent')
     return self.uglySide.call(
-        'ritual_own_ZN17QAbstractItemView4editERK11QModelIndexNS_11EditTrig'
-        'gerEP6QEvent',
-        self._valueOf(index), trigger.value, self._addressOf(event),
+        ritual, self._valueOf(index), trigger.value, self._addressOf(event),
     )
 
   def clearSelection(self) -> None:
@@ -2304,10 +2502,11 @@ class QAbstractItemView(QAbstractScrollArea):
     """
     #  void QAbstractItemView::rowsInserted(const QModelIndex &parent, int
     #      start, int end)
-    self.uglySide.call(
-        'ritual_own_ZN17QAbstractItemView12rowsInsertedERK11QModelIndexii',
-        self._valueOf(parent), start, end,
-    )
+    ritual = 'ritual_ZN17QAbstractItemView12rowsInsertedERK11QModelIndexii'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN17QAbstractItemView12rowsInsertedERK11QModelIndexii')
+    self.uglySide.call(ritual, self._valueOf(parent), start, end)
 
   @overload(QModelIndex, int, int)
   def rowsAboutToBeRemoved(
@@ -2338,11 +2537,14 @@ class QAbstractItemView(QAbstractScrollArea):
     """
     #  void QAbstractItemView::rowsAboutToBeRemoved(const QModelIndex
     #      &parent, int start, int end)
-    self.uglySide.call(
-        'ritual_own_ZN17QAbstractItemView20rowsAboutToBeRemovedERK11QModelI'
-        'ndexii',
-        self._valueOf(parent), start, end,
-    )
+    ritual = (
+        'ritual_ZN17QAbstractItemView20rowsAboutToBeRemovedERK11QModelIndex'
+        'ii')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN17QAbstractItemView20rowsAboutToBeRemovedERK11QMode'
+          'lIndexii')
+    self.uglySide.call(ritual, self._valueOf(parent), start, end)
 
   @overload(QItemSelection, QItemSelection)
   def selectionChanged(
@@ -2370,10 +2572,15 @@ class QAbstractItemView(QAbstractScrollArea):
     """
     #  void QAbstractItemView::selectionChanged(const QItemSelection
     #      &selected, const QItemSelection &deselected)
+    ritual = (
+        'ritual_ZN17QAbstractItemView16selectionChangedERK14QItemSelectionS'
+        '2_')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN17QAbstractItemView16selectionChangedERK14QItemSele'
+          'ctionS2_')
     self.uglySide.call(
-        'ritual_own_ZN17QAbstractItemView16selectionChangedERK14QItemSelect'
-        'ionS2_',
-        self._valueOf(selected), self._valueOf(deselected),
+        ritual, self._valueOf(selected), self._valueOf(deselected),
     )
 
   @overload(QModelIndex, QModelIndex)
@@ -2402,10 +2609,14 @@ class QAbstractItemView(QAbstractScrollArea):
     """
     #  void QAbstractItemView::currentChanged(const QModelIndex &current,
     #      const QModelIndex &previous)
+    ritual = (
+        'ritual_ZN17QAbstractItemView14currentChangedERK11QModelIndexS2_')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN17QAbstractItemView14currentChangedERK11QModelIndex'
+          'S2_')
     self.uglySide.call(
-        'ritual_own_ZN17QAbstractItemView14currentChangedERK11QModelIndexS2'
-        '_',
-        self._valueOf(current), self._valueOf(previous),
+        ritual, self._valueOf(current), self._valueOf(previous),
     )
 
   def updateEditorData(self) -> None:
@@ -2416,9 +2627,10 @@ class QAbstractItemView(QAbstractScrollArea):
     https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorData
     """
     #  void QAbstractItemView::updateEditorData()
-    self.uglySide.call(
-        'ritual_own_ZN17QAbstractItemView16updateEditorDataEv',
-    )
+    ritual = 'ritual_ZN17QAbstractItemView16updateEditorDataEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN17QAbstractItemView16updateEditorDataEv'
+    self.uglySide.call(ritual)
 
   def updateEditorGeometries(self) -> None:
     """
@@ -2428,9 +2640,10 @@ class QAbstractItemView(QAbstractScrollArea):
     https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorGeometries
     """
     #  void QAbstractItemView::updateEditorGeometries()
-    self.uglySide.call(
-        'ritual_own_ZN17QAbstractItemView22updateEditorGeometriesEv',
-    )
+    ritual = 'ritual_ZN17QAbstractItemView22updateEditorGeometriesEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN17QAbstractItemView22updateEditorGeometriesEv'
+    self.uglySide.call(ritual)
 
   def updateGeometries(self) -> None:
     """
@@ -2440,9 +2653,10 @@ class QAbstractItemView(QAbstractScrollArea):
     https://doc.qt.io/qt-6/qabstractitemview.html#updateGeometries
     """
     #  void QAbstractItemView::updateGeometries()
-    self.uglySide.call(
-        'ritual_own_ZN17QAbstractItemView16updateGeometriesEv',
-    )
+    ritual = 'ritual_ZN17QAbstractItemView16updateGeometriesEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN17QAbstractItemView16updateGeometriesEv'
+    self.uglySide.call(ritual)
 
   @overload(int)
   def verticalScrollbarAction(self, action: int) -> None:
@@ -2459,10 +2673,10 @@ class QAbstractItemView(QAbstractScrollArea):
       Passed on as it is.
     """
     #  void QAbstractItemView::verticalScrollbarAction(int action)
-    self.uglySide.call(
-        'ritual_own_ZN17QAbstractItemView23verticalScrollbarActionEi',
-        action,
-    )
+    ritual = 'ritual_ZN17QAbstractItemView23verticalScrollbarActionEi'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN17QAbstractItemView23verticalScrollbarActionEi'
+    self.uglySide.call(ritual, action)
 
   @overload(int)
   def horizontalScrollbarAction(self, action: int) -> None:
@@ -2480,10 +2694,11 @@ class QAbstractItemView(QAbstractScrollArea):
       Passed on as it is.
     """
     #  void QAbstractItemView::horizontalScrollbarAction(int action)
-    self.uglySide.call(
-        'ritual_own_ZN17QAbstractItemView25horizontalScrollbarActionEi',
-        action,
-    )
+    ritual = 'ritual_ZN17QAbstractItemView25horizontalScrollbarActionEi'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN17QAbstractItemView25horizontalScrollbarActionEi')
+    self.uglySide.call(ritual, action)
 
   @overload(int)
   def verticalScrollbarValueChanged(self, value: int) -> None:
@@ -2501,10 +2716,12 @@ class QAbstractItemView(QAbstractScrollArea):
       Passed on as it is.
     """
     #  void QAbstractItemView::verticalScrollbarValueChanged(int value)
-    self.uglySide.call(
-        'ritual_own_ZN17QAbstractItemView29verticalScrollbarValueChangedEi',
-        value,
-    )
+    ritual = 'ritual_ZN17QAbstractItemView29verticalScrollbarValueChangedEi'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN17QAbstractItemView29verticalScrollbarValueChangedE'
+          'i')
+    self.uglySide.call(ritual, value)
 
   @overload(int)
   def horizontalScrollbarValueChanged(self, value: int) -> None:
@@ -2522,11 +2739,13 @@ class QAbstractItemView(QAbstractScrollArea):
       Passed on as it is.
     """
     #  void QAbstractItemView::horizontalScrollbarValueChanged(int value)
-    self.uglySide.call(
-        'ritual_own_ZN17QAbstractItemView31horizontalScrollbarValueChangedE'
-        'i',
-        value,
-    )
+    ritual = (
+        'ritual_ZN17QAbstractItemView31horizontalScrollbarValueChangedEi')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN17QAbstractItemView31horizontalScrollbarValueChange'
+          'dEi')
+    self.uglySide.call(ritual, value)
 
   @overload(QWidget, QAbstractItemDelegate.EndEditHint)
   @overload(NoneType, QAbstractItemDelegate.EndEditHint)
@@ -2553,11 +2772,14 @@ class QAbstractItemView(QAbstractScrollArea):
     """
     #  void QAbstractItemView::closeEditor(QWidget *editor,
     #      QAbstractItemDelegate::EndEditHint hint)
-    self.uglySide.call(
-        'ritual_own_ZN17QAbstractItemView11closeEditorEP7QWidgetN21QAbstrac'
-        'tItemDelegate11EndEditHintE',
-        self._addressOf(editor), hint.value,
-    )
+    ritual = (
+        'ritual_ZN17QAbstractItemView11closeEditorEP7QWidgetN21QAbstractIte'
+        'mDelegate11EndEditHintE')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN17QAbstractItemView11closeEditorEP7QWidgetN21QAbstr'
+          'actItemDelegate11EndEditHintE')
+    self.uglySide.call(ritual, self._addressOf(editor), hint.value)
 
   @overload(QWidget)
   @overload(NoneType)
@@ -2575,10 +2797,10 @@ class QAbstractItemView(QAbstractScrollArea):
       object.
     """
     #  void QAbstractItemView::commitData(QWidget *editor)
-    self.uglySide.call(
-        'ritual_own_ZN17QAbstractItemView10commitDataEP7QWidget',
-        self._addressOf(editor),
-    )
+    ritual = 'ritual_ZN17QAbstractItemView10commitDataEP7QWidget'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN17QAbstractItemView10commitDataEP7QWidget'
+    self.uglySide.call(ritual, self._addressOf(editor))
 
   @overload(QObject)
   @overload(NoneType)
@@ -2597,10 +2819,10 @@ class QAbstractItemView(QAbstractScrollArea):
       object.
     """
     #  void QAbstractItemView::editorDestroyed(QObject *editor)
-    self.uglySide.call(
-        'ritual_own_ZN17QAbstractItemView15editorDestroyedEP7QObject',
-        self._addressOf(editor),
-    )
+    ritual = 'ritual_ZN17QAbstractItemView15editorDestroyedEP7QObject'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN17QAbstractItemView15editorDestroyedEP7QObject'
+    self.uglySide.call(ritual, self._addressOf(editor))
 
   @overload(Qt.DropActions)
   def startDrag(self, supportedActions: Qt.DropActions) -> None:
@@ -2617,11 +2839,13 @@ class QAbstractItemView(QAbstractScrollArea):
       Passed on as its number.
     """
     #  void QAbstractItemView::startDrag(Qt::DropActions supportedActions)
-    self.uglySide.call(
-        'ritual_own_ZN17QAbstractItemView9startDragE6QFlagsIN2Qt10DropActio'
-        'nEE',
-        supportedActions.value,
-    )
+    ritual = (
+        'ritual_ZN17QAbstractItemView9startDragE6QFlagsIN2Qt10DropActionEE')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN17QAbstractItemView9startDragE6QFlagsIN2Qt10DropAct'
+          'ionEE')
+    self.uglySide.call(ritual, supportedActions.value)
 
   @overload(QStyleOptionViewItem)
   @overload(NoneType)
@@ -2646,11 +2870,90 @@ class QAbstractItemView(QAbstractScrollArea):
     """
     #  void QAbstractItemView::initViewItemOption(QStyleOptionViewItem
     #      *option) const
+    ritual = (
+        'ritual_ZNK17QAbstractItemView18initViewItemOptionEP20QStyleOptionV'
+        'iewItem')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK17QAbstractItemView18initViewItemOptionEP20QStyleO'
+          'ptionViewItem')
+    self.uglySide.call(ritual, self._addressOf(option))
+
+  def scheduleDelayedItemsLayout(self) -> None:
+    """
+    Calls Qt's 'void QAbstractItemView::scheduleDelayedItemsLayout()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractitemview.html#scheduleDelayedItemsLayout
+    """
+    #  void QAbstractItemView::scheduleDelayedItemsLayout()
     self.uglySide.call(
-        'ritual_own_ZNK17QAbstractItemView18initViewItemOptionEP20QStyleOpt'
-        'ionViewItem',
-        self._addressOf(option),
+        'ritual_ZN17QAbstractItemView26scheduleDelayedItemsLayoutEv',
     )
+
+  def executeDelayedItemsLayout(self) -> None:
+    """
+    Calls Qt's 'void QAbstractItemView::executeDelayedItemsLayout()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractitemview.html#executeDelayedItemsLayout
+    """
+    #  void QAbstractItemView::executeDelayedItemsLayout()
+    self.uglySide.call(
+        'ritual_ZN17QAbstractItemView25executeDelayedItemsLayoutEv',
+    )
+
+  @overload(int, int)
+  def scrollDirtyRegion(self, dx: int, dy: int) -> None:
+    """
+    Calls Qt's 'void QAbstractItemView::scrollDirtyRegion(int dx, int dy)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractitemview.html#scrollDirtyRegion
+
+    Parameters
+    ----------
+
+    dx : int
+      Passed on as it is.
+
+    dy : int
+      Passed on as it is.
+    """
+    #  void QAbstractItemView::scrollDirtyRegion(int dx, int dy)
+    self.uglySide.call(
+        'ritual_ZN17QAbstractItemView17scrollDirtyRegionEii', dx, dy,
+    )
+
+  def startAutoScroll(self) -> None:
+    """
+    Calls Qt's 'void QAbstractItemView::startAutoScroll()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractitemview.html#startAutoScroll
+    """
+    #  void QAbstractItemView::startAutoScroll()
+    self.uglySide.call('ritual_ZN17QAbstractItemView15startAutoScrollEv')
+
+  def stopAutoScroll(self) -> None:
+    """
+    Calls Qt's 'void QAbstractItemView::stopAutoScroll()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractitemview.html#stopAutoScroll
+    """
+    #  void QAbstractItemView::stopAutoScroll()
+    self.uglySide.call('ritual_ZN17QAbstractItemView14stopAutoScrollEv')
+
+  def doAutoScroll(self) -> None:
+    """
+    Calls Qt's 'void QAbstractItemView::doAutoScroll()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractitemview.html#doAutoScroll
+    """
+    #  void QAbstractItemView::doAutoScroll()
+    self.uglySide.call('ritual_ZN17QAbstractItemView12doAutoScrollEv')
 
   @overload(bool)
   def focusNextPrevChild(self, next: bool) -> bool:
@@ -2667,9 +2970,10 @@ class QAbstractItemView(QAbstractScrollArea):
       Passed on as it is.
     """
     #  bool QAbstractItemView::focusNextPrevChild(bool next)
-    return self.uglySide.call(
-        'ritual_own_ZN17QAbstractItemView18focusNextPrevChildEb', next,
-    )
+    ritual = 'ritual_ZN17QAbstractItemView18focusNextPrevChildEb'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN17QAbstractItemView18focusNextPrevChildEb'
+    return self.uglySide.call(ritual, next)
 
   @overload(QEvent)
   @overload(NoneType)
@@ -2687,10 +2991,10 @@ class QAbstractItemView(QAbstractScrollArea):
       object.
     """
     #  bool QAbstractItemView::event(QEvent *event)
-    return self.uglySide.call(
-        'ritual_own_ZN17QAbstractItemView5eventEP6QEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN17QAbstractItemView5eventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN17QAbstractItemView5eventEP6QEvent'
+    return self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QEvent)
   @overload(NoneType)
@@ -2709,10 +3013,10 @@ class QAbstractItemView(QAbstractScrollArea):
       object.
     """
     #  bool QAbstractItemView::viewportEvent(QEvent *event)
-    return self.uglySide.call(
-        'ritual_own_ZN17QAbstractItemView13viewportEventEP6QEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN17QAbstractItemView13viewportEventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN17QAbstractItemView13viewportEventEP6QEvent'
+    return self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QMouseEvent)
   @overload(NoneType)
@@ -2731,10 +3035,11 @@ class QAbstractItemView(QAbstractScrollArea):
       object.
     """
     #  void QAbstractItemView::mousePressEvent(QMouseEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN17QAbstractItemView15mousePressEventEP11QMouseEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN17QAbstractItemView15mousePressEventEP11QMouseEvent'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN17QAbstractItemView15mousePressEventEP11QMouseEvent')
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QMouseEvent)
   @overload(NoneType)
@@ -2753,10 +3058,11 @@ class QAbstractItemView(QAbstractScrollArea):
       object.
     """
     #  void QAbstractItemView::mouseMoveEvent(QMouseEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN17QAbstractItemView14mouseMoveEventEP11QMouseEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN17QAbstractItemView14mouseMoveEventEP11QMouseEvent'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN17QAbstractItemView14mouseMoveEventEP11QMouseEvent')
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QMouseEvent)
   @overload(NoneType)
@@ -2776,10 +3082,12 @@ class QAbstractItemView(QAbstractScrollArea):
       object.
     """
     #  void QAbstractItemView::mouseReleaseEvent(QMouseEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN17QAbstractItemView17mouseReleaseEventEP11QMouseEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN17QAbstractItemView17mouseReleaseEventEP11QMouseEvent'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN17QAbstractItemView17mouseReleaseEventEP11QMouseEve'
+          'nt')
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QMouseEvent)
   @overload(NoneType)
@@ -2799,11 +3107,13 @@ class QAbstractItemView(QAbstractScrollArea):
       object.
     """
     #  void QAbstractItemView::mouseDoubleClickEvent(QMouseEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN17QAbstractItemView21mouseDoubleClickEventEP11QMouseE'
-        'vent',
-        self._addressOf(event),
-    )
+    ritual = (
+        'ritual_ZN17QAbstractItemView21mouseDoubleClickEventEP11QMouseEvent')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN17QAbstractItemView21mouseDoubleClickEventEP11QMous'
+          'eEvent')
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QDragEnterEvent)
   @overload(NoneType)
@@ -2823,11 +3133,13 @@ class QAbstractItemView(QAbstractScrollArea):
       object.
     """
     #  void QAbstractItemView::dragEnterEvent(QDragEnterEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN17QAbstractItemView14dragEnterEventEP15QDragEnterEven'
-        't',
-        self._addressOf(event),
-    )
+    ritual = (
+        'ritual_ZN17QAbstractItemView14dragEnterEventEP15QDragEnterEvent')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN17QAbstractItemView14dragEnterEventEP15QDragEnterEv'
+          'ent')
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QDragMoveEvent)
   @overload(NoneType)
@@ -2847,10 +3159,12 @@ class QAbstractItemView(QAbstractScrollArea):
       object.
     """
     #  void QAbstractItemView::dragMoveEvent(QDragMoveEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN17QAbstractItemView13dragMoveEventEP14QDragMoveEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN17QAbstractItemView13dragMoveEventEP14QDragMoveEvent'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN17QAbstractItemView13dragMoveEventEP14QDragMoveEven'
+          't')
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QDragLeaveEvent)
   @overload(NoneType)
@@ -2870,11 +3184,13 @@ class QAbstractItemView(QAbstractScrollArea):
       object.
     """
     #  void QAbstractItemView::dragLeaveEvent(QDragLeaveEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN17QAbstractItemView14dragLeaveEventEP15QDragLeaveEven'
-        't',
-        self._addressOf(event),
-    )
+    ritual = (
+        'ritual_ZN17QAbstractItemView14dragLeaveEventEP15QDragLeaveEvent')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN17QAbstractItemView14dragLeaveEventEP15QDragLeaveEv'
+          'ent')
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QDropEvent)
   @overload(NoneType)
@@ -2892,10 +3208,10 @@ class QAbstractItemView(QAbstractScrollArea):
       object.
     """
     #  void QAbstractItemView::dropEvent(QDropEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN17QAbstractItemView9dropEventEP10QDropEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN17QAbstractItemView9dropEventEP10QDropEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN17QAbstractItemView9dropEventEP10QDropEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QFocusEvent)
   @overload(NoneType)
@@ -2914,10 +3230,11 @@ class QAbstractItemView(QAbstractScrollArea):
       object.
     """
     #  void QAbstractItemView::focusInEvent(QFocusEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN17QAbstractItemView12focusInEventEP11QFocusEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN17QAbstractItemView12focusInEventEP11QFocusEvent'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN17QAbstractItemView12focusInEventEP11QFocusEvent')
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QFocusEvent)
   @overload(NoneType)
@@ -2936,10 +3253,11 @@ class QAbstractItemView(QAbstractScrollArea):
       object.
     """
     #  void QAbstractItemView::focusOutEvent(QFocusEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN17QAbstractItemView13focusOutEventEP11QFocusEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN17QAbstractItemView13focusOutEventEP11QFocusEvent'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN17QAbstractItemView13focusOutEventEP11QFocusEvent')
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QKeyEvent)
   @overload(NoneType)
@@ -2958,10 +3276,10 @@ class QAbstractItemView(QAbstractScrollArea):
       object.
     """
     #  void QAbstractItemView::keyPressEvent(QKeyEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN17QAbstractItemView13keyPressEventEP9QKeyEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN17QAbstractItemView13keyPressEventEP9QKeyEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN17QAbstractItemView13keyPressEventEP9QKeyEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QResizeEvent)
   @overload(NoneType)
@@ -2979,10 +3297,11 @@ class QAbstractItemView(QAbstractScrollArea):
       object.
     """
     #  void QAbstractItemView::resizeEvent(QResizeEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN17QAbstractItemView11resizeEventEP12QResizeEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN17QAbstractItemView11resizeEventEP12QResizeEvent'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN17QAbstractItemView11resizeEventEP12QResizeEvent')
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QTimerEvent)
   @overload(NoneType)
@@ -3000,10 +3319,10 @@ class QAbstractItemView(QAbstractScrollArea):
       object.
     """
     #  void QAbstractItemView::timerEvent(QTimerEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN17QAbstractItemView10timerEventEP11QTimerEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN17QAbstractItemView10timerEventEP11QTimerEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN17QAbstractItemView10timerEventEP11QTimerEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QInputMethodEvent)
   @overload(NoneType)
@@ -3023,11 +3342,14 @@ class QAbstractItemView(QAbstractScrollArea):
       object.
     """
     #  void QAbstractItemView::inputMethodEvent(QInputMethodEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN17QAbstractItemView16inputMethodEventEP17QInputMethod'
-        'Event',
-        self._addressOf(event),
-    )
+    ritual = (
+        'ritual_ZN17QAbstractItemView16inputMethodEventEP17QInputMethodEven'
+        't')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN17QAbstractItemView16inputMethodEventEP17QInputMeth'
+          'odEvent')
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QObject, QEvent)
   @overload(QObject, NoneType)
@@ -3056,7 +3378,10 @@ class QAbstractItemView(QAbstractScrollArea):
       object.
     """
     #  bool QAbstractItemView::eventFilter(QObject *object, QEvent *event)
+    ritual = 'ritual_ZN17QAbstractItemView11eventFilterEP7QObjectP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN17QAbstractItemView11eventFilterEP7QObjectP6QEvent')
     return self.uglySide.call(
-        'ritual_own_ZN17QAbstractItemView11eventFilterEP7QObjectP6QEvent',
-        self._addressOf(object), self._addressOf(event),
+        ritual, self._addressOf(object), self._addressOf(event),
     )

@@ -35,6 +35,7 @@ else:
   QShowEvent = WAIT['QShowEvent']
   QSize = WAIT['QSize']
   QStyleOptionTabWidgetFrame = WAIT['QStyleOptionTabWidgetFrame']
+  QTabBar = WAIT['QTabBar']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -53,7 +54,7 @@ class QTabWidget(QWidget):
   -----------
 
   Every function of Qt's QTabWidget that has a ritual and that Python can
-  call so far, 59 names in all: 'metaObject', 'tr', 'addTab', 'insertTab',
+  call so far, 61 names in all: 'metaObject', 'tr', 'addTab', 'insertTab',
   'removeTab', 'isTabEnabled', 'setTabEnabled', 'isTabVisible',
   'setTabVisible', 'tabText', 'setTabText', 'tabIcon', 'setTabIcon',
   'setTabToolTip', 'tabToolTip', 'setTabWhatsThis', 'tabWhatsThis',
@@ -66,8 +67,8 @@ class QTabWidget(QWidget):
   'setDocumentMode', 'tabBarAutoHide', 'setTabBarAutoHide', 'clear',
   'tabBar', 'setCurrentIndex', 'setCurrentWidget', 'tabInserted',
   'tabRemoved', 'showEvent', 'resizeEvent', 'keyPressEvent', 'paintEvent',
-  'changeEvent', 'event', 'initStyleOption'. It can be made from Python, in 1
-  way; see '__init__'.
+  'setTabBar', 'changeEvent', 'event', 'initStyleOption', 'setUpLayout'. It
+  can be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -78,8 +79,9 @@ class QTabWidget(QWidget):
   What has no ritual
   ------------------
 
-  14 of the 77 functions Qt declares: 4 private; 4 a signal; 2 takes or gives
-  a type that cannot be passed yet; 2 forbidden; 1 a template; 1 protected.
+  12 of the 77 functions Qt declares: 4 takes or gives a type that cannot be
+  passed yet; 4 a signal; 2 forbidden; 1 a template; 1 declared and nowhere
+  to be found.
 
   What to expect
   --------------
@@ -1040,6 +1042,43 @@ class QTabWidget(QWidget):
         self._addressOf(widget),
     )
 
+  @overload(QTabBar)
+  @overload(NoneType)
+  def setTabBar(self, a0: Optional[QTabBar]) -> None:
+    """
+    Calls Qt's 'void QTabWidget::setTabBar(QTabBar *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtabwidget.html#setTabBar
+
+    Parameters
+    ----------
+
+    a0 : Optional[QTabBar]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QTabWidget::setTabBar(QTabBar *a0)
+    self.uglySide.call(
+        'ritual_ZN10QTabWidget9setTabBarEP7QTabBar', self._addressOf(a0),
+    )
+
+  @overload()
+  @overload(bool)
+  def setUpLayout(self, a0: bool = False) -> None:
+    """
+    Calls Qt's 'void QTabWidget::setUpLayout(bool a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtabwidget.html#setUpLayout
+
+    Parameters
+    ----------
+
+    a0 : bool
+      Passed on as it is. May be left out, as in Qt: it is then False.
+    """
+    #  void QTabWidget::setUpLayout(bool a0)
+    self.uglySide.call('ritual_ZN10QTabWidget11setUpLayoutEb', a0)
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1258,7 +1297,10 @@ class QTabWidget(QWidget):
       Passed on as it is.
     """
     #  void QTabWidget::tabInserted(int index)
-    self.uglySide.call('ritual_own_ZN10QTabWidget11tabInsertedEi', index)
+    ritual = 'ritual_ZN10QTabWidget11tabInsertedEi'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN10QTabWidget11tabInsertedEi'
+    self.uglySide.call(ritual, index)
 
   @overload(int)
   def tabRemoved(self, index: int) -> None:
@@ -1274,7 +1316,10 @@ class QTabWidget(QWidget):
       Passed on as it is.
     """
     #  void QTabWidget::tabRemoved(int index)
-    self.uglySide.call('ritual_own_ZN10QTabWidget10tabRemovedEi', index)
+    ritual = 'ritual_ZN10QTabWidget10tabRemovedEi'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN10QTabWidget10tabRemovedEi'
+    self.uglySide.call(ritual, index)
 
   @overload(QShowEvent)
   @overload(NoneType)
@@ -1292,10 +1337,10 @@ class QTabWidget(QWidget):
       object.
     """
     #  void QTabWidget::showEvent(QShowEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN10QTabWidget9showEventEP10QShowEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN10QTabWidget9showEventEP10QShowEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN10QTabWidget9showEventEP10QShowEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QResizeEvent)
   @overload(NoneType)
@@ -1313,10 +1358,10 @@ class QTabWidget(QWidget):
       object.
     """
     #  void QTabWidget::resizeEvent(QResizeEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN10QTabWidget11resizeEventEP12QResizeEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN10QTabWidget11resizeEventEP12QResizeEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN10QTabWidget11resizeEventEP12QResizeEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QKeyEvent)
   @overload(NoneType)
@@ -1334,10 +1379,10 @@ class QTabWidget(QWidget):
       object.
     """
     #  void QTabWidget::keyPressEvent(QKeyEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN10QTabWidget13keyPressEventEP9QKeyEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN10QTabWidget13keyPressEventEP9QKeyEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN10QTabWidget13keyPressEventEP9QKeyEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QPaintEvent)
   @overload(NoneType)
@@ -1355,10 +1400,10 @@ class QTabWidget(QWidget):
       object.
     """
     #  void QTabWidget::paintEvent(QPaintEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN10QTabWidget10paintEventEP11QPaintEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN10QTabWidget10paintEventEP11QPaintEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN10QTabWidget10paintEventEP11QPaintEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QEvent)
   @overload(NoneType)
@@ -1376,10 +1421,10 @@ class QTabWidget(QWidget):
       object.
     """
     #  void QTabWidget::changeEvent(QEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN10QTabWidget11changeEventEP6QEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN10QTabWidget11changeEventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN10QTabWidget11changeEventEP6QEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QEvent)
   @overload(NoneType)
@@ -1397,9 +1442,10 @@ class QTabWidget(QWidget):
       object.
     """
     #  bool QTabWidget::event(QEvent *a0)
-    return self.uglySide.call(
-        'ritual_own_ZN10QTabWidget5eventEP6QEvent', self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN10QTabWidget5eventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN10QTabWidget5eventEP6QEvent'
+    return self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QStyleOptionTabWidgetFrame)
   @overload(NoneType)
@@ -1422,8 +1468,11 @@ class QTabWidget(QWidget):
     """
     #  void QTabWidget::initStyleOption(QStyleOptionTabWidgetFrame *option)
     #      const
-    self.uglySide.call(
-        'ritual_own_ZNK10QTabWidget15initStyleOptionEP26QStyleOptionTabWidg'
-        'etFrame',
-        self._addressOf(option),
-    )
+    ritual = (
+        'ritual_ZNK10QTabWidget15initStyleOptionEP26QStyleOptionTabWidgetFr'
+        'ame')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK10QTabWidget15initStyleOptionEP26QStyleOptionTabWi'
+          'dgetFrame')
+    self.uglySide.call(ritual, self._addressOf(option))

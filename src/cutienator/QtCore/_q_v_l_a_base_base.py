@@ -9,7 +9,10 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
+from worktoy.dispatch import overload
+
 from ..cute import CuteMixin, MetaCute
+from ..occult import Rituals
 
 
 class QVLABaseBase(CuteMixin, metaclass=MetaCute):
@@ -21,14 +24,20 @@ class QVLABaseBase(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QVLABaseBase that has a ritual and that Python can
-  call so far, 3 names in all: 'capacity', 'size', 'empty'. None can be made
-  from Python: one comes out of a function of another class that gives one
-  back.
+  call so far, 4 names in all: 'verify', 'capacity', 'size', 'empty'. It can
+  be made from Python, in 1 way; see '__init__'.
+
+  What has a ritual and is left out, and why
+  ------------------------------------------
+
+  - Qt's 'QVLABaseBase::~QVLABaseBase()': the destructor: Python never
+    removes a C++ QVLABaseBase.
 
   What has no ritual
   ------------------
 
-  7 of the 10 functions Qt declares: 7 protected.
+  4 of the 10 functions Qt declares: 4 takes or gives a type that cannot be
+  passed yet.
 
   What to expect
   --------------
@@ -110,6 +119,19 @@ class QVLABaseBase(CuteMixin, metaclass=MetaCute):
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @overload()
+  def __init__(self) -> None:
+    """
+    Notes what was given, for Qt's 'QVLABaseBase::QVLABaseBase()', which is
+    called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qvlabasebase.html#QVLABaseBase
+    """
+    #  QVLABaseBase::QVLABaseBase()
+    self._noteCreation(QVLABaseBase, lambda: Rituals.call(
+        'ritual_ZN12QVLABaseBaseC1Ev',
+    ))
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -129,3 +151,24 @@ class QVLABaseBase(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload()
+  @overload(int)
+  @overload(int, int)
+  def verify(self, pos: int = 0, n: int = 1) -> None:
+    """
+    Calls Qt's 'void QVLABaseBase::verify(qsizetype pos, qsizetype n) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qvlabasebase.html#verify
+
+    Parameters
+    ----------
+
+    pos : int
+      Passed on as it is. May be left out, as in Qt: it is then 0.
+
+    n : int
+      Passed on as it is. May be left out, as in Qt: it is then 1.
+    """
+    #  void QVLABaseBase::verify(qsizetype pos, qsizetype n) const
+    self.uglySide.call('ritual_ZNK12QVLABaseBase6verifyExx', pos, n)

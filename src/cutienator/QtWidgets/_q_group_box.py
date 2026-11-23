@@ -67,8 +67,9 @@ class QGroupBox(QWidget):
   What has no ritual
   ------------------
 
-  10 of the 36 functions Qt declares: 3 private; 2 takes or gives a type that
-  cannot be passed yet; 2 a signal; 2 forbidden; 1 a template.
+  10 of the 36 functions Qt declares: 4 takes or gives a type that cannot be
+  passed yet; 2 a signal; 2 forbidden; 1 a template; 1 declared and nowhere
+  to be found.
 
   What to expect
   --------------
@@ -447,9 +448,10 @@ class QGroupBox(QWidget):
       object.
     """
     #  bool QGroupBox::event(QEvent *event)
-    return self.uglySide.call(
-        'ritual_own_ZN9QGroupBox5eventEP6QEvent', self._addressOf(event),
-    )
+    ritual = 'ritual_ZN9QGroupBox5eventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QGroupBox5eventEP6QEvent'
+    return self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QChildEvent)
   @overload(NoneType)
@@ -467,10 +469,10 @@ class QGroupBox(QWidget):
       object.
     """
     #  void QGroupBox::childEvent(QChildEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN9QGroupBox10childEventEP11QChildEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN9QGroupBox10childEventEP11QChildEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QGroupBox10childEventEP11QChildEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QResizeEvent)
   @overload(NoneType)
@@ -488,10 +490,10 @@ class QGroupBox(QWidget):
       object.
     """
     #  void QGroupBox::resizeEvent(QResizeEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN9QGroupBox11resizeEventEP12QResizeEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN9QGroupBox11resizeEventEP12QResizeEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QGroupBox11resizeEventEP12QResizeEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QPaintEvent)
   @overload(NoneType)
@@ -509,10 +511,10 @@ class QGroupBox(QWidget):
       object.
     """
     #  void QGroupBox::paintEvent(QPaintEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN9QGroupBox10paintEventEP11QPaintEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN9QGroupBox10paintEventEP11QPaintEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QGroupBox10paintEventEP11QPaintEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QFocusEvent)
   @overload(NoneType)
@@ -530,10 +532,10 @@ class QGroupBox(QWidget):
       object.
     """
     #  void QGroupBox::focusInEvent(QFocusEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN9QGroupBox12focusInEventEP11QFocusEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN9QGroupBox12focusInEventEP11QFocusEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QGroupBox12focusInEventEP11QFocusEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QEvent)
   @overload(NoneType)
@@ -551,10 +553,10 @@ class QGroupBox(QWidget):
       object.
     """
     #  void QGroupBox::changeEvent(QEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN9QGroupBox11changeEventEP6QEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN9QGroupBox11changeEventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QGroupBox11changeEventEP6QEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QMouseEvent)
   @overload(NoneType)
@@ -572,10 +574,10 @@ class QGroupBox(QWidget):
       object.
     """
     #  void QGroupBox::mousePressEvent(QMouseEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN9QGroupBox15mousePressEventEP11QMouseEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN9QGroupBox15mousePressEventEP11QMouseEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QGroupBox15mousePressEventEP11QMouseEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QMouseEvent)
   @overload(NoneType)
@@ -593,10 +595,10 @@ class QGroupBox(QWidget):
       object.
     """
     #  void QGroupBox::mouseMoveEvent(QMouseEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN9QGroupBox14mouseMoveEventEP11QMouseEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN9QGroupBox14mouseMoveEventEP11QMouseEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QGroupBox14mouseMoveEventEP11QMouseEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QMouseEvent)
   @overload(NoneType)
@@ -614,10 +616,10 @@ class QGroupBox(QWidget):
       object.
     """
     #  void QGroupBox::mouseReleaseEvent(QMouseEvent *event)
-    self.uglySide.call(
-        'ritual_own_ZN9QGroupBox17mouseReleaseEventEP11QMouseEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN9QGroupBox17mouseReleaseEventEP11QMouseEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QGroupBox17mouseReleaseEventEP11QMouseEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QStyleOptionGroupBox)
   @overload(NoneType)
@@ -636,7 +638,9 @@ class QGroupBox(QWidget):
       object.
     """
     #  void QGroupBox::initStyleOption(QStyleOptionGroupBox *option) const
-    self.uglySide.call(
-        'ritual_own_ZNK9QGroupBox15initStyleOptionEP20QStyleOptionGroupBox',
-        self._addressOf(option),
-    )
+    ritual = 'ritual_ZNK9QGroupBox15initStyleOptionEP20QStyleOptionGroupBox'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK9QGroupBox15initStyleOptionEP20QStyleOptionGroupBo'
+          'x')
+    self.uglySide.call(ritual, self._addressOf(option))

@@ -41,7 +41,8 @@ class QReadWriteLock(QBasicReadWriteLock):
   What has no ritual
   ------------------
 
-  4 of the 8 functions Qt declares: 4 private.
+  4 of the 8 functions Qt declares: 4 takes or gives a type that cannot be
+  passed yet.
 
   What to expect
   --------------

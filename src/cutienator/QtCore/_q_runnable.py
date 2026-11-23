@@ -12,6 +12,10 @@ from typing import TYPE_CHECKING
 from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute
+from ..occult import Rituals
+
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Optional
 
 
 class QRunnable(CuteMixin, metaclass=MetaCute):
@@ -23,9 +27,9 @@ class QRunnable(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QRunnable that has a ritual and that Python can call
-  so far, 3 names in all: 'run', 'autoDelete', 'setAutoDelete'. None can be
-  made from Python: one comes out of a function of another class that gives
-  one back.
+  so far, 4 names in all: 'run', 'autoDelete', 'setAutoDelete',
+  'warnNullCallable'. None can be made from Python: one comes out of a
+  function of another class that gives one back.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -36,8 +40,8 @@ class QRunnable(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  6 of the 10 functions Qt declares: 3 forbidden; 1 the class is abstract, so
-  C++ cannot make one; 1 a template; 1 private.
+  5 of the 10 functions Qt declares: 3 forbidden; 1 the class is abstract, so
+  C++ cannot make one; 1 a template.
 
   What to expect
   --------------
@@ -54,6 +58,24 @@ class QRunnable(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def warnNullCallable() -> Optional[QRunnable]:
+    """
+    Calls Qt's 'QRunnable *QRunnable::warnNullCallable()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qrunnable.html#warnNullCallable
+
+    Returns
+    -------
+
+    Optional[QRunnable]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QRunnable *QRunnable::warnNullCallable()
+    address = Rituals.call('ritual_ZN9QRunnable16warnNullCallableEv')
+    return QRunnable._cuteAt(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

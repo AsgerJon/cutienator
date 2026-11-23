@@ -54,14 +54,18 @@ class QMetaAssociation(QMetaContainer):
     *QMetaAssociation::iface() const': gives
     'QtMetaContainerPrivate::QMetaAssociationInterface', which has no cute
     class yet.
+  - Qt's 'const QtMetaContainerPrivate::QMetaAssociationInterface
+    *QMetaAssociation::d() const': gives
+    'QtMetaContainerPrivate::QMetaAssociationInterface', which has no cute
+    class yet.
   - Qt's 'QMetaAssociation::~QMetaAssociation()': the destructor: Python
     removes its C++ QMetaAssociation by it, and has no other use for it.
 
   What has no ritual
   ------------------
 
-  14 of the 34 functions Qt declares: 12 takes or gives a type that cannot be
-  passed yet; 1 a template; 1 private.
+  13 of the 34 functions Qt declares: 12 takes or gives a type that cannot be
+  passed yet; 1 a template.
 
   What to expect
   --------------

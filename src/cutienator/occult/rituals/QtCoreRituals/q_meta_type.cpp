@@ -283,6 +283,50 @@ const QtPrivate::QMetaTypeInterface *ritual_ZNK9QMetaType5ifaceEv(
   return self->iface();
 }
 
+//  bool QMetaType::isDefaultConstructible(const
+//      QtPrivate::QMetaTypeInterface *a0)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN9QMetaType22isDefaultConstructibleEPKN9QtPrivate18QMetaTypeInterfaceE(
+    const QtPrivate::QMetaTypeInterface *a0) {
+  return QMetaType::isDefaultConstructible(a0);
+}
+
+//  bool QMetaType::isCopyConstructible(const QtPrivate::QMetaTypeInterface
+//      *a0)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN9QMetaType19isCopyConstructibleEPKN9QtPrivate18QMetaTypeInterfaceE(
+    const QtPrivate::QMetaTypeInterface *a0) {
+  return QMetaType::isCopyConstructible(a0);
+}
+
+//  bool QMetaType::isMoveConstructible(const QtPrivate::QMetaTypeInterface
+//      *a0)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN9QMetaType19isMoveConstructibleEPKN9QtPrivate18QMetaTypeInterfaceE(
+    const QtPrivate::QMetaTypeInterface *a0) {
+  return QMetaType::isMoveConstructible(a0);
+}
+
+//  bool QMetaType::isDestructible(const QtPrivate::QMetaTypeInterface *a0)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN9QMetaType14isDestructibleEPKN9QtPrivate18QMetaTypeInterfaceE(
+    const QtPrivate::QMetaTypeInterface *a0) {
+  return QMetaType::isDestructible(a0);
+}
+
+//  int QMetaType::registerHelper(const QtPrivate::QMetaTypeInterface *iface)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN9QMetaType14registerHelperEPKN9QtPrivate18QMetaTypeInterfaceE(
+    const QtPrivate::QMetaTypeInterface *iface) {
+  return QMetaType::registerHelper(iface);
+}
+
+//  int QMetaType::registerHelper() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK9QMetaType14registerHelperEv(const QMetaType *self) {
+  return self->registerHelper();
+}
+
 //  QMetaType::~QMetaType()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN9QMetaTypeD1Ev(QMetaType *self) {

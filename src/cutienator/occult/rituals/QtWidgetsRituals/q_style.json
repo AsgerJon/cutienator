@@ -91,6 +91,8 @@
       "int", "address", "int", "int", "int", "address", "address"
     ],
     "ritual_ZNK6QStyle5proxyEv": ["address", "address"],
+    "ritual_ZN6QStyle7setNameERK7QString": ["nothing", "address", "text"],
+    "ritual_ZN6QStyle8setProxyEPS_": ["nothing", "address", "address"],
     "ritual_take_QStyle": ["bool", "address", "chars", "address"],
     "ritual_own_ZN6QStyle6polishEP7QWidget": [
       "nothing", "address", "address"

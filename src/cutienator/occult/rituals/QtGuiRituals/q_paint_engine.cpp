@@ -726,6 +726,20 @@ QPixmap *ritual_ZN12QPaintEngine21createPixmapFromImageE6QImage6QFlagsIN2Qt19Ima
           QFlags<Qt::ImageConversionFlag>::fromInt(flags)));
 }
 
+//  void QPaintEngine::setAutoDestruct(bool autoDestr)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QPaintEngine15setAutoDestructEb(
+    QPaintEngine *self,
+    bool autoDestr) {
+  self->setAutoDestruct(autoDestr);
+}
+
+//  bool QPaintEngine::autoDestruct() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK12QPaintEngine12autoDestructEv(const QPaintEngine *self) {
+  return self->autoDestruct();
+}
+
 //  a Python function taken by a CuteQPaintEngine, for the function named by
 //      the key
 extern "C" Q_DECL_EXPORT

@@ -314,6 +314,32 @@ void ritual_ZN18QPropertyAnimation15setPropertyNameERK10QByteArray(
   self->setPropertyName(*propertyName);
 }
 
+//  bool QPropertyAnimation::event(QEvent *event)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN18QPropertyAnimation5eventEP6QEvent(
+    QPropertyAnimation *self,
+    QEvent *event) {
+  return self->event(event);
+}
+
+//  void QPropertyAnimation::updateCurrentValue(const QVariant &value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QPropertyAnimation18updateCurrentValueERK8QVariant(
+    QPropertyAnimation *self,
+    const QVariant *value) {
+  self->updateCurrentValue(*value);
+}
+
+//  void QPropertyAnimation::updateState(QAbstractAnimation::State newState,
+//      QAbstractAnimation::State oldState)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QPropertyAnimation11updateStateEN18QAbstractAnimation5StateES1_(
+    QPropertyAnimation *self,
+    QAbstractAnimation::State newState,
+    QAbstractAnimation::State oldState) {
+  self->updateState(newState, oldState);
+}
+
 //  a Python function taken by a CuteQPropertyAnimation, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT

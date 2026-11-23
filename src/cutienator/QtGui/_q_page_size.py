@@ -39,10 +39,10 @@ class QPageSize(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QPageSize that has a ritual and that Python can call
-  so far, 16 names in all: 'isEquivalentTo', 'isValid', 'key', 'name', 'id',
+  so far, 17 names in all: 'isEquivalentTo', 'isValid', 'key', 'name', 'id',
   'windowsId', 'definitionSize', 'definitionUnits', 'size', 'sizePoints',
-  'sizePixels', 'rect', 'rectPoints', 'rectPixels', '__eq__', '__ne__'. It
-  can be made from Python, in 5 ways; see '__init__'.
+  'sizePixels', 'rect', 'rectPoints', 'rectPixels', 'equals', '__eq__',
+  '__ne__'. It can be made from Python, in 7 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -53,8 +53,8 @@ class QPageSize(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  7 of the 40 functions Qt declares: 4 private; 3 takes or gives a type that
-  cannot be passed yet.
+  4 of the 40 functions Qt declares: 4 takes or gives a type that cannot be
+  passed yet.
 
   What to expect
   --------------
@@ -841,6 +841,25 @@ class QPageSize(CuteMixin, metaclass=MetaCute):
     from ..QtCore import QRect
     return QRect._cuteOwning(address)
 
+  @overload(THIS)
+  def equals(self, other: QPageSize) -> bool:
+    """
+    Calls Qt's 'bool QPageSize::equals(const QPageSize &other) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpagesize.html#equals
+
+    Parameters
+    ----------
+
+    other : QPageSize
+      Passed on as a value: Qt reads the C++ QPageSize, which stays Python's
+      own.
+    """
+    #  bool QPageSize::equals(const QPageSize &other) const
+    return self.uglySide.call(
+        'ritual_ZNK9QPageSize6equalsERKS_', self._valueOf(other),
+    )
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1045,6 +1064,62 @@ class QPageSize(CuteMixin, metaclass=MetaCute):
     #  QPageSize::QPageSize(const QPageSize &other)
     self._noteCreation(QPageSize, lambda: Rituals.call(
         'ritual_ZN9QPageSizeC1ERKS_', self._valueOf(other),
+    ))
+
+  @overload(str, QSize, str)
+  def __init__(self, key: str, pointSize: QSize, name: str) -> None:
+    """
+    Notes what was given, for Qt's 'QPageSize::QPageSize(const QString &key,
+    const QSize &pointSize, const QString &name)', which is called at the
+    first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpagesize.html#QPageSize
+
+    Parameters
+    ----------
+
+    key : str
+      Passed on as it is: a QString is made of it for the call.
+
+    pointSize : QSize
+      Passed on as a value: Qt reads the C++ QSize, which stays Python's own.
+
+    name : str
+      Passed on as it is: a QString is made of it for the call.
+    """
+    #  QPageSize::QPageSize(const QString &key, const QSize &pointSize, const
+    #      QString &name)
+    self._noteCreation(QPageSize, lambda: Rituals.call(
+        'ritual_ZN9QPageSizeC1ERK7QStringRK5QSizeS2_',
+        key, self._valueOf(pointSize), name,
+    ))
+
+  @overload(int, QSize, str)
+  def __init__(self, windowsId: int, pointSize: QSize, name: str) -> None:
+    """
+    Notes what was given, for Qt's 'QPageSize::QPageSize(int windowsId, const
+    QSize &pointSize, const QString &name)', which is called at the first
+    use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpagesize.html#QPageSize
+
+    Parameters
+    ----------
+
+    windowsId : int
+      Passed on as it is.
+
+    pointSize : QSize
+      Passed on as a value: Qt reads the C++ QSize, which stays Python's own.
+
+    name : str
+      Passed on as it is: a QString is made of it for the call.
+    """
+    #  QPageSize::QPageSize(int windowsId, const QSize &pointSize, const
+    #      QString &name)
+    self._noteCreation(QPageSize, lambda: Rituals.call(
+        'ritual_ZN9QPageSizeC1EiRK5QSizeRK7QString',
+        windowsId, self._valueOf(pointSize), name,
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

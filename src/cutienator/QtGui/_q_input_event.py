@@ -48,7 +48,8 @@ class QInputEvent(QEvent):
   What has no ritual
   ------------------
 
-  6 of the 15 functions Qt declares: 4 protected; 2 forbidden.
+  6 of the 15 functions Qt declares: 4 takes or gives a type that cannot be
+  passed yet; 2 forbidden.
 
   What to expect
   --------------

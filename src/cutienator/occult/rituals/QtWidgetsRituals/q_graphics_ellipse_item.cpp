@@ -721,6 +721,32 @@ int ritual_ZNK20QGraphicsEllipseItem4typeEv(
   return self->type();
 }
 
+//  bool QGraphicsEllipseItem::supportsExtension(Extension extension) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK20QGraphicsEllipseItem17supportsExtensionEN13QGraphicsItem9ExtensionE(
+    const QGraphicsEllipseItem *self,
+    QGraphicsItem::Extension extension) {
+  return self->supportsExtension(extension);
+}
+
+//  void QGraphicsEllipseItem::setExtension(Extension extension, const
+//      QVariant &variant)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QGraphicsEllipseItem12setExtensionEN13QGraphicsItem9ExtensionERK8QVariant(
+    QGraphicsEllipseItem *self,
+    QGraphicsItem::Extension extension,
+    const QVariant *variant) {
+  self->setExtension(extension, *variant);
+}
+
+//  QVariant QGraphicsEllipseItem::extension(const QVariant &variant) const
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZNK20QGraphicsEllipseItem9extensionERK8QVariant(
+    const QGraphicsEllipseItem *self,
+    const QVariant *variant) {
+  return new QVariant(self->extension(*variant));
+}
+
 //  a Python function taken by a CuteQGraphicsEllipseItem, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT

@@ -23,10 +23,11 @@ class QIODeviceBase(CuteMixin, metaclass=MetaCute):
   No function of Qt's QIODeviceBase yet. None can be made from Python: one
   comes out of a function of another class that gives one back.
 
-  What has no ritual
-  ------------------
+  What has a ritual and is left out, and why
+  ------------------------------------------
 
-  1 of the 1 functions Qt declares: 1 protected.
+  - Qt's 'QIODeviceBase::~QIODeviceBase()': the destructor: Python never
+    removes a C++ QIODeviceBase.
 
   What to expect
   --------------

@@ -37,9 +37,9 @@ class QAnimationDriver(QObject):
   -----------
 
   Every function of Qt's QAnimationDriver that has a ritual and that Python
-  can call so far, 9 names in all: 'metaObject', 'tr', 'advance', 'install',
-  'uninstall', 'isRunning', 'elapsed', 'start', 'stop'. It can be made from
-  Python, in 1 way; see '__init__'.
+  can call so far, 10 names in all: 'metaObject', 'tr', 'advance', 'install',
+  'uninstall', 'isRunning', 'elapsed', 'advanceAnimation', 'start', 'stop'.
+  It can be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -50,8 +50,8 @@ class QAnimationDriver(QObject):
   What has no ritual
   ------------------
 
-  10 of the 21 functions Qt declares: 3 private; 2 takes or gives a type that
-  cannot be passed yet; 2 a signal; 2 protected; 1 a template.
+  9 of the 21 functions Qt declares: 5 takes or gives a type that cannot be
+  passed yet; 2 a signal; 1 a template; 1 declared and nowhere to be found.
 
   What to expect
   --------------
@@ -299,6 +299,16 @@ class QAnimationDriver(QObject):
     #  void QAnimationDriver::uninstall()
     self.uglySide.call('ritual_ZN16QAnimationDriver9uninstallEv')
 
+  def advanceAnimation(self) -> None:
+    """
+    Calls Qt's 'void QAnimationDriver::advanceAnimation()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qanimationdriver.html#advanceAnimation
+    """
+    #  void QAnimationDriver::advanceAnimation()
+    self.uglySide.call('ritual_ZN16QAnimationDriver16advanceAnimationEv')
+
   def start(self) -> None:
     """
     Calls Qt's 'void QAnimationDriver::start()'.
@@ -306,7 +316,10 @@ class QAnimationDriver(QObject):
     Qt's own words: https://doc.qt.io/qt-6/qanimationdriver.html#start
     """
     #  void QAnimationDriver::start()
-    self.uglySide.call('ritual_own_ZN16QAnimationDriver5startEv')
+    ritual = 'ritual_ZN16QAnimationDriver5startEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN16QAnimationDriver5startEv'
+    self.uglySide.call(ritual)
 
   def stop(self) -> None:
     """
@@ -315,4 +328,7 @@ class QAnimationDriver(QObject):
     Qt's own words: https://doc.qt.io/qt-6/qanimationdriver.html#stop
     """
     #  void QAnimationDriver::stop()
-    self.uglySide.call('ritual_own_ZN16QAnimationDriver4stopEv')
+    ritual = 'ritual_ZN16QAnimationDriver4stopEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN16QAnimationDriver4stopEv'
+    self.uglySide.call(ritual)

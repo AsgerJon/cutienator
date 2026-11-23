@@ -37,9 +37,9 @@ class QObjectCleanupHandler(QObject):
   -----------
 
   Every function of Qt's QObjectCleanupHandler that has a ritual and that
-  Python can call so far, 6 names in all: 'metaObject', 'tr', 'add',
-  'remove', 'isEmpty', 'clear'. It can be made from Python, in 1 way; see
-  '__init__'.
+  Python can call so far, 7 names in all: 'metaObject', 'tr', 'add',
+  'remove', 'isEmpty', 'clear', 'objectDestroyed'. It can be made from
+  Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -50,8 +50,8 @@ class QObjectCleanupHandler(QObject):
   What has no ritual
   ------------------
 
-  5 of the 13 functions Qt declares: 2 takes or gives a type that cannot be
-  passed yet; 2 private; 1 a template.
+  4 of the 13 functions Qt declares: 2 takes or gives a type that cannot be
+  passed yet; 1 a template; 1 declared and nowhere to be found.
 
   What to expect
   --------------
@@ -281,3 +281,25 @@ class QObjectCleanupHandler(QObject):
     """
     #  void QObjectCleanupHandler::clear()
     self.uglySide.call('ritual_ZN21QObjectCleanupHandler5clearEv')
+
+  @overload(QObject)
+  @overload(NoneType)
+  def objectDestroyed(self, a0: Optional[QObject]) -> None:
+    """
+    Calls Qt's 'void QObjectCleanupHandler::objectDestroyed(QObject *a0)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qobjectcleanuphandler.html#objectDestroyed
+
+    Parameters
+    ----------
+
+    a0 : Optional[QObject]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QObjectCleanupHandler::objectDestroyed(QObject *a0)
+    self.uglySide.call(
+        'ritual_ZN21QObjectCleanupHandler15objectDestroyedEP7QObject',
+        self._addressOf(a0),
+    )

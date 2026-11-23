@@ -30,10 +30,11 @@ class QNativeIpcKey(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QNativeIpcKey that has a ritual and that Python can
-  call so far, 11 names in all: 'legacyDefaultTypeForOs', 'isEmpty',
+  call so far, 17 names in all: 'legacyDefaultTypeForOs', 'isEmpty',
   'isValid', 'type', 'setType', 'nativeKey', 'setNativeKey', 'toString',
-  'fromString', '__eq__', '__ne__'. It can be made from Python, in 4 ways;
-  see '__init__'.
+  'fromString', 'isSlowPath', 'copy_internal', 'destroy_internal',
+  'setType_internal', 'setNativeKey_internal', 'compare_internal', '__eq__',
+  '__ne__'. It can be made from Python, in 4 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -44,8 +45,8 @@ class QNativeIpcKey(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  15 of the 31 functions Qt declares: 9 private; 4 takes or gives a type that
-  cannot be passed yet; 1 declared and nowhere to be found; 1 a template.
+  9 of the 31 functions Qt declares: 6 takes or gives a type that cannot be
+  passed yet; 2 declared and nowhere to be found; 1 a template.
 
   What to expect
   --------------
@@ -125,6 +126,34 @@ class QNativeIpcKey(CuteMixin, metaclass=MetaCute):
         'ritual_ZN13QNativeIpcKey10fromStringERK7QString', string,
     )
     return QNativeIpcKey._cuteOwning(address)
+
+  @staticmethod
+  @overload(THIS, THIS)
+  def compare_internal(lhs: QNativeIpcKey, rhs: QNativeIpcKey) -> int:
+    """
+    Calls Qt's 'int QNativeIpcKey::compare_internal(const QNativeIpcKey &lhs,
+    const QNativeIpcKey &rhs)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qnativeipckey.html#compare_internal
+
+    Parameters
+    ----------
+
+    lhs : QNativeIpcKey
+      Passed on as a value: Qt reads the C++ QNativeIpcKey, which stays
+      Python's own.
+
+    rhs : QNativeIpcKey
+      Passed on as a value: Qt reads the C++ QNativeIpcKey, which stays
+      Python's own.
+    """
+    #  int QNativeIpcKey::compare_internal(const QNativeIpcKey &lhs, const
+    #      QNativeIpcKey &rhs)
+    return Rituals.call(
+        'ritual_ZN13QNativeIpcKey16compare_internalERKS_S1_',
+        CuteMixin._valueOf(lhs), CuteMixin._valueOf(rhs),
+    )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -217,6 +246,15 @@ class QNativeIpcKey(CuteMixin, metaclass=MetaCute):
     #  QString QNativeIpcKey::toString() const
     return self.uglySide.call('ritual_ZNK13QNativeIpcKey8toStringEv')
 
+  def isSlowPath(self) -> bool:
+    """
+    Calls Qt's 'bool QNativeIpcKey::isSlowPath() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qnativeipckey.html#isSlowPath
+    """
+    #  bool QNativeIpcKey::isSlowPath() const
+    return self.uglySide.call('ritual_ZNK13QNativeIpcKey10isSlowPathEv')
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -255,6 +293,45 @@ class QNativeIpcKey(CuteMixin, metaclass=MetaCute):
     #  void QNativeIpcKey::setNativeKey(const QString &newKey)
     self.uglySide.call(
         'ritual_ZN13QNativeIpcKey12setNativeKeyERK7QString', newKey,
+    )
+
+  @overload(Type)
+  def setType_internal(self, a0: Type) -> None:
+    """
+    Calls Qt's 'void QNativeIpcKey::setType_internal(Type a0)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qnativeipckey.html#setType_internal
+
+    Parameters
+    ----------
+
+    a0 : Type
+      Passed on as its number.
+    """
+    #  void QNativeIpcKey::setType_internal(Type a0)
+    self.uglySide.call(
+        'ritual_ZN13QNativeIpcKey16setType_internalENS_4TypeE', a0.value,
+    )
+
+  @overload(str)
+  def setNativeKey_internal(self, a0: str) -> None:
+    """
+    Calls Qt's 'void QNativeIpcKey::setNativeKey_internal(const QString
+    &a0)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qnativeipckey.html#setNativeKey_internal
+
+    Parameters
+    ----------
+
+    a0 : str
+      Passed on as it is: a QString is made of it for the call.
+    """
+    #  void QNativeIpcKey::setNativeKey_internal(const QString &a0)
+    self.uglySide.call(
+        'ritual_ZN13QNativeIpcKey21setNativeKey_internalERK7QString', a0,
     )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -422,3 +499,33 @@ class QNativeIpcKey(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(THIS)
+  def copy_internal(self, other: QNativeIpcKey) -> None:
+    """
+    Calls Qt's 'void QNativeIpcKey::copy_internal(const QNativeIpcKey
+    &other)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qnativeipckey.html#copy_internal
+
+    Parameters
+    ----------
+
+    other : QNativeIpcKey
+      Passed on as a value: Qt reads the C++ QNativeIpcKey, which stays
+      Python's own.
+    """
+    #  void QNativeIpcKey::copy_internal(const QNativeIpcKey &other)
+    self.uglySide.call(
+        'ritual_ZN13QNativeIpcKey13copy_internalERKS_', self._valueOf(other),
+    )
+
+  def destroy_internal(self) -> None:
+    """
+    Calls Qt's 'void QNativeIpcKey::destroy_internal()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qnativeipckey.html#destroy_internal
+    """
+    #  void QNativeIpcKey::destroy_internal()
+    self.uglySide.call('ritual_ZN13QNativeIpcKey16destroy_internalEv')

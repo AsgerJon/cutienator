@@ -293,6 +293,7 @@
     "ritual_ZNK7QLocale19createSeparatedListERK5QListI7QStringE": [
       "text", "address", "address"
     ],
+    "ritual_ZNK7QLocale6equalsERKS_": ["bool", "address", "address"],
     "ritual_ZeqRK7QLocaleS1_": ["bool", "address", "address"],
     "ritual_ZneRK7QLocaleS1_": ["bool", "address", "address"],
     "ritual_list_make_QLocale": ["address"],

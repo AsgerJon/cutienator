@@ -58,8 +58,8 @@ class QPropertyAnimation(QVariantAnimation):
   What has no ritual
   ------------------
 
-  10 of the 22 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 3 private; 2 forbidden; 1 a template.
+  10 of the 22 functions Qt declares: 6 takes or gives a type that cannot be
+  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found.
 
   What to expect
   --------------
@@ -373,10 +373,10 @@ class QPropertyAnimation(QVariantAnimation):
       object.
     """
     #  bool QPropertyAnimation::event(QEvent *event)
-    return self.uglySide.call(
-        'ritual_own_ZN18QPropertyAnimation5eventEP6QEvent',
-        self._addressOf(event),
-    )
+    ritual = 'ritual_ZN18QPropertyAnimation5eventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN18QPropertyAnimation5eventEP6QEvent'
+    return self.uglySide.call(ritual, self._addressOf(event))
 
   @overload(QVariant)
   def updateCurrentValue(self, value: QVariant) -> None:
@@ -395,10 +395,12 @@ class QPropertyAnimation(QVariantAnimation):
       own.
     """
     #  void QPropertyAnimation::updateCurrentValue(const QVariant &value)
-    self.uglySide.call(
-        'ritual_own_ZN18QPropertyAnimation18updateCurrentValueERK8QVariant',
-        self._valueOf(value),
-    )
+    ritual = 'ritual_ZN18QPropertyAnimation18updateCurrentValueERK8QVariant'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN18QPropertyAnimation18updateCurrentValueERK8QVarian'
+          't')
+    self.uglySide.call(ritual, self._valueOf(value))
 
   @overload(QAbstractAnimation.State, QAbstractAnimation.State)
   def updateState(
@@ -425,8 +427,11 @@ class QPropertyAnimation(QVariantAnimation):
     """
     #  void QPropertyAnimation::updateState(QAbstractAnimation::State
     #      newState, QAbstractAnimation::State oldState)
-    self.uglySide.call(
-        'ritual_own_ZN18QPropertyAnimation11updateStateEN18QAbstractAnimati'
-        'on5StateES1_',
-        newState.value, oldState.value,
-    )
+    ritual = (
+        'ritual_ZN18QPropertyAnimation11updateStateEN18QAbstractAnimation5S'
+        'tateES1_')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN18QPropertyAnimation11updateStateEN18QAbstractAnima'
+          'tion5StateES1_')
+    self.uglySide.call(ritual, newState.value, oldState.value)

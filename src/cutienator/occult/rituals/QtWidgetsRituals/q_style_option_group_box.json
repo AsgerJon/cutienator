@@ -6,6 +6,7 @@
   "rows": {
     "ritual_ZN20QStyleOptionGroupBoxC1Ev": ["address"],
     "ritual_ZN20QStyleOptionGroupBoxC1ERKS_": ["address", "address"],
+    "ritual_ZN20QStyleOptionGroupBoxC1Ei": ["address", "int"],
     "ritual_ZN20QStyleOptionGroupBoxD1Ev": ["nothing", "address"]
   }
 }

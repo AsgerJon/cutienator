@@ -40,6 +40,12 @@ QOperatingSystemVersion::OSType ritual_ZNK23QOperatingSystemVersion4typeEv(
   return self->type();
 }
 
+//  QOperatingSystemVersion::QOperatingSystemVersion()
+extern "C" Q_DECL_EXPORT
+QOperatingSystemVersion *ritual_ZN23QOperatingSystemVersionC1Ev() {
+  return new QOperatingSystemVersion();
+}
+
 //  QOperatingSystemVersion::~QOperatingSystemVersion()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN23QOperatingSystemVersionD1Ev(QOperatingSystemVersion *self) {

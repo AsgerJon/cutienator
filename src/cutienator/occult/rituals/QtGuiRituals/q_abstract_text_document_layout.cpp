@@ -490,6 +490,69 @@ QTextObjectInterface *ritual_ZNK27QAbstractTextDocumentLayout16handlerForObjectE
   return self->handlerForObject(objectType);
 }
 
+//  void QAbstractTextDocumentLayout::documentChanged(int from, int
+//      charsRemoved, int charsAdded)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QAbstractTextDocumentLayout15documentChangedEiii(
+    QAbstractTextDocumentLayout *self,
+    int from,
+    int charsRemoved,
+    int charsAdded) {
+  self->documentChanged(from, charsRemoved, charsAdded);
+}
+
+//  void QAbstractTextDocumentLayout::resizeInlineObject(QTextInlineObject
+//      item, int posInDocument, const QTextFormat &format)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QAbstractTextDocumentLayout18resizeInlineObjectE17QTextInlineObjectiRK11QTextFormat(
+    QAbstractTextDocumentLayout *self,
+    const QTextInlineObject *item,
+    int posInDocument,
+    const QTextFormat *format) {
+  self->resizeInlineObject(*item, posInDocument, *format);
+}
+
+//  void QAbstractTextDocumentLayout::positionInlineObject(QTextInlineObject
+//      item, int posInDocument, const QTextFormat &format)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QAbstractTextDocumentLayout20positionInlineObjectE17QTextInlineObjectiRK11QTextFormat(
+    QAbstractTextDocumentLayout *self,
+    const QTextInlineObject *item,
+    int posInDocument,
+    const QTextFormat *format) {
+  self->positionInlineObject(*item, posInDocument, *format);
+}
+
+//  void QAbstractTextDocumentLayout::drawInlineObject(QPainter *painter,
+//      const QRectF &rect, QTextInlineObject object, int posInDocument,
+//      const QTextFormat &format)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QAbstractTextDocumentLayout16drawInlineObjectEP8QPainterRK6QRectF17QTextInlineObjectiRK11QTextFormat(
+    QAbstractTextDocumentLayout *self,
+    QPainter *painter,
+    const QRectF *rect,
+    const QTextInlineObject *object,
+    int posInDocument,
+    const QTextFormat *format) {
+  self->drawInlineObject(painter, *rect, *object, posInDocument, *format);
+}
+
+//  int QAbstractTextDocumentLayout::formatIndex(int pos)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN27QAbstractTextDocumentLayout11formatIndexEi(
+    QAbstractTextDocumentLayout *self,
+    int pos) {
+  return self->formatIndex(pos);
+}
+
+//  QTextCharFormat QAbstractTextDocumentLayout::format(int pos)
+extern "C" Q_DECL_EXPORT
+QTextCharFormat *ritual_ZN27QAbstractTextDocumentLayout6formatEi(
+    QAbstractTextDocumentLayout *self,
+    int pos) {
+  return new QTextCharFormat(self->format(pos));
+}
+
 //  a Python function taken by a CuteQAbstractTextDocumentLayout, for the
 //      function named by the key
 extern "C" Q_DECL_EXPORT

@@ -29,94 +29,95 @@ typedef bool (*CuteQTableWidgetCall0)(const void *, QEvent *, int *);
 typedef bool (*CuteQTableWidgetCall1)(const void *, int, int, const QMimeData *, int, int *);
 typedef int (*CuteQTableWidgetCall2)(const void *, int *);
 typedef void (*CuteQTableWidgetCall3)(const void *, QDropEvent *, int *);
-typedef void (*CuteQTableWidgetCall4)(const void *, const QModelIndex *, int *);
-typedef void (*CuteQTableWidgetCall5)(const void *, QItemSelectionModel *, int *);
-typedef void (*CuteQTableWidgetCall6)(const void *, int *);
-typedef const QRect * (*CuteQTableWidgetCall7)(const void *, const QModelIndex *, int *);
-typedef void (*CuteQTableWidgetCall8)(const void *, const QModelIndex *, int, int *);
-typedef const QModelIndex * (*CuteQTableWidgetCall9)(const void *, const QPoint *, int *);
-typedef void (*CuteQTableWidgetCall10)(const void *, int, int, int *);
-typedef void (*CuteQTableWidgetCall11)(const void *, QStyleOptionViewItem *, int *);
-typedef void (*CuteQTableWidgetCall12)(const void *, QPaintEvent *, int *);
-typedef void (*CuteQTableWidgetCall13)(const void *, QTimerEvent *, int *);
-typedef int (*CuteQTableWidgetCall14)(const void *, int *);
+typedef void (*CuteQTableWidgetCall4)(const void *, QAbstractItemModel *, int *);
+typedef void (*CuteQTableWidgetCall5)(const void *, const QModelIndex *, int *);
+typedef void (*CuteQTableWidgetCall6)(const void *, QItemSelectionModel *, int *);
+typedef void (*CuteQTableWidgetCall7)(const void *, int *);
+typedef const QRect * (*CuteQTableWidgetCall8)(const void *, const QModelIndex *, int *);
+typedef void (*CuteQTableWidgetCall9)(const void *, const QModelIndex *, int, int *);
+typedef const QModelIndex * (*CuteQTableWidgetCall10)(const void *, const QPoint *, int *);
+typedef void (*CuteQTableWidgetCall11)(const void *, int, int, int *);
+typedef void (*CuteQTableWidgetCall12)(const void *, QStyleOptionViewItem *, int *);
+typedef void (*CuteQTableWidgetCall13)(const void *, QPaintEvent *, int *);
+typedef void (*CuteQTableWidgetCall14)(const void *, QTimerEvent *, int *);
 typedef int (*CuteQTableWidgetCall15)(const void *, int *);
-typedef void (*CuteQTableWidgetCall16)(const void *, const QRect *, int, int *);
-typedef const QRegion * (*CuteQTableWidgetCall17)(const void *, const QItemSelection *, int *);
-typedef void (*CuteQTableWidgetCall18)(const void *, int *);
-typedef const QSize * (*CuteQTableWidgetCall19)(const void *, int *);
-typedef int (*CuteQTableWidgetCall20)(const void *, int, int *);
+typedef int (*CuteQTableWidgetCall16)(const void *, int *);
+typedef void (*CuteQTableWidgetCall17)(const void *, const QRect *, int, int *);
+typedef const QRegion * (*CuteQTableWidgetCall18)(const void *, const QItemSelection *, int *);
+typedef void (*CuteQTableWidgetCall19)(const void *, int *);
+typedef const QSize * (*CuteQTableWidgetCall20)(const void *, int *);
 typedef int (*CuteQTableWidgetCall21)(const void *, int, int *);
-typedef void (*CuteQTableWidgetCall22)(const void *, int, int *);
+typedef int (*CuteQTableWidgetCall22)(const void *, int, int *);
 typedef void (*CuteQTableWidgetCall23)(const void *, int, int *);
-typedef bool (*CuteQTableWidgetCall24)(const void *, const QModelIndex *, int *);
-typedef void (*CuteQTableWidgetCall25)(const void *, const QItemSelection *, const QItemSelection *, int *);
-typedef void (*CuteQTableWidgetCall26)(const void *, const QModelIndex *, const QModelIndex *, int *);
-typedef void (*CuteQTableWidgetCall27)(const void *, const QString *, int *);
-typedef void * (*CuteQTableWidgetCall28)(const void *, const QModelIndex *, int *);
-typedef const QVariant * (*CuteQTableWidgetCall29)(const void *, int, int *);
-typedef void (*CuteQTableWidgetCall30)(const void *, int *);
+typedef void (*CuteQTableWidgetCall24)(const void *, int, int *);
+typedef bool (*CuteQTableWidgetCall25)(const void *, const QModelIndex *, int *);
+typedef void (*CuteQTableWidgetCall26)(const void *, const QItemSelection *, const QItemSelection *, int *);
+typedef void (*CuteQTableWidgetCall27)(const void *, const QModelIndex *, const QModelIndex *, int *);
+typedef void (*CuteQTableWidgetCall28)(const void *, const QString *, int *);
+typedef void * (*CuteQTableWidgetCall29)(const void *, const QModelIndex *, int *);
+typedef const QVariant * (*CuteQTableWidgetCall30)(const void *, int, int *);
 typedef void (*CuteQTableWidgetCall31)(const void *, int *);
-typedef void (*CuteQTableWidgetCall32)(const void *, const QModelIndex *, int, int, int *);
+typedef void (*CuteQTableWidgetCall32)(const void *, int *);
 typedef void (*CuteQTableWidgetCall33)(const void *, const QModelIndex *, int, int, int *);
-typedef void (*CuteQTableWidgetCall34)(const void *, int *);
+typedef void (*CuteQTableWidgetCall34)(const void *, const QModelIndex *, int, int, int *);
 typedef void (*CuteQTableWidgetCall35)(const void *, int *);
-typedef void (*CuteQTableWidgetCall36)(const void *, int, int *);
+typedef void (*CuteQTableWidgetCall36)(const void *, int *);
 typedef void (*CuteQTableWidgetCall37)(const void *, int, int *);
-typedef void (*CuteQTableWidgetCall38)(const void *, QWidget *, int, int *);
-typedef void (*CuteQTableWidgetCall39)(const void *, QWidget *, int *);
-typedef void (*CuteQTableWidgetCall40)(const void *, QObject *, int *);
-typedef bool (*CuteQTableWidgetCall41)(const void *, const QModelIndex *, int, QEvent *, int *);
-typedef int (*CuteQTableWidgetCall42)(const void *, const QModelIndex *, const QEvent *, int *);
-typedef void (*CuteQTableWidgetCall43)(const void *, int, int *);
-typedef bool (*CuteQTableWidgetCall44)(const void *, bool, int *);
-typedef bool (*CuteQTableWidgetCall45)(const void *, QEvent *, int *);
-typedef void (*CuteQTableWidgetCall46)(const void *, QMouseEvent *, int *);
+typedef void (*CuteQTableWidgetCall38)(const void *, int, int *);
+typedef void (*CuteQTableWidgetCall39)(const void *, QWidget *, int, int *);
+typedef void (*CuteQTableWidgetCall40)(const void *, QWidget *, int *);
+typedef void (*CuteQTableWidgetCall41)(const void *, QObject *, int *);
+typedef bool (*CuteQTableWidgetCall42)(const void *, const QModelIndex *, int, QEvent *, int *);
+typedef int (*CuteQTableWidgetCall43)(const void *, const QModelIndex *, const QEvent *, int *);
+typedef void (*CuteQTableWidgetCall44)(const void *, int, int *);
+typedef bool (*CuteQTableWidgetCall45)(const void *, bool, int *);
+typedef bool (*CuteQTableWidgetCall46)(const void *, QEvent *, int *);
 typedef void (*CuteQTableWidgetCall47)(const void *, QMouseEvent *, int *);
 typedef void (*CuteQTableWidgetCall48)(const void *, QMouseEvent *, int *);
 typedef void (*CuteQTableWidgetCall49)(const void *, QMouseEvent *, int *);
-typedef void (*CuteQTableWidgetCall50)(const void *, QDragEnterEvent *, int *);
-typedef void (*CuteQTableWidgetCall51)(const void *, QDragMoveEvent *, int *);
-typedef void (*CuteQTableWidgetCall52)(const void *, QDragLeaveEvent *, int *);
-typedef void (*CuteQTableWidgetCall53)(const void *, QFocusEvent *, int *);
+typedef void (*CuteQTableWidgetCall50)(const void *, QMouseEvent *, int *);
+typedef void (*CuteQTableWidgetCall51)(const void *, QDragEnterEvent *, int *);
+typedef void (*CuteQTableWidgetCall52)(const void *, QDragMoveEvent *, int *);
+typedef void (*CuteQTableWidgetCall53)(const void *, QDragLeaveEvent *, int *);
 typedef void (*CuteQTableWidgetCall54)(const void *, QFocusEvent *, int *);
-typedef void (*CuteQTableWidgetCall55)(const void *, QKeyEvent *, int *);
-typedef void (*CuteQTableWidgetCall56)(const void *, QResizeEvent *, int *);
-typedef void (*CuteQTableWidgetCall57)(const void *, QInputMethodEvent *, int *);
-typedef bool (*CuteQTableWidgetCall58)(const void *, QObject *, QEvent *, int *);
-typedef const QSize * (*CuteQTableWidgetCall59)(const void *, int *);
+typedef void (*CuteQTableWidgetCall55)(const void *, QFocusEvent *, int *);
+typedef void (*CuteQTableWidgetCall56)(const void *, QKeyEvent *, int *);
+typedef void (*CuteQTableWidgetCall57)(const void *, QResizeEvent *, int *);
+typedef void (*CuteQTableWidgetCall58)(const void *, QInputMethodEvent *, int *);
+typedef bool (*CuteQTableWidgetCall59)(const void *, QObject *, QEvent *, int *);
 typedef const QSize * (*CuteQTableWidgetCall60)(const void *, int *);
-typedef void (*CuteQTableWidgetCall61)(const void *, QWidget *, int *);
-typedef void (*CuteQTableWidgetCall62)(const void *, QWheelEvent *, int *);
-typedef void (*CuteQTableWidgetCall63)(const void *, QContextMenuEvent *, int *);
-typedef void (*CuteQTableWidgetCall64)(const void *, QEvent *, int *);
-typedef void (*CuteQTableWidgetCall65)(const void *, QStyleOptionFrame *, int *);
-typedef int (*CuteQTableWidgetCall66)(const void *, int *);
-typedef void (*CuteQTableWidgetCall67)(const void *, bool, int *);
-typedef int (*CuteQTableWidgetCall68)(const void *, int, int *);
-typedef bool (*CuteQTableWidgetCall69)(const void *, int *);
-typedef void * (*CuteQTableWidgetCall70)(const void *, int *);
-typedef void (*CuteQTableWidgetCall71)(const void *, QKeyEvent *, int *);
-typedef void (*CuteQTableWidgetCall72)(const void *, QEnterEvent *, int *);
-typedef void (*CuteQTableWidgetCall73)(const void *, QEvent *, int *);
-typedef void (*CuteQTableWidgetCall74)(const void *, QMoveEvent *, int *);
-typedef void (*CuteQTableWidgetCall75)(const void *, QCloseEvent *, int *);
-typedef void (*CuteQTableWidgetCall76)(const void *, QTabletEvent *, int *);
-typedef void (*CuteQTableWidgetCall77)(const void *, QActionEvent *, int *);
-typedef void (*CuteQTableWidgetCall78)(const void *, QShowEvent *, int *);
-typedef void (*CuteQTableWidgetCall79)(const void *, QHideEvent *, int *);
-typedef int (*CuteQTableWidgetCall80)(const void *, int, int *);
-typedef void (*CuteQTableWidgetCall81)(const void *, QPainter *, int *);
-typedef void * (*CuteQTableWidgetCall82)(const void *, QPoint *, int *);
-typedef void * (*CuteQTableWidgetCall83)(const void *, int *);
-typedef void (*CuteQTableWidgetCall84)(const void *, QChildEvent *, int *);
-typedef void (*CuteQTableWidgetCall85)(const void *, QEvent *, int *);
-typedef void (*CuteQTableWidgetCall86)(const void *, const QMetaMethod *, int *);
+typedef const QSize * (*CuteQTableWidgetCall61)(const void *, int *);
+typedef void (*CuteQTableWidgetCall62)(const void *, QWidget *, int *);
+typedef void (*CuteQTableWidgetCall63)(const void *, QWheelEvent *, int *);
+typedef void (*CuteQTableWidgetCall64)(const void *, QContextMenuEvent *, int *);
+typedef void (*CuteQTableWidgetCall65)(const void *, QEvent *, int *);
+typedef void (*CuteQTableWidgetCall66)(const void *, QStyleOptionFrame *, int *);
+typedef int (*CuteQTableWidgetCall67)(const void *, int *);
+typedef void (*CuteQTableWidgetCall68)(const void *, bool, int *);
+typedef int (*CuteQTableWidgetCall69)(const void *, int, int *);
+typedef bool (*CuteQTableWidgetCall70)(const void *, int *);
+typedef void * (*CuteQTableWidgetCall71)(const void *, int *);
+typedef void (*CuteQTableWidgetCall72)(const void *, QKeyEvent *, int *);
+typedef void (*CuteQTableWidgetCall73)(const void *, QEnterEvent *, int *);
+typedef void (*CuteQTableWidgetCall74)(const void *, QEvent *, int *);
+typedef void (*CuteQTableWidgetCall75)(const void *, QMoveEvent *, int *);
+typedef void (*CuteQTableWidgetCall76)(const void *, QCloseEvent *, int *);
+typedef void (*CuteQTableWidgetCall77)(const void *, QTabletEvent *, int *);
+typedef void (*CuteQTableWidgetCall78)(const void *, QActionEvent *, int *);
+typedef void (*CuteQTableWidgetCall79)(const void *, QShowEvent *, int *);
+typedef void (*CuteQTableWidgetCall80)(const void *, QHideEvent *, int *);
+typedef int (*CuteQTableWidgetCall81)(const void *, int, int *);
+typedef void (*CuteQTableWidgetCall82)(const void *, QPainter *, int *);
+typedef void * (*CuteQTableWidgetCall83)(const void *, QPoint *, int *);
+typedef void * (*CuteQTableWidgetCall84)(const void *, int *);
+typedef void (*CuteQTableWidgetCall85)(const void *, QChildEvent *, int *);
+typedef void (*CuteQTableWidgetCall86)(const void *, QEvent *, int *);
 typedef void (*CuteQTableWidgetCall87)(const void *, const QMetaMethod *, int *);
+typedef void (*CuteQTableWidgetCall88)(const void *, const QMetaMethod *, int *);
 class CuteQTableWidget : public QTableWidget {
 public:
   using QTableWidget::QTableWidget;
-  void *taken[88] = {};
+  void *taken[89] = {};
 
   bool take(const char *key, void *call) {
     if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
@@ -135,340 +136,344 @@ public:
       taken[3] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN17QAbstractItemView12setRootIndexERK11QModelIndex")) {
+    if (!std::strcmp(key, "_ZN17QAbstractItemView8setModelEP18QAbstractItemModel")) {
       taken[4] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN17QAbstractItemView17setSelectionModelEP19QItemSelectionModel")) {
+    if (!std::strcmp(key, "_ZN17QAbstractItemView12setRootIndexERK11QModelIndex")) {
       taken[5] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN17QAbstractItemView13doItemsLayoutEv")) {
+    if (!std::strcmp(key, "_ZN17QAbstractItemView17setSelectionModelEP19QItemSelectionModel")) {
       taken[6] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK17QAbstractItemView10visualRectERK11QModelIndex")) {
+    if (!std::strcmp(key, "_ZN17QAbstractItemView13doItemsLayoutEv")) {
       taken[7] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN17QAbstractItemView8scrollToERK11QModelIndexNS_10ScrollHintE")) {
+    if (!std::strcmp(key, "_ZNK17QAbstractItemView10visualRectERK11QModelIndex")) {
       taken[8] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK17QAbstractItemView7indexAtERK6QPoint")) {
+    if (!std::strcmp(key, "_ZN17QAbstractItemView8scrollToERK11QModelIndexNS_10ScrollHintE")) {
       taken[9] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN19QAbstractScrollArea16scrollContentsByEii")) {
+    if (!std::strcmp(key, "_ZNK17QAbstractItemView7indexAtERK6QPoint")) {
       taken[10] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK17QAbstractItemView18initViewItemOptionEP20QStyleOptionViewItem")) {
+    if (!std::strcmp(key, "_ZN19QAbstractScrollArea16scrollContentsByEii")) {
       taken[11] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QWidget10paintEventEP11QPaintEvent")) {
+    if (!std::strcmp(key, "_ZNK17QAbstractItemView18initViewItemOptionEP20QStyleOptionViewItem")) {
       taken[12] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
+    if (!std::strcmp(key, "_ZN7QWidget10paintEventEP11QPaintEvent")) {
       taken[13] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK17QAbstractItemView16horizontalOffsetEv")) {
+    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[14] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK17QAbstractItemView14verticalOffsetEv")) {
+    if (!std::strcmp(key, "_ZNK17QAbstractItemView16horizontalOffsetEv")) {
       taken[15] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN17QAbstractItemView12setSelectionERK5QRect6QFlagsIN19QItemSelectionModel13SelectionFlagEE")) {
+    if (!std::strcmp(key, "_ZNK17QAbstractItemView14verticalOffsetEv")) {
       taken[16] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK17QAbstractItemView24visualRegionForSelectionERK14QItemSelection")) {
+    if (!std::strcmp(key, "_ZN17QAbstractItemView12setSelectionERK5QRect6QFlagsIN19QItemSelectionModel13SelectionFlagEE")) {
       taken[17] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN17QAbstractItemView16updateGeometriesEv")) {
+    if (!std::strcmp(key, "_ZNK17QAbstractItemView24visualRegionForSelectionERK14QItemSelection")) {
       taken[18] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK19QAbstractScrollArea16viewportSizeHintEv")) {
+    if (!std::strcmp(key, "_ZN17QAbstractItemView16updateGeometriesEv")) {
       taken[19] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK17QAbstractItemView14sizeHintForRowEi")) {
+    if (!std::strcmp(key, "_ZNK19QAbstractScrollArea16viewportSizeHintEv")) {
       taken[20] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK17QAbstractItemView17sizeHintForColumnEi")) {
+    if (!std::strcmp(key, "_ZNK17QAbstractItemView14sizeHintForRowEi")) {
       taken[21] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN17QAbstractItemView23verticalScrollbarActionEi")) {
+    if (!std::strcmp(key, "_ZNK17QAbstractItemView17sizeHintForColumnEi")) {
       taken[22] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN17QAbstractItemView25horizontalScrollbarActionEi")) {
+    if (!std::strcmp(key, "_ZN17QAbstractItemView23verticalScrollbarActionEi")) {
       taken[23] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK17QAbstractItemView13isIndexHiddenERK11QModelIndex")) {
+    if (!std::strcmp(key, "_ZN17QAbstractItemView25horizontalScrollbarActionEi")) {
       taken[24] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN17QAbstractItemView16selectionChangedERK14QItemSelectionS2_")) {
+    if (!std::strcmp(key, "_ZNK17QAbstractItemView13isIndexHiddenERK11QModelIndex")) {
       taken[25] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN17QAbstractItemView14currentChangedERK11QModelIndexS2_")) {
+    if (!std::strcmp(key, "_ZN17QAbstractItemView16selectionChangedERK14QItemSelectionS2_")) {
       taken[26] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN17QAbstractItemView14keyboardSearchERK7QString")) {
+    if (!std::strcmp(key, "_ZN17QAbstractItemView14currentChangedERK11QModelIndexS2_")) {
       taken[27] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK17QAbstractItemView20itemDelegateForIndexERK11QModelIndex")) {
+    if (!std::strcmp(key, "_ZN17QAbstractItemView14keyboardSearchERK7QString")) {
       taken[28] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK7QWidget16inputMethodQueryEN2Qt16InputMethodQueryE")) {
+    if (!std::strcmp(key, "_ZNK17QAbstractItemView20itemDelegateForIndexERK11QModelIndex")) {
       taken[29] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN17QAbstractItemView5resetEv")) {
+    if (!std::strcmp(key, "_ZNK7QWidget16inputMethodQueryEN2Qt16InputMethodQueryE")) {
       taken[30] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN17QAbstractItemView9selectAllEv")) {
+    if (!std::strcmp(key, "_ZN17QAbstractItemView5resetEv")) {
       taken[31] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN17QAbstractItemView12rowsInsertedERK11QModelIndexii")) {
+    if (!std::strcmp(key, "_ZN17QAbstractItemView9selectAllEv")) {
       taken[32] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN17QAbstractItemView20rowsAboutToBeRemovedERK11QModelIndexii")) {
+    if (!std::strcmp(key, "_ZN17QAbstractItemView12rowsInsertedERK11QModelIndexii")) {
       taken[33] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN17QAbstractItemView16updateEditorDataEv")) {
+    if (!std::strcmp(key, "_ZN17QAbstractItemView20rowsAboutToBeRemovedERK11QModelIndexii")) {
       taken[34] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN17QAbstractItemView22updateEditorGeometriesEv")) {
+    if (!std::strcmp(key, "_ZN17QAbstractItemView16updateEditorDataEv")) {
       taken[35] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN17QAbstractItemView29verticalScrollbarValueChangedEi")) {
+    if (!std::strcmp(key, "_ZN17QAbstractItemView22updateEditorGeometriesEv")) {
       taken[36] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN17QAbstractItemView31horizontalScrollbarValueChangedEi")) {
+    if (!std::strcmp(key, "_ZN17QAbstractItemView29verticalScrollbarValueChangedEi")) {
       taken[37] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN17QAbstractItemView11closeEditorEP7QWidgetN21QAbstractItemDelegate11EndEditHintE")) {
+    if (!std::strcmp(key, "_ZN17QAbstractItemView31horizontalScrollbarValueChangedEi")) {
       taken[38] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN17QAbstractItemView10commitDataEP7QWidget")) {
+    if (!std::strcmp(key, "_ZN17QAbstractItemView11closeEditorEP7QWidgetN21QAbstractItemDelegate11EndEditHintE")) {
       taken[39] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN17QAbstractItemView15editorDestroyedEP7QObject")) {
+    if (!std::strcmp(key, "_ZN17QAbstractItemView10commitDataEP7QWidget")) {
       taken[40] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN17QAbstractItemView4editERK11QModelIndexNS_11EditTriggerEP6QEvent")) {
+    if (!std::strcmp(key, "_ZN17QAbstractItemView15editorDestroyedEP7QObject")) {
       taken[41] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK17QAbstractItemView16selectionCommandERK11QModelIndexPK6QEvent")) {
+    if (!std::strcmp(key, "_ZN17QAbstractItemView4editERK11QModelIndexNS_11EditTriggerEP6QEvent")) {
       taken[42] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN17QAbstractItemView9startDragE6QFlagsIN2Qt10DropActionEE")) {
+    if (!std::strcmp(key, "_ZNK17QAbstractItemView16selectionCommandERK11QModelIndexPK6QEvent")) {
       taken[43] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QWidget18focusNextPrevChildEb")) {
+    if (!std::strcmp(key, "_ZN17QAbstractItemView9startDragE6QFlagsIN2Qt10DropActionEE")) {
       taken[44] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN19QAbstractScrollArea13viewportEventEP6QEvent")) {
+    if (!std::strcmp(key, "_ZN7QWidget18focusNextPrevChildEb")) {
       taken[45] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QWidget15mousePressEventEP11QMouseEvent")) {
+    if (!std::strcmp(key, "_ZN19QAbstractScrollArea13viewportEventEP6QEvent")) {
       taken[46] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QWidget14mouseMoveEventEP11QMouseEvent")) {
+    if (!std::strcmp(key, "_ZN7QWidget15mousePressEventEP11QMouseEvent")) {
       taken[47] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QWidget17mouseReleaseEventEP11QMouseEvent")) {
+    if (!std::strcmp(key, "_ZN7QWidget14mouseMoveEventEP11QMouseEvent")) {
       taken[48] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QWidget21mouseDoubleClickEventEP11QMouseEvent")) {
+    if (!std::strcmp(key, "_ZN7QWidget17mouseReleaseEventEP11QMouseEvent")) {
       taken[49] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QWidget14dragEnterEventEP15QDragEnterEvent")) {
+    if (!std::strcmp(key, "_ZN7QWidget21mouseDoubleClickEventEP11QMouseEvent")) {
       taken[50] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QWidget13dragMoveEventEP14QDragMoveEvent")) {
+    if (!std::strcmp(key, "_ZN7QWidget14dragEnterEventEP15QDragEnterEvent")) {
       taken[51] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QWidget14dragLeaveEventEP15QDragLeaveEvent")) {
+    if (!std::strcmp(key, "_ZN7QWidget13dragMoveEventEP14QDragMoveEvent")) {
       taken[52] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QWidget12focusInEventEP11QFocusEvent")) {
+    if (!std::strcmp(key, "_ZN7QWidget14dragLeaveEventEP15QDragLeaveEvent")) {
       taken[53] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QWidget13focusOutEventEP11QFocusEvent")) {
+    if (!std::strcmp(key, "_ZN7QWidget12focusInEventEP11QFocusEvent")) {
       taken[54] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QWidget13keyPressEventEP9QKeyEvent")) {
+    if (!std::strcmp(key, "_ZN7QWidget13focusOutEventEP11QFocusEvent")) {
       taken[55] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QWidget11resizeEventEP12QResizeEvent")) {
+    if (!std::strcmp(key, "_ZN7QWidget13keyPressEventEP9QKeyEvent")) {
       taken[56] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QWidget16inputMethodEventEP17QInputMethodEvent")) {
+    if (!std::strcmp(key, "_ZN7QWidget11resizeEventEP12QResizeEvent")) {
       taken[57] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
+    if (!std::strcmp(key, "_ZN7QWidget16inputMethodEventEP17QInputMethodEvent")) {
       taken[58] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK7QWidget15minimumSizeHintEv")) {
+    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[59] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK7QWidget8sizeHintEv")) {
+    if (!std::strcmp(key, "_ZNK7QWidget15minimumSizeHintEv")) {
       taken[60] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN19QAbstractScrollArea13setupViewportEP7QWidget")) {
+    if (!std::strcmp(key, "_ZNK7QWidget8sizeHintEv")) {
       taken[61] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QWidget10wheelEventEP11QWheelEvent")) {
+    if (!std::strcmp(key, "_ZN19QAbstractScrollArea13setupViewportEP7QWidget")) {
       taken[62] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QWidget16contextMenuEventEP17QContextMenuEvent")) {
+    if (!std::strcmp(key, "_ZN7QWidget10wheelEventEP11QWheelEvent")) {
       taken[63] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QWidget11changeEventEP6QEvent")) {
+    if (!std::strcmp(key, "_ZN7QWidget16contextMenuEventEP17QContextMenuEvent")) {
       taken[64] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK6QFrame15initStyleOptionEP17QStyleOptionFrame")) {
+    if (!std::strcmp(key, "_ZN7QWidget11changeEventEP6QEvent")) {
       taken[65] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK12QPaintDevice7devTypeEv")) {
+    if (!std::strcmp(key, "_ZNK6QFrame15initStyleOptionEP17QStyleOptionFrame")) {
       taken[66] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QWidget10setVisibleEb")) {
+    if (!std::strcmp(key, "_ZNK12QPaintDevice7devTypeEv")) {
       taken[67] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK7QWidget14heightForWidthEi")) {
+    if (!std::strcmp(key, "_ZN7QWidget10setVisibleEb")) {
       taken[68] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK7QWidget17hasHeightForWidthEv")) {
+    if (!std::strcmp(key, "_ZNK7QWidget14heightForWidthEi")) {
       taken[69] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK12QPaintDevice11paintEngineEv")) {
+    if (!std::strcmp(key, "_ZNK7QWidget17hasHeightForWidthEv")) {
       taken[70] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QWidget15keyReleaseEventEP9QKeyEvent")) {
+    if (!std::strcmp(key, "_ZNK12QPaintDevice11paintEngineEv")) {
       taken[71] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QWidget10enterEventEP11QEnterEvent")) {
+    if (!std::strcmp(key, "_ZN7QWidget15keyReleaseEventEP9QKeyEvent")) {
       taken[72] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QWidget10leaveEventEP6QEvent")) {
+    if (!std::strcmp(key, "_ZN7QWidget10enterEventEP11QEnterEvent")) {
       taken[73] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QWidget9moveEventEP10QMoveEvent")) {
+    if (!std::strcmp(key, "_ZN7QWidget10leaveEventEP6QEvent")) {
       taken[74] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QWidget10closeEventEP11QCloseEvent")) {
+    if (!std::strcmp(key, "_ZN7QWidget9moveEventEP10QMoveEvent")) {
       taken[75] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QWidget11tabletEventEP12QTabletEvent")) {
+    if (!std::strcmp(key, "_ZN7QWidget10closeEventEP11QCloseEvent")) {
       taken[76] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QWidget11actionEventEP12QActionEvent")) {
+    if (!std::strcmp(key, "_ZN7QWidget11tabletEventEP12QTabletEvent")) {
       taken[77] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QWidget9showEventEP10QShowEvent")) {
+    if (!std::strcmp(key, "_ZN7QWidget11actionEventEP12QActionEvent")) {
       taken[78] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QWidget9hideEventEP10QHideEvent")) {
+    if (!std::strcmp(key, "_ZN7QWidget9showEventEP10QShowEvent")) {
       taken[79] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK12QPaintDevice6metricENS_17PaintDeviceMetricE")) {
+    if (!std::strcmp(key, "_ZN7QWidget9hideEventEP10QHideEvent")) {
       taken[80] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK12QPaintDevice11initPainterEP8QPainter")) {
+    if (!std::strcmp(key, "_ZNK12QPaintDevice6metricENS_17PaintDeviceMetricE")) {
       taken[81] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK12QPaintDevice10redirectedEP6QPoint")) {
+    if (!std::strcmp(key, "_ZNK12QPaintDevice11initPainterEP8QPainter")) {
       taken[82] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK12QPaintDevice13sharedPainterEv")) {
+    if (!std::strcmp(key, "_ZNK12QPaintDevice10redirectedEP6QPoint")) {
       taken[83] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
+    if (!std::strcmp(key, "_ZNK12QPaintDevice13sharedPainterEv")) {
       taken[84] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[85] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[86] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[87] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+      taken[88] = call;
       return true;
     }
     return false;
@@ -523,11 +528,22 @@ public:
     QTableWidget::dropEvent(event);
   }
 
-  //  void QTableView::setRootIndex(const QModelIndex &index)
-  void setRootIndex(const QModelIndex &index) override {
+  //  void QTableWidget::setModel(QAbstractItemModel *model)
+  void setModel(QAbstractItemModel *model) override {
     if (taken[4]) {
       int handled = 0;
       CuteQTableWidgetCall4 call = reinterpret_cast<CuteQTableWidgetCall4>(taken[4]);
+      call(this, model, &handled);
+      if (handled) return;
+    }
+    QTableWidget::setModel(model);
+  }
+
+  //  void QTableView::setRootIndex(const QModelIndex &index)
+  void setRootIndex(const QModelIndex &index) override {
+    if (taken[5]) {
+      int handled = 0;
+      CuteQTableWidgetCall5 call = reinterpret_cast<CuteQTableWidgetCall5>(taken[5]);
       call(this, &index, &handled);
       if (handled) return;
     }
@@ -537,9 +553,9 @@ public:
   //  void QTableView::setSelectionModel(QItemSelectionModel
   //      *selectionModel)
   void setSelectionModel(QItemSelectionModel *selectionModel) override {
-    if (taken[5]) {
+    if (taken[6]) {
       int handled = 0;
-      CuteQTableWidgetCall5 call = reinterpret_cast<CuteQTableWidgetCall5>(taken[5]);
+      CuteQTableWidgetCall6 call = reinterpret_cast<CuteQTableWidgetCall6>(taken[6]);
       call(this, selectionModel, &handled);
       if (handled) return;
     }
@@ -548,9 +564,9 @@ public:
 
   //  void QTableView::doItemsLayout()
   void doItemsLayout() override {
-    if (taken[6]) {
+    if (taken[7]) {
       int handled = 0;
-      CuteQTableWidgetCall6 call = reinterpret_cast<CuteQTableWidgetCall6>(taken[6]);
+      CuteQTableWidgetCall7 call = reinterpret_cast<CuteQTableWidgetCall7>(taken[7]);
       call(this, &handled);
       if (handled) return;
     }
@@ -559,9 +575,9 @@ public:
 
   //  QRect QTableView::visualRect(const QModelIndex &index) const
   QRect visualRect(const QModelIndex &index) const override {
-    if (taken[7]) {
+    if (taken[8]) {
       int handled = 0;
-      CuteQTableWidgetCall7 call = reinterpret_cast<CuteQTableWidgetCall7>(taken[7]);
+      CuteQTableWidgetCall8 call = reinterpret_cast<CuteQTableWidgetCall8>(taken[8]);
       const QRect * given = call(this, &index, &handled);
       if (handled && given) return *given;
     }
@@ -572,9 +588,9 @@ public:
   void scrollTo(
       const QModelIndex &index,
       QAbstractItemView::ScrollHint hint) override {
-    if (taken[8]) {
+    if (taken[9]) {
       int handled = 0;
-      CuteQTableWidgetCall8 call = reinterpret_cast<CuteQTableWidgetCall8>(taken[8]);
+      CuteQTableWidgetCall9 call = reinterpret_cast<CuteQTableWidgetCall9>(taken[9]);
       call(this, &index, static_cast<int>(hint), &handled);
       if (handled) return;
     }
@@ -583,9 +599,9 @@ public:
 
   //  QModelIndex QTableView::indexAt(const QPoint &p) const
   QModelIndex indexAt(const QPoint &p) const override {
-    if (taken[9]) {
+    if (taken[10]) {
       int handled = 0;
-      CuteQTableWidgetCall9 call = reinterpret_cast<CuteQTableWidgetCall9>(taken[9]);
+      CuteQTableWidgetCall10 call = reinterpret_cast<CuteQTableWidgetCall10>(taken[10]);
       const QModelIndex * given = call(this, &p, &handled);
       if (handled && given) return *given;
     }
@@ -594,9 +610,9 @@ public:
 
   //  void QTableView::scrollContentsBy(int dx, int dy)
   void scrollContentsBy(int dx, int dy) override {
-    if (taken[10]) {
+    if (taken[11]) {
       int handled = 0;
-      CuteQTableWidgetCall10 call = reinterpret_cast<CuteQTableWidgetCall10>(taken[10]);
+      CuteQTableWidgetCall11 call = reinterpret_cast<CuteQTableWidgetCall11>(taken[11]);
       call(this, dx, dy, &handled);
       if (handled) return;
     }
@@ -606,9 +622,9 @@ public:
   //  void QTableView::initViewItemOption(QStyleOptionViewItem *option)
   //      const
   void initViewItemOption(QStyleOptionViewItem *option) const override {
-    if (taken[11]) {
+    if (taken[12]) {
       int handled = 0;
-      CuteQTableWidgetCall11 call = reinterpret_cast<CuteQTableWidgetCall11>(taken[11]);
+      CuteQTableWidgetCall12 call = reinterpret_cast<CuteQTableWidgetCall12>(taken[12]);
       call(this, option, &handled);
       if (handled) return;
     }
@@ -617,9 +633,9 @@ public:
 
   //  void QTableView::paintEvent(QPaintEvent *e)
   void paintEvent(QPaintEvent *e) override {
-    if (taken[12]) {
+    if (taken[13]) {
       int handled = 0;
-      CuteQTableWidgetCall12 call = reinterpret_cast<CuteQTableWidgetCall12>(taken[12]);
+      CuteQTableWidgetCall13 call = reinterpret_cast<CuteQTableWidgetCall13>(taken[13]);
       call(this, e, &handled);
       if (handled) return;
     }
@@ -628,9 +644,9 @@ public:
 
   //  void QTableView::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
-    if (taken[13]) {
+    if (taken[14]) {
       int handled = 0;
-      CuteQTableWidgetCall13 call = reinterpret_cast<CuteQTableWidgetCall13>(taken[13]);
+      CuteQTableWidgetCall14 call = reinterpret_cast<CuteQTableWidgetCall14>(taken[14]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -639,9 +655,9 @@ public:
 
   //  int QTableView::horizontalOffset() const
   int horizontalOffset() const override {
-    if (taken[14]) {
+    if (taken[15]) {
       int handled = 0;
-      CuteQTableWidgetCall14 call = reinterpret_cast<CuteQTableWidgetCall14>(taken[14]);
+      CuteQTableWidgetCall15 call = reinterpret_cast<CuteQTableWidgetCall15>(taken[15]);
       int given = call(this, &handled);
       if (handled) return given;
     }
@@ -650,9 +666,9 @@ public:
 
   //  int QTableView::verticalOffset() const
   int verticalOffset() const override {
-    if (taken[15]) {
+    if (taken[16]) {
       int handled = 0;
-      CuteQTableWidgetCall15 call = reinterpret_cast<CuteQTableWidgetCall15>(taken[15]);
+      CuteQTableWidgetCall16 call = reinterpret_cast<CuteQTableWidgetCall16>(taken[16]);
       int given = call(this, &handled);
       if (handled) return given;
     }
@@ -664,9 +680,9 @@ public:
   void setSelection(
       const QRect &rect,
       QItemSelectionModel::SelectionFlags command) override {
-    if (taken[16]) {
+    if (taken[17]) {
       int handled = 0;
-      CuteQTableWidgetCall16 call = reinterpret_cast<CuteQTableWidgetCall16>(taken[16]);
+      CuteQTableWidgetCall17 call = reinterpret_cast<CuteQTableWidgetCall17>(taken[17]);
       call(this, &rect, static_cast<int>(command.toInt()), &handled);
       if (handled) return;
     }
@@ -677,9 +693,9 @@ public:
   //      &selection) const
   QRegion visualRegionForSelection(
       const QItemSelection &selection) const override {
-    if (taken[17]) {
+    if (taken[18]) {
       int handled = 0;
-      CuteQTableWidgetCall17 call = reinterpret_cast<CuteQTableWidgetCall17>(taken[17]);
+      CuteQTableWidgetCall18 call = reinterpret_cast<CuteQTableWidgetCall18>(taken[18]);
       const QRegion * given = call(this, &selection, &handled);
       if (handled && given) return *given;
     }
@@ -688,9 +704,9 @@ public:
 
   //  void QTableView::updateGeometries()
   void updateGeometries() override {
-    if (taken[18]) {
+    if (taken[19]) {
       int handled = 0;
-      CuteQTableWidgetCall18 call = reinterpret_cast<CuteQTableWidgetCall18>(taken[18]);
+      CuteQTableWidgetCall19 call = reinterpret_cast<CuteQTableWidgetCall19>(taken[19]);
       call(this, &handled);
       if (handled) return;
     }
@@ -699,9 +715,9 @@ public:
 
   //  QSize QTableView::viewportSizeHint() const
   QSize viewportSizeHint() const override {
-    if (taken[19]) {
+    if (taken[20]) {
       int handled = 0;
-      CuteQTableWidgetCall19 call = reinterpret_cast<CuteQTableWidgetCall19>(taken[19]);
+      CuteQTableWidgetCall20 call = reinterpret_cast<CuteQTableWidgetCall20>(taken[20]);
       const QSize * given = call(this, &handled);
       if (handled && given) return *given;
     }
@@ -710,9 +726,9 @@ public:
 
   //  int QTableView::sizeHintForRow(int row) const
   int sizeHintForRow(int row) const override {
-    if (taken[20]) {
+    if (taken[21]) {
       int handled = 0;
-      CuteQTableWidgetCall20 call = reinterpret_cast<CuteQTableWidgetCall20>(taken[20]);
+      CuteQTableWidgetCall21 call = reinterpret_cast<CuteQTableWidgetCall21>(taken[21]);
       int given = call(this, row, &handled);
       if (handled) return given;
     }
@@ -721,9 +737,9 @@ public:
 
   //  int QTableView::sizeHintForColumn(int column) const
   int sizeHintForColumn(int column) const override {
-    if (taken[21]) {
+    if (taken[22]) {
       int handled = 0;
-      CuteQTableWidgetCall21 call = reinterpret_cast<CuteQTableWidgetCall21>(taken[21]);
+      CuteQTableWidgetCall22 call = reinterpret_cast<CuteQTableWidgetCall22>(taken[22]);
       int given = call(this, column, &handled);
       if (handled) return given;
     }
@@ -732,9 +748,9 @@ public:
 
   //  void QTableView::verticalScrollbarAction(int action)
   void verticalScrollbarAction(int action) override {
-    if (taken[22]) {
+    if (taken[23]) {
       int handled = 0;
-      CuteQTableWidgetCall22 call = reinterpret_cast<CuteQTableWidgetCall22>(taken[22]);
+      CuteQTableWidgetCall23 call = reinterpret_cast<CuteQTableWidgetCall23>(taken[23]);
       call(this, action, &handled);
       if (handled) return;
     }
@@ -743,9 +759,9 @@ public:
 
   //  void QTableView::horizontalScrollbarAction(int action)
   void horizontalScrollbarAction(int action) override {
-    if (taken[23]) {
+    if (taken[24]) {
       int handled = 0;
-      CuteQTableWidgetCall23 call = reinterpret_cast<CuteQTableWidgetCall23>(taken[23]);
+      CuteQTableWidgetCall24 call = reinterpret_cast<CuteQTableWidgetCall24>(taken[24]);
       call(this, action, &handled);
       if (handled) return;
     }
@@ -754,9 +770,9 @@ public:
 
   //  bool QTableView::isIndexHidden(const QModelIndex &index) const
   bool isIndexHidden(const QModelIndex &index) const override {
-    if (taken[24]) {
+    if (taken[25]) {
       int handled = 0;
-      CuteQTableWidgetCall24 call = reinterpret_cast<CuteQTableWidgetCall24>(taken[24]);
+      CuteQTableWidgetCall25 call = reinterpret_cast<CuteQTableWidgetCall25>(taken[25]);
       bool given = call(this, &index, &handled);
       if (handled) return given;
     }
@@ -768,9 +784,9 @@ public:
   void selectionChanged(
       const QItemSelection &selected,
       const QItemSelection &deselected) override {
-    if (taken[25]) {
+    if (taken[26]) {
       int handled = 0;
-      CuteQTableWidgetCall25 call = reinterpret_cast<CuteQTableWidgetCall25>(taken[25]);
+      CuteQTableWidgetCall26 call = reinterpret_cast<CuteQTableWidgetCall26>(taken[26]);
       call(this, &selected, &deselected, &handled);
       if (handled) return;
     }
@@ -782,9 +798,9 @@ public:
   void currentChanged(
       const QModelIndex &current,
       const QModelIndex &previous) override {
-    if (taken[26]) {
+    if (taken[27]) {
       int handled = 0;
-      CuteQTableWidgetCall26 call = reinterpret_cast<CuteQTableWidgetCall26>(taken[26]);
+      CuteQTableWidgetCall27 call = reinterpret_cast<CuteQTableWidgetCall27>(taken[27]);
       call(this, &current, &previous, &handled);
       if (handled) return;
     }
@@ -793,9 +809,9 @@ public:
 
   //  void QAbstractItemView::keyboardSearch(const QString &search)
   void keyboardSearch(const QString &search) override {
-    if (taken[27]) {
+    if (taken[28]) {
       int handled = 0;
-      CuteQTableWidgetCall27 call = reinterpret_cast<CuteQTableWidgetCall27>(taken[27]);
+      CuteQTableWidgetCall28 call = reinterpret_cast<CuteQTableWidgetCall28>(taken[28]);
       call(this, &search, &handled);
       if (handled) return;
     }
@@ -806,9 +822,9 @@ public:
   //      QModelIndex &index) const
   QAbstractItemDelegate *itemDelegateForIndex(
       const QModelIndex &index) const override {
-    if (taken[28]) {
+    if (taken[29]) {
       int handled = 0;
-      CuteQTableWidgetCall28 call = reinterpret_cast<CuteQTableWidgetCall28>(taken[28]);
+      CuteQTableWidgetCall29 call = reinterpret_cast<CuteQTableWidgetCall29>(taken[29]);
       void * given = call(this, &index, &handled);
       if (handled) return static_cast<QAbstractItemDelegate *>(given);
     }
@@ -818,9 +834,9 @@ public:
   //  QVariant QAbstractItemView::inputMethodQuery(Qt::InputMethodQuery
   //      query) const
   QVariant inputMethodQuery(Qt::InputMethodQuery query) const override {
-    if (taken[29]) {
+    if (taken[30]) {
       int handled = 0;
-      CuteQTableWidgetCall29 call = reinterpret_cast<CuteQTableWidgetCall29>(taken[29]);
+      CuteQTableWidgetCall30 call = reinterpret_cast<CuteQTableWidgetCall30>(taken[30]);
       const QVariant * given = call(this, static_cast<int>(query), &handled);
       if (handled && given) return *given;
     }
@@ -829,9 +845,9 @@ public:
 
   //  void QAbstractItemView::reset()
   void reset() override {
-    if (taken[30]) {
+    if (taken[31]) {
       int handled = 0;
-      CuteQTableWidgetCall30 call = reinterpret_cast<CuteQTableWidgetCall30>(taken[30]);
+      CuteQTableWidgetCall31 call = reinterpret_cast<CuteQTableWidgetCall31>(taken[31]);
       call(this, &handled);
       if (handled) return;
     }
@@ -840,9 +856,9 @@ public:
 
   //  void QAbstractItemView::selectAll()
   void selectAll() override {
-    if (taken[31]) {
+    if (taken[32]) {
       int handled = 0;
-      CuteQTableWidgetCall31 call = reinterpret_cast<CuteQTableWidgetCall31>(taken[31]);
+      CuteQTableWidgetCall32 call = reinterpret_cast<CuteQTableWidgetCall32>(taken[32]);
       call(this, &handled);
       if (handled) return;
     }
@@ -852,9 +868,9 @@ public:
   //  void QAbstractItemView::rowsInserted(const QModelIndex &parent, int
   //      start, int end)
   void rowsInserted(const QModelIndex &parent, int start, int end) override {
-    if (taken[32]) {
+    if (taken[33]) {
       int handled = 0;
-      CuteQTableWidgetCall32 call = reinterpret_cast<CuteQTableWidgetCall32>(taken[32]);
+      CuteQTableWidgetCall33 call = reinterpret_cast<CuteQTableWidgetCall33>(taken[33]);
       call(this, &parent, start, end, &handled);
       if (handled) return;
     }
@@ -867,9 +883,9 @@ public:
       const QModelIndex &parent,
       int start,
       int end) override {
-    if (taken[33]) {
+    if (taken[34]) {
       int handled = 0;
-      CuteQTableWidgetCall33 call = reinterpret_cast<CuteQTableWidgetCall33>(taken[33]);
+      CuteQTableWidgetCall34 call = reinterpret_cast<CuteQTableWidgetCall34>(taken[34]);
       call(this, &parent, start, end, &handled);
       if (handled) return;
     }
@@ -878,9 +894,9 @@ public:
 
   //  void QAbstractItemView::updateEditorData()
   void updateEditorData() override {
-    if (taken[34]) {
+    if (taken[35]) {
       int handled = 0;
-      CuteQTableWidgetCall34 call = reinterpret_cast<CuteQTableWidgetCall34>(taken[34]);
+      CuteQTableWidgetCall35 call = reinterpret_cast<CuteQTableWidgetCall35>(taken[35]);
       call(this, &handled);
       if (handled) return;
     }
@@ -889,9 +905,9 @@ public:
 
   //  void QAbstractItemView::updateEditorGeometries()
   void updateEditorGeometries() override {
-    if (taken[35]) {
+    if (taken[36]) {
       int handled = 0;
-      CuteQTableWidgetCall35 call = reinterpret_cast<CuteQTableWidgetCall35>(taken[35]);
+      CuteQTableWidgetCall36 call = reinterpret_cast<CuteQTableWidgetCall36>(taken[36]);
       call(this, &handled);
       if (handled) return;
     }
@@ -900,9 +916,9 @@ public:
 
   //  void QAbstractItemView::verticalScrollbarValueChanged(int value)
   void verticalScrollbarValueChanged(int value) override {
-    if (taken[36]) {
+    if (taken[37]) {
       int handled = 0;
-      CuteQTableWidgetCall36 call = reinterpret_cast<CuteQTableWidgetCall36>(taken[36]);
+      CuteQTableWidgetCall37 call = reinterpret_cast<CuteQTableWidgetCall37>(taken[37]);
       call(this, value, &handled);
       if (handled) return;
     }
@@ -911,9 +927,9 @@ public:
 
   //  void QAbstractItemView::horizontalScrollbarValueChanged(int value)
   void horizontalScrollbarValueChanged(int value) override {
-    if (taken[37]) {
+    if (taken[38]) {
       int handled = 0;
-      CuteQTableWidgetCall37 call = reinterpret_cast<CuteQTableWidgetCall37>(taken[37]);
+      CuteQTableWidgetCall38 call = reinterpret_cast<CuteQTableWidgetCall38>(taken[38]);
       call(this, value, &handled);
       if (handled) return;
     }
@@ -925,9 +941,9 @@ public:
   void closeEditor(
       QWidget *editor,
       QAbstractItemDelegate::EndEditHint hint) override {
-    if (taken[38]) {
+    if (taken[39]) {
       int handled = 0;
-      CuteQTableWidgetCall38 call = reinterpret_cast<CuteQTableWidgetCall38>(taken[38]);
+      CuteQTableWidgetCall39 call = reinterpret_cast<CuteQTableWidgetCall39>(taken[39]);
       call(this, editor, static_cast<int>(hint), &handled);
       if (handled) return;
     }
@@ -936,9 +952,9 @@ public:
 
   //  void QAbstractItemView::commitData(QWidget *editor)
   void commitData(QWidget *editor) override {
-    if (taken[39]) {
+    if (taken[40]) {
       int handled = 0;
-      CuteQTableWidgetCall39 call = reinterpret_cast<CuteQTableWidgetCall39>(taken[39]);
+      CuteQTableWidgetCall40 call = reinterpret_cast<CuteQTableWidgetCall40>(taken[40]);
       call(this, editor, &handled);
       if (handled) return;
     }
@@ -947,9 +963,9 @@ public:
 
   //  void QAbstractItemView::editorDestroyed(QObject *editor)
   void editorDestroyed(QObject *editor) override {
-    if (taken[40]) {
+    if (taken[41]) {
       int handled = 0;
-      CuteQTableWidgetCall40 call = reinterpret_cast<CuteQTableWidgetCall40>(taken[40]);
+      CuteQTableWidgetCall41 call = reinterpret_cast<CuteQTableWidgetCall41>(taken[41]);
       call(this, editor, &handled);
       if (handled) return;
     }
@@ -962,9 +978,9 @@ public:
       const QModelIndex &index,
       QAbstractItemView::EditTrigger trigger,
       QEvent *event) override {
-    if (taken[41]) {
+    if (taken[42]) {
       int handled = 0;
-      CuteQTableWidgetCall41 call = reinterpret_cast<CuteQTableWidgetCall41>(taken[41]);
+      CuteQTableWidgetCall42 call = reinterpret_cast<CuteQTableWidgetCall42>(taken[42]);
       bool given = call(this, &index, static_cast<int>(trigger), event, &handled);
       if (handled) return given;
     }
@@ -977,9 +993,9 @@ public:
   QItemSelectionModel::SelectionFlags selectionCommand(
       const QModelIndex &index,
       const QEvent *event) const override {
-    if (taken[42]) {
+    if (taken[43]) {
       int handled = 0;
-      CuteQTableWidgetCall42 call = reinterpret_cast<CuteQTableWidgetCall42>(taken[42]);
+      CuteQTableWidgetCall43 call = reinterpret_cast<CuteQTableWidgetCall43>(taken[43]);
       int given = call(this, &index, event, &handled);
       if (handled) return QFlags<QItemSelectionModel::SelectionFlag>::fromInt(given);
     }
@@ -988,9 +1004,9 @@ public:
 
   //  void QAbstractItemView::startDrag(Qt::DropActions supportedActions)
   void startDrag(Qt::DropActions supportedActions) override {
-    if (taken[43]) {
+    if (taken[44]) {
       int handled = 0;
-      CuteQTableWidgetCall43 call = reinterpret_cast<CuteQTableWidgetCall43>(taken[43]);
+      CuteQTableWidgetCall44 call = reinterpret_cast<CuteQTableWidgetCall44>(taken[44]);
       call(this, static_cast<int>(supportedActions.toInt()), &handled);
       if (handled) return;
     }
@@ -999,9 +1015,9 @@ public:
 
   //  bool QAbstractItemView::focusNextPrevChild(bool next)
   bool focusNextPrevChild(bool next) override {
-    if (taken[44]) {
+    if (taken[45]) {
       int handled = 0;
-      CuteQTableWidgetCall44 call = reinterpret_cast<CuteQTableWidgetCall44>(taken[44]);
+      CuteQTableWidgetCall45 call = reinterpret_cast<CuteQTableWidgetCall45>(taken[45]);
       bool given = call(this, next, &handled);
       if (handled) return given;
     }
@@ -1010,9 +1026,9 @@ public:
 
   //  bool QAbstractItemView::viewportEvent(QEvent *event)
   bool viewportEvent(QEvent *event) override {
-    if (taken[45]) {
+    if (taken[46]) {
       int handled = 0;
-      CuteQTableWidgetCall45 call = reinterpret_cast<CuteQTableWidgetCall45>(taken[45]);
+      CuteQTableWidgetCall46 call = reinterpret_cast<CuteQTableWidgetCall46>(taken[46]);
       bool given = call(this, event, &handled);
       if (handled) return given;
     }
@@ -1021,9 +1037,9 @@ public:
 
   //  void QAbstractItemView::mousePressEvent(QMouseEvent *event)
   void mousePressEvent(QMouseEvent *event) override {
-    if (taken[46]) {
+    if (taken[47]) {
       int handled = 0;
-      CuteQTableWidgetCall46 call = reinterpret_cast<CuteQTableWidgetCall46>(taken[46]);
+      CuteQTableWidgetCall47 call = reinterpret_cast<CuteQTableWidgetCall47>(taken[47]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -1032,9 +1048,9 @@ public:
 
   //  void QAbstractItemView::mouseMoveEvent(QMouseEvent *event)
   void mouseMoveEvent(QMouseEvent *event) override {
-    if (taken[47]) {
+    if (taken[48]) {
       int handled = 0;
-      CuteQTableWidgetCall47 call = reinterpret_cast<CuteQTableWidgetCall47>(taken[47]);
+      CuteQTableWidgetCall48 call = reinterpret_cast<CuteQTableWidgetCall48>(taken[48]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -1043,9 +1059,9 @@ public:
 
   //  void QAbstractItemView::mouseReleaseEvent(QMouseEvent *event)
   void mouseReleaseEvent(QMouseEvent *event) override {
-    if (taken[48]) {
+    if (taken[49]) {
       int handled = 0;
-      CuteQTableWidgetCall48 call = reinterpret_cast<CuteQTableWidgetCall48>(taken[48]);
+      CuteQTableWidgetCall49 call = reinterpret_cast<CuteQTableWidgetCall49>(taken[49]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -1054,9 +1070,9 @@ public:
 
   //  void QAbstractItemView::mouseDoubleClickEvent(QMouseEvent *event)
   void mouseDoubleClickEvent(QMouseEvent *event) override {
-    if (taken[49]) {
+    if (taken[50]) {
       int handled = 0;
-      CuteQTableWidgetCall49 call = reinterpret_cast<CuteQTableWidgetCall49>(taken[49]);
+      CuteQTableWidgetCall50 call = reinterpret_cast<CuteQTableWidgetCall50>(taken[50]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -1065,9 +1081,9 @@ public:
 
   //  void QAbstractItemView::dragEnterEvent(QDragEnterEvent *event)
   void dragEnterEvent(QDragEnterEvent *event) override {
-    if (taken[50]) {
+    if (taken[51]) {
       int handled = 0;
-      CuteQTableWidgetCall50 call = reinterpret_cast<CuteQTableWidgetCall50>(taken[50]);
+      CuteQTableWidgetCall51 call = reinterpret_cast<CuteQTableWidgetCall51>(taken[51]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -1076,9 +1092,9 @@ public:
 
   //  void QAbstractItemView::dragMoveEvent(QDragMoveEvent *event)
   void dragMoveEvent(QDragMoveEvent *event) override {
-    if (taken[51]) {
+    if (taken[52]) {
       int handled = 0;
-      CuteQTableWidgetCall51 call = reinterpret_cast<CuteQTableWidgetCall51>(taken[51]);
+      CuteQTableWidgetCall52 call = reinterpret_cast<CuteQTableWidgetCall52>(taken[52]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -1087,9 +1103,9 @@ public:
 
   //  void QAbstractItemView::dragLeaveEvent(QDragLeaveEvent *event)
   void dragLeaveEvent(QDragLeaveEvent *event) override {
-    if (taken[52]) {
+    if (taken[53]) {
       int handled = 0;
-      CuteQTableWidgetCall52 call = reinterpret_cast<CuteQTableWidgetCall52>(taken[52]);
+      CuteQTableWidgetCall53 call = reinterpret_cast<CuteQTableWidgetCall53>(taken[53]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -1098,9 +1114,9 @@ public:
 
   //  void QAbstractItemView::focusInEvent(QFocusEvent *event)
   void focusInEvent(QFocusEvent *event) override {
-    if (taken[53]) {
+    if (taken[54]) {
       int handled = 0;
-      CuteQTableWidgetCall53 call = reinterpret_cast<CuteQTableWidgetCall53>(taken[53]);
+      CuteQTableWidgetCall54 call = reinterpret_cast<CuteQTableWidgetCall54>(taken[54]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -1109,9 +1125,9 @@ public:
 
   //  void QAbstractItemView::focusOutEvent(QFocusEvent *event)
   void focusOutEvent(QFocusEvent *event) override {
-    if (taken[54]) {
+    if (taken[55]) {
       int handled = 0;
-      CuteQTableWidgetCall54 call = reinterpret_cast<CuteQTableWidgetCall54>(taken[54]);
+      CuteQTableWidgetCall55 call = reinterpret_cast<CuteQTableWidgetCall55>(taken[55]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -1120,9 +1136,9 @@ public:
 
   //  void QAbstractItemView::keyPressEvent(QKeyEvent *event)
   void keyPressEvent(QKeyEvent *event) override {
-    if (taken[55]) {
+    if (taken[56]) {
       int handled = 0;
-      CuteQTableWidgetCall55 call = reinterpret_cast<CuteQTableWidgetCall55>(taken[55]);
+      CuteQTableWidgetCall56 call = reinterpret_cast<CuteQTableWidgetCall56>(taken[56]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -1131,9 +1147,9 @@ public:
 
   //  void QAbstractItemView::resizeEvent(QResizeEvent *event)
   void resizeEvent(QResizeEvent *event) override {
-    if (taken[56]) {
+    if (taken[57]) {
       int handled = 0;
-      CuteQTableWidgetCall56 call = reinterpret_cast<CuteQTableWidgetCall56>(taken[56]);
+      CuteQTableWidgetCall57 call = reinterpret_cast<CuteQTableWidgetCall57>(taken[57]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -1142,9 +1158,9 @@ public:
 
   //  void QAbstractItemView::inputMethodEvent(QInputMethodEvent *event)
   void inputMethodEvent(QInputMethodEvent *event) override {
-    if (taken[57]) {
+    if (taken[58]) {
       int handled = 0;
-      CuteQTableWidgetCall57 call = reinterpret_cast<CuteQTableWidgetCall57>(taken[57]);
+      CuteQTableWidgetCall58 call = reinterpret_cast<CuteQTableWidgetCall58>(taken[58]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -1153,9 +1169,9 @@ public:
 
   //  bool QAbstractItemView::eventFilter(QObject *object, QEvent *event)
   bool eventFilter(QObject *object, QEvent *event) override {
-    if (taken[58]) {
+    if (taken[59]) {
       int handled = 0;
-      CuteQTableWidgetCall58 call = reinterpret_cast<CuteQTableWidgetCall58>(taken[58]);
+      CuteQTableWidgetCall59 call = reinterpret_cast<CuteQTableWidgetCall59>(taken[59]);
       bool given = call(this, object, event, &handled);
       if (handled) return given;
     }
@@ -1164,9 +1180,9 @@ public:
 
   //  QSize QAbstractScrollArea::minimumSizeHint() const
   QSize minimumSizeHint() const override {
-    if (taken[59]) {
+    if (taken[60]) {
       int handled = 0;
-      CuteQTableWidgetCall59 call = reinterpret_cast<CuteQTableWidgetCall59>(taken[59]);
+      CuteQTableWidgetCall60 call = reinterpret_cast<CuteQTableWidgetCall60>(taken[60]);
       const QSize * given = call(this, &handled);
       if (handled && given) return *given;
     }
@@ -1175,9 +1191,9 @@ public:
 
   //  QSize QAbstractScrollArea::sizeHint() const
   QSize sizeHint() const override {
-    if (taken[60]) {
+    if (taken[61]) {
       int handled = 0;
-      CuteQTableWidgetCall60 call = reinterpret_cast<CuteQTableWidgetCall60>(taken[60]);
+      CuteQTableWidgetCall61 call = reinterpret_cast<CuteQTableWidgetCall61>(taken[61]);
       const QSize * given = call(this, &handled);
       if (handled && given) return *given;
     }
@@ -1186,9 +1202,9 @@ public:
 
   //  void QAbstractScrollArea::setupViewport(QWidget *viewport)
   void setupViewport(QWidget *viewport) override {
-    if (taken[61]) {
+    if (taken[62]) {
       int handled = 0;
-      CuteQTableWidgetCall61 call = reinterpret_cast<CuteQTableWidgetCall61>(taken[61]);
+      CuteQTableWidgetCall62 call = reinterpret_cast<CuteQTableWidgetCall62>(taken[62]);
       call(this, viewport, &handled);
       if (handled) return;
     }
@@ -1197,9 +1213,9 @@ public:
 
   //  void QAbstractScrollArea::wheelEvent(QWheelEvent *a0)
   void wheelEvent(QWheelEvent *a0) override {
-    if (taken[62]) {
+    if (taken[63]) {
       int handled = 0;
-      CuteQTableWidgetCall62 call = reinterpret_cast<CuteQTableWidgetCall62>(taken[62]);
+      CuteQTableWidgetCall63 call = reinterpret_cast<CuteQTableWidgetCall63>(taken[63]);
       call(this, a0, &handled);
       if (handled) return;
     }
@@ -1208,9 +1224,9 @@ public:
 
   //  void QAbstractScrollArea::contextMenuEvent(QContextMenuEvent *a0)
   void contextMenuEvent(QContextMenuEvent *a0) override {
-    if (taken[63]) {
+    if (taken[64]) {
       int handled = 0;
-      CuteQTableWidgetCall63 call = reinterpret_cast<CuteQTableWidgetCall63>(taken[63]);
+      CuteQTableWidgetCall64 call = reinterpret_cast<CuteQTableWidgetCall64>(taken[64]);
       call(this, a0, &handled);
       if (handled) return;
     }
@@ -1219,9 +1235,9 @@ public:
 
   //  void QFrame::changeEvent(QEvent *a0)
   void changeEvent(QEvent *a0) override {
-    if (taken[64]) {
+    if (taken[65]) {
       int handled = 0;
-      CuteQTableWidgetCall64 call = reinterpret_cast<CuteQTableWidgetCall64>(taken[64]);
+      CuteQTableWidgetCall65 call = reinterpret_cast<CuteQTableWidgetCall65>(taken[65]);
       call(this, a0, &handled);
       if (handled) return;
     }
@@ -1230,9 +1246,9 @@ public:
 
   //  void QFrame::initStyleOption(QStyleOptionFrame *option) const
   void initStyleOption(QStyleOptionFrame *option) const override {
-    if (taken[65]) {
+    if (taken[66]) {
       int handled = 0;
-      CuteQTableWidgetCall65 call = reinterpret_cast<CuteQTableWidgetCall65>(taken[65]);
+      CuteQTableWidgetCall66 call = reinterpret_cast<CuteQTableWidgetCall66>(taken[66]);
       call(this, option, &handled);
       if (handled) return;
     }
@@ -1241,9 +1257,9 @@ public:
 
   //  int QWidget::devType() const
   int devType() const override {
-    if (taken[66]) {
+    if (taken[67]) {
       int handled = 0;
-      CuteQTableWidgetCall66 call = reinterpret_cast<CuteQTableWidgetCall66>(taken[66]);
+      CuteQTableWidgetCall67 call = reinterpret_cast<CuteQTableWidgetCall67>(taken[67]);
       int given = call(this, &handled);
       if (handled) return given;
     }
@@ -1252,9 +1268,9 @@ public:
 
   //  void QWidget::setVisible(bool visible)
   void setVisible(bool visible) override {
-    if (taken[67]) {
+    if (taken[68]) {
       int handled = 0;
-      CuteQTableWidgetCall67 call = reinterpret_cast<CuteQTableWidgetCall67>(taken[67]);
+      CuteQTableWidgetCall68 call = reinterpret_cast<CuteQTableWidgetCall68>(taken[68]);
       call(this, visible, &handled);
       if (handled) return;
     }
@@ -1263,9 +1279,9 @@ public:
 
   //  int QWidget::heightForWidth(int a0) const
   int heightForWidth(int a0) const override {
-    if (taken[68]) {
+    if (taken[69]) {
       int handled = 0;
-      CuteQTableWidgetCall68 call = reinterpret_cast<CuteQTableWidgetCall68>(taken[68]);
+      CuteQTableWidgetCall69 call = reinterpret_cast<CuteQTableWidgetCall69>(taken[69]);
       int given = call(this, a0, &handled);
       if (handled) return given;
     }
@@ -1274,9 +1290,9 @@ public:
 
   //  bool QWidget::hasHeightForWidth() const
   bool hasHeightForWidth() const override {
-    if (taken[69]) {
+    if (taken[70]) {
       int handled = 0;
-      CuteQTableWidgetCall69 call = reinterpret_cast<CuteQTableWidgetCall69>(taken[69]);
+      CuteQTableWidgetCall70 call = reinterpret_cast<CuteQTableWidgetCall70>(taken[70]);
       bool given = call(this, &handled);
       if (handled) return given;
     }
@@ -1285,9 +1301,9 @@ public:
 
   //  QPaintEngine *QWidget::paintEngine() const
   QPaintEngine *paintEngine() const override {
-    if (taken[70]) {
+    if (taken[71]) {
       int handled = 0;
-      CuteQTableWidgetCall70 call = reinterpret_cast<CuteQTableWidgetCall70>(taken[70]);
+      CuteQTableWidgetCall71 call = reinterpret_cast<CuteQTableWidgetCall71>(taken[71]);
       void * given = call(this, &handled);
       if (handled) return static_cast<QPaintEngine *>(given);
     }
@@ -1296,9 +1312,9 @@ public:
 
   //  void QWidget::keyReleaseEvent(QKeyEvent *event)
   void keyReleaseEvent(QKeyEvent *event) override {
-    if (taken[71]) {
+    if (taken[72]) {
       int handled = 0;
-      CuteQTableWidgetCall71 call = reinterpret_cast<CuteQTableWidgetCall71>(taken[71]);
+      CuteQTableWidgetCall72 call = reinterpret_cast<CuteQTableWidgetCall72>(taken[72]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -1307,9 +1323,9 @@ public:
 
   //  void QWidget::enterEvent(QEnterEvent *event)
   void enterEvent(QEnterEvent *event) override {
-    if (taken[72]) {
+    if (taken[73]) {
       int handled = 0;
-      CuteQTableWidgetCall72 call = reinterpret_cast<CuteQTableWidgetCall72>(taken[72]);
+      CuteQTableWidgetCall73 call = reinterpret_cast<CuteQTableWidgetCall73>(taken[73]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -1318,9 +1334,9 @@ public:
 
   //  void QWidget::leaveEvent(QEvent *event)
   void leaveEvent(QEvent *event) override {
-    if (taken[73]) {
+    if (taken[74]) {
       int handled = 0;
-      CuteQTableWidgetCall73 call = reinterpret_cast<CuteQTableWidgetCall73>(taken[73]);
+      CuteQTableWidgetCall74 call = reinterpret_cast<CuteQTableWidgetCall74>(taken[74]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -1329,9 +1345,9 @@ public:
 
   //  void QWidget::moveEvent(QMoveEvent *event)
   void moveEvent(QMoveEvent *event) override {
-    if (taken[74]) {
+    if (taken[75]) {
       int handled = 0;
-      CuteQTableWidgetCall74 call = reinterpret_cast<CuteQTableWidgetCall74>(taken[74]);
+      CuteQTableWidgetCall75 call = reinterpret_cast<CuteQTableWidgetCall75>(taken[75]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -1340,9 +1356,9 @@ public:
 
   //  void QWidget::closeEvent(QCloseEvent *event)
   void closeEvent(QCloseEvent *event) override {
-    if (taken[75]) {
+    if (taken[76]) {
       int handled = 0;
-      CuteQTableWidgetCall75 call = reinterpret_cast<CuteQTableWidgetCall75>(taken[75]);
+      CuteQTableWidgetCall76 call = reinterpret_cast<CuteQTableWidgetCall76>(taken[76]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -1351,9 +1367,9 @@ public:
 
   //  void QWidget::tabletEvent(QTabletEvent *event)
   void tabletEvent(QTabletEvent *event) override {
-    if (taken[76]) {
+    if (taken[77]) {
       int handled = 0;
-      CuteQTableWidgetCall76 call = reinterpret_cast<CuteQTableWidgetCall76>(taken[76]);
+      CuteQTableWidgetCall77 call = reinterpret_cast<CuteQTableWidgetCall77>(taken[77]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -1362,9 +1378,9 @@ public:
 
   //  void QWidget::actionEvent(QActionEvent *event)
   void actionEvent(QActionEvent *event) override {
-    if (taken[77]) {
+    if (taken[78]) {
       int handled = 0;
-      CuteQTableWidgetCall77 call = reinterpret_cast<CuteQTableWidgetCall77>(taken[77]);
+      CuteQTableWidgetCall78 call = reinterpret_cast<CuteQTableWidgetCall78>(taken[78]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -1373,9 +1389,9 @@ public:
 
   //  void QWidget::showEvent(QShowEvent *event)
   void showEvent(QShowEvent *event) override {
-    if (taken[78]) {
+    if (taken[79]) {
       int handled = 0;
-      CuteQTableWidgetCall78 call = reinterpret_cast<CuteQTableWidgetCall78>(taken[78]);
+      CuteQTableWidgetCall79 call = reinterpret_cast<CuteQTableWidgetCall79>(taken[79]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -1384,9 +1400,9 @@ public:
 
   //  void QWidget::hideEvent(QHideEvent *event)
   void hideEvent(QHideEvent *event) override {
-    if (taken[79]) {
+    if (taken[80]) {
       int handled = 0;
-      CuteQTableWidgetCall79 call = reinterpret_cast<CuteQTableWidgetCall79>(taken[79]);
+      CuteQTableWidgetCall80 call = reinterpret_cast<CuteQTableWidgetCall80>(taken[80]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -1395,9 +1411,9 @@ public:
 
   //  int QWidget::metric(PaintDeviceMetric a0) const
   int metric(QPaintDevice::PaintDeviceMetric a0) const override {
-    if (taken[80]) {
+    if (taken[81]) {
       int handled = 0;
-      CuteQTableWidgetCall80 call = reinterpret_cast<CuteQTableWidgetCall80>(taken[80]);
+      CuteQTableWidgetCall81 call = reinterpret_cast<CuteQTableWidgetCall81>(taken[81]);
       int given = call(this, static_cast<int>(a0), &handled);
       if (handled) return given;
     }
@@ -1406,9 +1422,9 @@ public:
 
   //  void QWidget::initPainter(QPainter *painter) const
   void initPainter(QPainter *painter) const override {
-    if (taken[81]) {
+    if (taken[82]) {
       int handled = 0;
-      CuteQTableWidgetCall81 call = reinterpret_cast<CuteQTableWidgetCall81>(taken[81]);
+      CuteQTableWidgetCall82 call = reinterpret_cast<CuteQTableWidgetCall82>(taken[82]);
       call(this, painter, &handled);
       if (handled) return;
     }
@@ -1417,9 +1433,9 @@ public:
 
   //  QPaintDevice *QWidget::redirected(QPoint *offset) const
   QPaintDevice *redirected(QPoint *offset) const override {
-    if (taken[82]) {
+    if (taken[83]) {
       int handled = 0;
-      CuteQTableWidgetCall82 call = reinterpret_cast<CuteQTableWidgetCall82>(taken[82]);
+      CuteQTableWidgetCall83 call = reinterpret_cast<CuteQTableWidgetCall83>(taken[83]);
       void * given = call(this, offset, &handled);
       if (handled) return static_cast<QPaintDevice *>(given);
     }
@@ -1428,9 +1444,9 @@ public:
 
   //  QPainter *QWidget::sharedPainter() const
   QPainter *sharedPainter() const override {
-    if (taken[83]) {
+    if (taken[84]) {
       int handled = 0;
-      CuteQTableWidgetCall83 call = reinterpret_cast<CuteQTableWidgetCall83>(taken[83]);
+      CuteQTableWidgetCall84 call = reinterpret_cast<CuteQTableWidgetCall84>(taken[84]);
       void * given = call(this, &handled);
       if (handled) return static_cast<QPainter *>(given);
     }
@@ -1439,9 +1455,9 @@ public:
 
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
-    if (taken[84]) {
+    if (taken[85]) {
       int handled = 0;
-      CuteQTableWidgetCall84 call = reinterpret_cast<CuteQTableWidgetCall84>(taken[84]);
+      CuteQTableWidgetCall85 call = reinterpret_cast<CuteQTableWidgetCall85>(taken[85]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -1450,9 +1466,9 @@ public:
 
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
-    if (taken[85]) {
+    if (taken[86]) {
       int handled = 0;
-      CuteQTableWidgetCall85 call = reinterpret_cast<CuteQTableWidgetCall85>(taken[85]);
+      CuteQTableWidgetCall86 call = reinterpret_cast<CuteQTableWidgetCall86>(taken[86]);
       call(this, event, &handled);
       if (handled) return;
     }
@@ -1461,9 +1477,9 @@ public:
 
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
-    if (taken[86]) {
+    if (taken[87]) {
       int handled = 0;
-      CuteQTableWidgetCall86 call = reinterpret_cast<CuteQTableWidgetCall86>(taken[86]);
+      CuteQTableWidgetCall87 call = reinterpret_cast<CuteQTableWidgetCall87>(taken[87]);
       call(this, &signal, &handled);
       if (handled) return;
     }
@@ -1472,9 +1488,9 @@ public:
 
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
-    if (taken[87]) {
+    if (taken[88]) {
       int handled = 0;
-      CuteQTableWidgetCall87 call = reinterpret_cast<CuteQTableWidgetCall87>(taken[87]);
+      CuteQTableWidgetCall88 call = reinterpret_cast<CuteQTableWidgetCall88>(taken[88]);
       call(this, &signal, &handled);
       if (handled) return;
     }
@@ -1986,6 +2002,63 @@ void ritual_ZN12QTableWidget13clearContentsEv(QTableWidget *self) {
   self->clearContents();
 }
 
+//  bool QTableWidget::event(QEvent *e)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN12QTableWidget5eventEP6QEvent(QTableWidget *self, QEvent *e) {
+  return self->event(e);
+}
+
+//  QStringList QTableWidget::mimeTypes() const
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZNK12QTableWidget9mimeTypesEv(
+    const QTableWidget *self) {
+  return new QList<QString>(self->mimeTypes());
+}
+
+//  QMimeData *QTableWidget::mimeData(const QList<QTableWidgetItem *> &items)
+//      const
+extern "C" Q_DECL_EXPORT
+QMimeData *ritual_ZNK12QTableWidget8mimeDataERK5QListIP16QTableWidgetItemE(
+    const QTableWidget *self,
+    const QList<QTableWidgetItem *> *items) {
+  return self->mimeData(*items);
+}
+
+//  bool QTableWidget::dropMimeData(int row, int column, const QMimeData
+//      *data, Qt::DropAction action)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN12QTableWidget12dropMimeDataEiiPK9QMimeDataN2Qt10DropActionE(
+    QTableWidget *self,
+    int row,
+    int column,
+    const QMimeData *data,
+    Qt::DropAction action) {
+  return self->dropMimeData(row, column, data, action);
+}
+
+//  Qt::DropActions QTableWidget::supportedDropActions() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK12QTableWidget20supportedDropActionsEv(
+    const QTableWidget *self) {
+  return static_cast<int>(self->supportedDropActions().toInt());
+}
+
+//  void QTableWidget::dropEvent(QDropEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QTableWidget9dropEventEP10QDropEvent(
+    QTableWidget *self,
+    QDropEvent *event) {
+  self->dropEvent(event);
+}
+
+//  void QTableWidget::setModel(QAbstractItemModel *model)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QTableWidget8setModelEP18QAbstractItemModel(
+    QTableWidget *self,
+    QAbstractItemModel *model) {
+  self->setModel(model);
+}
+
 //  a Python function taken by a CuteQTableWidget, for the function named by
 //      the key
 extern "C" Q_DECL_EXPORT
@@ -2034,4 +2107,12 @@ void ritual_own_ZN12QTableWidget9dropEventEP10QDropEvent(
     QTableWidget *self,
     QDropEvent *event) {
   static_cast<OwnQTableWidget *>(self)->OwnQTableWidget::dropEvent(event);
+}
+
+//  void QTableWidget::setModel(QAbstractItemModel *model)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN12QTableWidget8setModelEP18QAbstractItemModel(
+    QTableWidget *self,
+    QAbstractItemModel *model) {
+  self->QTableWidget::setModel(model);
 }

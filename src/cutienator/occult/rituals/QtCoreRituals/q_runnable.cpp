@@ -55,6 +55,12 @@ void ritual_ZN9QRunnable13setAutoDeleteEb(QRunnable *self, bool autoDelete) {
   self->setAutoDelete(autoDelete);
 }
 
+//  QRunnable *QRunnable::warnNullCallable()
+extern "C" Q_DECL_EXPORT
+QRunnable *ritual_ZN9QRunnable16warnNullCallableEv() {
+  return QRunnable::warnNullCallable();
+}
+
 //  a Python function taken by a CuteQRunnable, for the function named by the
 //      key
 extern "C" Q_DECL_EXPORT

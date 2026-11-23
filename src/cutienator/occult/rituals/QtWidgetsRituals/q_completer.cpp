@@ -433,6 +433,21 @@ QList<QString> *ritual_ZNK10QCompleter9splitPathERK7QString(
   return new QList<QString>(self->splitPath(*path));
 }
 
+//  bool QCompleter::eventFilter(QObject *o, QEvent *e)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN10QCompleter11eventFilterEP7QObjectP6QEvent(
+    QCompleter *self,
+    QObject *o,
+    QEvent *e) {
+  return self->eventFilter(o, e);
+}
+
+//  bool QCompleter::event(QEvent *a0)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN10QCompleter5eventEP6QEvent(QCompleter *self, QEvent *a0) {
+  return self->event(a0);
+}
+
 //  a Python function taken by a CuteQCompleter, for the function named by
 //      the key
 extern "C" Q_DECL_EXPORT

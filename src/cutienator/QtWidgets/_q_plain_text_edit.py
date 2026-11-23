@@ -15,19 +15,21 @@ from worktoy.keenum import Kee
 from ..cute import CuteMixin, CuteNum, WAIT
 from ..occult import Rituals
 from ..QtCore import Qt
-from ..QtGui import QTextCursor, QTextDocument, QTextOption
+from ..QtGui import QAbstractTextDocumentLayout, QTextCursor, QTextDocument
+from ..QtGui import QTextOption
 from . import QAbstractScrollArea, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from ..QtCore import QEvent, QMetaObject, QMimeData, QPoint, QRect
-  from ..QtCore import QRegularExpression, QTimerEvent, QUrl, QVariant
+  from ..QtCore import QEvent, QMetaObject, QMimeData, QPoint, QPointF, QRect
+  from ..QtCore import QRectF, QRegularExpression, QTimerEvent, QUrl
+  from ..QtCore import QVariant
   from ..QtGui import QContextMenuEvent, QDragEnterEvent, QDragLeaveEvent
   from ..QtGui import QDragMoveEvent, QDropEvent, QFocusEvent
   from ..QtGui import QInputMethodEvent, QKeyEvent, QMouseEvent
   from ..QtGui import QPagedPaintDevice, QPaintEvent, QResizeEvent
-  from ..QtGui import QShowEvent, QTextCharFormat, QWheelEvent
+  from ..QtGui import QShowEvent, QTextBlock, QTextCharFormat, QWheelEvent
   from . import QMenu
 else:
   #  The cute classes this file names and is not built on. Each is brought in
@@ -50,6 +52,7 @@ else:
   QRegularExpression = WAIT['QRegularExpression']
   QResizeEvent = WAIT['QResizeEvent']
   QShowEvent = WAIT['QShowEvent']
+  QTextBlock = WAIT['QTextBlock']
   QTextCharFormat = WAIT['QTextCharFormat']
   QTimerEvent = WAIT['QTimerEvent']
   QUrl = WAIT['QUrl']
@@ -73,7 +76,7 @@ class QPlainTextEdit(QAbstractScrollArea):
   -----------
 
   Every function of Qt's QPlainTextEdit that has a ritual and that Python can
-  call so far, 91 names in all: 'metaObject', 'tr', 'setDocument',
+  call so far, 97 names in all: 'metaObject', 'tr', 'setDocument',
   'document', 'setPlaceholderText', 'placeholderText', 'setTextCursor',
   'textCursor', 'isReadOnly', 'setReadOnly', 'setTextInteractionFlags',
   'textInteractionFlags', 'mergeCurrentCharFormat', 'setCurrentCharFormat',
@@ -97,7 +100,9 @@ class QPlainTextEdit(QAbstractScrollArea):
   'focusInEvent', 'focusOutEvent', 'showEvent', 'changeEvent', 'wheelEvent',
   'createMimeDataFromSelection', 'canInsertFromMimeData',
   'insertFromMimeData', 'inputMethodEvent', 'scrollContentsBy',
-  'doSetTextCursor'. It can be made from Python, in 2 ways; see '__init__'.
+  'doSetTextCursor', 'firstVisibleBlock', 'contentOffset',
+  'blockBoundingRect', 'blockBoundingGeometry', 'getPaintContext', 'zoomInF'.
+  It can be made from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -108,9 +113,9 @@ class QPlainTextEdit(QAbstractScrollArea):
   What has no ritual
   ------------------
 
-  26 of the 124 functions Qt declares: 9 a signal; 7 protected; 4 takes or
-  gives a type that cannot be passed yet; 3 private; 2 forbidden; 1 a
-  template.
+  20 of the 124 functions Qt declares: 9 a signal; 7 takes or gives a type
+  that cannot be passed yet; 2 forbidden; 1 a template; 1 declared and
+  nowhere to be found.
 
   What to expect
   --------------
@@ -735,9 +740,11 @@ class QPlainTextEdit(QAbstractScrollArea):
       no object.
     """
     #  QMimeData *QPlainTextEdit::createMimeDataFromSelection() const
-    address = self.uglySide.call(
-        'ritual_own_ZNK14QPlainTextEdit27createMimeDataFromSelectionEv',
-    )
+    ritual = 'ritual_ZNK14QPlainTextEdit27createMimeDataFromSelectionEv'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK14QPlainTextEdit27createMimeDataFromSelectionEv')
+    address = self.uglySide.call(ritual)
     from ..QtCore import QMimeData
     return QMimeData._cuteAt(address)
 
@@ -760,10 +767,135 @@ class QPlainTextEdit(QAbstractScrollArea):
     """
     #  bool QPlainTextEdit::canInsertFromMimeData(const QMimeData *source)
     #      const
-    return self.uglySide.call(
-        'ritual_own_ZNK14QPlainTextEdit21canInsertFromMimeDataEPK9QMimeData',
-        self._addressOf(source),
+    ritual = 'ritual_ZNK14QPlainTextEdit21canInsertFromMimeDataEPK9QMimeData'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK14QPlainTextEdit21canInsertFromMimeDataEPK9QMimeDa'
+          'ta')
+    return self.uglySide.call(ritual, self._addressOf(source))
+
+  def firstVisibleBlock(self) -> QTextBlock:
+    """
+    Calls Qt's 'QTextBlock QPlainTextEdit::firstVisibleBlock() const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qplaintextedit.html#firstVisibleBlock
+
+    Returns
+    -------
+
+    QTextBlock
+      A new cute QTextBlock around the copy Qt gave back. Python owns it.
+    """
+    #  QTextBlock QPlainTextEdit::firstVisibleBlock() const
+    address = self.uglySide.call(
+        'ritual_ZNK14QPlainTextEdit17firstVisibleBlockEv',
     )
+    from ..QtGui import QTextBlock
+    return QTextBlock._cuteOwning(address)
+
+  def contentOffset(self) -> QPointF:
+    """
+    Calls Qt's 'QPointF QPlainTextEdit::contentOffset() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qplaintextedit.html#contentOffset
+
+    Returns
+    -------
+
+    QPointF
+      A new cute QPointF around the copy Qt gave back. Python owns it.
+    """
+    #  QPointF QPlainTextEdit::contentOffset() const
+    address = self.uglySide.call(
+        'ritual_ZNK14QPlainTextEdit13contentOffsetEv',
+    )
+    from ..QtCore import QPointF
+    return QPointF._cuteOwning(address)
+
+  @overload(QTextBlock)
+  def blockBoundingRect(self, block: QTextBlock) -> QRectF:
+    """
+    Calls Qt's 'QRectF QPlainTextEdit::blockBoundingRect(const QTextBlock
+    &block) const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qplaintextedit.html#blockBoundingRect
+
+    Parameters
+    ----------
+
+    block : QTextBlock
+      Passed on as a value: Qt reads the C++ QTextBlock, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QRectF
+      A new cute QRectF around the copy Qt gave back. Python owns it.
+    """
+    #  QRectF QPlainTextEdit::blockBoundingRect(const QTextBlock &block)
+    #      const
+    address = self.uglySide.call(
+        'ritual_ZNK14QPlainTextEdit17blockBoundingRectERK10QTextBlock',
+        self._valueOf(block),
+    )
+    from ..QtCore import QRectF
+    return QRectF._cuteOwning(address)
+
+  @overload(QTextBlock)
+  def blockBoundingGeometry(self, block: QTextBlock) -> QRectF:
+    """
+    Calls Qt's 'QRectF QPlainTextEdit::blockBoundingGeometry(const QTextBlock
+    &block) const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qplaintextedit.html#blockBoundingGeometry
+
+    Parameters
+    ----------
+
+    block : QTextBlock
+      Passed on as a value: Qt reads the C++ QTextBlock, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QRectF
+      A new cute QRectF around the copy Qt gave back. Python owns it.
+    """
+    #  QRectF QPlainTextEdit::blockBoundingGeometry(const QTextBlock &block)
+    #      const
+    address = self.uglySide.call(
+        'ritual_ZNK14QPlainTextEdit21blockBoundingGeometryERK10QTextBlock',
+        self._valueOf(block),
+    )
+    from ..QtCore import QRectF
+    return QRectF._cuteOwning(address)
+
+  def getPaintContext(self) -> QAbstractTextDocumentLayout.PaintContext:
+    """
+    Calls Qt's 'QAbstractTextDocumentLayout::PaintContext
+    QPlainTextEdit::getPaintContext() const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qplaintextedit.html#getPaintContext
+
+    Returns
+    -------
+
+    QAbstractTextDocumentLayout.PaintContext
+      A new cute QAbstractTextDocumentLayout::PaintContext around the copy Qt
+      gave back. Python owns it.
+    """
+    #  QAbstractTextDocumentLayout::PaintContext
+    #      QPlainTextEdit::getPaintContext() const
+    address = self.uglySide.call(
+        'ritual_ZNK14QPlainTextEdit15getPaintContextEv',
+    )
+    return QAbstractTextDocumentLayout.PaintContext._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1615,9 +1747,10 @@ class QPlainTextEdit(QAbstractScrollArea):
       object.
     """
     #  bool QPlainTextEdit::event(QEvent *e)
-    return self.uglySide.call(
-        'ritual_own_ZN14QPlainTextEdit5eventEP6QEvent', self._addressOf(e),
-    )
+    ritual = 'ritual_ZN14QPlainTextEdit5eventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN14QPlainTextEdit5eventEP6QEvent'
+    return self.uglySide.call(ritual, self._addressOf(e))
 
   @overload(QTimerEvent)
   @overload(NoneType)
@@ -1635,10 +1768,10 @@ class QPlainTextEdit(QAbstractScrollArea):
       object.
     """
     #  void QPlainTextEdit::timerEvent(QTimerEvent *e)
-    self.uglySide.call(
-        'ritual_own_ZN14QPlainTextEdit10timerEventEP11QTimerEvent',
-        self._addressOf(e),
-    )
+    ritual = 'ritual_ZN14QPlainTextEdit10timerEventEP11QTimerEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN14QPlainTextEdit10timerEventEP11QTimerEvent'
+    self.uglySide.call(ritual, self._addressOf(e))
 
   @overload(QKeyEvent)
   @overload(NoneType)
@@ -1656,10 +1789,10 @@ class QPlainTextEdit(QAbstractScrollArea):
       object.
     """
     #  void QPlainTextEdit::keyPressEvent(QKeyEvent *e)
-    self.uglySide.call(
-        'ritual_own_ZN14QPlainTextEdit13keyPressEventEP9QKeyEvent',
-        self._addressOf(e),
-    )
+    ritual = 'ritual_ZN14QPlainTextEdit13keyPressEventEP9QKeyEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN14QPlainTextEdit13keyPressEventEP9QKeyEvent'
+    self.uglySide.call(ritual, self._addressOf(e))
 
   @overload(QKeyEvent)
   @overload(NoneType)
@@ -1678,10 +1811,10 @@ class QPlainTextEdit(QAbstractScrollArea):
       object.
     """
     #  void QPlainTextEdit::keyReleaseEvent(QKeyEvent *e)
-    self.uglySide.call(
-        'ritual_own_ZN14QPlainTextEdit15keyReleaseEventEP9QKeyEvent',
-        self._addressOf(e),
-    )
+    ritual = 'ritual_ZN14QPlainTextEdit15keyReleaseEventEP9QKeyEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN14QPlainTextEdit15keyReleaseEventEP9QKeyEvent'
+    self.uglySide.call(ritual, self._addressOf(e))
 
   @overload(QResizeEvent)
   @overload(NoneType)
@@ -1699,10 +1832,10 @@ class QPlainTextEdit(QAbstractScrollArea):
       object.
     """
     #  void QPlainTextEdit::resizeEvent(QResizeEvent *e)
-    self.uglySide.call(
-        'ritual_own_ZN14QPlainTextEdit11resizeEventEP12QResizeEvent',
-        self._addressOf(e),
-    )
+    ritual = 'ritual_ZN14QPlainTextEdit11resizeEventEP12QResizeEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN14QPlainTextEdit11resizeEventEP12QResizeEvent'
+    self.uglySide.call(ritual, self._addressOf(e))
 
   @overload(QPaintEvent)
   @overload(NoneType)
@@ -1720,10 +1853,10 @@ class QPlainTextEdit(QAbstractScrollArea):
       object.
     """
     #  void QPlainTextEdit::paintEvent(QPaintEvent *e)
-    self.uglySide.call(
-        'ritual_own_ZN14QPlainTextEdit10paintEventEP11QPaintEvent',
-        self._addressOf(e),
-    )
+    ritual = 'ritual_ZN14QPlainTextEdit10paintEventEP11QPaintEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN14QPlainTextEdit10paintEventEP11QPaintEvent'
+    self.uglySide.call(ritual, self._addressOf(e))
 
   @overload(QMouseEvent)
   @overload(NoneType)
@@ -1742,10 +1875,11 @@ class QPlainTextEdit(QAbstractScrollArea):
       object.
     """
     #  void QPlainTextEdit::mousePressEvent(QMouseEvent *e)
-    self.uglySide.call(
-        'ritual_own_ZN14QPlainTextEdit15mousePressEventEP11QMouseEvent',
-        self._addressOf(e),
-    )
+    ritual = 'ritual_ZN14QPlainTextEdit15mousePressEventEP11QMouseEvent'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN14QPlainTextEdit15mousePressEventEP11QMouseEvent')
+    self.uglySide.call(ritual, self._addressOf(e))
 
   @overload(QMouseEvent)
   @overload(NoneType)
@@ -1763,10 +1897,10 @@ class QPlainTextEdit(QAbstractScrollArea):
       object.
     """
     #  void QPlainTextEdit::mouseMoveEvent(QMouseEvent *e)
-    self.uglySide.call(
-        'ritual_own_ZN14QPlainTextEdit14mouseMoveEventEP11QMouseEvent',
-        self._addressOf(e),
-    )
+    ritual = 'ritual_ZN14QPlainTextEdit14mouseMoveEventEP11QMouseEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN14QPlainTextEdit14mouseMoveEventEP11QMouseEvent'
+    self.uglySide.call(ritual, self._addressOf(e))
 
   @overload(QMouseEvent)
   @overload(NoneType)
@@ -1785,10 +1919,11 @@ class QPlainTextEdit(QAbstractScrollArea):
       object.
     """
     #  void QPlainTextEdit::mouseReleaseEvent(QMouseEvent *e)
-    self.uglySide.call(
-        'ritual_own_ZN14QPlainTextEdit17mouseReleaseEventEP11QMouseEvent',
-        self._addressOf(e),
-    )
+    ritual = 'ritual_ZN14QPlainTextEdit17mouseReleaseEventEP11QMouseEvent'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN14QPlainTextEdit17mouseReleaseEventEP11QMouseEvent')
+    self.uglySide.call(ritual, self._addressOf(e))
 
   @overload(QMouseEvent)
   @overload(NoneType)
@@ -1807,11 +1942,13 @@ class QPlainTextEdit(QAbstractScrollArea):
       object.
     """
     #  void QPlainTextEdit::mouseDoubleClickEvent(QMouseEvent *e)
-    self.uglySide.call(
-        'ritual_own_ZN14QPlainTextEdit21mouseDoubleClickEventEP11QMouseEven'
-        't',
-        self._addressOf(e),
-    )
+    ritual = (
+        'ritual_ZN14QPlainTextEdit21mouseDoubleClickEventEP11QMouseEvent')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN14QPlainTextEdit21mouseDoubleClickEventEP11QMouseEv'
+          'ent')
+    self.uglySide.call(ritual, self._addressOf(e))
 
   @overload(bool)
   def focusNextPrevChild(self, next: bool) -> bool:
@@ -1828,9 +1965,10 @@ class QPlainTextEdit(QAbstractScrollArea):
       Passed on as it is.
     """
     #  bool QPlainTextEdit::focusNextPrevChild(bool next)
-    return self.uglySide.call(
-        'ritual_own_ZN14QPlainTextEdit18focusNextPrevChildEb', next,
-    )
+    ritual = 'ritual_ZN14QPlainTextEdit18focusNextPrevChildEb'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN14QPlainTextEdit18focusNextPrevChildEb'
+    return self.uglySide.call(ritual, next)
 
   @overload(QContextMenuEvent)
   @overload(NoneType)
@@ -1849,11 +1987,13 @@ class QPlainTextEdit(QAbstractScrollArea):
       object.
     """
     #  void QPlainTextEdit::contextMenuEvent(QContextMenuEvent *e)
-    self.uglySide.call(
-        'ritual_own_ZN14QPlainTextEdit16contextMenuEventEP17QContextMenuEve'
-        'nt',
-        self._addressOf(e),
-    )
+    ritual = (
+        'ritual_ZN14QPlainTextEdit16contextMenuEventEP17QContextMenuEvent')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN14QPlainTextEdit16contextMenuEventEP17QContextMenuE'
+          'vent')
+    self.uglySide.call(ritual, self._addressOf(e))
 
   @overload(QDragEnterEvent)
   @overload(NoneType)
@@ -1871,10 +2011,11 @@ class QPlainTextEdit(QAbstractScrollArea):
       object.
     """
     #  void QPlainTextEdit::dragEnterEvent(QDragEnterEvent *e)
-    self.uglySide.call(
-        'ritual_own_ZN14QPlainTextEdit14dragEnterEventEP15QDragEnterEvent',
-        self._addressOf(e),
-    )
+    ritual = 'ritual_ZN14QPlainTextEdit14dragEnterEventEP15QDragEnterEvent'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN14QPlainTextEdit14dragEnterEventEP15QDragEnterEvent')
+    self.uglySide.call(ritual, self._addressOf(e))
 
   @overload(QDragLeaveEvent)
   @overload(NoneType)
@@ -1892,10 +2033,11 @@ class QPlainTextEdit(QAbstractScrollArea):
       object.
     """
     #  void QPlainTextEdit::dragLeaveEvent(QDragLeaveEvent *e)
-    self.uglySide.call(
-        'ritual_own_ZN14QPlainTextEdit14dragLeaveEventEP15QDragLeaveEvent',
-        self._addressOf(e),
-    )
+    ritual = 'ritual_ZN14QPlainTextEdit14dragLeaveEventEP15QDragLeaveEvent'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN14QPlainTextEdit14dragLeaveEventEP15QDragLeaveEvent')
+    self.uglySide.call(ritual, self._addressOf(e))
 
   @overload(QDragMoveEvent)
   @overload(NoneType)
@@ -1913,10 +2055,11 @@ class QPlainTextEdit(QAbstractScrollArea):
       object.
     """
     #  void QPlainTextEdit::dragMoveEvent(QDragMoveEvent *e)
-    self.uglySide.call(
-        'ritual_own_ZN14QPlainTextEdit13dragMoveEventEP14QDragMoveEvent',
-        self._addressOf(e),
-    )
+    ritual = 'ritual_ZN14QPlainTextEdit13dragMoveEventEP14QDragMoveEvent'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN14QPlainTextEdit13dragMoveEventEP14QDragMoveEvent')
+    self.uglySide.call(ritual, self._addressOf(e))
 
   @overload(QDropEvent)
   @overload(NoneType)
@@ -1934,10 +2077,10 @@ class QPlainTextEdit(QAbstractScrollArea):
       object.
     """
     #  void QPlainTextEdit::dropEvent(QDropEvent *e)
-    self.uglySide.call(
-        'ritual_own_ZN14QPlainTextEdit9dropEventEP10QDropEvent',
-        self._addressOf(e),
-    )
+    ritual = 'ritual_ZN14QPlainTextEdit9dropEventEP10QDropEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN14QPlainTextEdit9dropEventEP10QDropEvent'
+    self.uglySide.call(ritual, self._addressOf(e))
 
   @overload(QFocusEvent)
   @overload(NoneType)
@@ -1955,10 +2098,10 @@ class QPlainTextEdit(QAbstractScrollArea):
       object.
     """
     #  void QPlainTextEdit::focusInEvent(QFocusEvent *e)
-    self.uglySide.call(
-        'ritual_own_ZN14QPlainTextEdit12focusInEventEP11QFocusEvent',
-        self._addressOf(e),
-    )
+    ritual = 'ritual_ZN14QPlainTextEdit12focusInEventEP11QFocusEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN14QPlainTextEdit12focusInEventEP11QFocusEvent'
+    self.uglySide.call(ritual, self._addressOf(e))
 
   @overload(QFocusEvent)
   @overload(NoneType)
@@ -1976,10 +2119,10 @@ class QPlainTextEdit(QAbstractScrollArea):
       object.
     """
     #  void QPlainTextEdit::focusOutEvent(QFocusEvent *e)
-    self.uglySide.call(
-        'ritual_own_ZN14QPlainTextEdit13focusOutEventEP11QFocusEvent',
-        self._addressOf(e),
-    )
+    ritual = 'ritual_ZN14QPlainTextEdit13focusOutEventEP11QFocusEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN14QPlainTextEdit13focusOutEventEP11QFocusEvent'
+    self.uglySide.call(ritual, self._addressOf(e))
 
   @overload(QShowEvent)
   @overload(NoneType)
@@ -1997,10 +2140,10 @@ class QPlainTextEdit(QAbstractScrollArea):
       object.
     """
     #  void QPlainTextEdit::showEvent(QShowEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN14QPlainTextEdit9showEventEP10QShowEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN14QPlainTextEdit9showEventEP10QShowEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN14QPlainTextEdit9showEventEP10QShowEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QEvent)
   @overload(NoneType)
@@ -2018,10 +2161,10 @@ class QPlainTextEdit(QAbstractScrollArea):
       object.
     """
     #  void QPlainTextEdit::changeEvent(QEvent *e)
-    self.uglySide.call(
-        'ritual_own_ZN14QPlainTextEdit11changeEventEP6QEvent',
-        self._addressOf(e),
-    )
+    ritual = 'ritual_ZN14QPlainTextEdit11changeEventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN14QPlainTextEdit11changeEventEP6QEvent'
+    self.uglySide.call(ritual, self._addressOf(e))
 
   @overload(QWheelEvent)
   @overload(NoneType)
@@ -2039,10 +2182,10 @@ class QPlainTextEdit(QAbstractScrollArea):
       object.
     """
     #  void QPlainTextEdit::wheelEvent(QWheelEvent *e)
-    self.uglySide.call(
-        'ritual_own_ZN14QPlainTextEdit10wheelEventEP11QWheelEvent',
-        self._addressOf(e),
-    )
+    ritual = 'ritual_ZN14QPlainTextEdit10wheelEventEP11QWheelEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN14QPlainTextEdit10wheelEventEP11QWheelEvent'
+    self.uglySide.call(ritual, self._addressOf(e))
 
   @overload(QMimeData)
   @overload(NoneType)
@@ -2062,10 +2205,11 @@ class QPlainTextEdit(QAbstractScrollArea):
       object.
     """
     #  void QPlainTextEdit::insertFromMimeData(const QMimeData *source)
-    self.uglySide.call(
-        'ritual_own_ZN14QPlainTextEdit18insertFromMimeDataEPK9QMimeData',
-        self._addressOf(source),
-    )
+    ritual = 'ritual_ZN14QPlainTextEdit18insertFromMimeDataEPK9QMimeData'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN14QPlainTextEdit18insertFromMimeDataEPK9QMimeData')
+    self.uglySide.call(ritual, self._addressOf(source))
 
   @overload(QInputMethodEvent)
   @overload(NoneType)
@@ -2085,11 +2229,13 @@ class QPlainTextEdit(QAbstractScrollArea):
       object.
     """
     #  void QPlainTextEdit::inputMethodEvent(QInputMethodEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN14QPlainTextEdit16inputMethodEventEP17QInputMethodEve'
-        'nt',
-        self._addressOf(a0),
-    )
+    ritual = (
+        'ritual_ZN14QPlainTextEdit16inputMethodEventEP17QInputMethodEvent')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN14QPlainTextEdit16inputMethodEventEP17QInputMethodE'
+          'vent')
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(int, int)
   def scrollContentsBy(self, dx: int, dy: int) -> None:
@@ -2109,9 +2255,10 @@ class QPlainTextEdit(QAbstractScrollArea):
       Passed on as it is.
     """
     #  void QPlainTextEdit::scrollContentsBy(int dx, int dy)
-    self.uglySide.call(
-        'ritual_own_ZN14QPlainTextEdit16scrollContentsByEii', dx, dy,
-    )
+    ritual = 'ritual_ZN14QPlainTextEdit16scrollContentsByEii'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN14QPlainTextEdit16scrollContentsByEii'
+    self.uglySide.call(ritual, dx, dy)
 
   @overload(QTextCursor)
   def doSetTextCursor(self, cursor: QTextCursor) -> None:
@@ -2130,7 +2277,24 @@ class QPlainTextEdit(QAbstractScrollArea):
       Python's own.
     """
     #  void QPlainTextEdit::doSetTextCursor(const QTextCursor &cursor)
-    self.uglySide.call(
-        'ritual_own_ZN14QPlainTextEdit15doSetTextCursorERK11QTextCursor',
-        self._valueOf(cursor),
-    )
+    ritual = 'ritual_ZN14QPlainTextEdit15doSetTextCursorERK11QTextCursor'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN14QPlainTextEdit15doSetTextCursorERK11QTextCursor')
+    self.uglySide.call(ritual, self._valueOf(cursor))
+
+  @overload(float)
+  def zoomInF(self, range: float) -> None:
+    """
+    Calls Qt's 'void QPlainTextEdit::zoomInF(float range)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qplaintextedit.html#zoomInF
+
+    Parameters
+    ----------
+
+    range : float
+      Passed on as it is.
+    """
+    #  void QPlainTextEdit::zoomInF(float range)
+    self.uglySide.call('ritual_ZN14QPlainTextEdit7zoomInFEf', range)

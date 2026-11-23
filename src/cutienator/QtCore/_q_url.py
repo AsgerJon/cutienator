@@ -43,7 +43,7 @@ class QUrl(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QUrl that has a ritual and that Python can call so
-  far, 51 names in all: 'setUrl', 'fromEncoded', 'fromUserInput', 'isValid',
+  far, 52 names in all: 'setUrl', 'fromEncoded', 'fromUserInput', 'isValid',
   'errorString', 'isEmpty', 'clear', 'setScheme', 'scheme', 'setAuthority',
   'authority', 'setUserInfo', 'userInfo', 'setUserName', 'userName',
   'setPassword', 'password', 'setHost', 'host', 'setPort', 'port', 'setPath',
@@ -52,8 +52,8 @@ class QUrl(CuteMixin, metaclass=MetaCute):
   'isLocalFile', 'fromLocalFile', 'toLocalFile', 'detach', 'isDetached',
   'fromPercentEncoding', 'toPercentEncoding', 'fromAce', 'toAce',
   'idnWhitelist', 'fromStringList', 'setIdnWhitelist', '__eq__', '__ne__',
-  '__lt__', '__gt__', '__le__', '__ge__'. It can be made from Python, in 3
-  ways; see '__init__'.
+  '__lt__', '__gt__', '__le__', '__ge__', 'detachToClear'. It can be made
+  from Python, in 3 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -64,8 +64,8 @@ class QUrl(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  14 of the 70 functions Qt declares: 13 takes or gives a type that cannot be
-  passed yet; 1 private.
+  13 of the 70 functions Qt declares: 13 takes or gives a type that cannot be
+  passed yet.
 
   What to expect
   --------------
@@ -1560,6 +1560,15 @@ class QUrl(CuteMixin, metaclass=MetaCute):
     """
     #  void QUrl::detach()
     self.uglySide.call('ritual_ZN4QUrl6detachEv')
+
+  def detachToClear(self) -> None:
+    """
+    Calls Qt's 'void QUrl::detachToClear()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qurl.html#detachToClear
+    """
+    #  void QUrl::detachToClear()
+    self.uglySide.call('ritual_ZN4QUrl13detachToClearEv')
 
 
 #  Qt's 'QList<QUrl>': the list of QUrl, which 'QList[QUrl]' gives. It is

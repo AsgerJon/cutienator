@@ -143,6 +143,12 @@
     "ritual_ZN16QFileSystemModel6removeERK11QModelIndex": [
       "bool", "address", "address"
     ],
+    "ritual_ZN16QFileSystemModel10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QFileSystemModel5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
     "ritual_take_QFileSystemModel": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK16QFileSystemModel5indexEiiRK11QModelIndex": [
       "address", "address", "int", "int", "address"

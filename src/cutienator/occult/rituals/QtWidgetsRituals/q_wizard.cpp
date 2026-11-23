@@ -1211,6 +1211,46 @@ void ritual_ZN7QWizard7restartEv(QWizard *self) {
   self->restart();
 }
 
+//  bool QWizard::event(QEvent *event)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN7QWizard5eventEP6QEvent(QWizard *self, QEvent *event) {
+  return self->event(event);
+}
+
+//  void QWizard::resizeEvent(QResizeEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QWizard11resizeEventEP12QResizeEvent(
+    QWizard *self,
+    QResizeEvent *event) {
+  self->resizeEvent(event);
+}
+
+//  void QWizard::paintEvent(QPaintEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QWizard10paintEventEP11QPaintEvent(
+    QWizard *self,
+    QPaintEvent *event) {
+  self->paintEvent(event);
+}
+
+//  void QWizard::done(int result)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QWizard4doneEi(QWizard *self, int result) {
+  self->done(result);
+}
+
+//  void QWizard::initializePage(int id)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QWizard14initializePageEi(QWizard *self, int id) {
+  self->initializePage(id);
+}
+
+//  void QWizard::cleanupPage(int id)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QWizard11cleanupPageEi(QWizard *self, int id) {
+  self->cleanupPage(id);
+}
+
 //  a Python function taken by a CuteQWizard, for the function named by the
 //      key
 extern "C" Q_DECL_EXPORT

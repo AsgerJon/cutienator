@@ -823,6 +823,37 @@ QWidget *ritual_ZNK11QFocusFrame6widgetEv(const QFocusFrame *self) {
   return self->widget();
 }
 
+//  bool QFocusFrame::event(QEvent *e)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN11QFocusFrame5eventEP6QEvent(QFocusFrame *self, QEvent *e) {
+  return self->event(e);
+}
+
+//  bool QFocusFrame::eventFilter(QObject *a0, QEvent *a1)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN11QFocusFrame11eventFilterEP7QObjectP6QEvent(
+    QFocusFrame *self,
+    QObject *a0,
+    QEvent *a1) {
+  return self->eventFilter(a0, a1);
+}
+
+//  void QFocusFrame::paintEvent(QPaintEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QFocusFrame10paintEventEP11QPaintEvent(
+    QFocusFrame *self,
+    QPaintEvent *a0) {
+  self->paintEvent(a0);
+}
+
+//  void QFocusFrame::initStyleOption(QStyleOption *option) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK11QFocusFrame15initStyleOptionEP12QStyleOption(
+    const QFocusFrame *self,
+    QStyleOption *option) {
+  self->initStyleOption(option);
+}
+
 //  a Python function taken by a CuteQFocusFrame, for the function named by
 //      the key
 extern "C" Q_DECL_EXPORT

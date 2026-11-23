@@ -686,6 +686,34 @@ int ritual_ZNK23QGraphicsSimpleTextItem4typeEv(
   return self->type();
 }
 
+//  bool QGraphicsSimpleTextItem::supportsExtension(Extension extension)
+//      const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK23QGraphicsSimpleTextItem17supportsExtensionEN13QGraphicsItem9ExtensionE(
+    const QGraphicsSimpleTextItem *self,
+    QGraphicsItem::Extension extension) {
+  return self->supportsExtension(extension);
+}
+
+//  void QGraphicsSimpleTextItem::setExtension(Extension extension, const
+//      QVariant &variant)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QGraphicsSimpleTextItem12setExtensionEN13QGraphicsItem9ExtensionERK8QVariant(
+    QGraphicsSimpleTextItem *self,
+    QGraphicsItem::Extension extension,
+    const QVariant *variant) {
+  self->setExtension(extension, *variant);
+}
+
+//  QVariant QGraphicsSimpleTextItem::extension(const QVariant &variant)
+//      const
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZNK23QGraphicsSimpleTextItem9extensionERK8QVariant(
+    const QGraphicsSimpleTextItem *self,
+    const QVariant *variant) {
+  return new QVariant(self->extension(*variant));
+}
+
 //  a Python function taken by a CuteQGraphicsSimpleTextItem, for the
 //      function named by the key
 extern "C" Q_DECL_EXPORT

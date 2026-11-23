@@ -51,6 +51,10 @@
     "ritual_ZNK13QMetaProperty19enclosingMetaObjectEv": [
       "address", "address"
     ],
+    "ritual_ZNK13QMetaProperty20registerPropertyTypeEv": ["int", "address"],
+    "ritual_ZN13QMetaPropertyC1EPK11QMetaObjecti": [
+      "address", "address", "int"
+    ],
     "ritual_ZN13QMetaPropertyD1Ev": ["nothing", "address"],
     "ritual_map_make_QHash_int_QMetaProperty": ["address"],
     "ritual_map_put_QHash_int_QMetaProperty": [

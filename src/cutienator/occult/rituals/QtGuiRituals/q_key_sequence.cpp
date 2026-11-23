@@ -197,6 +197,32 @@ bool ritual_ZNK12QKeySequence10isDetachedEv(const QKeySequence *self) {
   return self->isDetached();
 }
 
+//  int QKeySequence::assign(const QString &str)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN12QKeySequence6assignERK7QString(
+    QKeySequence *self,
+    const QString *str) {
+  return self->assign(*str);
+}
+
+//  int QKeySequence::assign(const QString &str, SequenceFormat format)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN12QKeySequence6assignERK7QStringNS_14SequenceFormatE(
+    QKeySequence *self,
+    const QString *str,
+    QKeySequence::SequenceFormat format) {
+  return self->assign(*str, format);
+}
+
+//  void QKeySequence::setKey(QKeyCombination key, int index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QKeySequence6setKeyE15QKeyCombinationi(
+    QKeySequence *self,
+    const QKeyCombination *key,
+    int index) {
+  self->setKey(*key, index);
+}
+
 //  QList<QKeySequence>::QList()
 extern "C" Q_DECL_EXPORT
 QList<QKeySequence> *ritual_list_make_QKeySequence() {

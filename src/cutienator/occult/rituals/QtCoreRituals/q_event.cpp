@@ -126,6 +126,12 @@ QEvent *ritual_ZNK6QEvent5cloneEv(const QEvent *self) {
   return self->clone();
 }
 
+//  void QEvent::setSpontaneous()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QEvent14setSpontaneousEv(QEvent *self) {
+  self->setSpontaneous();
+}
+
 //  a Python function taken by a CuteQEvent, for the function named by the
 //      key
 extern "C" Q_DECL_EXPORT

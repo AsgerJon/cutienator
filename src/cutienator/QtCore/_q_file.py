@@ -58,8 +58,8 @@ class QFile(QFileDevice):
   What has no ritual
   ------------------
 
-  29 of the 64 functions Qt declares: 16 a template; 7 takes or gives a type
-  that cannot be passed yet; 3 private; 2 forbidden; 1 protected.
+  29 of the 64 functions Qt declares: 16 a template; 10 takes or gives a type
+  that cannot be passed yet; 2 forbidden; 1 declared and nowhere to be found.
 
   What to expect
   --------------

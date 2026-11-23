@@ -307,6 +307,27 @@ bool ritual_ZNK11QMetaMethod7isValidEv(const QMetaMethod *self) {
   return self->isValid();
 }
 
+//  QMetaMethod QMetaMethod::fromRelativeMethodIndex(const QMetaObject *mobj,
+//      int index)
+extern "C" Q_DECL_EXPORT
+QMetaMethod *ritual_ZN11QMetaMethod23fromRelativeMethodIndexEPK11QMetaObjecti(
+    const QMetaObject *mobj,
+    int index) {
+  return new QMetaMethod(QMetaMethod::fromRelativeMethodIndex(mobj, index));
+}
+
+//  QMetaMethod QMetaMethod::fromRelativeConstructorIndex(const QMetaObject
+//      *mobj, int index)
+extern "C" Q_DECL_EXPORT
+QMetaMethod *ritual_ZN11QMetaMethod28fromRelativeConstructorIndexEPK11QMetaObjecti(
+    const QMetaObject *mobj,
+    int index) {
+  return new QMetaMethod(
+      QMetaMethod::fromRelativeConstructorIndex(
+          mobj,
+          index));
+}
+
 //  bool operator==(const QMetaMethod &lhs, const QMetaMethod &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZeqRK11QMetaMethodS1_(

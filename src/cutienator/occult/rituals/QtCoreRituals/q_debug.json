@@ -4,6 +4,19 @@
     "QtCore/qdebug.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN6QDebug7putUcs4Ej": ["nothing", "address", "unsigned int"],
+    "ritual_ZN6QDebug9putStringEPK5QCharm": [
+      "nothing", "address", "address", "size_t"
+    ],
+    "ritual_ZN6QDebug12putByteArrayEPKcmNS_13Latin1ContentE": [
+      "nothing", "address", "chars", "size_t", "int"
+    ],
+    "ritual_ZN6QDebug11putTimeUnitExx": [
+      "nothing", "address", "long long", "long long"
+    ],
+    "ritual_ZN6QDebug13putQtOrderingE6QFlagsIN17QtOrderingPrivate14QtOrderingTypeEEN2Qt16partial_orderingE": [
+      "nothing", "address", "int", "address"
+    ],
     "ritual_ZN6QDebugC1EP9QIODevice": ["address", "address"],
     "ritual_ZN6QDebugC1EP7QString": ["address", "address"],
     "ritual_ZN6QDebugC1EP10QByteArray": ["address", "address"],

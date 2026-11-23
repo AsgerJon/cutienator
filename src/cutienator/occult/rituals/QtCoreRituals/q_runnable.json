@@ -8,6 +8,7 @@
     "ritual_ZN9QRunnableD1Ev": ["nothing", "address"],
     "ritual_ZNK9QRunnable10autoDeleteEv": ["bool", "address"],
     "ritual_ZN9QRunnable13setAutoDeleteEb": ["nothing", "address", "bool"],
+    "ritual_ZN9QRunnable16warnNullCallableEv": ["address"],
     "ritual_take_QRunnable": ["bool", "address", "chars", "address"]
   }
 }

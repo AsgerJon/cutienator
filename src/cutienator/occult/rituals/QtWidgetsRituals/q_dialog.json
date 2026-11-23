@@ -25,6 +25,27 @@
     "ritual_ZN7QDialog4doneEi": ["nothing", "address", "int"],
     "ritual_ZN7QDialog6acceptEv": ["nothing", "address"],
     "ritual_ZN7QDialog6rejectEv": ["nothing", "address"],
+    "ritual_ZN7QDialog13keyPressEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QDialog10closeEventEP11QCloseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QDialog9showEventEP10QShowEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QDialog11resizeEventEP12QResizeEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QDialog16contextMenuEventEP17QContextMenuEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QDialog11eventFilterEP7QObjectP6QEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN7QDialog14adjustPositionEP7QWidget": [
+      "nothing", "address", "address"
+    ],
     "ritual_take_QDialog": ["bool", "address", "chars", "address"],
     "ritual_own_ZN7QDialog10setVisibleEb": ["nothing", "address", "bool"],
     "ritual_own_ZNK7QDialog8sizeHintEv": ["address", "address"],

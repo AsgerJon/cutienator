@@ -243,6 +243,42 @@ int ritual_ZNK23QParallelAnimationGroup8durationEv(
   return self->duration();
 }
 
+//  bool QParallelAnimationGroup::event(QEvent *event)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN23QParallelAnimationGroup5eventEP6QEvent(
+    QParallelAnimationGroup *self,
+    QEvent *event) {
+  return self->event(event);
+}
+
+//  void QParallelAnimationGroup::updateCurrentTime(int currentTime)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QParallelAnimationGroup17updateCurrentTimeEi(
+    QParallelAnimationGroup *self,
+    int currentTime) {
+  self->updateCurrentTime(currentTime);
+}
+
+//  void QParallelAnimationGroup::updateState(QAbstractAnimation::State
+//      newState, QAbstractAnimation::State oldState)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QParallelAnimationGroup11updateStateEN18QAbstractAnimation5StateES1_(
+    QParallelAnimationGroup *self,
+    QAbstractAnimation::State newState,
+    QAbstractAnimation::State oldState) {
+  self->updateState(newState, oldState);
+}
+
+//  void
+//      QParallelAnimationGroup::updateDirection(QAbstractAnimation::Directio
+//      n direction)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QParallelAnimationGroup15updateDirectionEN18QAbstractAnimation9DirectionE(
+    QParallelAnimationGroup *self,
+    QAbstractAnimation::Direction direction) {
+  self->updateDirection(direction);
+}
+
 //  a Python function taken by a CuteQParallelAnimationGroup, for the
 //      function named by the key
 extern "C" Q_DECL_EXPORT

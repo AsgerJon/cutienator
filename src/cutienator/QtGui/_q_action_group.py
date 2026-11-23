@@ -45,11 +45,12 @@ class QActionGroup(QObject):
   -----------
 
   Every function of Qt's QActionGroup that has a ritual and that Python can
-  call so far, 15 names in all: 'metaObject', 'tr', 'addAction',
+  call so far, 18 names in all: 'metaObject', 'tr', 'addAction',
   'removeAction', 'actions', 'checkedAction', 'isExclusive', 'isEnabled',
   'isVisible', 'exclusionPolicy', 'setEnabled', 'setDisabled', 'setVisible',
-  'setExclusive', 'setExclusionPolicy'. It can be made from Python, in 1 way;
-  see '__init__'.
+  'setExclusive', 'setExclusionPolicy', '_q_actionTriggered',
+  '_q_actionHovered', '_q_actionChanged'. It can be made from Python, in 1
+  way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -60,8 +61,9 @@ class QActionGroup(QObject):
   What has no ritual
   ------------------
 
-  14 of the 33 functions Qt declares: 6 private; 2 takes or gives a type that
-  cannot be passed yet; 2 a signal; 2 forbidden; 1 a template; 1 protected.
+  11 of the 33 functions Qt declares: 5 takes or gives a type that cannot be
+  passed yet; 2 a signal; 2 forbidden; 1 a template; 1 declared and nowhere
+  to be found.
 
   What to expect
   --------------
@@ -515,3 +517,31 @@ class QActionGroup(QObject):
         'ritual_ZN12QActionGroup12removeActionEP7QAction',
         self._addressOf(a),
     )
+
+  def _q_actionTriggered(self) -> None:
+    """
+    Calls Qt's 'void QActionGroup::_q_actionTriggered()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qactiongroup.html#_q_actionTriggered
+    """
+    #  void QActionGroup::_q_actionTriggered()
+    self.uglySide.call('ritual_ZN12QActionGroup18_q_actionTriggeredEv')
+
+  def _q_actionHovered(self) -> None:
+    """
+    Calls Qt's 'void QActionGroup::_q_actionHovered()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qactiongroup.html#_q_actionHovered
+    """
+    #  void QActionGroup::_q_actionHovered()
+    self.uglySide.call('ritual_ZN12QActionGroup16_q_actionHoveredEv')
+
+  def _q_actionChanged(self) -> None:
+    """
+    Calls Qt's 'void QActionGroup::_q_actionChanged()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qactiongroup.html#_q_actionChanged
+    """
+    #  void QActionGroup::_q_actionChanged()
+    self.uglySide.call('ritual_ZN12QActionGroup16_q_actionChangedEv')

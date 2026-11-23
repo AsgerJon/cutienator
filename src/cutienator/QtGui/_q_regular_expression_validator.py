@@ -56,8 +56,9 @@ class QRegularExpressionValidator(QValidator):
   What has no ritual
   ------------------
 
-  10 of the 17 functions Qt declares: 3 takes or gives a type that cannot be
-  passed yet; 3 private; 2 forbidden; 1 a template; 1 a signal.
+  10 of the 17 functions Qt declares: 5 takes or gives a type that cannot be
+  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found;
+  1 a signal.
 
   What to expect
   --------------

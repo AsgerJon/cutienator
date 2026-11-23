@@ -41,12 +41,13 @@ class QPaintDevice(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QPaintDevice that has a ritual and that Python can
-  call so far, 21 names in all: 'devType', 'paintingActive', 'paintEngine',
+  call so far, 22 names in all: 'devType', 'paintingActive', 'paintEngine',
   'width', 'height', 'widthMM', 'heightMM', 'logicalDpiX', 'logicalDpiY',
   'physicalDpiX', 'physicalDpiY', 'devicePixelRatio', 'devicePixelRatioF',
   'colorCount', 'depth', 'devicePixelRatioFScale', 'encodeMetricF', 'metric',
-  'initPainter', 'redirected', 'sharedPainter'. None can be made from Python:
-  one comes out of a function of another class that gives one back.
+  'initPainter', 'redirected', 'sharedPainter', 'getDecodedMetricF'. None can
+  be made from Python: one comes out of a function of another class that
+  gives one back.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -57,7 +58,8 @@ class QPaintDevice(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  4 of the 26 functions Qt declares: 2 protected; 2 forbidden.
+  3 of the 26 functions Qt declares: 2 forbidden; 1 the class is abstract, so
+  C++ cannot make one.
 
   What to expect
   --------------
@@ -386,11 +388,10 @@ class QPaintDevice(CuteMixin, metaclass=MetaCute):
       Passed on as its number.
     """
     #  int QPaintDevice::metric(PaintDeviceMetric metric) const
-    return self._callAs(
-        'QPaintDevice',
-        'ritual_own_ZNK12QPaintDevice6metricENS_17PaintDeviceMetricE',
-        metric.value,
-    )
+    ritual = 'ritual_ZNK12QPaintDevice6metricENS_17PaintDeviceMetricE'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK12QPaintDevice6metricENS_17PaintDeviceMetricE'
+    return self._callAs('QPaintDevice', ritual, metric.value)
 
   @overload(QPoint)
   @overload(NoneType)
@@ -416,10 +417,10 @@ class QPaintDevice(CuteMixin, metaclass=MetaCute):
       no object.
     """
     #  QPaintDevice *QPaintDevice::redirected(QPoint *offset) const
-    address = self._callAs(
-        'QPaintDevice', 'ritual_own_ZNK12QPaintDevice10redirectedEP6QPoint',
-        self._addressOf(offset),
-    )
+    ritual = 'ritual_ZNK12QPaintDevice10redirectedEP6QPoint'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK12QPaintDevice10redirectedEP6QPoint'
+    address = self._callAs('QPaintDevice', ritual, self._addressOf(offset))
     return QPaintDevice._cuteAt(address)
 
   def sharedPainter(self) -> Optional[QPainter]:
@@ -436,11 +437,43 @@ class QPaintDevice(CuteMixin, metaclass=MetaCute):
       no object.
     """
     #  QPainter *QPaintDevice::sharedPainter() const
-    address = self._callAs(
-        'QPaintDevice', 'ritual_own_ZNK12QPaintDevice13sharedPainterEv',
-    )
+    ritual = 'ritual_ZNK12QPaintDevice13sharedPainterEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK12QPaintDevice13sharedPainterEv'
+    address = self._callAs('QPaintDevice', ritual)
     from . import QPainter
     return QPainter._cuteAt(address)
+
+  @overload(PaintDeviceMetric, PaintDeviceMetric)
+  def getDecodedMetricF(
+      self,
+      metricA: PaintDeviceMetric,
+      metricB: PaintDeviceMetric,
+  ) -> float:
+    """
+    Calls Qt's 'double QPaintDevice::getDecodedMetricF(PaintDeviceMetric
+    metricA, PaintDeviceMetric metricB) const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF
+
+    Parameters
+    ----------
+
+    metricA : PaintDeviceMetric
+      Passed on as its number.
+
+    metricB : PaintDeviceMetric
+      Passed on as its number.
+    """
+    #  double QPaintDevice::getDecodedMetricF(PaintDeviceMetric metricA,
+    #      PaintDeviceMetric metricB) const
+    return self._callAs(
+        'QPaintDevice',
+        'ritual_ZNK12QPaintDevice17getDecodedMetricFENS_17PaintDeviceMetric'
+        'ES0_',
+        metricA.value, metricB.value,
+    )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -494,8 +527,7 @@ class QPaintDevice(CuteMixin, metaclass=MetaCute):
       object.
     """
     #  void QPaintDevice::initPainter(QPainter *painter) const
-    self._callAs(
-        'QPaintDevice',
-        'ritual_own_ZNK12QPaintDevice11initPainterEP8QPainter',
-        self._addressOf(painter),
-    )
+    ritual = 'ritual_ZNK12QPaintDevice11initPainterEP8QPainter'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK12QPaintDevice11initPainterEP8QPainter'
+    self._callAs('QPaintDevice', ritual, self._addressOf(painter))

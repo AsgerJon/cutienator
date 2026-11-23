@@ -11,7 +11,7 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin
+from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
 from ..QtCore import QObject
 from . import QSizePolicy
@@ -20,6 +20,12 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QMetaObject
+  from . import QGraphicsAnchorLayout
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QGraphicsAnchorLayout = WAIT['QGraphicsAnchorLayout']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -39,9 +45,8 @@ class QGraphicsAnchor(QObject):
 
   Every function of Qt's QGraphicsAnchor that has a ritual and that Python
   can call so far, 7 names in all: 'metaObject', 'tr', 'setSpacing',
-  'unsetSpacing', 'spacing', 'setSizePolicy', 'sizePolicy'. None can be made
-  from Python: one comes out of a function of another class that gives one
-  back.
+  'unsetSpacing', 'spacing', 'setSizePolicy', 'sizePolicy'. It can be made
+  from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -52,8 +57,8 @@ class QGraphicsAnchor(QObject):
   What has no ritual
   ------------------
 
-  7 of the 15 functions Qt declares: 4 private; 2 takes or gives a type that
-  cannot be passed yet; 1 a template.
+  6 of the 15 functions Qt declares: 4 takes or gives a type that cannot be
+  passed yet; 1 a template; 1 declared and nowhere to be found.
 
   What to expect
   --------------
@@ -240,6 +245,30 @@ class QGraphicsAnchor(QObject):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(QGraphicsAnchorLayout)
+  @overload(NoneType)
+  def __init__(self, parent: Optional[QGraphicsAnchorLayout]) -> None:
+    """
+    Notes what was given, for Qt's
+    'QGraphicsAnchor::QGraphicsAnchor(QGraphicsAnchorLayout *parent)', which
+    is called at the first use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicsanchor.html#QGraphicsAnchor
+
+    Parameters
+    ----------
+
+    parent : Optional[QGraphicsAnchorLayout]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  QGraphicsAnchor::QGraphicsAnchor(QGraphicsAnchorLayout *parent)
+    self._noteCreation(QGraphicsAnchor, lambda: Rituals.call(
+        'ritual_ZN15QGraphicsAnchorC1EP21QGraphicsAnchorLayout',
+        self._addressOf(parent),
+    ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #

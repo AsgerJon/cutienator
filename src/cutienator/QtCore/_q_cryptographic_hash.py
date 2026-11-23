@@ -54,8 +54,7 @@ class QCryptographicHash(CuteMixin, metaclass=MetaCute):
   ------------------
 
   14 of the 26 functions Qt declares: 9 takes or gives a type that cannot be
-  passed yet; 2 forbidden; 1 declared and nowhere to be found; 1 a template;
-  1 private.
+  passed yet; 2 declared and nowhere to be found; 2 forbidden; 1 a template.
 
   What to expect
   --------------

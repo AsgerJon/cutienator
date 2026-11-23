@@ -2,7 +2,9 @@
 //  QtWidgets/qwidgetaction.h, Qt 6.12.0. Changes made here are lost.
 #include <QtWidgets/qwidgetaction.h>
 #include <QtCore/qstring.h>
+#include <QtWidgets/qwidget.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  Only a class built on QWidgetAction may call these functions of it.
@@ -228,6 +230,46 @@ void ritual_ZN13QWidgetAction13releaseWidgetEP7QWidget(
     QWidgetAction *self,
     QWidget *widget) {
   self->releaseWidget(widget);
+}
+
+//  bool QWidgetAction::event(QEvent *a0)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN13QWidgetAction5eventEP6QEvent(
+    QWidgetAction *self,
+    QEvent *a0) {
+  return self->event(a0);
+}
+
+//  bool QWidgetAction::eventFilter(QObject *a0, QEvent *a1)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN13QWidgetAction11eventFilterEP7QObjectP6QEvent(
+    QWidgetAction *self,
+    QObject *a0,
+    QEvent *a1) {
+  return self->eventFilter(a0, a1);
+}
+
+//  QWidget *QWidgetAction::createWidget(QWidget *parent)
+extern "C" Q_DECL_EXPORT
+QWidget *ritual_ZN13QWidgetAction12createWidgetEP7QWidget(
+    QWidgetAction *self,
+    QWidget *parent) {
+  return self->createWidget(parent);
+}
+
+//  void QWidgetAction::deleteWidget(QWidget *widget)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QWidgetAction12deleteWidgetEP7QWidget(
+    QWidgetAction *self,
+    QWidget *widget) {
+  self->deleteWidget(widget);
+}
+
+//  QList<QWidget *> QWidgetAction::createdWidgets() const
+extern "C" Q_DECL_EXPORT
+QList<QWidget *> *ritual_ZNK13QWidgetAction14createdWidgetsEv(
+    const QWidgetAction *self) {
+  return new QList<QWidget *>(self->createdWidgets());
 }
 
 //  a Python function taken by a CuteQWidgetAction, for the function named by

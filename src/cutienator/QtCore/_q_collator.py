@@ -45,11 +45,11 @@ class QCollator(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QCollator that has a ritual and that Python can call
-  so far, 15 names in all: 'setLocale', 'locale', 'caseSensitivity',
+  so far, 16 names in all: 'setLocale', 'locale', 'caseSensitivity',
   'setCaseSensitivity', 'setNumericMode', 'numericMode',
   'setIgnorePunctuation', 'ignorePunctuation', 'compare', '__call__',
-  'sortKey', 'defaultCompare', 'defaultSortKey', '__eq__', '__ne__'. It can
-  be made from Python, in 3 ways; see '__init__'.
+  'sortKey', 'defaultCompare', 'defaultSortKey', '__eq__', '__ne__',
+  'detach'. It can be made from Python, in 3 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -66,8 +66,8 @@ class QCollator(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  5 of the 27 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 1 private.
+  4 of the 27 functions Qt declares: 4 takes or gives a type that cannot be
+  passed yet.
 
   What to expect
   --------------
@@ -543,3 +543,12 @@ class QCollator(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def detach(self) -> None:
+    """
+    Calls Qt's 'void QCollator::detach()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcollator.html#detach
+    """
+    #  void QCollator::detach()
+    self.uglySide.call('ritual_ZN9QCollator6detachEv')

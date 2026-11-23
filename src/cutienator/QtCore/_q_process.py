@@ -44,7 +44,7 @@ class QProcess(QIODevice):
   -----------
 
   Every function of Qt's QProcess that has a ritual and that Python can call
-  so far, 47 names in all: 'metaObject', 'tr', 'start', 'startCommand',
+  so far, 49 names in all: 'metaObject', 'tr', 'start', 'startCommand',
   'open', 'program', 'setProgram', 'arguments', 'setArguments',
   'processChannelMode', 'setProcessChannelMode', 'inputChannelMode',
   'setInputChannelMode', 'readChannel', 'setReadChannel', 'closeReadChannel',
@@ -56,7 +56,8 @@ class QProcess(QIODevice):
   'waitForFinished', 'readAllStandardOutput', 'readAllStandardError',
   'exitCode', 'exitStatus', 'bytesToWrite', 'isSequential', 'close',
   'execute', 'systemEnvironment', 'nullDevice', 'splitCommand', 'terminate',
-  'kill'. It can be made from Python, in 1 way; see '__init__'.
+  'kill', 'setProcessState', 'writeData'. It can be made from Python, in 1
+  way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -72,9 +73,9 @@ class QProcess(QIODevice):
   What has no ritual
   ------------------
 
-  24 of the 76 functions Qt declares: 6 Qt has it on some systems only; 6 a
-  signal; 4 private; 3 protected; 2 takes or gives a type that cannot be
-  passed yet; 2 forbidden; 1 a template.
+  22 of the 76 functions Qt declares: 6 takes or gives a type that cannot be
+  passed yet; 6 Qt has it on some systems only; 6 a signal; 2 forbidden; 1 a
+  template; 1 declared and nowhere to be found.
 
   What to expect
   --------------
@@ -316,6 +317,17 @@ class QProcess(QIODevice):
   #  can take functions over. This ritual hands one over; see
   #  'CuteMixin._takeOver'.
   __take_ritual__ = 'ritual_take_QProcess'
+
+  #  The functions Qt calls itself that QProcess is the first to declare and
+  #  that cannot be handed to Python yet, each as Qt declares it. A class of
+  #  a program that writes one of them anew is refused, since Qt would never
+  #  call what it wrote; see 'CuteMixin._refuseLeftOut'.
+  __virtual_left_out__ = {
+      'setupChildProcess': (
+          'Use_setChildProcessModifier_Instead '
+          'QProcess::setupChildProcess()',
+      ),
+  }
 
   #  Fallback Variables
 
@@ -854,6 +866,25 @@ class QProcess(QIODevice):
         self._valueOf(environment),
     )
 
+  @overload(ProcessState)
+  def setProcessState(self, state: ProcessState) -> None:
+    """
+    Calls Qt's 'void QProcess::setProcessState(ProcessState state)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qprocess.html#setProcessState
+
+    Parameters
+    ----------
+
+    state : ProcessState
+      Passed on as its number.
+    """
+    #  void QProcess::setProcessState(ProcessState state)
+    self.uglySide.call(
+        'ritual_ZN8QProcess15setProcessStateENS_12ProcessStateE',
+        state.value,
+    )
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1196,3 +1227,25 @@ class QProcess(QIODevice):
     """
     #  void QProcess::kill()
     self.uglySide.call('ritual_ZN8QProcess4killEv')
+
+  @overload(str, int)
+  @overload(NoneType, int)
+  def writeData(self, data: Optional[str], len: int) -> int:
+    """
+    Calls Qt's 'qint64 QProcess::writeData(const char *data, qint64 len)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qprocess.html#writeData
+
+    Parameters
+    ----------
+
+    data : Optional[str]
+      Passed on as the bytes of the text. None is passed on as no text.
+
+    len : int
+      Passed on as it is.
+    """
+    #  qint64 QProcess::writeData(const char *data, qint64 len)
+    return self.uglySide.call(
+        'ritual_ZN8QProcess9writeDataEPKcx', self._bytesOf(data), len,
+    )

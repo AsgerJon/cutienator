@@ -1616,6 +1616,222 @@ void ritual_ZN9QTextEdit7zoomOutEi(QTextEdit *self, int range) {
   self->zoomOut(range);
 }
 
+//  bool QTextEdit::event(QEvent *e)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN9QTextEdit5eventEP6QEvent(QTextEdit *self, QEvent *e) {
+  return self->event(e);
+}
+
+//  void QTextEdit::timerEvent(QTimerEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QTextEdit10timerEventEP11QTimerEvent(
+    QTextEdit *self,
+    QTimerEvent *e) {
+  self->timerEvent(e);
+}
+
+//  void QTextEdit::keyPressEvent(QKeyEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QTextEdit13keyPressEventEP9QKeyEvent(
+    QTextEdit *self,
+    QKeyEvent *e) {
+  self->keyPressEvent(e);
+}
+
+//  void QTextEdit::keyReleaseEvent(QKeyEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QTextEdit15keyReleaseEventEP9QKeyEvent(
+    QTextEdit *self,
+    QKeyEvent *e) {
+  self->keyReleaseEvent(e);
+}
+
+//  void QTextEdit::resizeEvent(QResizeEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QTextEdit11resizeEventEP12QResizeEvent(
+    QTextEdit *self,
+    QResizeEvent *e) {
+  self->resizeEvent(e);
+}
+
+//  void QTextEdit::paintEvent(QPaintEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QTextEdit10paintEventEP11QPaintEvent(
+    QTextEdit *self,
+    QPaintEvent *e) {
+  self->paintEvent(e);
+}
+
+//  void QTextEdit::mousePressEvent(QMouseEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QTextEdit15mousePressEventEP11QMouseEvent(
+    QTextEdit *self,
+    QMouseEvent *e) {
+  self->mousePressEvent(e);
+}
+
+//  void QTextEdit::mouseMoveEvent(QMouseEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QTextEdit14mouseMoveEventEP11QMouseEvent(
+    QTextEdit *self,
+    QMouseEvent *e) {
+  self->mouseMoveEvent(e);
+}
+
+//  void QTextEdit::mouseReleaseEvent(QMouseEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QTextEdit17mouseReleaseEventEP11QMouseEvent(
+    QTextEdit *self,
+    QMouseEvent *e) {
+  self->mouseReleaseEvent(e);
+}
+
+//  void QTextEdit::mouseDoubleClickEvent(QMouseEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QTextEdit21mouseDoubleClickEventEP11QMouseEvent(
+    QTextEdit *self,
+    QMouseEvent *e) {
+  self->mouseDoubleClickEvent(e);
+}
+
+//  bool QTextEdit::focusNextPrevChild(bool next)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN9QTextEdit18focusNextPrevChildEb(QTextEdit *self, bool next) {
+  return self->focusNextPrevChild(next);
+}
+
+//  void QTextEdit::contextMenuEvent(QContextMenuEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QTextEdit16contextMenuEventEP17QContextMenuEvent(
+    QTextEdit *self,
+    QContextMenuEvent *e) {
+  self->contextMenuEvent(e);
+}
+
+//  void QTextEdit::dragEnterEvent(QDragEnterEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QTextEdit14dragEnterEventEP15QDragEnterEvent(
+    QTextEdit *self,
+    QDragEnterEvent *e) {
+  self->dragEnterEvent(e);
+}
+
+//  void QTextEdit::dragLeaveEvent(QDragLeaveEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QTextEdit14dragLeaveEventEP15QDragLeaveEvent(
+    QTextEdit *self,
+    QDragLeaveEvent *e) {
+  self->dragLeaveEvent(e);
+}
+
+//  void QTextEdit::dragMoveEvent(QDragMoveEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QTextEdit13dragMoveEventEP14QDragMoveEvent(
+    QTextEdit *self,
+    QDragMoveEvent *e) {
+  self->dragMoveEvent(e);
+}
+
+//  void QTextEdit::dropEvent(QDropEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QTextEdit9dropEventEP10QDropEvent(
+    QTextEdit *self,
+    QDropEvent *e) {
+  self->dropEvent(e);
+}
+
+//  void QTextEdit::focusInEvent(QFocusEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QTextEdit12focusInEventEP11QFocusEvent(
+    QTextEdit *self,
+    QFocusEvent *e) {
+  self->focusInEvent(e);
+}
+
+//  void QTextEdit::focusOutEvent(QFocusEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QTextEdit13focusOutEventEP11QFocusEvent(
+    QTextEdit *self,
+    QFocusEvent *e) {
+  self->focusOutEvent(e);
+}
+
+//  void QTextEdit::showEvent(QShowEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QTextEdit9showEventEP10QShowEvent(
+    QTextEdit *self,
+    QShowEvent *a0) {
+  self->showEvent(a0);
+}
+
+//  void QTextEdit::changeEvent(QEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QTextEdit11changeEventEP6QEvent(QTextEdit *self, QEvent *e) {
+  self->changeEvent(e);
+}
+
+//  void QTextEdit::wheelEvent(QWheelEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QTextEdit10wheelEventEP11QWheelEvent(
+    QTextEdit *self,
+    QWheelEvent *e) {
+  self->wheelEvent(e);
+}
+
+//  QMimeData *QTextEdit::createMimeDataFromSelection() const
+extern "C" Q_DECL_EXPORT
+QMimeData *ritual_ZNK9QTextEdit27createMimeDataFromSelectionEv(
+    const QTextEdit *self) {
+  return self->createMimeDataFromSelection();
+}
+
+//  bool QTextEdit::canInsertFromMimeData(const QMimeData *source) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK9QTextEdit21canInsertFromMimeDataEPK9QMimeData(
+    const QTextEdit *self,
+    const QMimeData *source) {
+  return self->canInsertFromMimeData(source);
+}
+
+//  void QTextEdit::insertFromMimeData(const QMimeData *source)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QTextEdit18insertFromMimeDataEPK9QMimeData(
+    QTextEdit *self,
+    const QMimeData *source) {
+  self->insertFromMimeData(source);
+}
+
+//  void QTextEdit::inputMethodEvent(QInputMethodEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QTextEdit16inputMethodEventEP17QInputMethodEvent(
+    QTextEdit *self,
+    QInputMethodEvent *a0) {
+  self->inputMethodEvent(a0);
+}
+
+//  void QTextEdit::scrollContentsBy(int dx, int dy)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QTextEdit16scrollContentsByEii(
+    QTextEdit *self,
+    int dx,
+    int dy) {
+  self->scrollContentsBy(dx, dy);
+}
+
+//  void QTextEdit::doSetTextCursor(const QTextCursor &cursor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QTextEdit15doSetTextCursorERK11QTextCursor(
+    QTextEdit *self,
+    const QTextCursor *cursor) {
+  self->doSetTextCursor(*cursor);
+}
+
+//  void QTextEdit::zoomInF(float range)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QTextEdit7zoomInFEf(QTextEdit *self, float range) {
+  self->zoomInF(range);
+}
+
 //  a Python function taken by a CuteQTextEdit, for the function named by the
 //      key
 extern "C" Q_DECL_EXPORT

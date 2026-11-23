@@ -45,9 +45,9 @@ class QGraphicsObject(QObject, QGraphicsItem):
   -----------
 
   Every function of Qt's QGraphicsObject that has a ritual and that Python
-  can call so far, 5 names in all: 'metaObject', 'tr', 'grabGesture',
-  'ungrabGesture', 'event'. None can be made from Python: one comes out of a
-  function of another class that gives one back.
+  can call so far, 6 names in all: 'metaObject', 'tr', 'grabGesture',
+  'ungrabGesture', 'updateMicroFocus', 'event'. None can be made from Python:
+  one comes out of a function of another class that gives one back.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -58,9 +58,9 @@ class QGraphicsObject(QObject, QGraphicsItem):
   What has no ritual
   ------------------
 
-  19 of the 25 functions Qt declares: 12 a signal; 2 takes or gives a type
-  that cannot be passed yet; 2 protected; 1 a template; 1 private; 1 the
-  class is abstract, so C++ cannot make one.
+  18 of the 25 functions Qt declares: 12 a signal; 2 takes or gives a type
+  that cannot be passed yet; 2 the class is abstract, so C++ cannot make one;
+  1 a template; 1 declared and nowhere to be found.
 
   What to expect
   --------------
@@ -262,6 +262,16 @@ class QGraphicsObject(QObject, QGraphicsItem):
         type.value,
     )
 
+  def updateMicroFocus(self) -> None:
+    """
+    Calls Qt's 'void QGraphicsObject::updateMicroFocus()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicsobject.html#updateMicroFocus
+    """
+    #  void QGraphicsObject::updateMicroFocus()
+    self.uglySide.call('ritual_ZN15QGraphicsObject16updateMicroFocusEv')
+
   @overload(QEvent)
   @overload(NoneType)
   def event(self, ev: Optional[QEvent]) -> bool:
@@ -278,6 +288,7 @@ class QGraphicsObject(QObject, QGraphicsItem):
       object.
     """
     #  bool QGraphicsObject::event(QEvent *ev)
-    return self.uglySide.call(
-        'ritual_own_ZN15QGraphicsObject5eventEP6QEvent', self._addressOf(ev),
-    )
+    ritual = 'ritual_ZN15QGraphicsObject5eventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN15QGraphicsObject5eventEP6QEvent'
+    return self.uglySide.call(ritual, self._addressOf(ev))

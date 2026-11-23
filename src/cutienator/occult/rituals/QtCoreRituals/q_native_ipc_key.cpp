@@ -96,6 +96,51 @@ QNativeIpcKey *ritual_ZN13QNativeIpcKey10fromStringERK7QString(
   return new QNativeIpcKey(QNativeIpcKey::fromString(*string));
 }
 
+//  bool QNativeIpcKey::isSlowPath() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK13QNativeIpcKey10isSlowPathEv(const QNativeIpcKey *self) {
+  return self->isSlowPath();
+}
+
+//  void QNativeIpcKey::copy_internal(const QNativeIpcKey &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QNativeIpcKey13copy_internalERKS_(
+    QNativeIpcKey *self,
+    const QNativeIpcKey *other) {
+  self->copy_internal(*other);
+}
+
+//  void QNativeIpcKey::destroy_internal()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QNativeIpcKey16destroy_internalEv(QNativeIpcKey *self) {
+  self->destroy_internal();
+}
+
+//  void QNativeIpcKey::setType_internal(Type a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QNativeIpcKey16setType_internalENS_4TypeE(
+    QNativeIpcKey *self,
+    QNativeIpcKey::Type a0) {
+  self->setType_internal(a0);
+}
+
+//  void QNativeIpcKey::setNativeKey_internal(const QString &a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QNativeIpcKey21setNativeKey_internalERK7QString(
+    QNativeIpcKey *self,
+    const QString *a0) {
+  self->setNativeKey_internal(*a0);
+}
+
+//  int QNativeIpcKey::compare_internal(const QNativeIpcKey &lhs, const
+//      QNativeIpcKey &rhs)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN13QNativeIpcKey16compare_internalERKS_S1_(
+    const QNativeIpcKey *lhs,
+    const QNativeIpcKey *rhs) {
+  return QNativeIpcKey::compare_internal(*lhs, *rhs);
+}
+
 //  bool operator==(const QNativeIpcKey &lhs, const QNativeIpcKey &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZeqRK13QNativeIpcKeyS1_(

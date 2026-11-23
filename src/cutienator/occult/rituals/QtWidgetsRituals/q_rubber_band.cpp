@@ -870,6 +870,60 @@ void ritual_ZN11QRubberBand6resizeERK5QSize(
   self->resize(*s);
 }
 
+//  bool QRubberBand::event(QEvent *e)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN11QRubberBand5eventEP6QEvent(QRubberBand *self, QEvent *e) {
+  return self->event(e);
+}
+
+//  void QRubberBand::paintEvent(QPaintEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QRubberBand10paintEventEP11QPaintEvent(
+    QRubberBand *self,
+    QPaintEvent *a0) {
+  self->paintEvent(a0);
+}
+
+//  void QRubberBand::changeEvent(QEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QRubberBand11changeEventEP6QEvent(
+    QRubberBand *self,
+    QEvent *a0) {
+  self->changeEvent(a0);
+}
+
+//  void QRubberBand::showEvent(QShowEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QRubberBand9showEventEP10QShowEvent(
+    QRubberBand *self,
+    QShowEvent *a0) {
+  self->showEvent(a0);
+}
+
+//  void QRubberBand::resizeEvent(QResizeEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QRubberBand11resizeEventEP12QResizeEvent(
+    QRubberBand *self,
+    QResizeEvent *a0) {
+  self->resizeEvent(a0);
+}
+
+//  void QRubberBand::moveEvent(QMoveEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QRubberBand9moveEventEP10QMoveEvent(
+    QRubberBand *self,
+    QMoveEvent *a0) {
+  self->moveEvent(a0);
+}
+
+//  void QRubberBand::initStyleOption(QStyleOptionRubberBand *option) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK11QRubberBand15initStyleOptionEP22QStyleOptionRubberBand(
+    const QRubberBand *self,
+    QStyleOptionRubberBand *option) {
+  self->initStyleOption(option);
+}
+
 //  a Python function taken by a CuteQRubberBand, for the function named by
 //      the key
 extern "C" Q_DECL_EXPORT

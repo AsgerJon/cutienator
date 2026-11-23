@@ -94,6 +94,12 @@
     "ritual_ZN8QProcess12splitCommandE11QStringView": ["address", "text"],
     "ritual_ZN8QProcess9terminateEv": ["nothing", "address"],
     "ritual_ZN8QProcess4killEv": ["nothing", "address"],
+    "ritual_ZN8QProcess15setProcessStateENS_12ProcessStateE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN8QProcess9writeDataEPKcx": [
+      "long long", "address", "chars", "long long"
+    ],
     "ritual_take_QProcess": ["bool", "address", "chars", "address"],
     "ritual_own_ZN8QProcess4openE6QFlagsIN13QIODeviceBase12OpenModeFlagEE": [
       "bool", "address", "int"

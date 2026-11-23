@@ -6,6 +6,7 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qjsonobject.h>
+#include <QtCore/qcompare.h>
 #include <QtCore/qlist.h>
 #include <QtCore/qmap.h>
 #include <QtCore/qhash.h>
@@ -310,6 +311,12 @@ QJsonObject *ritual_ZNK8QCborMap12toJsonObjectEv(const QCborMap *self) {
   return new QJsonObject(self->toJsonObject());
 }
 
+//  void QCborMap::detach(qsizetype reserve)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QCborMap6detachEx(QCborMap *self, qsizetype reserve) {
+  self->detach(reserve);
+}
+
 //  bool operator==(const QCborMap &lhs, const QCborMap &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZeqRK8QCborMapS1_(const QCborMap *lhs, const QCborMap *rhs) {
@@ -344,6 +351,27 @@ bool ritual_ZleRK8QCborMapS1_(const QCborMap *lhs, const QCborMap *rhs) {
 extern "C" Q_DECL_EXPORT
 bool ritual_ZgeRK8QCborMapS1_(const QCborMap *lhs, const QCborMap *rhs) {
   return operator>=(*lhs, *rhs);
+}
+
+//  bool QCborMap::comparesEqual_helper(const QCborMap &lhs, const QCborValue
+//      &rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN8QCborMap20comparesEqual_helperERKS_RK10QCborValue(
+    const QCborMap *lhs,
+    const QCborValue *rhs) {
+  return QCborMap::comparesEqual_helper(*lhs, *rhs);
+}
+
+//  Qt::strong_ordering QCborMap::compareThreeWay_helper(const QCborMap &lhs,
+//      const QCborValue &rhs)
+extern "C" Q_DECL_EXPORT
+Qt::strong_ordering *ritual_ZN8QCborMap22compareThreeWay_helperERKS_RK10QCborValue(
+    const QCborMap *lhs,
+    const QCborValue *rhs) {
+  return new Qt::strong_ordering(
+      QCborMap::compareThreeWay_helper(
+          *lhs,
+          *rhs));
 }
 
 //  bool operator==(const QCborMap &lhs, const QCborValue &rhs)
@@ -440,6 +468,27 @@ bool ritual_ZgeRK10QCborValueRK8QCborMap(
     const QCborValue *lhs,
     const QCborMap *rhs) {
   return operator>=(*lhs, *rhs);
+}
+
+//  bool QCborMap::comparesEqual_helper(const QCborMap &lhs,
+//      QCborValueConstRef rhs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN8QCborMap20comparesEqual_helperERKS_18QCborValueConstRef(
+    const QCborMap *lhs,
+    const QCborValueConstRef *rhs) {
+  return QCborMap::comparesEqual_helper(*lhs, *rhs);
+}
+
+//  Qt::strong_ordering QCborMap::compareThreeWay_helper(const QCborMap &lhs,
+//      QCborValueConstRef rhs)
+extern "C" Q_DECL_EXPORT
+Qt::strong_ordering *ritual_ZN8QCborMap22compareThreeWay_helperERKS_18QCborValueConstRef(
+    const QCborMap *lhs,
+    const QCborValueConstRef *rhs) {
+  return new Qt::strong_ordering(
+      QCborMap::compareThreeWay_helper(
+          *lhs,
+          *rhs));
 }
 
 //  bool operator==(const QCborMap &lhs, const QCborValueConstRef &rhs)

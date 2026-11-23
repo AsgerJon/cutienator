@@ -265,6 +265,24 @@ void ritual_ZN12QActionGroup18setExclusionPolicyENS_15ExclusionPolicyE(
   self->setExclusionPolicy(policy);
 }
 
+//  void QActionGroup::_q_actionTriggered()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QActionGroup18_q_actionTriggeredEv(QActionGroup *self) {
+  self->_q_actionTriggered();
+}
+
+//  void QActionGroup::_q_actionHovered()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QActionGroup16_q_actionHoveredEv(QActionGroup *self) {
+  self->_q_actionHovered();
+}
+
+//  void QActionGroup::_q_actionChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QActionGroup16_q_actionChangedEv(QActionGroup *self) {
+  self->_q_actionChanged();
+}
+
 //  a Python function taken by a CuteQActionGroup, for the function named by
 //      the key
 extern "C" Q_DECL_EXPORT

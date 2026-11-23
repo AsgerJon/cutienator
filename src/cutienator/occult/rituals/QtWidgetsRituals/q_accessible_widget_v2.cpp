@@ -377,6 +377,12 @@ QAccessibleWidgetV2 *ritual_ZN19QAccessibleWidgetV2C1EP7QWidgetN11QAccessible4Ro
   return new CuteQAccessibleWidgetV2(object, role, *name);
 }
 
+//  QAccessibleWidgetV2::~QAccessibleWidgetV2()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QAccessibleWidgetV2D1Ev(QAccessibleWidgetV2 *self) {
+  delete self;
+}
+
 //  QVariant QAccessibleWidgetV2::attributeValue(QAccessible::Attribute key)
 //      const
 extern "C" Q_DECL_EXPORT

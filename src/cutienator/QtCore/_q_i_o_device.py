@@ -44,7 +44,7 @@ class QIODevice(QObject, QIODeviceBase):
   -----------
 
   Every function of Qt's QIODevice that has a ritual and that Python can call
-  so far, 40 names in all: 'metaObject', 'tr', 'openMode',
+  so far, 43 names in all: 'metaObject', 'tr', 'openMode',
   'setTextModeEnabled', 'isTextModeEnabled', 'isOpen', 'isReadable',
   'isWritable', 'isSequential', 'readChannelCount', 'writeChannelCount',
   'currentReadChannel', 'setCurrentReadChannel', 'currentWriteChannel',
@@ -52,9 +52,9 @@ class QIODevice(QObject, QIODeviceBase):
   'reset', 'bytesAvailable', 'bytesToWrite', 'read', 'readAll', 'readLine',
   'readLineInto', 'canReadLine', 'startTransaction', 'commitTransaction',
   'rollbackTransaction', 'isTransactionStarted', 'write', 'peek', 'skip',
-  'waitForReadyRead', 'waitForBytesWritten', 'errorString', 'skipData'. None
-  can be made from Python: one comes out of a function of another class that
-  gives one back.
+  'waitForReadyRead', 'waitForBytesWritten', 'errorString', 'skipData',
+  'writeData', 'setOpenMode', 'setErrorString'. None can be made from Python:
+  one comes out of a function of another class that gives one back.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -69,9 +69,9 @@ class QIODevice(QObject, QIODeviceBase):
   What has no ritual
   ------------------
 
-  29 of the 74 functions Qt declares: 9 takes or gives a type that cannot be
-  passed yet; 6 a signal; 6 protected; 3 private; 2 the class is abstract, so
-  C++ cannot make one; 2 forbidden; 1 a template.
+  26 of the 74 functions Qt declares: 13 takes or gives a type that cannot be
+  passed yet; 6 a signal; 3 the class is abstract, so C++ cannot make one; 2
+  forbidden; 1 a template; 1 declared and nowhere to be found.
 
   What to expect
   --------------
@@ -544,6 +544,45 @@ class QIODevice(QObject, QIODeviceBase):
         'ritual_ZN9QIODevice22setCurrentWriteChannelEi', channel,
     )
 
+  @overload(QIODeviceBase.OpenMode)
+  def setOpenMode(self, openMode: QIODeviceBase.OpenMode) -> None:
+    """
+    Calls Qt's 'void QIODevice::setOpenMode(QIODeviceBase::OpenMode
+    openMode)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qiodevice.html#setOpenMode
+
+    Parameters
+    ----------
+
+    openMode : QIODeviceBase.OpenMode
+      Passed on as its number.
+    """
+    #  void QIODevice::setOpenMode(QIODeviceBase::OpenMode openMode)
+    self.uglySide.call(
+        'ritual_ZN9QIODevice11setOpenModeE6QFlagsIN13QIODeviceBase12OpenMod'
+        'eFlagEE',
+        openMode.value,
+    )
+
+  @overload(str)
+  def setErrorString(self, errorString: str) -> None:
+    """
+    Calls Qt's 'void QIODevice::setErrorString(const QString &errorString)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qiodevice.html#setErrorString
+
+    Parameters
+    ----------
+
+    errorString : str
+      Passed on as it is: a QString is made of it for the call.
+    """
+    #  void QIODevice::setErrorString(const QString &errorString)
+    self.uglySide.call(
+        'ritual_ZN9QIODevice14setErrorStringERK7QString', errorString,
+    )
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -917,4 +956,29 @@ class QIODevice(QObject, QIODeviceBase):
       Passed on as it is.
     """
     #  qint64 QIODevice::skipData(qint64 maxSize)
-    return self.uglySide.call('ritual_own_ZN9QIODevice8skipDataEx', maxSize)
+    ritual = 'ritual_ZN9QIODevice8skipDataEx'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN9QIODevice8skipDataEx'
+    return self.uglySide.call(ritual, maxSize)
+
+  @overload(str, int)
+  @overload(NoneType, int)
+  def writeData(self, data: Optional[str], len: int) -> int:
+    """
+    Calls Qt's 'qint64 QIODevice::writeData(const char *data, qint64 len)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qiodevice.html#writeData
+
+    Parameters
+    ----------
+
+    data : Optional[str]
+      Passed on as the bytes of the text. None is passed on as no text.
+
+    len : int
+      Passed on as it is.
+    """
+    #  qint64 QIODevice::writeData(const char *data, qint64 len)
+    return self.uglySide.call(
+        'ritual_ZN9QIODevice9writeDataEPKcx', self._bytesOf(data), len,
+    )

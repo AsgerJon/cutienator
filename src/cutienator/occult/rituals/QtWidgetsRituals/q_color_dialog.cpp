@@ -999,6 +999,20 @@ void ritual_ZN12QColorDialog16setStandardColorEi6QColor(
   QColorDialog::setStandardColor(index, *color);
 }
 
+//  void QColorDialog::changeEvent(QEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QColorDialog11changeEventEP6QEvent(
+    QColorDialog *self,
+    QEvent *event) {
+  self->changeEvent(event);
+}
+
+//  void QColorDialog::done(int result)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QColorDialog4doneEi(QColorDialog *self, int result) {
+  self->done(result);
+}
+
 //  a Python function taken by a CuteQColorDialog, for the function named by
 //      the key
 extern "C" Q_DECL_EXPORT

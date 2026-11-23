@@ -64,8 +64,8 @@ class QTimeZone(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  15 of the 56 functions Qt declares: 12 takes or gives a type that cannot be
-  passed yet; 2 private; 1 forbidden.
+  15 of the 56 functions Qt declares: 14 takes or gives a type that cannot be
+  passed yet; 1 forbidden.
 
   What to expect
   --------------

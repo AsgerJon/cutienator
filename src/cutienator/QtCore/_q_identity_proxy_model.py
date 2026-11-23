@@ -45,13 +45,14 @@ class QIdentityProxyModel(QAbstractProxyModel):
   -----------
 
   Every function of Qt's QIdentityProxyModel that has a ritual and that
-  Python can call so far, 23 names in all: 'metaObject', 'tr', 'columnCount',
+  Python can call so far, 25 names in all: 'metaObject', 'tr', 'columnCount',
   'index', 'mapFromSource', 'mapToSource', 'parent', 'rowCount',
   'headerData', 'dropMimeData', 'sibling', 'mapSelectionFromSource',
   'mapSelectionToSource', 'match', 'setSourceModel', 'insertColumns',
   'insertRows', 'removeColumns', 'removeRows', 'moveRows', 'moveColumns',
-  'handleSourceLayoutChanges', 'handleSourceDataChanges'. It can be made from
-  Python, in 1 way; see '__init__'.
+  'handleSourceLayoutChanges', 'handleSourceDataChanges',
+  'setHandleSourceLayoutChanges', 'setHandleSourceDataChanges'. It can be
+  made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -62,8 +63,8 @@ class QIdentityProxyModel(QAbstractProxyModel):
   What has no ritual
   ------------------
 
-  11 of the 36 functions Qt declares: 3 private; 3 protected; 2 takes or
-  gives a type that cannot be passed yet; 2 forbidden; 1 a template.
+  9 of the 36 functions Qt declares: 5 takes or gives a type that cannot be
+  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found.
 
   What to expect
   --------------
@@ -644,6 +645,46 @@ class QIdentityProxyModel(QAbstractProxyModel):
           'ritual_own_ZN19QIdentityProxyModel14setSourceModelEP18QAbstractI'
           'temModel')
     self.uglySide.call(ritual, self._addressOf(sourceModel))
+
+  @overload(bool)
+  def setHandleSourceLayoutChanges(self, a0: bool) -> None:
+    """
+    Calls Qt's 'void QIdentityProxyModel::setHandleSourceLayoutChanges(bool
+    a0)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qidentityproxymodel.html
+
+    Parameters
+    ----------
+
+    a0 : bool
+      Passed on as it is.
+    """
+    #  void QIdentityProxyModel::setHandleSourceLayoutChanges(bool a0)
+    self.uglySide.call(
+        'ritual_ZN19QIdentityProxyModel28setHandleSourceLayoutChangesEb', a0,
+    )
+
+  @overload(bool)
+  def setHandleSourceDataChanges(self, a0: bool) -> None:
+    """
+    Calls Qt's 'void QIdentityProxyModel::setHandleSourceDataChanges(bool
+    a0)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qidentityproxymodel.html
+
+    Parameters
+    ----------
+
+    a0 : bool
+      Passed on as it is.
+    """
+    #  void QIdentityProxyModel::setHandleSourceDataChanges(bool a0)
+    self.uglySide.call(
+        'ritual_ZN19QIdentityProxyModel26setHandleSourceDataChangesEb', a0,
+    )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

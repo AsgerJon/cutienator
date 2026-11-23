@@ -465,8 +465,8 @@ class qfloat16(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  40 of the 241 functions Qt declares: 38 takes or gives a type that cannot
-  be passed yet; 1 a template; 1 private.
+  40 of the 241 functions Qt declares: 39 takes or gives a type that cannot
+  be passed yet; 1 a template.
 
   What to expect
   --------------

@@ -832,6 +832,70 @@ QSize *ritual_ZNK15QSplitterHandle8sizeHintEv(const QSplitterHandle *self) {
   return new QSize(self->sizeHint());
 }
 
+//  void QSplitterHandle::paintEvent(QPaintEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QSplitterHandle10paintEventEP11QPaintEvent(
+    QSplitterHandle *self,
+    QPaintEvent *a0) {
+  self->paintEvent(a0);
+}
+
+//  void QSplitterHandle::mouseMoveEvent(QMouseEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QSplitterHandle14mouseMoveEventEP11QMouseEvent(
+    QSplitterHandle *self,
+    QMouseEvent *a0) {
+  self->mouseMoveEvent(a0);
+}
+
+//  void QSplitterHandle::mousePressEvent(QMouseEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QSplitterHandle15mousePressEventEP11QMouseEvent(
+    QSplitterHandle *self,
+    QMouseEvent *a0) {
+  self->mousePressEvent(a0);
+}
+
+//  void QSplitterHandle::mouseReleaseEvent(QMouseEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QSplitterHandle17mouseReleaseEventEP11QMouseEvent(
+    QSplitterHandle *self,
+    QMouseEvent *a0) {
+  self->mouseReleaseEvent(a0);
+}
+
+//  void QSplitterHandle::resizeEvent(QResizeEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QSplitterHandle11resizeEventEP12QResizeEvent(
+    QSplitterHandle *self,
+    QResizeEvent *a0) {
+  self->resizeEvent(a0);
+}
+
+//  bool QSplitterHandle::event(QEvent *a0)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN15QSplitterHandle5eventEP6QEvent(
+    QSplitterHandle *self,
+    QEvent *a0) {
+  return self->event(a0);
+}
+
+//  void QSplitterHandle::moveSplitter(int p)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QSplitterHandle12moveSplitterEi(
+    QSplitterHandle *self,
+    int p) {
+  self->moveSplitter(p);
+}
+
+//  int QSplitterHandle::closestLegalPosition(int p)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QSplitterHandle20closestLegalPositionEi(
+    QSplitterHandle *self,
+    int p) {
+  return self->closestLegalPosition(p);
+}
+
 //  a Python function taken by a CuteQSplitterHandle, for the function named
 //      by the key
 extern "C" Q_DECL_EXPORT

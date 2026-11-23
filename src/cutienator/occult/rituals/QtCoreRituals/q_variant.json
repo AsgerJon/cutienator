@@ -112,6 +112,10 @@
     "ritual_ZN8QVariant7compareERKS_S1_": ["address", "address", "address"],
     "ritual_ZeqRK8QVariantS1_": ["bool", "address", "address"],
     "ritual_ZneRK8QVariantS1_": ["bool", "address", "address"],
+    "ritual_ZNK8QVariant12qdebugHelperE6QDebug": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK8QVariant6equalsERKS_": ["bool", "address", "address"],
     "ritual_list_make_QVariant": ["address"],
     "ritual_list_add_QVariant": ["nothing", "address", "address"],
     "ritual_list_size_QVariant": ["long long", "address"],

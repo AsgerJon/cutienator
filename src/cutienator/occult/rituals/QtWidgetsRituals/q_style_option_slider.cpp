@@ -15,6 +15,12 @@ QStyleOptionSlider *ritual_ZN18QStyleOptionSliderC1ERKS_(
   return new QStyleOptionSlider(*other);
 }
 
+//  QStyleOptionSlider::QStyleOptionSlider(int version)
+extern "C" Q_DECL_EXPORT
+QStyleOptionSlider *ritual_ZN18QStyleOptionSliderC1Ei(int version) {
+  return new QStyleOptionSlider(version);
+}
+
 //  QStyleOptionSlider::~QStyleOptionSlider()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18QStyleOptionSliderD1Ev(QStyleOptionSlider *self) {

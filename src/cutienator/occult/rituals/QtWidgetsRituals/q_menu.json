@@ -85,6 +85,49 @@
     ],
     "ritual_ZNK5QMenu15toolTipsVisibleEv": ["bool", "address"],
     "ritual_ZN5QMenu18setToolTipsVisibleEb": ["nothing", "address", "bool"],
+    "ritual_ZNK5QMenu11columnCountEv": ["int", "address"],
+    "ritual_ZN5QMenu11changeEventEP6QEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN5QMenu13keyPressEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN5QMenu17mouseReleaseEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN5QMenu15mousePressEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN5QMenu14mouseMoveEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN5QMenu10wheelEventEP11QWheelEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN5QMenu10enterEventEP11QEnterEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN5QMenu10leaveEventEP6QEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN5QMenu9hideEventEP10QHideEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN5QMenu10paintEventEP11QPaintEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN5QMenu11actionEventEP12QActionEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN5QMenu10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN5QMenu5eventEP6QEvent": ["bool", "address", "address"],
+    "ritual_ZN5QMenu18focusNextPrevChildEb": ["bool", "address", "bool"],
+    "ritual_ZNK5QMenu15initStyleOptionEP20QStyleOptionMenuItemPK7QAction": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN5QMenu20internalDelayedPopupEv": ["nothing", "address"],
     "ritual_take_QMenu": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK5QMenu8sizeHintEv": ["address", "address"],
     "ritual_own_ZN5QMenu11changeEventEP6QEvent": [

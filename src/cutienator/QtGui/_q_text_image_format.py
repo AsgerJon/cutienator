@@ -13,7 +13,7 @@ from worktoy.dispatch import overload
 
 from ..cute import WAIT
 from ..occult import Rituals
-from . import QTextCharFormat
+from . import QTextCharFormat, QTextFormat
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from . import QTextLength
@@ -42,7 +42,7 @@ class QTextImageFormat(QTextCharFormat):
   Every function of Qt's QTextImageFormat that has a ritual and that Python
   can call so far, 11 names in all: 'isValid', 'setName', 'name', 'setWidth',
   'width', 'setMaximumWidth', 'maximumWidth', 'setHeight', 'height',
-  'setQuality', 'quality'. It can be made from Python, in 1 way; see
+  'setQuality', 'quality'. It can be made from Python, in 2 ways; see
   '__init__'.
 
   What has a ritual and is left out, and why
@@ -54,8 +54,8 @@ class QTextImageFormat(QTextCharFormat):
   What has no ritual
   ------------------
 
-  3 of the 17 functions Qt declares: 2 takes or gives a type that cannot be
-  passed yet; 1 protected.
+  2 of the 17 functions Qt declares: 2 takes or gives a type that cannot be
+  passed yet.
 
   What to expect
   --------------
@@ -296,6 +296,28 @@ class QTextImageFormat(QTextCharFormat):
     #  QTextImageFormat::QTextImageFormat()
     self._noteCreation(QTextImageFormat, lambda: Rituals.call(
         'ritual_ZN16QTextImageFormatC1Ev',
+    ))
+
+  @overload(QTextFormat)
+  def __init__(self, format: QTextFormat) -> None:
+    """
+    Notes what was given, for Qt's 'QTextImageFormat::QTextImageFormat(const
+    QTextFormat &format)', which is called at the first use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qtextimageformat.html#QTextImageFormat
+
+    Parameters
+    ----------
+
+    format : QTextFormat
+      Passed on as a value: Qt reads the C++ QTextFormat, which stays
+      Python's own.
+    """
+    #  QTextImageFormat::QTextImageFormat(const QTextFormat &format)
+    self._noteCreation(QTextImageFormat, lambda: Rituals.call(
+        'ritual_ZN16QTextImageFormatC1ERK11QTextFormat',
+        self._valueOf(format),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

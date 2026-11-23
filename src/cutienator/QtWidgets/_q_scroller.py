@@ -51,20 +51,22 @@ class QScroller(QObject):
   'target', 'state', 'handleInput', 'stop', 'velocity', 'finalPosition',
   'pixelPerMeter', 'scrollerProperties', 'setSnapPositionsX',
   'setSnapPositionsY', 'setScrollerProperties', 'scrollTo', 'ensureVisible',
-  'resendPrepareEvent'. None can be made from Python: one comes out of a
-  function of another class that gives one back.
+  'resendPrepareEvent'. It can be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'const QScroller *QScroller::scroller(const QObject *target)': takes
     in Python what 'QScroller *QScroller::scroller(QObject *target)' takes.
+  - Qt's 'QScroller::~QScroller()': the destructor: Python never removes a
+    C++ QScroller.
 
   What has no ritual
   ------------------
 
-  14 of the 39 functions Qt declares: 5 private; 4 takes or gives a type that
-  cannot be passed yet; 2 a signal; 2 forbidden; 1 a template.
+  12 of the 39 functions Qt declares: 6 takes or gives a type that cannot be
+  passed yet; 2 a signal; 2 forbidden; 1 a template; 1 declared and nowhere
+  to be found.
 
   What to expect
   --------------
@@ -544,6 +546,27 @@ class QScroller(QObject):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(QObject)
+  @overload(NoneType)
+  def __init__(self, target: Optional[QObject]) -> None:
+    """
+    Notes what was given, for Qt's 'QScroller::QScroller(QObject *target)',
+    which is called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qscroller.html#QScroller
+
+    Parameters
+    ----------
+
+    target : Optional[QObject]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  QScroller::QScroller(QObject *target)
+    self._noteCreation(QScroller, lambda: Rituals.call(
+        'ritual_ZN9QScrollerC1EP7QObject', self._addressOf(target),
+    ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -15,6 +15,12 @@ QStyleOptionFrame *ritual_ZN17QStyleOptionFrameC1ERKS_(
   return new QStyleOptionFrame(*other);
 }
 
+//  QStyleOptionFrame::QStyleOptionFrame(int version)
+extern "C" Q_DECL_EXPORT
+QStyleOptionFrame *ritual_ZN17QStyleOptionFrameC1Ei(int version) {
+  return new QStyleOptionFrame(version);
+}
+
 //  QStyleOptionFrame::~QStyleOptionFrame()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QStyleOptionFrameD1Ev(QStyleOptionFrame *self) {

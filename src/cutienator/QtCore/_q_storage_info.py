@@ -54,8 +54,8 @@ class QStorageInfo(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  5 of the 31 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 1 private.
+  5 of the 31 functions Qt declares: 5 takes or gives a type that cannot be
+  passed yet.
 
   What to expect
   --------------

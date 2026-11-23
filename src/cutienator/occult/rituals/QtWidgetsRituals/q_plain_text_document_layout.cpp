@@ -439,6 +439,48 @@ void ritual_ZN24QPlainTextDocumentLayout13requestUpdateEv(
   self->requestUpdate();
 }
 
+//  void QPlainTextDocumentLayout::documentChanged(int from, int a1, int
+//      charsAdded)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QPlainTextDocumentLayout15documentChangedEiii(
+    QPlainTextDocumentLayout *self,
+    int from,
+    int a1,
+    int charsAdded) {
+  self->documentChanged(from, a1, charsAdded);
+}
+
+//  void QPlainTextDocumentLayout::setTextWidth(qreal newWidth)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QPlainTextDocumentLayout12setTextWidthEd(
+    QPlainTextDocumentLayout *self,
+    qreal newWidth) {
+  self->setTextWidth(newWidth);
+}
+
+//  qreal QPlainTextDocumentLayout::textWidth() const
+extern "C" Q_DECL_EXPORT
+qreal ritual_ZNK24QPlainTextDocumentLayout9textWidthEv(
+    const QPlainTextDocumentLayout *self) {
+  return self->textWidth();
+}
+
+//  void QPlainTextDocumentLayout::layoutBlock(const QTextBlock &block)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QPlainTextDocumentLayout11layoutBlockERK10QTextBlock(
+    QPlainTextDocumentLayout *self,
+    const QTextBlock *block) {
+  self->layoutBlock(*block);
+}
+
+//  qreal QPlainTextDocumentLayout::blockWidth(const QTextBlock &block)
+extern "C" Q_DECL_EXPORT
+qreal ritual_ZN24QPlainTextDocumentLayout10blockWidthERK10QTextBlock(
+    QPlainTextDocumentLayout *self,
+    const QTextBlock *block) {
+  return self->blockWidth(*block);
+}
+
 //  a Python function taken by a CuteQPlainTextDocumentLayout, for the
 //      function named by the key
 extern "C" Q_DECL_EXPORT

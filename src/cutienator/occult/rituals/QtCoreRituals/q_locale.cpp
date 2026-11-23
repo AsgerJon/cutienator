@@ -1016,6 +1016,14 @@ QString *ritual_ZNK7QLocale19createSeparatedListERK5QListI7QStringE(
   return new QString(self->createSeparatedList(*strl));
 }
 
+//  bool QLocale::equals(const QLocale &other) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK7QLocale6equalsERKS_(
+    const QLocale *self,
+    const QLocale *other) {
+  return self->equals(*other);
+}
+
 //  bool operator==(const QLocale &lhs, const QLocale &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZeqRK7QLocaleS1_(const QLocale *lhs, const QLocale *rhs) {

@@ -47,7 +47,7 @@ class QStandardItem(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QStandardItem that has a ritual and that Python can
-  call so far, 77 names in all: 'data', 'multiData', 'setData', 'clearData',
+  call so far, 78 names in all: 'data', 'multiData', 'setData', 'clearData',
   'text', 'setText', 'icon', 'setIcon', 'toolTip', 'setToolTip', 'statusTip',
   'setStatusTip', 'whatsThis', 'setWhatsThis', 'sizeHint', 'setSizeHint',
   'font', 'setFont', 'textAlignment', 'setTextAlignment', 'background',
@@ -62,8 +62,8 @@ class QStandardItem(CuteMixin, metaclass=MetaCute):
   'setColumnCount', 'hasChildren', 'child', 'setChild', 'insertRow',
   'insertColumn', 'insertRows', 'insertColumns', 'removeRow', 'removeColumn',
   'removeRows', 'removeColumns', 'appendRow', 'appendRows', 'appendColumn',
-  'takeChild', 'takeRow', 'takeColumn', 'sortChildren', 'clone', 'type'. It
-  can be made from Python, in 4 ways; see '__init__'.
+  'takeChild', 'takeRow', 'takeColumn', 'sortChildren', 'clone', 'type',
+  'emitDataChanged'. It can be made from Python, in 4 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -74,8 +74,8 @@ class QStandardItem(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  9 of the 95 functions Qt declares: 4 protected; 3 takes or gives a type
-  that cannot be passed yet; 2 private.
+  8 of the 95 functions Qt declares: 8 takes or gives a type that cannot be
+  passed yet.
 
   What to expect
   --------------
@@ -1746,6 +1746,15 @@ class QStandardItem(CuteMixin, metaclass=MetaCute):
         'ritual_ZN13QStandardItem12sortChildrenEiN2Qt9SortOrderE',
         column, order.value,
     )
+
+  def emitDataChanged(self) -> None:
+    """
+    Calls Qt's 'void QStandardItem::emitDataChanged()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qstandarditem.html#emitDataChanged
+    """
+    #  void QStandardItem::emitDataChanged()
+    self.uglySide.call('ritual_ZN13QStandardItem15emitDataChangedEv')
 
 
 #  Qt's 'QList<QStandardItem *>': the list of QStandardItem, which

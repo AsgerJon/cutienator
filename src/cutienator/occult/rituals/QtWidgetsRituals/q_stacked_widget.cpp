@@ -882,6 +882,14 @@ void ritual_ZN14QStackedWidget16setCurrentWidgetEP7QWidget(
   self->setCurrentWidget(w);
 }
 
+//  bool QStackedWidget::event(QEvent *e)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN14QStackedWidget5eventEP6QEvent(
+    QStackedWidget *self,
+    QEvent *e) {
+  return self->event(e);
+}
+
 //  a Python function taken by a CuteQStackedWidget, for the function named
 //      by the key
 extern "C" Q_DECL_EXPORT

@@ -71,8 +71,8 @@ class QCommonStyle(QStyle):
   What has no ritual
   ------------------
 
-  10 of the 31 functions Qt declares: 3 takes or gives a type that cannot be
-  passed yet; 3 private; 2 forbidden; 1 a template; 1 protected.
+  10 of the 31 functions Qt declares: 6 takes or gives a type that cannot be
+  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found.
 
   What to expect
   --------------

@@ -4,6 +4,7 @@
     "QtCore/qstringmatcher.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN14QStringMatcher15updateSkipTableEv": ["nothing", "address"],
     "ritual_ZN14QStringMatcherC1Ev": ["address"],
     "ritual_ZN14QStringMatcherC1ERK7QStringN2Qt15CaseSensitivityE": [
       "address", "text", "int"

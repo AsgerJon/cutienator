@@ -727,6 +727,20 @@ void ritual_ZN15QGraphicsObject13ungrabGestureEN2Qt11GestureTypeE(
   self->ungrabGesture(type);
 }
 
+//  void QGraphicsObject::updateMicroFocus()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QGraphicsObject16updateMicroFocusEv(QGraphicsObject *self) {
+  self->updateMicroFocus();
+}
+
+//  bool QGraphicsObject::event(QEvent *ev)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN15QGraphicsObject5eventEP6QEvent(
+    QGraphicsObject *self,
+    QEvent *ev) {
+  return self->event(ev);
+}
+
 //  QGraphicsObject as the QGraphicsItem it is built on
 extern "C" Q_DECL_EXPORT
 QGraphicsItem *ritual_cast_QGraphicsObject_QGraphicsItem(

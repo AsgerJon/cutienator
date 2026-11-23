@@ -224,6 +224,13 @@ int ritual_ZNK16QTextFrameFormat15pageBreakPolicyEv(
   return static_cast<int>(self->pageBreakPolicy().toInt());
 }
 
+//  QTextFrameFormat::QTextFrameFormat(const QTextFormat &fmt)
+extern "C" Q_DECL_EXPORT
+QTextFrameFormat *ritual_ZN16QTextFrameFormatC1ERK11QTextFormat(
+    const QTextFormat *fmt) {
+  return new QTextFrameFormat(*fmt);
+}
+
 //  QTextFrameFormat::~QTextFrameFormat()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QTextFrameFormatD1Ev(QTextFrameFormat *self) {

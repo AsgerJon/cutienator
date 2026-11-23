@@ -36,6 +36,13 @@
     "ritual_ZN11QFontDialog7getFontEPbRK5QFontP7QWidgetRK7QString6QFlagsINS_16FontDialogOptionEE": [
       "address", "address", "address", "address", "text", "int"
     ],
+    "ritual_ZN11QFontDialog11changeEventEP6QEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QFontDialog4doneEi": ["nothing", "address", "int"],
+    "ritual_ZN11QFontDialog11eventFilterEP7QObjectP6QEvent": [
+      "bool", "address", "address", "address"
+    ],
     "ritual_take_QFontDialog": ["bool", "address", "chars", "address"],
     "ritual_own_ZN11QFontDialog10setVisibleEb": [
       "nothing", "address", "bool"

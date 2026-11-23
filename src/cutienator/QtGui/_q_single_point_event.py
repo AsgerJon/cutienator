@@ -12,18 +12,23 @@ from typing import TYPE_CHECKING
 from worktoy.dispatch import overload
 
 from ..cute import WAIT
-from ..QtCore import Qt
+from ..occult import Rituals
+from ..QtCore import Qt, QEvent
 from . import QPointerEvent
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QObject, QPointF
+  from . import QEventPoint, QPointingDevice
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
+  QEventPoint = WAIT['QEventPoint']
   QObject = WAIT['QObject']
+  QPointF = WAIT['QPointF']
+  QPointingDevice = WAIT['QPointingDevice']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -44,9 +49,8 @@ class QSinglePointEvent(QPointerEvent):
   Every function of Qt's QSinglePointEvent that has a ritual and that Python
   can call so far, 11 names in all: 'clone', 'button', 'buttons', 'position',
   'scenePosition', 'globalPosition', 'isBeginEvent', 'isUpdateEvent',
-  'isEndEvent', 'exclusivePointGrabber', 'setExclusivePointGrabber'. None can
-  be made from Python: one comes out of a function of another class that
-  gives one back.
+  'isEndEvent', 'exclusivePointGrabber', 'setExclusivePointGrabber'. It can
+  be made from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -57,8 +61,8 @@ class QSinglePointEvent(QPointerEvent):
   What has no ritual
   ------------------
 
-  9 of the 21 functions Qt declares: 4 protected; 2 forbidden; 1 declared and
-  nowhere to be found; 1 a template; 1 private.
+  7 of the 21 functions Qt declares: 2 declared and nowhere to be found; 2
+  takes or gives a type that cannot be passed yet; 2 forbidden; 1 a template.
 
   What to expect
   --------------
@@ -316,6 +320,161 @@ class QSinglePointEvent(QPointerEvent):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(
+      QEvent.Type, QPointingDevice, QEventPoint, Qt.MouseButton,
+      Qt.MouseButtons, Qt.KeyboardModifiers, Qt.MouseEventSource,
+  )
+  @overload(
+      QEvent.Type, NoneType, QEventPoint, Qt.MouseButton, Qt.MouseButtons,
+      Qt.KeyboardModifiers, Qt.MouseEventSource,
+  )
+  def __init__(
+      self,
+      type: QEvent.Type,
+      dev: Optional[QPointingDevice],
+      point: QEventPoint,
+      button: Qt.MouseButton,
+      buttons: Qt.MouseButtons,
+      modifiers: Qt.KeyboardModifiers,
+      source: Qt.MouseEventSource,
+  ) -> None:
+    """
+    Notes what was given, for Qt's 'QSinglePointEvent::QSinglePointEvent(Type
+    type, const QPointingDevice *dev, const QEventPoint &point,
+    Qt::MouseButton button, Qt::MouseButtons buttons, Qt::KeyboardModifiers
+    modifiers, Qt::MouseEventSource source)', which is called at the first
+    use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qsinglepointevent.html#QSinglePointEvent
+
+    Parameters
+    ----------
+
+    type : QEvent.Type
+      Passed on as its number.
+
+    dev : Optional[QPointingDevice]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    point : QEventPoint
+      Passed on as a value: Qt reads the C++ QEventPoint, which stays
+      Python's own.
+
+    button : Qt.MouseButton
+      Passed on as its number.
+
+    buttons : Qt.MouseButtons
+      Passed on as its number.
+
+    modifiers : Qt.KeyboardModifiers
+      Passed on as its number.
+
+    source : Qt.MouseEventSource
+      Passed on as its number.
+    """
+    #  QSinglePointEvent::QSinglePointEvent(Type type, const QPointingDevice
+    #      *dev, const QEventPoint &point, Qt::MouseButton button,
+    #      Qt::MouseButtons buttons, Qt::KeyboardModifiers modifiers,
+    #      Qt::MouseEventSource source)
+    self._noteCreation(QSinglePointEvent, lambda: Rituals.call(
+        'ritual_ZN17QSinglePointEventC1EN6QEvent4TypeEPK15QPointingDeviceRK'
+        '11QEventPointN2Qt11MouseButtonE6QFlagsIS9_ESA_INS8_16KeyboardModif'
+        'ierEENS8_16MouseEventSourceE',
+        type.value, self._addressOf(dev), self._valueOf(point), button.value,
+        buttons.value, modifiers.value, source.value,
+    ))
+
+  @overload(
+      QEvent.Type, QPointingDevice, QPointF, QPointF, QPointF,
+      Qt.MouseButton, Qt.MouseButtons, Qt.KeyboardModifiers,
+  )
+  @overload(
+      QEvent.Type, NoneType, QPointF, QPointF, QPointF, Qt.MouseButton,
+      Qt.MouseButtons, Qt.KeyboardModifiers,
+  )
+  @overload(
+      QEvent.Type, QPointingDevice, QPointF, QPointF, QPointF,
+      Qt.MouseButton, Qt.MouseButtons, Qt.KeyboardModifiers,
+      Qt.MouseEventSource,
+  )
+  @overload(
+      QEvent.Type, NoneType, QPointF, QPointF, QPointF, Qt.MouseButton,
+      Qt.MouseButtons, Qt.KeyboardModifiers, Qt.MouseEventSource,
+  )
+  def __init__(
+      self,
+      type: QEvent.Type,
+      dev: Optional[QPointingDevice],
+      localPos: QPointF,
+      scenePos: QPointF,
+      globalPos: QPointF,
+      button: Qt.MouseButton,
+      buttons: Qt.MouseButtons,
+      modifiers: Qt.KeyboardModifiers,
+      source: Qt.MouseEventSource = (
+          Qt.MouseEventSource.MouseEventNotSynthesized),
+  ) -> None:
+    """
+    Notes what was given, for Qt's 'QSinglePointEvent::QSinglePointEvent(Type
+    type, const QPointingDevice *dev, const QPointF &localPos, const QPointF
+    &scenePos, const QPointF &globalPos, Qt::MouseButton button,
+    Qt::MouseButtons buttons, Qt::KeyboardModifiers modifiers,
+    Qt::MouseEventSource source)', which is called at the first use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qsinglepointevent.html#QSinglePointEvent
+
+    Parameters
+    ----------
+
+    type : QEvent.Type
+      Passed on as its number.
+
+    dev : Optional[QPointingDevice]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    localPos : QPointF
+      Passed on as a value: Qt reads the C++ QPointF, which stays Python's
+      own.
+
+    scenePos : QPointF
+      Passed on as a value: Qt reads the C++ QPointF, which stays Python's
+      own.
+
+    globalPos : QPointF
+      Passed on as a value: Qt reads the C++ QPointF, which stays Python's
+      own.
+
+    button : Qt.MouseButton
+      Passed on as its number.
+
+    buttons : Qt.MouseButtons
+      Passed on as its number.
+
+    modifiers : Qt.KeyboardModifiers
+      Passed on as its number.
+
+    source : Qt.MouseEventSource
+      Passed on as its number. May be left out, as in Qt: it is then
+      Qt.MouseEventSource.MouseEventNotSynthesized.
+    """
+    #  QSinglePointEvent::QSinglePointEvent(Type type, const QPointingDevice
+    #      *dev, const QPointF &localPos, const QPointF &scenePos, const
+    #      QPointF &globalPos, Qt::MouseButton button, Qt::MouseButtons
+    #      buttons, Qt::KeyboardModifiers modifiers, Qt::MouseEventSource
+    #      source)
+    self._noteCreation(QSinglePointEvent, lambda: Rituals.call(
+        'ritual_ZN17QSinglePointEventC1EN6QEvent4TypeEPK15QPointingDeviceRK'
+        '7QPointFS7_S7_N2Qt11MouseButtonE6QFlagsIS9_ESA_INS8_16KeyboardModi'
+        'fierEENS8_16MouseEventSourceE',
+        type.value, self._addressOf(dev), self._valueOf(localPos),
+        self._valueOf(scenePos), self._valueOf(globalPos), button.value,
+        buttons.value, modifiers.value, source.value,
+    ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #

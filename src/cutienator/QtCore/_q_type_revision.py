@@ -31,7 +31,7 @@ class QTypeRevision(CuteMixin, metaclass=MetaCute):
   Every function of Qt's QTypeRevision that has a ritual and that Python can
   call so far, 12 names in all: 'zero', 'hasMajorVersion', 'majorVersion',
   'hasMinorVersion', 'minorVersion', 'isValid', '__eq__', '__ne__', '__lt__',
-  '__gt__', '__le__', '__ge__'. It can be made from Python, in 1 way; see
+  '__gt__', '__le__', '__ge__'. It can be made from Python, in 2 ways; see
   '__init__'.
 
   What has a ritual and is left out, and why
@@ -43,7 +43,7 @@ class QTypeRevision(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  7 of the 21 functions Qt declares: 6 a template; 1 private.
+  6 of the 21 functions Qt declares: 6 a template.
 
   What to expect
   --------------
@@ -357,6 +357,28 @@ class QTypeRevision(CuteMixin, metaclass=MetaCute):
     #  QTypeRevision::QTypeRevision()
     self._noteCreation(QTypeRevision, lambda: Rituals.call(
         'ritual_ZN13QTypeRevisionC1Ev',
+    ))
+
+  @overload(int, int)
+  def __init__(self, major: int, minor: int) -> None:
+    """
+    Notes what was given, for Qt's 'QTypeRevision::QTypeRevision(quint8
+    major, quint8 minor)', which is called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtyperevision.html#QTypeRevision
+
+    Parameters
+    ----------
+
+    major : int
+      Passed on as it is.
+
+    minor : int
+      Passed on as it is.
+    """
+    #  QTypeRevision::QTypeRevision(quint8 major, quint8 minor)
+    self._noteCreation(QTypeRevision, lambda: Rituals.call(
+        'ritual_ZN13QTypeRevisionC1Ehh', major, minor,
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

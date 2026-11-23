@@ -46,8 +46,8 @@ class QSpinBox(QAbstractSpinBox):
   'setPrefix', 'suffix', 'setSuffix', 'cleanText', 'singleStep',
   'setSingleStep', 'minimum', 'setMinimum', 'maximum', 'setMaximum',
   'setRange', 'stepType', 'setStepType', 'displayIntegerBase',
-  'setDisplayIntegerBase', 'setValue', 'event', 'valueFromText',
-  'textFromValue'. It can be made from Python, in 1 way; see '__init__'.
+  'setDisplayIntegerBase', 'event', 'valueFromText', 'textFromValue',
+  'setValue'. It can be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -58,8 +58,9 @@ class QSpinBox(QAbstractSpinBox):
   What has no ritual
   ------------------
 
-  12 of the 37 functions Qt declares: 3 private; 2 takes or gives a type that
-  cannot be passed yet; 2 protected; 2 a signal; 2 forbidden; 1 a template.
+  12 of the 37 functions Qt declares: 6 takes or gives a type that cannot be
+  passed yet; 2 a signal; 2 forbidden; 1 a template; 1 declared and nowhere
+  to be found.
 
   What to expect
   --------------
@@ -309,9 +310,10 @@ class QSpinBox(QAbstractSpinBox):
       Passed on as it is: a QString is made of it for the call.
     """
     #  int QSpinBox::valueFromText(const QString &text) const
-    return self.uglySide.call(
-        'ritual_own_ZNK8QSpinBox13valueFromTextERK7QString', text,
-    )
+    ritual = 'ritual_ZNK8QSpinBox13valueFromTextERK7QString'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK8QSpinBox13valueFromTextERK7QString'
+    return self.uglySide.call(ritual, text)
 
   @overload(int)
   def textFromValue(self, val: int) -> str:
@@ -333,9 +335,10 @@ class QSpinBox(QAbstractSpinBox):
       The text Qt gave back.
     """
     #  QString QSpinBox::textFromValue(int val) const
-    return self.uglySide.call(
-        'ritual_own_ZNK8QSpinBox13textFromValueEi', val,
-    )
+    ritual = 'ritual_ZNK8QSpinBox13textFromValueEi'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK8QSpinBox13textFromValueEi'
+    return self.uglySide.call(ritual, val)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -562,6 +565,7 @@ class QSpinBox(QAbstractSpinBox):
       object.
     """
     #  bool QSpinBox::event(QEvent *event)
-    return self.uglySide.call(
-        'ritual_own_ZN8QSpinBox5eventEP6QEvent', self._addressOf(event),
-    )
+    ritual = 'ritual_ZN8QSpinBox5eventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN8QSpinBox5eventEP6QEvent'
+    return self.uglySide.call(ritual, self._addressOf(event))

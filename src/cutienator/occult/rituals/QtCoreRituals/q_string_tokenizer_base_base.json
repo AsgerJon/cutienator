@@ -4,5 +4,9 @@
     "QtCore/qstringtokenizer.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN24QStringTokenizerBaseBaseD1Ev": ["nothing", "address"],
+    "ritual_ZN24QStringTokenizerBaseBaseC1E6QFlagsIN2Qt18SplitBehaviorFlagsEENS1_15CaseSensitivityE": [
+      "address", "int", "int"
+    ]
   }
 }

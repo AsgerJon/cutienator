@@ -10,6 +10,7 @@
 #include <QtGui/qregion.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  Only a class built on QListView may call these functions of it.
@@ -1760,6 +1761,265 @@ void ritual_ZN9QListView12setRootIndexERK11QModelIndex(
     QListView *self,
     const QModelIndex *index) {
   self->setRootIndex(*index);
+}
+
+//  bool QListView::event(QEvent *e)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN9QListView5eventEP6QEvent(QListView *self, QEvent *e) {
+  return self->event(e);
+}
+
+//  void QListView::scrollContentsBy(int dx, int dy)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QListView16scrollContentsByEii(
+    QListView *self,
+    int dx,
+    int dy) {
+  self->scrollContentsBy(dx, dy);
+}
+
+//  void QListView::resizeContents(int width, int height)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QListView14resizeContentsEii(
+    QListView *self,
+    int width,
+    int height) {
+  self->resizeContents(width, height);
+}
+
+//  QSize QListView::contentsSize() const
+extern "C" Q_DECL_EXPORT
+QSize *ritual_ZNK9QListView12contentsSizeEv(const QListView *self) {
+  return new QSize(self->contentsSize());
+}
+
+//  void QListView::rowsInserted(const QModelIndex &parent, int start, int
+//      end)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QListView12rowsInsertedERK11QModelIndexii(
+    QListView *self,
+    const QModelIndex *parent,
+    int start,
+    int end) {
+  self->rowsInserted(*parent, start, end);
+}
+
+//  void QListView::rowsAboutToBeRemoved(const QModelIndex &parent, int
+//      start, int end)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QListView20rowsAboutToBeRemovedERK11QModelIndexii(
+    QListView *self,
+    const QModelIndex *parent,
+    int start,
+    int end) {
+  self->rowsAboutToBeRemoved(*parent, start, end);
+}
+
+//  void QListView::mouseMoveEvent(QMouseEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QListView14mouseMoveEventEP11QMouseEvent(
+    QListView *self,
+    QMouseEvent *e) {
+  self->mouseMoveEvent(e);
+}
+
+//  void QListView::mouseReleaseEvent(QMouseEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QListView17mouseReleaseEventEP11QMouseEvent(
+    QListView *self,
+    QMouseEvent *e) {
+  self->mouseReleaseEvent(e);
+}
+
+//  void QListView::wheelEvent(QWheelEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QListView10wheelEventEP11QWheelEvent(
+    QListView *self,
+    QWheelEvent *e) {
+  self->wheelEvent(e);
+}
+
+//  void QListView::timerEvent(QTimerEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QListView10timerEventEP11QTimerEvent(
+    QListView *self,
+    QTimerEvent *e) {
+  self->timerEvent(e);
+}
+
+//  void QListView::resizeEvent(QResizeEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QListView11resizeEventEP12QResizeEvent(
+    QListView *self,
+    QResizeEvent *e) {
+  self->resizeEvent(e);
+}
+
+//  void QListView::dragMoveEvent(QDragMoveEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QListView13dragMoveEventEP14QDragMoveEvent(
+    QListView *self,
+    QDragMoveEvent *e) {
+  self->dragMoveEvent(e);
+}
+
+//  void QListView::dragLeaveEvent(QDragLeaveEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QListView14dragLeaveEventEP15QDragLeaveEvent(
+    QListView *self,
+    QDragLeaveEvent *e) {
+  self->dragLeaveEvent(e);
+}
+
+//  void QListView::dropEvent(QDropEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QListView9dropEventEP10QDropEvent(
+    QListView *self,
+    QDropEvent *e) {
+  self->dropEvent(e);
+}
+
+//  void QListView::startDrag(Qt::DropActions supportedActions)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QListView9startDragE6QFlagsIN2Qt10DropActionEE(
+    QListView *self,
+    int supportedActions) {
+  self->startDrag(QFlags<Qt::DropAction>::fromInt(supportedActions));
+}
+
+//  void QListView::initViewItemOption(QStyleOptionViewItem *option) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK9QListView18initViewItemOptionEP20QStyleOptionViewItem(
+    const QListView *self,
+    QStyleOptionViewItem *option) {
+  self->initViewItemOption(option);
+}
+
+//  void QListView::paintEvent(QPaintEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QListView10paintEventEP11QPaintEvent(
+    QListView *self,
+    QPaintEvent *e) {
+  self->paintEvent(e);
+}
+
+//  int QListView::horizontalOffset() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK9QListView16horizontalOffsetEv(const QListView *self) {
+  return self->horizontalOffset();
+}
+
+//  int QListView::verticalOffset() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK9QListView14verticalOffsetEv(const QListView *self) {
+  return self->verticalOffset();
+}
+
+//  QModelIndex QListView::moveCursor(CursorAction cursorAction,
+//      Qt::KeyboardModifiers modifiers)
+extern "C" Q_DECL_EXPORT
+QModelIndex *ritual_ZN9QListView10moveCursorEN17QAbstractItemView12CursorActionE6QFlagsIN2Qt16KeyboardModifierEE(
+    QListView *self,
+    QAbstractItemView::CursorAction cursorAction,
+    int modifiers) {
+  return new QModelIndex(
+      self->moveCursor(
+          cursorAction,
+          QFlags<Qt::KeyboardModifier>::fromInt(modifiers)));
+}
+
+//  QRect QListView::rectForIndex(const QModelIndex &index) const
+extern "C" Q_DECL_EXPORT
+QRect *ritual_ZNK9QListView12rectForIndexERK11QModelIndex(
+    const QListView *self,
+    const QModelIndex *index) {
+  return new QRect(self->rectForIndex(*index));
+}
+
+//  void QListView::setPositionForIndex(const QPoint &position, const
+//      QModelIndex &index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QListView19setPositionForIndexERK6QPointRK11QModelIndex(
+    QListView *self,
+    const QPoint *position,
+    const QModelIndex *index) {
+  self->setPositionForIndex(*position, *index);
+}
+
+//  void QListView::setSelection(const QRect &rect,
+//      QItemSelectionModel::SelectionFlags command)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QListView12setSelectionERK5QRect6QFlagsIN19QItemSelectionModel13SelectionFlagEE(
+    QListView *self,
+    const QRect *rect,
+    int command) {
+  self->setSelection(
+      *rect,
+      QFlags<QItemSelectionModel::SelectionFlag>::fromInt(command));
+}
+
+//  QRegion QListView::visualRegionForSelection(const QItemSelection
+//      &selection) const
+extern "C" Q_DECL_EXPORT
+QRegion *ritual_ZNK9QListView24visualRegionForSelectionERK14QItemSelection(
+    const QListView *self,
+    const QItemSelection *selection) {
+  return new QRegion(self->visualRegionForSelection(*selection));
+}
+
+//  QModelIndexList QListView::selectedIndexes() const
+extern "C" Q_DECL_EXPORT
+QList<QModelIndex> *ritual_ZNK9QListView15selectedIndexesEv(
+    const QListView *self) {
+  return new QList<QModelIndex>(self->selectedIndexes());
+}
+
+//  void QListView::updateGeometries()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QListView16updateGeometriesEv(QListView *self) {
+  self->updateGeometries();
+}
+
+//  bool QListView::isIndexHidden(const QModelIndex &index) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK9QListView13isIndexHiddenERK11QModelIndex(
+    const QListView *self,
+    const QModelIndex *index) {
+  return self->isIndexHidden(*index);
+}
+
+//  void QListView::selectionChanged(const QItemSelection &selected, const
+//      QItemSelection &deselected)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QListView16selectionChangedERK14QItemSelectionS2_(
+    QListView *self,
+    const QItemSelection *selected,
+    const QItemSelection *deselected) {
+  self->selectionChanged(*selected, *deselected);
+}
+
+//  void QListView::currentChanged(const QModelIndex &current, const
+//      QModelIndex &previous)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QListView14currentChangedERK11QModelIndexS2_(
+    QListView *self,
+    const QModelIndex *current,
+    const QModelIndex *previous) {
+  self->currentChanged(*current, *previous);
+}
+
+//  QSize QListView::viewportSizeHint() const
+extern "C" Q_DECL_EXPORT
+QSize *ritual_ZNK9QListView16viewportSizeHintEv(const QListView *self) {
+  return new QSize(self->viewportSizeHint());
+}
+
+//  int QListView::visualIndex(const QModelIndex &index) const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK9QListView11visualIndexERK11QModelIndex(
+    const QListView *self,
+    const QModelIndex *index) {
+  return self->visualIndex(*index);
 }
 
 //  a Python function taken by a CuteQListView, for the function named by the

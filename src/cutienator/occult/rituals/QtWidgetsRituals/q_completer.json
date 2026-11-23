@@ -75,6 +75,10 @@
     "ritual_ZNK10QCompleter9splitPathERK7QString": [
       "address", "address", "text"
     ],
+    "ritual_ZN10QCompleter11eventFilterEP7QObjectP6QEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN10QCompleter5eventEP6QEvent": ["bool", "address", "address"],
     "ritual_take_QCompleter": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK10QCompleter13pathFromIndexERK11QModelIndex": [
       "text", "address", "address"

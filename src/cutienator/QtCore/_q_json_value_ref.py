@@ -49,11 +49,11 @@ class QJsonValueRef(QJsonValueConstRef):
   -----------
 
   Every function of Qt's QJsonValueRef that has a ritual and that Python can
-  call so far, 20 names in all: 'toVariant', 'type', 'isNull', 'isBool',
+  call so far, 22 names in all: 'toVariant', 'type', 'isNull', 'isBool',
   'isDouble', 'isString', 'isArray', 'isObject', 'isUndefined', 'toBool',
   'toInt', 'toInteger', 'toDouble', 'toString', 'toStringView', 'toArray',
-  'toObject', '__getitem__', '__eq__', '__ne__'. It can be made from Python,
-  in 3 ways; see '__init__'.
+  'toObject', '__getitem__', '__eq__', '__ne__', 'toValue', 'detach'. It can
+  be made from Python, in 3 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -72,8 +72,8 @@ class QJsonValueRef(QJsonValueConstRef):
   What has no ritual
   ------------------
 
-  4 of the 35 functions Qt declares: 2 takes or gives a type that cannot be
-  passed yet; 2 private.
+  2 of the 35 functions Qt declares: 2 takes or gives a type that cannot be
+  passed yet.
 
   What to expect
   --------------
@@ -383,6 +383,22 @@ class QJsonValueRef(QJsonValueConstRef):
     from . import QJsonObject
     return QJsonObject._cuteOwning(address)
 
+  def toValue(self) -> QJsonValue:
+    """
+    Calls Qt's 'QJsonValue QJsonValueRef::toValue() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qjsonvalueref.html#toValue
+
+    Returns
+    -------
+
+    QJsonValue
+      A new cute QJsonValue around the copy Qt gave back. Python owns it.
+    """
+    #  QJsonValue QJsonValueRef::toValue() const
+    address = self.uglySide.call('ritual_ZNK13QJsonValueRef7toValueEv')
+    return QJsonValue._cuteOwning(address)
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -669,3 +685,12 @@ class QJsonValueRef(QJsonValueConstRef):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def detach(self) -> None:
+    """
+    Calls Qt's 'void QJsonValueRef::detach()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qjsonvalueref.html#detach
+    """
+    #  void QJsonValueRef::detach()
+    self.uglySide.call('ritual_ZN13QJsonValueRef6detachEv')

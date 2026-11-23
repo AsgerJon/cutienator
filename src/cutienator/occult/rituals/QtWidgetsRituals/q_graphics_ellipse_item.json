@@ -44,6 +44,15 @@
     ],
     "ritual_ZNK20QGraphicsEllipseItem10opaqueAreaEv": ["address", "address"],
     "ritual_ZNK20QGraphicsEllipseItem4typeEv": ["int", "address"],
+    "ritual_ZNK20QGraphicsEllipseItem17supportsExtensionEN13QGraphicsItem9ExtensionE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN20QGraphicsEllipseItem12setExtensionEN13QGraphicsItem9ExtensionERK8QVariant": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZNK20QGraphicsEllipseItem9extensionERK8QVariant": [
+      "address", "address", "address"
+    ],
     "ritual_take_QGraphicsEllipseItem": [
       "bool", "address", "chars", "address"
     ],

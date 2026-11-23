@@ -51,14 +51,21 @@ class QInputMethod(QObject):
   'cursorRectangle', 'anchorRectangle', 'keyboardRectangle',
   'inputItemClipRectangle', 'isVisible', 'setVisible', 'isAnimating',
   'locale', 'inputDirection', 'queryFocusObject', 'show', 'hide', 'update',
-  'reset', 'commit', 'invokeAction'. None can be made from Python: one comes
-  out of a function of another class that gives one back.
+  'reset', 'commit', 'invokeAction'. It can be made from Python, in 1 way;
+  see '__init__'.
+
+  What has a ritual and is left out, and why
+  ------------------------------------------
+
+  - Qt's 'QInputMethod::~QInputMethod()': the destructor: Python never
+    removes a C++ QInputMethod.
 
   What has no ritual
   ------------------
 
-  16 of the 38 functions Qt declares: 8 a signal; 5 private; 2 takes or gives
-  a type that cannot be passed yet; 1 a template.
+  14 of the 38 functions Qt declares: 8 a signal; 4 takes or gives a type
+  that cannot be passed yet; 1 a template; 1 declared and nowhere to be
+  found.
 
   What to expect
   --------------
@@ -457,6 +464,19 @@ class QInputMethod(QObject):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload()
+  def __init__(self) -> None:
+    """
+    Notes what was given, for Qt's 'QInputMethod::QInputMethod()', which is
+    called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qinputmethod.html#QInputMethod
+    """
+    #  QInputMethod::QInputMethod()
+    self._noteCreation(QInputMethod, lambda: Rituals.call(
+        'ritual_ZN12QInputMethodC1Ev',
+    ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #

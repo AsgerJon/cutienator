@@ -463,6 +463,95 @@
     "ritual_ZN7QWidget21createWindowContainerEP7QWindowPS_6QFlagsIN2Qt10WindowTypeEE": [
       "address", "address", "address", "int"
     ],
+    "ritual_ZN7QWidget5eventEP6QEvent": ["bool", "address", "address"],
+    "ritual_ZN7QWidget15mousePressEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QWidget17mouseReleaseEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QWidget21mouseDoubleClickEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QWidget14mouseMoveEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QWidget10wheelEventEP11QWheelEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QWidget13keyPressEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QWidget15keyReleaseEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QWidget12focusInEventEP11QFocusEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QWidget13focusOutEventEP11QFocusEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QWidget10enterEventEP11QEnterEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QWidget10leaveEventEP6QEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QWidget10paintEventEP11QPaintEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QWidget9moveEventEP10QMoveEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QWidget11resizeEventEP12QResizeEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QWidget10closeEventEP11QCloseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QWidget16contextMenuEventEP17QContextMenuEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QWidget11tabletEventEP12QTabletEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QWidget11actionEventEP12QActionEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QWidget14dragEnterEventEP15QDragEnterEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QWidget13dragMoveEventEP14QDragMoveEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QWidget14dragLeaveEventEP15QDragLeaveEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QWidget9dropEventEP10QDropEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QWidget9showEventEP10QShowEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QWidget9hideEventEP10QHideEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QWidget11changeEventEP6QEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK7QWidget6metricEN12QPaintDevice17PaintDeviceMetricE": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK7QWidget11initPainterEP8QPainter": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK7QWidget10redirectedEP6QPoint": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK7QWidget13sharedPainterEv": ["address", "address"],
+    "ritual_ZN7QWidget16inputMethodEventEP17QInputMethodEvent": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK7QWidget16inputMethodQueryEN2Qt16InputMethodQueryE": [
       "address", "address", "int"
     ],
@@ -470,6 +559,23 @@
     "ritual_ZN7QWidget19setInputMethodHintsE6QFlagsIN2Qt15InputMethodHintEE": [
       "nothing", "address", "int"
     ],
+    "ritual_ZN7QWidget16updateMicroFocusEN2Qt16InputMethodQueryE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN7QWidget6createEybb": [
+      "nothing", "address", "unsigned long long", "bool", "bool"
+    ],
+    "ritual_ZN7QWidget7destroyEbb": ["nothing", "address", "bool", "bool"],
+    "ritual_ZN7QWidget18focusNextPrevChildEb": ["bool", "address", "bool"],
+    "ritual_ZN7QWidget14focusNextChildEv": ["bool", "address"],
+    "ritual_ZN7QWidget18focusPreviousChildEv": ["bool", "address"],
+    "ritual_ZN7QWidget15setBackingStoreEP13QBackingStore": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK7QWidget20testAttribute_helperEN2Qt15WidgetAttributeE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN7QWidget10takeLayoutEv": ["address", "address"],
     "ritual_cast_QWidget_QPaintDevice": ["address", "address"],
     "ritual_take_QWidget": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK7QWidget7devTypeEv": ["int", "address"],

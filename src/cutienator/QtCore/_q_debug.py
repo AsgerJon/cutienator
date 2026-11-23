@@ -20,12 +20,13 @@ from . import QIODeviceBase
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from . import QByteArray, QIODevice
+  from . import QByteArray, QChar, QIODevice
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
   QByteArray = WAIT['QByteArray']
+  QChar = WAIT['QChar']
   QIODevice = WAIT['QIODevice']
 
 #  The class of None, for a signature that takes None in the place of an
@@ -49,13 +50,19 @@ class QDebug(QIODeviceBase):
   -----------
 
   Every function of Qt's QDebug that has a ritual and that Python can call so
-  far, 6 names in all: 'verbosity', 'setVerbosity', 'autoInsertSpaces',
-  'setAutoInsertSpaces', 'quoteStrings', 'setQuoteStrings'. It can be made
-  from Python, in 3 ways; see '__init__'.
+  far, 9 names in all: 'putUcs4', 'putString', 'putTimeUnit', 'verbosity',
+  'setVerbosity', 'autoInsertSpaces', 'setAutoInsertSpaces', 'quoteStrings',
+  'setQuoteStrings'. It can be made from Python, in 3 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void QDebug::putByteArray(const char *begin, size_t length,
+    Latin1Content content)': names the enum 'QDebug::Latin1Content', whose
+    class cannot be named here.
+  - Qt's 'void QDebug::putQtOrdering(QtOrderingPrivate::QtOrderingTypeFlag
+    flags, Qt::partial_ordering order)': names the enum
+    'QtOrderingPrivate::QtOrderingType', whose class cannot be named here.
   - Qt's 'QDebug::QDebug(QString *string)': names 'QString', which has no
     cute class yet.
   - Qt's 'QDebug::QDebug(QtMsgType t)': names the enum 'QtMsgType', whose
@@ -66,8 +73,8 @@ class QDebug(QIODeviceBase):
   What has no ritual
   ------------------
 
-  67 of the 79 functions Qt declares: 41 takes or gives a type that cannot be
-  passed yet; 16 a template; 10 private.
+  62 of the 79 functions Qt declares: 46 takes or gives a type that cannot be
+  passed yet; 16 a template.
 
   What to expect
   --------------
@@ -293,3 +300,62 @@ class QDebug(QIODeviceBase):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(int)
+  def putUcs4(self, ucs4: int) -> None:
+    """
+    Calls Qt's 'void QDebug::putUcs4(uint ucs4)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdebug.html#putUcs4
+
+    Parameters
+    ----------
+
+    ucs4 : int
+      Passed on as it is.
+    """
+    #  void QDebug::putUcs4(uint ucs4)
+    self.uglySide.call('ritual_ZN6QDebug7putUcs4Ej', ucs4)
+
+  @overload(QChar, int)
+  @overload(NoneType, int)
+  def putString(self, begin: Optional[QChar], length: int) -> None:
+    """
+    Calls Qt's 'void QDebug::putString(const QChar *begin, size_t length)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdebug.html#putString
+
+    Parameters
+    ----------
+
+    begin : Optional[QChar]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    length : int
+      Passed on as it is.
+    """
+    #  void QDebug::putString(const QChar *begin, size_t length)
+    self.uglySide.call(
+        'ritual_ZN6QDebug9putStringEPK5QCharm',
+        self._addressOf(begin), length,
+    )
+
+  @overload(int, int)
+  def putTimeUnit(self, num: int, den: int) -> None:
+    """
+    Calls Qt's 'void QDebug::putTimeUnit(qint64 num, qint64 den)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdebug.html#putTimeUnit
+
+    Parameters
+    ----------
+
+    num : int
+      Passed on as it is.
+
+    den : int
+      Passed on as it is.
+    """
+    #  void QDebug::putTimeUnit(qint64 num, qint64 den)
+    self.uglySide.call('ritual_ZN6QDebug11putTimeUnitExx', num, den)

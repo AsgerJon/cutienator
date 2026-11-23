@@ -7,6 +7,7 @@
     "ritual_ZN16QEventLoopLockerC1Ev": ["address"],
     "ritual_ZN16QEventLoopLockerC1EP10QEventLoop": ["address", "address"],
     "ritual_ZN16QEventLoopLockerC1EP7QThread": ["address", "address"],
-    "ritual_ZN16QEventLoopLockerD1Ev": ["nothing", "address"]
+    "ritual_ZN16QEventLoopLockerD1Ev": ["nothing", "address"],
+    "ritual_ZNK16QEventLoopLocker4typeEv": ["unsigned long long", "address"]
   }
 }

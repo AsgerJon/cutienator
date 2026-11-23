@@ -42,8 +42,10 @@ class QBindingStorage(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QBindingStorage that has a ritual and that Python
-  can call so far, 3 names in all: 'isEmpty', 'isValid',
-  'registerDependency'. It can be made from Python, in 1 way; see '__init__'.
+  can call so far, 6 names in all: 'isEmpty', 'isValid',
+  'registerDependency', 'reinitAfterThreadMove', 'clear',
+  'registerDependency_helper'. It can be made from Python, in 1 way; see
+  '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -56,12 +58,20 @@ class QBindingStorage(CuteMixin, metaclass=MetaCute):
   - Qt's 'QtPrivate::QPropertyBindingData
     *QBindingStorage::bindingData(QUntypedPropertyData *data, bool create)':
     gives 'QtPrivate::QPropertyBindingData', which has no cute class yet.
+  - Qt's 'QtPrivate::QPropertyBindingData
+    *QBindingStorage::bindingData_helper(const QUntypedPropertyData *data)
+    const': gives 'QtPrivate::QPropertyBindingData', which has no cute class
+    yet.
+  - Qt's 'QtPrivate::QPropertyBindingData
+    *QBindingStorage::bindingData_helper(QUntypedPropertyData *data, bool
+    create)': gives 'QtPrivate::QPropertyBindingData', which has no cute
+    class yet.
 
   What has no ritual
   ------------------
 
-  6 of the 13 functions Qt declares: 5 private; 1 takes or gives a type that
-  cannot be passed yet.
+  1 of the 13 functions Qt declares: 1 takes or gives a type that cannot be
+  passed yet.
 
   What to expect
   --------------
@@ -196,5 +206,52 @@ class QBindingStorage(CuteMixin, metaclass=MetaCute):
     self.uglySide.call(
         'ritual_ZNK15QBindingStorage18registerDependencyEPK20QUntypedProper'
         'tyData',
+        self._addressOf(data),
+    )
+
+  def reinitAfterThreadMove(self) -> None:
+    """
+    Calls Qt's 'void QBindingStorage::reinitAfterThreadMove()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qbindingstorage.html#reinitAfterThreadMove
+    """
+    #  void QBindingStorage::reinitAfterThreadMove()
+    self.uglySide.call('ritual_ZN15QBindingStorage21reinitAfterThreadMoveEv')
+
+  def clear(self) -> None:
+    """
+    Calls Qt's 'void QBindingStorage::clear()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbindingstorage.html#clear
+    """
+    #  void QBindingStorage::clear()
+    self.uglySide.call('ritual_ZN15QBindingStorage5clearEv')
+
+  @overload(QUntypedPropertyData)
+  @overload(NoneType)
+  def registerDependency_helper(
+      self,
+      data: Optional[QUntypedPropertyData],
+  ) -> None:
+    """
+    Calls Qt's 'void QBindingStorage::registerDependency_helper(const
+    QUntypedPropertyData *data) const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qbindingstorage.html#registerDependency_helper
+
+    Parameters
+    ----------
+
+    data : Optional[QUntypedPropertyData]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QBindingStorage::registerDependency_helper(const
+    #      QUntypedPropertyData *data) const
+    self.uglySide.call(
+        'ritual_ZNK15QBindingStorage25registerDependency_helperEPK20QUntype'
+        'dPropertyData',
         self._addressOf(data),
     )

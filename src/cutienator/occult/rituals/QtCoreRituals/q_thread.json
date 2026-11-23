@@ -46,6 +46,9 @@
     "ritual_ZN7QThread5sleepEm": ["nothing", "unsigned long"],
     "ritual_ZN7QThread6msleepEm": ["nothing", "unsigned long"],
     "ritual_ZN7QThread6usleepEm": ["nothing", "unsigned long"],
+    "ritual_ZN7QThread3runEv": ["nothing", "address"],
+    "ritual_ZN7QThread4execEv": ["int", "address"],
+    "ritual_ZN7QThread21setTerminationEnabledEb": ["nothing", "bool"],
     "ritual_take_QThread": ["bool", "address", "chars", "address"],
     "ritual_own_ZN7QThread5eventEP6QEvent": ["bool", "address", "address"],
     "ritual_own_ZN7QThread3runEv": ["nothing", "address"]

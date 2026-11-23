@@ -201,6 +201,20 @@ bool ritual_ZN4QPen10isDetachedEv(QPen *self) {
   return self->isDetached();
 }
 
+//  bool QPen::isSolidDefaultLine() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK4QPen18isSolidDefaultLineEv(const QPen *self) {
+  return self->isSolidDefaultLine();
+}
+
+//  bool QPen::doCompareEqualColor(QColor rhs) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK4QPen19doCompareEqualColorE6QColor(
+    const QPen *self,
+    const QColor *rhs) {
+  return self->doCompareEqualColor(*rhs);
+}
+
 //  bool operator==(const QPen &lhs, const QColor &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZeqRK4QPenRK6QColor(const QPen *lhs, const QColor *rhs) {
@@ -223,4 +237,18 @@ bool ritual_ZeqRK6QColorRK4QPen(const QColor *lhs, const QPen *rhs) {
 extern "C" Q_DECL_EXPORT
 bool ritual_ZneRK6QColorRK4QPen(const QColor *lhs, const QPen *rhs) {
   return operator!=(*lhs, *rhs);
+}
+
+//  bool QPen::doCompareEqualStyle(Qt::PenStyle rhs) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK4QPen19doCompareEqualStyleEN2Qt8PenStyleE(
+    const QPen *self,
+    Qt::PenStyle rhs) {
+  return self->doCompareEqualStyle(rhs);
+}
+
+//  void QPen::detach()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN4QPen6detachEv(QPen *self) {
+  self->detach();
 }

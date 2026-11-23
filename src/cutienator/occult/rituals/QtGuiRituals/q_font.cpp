@@ -569,6 +569,12 @@ int ritual_ZNK5QFont12legacyWeightEv(const QFont *self) {
   return self->legacyWeight();
 }
 
+//  void QFont::detach()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN5QFont6detachEv(QFont *self) {
+  self->detach();
+}
+
 //  QDebug operator<<(QDebug a0, const QFont &a1)
 extern "C" Q_DECL_EXPORT
 QDebug *ritual_Zls6QDebugRK5QFont(const QDebug *a0, const QFont *a1) {

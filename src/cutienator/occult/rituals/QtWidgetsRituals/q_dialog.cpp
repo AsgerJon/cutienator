@@ -951,6 +951,63 @@ void ritual_ZN7QDialog6rejectEv(QDialog *self) {
   self->reject();
 }
 
+//  void QDialog::keyPressEvent(QKeyEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QDialog13keyPressEventEP9QKeyEvent(
+    QDialog *self,
+    QKeyEvent *a0) {
+  self->keyPressEvent(a0);
+}
+
+//  void QDialog::closeEvent(QCloseEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QDialog10closeEventEP11QCloseEvent(
+    QDialog *self,
+    QCloseEvent *a0) {
+  self->closeEvent(a0);
+}
+
+//  void QDialog::showEvent(QShowEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QDialog9showEventEP10QShowEvent(
+    QDialog *self,
+    QShowEvent *a0) {
+  self->showEvent(a0);
+}
+
+//  void QDialog::resizeEvent(QResizeEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QDialog11resizeEventEP12QResizeEvent(
+    QDialog *self,
+    QResizeEvent *a0) {
+  self->resizeEvent(a0);
+}
+
+//  void QDialog::contextMenuEvent(QContextMenuEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QDialog16contextMenuEventEP17QContextMenuEvent(
+    QDialog *self,
+    QContextMenuEvent *a0) {
+  self->contextMenuEvent(a0);
+}
+
+//  bool QDialog::eventFilter(QObject *a0, QEvent *a1)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN7QDialog11eventFilterEP7QObjectP6QEvent(
+    QDialog *self,
+    QObject *a0,
+    QEvent *a1) {
+  return self->eventFilter(a0, a1);
+}
+
+//  void QDialog::adjustPosition(QWidget *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QDialog14adjustPositionEP7QWidget(
+    QDialog *self,
+    QWidget *a0) {
+  self->adjustPosition(a0);
+}
+
 //  a Python function taken by a CuteQDialog, for the function named by the
 //      key
 extern "C" Q_DECL_EXPORT

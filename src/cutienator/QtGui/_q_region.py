@@ -15,18 +15,19 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt
+from ..QtCore import Qt, QDataStream
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from ..QtCore import QPoint, QRect
+  from ..QtCore import QByteArray, QPoint, QRect
   from . import QBitmap, QPolygon
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
   QBitmap = WAIT['QBitmap']
+  QByteArray = WAIT['QByteArray']
   QPoint = WAIT['QPoint']
   QPolygon = WAIT['QPolygon']
   QRect = WAIT['QRect']
@@ -49,12 +50,13 @@ class QRegion(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QRegion that has a ritual and that Python can call
-  so far, 29 names in all: 'isEmpty', 'isNull', 'begin', 'cbegin', 'end',
+  so far, 32 names in all: 'isEmpty', 'isNull', 'begin', 'cbegin', 'end',
   'cend', 'contains', 'translate', 'translated', 'united', 'intersected',
   'subtracted', 'xored', 'intersects', 'boundingRect', 'setRects',
   'rectCount', '__or__', '__add__', '__and__', '__sub__', '__xor__',
   '__ior__', '__iadd__', '__iand__', '__isub__', '__ixor__', '__eq__',
-  '__ne__'. It can be made from Python, in 6 ways; see '__init__'.
+  '__ne__', 'copy', 'detach', 'exec'. It can be made from Python, in 6 ways;
+  see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -67,8 +69,8 @@ class QRegion(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  16 of the 63 functions Qt declares: 12 takes or gives a type that cannot be
-  passed yet; 4 private.
+  13 of the 63 functions Qt declares: 13 takes or gives a type that cannot be
+  passed yet.
 
   What to expect
   --------------
@@ -517,6 +519,22 @@ class QRegion(CuteMixin, metaclass=MetaCute):
     """
     #  int QRegion::rectCount() const
     return self.uglySide.call('ritual_ZNK7QRegion9rectCountEv')
+
+  def copy(self) -> QRegion:
+    """
+    Calls Qt's 'QRegion QRegion::copy() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qregion.html#copy
+
+    Returns
+    -------
+
+    QRegion
+      A new cute QRegion around the copy Qt gave back. Python owns it.
+    """
+    #  QRegion QRegion::copy() const
+    address = self.uglySide.call('ritual_ZNK7QRegion4copyEv')
+    return QRegion._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1207,4 +1225,49 @@ class QRegion(CuteMixin, metaclass=MetaCute):
     #  void QRegion::translate(const QPoint &p)
     self.uglySide.call(
         'ritual_ZN7QRegion9translateERK6QPoint', self._valueOf(p),
+    )
+
+  def detach(self) -> None:
+    """
+    Calls Qt's 'void QRegion::detach()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qregion.html#detach
+    """
+    #  void QRegion::detach()
+    self.uglySide.call('ritual_ZN7QRegion6detachEv')
+
+  @overload(QByteArray)
+  @overload(QByteArray, int)
+  @overload(QByteArray, int, QDataStream.ByteOrder)
+  def exec(
+      self,
+      ba: QByteArray,
+      ver: int = 0,
+      byteOrder: QDataStream.ByteOrder = QDataStream.ByteOrder.BigEndian,
+  ) -> None:
+    """
+    Calls Qt's 'void QRegion::exec(const QByteArray &ba, int ver,
+    QDataStream::ByteOrder byteOrder)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qregion.html#exec
+
+    Parameters
+    ----------
+
+    ba : QByteArray
+      Passed on as a value: Qt reads the C++ QByteArray, which stays Python's
+      own.
+
+    ver : int
+      Passed on as it is. May be left out, as in Qt: it is then 0.
+
+    byteOrder : QDataStream.ByteOrder
+      Passed on as its number. May be left out, as in Qt: it is then
+      QDataStream.ByteOrder.BigEndian.
+    """
+    #  void QRegion::exec(const QByteArray &ba, int ver,
+    #      QDataStream::ByteOrder byteOrder)
+    self.uglySide.call(
+        'ritual_ZN7QRegion4execERK10QByteArrayiN11QDataStream9ByteOrderE',
+        self._valueOf(ba), ver, byteOrder.value,
     )

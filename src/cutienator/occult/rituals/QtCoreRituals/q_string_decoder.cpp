@@ -47,3 +47,26 @@ QChar *ritual_ZN14QStringDecoder14appendToBufferEP5QChar14QByteArrayView(
     const QByteArrayView *ba) {
   return self->appendToBuffer(out, *ba);
 }
+
+//  QString QStringDecoder::invalidateAndReturnNull()
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN14QStringDecoder23invalidateAndReturnNullEv(
+    QStringDecoder *self) {
+  return new QString(self->invalidateAndReturnNull());
+}
+
+//  QString QStringDecoder::decodeAsStringImpl(QByteArrayView in)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN14QStringDecoder18decodeAsStringImplE14QByteArrayView(
+    QStringDecoder *self,
+    const QByteArrayView *in) {
+  return new QString(self->decodeAsStringImpl(*in));
+}
+
+//  QString QStringDecoder::decodeAsString(QByteArrayView in)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN14QStringDecoder14decodeAsStringE14QByteArrayView(
+    QStringDecoder *self,
+    const QByteArrayView *in) {
+  return new QString(self->decodeAsString(*in));
+}

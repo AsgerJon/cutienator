@@ -134,6 +134,104 @@
     ],
     "ritual_ZN9QTreeView11collapseAllEv": ["nothing", "address"],
     "ritual_ZN9QTreeView13expandToDepthEi": ["nothing", "address", "int"],
+    "ritual_ZN9QTreeView13columnResizedEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZN9QTreeView18columnCountChangedEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN9QTreeView11columnMovedEv": ["nothing", "address"],
+    "ritual_ZN9QTreeView8reexpandEv": ["nothing", "address"],
+    "ritual_ZN9QTreeView11rowsRemovedERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN9QTreeView29verticalScrollbarValueChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN9QTreeView16scrollContentsByEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN9QTreeView12rowsInsertedERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN9QTreeView20rowsAboutToBeRemovedERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN9QTreeView10moveCursorEN17QAbstractItemView12CursorActionE6QFlagsIN2Qt16KeyboardModifierEE": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZNK9QTreeView16horizontalOffsetEv": ["int", "address"],
+    "ritual_ZNK9QTreeView14verticalOffsetEv": ["int", "address"],
+    "ritual_ZN9QTreeView12setSelectionERK5QRect6QFlagsIN19QItemSelectionModel13SelectionFlagEE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZNK9QTreeView24visualRegionForSelectionERK14QItemSelection": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK9QTreeView15selectedIndexesEv": ["address", "address"],
+    "ritual_ZN9QTreeView11changeEventEP6QEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QTreeView10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QTreeView10paintEventEP11QPaintEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9QTreeView8drawTreeEP8QPainterRK7QRegion": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK9QTreeView7drawRowEP8QPainterRK20QStyleOptionViewItemRK11QModelIndex": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK9QTreeView12drawBranchesEP8QPainterRK5QRectRK11QModelIndex": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN9QTreeView15mousePressEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QTreeView17mouseReleaseEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QTreeView21mouseDoubleClickEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QTreeView14mouseMoveEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QTreeView13keyPressEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QTreeView13dragMoveEventEP14QDragMoveEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QTreeView13viewportEventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN9QTreeView16updateGeometriesEv": ["nothing", "address"],
+    "ritual_ZNK9QTreeView16viewportSizeHintEv": ["address", "address"],
+    "ritual_ZNK9QTreeView17sizeHintForColumnEi": ["int", "address", "int"],
+    "ritual_ZNK9QTreeView16indexRowSizeHintERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK9QTreeView9rowHeightERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN9QTreeView25horizontalScrollbarActionEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK9QTreeView13isIndexHiddenERK11QModelIndex": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN9QTreeView16selectionChangedERK14QItemSelectionS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN9QTreeView14currentChangedERK11QModelIndexS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK9QTreeView11visualIndexERK11QModelIndex": [
+      "int", "address", "address"
+    ],
     "ritual_take_QTreeView": ["bool", "address", "chars", "address"],
     "ritual_own_ZN9QTreeView8setModelEP18QAbstractItemModel": [
       "nothing", "address", "address"

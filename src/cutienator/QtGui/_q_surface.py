@@ -40,9 +40,9 @@ class QSurface(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  5 of the 11 functions Qt declares: 1 declared and nowhere to be found; 1 a
-  template; 1 private; 1 takes or gives a type that cannot be passed yet; 1
-  protected.
+  5 of the 11 functions Qt declares: 2 declared and nowhere to be found; 1 a
+  template; 1 takes or gives a type that cannot be passed yet; 1 the class is
+  abstract, so C++ cannot make one.
 
   What to expect
   --------------

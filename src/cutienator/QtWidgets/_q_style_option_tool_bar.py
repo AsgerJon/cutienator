@@ -34,7 +34,7 @@ class QStyleOptionToolBar(QStyleOption):
   -----------
 
   No function of Qt's QStyleOptionToolBar yet. It can be made from Python, in
-  2 ways; see '__init__'.
+  3 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -46,8 +46,8 @@ class QStyleOptionToolBar(QStyleOption):
   What has no ritual
   ------------------
 
-  2 of the 5 functions Qt declares: 1 takes or gives a type that cannot be
-  passed yet; 1 protected.
+  1 of the 5 functions Qt declares: 1 takes or gives a type that cannot be
+  passed yet.
 
   What to expect
   --------------
@@ -186,6 +186,27 @@ class QStyleOptionToolBar(QStyleOption):
     #      &other)
     self._noteCreation(QStyleOptionToolBar, lambda: Rituals.call(
         'ritual_ZN19QStyleOptionToolBarC1ERKS_', self._valueOf(other),
+    ))
+
+  @overload(int)
+  def __init__(self, version: int) -> None:
+    """
+    Notes what was given, for Qt's
+    'QStyleOptionToolBar::QStyleOptionToolBar(int version)', which is called
+    at the first use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qstyleoptiontoolbar.html#QStyleOptionToolBar
+
+    Parameters
+    ----------
+
+    version : int
+      Passed on as it is.
+    """
+    #  QStyleOptionToolBar::QStyleOptionToolBar(int version)
+    self._noteCreation(QStyleOptionToolBar, lambda: Rituals.call(
+        'ritual_ZN19QStyleOptionToolBarC1Ei', version,
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

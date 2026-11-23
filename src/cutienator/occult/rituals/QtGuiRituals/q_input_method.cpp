@@ -163,3 +163,15 @@ void ritual_ZN12QInputMethod12invokeActionENS_6ActionEi(
     int cursorPosition) {
   self->invokeAction(a, cursorPosition);
 }
+
+//  QInputMethod::QInputMethod()
+extern "C" Q_DECL_EXPORT
+QInputMethod *ritual_ZN12QInputMethodC1Ev() {
+  return new QInputMethod();
+}
+
+//  QInputMethod::~QInputMethod()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QInputMethodD1Ev(QInputMethod *self) {
+  delete self;
+}

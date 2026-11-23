@@ -164,3 +164,9 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZneRK9QCollatorS1_(const QCollator *lhs, const QCollator *rhs) {
   return operator!=(*lhs, *rhs);
 }
+
+//  void QCollator::detach()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QCollator6detachEv(QCollator *self) {
+  self->detach();
+}

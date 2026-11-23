@@ -51,8 +51,9 @@ class QInputDevice(QObject):
   What has no ritual
   ------------------
 
-  15 of the 29 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 4 forbidden; 3 private; 2 a signal; 1 a template; 1 protected.
+  15 of the 29 functions Qt declares: 7 takes or gives a type that cannot be
+  passed yet; 4 forbidden; 2 a signal; 1 a template; 1 declared and nowhere
+  to be found.
 
   What to expect
   --------------

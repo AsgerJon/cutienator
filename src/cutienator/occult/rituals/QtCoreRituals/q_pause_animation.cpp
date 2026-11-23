@@ -256,6 +256,22 @@ void ritual_ZN15QPauseAnimation11setDurationEi(
   self->setDuration(msecs);
 }
 
+//  bool QPauseAnimation::event(QEvent *e)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN15QPauseAnimation5eventEP6QEvent(
+    QPauseAnimation *self,
+    QEvent *e) {
+  return self->event(e);
+}
+
+//  void QPauseAnimation::updateCurrentTime(int a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QPauseAnimation17updateCurrentTimeEi(
+    QPauseAnimation *self,
+    int a0) {
+  self->updateCurrentTime(a0);
+}
+
 //  a Python function taken by a CuteQPauseAnimation, for the function named
 //      by the key
 extern "C" Q_DECL_EXPORT

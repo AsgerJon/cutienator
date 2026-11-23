@@ -1433,6 +1433,8 @@ class ClassGenerator:
         return dict(text='None')
       if nodeKind == 'IntegerLiteral' and node.get('value') == '0':
         return dict(text='None')
+      if kind == 'address' and nodeKind == 'CallExpr':
+        return self._findCalledDefault(node, parameter)
       return None
     if kind == 'number':
       number = self._findNumber(node)
@@ -1493,6 +1495,62 @@ class ClassGenerator:
         brings.extend(n for n in part[3] if n not in brings)
       return dict(text='None', made=made, brings=(*brings,))
     return None
+
+  def _findCalledDefault(self, node: Record, parameter: Record) -> Any:
+    """
+    Says in Python what Qt fills in for an object it gets by calling a
+    function of the class of that object with nothing handed over, as
+    'QPointingDevice::primaryPointingDevice()' for the device of a
+    'QMouseEvent'.
+
+    None stands for no object there, so it cannot also stand for an
+    argument that was left out. '...' does: no signature takes it, so
+    it reaches the function only where the argument is left out.
+
+    Parameters
+    ----------
+
+    node : Record
+      The call, as the compiler wrote it down.
+
+    parameter : Record
+      The argument as this generator has it in Python.
+
+    Returns
+    -------
+
+    Optional[Record]
+      None when it cannot be said in Python: the call hands something
+      over, or the cute class of the object has no such function that
+      is called on no object and with nothing. Else 'text': '...';
+      'left': the same, what the function finds there; 'made': the
+      call in Python; 'brings': the class it is called on.
+    """
+    inner = [c for c in node.get('inner', ()) if isinstance(c, dict)]
+    if not inner:
+      return None
+    if any(c.get('kind') != 'CXXDefaultArgExpr' for c in inner[1:]):
+      return None
+    called = self._unwrap(inner[0])
+    if called is None or called.get('kind') != 'DeclRefExpr':
+      return None
+    referenced = called.get('referencedDecl', dict())
+    if referenced.get('kind') != 'CXXMethodDecl':
+      return None
+    name, className = referenced.get('name'), parameter['className']
+    found = [
+        plan for plan in self.getRitualGenerator(className).getWritten()
+        if plan['kind'] == 'static method'
+        and plan['function'].split('(')[0].endswith(
+            ' *%s::%s' % (className, name))
+    ]
+    if len(found) != 1:
+      return None
+    for argument in found[0]['arguments']:
+      if argument.get('default') is None:
+        return None
+    made = '%s.%s()' % (parameter['holder'], name)
+    return dict(text='...', left='...', made=made, brings=(className,))
 
   def _canBeMadeEmpty(self, className: str) -> bool:
     """Says whether the cute class of a class of Qt can be made with
@@ -2310,21 +2368,9 @@ class ClassGenerator:
     reasons = collections.Counter()  # type: Any
     for _, reason in self.getRitualGenerator().getNotWritten():
       reasons[reason.partition(':')[0]] += 1
-    #  A protected function Python can take over has a ritual after all:
-    #  the one that runs just the class's own function, for 'super()'.
-    reasons['protected'] -= self._countOwnProtected()
     return [
         (count, reason) for reason, count in reasons.most_common() if count
     ]
-
-  def _countOwnProtected(self) -> int:
-    """Gives how many protected functions of the class have a ritual
-    that runs just the class's own function, and no other."""
-    written = self.getRitualGenerator().getWritten()
-    return sum(
-        1 for plan in written
-        if plan['kind'] == 'own' and plan['access'] == 'protected'
-    )
 
   def _writeClassDocstring(self) -> List[str]:
     """Gives the docstring of the cute class."""
@@ -2383,7 +2429,7 @@ class ClassGenerator:
       paragraphs.append(('What has a ritual and is left out, and why', None))
       for shown, reason in leftOut:
         paragraphs.append(('- ', "Qt's '%s': %s." % (shown, reason)))
-    without = len(notWritten) - self._countOwnProtected()
+    without = len(notWritten)
     if without:
       paragraphs.append(('What has no ritual', None))
       infoSpec = """%d of the %d functions Qt declares:"""
@@ -2754,7 +2800,11 @@ class ClassGenerator:
             words = '%s None is passed on as no object.' % words
         default = parameter['default'] if stacked else None
         if default is not None:
-          if 'made' in default:
+          if 'left' in default:
+            infoSpec = """%s May be left out, as in Qt: what '%s'
+            gives is then passed on."""
+            words = infoSpec % (words, default['made'])
+          elif 'made' in default:
             annotation = 'Optional[%s]' % annotation
             infoSpec = """%s May be left out, as in Qt: a new '%s' is
             then passed on."""
@@ -2786,7 +2836,8 @@ class ClassGenerator:
       default = parameter['default'] if stacked else None
       if default is not None and 'made' in default:
         name = parameter['name']
-        lines.append('    if %s is None:' % name)
+        left = default.get('left', 'None')
+        lines.append('    if %s is %s:' % (name, left))
         brought = []  # type: List[str]
         if parameter['late'] and parameter['bring']:
           brought.append(parameter['bring'])

@@ -246,6 +246,14 @@ void ritual_ZN22QGraphicsOpacityEffect14setOpacityMaskERK6QBrush(
   self->setOpacityMask(*mask);
 }
 
+//  void QGraphicsOpacityEffect::draw(QPainter *painter)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QGraphicsOpacityEffect4drawEP8QPainter(
+    QGraphicsOpacityEffect *self,
+    QPainter *painter) {
+  self->draw(painter);
+}
+
 //  a Python function taken by a CuteQGraphicsOpacityEffect, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT

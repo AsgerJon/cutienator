@@ -96,12 +96,25 @@
     "ritual_ZNK18QCborValueConstRef20toDiagnosticNotationE6QFlagsIN10QCborValue24DiagnosticNotationOptionEE": [
       "text", "address", "int"
     ],
+    "ritual_ZNK18QCborValueConstRef8concreteEv": ["address", "address"],
+    "ritual_ZN18QCborValueConstRef20comparesEqual_helperES_S_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN18QCborValueConstRef22compareThreeWay_helperES_S_": [
+      "address", "address", "address"
+    ],
     "ritual_ZeqRK18QCborValueConstRefS1_": ["bool", "address", "address"],
     "ritual_ZneRK18QCborValueConstRefS1_": ["bool", "address", "address"],
     "ritual_ZltRK18QCborValueConstRefS1_": ["bool", "address", "address"],
     "ritual_ZgtRK18QCborValueConstRefS1_": ["bool", "address", "address"],
     "ritual_ZleRK18QCborValueConstRefS1_": ["bool", "address", "address"],
     "ritual_ZgeRK18QCborValueConstRefS1_": ["bool", "address", "address"],
+    "ritual_ZN18QCborValueConstRef20comparesEqual_helperES_RK10QCborValue": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN18QCborValueConstRef22compareThreeWay_helperES_RK10QCborValue": [
+      "address", "address", "address"
+    ],
     "ritual_ZeqRK18QCborValueConstRefRK10QCborValue": [
       "bool", "address", "address"
     ],
@@ -138,6 +151,27 @@
     "ritual_ZgeRK10QCborValueRK18QCborValueConstRef": [
       "bool", "address", "address"
     ],
+    "ritual_ZN18QCborValueConstRef8concreteES_": ["address", "address"],
+    "ritual_ZN18QCborValueConstRef12concreteTypeES_": ["int", "address"],
+    "ritual_ZN18QCborValueConstRef15concreteBooleanES_b": [
+      "bool", "address", "bool"
+    ],
+    "ritual_ZN18QCborValueConstRef14concreteDoubleES_d": [
+      "double", "address", "double"
+    ],
+    "ritual_ZN18QCborValueConstRef16concreteIntegralES_x": [
+      "long long", "address", "long long"
+    ],
+    "ritual_ZN18QCborValueConstRef17concreteByteArrayES_RK10QByteArray": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18QCborValueConstRef14concreteStringES_RK7QString": [
+      "text", "address", "text"
+    ],
+    "ritual_ZN18QCborValueConstRef18concreteStringViewES_14QAnyStringView": [
+      "text", "address", "text"
+    ],
+    "ritual_ZN18QCborValueConstRefC1Ev": ["address"],
     "ritual_ZN18QCborValueConstRefD1Ev": ["nothing", "address"]
   }
 }

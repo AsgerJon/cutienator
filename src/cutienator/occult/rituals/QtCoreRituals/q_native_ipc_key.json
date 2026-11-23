@@ -24,6 +24,20 @@
     ],
     "ritual_ZNK13QNativeIpcKey8toStringEv": ["text", "address"],
     "ritual_ZN13QNativeIpcKey10fromStringERK7QString": ["address", "text"],
+    "ritual_ZNK13QNativeIpcKey10isSlowPathEv": ["bool", "address"],
+    "ritual_ZN13QNativeIpcKey13copy_internalERKS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QNativeIpcKey16destroy_internalEv": ["nothing", "address"],
+    "ritual_ZN13QNativeIpcKey16setType_internalENS_4TypeE": [
+      "nothing", "address", "unsigned short"
+    ],
+    "ritual_ZN13QNativeIpcKey21setNativeKey_internalERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN13QNativeIpcKey16compare_internalERKS_S1_": [
+      "int", "address", "address"
+    ],
     "ritual_ZeqRK13QNativeIpcKeyS1_": ["bool", "address", "address"],
     "ritual_ZneRK13QNativeIpcKeyS1_": ["bool", "address", "address"]
   }

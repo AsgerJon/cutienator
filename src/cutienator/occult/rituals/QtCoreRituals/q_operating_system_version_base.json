@@ -28,6 +28,9 @@
     ],
     "ritual_ZNK27QOperatingSystemVersionBase4typeEv": ["int", "address"],
     "ritual_ZNK27QOperatingSystemVersionBase4nameEv": ["text", "address"],
+    "ritual_ZN27QOperatingSystemVersionBase7compareES_S_": [
+      "int", "address", "address"
+    ],
     "ritual_Zgt27QOperatingSystemVersionBaseS_": [
       "bool", "address", "address"
     ],
@@ -40,6 +43,7 @@
     "ritual_Zle27QOperatingSystemVersionBaseS_": [
       "bool", "address", "address"
     ],
+    "ritual_ZN27QOperatingSystemVersionBaseC1Ev": ["address"],
     "ritual_ZN27QOperatingSystemVersionBaseD1Ev": ["nothing", "address"]
   }
 }

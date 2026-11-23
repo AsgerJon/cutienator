@@ -6,6 +6,8 @@
   "rows": {
     "ritual_ZNK10QClipboard10metaObjectEv": ["address", "address"],
     "ritual_ZN10QClipboard2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN10QClipboardC1EP7QObject": ["address", "address"],
+    "ritual_ZN10QClipboardD1Ev": ["nothing", "address"],
     "ritual_ZN10QClipboard5clearENS_4ModeE": ["nothing", "address", "int"],
     "ritual_ZNK10QClipboard17supportsSelectionEv": ["bool", "address"],
     "ritual_ZNK10QClipboard18supportsFindBufferEv": ["bool", "address"],
@@ -29,6 +31,13 @@
     ],
     "ritual_ZN10QClipboard9setPixmapERK7QPixmapNS_4ModeE": [
       "nothing", "address", "address", "int"
+    ],
+    "ritual_ZNK10QClipboard12supportsModeENS_4ModeE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK10QClipboard8ownsModeENS_4ModeE": ["bool", "address", "int"],
+    "ritual_ZN10QClipboard11emitChangedENS_4ModeE": [
+      "nothing", "address", "int"
     ]
   }
 }

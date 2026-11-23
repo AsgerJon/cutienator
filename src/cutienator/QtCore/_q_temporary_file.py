@@ -51,8 +51,8 @@ class QTemporaryFile(QFile):
   What has no ritual
   ------------------
 
-  14 of the 31 functions Qt declares: 6 a template; 3 takes or gives a type
-  that cannot be passed yet; 3 private; 2 forbidden.
+  14 of the 31 functions Qt declares: 6 a template; 5 takes or gives a type
+  that cannot be passed yet; 2 forbidden; 1 declared and nowhere to be found.
 
   What to expect
   --------------
@@ -407,11 +407,14 @@ class QTemporaryFile(QFile):
       Passed on as its number.
     """
     #  bool QTemporaryFile::open(OpenMode flags)
-    return self.uglySide.call(
-        'ritual_own_ZN14QTemporaryFile4openE6QFlagsIN13QIODeviceBase12OpenM'
-        'odeFlagEE',
-        flags.value,
-    )
+    ritual = (
+        'ritual_ZN14QTemporaryFile4openE6QFlagsIN13QIODeviceBase12OpenModeF'
+        'lagEE')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN14QTemporaryFile4openE6QFlagsIN13QIODeviceBase12Ope'
+          'nModeFlagEE')
+    return self.uglySide.call(ritual, flags.value)
 
   @overload(str)
   def rename(self, newName: str) -> bool:

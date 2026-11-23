@@ -46,12 +46,12 @@ class QStatusBar(QWidget):
   -----------
 
   Every function of Qt's QStatusBar that has a ritual and that Python can
-  call so far, 16 names in all: 'metaObject', 'tr', 'addWidget',
+  call so far, 18 names in all: 'metaObject', 'tr', 'addWidget',
   'insertWidget', 'addPermanentWidget', 'insertPermanentWidget',
   'removeWidget', 'setSizeGripEnabled', 'isSizeGripEnabled',
   'currentMessage', 'showMessage', 'clearMessage', 'showEvent', 'paintEvent',
-  'resizeEvent', 'event'. It can be made from Python, in 1 way; see
-  '__init__'.
+  'resizeEvent', 'reformat', 'hideOrShow', 'event'. It can be made from
+  Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -62,8 +62,9 @@ class QStatusBar(QWidget):
   What has no ritual
   ------------------
 
-  11 of the 29 functions Qt declares: 3 private; 2 takes or gives a type that
-  cannot be passed yet; 2 protected; 2 forbidden; 1 a template; 1 a signal.
+  9 of the 29 functions Qt declares: 4 takes or gives a type that cannot be
+  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found;
+  1 a signal.
 
   What to expect
   --------------
@@ -465,10 +466,10 @@ class QStatusBar(QWidget):
       object.
     """
     #  void QStatusBar::showEvent(QShowEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN10QStatusBar9showEventEP10QShowEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN10QStatusBar9showEventEP10QShowEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN10QStatusBar9showEventEP10QShowEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QPaintEvent)
   @overload(NoneType)
@@ -486,10 +487,10 @@ class QStatusBar(QWidget):
       object.
     """
     #  void QStatusBar::paintEvent(QPaintEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN10QStatusBar10paintEventEP11QPaintEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN10QStatusBar10paintEventEP11QPaintEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN10QStatusBar10paintEventEP11QPaintEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QResizeEvent)
   @overload(NoneType)
@@ -507,10 +508,28 @@ class QStatusBar(QWidget):
       object.
     """
     #  void QStatusBar::resizeEvent(QResizeEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN10QStatusBar11resizeEventEP12QResizeEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN10QStatusBar11resizeEventEP12QResizeEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN10QStatusBar11resizeEventEP12QResizeEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
+
+  def reformat(self) -> None:
+    """
+    Calls Qt's 'void QStatusBar::reformat()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qstatusbar.html#reformat
+    """
+    #  void QStatusBar::reformat()
+    self.uglySide.call('ritual_ZN10QStatusBar8reformatEv')
+
+  def hideOrShow(self) -> None:
+    """
+    Calls Qt's 'void QStatusBar::hideOrShow()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qstatusbar.html#hideOrShow
+    """
+    #  void QStatusBar::hideOrShow()
+    self.uglySide.call('ritual_ZN10QStatusBar10hideOrShowEv')
 
   @overload(QEvent)
   @overload(NoneType)
@@ -528,6 +547,7 @@ class QStatusBar(QWidget):
       object.
     """
     #  bool QStatusBar::event(QEvent *a0)
-    return self.uglySide.call(
-        'ritual_own_ZN10QStatusBar5eventEP6QEvent', self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN10QStatusBar5eventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN10QStatusBar5eventEP6QEvent'
+    return self.uglySide.call(ritual, self._addressOf(a0))

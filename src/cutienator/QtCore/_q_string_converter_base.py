@@ -9,7 +9,10 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
+from worktoy.dispatch import overload
+
 from ..cute import CuteMixin, CuteFlags, MetaCute
+from ..occult import Rituals
 
 
 class QStringConverterBase(CuteMixin, metaclass=MetaCute):
@@ -20,13 +23,20 @@ class QStringConverterBase(CuteMixin, metaclass=MetaCute):
   What exists
   -----------
 
-  No function of Qt's QStringConverterBase yet. None can be made from Python:
-  one comes out of a function of another class that gives one back.
+  No function of Qt's QStringConverterBase yet. It can be made from Python,
+  in 1 way; see '__init__'.
+
+  What has a ritual and is left out, and why
+  ------------------------------------------
+
+  - Qt's 'QStringConverterBase::~QStringConverterBase()': the destructor:
+    Python never removes a C++ QStringConverterBase.
 
   What has no ritual
   ------------------
 
-  4 of the 4 functions Qt declares: 4 protected.
+  2 of the 4 functions Qt declares: 2 takes or gives a type that cannot be
+  passed yet.
 
   What to expect
   --------------
@@ -223,6 +233,21 @@ class QStringConverterBase(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload()
+  def __init__(self) -> None:
+    """
+    Notes what was given, for Qt's
+    'QStringConverterBase::QStringConverterBase()', which is called at the
+    first use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qstringconverterbase.html#QStringConverterBase
+    """
+    #  QStringConverterBase::QStringConverterBase()
+    self._noteCreation(QStringConverterBase, lambda: Rituals.call(
+        'ritual_ZN20QStringConverterBaseC1Ev',
+    ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #

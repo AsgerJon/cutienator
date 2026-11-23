@@ -375,6 +375,54 @@ QString *ritual_ZN13QCborValueRef20toDiagnosticNotationE6QFlagsIN10QCborValue24D
           QFlags<QCborValue::DiagnosticNotationOption>::fromInt(opt)));
 }
 
+//  QCborValue QCborValueRef::concrete(QCborValueRef that)
+extern "C" Q_DECL_EXPORT
+QCborValue *ritual_ZN13QCborValueRef8concreteES_(const QCborValueRef *that) {
+  return new QCborValue(QCborValueRef::concrete(*that));
+}
+
+//  QCborValue QCborValueRef::concrete() const
+extern "C" Q_DECL_EXPORT
+QCborValue *ritual_ZNK13QCborValueRef8concreteEv(const QCborValueRef *self) {
+  return new QCborValue(self->concrete());
+}
+
+//  QCborValue::Type QCborValueRef::concreteType(QCborValueRef self_)
+extern "C" Q_DECL_EXPORT
+QCborValue::Type ritual_ZN13QCborValueRef12concreteTypeES_(
+    const QCborValueRef *self_) {
+  return QCborValueRef::concreteType(*self_);
+}
+
+//  QCborValue::Type QCborValueRef::concreteType() const
+extern "C" Q_DECL_EXPORT
+QCborValue::Type ritual_ZNK13QCborValueRef12concreteTypeEv(
+    const QCborValueRef *self) {
+  return self->concreteType();
+}
+
+//  QCborValueRef::QCborValueRef()
+extern "C" Q_DECL_EXPORT
+QCborValueRef *ritual_ZN13QCborValueRefC1Ev() {
+  return new QCborValueRef();
+}
+
+//  void QCborValueRef::assign(QCborValueRef that, const QCborValue &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QCborValueRef6assignES_RK10QCborValue(
+    const QCborValueRef *that,
+    const QCborValue *other) {
+  QCborValueRef::assign(*that, *other);
+}
+
+//  void QCborValueRef::assign(QCborValueRef that, const QCborValueRef other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QCborValueRef6assignES_S_(
+    const QCborValueRef *that,
+    const QCborValueRef *other) {
+  QCborValueRef::assign(*that, *other);
+}
+
 //  QCborValueRef::~QCborValueRef()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QCborValueRefD1Ev(QCborValueRef *self) {

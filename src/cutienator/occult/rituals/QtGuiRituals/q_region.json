@@ -70,6 +70,11 @@
     "ritual_ZN7QRegioneOERKS_": ["nothing", "address", "address"],
     "ritual_ZNK7QRegioneqERKS_": ["bool", "address", "address"],
     "ritual_ZNK7QRegionneERKS_": ["bool", "address", "address"],
-    "ritual_ZNK7QRegioncv8QVariantEv": ["address", "address"]
+    "ritual_ZNK7QRegioncv8QVariantEv": ["address", "address"],
+    "ritual_ZNK7QRegion4copyEv": ["address", "address"],
+    "ritual_ZN7QRegion6detachEv": ["nothing", "address"],
+    "ritual_ZN7QRegion4execERK10QByteArrayiN11QDataStream9ByteOrderE": [
+      "nothing", "address", "address", "int", "int"
+    ]
   }
 }

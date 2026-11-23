@@ -43,14 +43,15 @@ class QStringDecoder(QStringConverter):
   -----------
 
   Every function of Qt's QStringDecoder that has a ritual and that Python can
-  call so far, 2 names in all: 'requiredSpace', 'appendToBuffer'. It can be
-  made from Python, in 3 ways; see '__init__'.
+  call so far, 5 names in all: 'requiredSpace', 'appendToBuffer',
+  'invalidateAndReturnNull', 'decodeAsStringImpl', 'decodeAsString'. It can
+  be made from Python, in 3 ways; see '__init__'.
 
   What has no ritual
   ------------------
 
-  13 of the 18 functions Qt declares: 7 takes or gives a type that cannot be
-  passed yet; 3 private; 2 a template; 1 protected.
+  10 of the 18 functions Qt declares: 8 takes or gives a type that cannot be
+  passed yet; 2 a template.
 
   What to expect
   --------------
@@ -256,3 +257,75 @@ class QStringDecoder(QStringConverter):
     )
     from . import QChar
     return QChar._cuteAt(address)
+
+  def invalidateAndReturnNull(self) -> str:
+    """
+    Calls Qt's 'QString QStringDecoder::invalidateAndReturnNull()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qstringdecoder.html#invalidateAndReturnNull
+
+    Returns
+    -------
+
+    str
+      The text Qt gave back.
+    """
+    #  QString QStringDecoder::invalidateAndReturnNull()
+    return self.uglySide.call(
+        'ritual_ZN14QStringDecoder23invalidateAndReturnNullEv',
+    )
+
+  @overload(QByteArrayView)
+  def decodeAsStringImpl(self, in_: QByteArrayView) -> str:
+    """
+    Calls Qt's 'QString QStringDecoder::decodeAsStringImpl(QByteArrayView
+    in)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qstringdecoder.html#decodeAsStringImpl
+
+    Parameters
+    ----------
+
+    in_ : QByteArrayView
+      Passed on as a value: Qt reads the C++ QByteArrayView, which stays
+      Python's own.
+
+    Returns
+    -------
+
+    str
+      The text Qt gave back.
+    """
+    #  QString QStringDecoder::decodeAsStringImpl(QByteArrayView in)
+    return self.uglySide.call(
+        'ritual_ZN14QStringDecoder18decodeAsStringImplE14QByteArrayView',
+        self._valueOf(in_),
+    )
+
+  @overload(QByteArrayView)
+  def decodeAsString(self, in_: QByteArrayView) -> str:
+    """
+    Calls Qt's 'QString QStringDecoder::decodeAsString(QByteArrayView in)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qstringdecoder.html#decodeAsString
+
+    Parameters
+    ----------
+
+    in_ : QByteArrayView
+      Passed on as a value: Qt reads the C++ QByteArrayView, which stays
+      Python's own.
+
+    Returns
+    -------
+
+    str
+      The text Qt gave back.
+    """
+    #  QString QStringDecoder::decodeAsString(QByteArrayView in)
+    return self.uglySide.call(
+        'ritual_ZN14QStringDecoder14decodeAsStringE14QByteArrayView',
+        self._valueOf(in_),
+    )

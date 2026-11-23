@@ -102,3 +102,11 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN11QPageRanges6detachEv(QPageRanges *self) {
   self->detach();
 }
+
+//  bool QPageRanges::isEqual(const QPageRanges &other) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK11QPageRanges7isEqualERKS_(
+    const QPageRanges *self,
+    const QPageRanges *other) {
+  return self->isEqual(*other);
+}

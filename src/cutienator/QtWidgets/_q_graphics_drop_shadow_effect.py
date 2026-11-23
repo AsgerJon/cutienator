@@ -62,8 +62,9 @@ class QGraphicsDropShadowEffect(QGraphicsEffect):
   What has no ritual
   ------------------
 
-  11 of the 29 functions Qt declares: 3 private; 3 a signal; 2 takes or gives
-  a type that cannot be passed yet; 2 forbidden; 1 a template.
+  11 of the 29 functions Qt declares: 4 takes or gives a type that cannot be
+  passed yet; 3 a signal; 2 forbidden; 1 a template; 1 declared and nowhere
+  to be found.
 
   What to expect
   --------------
@@ -506,7 +507,7 @@ class QGraphicsDropShadowEffect(QGraphicsEffect):
       object.
     """
     #  void QGraphicsDropShadowEffect::draw(QPainter *painter)
-    self.uglySide.call(
-        'ritual_own_ZN25QGraphicsDropShadowEffect4drawEP8QPainter',
-        self._addressOf(painter),
-    )
+    ritual = 'ritual_ZN25QGraphicsDropShadowEffect4drawEP8QPainter'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN25QGraphicsDropShadowEffect4drawEP8QPainter'
+    self.uglySide.call(ritual, self._addressOf(painter))

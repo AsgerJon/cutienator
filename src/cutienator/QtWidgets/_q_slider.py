@@ -64,8 +64,8 @@ class QSlider(QAbstractSlider):
   What has no ritual
   ------------------
 
-  8 of the 25 functions Qt declares: 3 private; 2 takes or gives a type that
-  cannot be passed yet; 2 forbidden; 1 a template.
+  8 of the 25 functions Qt declares: 4 takes or gives a type that cannot be
+  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found.
 
   What to expect
   --------------
@@ -428,10 +428,10 @@ class QSlider(QAbstractSlider):
       object.
     """
     #  void QSlider::paintEvent(QPaintEvent *ev)
-    self.uglySide.call(
-        'ritual_own_ZN7QSlider10paintEventEP11QPaintEvent',
-        self._addressOf(ev),
-    )
+    ritual = 'ritual_ZN7QSlider10paintEventEP11QPaintEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QSlider10paintEventEP11QPaintEvent'
+    self.uglySide.call(ritual, self._addressOf(ev))
 
   @overload(QMouseEvent)
   @overload(NoneType)
@@ -449,10 +449,10 @@ class QSlider(QAbstractSlider):
       object.
     """
     #  void QSlider::mousePressEvent(QMouseEvent *ev)
-    self.uglySide.call(
-        'ritual_own_ZN7QSlider15mousePressEventEP11QMouseEvent',
-        self._addressOf(ev),
-    )
+    ritual = 'ritual_ZN7QSlider15mousePressEventEP11QMouseEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QSlider15mousePressEventEP11QMouseEvent'
+    self.uglySide.call(ritual, self._addressOf(ev))
 
   @overload(QMouseEvent)
   @overload(NoneType)
@@ -470,10 +470,10 @@ class QSlider(QAbstractSlider):
       object.
     """
     #  void QSlider::mouseReleaseEvent(QMouseEvent *ev)
-    self.uglySide.call(
-        'ritual_own_ZN7QSlider17mouseReleaseEventEP11QMouseEvent',
-        self._addressOf(ev),
-    )
+    ritual = 'ritual_ZN7QSlider17mouseReleaseEventEP11QMouseEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QSlider17mouseReleaseEventEP11QMouseEvent'
+    self.uglySide.call(ritual, self._addressOf(ev))
 
   @overload(QMouseEvent)
   @overload(NoneType)
@@ -491,10 +491,10 @@ class QSlider(QAbstractSlider):
       object.
     """
     #  void QSlider::mouseMoveEvent(QMouseEvent *ev)
-    self.uglySide.call(
-        'ritual_own_ZN7QSlider14mouseMoveEventEP11QMouseEvent',
-        self._addressOf(ev),
-    )
+    ritual = 'ritual_ZN7QSlider14mouseMoveEventEP11QMouseEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QSlider14mouseMoveEventEP11QMouseEvent'
+    self.uglySide.call(ritual, self._addressOf(ev))
 
   @overload(QStyleOptionSlider)
   @overload(NoneType)
@@ -513,7 +513,8 @@ class QSlider(QAbstractSlider):
       object.
     """
     #  void QSlider::initStyleOption(QStyleOptionSlider *option) const
-    self.uglySide.call(
-        'ritual_own_ZNK7QSlider15initStyleOptionEP18QStyleOptionSlider',
-        self._addressOf(option),
-    )
+    ritual = 'ritual_ZNK7QSlider15initStyleOptionEP18QStyleOptionSlider'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK7QSlider15initStyleOptionEP18QStyleOptionSlider')
+    self.uglySide.call(ritual, self._addressOf(option))

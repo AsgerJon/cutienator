@@ -741,6 +741,18 @@ bool ritual_ZN6QColor16isValidColorNameE14QAnyStringView(const QString *a0) {
   return QColor::isValidColorName(QAnyStringView(*a0));
 }
 
+//  void QColor::invalidate()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6QColor10invalidateEv(QColor *self) {
+  self->invalidate();
+}
+
+//  bool QColor::isRgbaValid(int r, int g, int b, int a)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN6QColor11isRgbaValidEiiii(int r, int g, int b, int a) {
+  return QColor::isRgbaValid(r, g, b, a);
+}
+
 //  QColor::QColor(Spec spec, ushort a1, ushort a2, ushort a3, ushort a4,
 //      ushort a5)
 extern "C" Q_DECL_EXPORT

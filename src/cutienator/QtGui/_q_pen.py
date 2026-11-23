@@ -39,12 +39,13 @@ class QPen(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QPen that has a ritual and that Python can call so
-  far, 24 names in all: 'style', 'setStyle', 'dashOffset', 'setDashOffset',
+  far, 28 names in all: 'style', 'setStyle', 'dashOffset', 'setDashOffset',
   'miterLimit', 'setMiterLimit', 'widthF', 'setWidthF', 'width', 'setWidth',
   'color', 'setColor', 'brush', 'setBrush', 'isSolid', 'capStyle',
   'setCapStyle', 'joinStyle', 'setJoinStyle', 'isCosmetic', 'setCosmetic',
-  '__eq__', '__ne__', 'isDetached'. It can be made from Python, in 5 ways;
-  see '__init__'.
+  '__eq__', '__ne__', 'isDetached', 'isSolidDefaultLine',
+  'doCompareEqualColor', 'doCompareEqualStyle', 'detach'. It can be made from
+  Python, in 5 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -61,8 +62,8 @@ class QPen(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  19 of the 54 functions Qt declares: 15 takes or gives a type that cannot be
-  passed yet; 4 private.
+  15 of the 54 functions Qt declares: 15 takes or gives a type that cannot be
+  passed yet.
 
   What to expect
   --------------
@@ -243,6 +244,52 @@ class QPen(CuteMixin, metaclass=MetaCute):
     """
     #  bool QPen::isCosmetic() const
     return self.uglySide.call('ritual_ZNK4QPen10isCosmeticEv')
+
+  def isSolidDefaultLine(self) -> bool:
+    """
+    Calls Qt's 'bool QPen::isSolidDefaultLine() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpen.html#isSolidDefaultLine
+    """
+    #  bool QPen::isSolidDefaultLine() const
+    return self.uglySide.call('ritual_ZNK4QPen18isSolidDefaultLineEv')
+
+  @overload(QColor)
+  def doCompareEqualColor(self, rhs: QColor) -> bool:
+    """
+    Calls Qt's 'bool QPen::doCompareEqualColor(QColor rhs) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpen.html#doCompareEqualColor
+
+    Parameters
+    ----------
+
+    rhs : QColor
+      Passed on as a value: Qt reads the C++ QColor, which stays Python's
+      own.
+    """
+    #  bool QPen::doCompareEqualColor(QColor rhs) const
+    return self.uglySide.call(
+        'ritual_ZNK4QPen19doCompareEqualColorE6QColor', self._valueOf(rhs),
+    )
+
+  @overload(Qt.PenStyle)
+  def doCompareEqualStyle(self, rhs: Qt.PenStyle) -> bool:
+    """
+    Calls Qt's 'bool QPen::doCompareEqualStyle(Qt::PenStyle rhs) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpen.html#doCompareEqualStyle
+
+    Parameters
+    ----------
+
+    rhs : Qt.PenStyle
+      Passed on as its number.
+    """
+    #  bool QPen::doCompareEqualStyle(Qt::PenStyle rhs) const
+    return self.uglySide.call(
+        'ritual_ZNK4QPen19doCompareEqualStyleEN2Qt8PenStyleE', rhs.value,
+    )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -666,3 +713,12 @@ class QPen(CuteMixin, metaclass=MetaCute):
     """
     #  bool QPen::isDetached()
     return self.uglySide.call('ritual_ZN4QPen10isDetachedEv')
+
+  def detach(self) -> None:
+    """
+    Calls Qt's 'void QPen::detach()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpen.html#detach
+    """
+    #  void QPen::detach()
+    self.uglySide.call('ritual_ZN4QPen6detachEv')

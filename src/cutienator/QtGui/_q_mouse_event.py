@@ -58,7 +58,8 @@ class QMouseEvent(QSinglePointEvent):
   What has no ritual
   ------------------
 
-  4 of the 21 functions Qt declares: 2 protected; 2 forbidden.
+  4 of the 21 functions Qt declares: 2 takes or gives a type that cannot be
+  passed yet; 2 forbidden.
 
   What to expect
   --------------
@@ -297,6 +298,10 @@ class QMouseEvent(QSinglePointEvent):
 
   @overload(
       QEvent.Type, QPointF, Qt.MouseButton, Qt.MouseButtons,
+      Qt.KeyboardModifiers,
+  )
+  @overload(
+      QEvent.Type, QPointF, Qt.MouseButton, Qt.MouseButtons,
       Qt.KeyboardModifiers, QPointingDevice,
   )
   @overload(
@@ -310,7 +315,7 @@ class QMouseEvent(QSinglePointEvent):
       button: Qt.MouseButton,
       buttons: Qt.MouseButtons,
       modifiers: Qt.KeyboardModifiers,
-      device: Optional[QPointingDevice],
+      device: Optional[QPointingDevice] = ...,
   ) -> None:
     """
     Notes what was given, for Qt's 'QMouseEvent::QMouseEvent(Type type, const
@@ -341,11 +346,15 @@ class QMouseEvent(QSinglePointEvent):
 
     device : Optional[QPointingDevice]
       Passed on as the address of its C++ object. None is passed on as no
-      object.
+      object. May be left out, as in Qt: what
+      'QPointingDevice.primaryPointingDevice()' gives is then passed on.
     """
     #  QMouseEvent::QMouseEvent(Type type, const QPointF &localPos,
     #      Qt::MouseButton button, Qt::MouseButtons buttons,
     #      Qt::KeyboardModifiers modifiers, const QPointingDevice *device)
+    if device is ...:
+      from . import QPointingDevice
+      device = QPointingDevice.primaryPointingDevice()
     self._noteCreation(QMouseEvent, lambda: Rituals.call(
         'ritual_ZN11QMouseEventC1EN6QEvent4TypeERK7QPointFN2Qt11MouseButton'
         'E6QFlagsIS6_ES7_INS5_16KeyboardModifierEEPK15QPointingDevice',
@@ -353,6 +362,10 @@ class QMouseEvent(QSinglePointEvent):
         modifiers.value, self._addressOf(device),
     ))
 
+  @overload(
+      QEvent.Type, QPointF, QPointF, Qt.MouseButton, Qt.MouseButtons,
+      Qt.KeyboardModifiers,
+  )
   @overload(
       QEvent.Type, QPointF, QPointF, Qt.MouseButton, Qt.MouseButtons,
       Qt.KeyboardModifiers, QPointingDevice,
@@ -369,7 +382,7 @@ class QMouseEvent(QSinglePointEvent):
       button: Qt.MouseButton,
       buttons: Qt.MouseButtons,
       modifiers: Qt.KeyboardModifiers,
-      device: Optional[QPointingDevice],
+      device: Optional[QPointingDevice] = ...,
   ) -> None:
     """
     Notes what was given, for Qt's 'QMouseEvent::QMouseEvent(Type type, const
@@ -404,12 +417,16 @@ class QMouseEvent(QSinglePointEvent):
 
     device : Optional[QPointingDevice]
       Passed on as the address of its C++ object. None is passed on as no
-      object.
+      object. May be left out, as in Qt: what
+      'QPointingDevice.primaryPointingDevice()' gives is then passed on.
     """
     #  QMouseEvent::QMouseEvent(Type type, const QPointF &localPos, const
     #      QPointF &globalPos, Qt::MouseButton button, Qt::MouseButtons
     #      buttons, Qt::KeyboardModifiers modifiers, const QPointingDevice
     #      *device)
+    if device is ...:
+      from . import QPointingDevice
+      device = QPointingDevice.primaryPointingDevice()
     self._noteCreation(QMouseEvent, lambda: Rituals.call(
         'ritual_ZN11QMouseEventC1EN6QEvent4TypeERK7QPointFS4_N2Qt11MouseBut'
         'tonE6QFlagsIS6_ES7_INS5_16KeyboardModifierEEPK15QPointingDevice',
@@ -418,6 +435,10 @@ class QMouseEvent(QSinglePointEvent):
         self._addressOf(device),
     ))
 
+  @overload(
+      QEvent.Type, QPointF, QPointF, QPointF, Qt.MouseButton,
+      Qt.MouseButtons, Qt.KeyboardModifiers,
+  )
   @overload(
       QEvent.Type, QPointF, QPointF, QPointF, Qt.MouseButton,
       Qt.MouseButtons, Qt.KeyboardModifiers, QPointingDevice,
@@ -435,7 +456,7 @@ class QMouseEvent(QSinglePointEvent):
       button: Qt.MouseButton,
       buttons: Qt.MouseButtons,
       modifiers: Qt.KeyboardModifiers,
-      device: Optional[QPointingDevice],
+      device: Optional[QPointingDevice] = ...,
   ) -> None:
     """
     Notes what was given, for Qt's 'QMouseEvent::QMouseEvent(Type type, const
@@ -475,12 +496,16 @@ class QMouseEvent(QSinglePointEvent):
 
     device : Optional[QPointingDevice]
       Passed on as the address of its C++ object. None is passed on as no
-      object.
+      object. May be left out, as in Qt: what
+      'QPointingDevice.primaryPointingDevice()' gives is then passed on.
     """
     #  QMouseEvent::QMouseEvent(Type type, const QPointF &localPos, const
     #      QPointF &scenePos, const QPointF &globalPos, Qt::MouseButton
     #      button, Qt::MouseButtons buttons, Qt::KeyboardModifiers modifiers,
     #      const QPointingDevice *device)
+    if device is ...:
+      from . import QPointingDevice
+      device = QPointingDevice.primaryPointingDevice()
     self._noteCreation(QMouseEvent, lambda: Rituals.call(
         'ritual_ZN11QMouseEventC1EN6QEvent4TypeERK7QPointFS4_S4_N2Qt11Mouse'
         'ButtonE6QFlagsIS6_ES7_INS5_16KeyboardModifierEEPK15QPointingDevice',
@@ -489,6 +514,10 @@ class QMouseEvent(QSinglePointEvent):
         modifiers.value, self._addressOf(device),
     ))
 
+  @overload(
+      QEvent.Type, QPointF, QPointF, QPointF, Qt.MouseButton,
+      Qt.MouseButtons, Qt.KeyboardModifiers, Qt.MouseEventSource,
+  )
   @overload(
       QEvent.Type, QPointF, QPointF, QPointF, Qt.MouseButton,
       Qt.MouseButtons, Qt.KeyboardModifiers, Qt.MouseEventSource,
@@ -508,7 +537,7 @@ class QMouseEvent(QSinglePointEvent):
       buttons: Qt.MouseButtons,
       modifiers: Qt.KeyboardModifiers,
       source: Qt.MouseEventSource,
-      device: Optional[QPointingDevice],
+      device: Optional[QPointingDevice] = ...,
   ) -> None:
     """
     Notes what was given, for Qt's 'QMouseEvent::QMouseEvent(Type type, const
@@ -551,12 +580,16 @@ class QMouseEvent(QSinglePointEvent):
 
     device : Optional[QPointingDevice]
       Passed on as the address of its C++ object. None is passed on as no
-      object.
+      object. May be left out, as in Qt: what
+      'QPointingDevice.primaryPointingDevice()' gives is then passed on.
     """
     #  QMouseEvent::QMouseEvent(Type type, const QPointF &localPos, const
     #      QPointF &scenePos, const QPointF &globalPos, Qt::MouseButton
     #      button, Qt::MouseButtons buttons, Qt::KeyboardModifiers modifiers,
     #      Qt::MouseEventSource source, const QPointingDevice *device)
+    if device is ...:
+      from . import QPointingDevice
+      device = QPointingDevice.primaryPointingDevice()
     self._noteCreation(QMouseEvent, lambda: Rituals.call(
         'ritual_ZN11QMouseEventC1EN6QEvent4TypeERK7QPointFS4_S4_N2Qt11Mouse'
         'ButtonE6QFlagsIS6_ES7_INS5_16KeyboardModifierEENS5_16MouseEventSou'

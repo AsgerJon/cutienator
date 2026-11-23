@@ -74,6 +74,12 @@
     "ritual_ZNK19QIdentityProxyModel23handleSourceDataChangesEv": [
       "bool", "address"
     ],
+    "ritual_ZN19QIdentityProxyModel28setHandleSourceLayoutChangesEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN19QIdentityProxyModel26setHandleSourceDataChangesEb": [
+      "nothing", "address", "bool"
+    ],
     "ritual_take_QIdentityProxyModel": [
       "bool", "address", "chars", "address"
     ],

@@ -876,6 +876,30 @@ void ritual_ZN13QSplashScreen12clearMessageEv(QSplashScreen *self) {
   self->clearMessage();
 }
 
+//  bool QSplashScreen::event(QEvent *e)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN13QSplashScreen5eventEP6QEvent(
+    QSplashScreen *self,
+    QEvent *e) {
+  return self->event(e);
+}
+
+//  void QSplashScreen::drawContents(QPainter *painter)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QSplashScreen12drawContentsEP8QPainter(
+    QSplashScreen *self,
+    QPainter *painter) {
+  self->drawContents(painter);
+}
+
+//  void QSplashScreen::mousePressEvent(QMouseEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QSplashScreen15mousePressEventEP11QMouseEvent(
+    QSplashScreen *self,
+    QMouseEvent *a0) {
+  self->mousePressEvent(a0);
+}
+
 //  a Python function taken by a CuteQSplashScreen, for the function named by
 //      the key
 extern "C" Q_DECL_EXPORT

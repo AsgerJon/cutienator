@@ -912,6 +912,49 @@ QImage *ritual_ZNK10QRhiWidget15grabFramebufferEv(const QRhiWidget *self) {
   return new QImage(self->grabFramebuffer());
 }
 
+//  bool QRhiWidget::isAutoRenderTargetEnabled() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK10QRhiWidget25isAutoRenderTargetEnabledEv(
+    const QRhiWidget *self) {
+  return self->isAutoRenderTargetEnabled();
+}
+
+//  void QRhiWidget::setAutoRenderTarget(bool enabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QRhiWidget19setAutoRenderTargetEb(
+    QRhiWidget *self,
+    bool enabled) {
+  self->setAutoRenderTarget(enabled);
+}
+
+//  void QRhiWidget::releaseResources()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QRhiWidget16releaseResourcesEv(QRhiWidget *self) {
+  self->releaseResources();
+}
+
+//  void QRhiWidget::resizeEvent(QResizeEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QRhiWidget11resizeEventEP12QResizeEvent(
+    QRhiWidget *self,
+    QResizeEvent *e) {
+  self->resizeEvent(e);
+}
+
+//  void QRhiWidget::paintEvent(QPaintEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QRhiWidget10paintEventEP11QPaintEvent(
+    QRhiWidget *self,
+    QPaintEvent *e) {
+  self->paintEvent(e);
+}
+
+//  bool QRhiWidget::event(QEvent *e)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN10QRhiWidget5eventEP6QEvent(QRhiWidget *self, QEvent *e) {
+  return self->event(e);
+}
+
 //  a Python function taken by a CuteQRhiWidget, for the function named by
 //      the key
 extern "C" Q_DECL_EXPORT

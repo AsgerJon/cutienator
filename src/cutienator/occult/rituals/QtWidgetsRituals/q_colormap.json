@@ -16,6 +16,7 @@
       "unsigned int", "address", "address"
     ],
     "ritual_ZNK9QColormap7colorAtEj": ["address", "address", "unsigned int"],
-    "ritual_ZNK9QColormap8colormapEv": ["address", "address"]
+    "ritual_ZNK9QColormap8colormapEv": ["address", "address"],
+    "ritual_ZN9QColormapC1Ev": ["address"]
   }
 }

@@ -40,8 +40,8 @@ class QTextBlockFormat(QTextFormat):
   'setTextIndent', 'textIndent', 'setIndent', 'indent', 'setHeadingLevel',
   'headingLevel', 'setLineHeight', 'lineHeight', 'lineHeightType',
   'setNonBreakableLines', 'nonBreakableLines', 'setPageBreakPolicy',
-  'pageBreakPolicy', 'setMarker', 'marker'. It can be made from Python, in 1
-  way; see '__init__'.
+  'pageBreakPolicy', 'setMarker', 'marker'. It can be made from Python, in 2
+  ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -52,8 +52,8 @@ class QTextBlockFormat(QTextFormat):
   What has no ritual
   ------------------
 
-  5 of the 34 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 1 protected.
+  4 of the 34 functions Qt declares: 4 takes or gives a type that cannot be
+  passed yet.
 
   What to expect
   --------------
@@ -567,6 +567,27 @@ class QTextBlockFormat(QTextFormat):
     #  QTextBlockFormat::QTextBlockFormat()
     self._noteCreation(QTextBlockFormat, lambda: Rituals.call(
         'ritual_ZN16QTextBlockFormatC1Ev',
+    ))
+
+  @overload(QTextFormat)
+  def __init__(self, fmt: QTextFormat) -> None:
+    """
+    Notes what was given, for Qt's 'QTextBlockFormat::QTextBlockFormat(const
+    QTextFormat &fmt)', which is called at the first use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qtextblockformat.html#QTextBlockFormat
+
+    Parameters
+    ----------
+
+    fmt : QTextFormat
+      Passed on as a value: Qt reads the C++ QTextFormat, which stays
+      Python's own.
+    """
+    #  QTextBlockFormat::QTextBlockFormat(const QTextFormat &fmt)
+    self._noteCreation(QTextBlockFormat, lambda: Rituals.call(
+        'ritual_ZN16QTextBlockFormatC1ERK11QTextFormat', self._valueOf(fmt),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

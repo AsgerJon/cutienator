@@ -481,6 +481,12 @@ void ritual_ZN12QApplication7aboutQtEv() {
   QApplication::aboutQt();
 }
 
+//  bool QApplication::event(QEvent *a0)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN12QApplication5eventEP6QEvent(QApplication *self, QEvent *a0) {
+  return self->event(a0);
+}
+
 //  a Python function taken by a CuteQApplication, for the function named by
 //      the key
 extern "C" Q_DECL_EXPORT

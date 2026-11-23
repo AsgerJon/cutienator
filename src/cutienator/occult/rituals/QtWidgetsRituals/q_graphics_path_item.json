@@ -28,6 +28,15 @@
     ],
     "ritual_ZNK17QGraphicsPathItem10opaqueAreaEv": ["address", "address"],
     "ritual_ZNK17QGraphicsPathItem4typeEv": ["int", "address"],
+    "ritual_ZNK17QGraphicsPathItem17supportsExtensionEN13QGraphicsItem9ExtensionE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN17QGraphicsPathItem12setExtensionEN13QGraphicsItem9ExtensionERK8QVariant": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZNK17QGraphicsPathItem9extensionERK8QVariant": [
+      "address", "address", "address"
+    ],
     "ritual_take_QGraphicsPathItem": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK17QGraphicsPathItem12boundingRectEv": [
       "address", "address"

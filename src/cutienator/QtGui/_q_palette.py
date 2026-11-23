@@ -40,14 +40,14 @@ class QPalette(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QPalette that has a ritual and that Python can call
-  so far, 37 names in all: 'currentColorGroup', 'setCurrentColorGroup',
+  so far, 39 names in all: 'currentColorGroup', 'setCurrentColorGroup',
   'color', 'brush', 'setColor', 'setBrush', 'isBrushSet', 'setColorGroup',
   'isEqual', 'windowText', 'button', 'light', 'dark', 'mid', 'text', 'base',
   'alternateBase', 'toolTipBase', 'toolTipText', 'window', 'midlight',
   'brightText', 'buttonText', 'shadow', 'highlight', 'highlightedText',
   'link', 'linkVisited', 'placeholderText', 'accent', '__eq__', '__ne__',
-  'isCopyOf', 'cacheKey', 'resolve', 'resolveMask', 'setResolveMask'. It can
-  be made from Python, in 7 ways; see '__init__'.
+  'isCopyOf', 'cacheKey', 'resolve', 'resolveMask', 'setResolveMask', 'init',
+  'detach'. It can be made from Python, in 7 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -60,8 +60,8 @@ class QPalette(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  12 of the 62 functions Qt declares: 5 private; 5 takes or gives a type that
-  cannot be passed yet; 1 declared and nowhere to be found; 1 a template.
+  8 of the 62 functions Qt declares: 5 takes or gives a type that cannot be
+  passed yet; 2 declared and nowhere to be found; 1 a template.
 
   What to expect
   --------------
@@ -955,6 +955,281 @@ class QPalette(CuteMixin, metaclass=MetaCute):
         self._valueOf(window),
     )
 
+  @overload(
+      ColorGroup, QBrush, QBrush, QBrush, QBrush, QBrush, QBrush, QBrush,
+      QBrush, QBrush, QBrush, QBrush, QBrush, QBrush, QBrush, QBrush, QBrush,
+      QBrush,
+  )
+  def setColorGroup(
+      self,
+      cr: ColorGroup,
+      windowText: QBrush,
+      button: QBrush,
+      light: QBrush,
+      dark: QBrush,
+      mid: QBrush,
+      text: QBrush,
+      bright_text: QBrush,
+      base: QBrush,
+      alternate_base: QBrush,
+      window: QBrush,
+      midlight: QBrush,
+      button_text: QBrush,
+      shadow: QBrush,
+      highlight: QBrush,
+      highlighted_text: QBrush,
+      link: QBrush,
+      link_visited: QBrush,
+  ) -> None:
+    """
+    Calls Qt's 'void QPalette::setColorGroup(ColorGroup cr, const QBrush
+    &windowText, const QBrush &button, const QBrush &light, const QBrush
+    &dark, const QBrush &mid, const QBrush &text, const QBrush &bright_text,
+    const QBrush &base, const QBrush &alternate_base, const QBrush &window,
+    const QBrush &midlight, const QBrush &button_text, const QBrush &shadow,
+    const QBrush &highlight, const QBrush &highlighted_text, const QBrush
+    &link, const QBrush &link_visited)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpalette.html#setColorGroup
+
+    Parameters
+    ----------
+
+    cr : ColorGroup
+      Passed on as its number.
+
+    windowText : QBrush
+      Passed on as a value: Qt reads the C++ QBrush, which stays Python's
+      own.
+
+    button : QBrush
+      Passed on as a value: Qt reads the C++ QBrush, which stays Python's
+      own.
+
+    light : QBrush
+      Passed on as a value: Qt reads the C++ QBrush, which stays Python's
+      own.
+
+    dark : QBrush
+      Passed on as a value: Qt reads the C++ QBrush, which stays Python's
+      own.
+
+    mid : QBrush
+      Passed on as a value: Qt reads the C++ QBrush, which stays Python's
+      own.
+
+    text : QBrush
+      Passed on as a value: Qt reads the C++ QBrush, which stays Python's
+      own.
+
+    bright_text : QBrush
+      Passed on as a value: Qt reads the C++ QBrush, which stays Python's
+      own.
+
+    base : QBrush
+      Passed on as a value: Qt reads the C++ QBrush, which stays Python's
+      own.
+
+    alternate_base : QBrush
+      Passed on as a value: Qt reads the C++ QBrush, which stays Python's
+      own.
+
+    window : QBrush
+      Passed on as a value: Qt reads the C++ QBrush, which stays Python's
+      own.
+
+    midlight : QBrush
+      Passed on as a value: Qt reads the C++ QBrush, which stays Python's
+      own.
+
+    button_text : QBrush
+      Passed on as a value: Qt reads the C++ QBrush, which stays Python's
+      own.
+
+    shadow : QBrush
+      Passed on as a value: Qt reads the C++ QBrush, which stays Python's
+      own.
+
+    highlight : QBrush
+      Passed on as a value: Qt reads the C++ QBrush, which stays Python's
+      own.
+
+    highlighted_text : QBrush
+      Passed on as a value: Qt reads the C++ QBrush, which stays Python's
+      own.
+
+    link : QBrush
+      Passed on as a value: Qt reads the C++ QBrush, which stays Python's
+      own.
+
+    link_visited : QBrush
+      Passed on as a value: Qt reads the C++ QBrush, which stays Python's
+      own.
+    """
+    #  void QPalette::setColorGroup(ColorGroup cr, const QBrush &windowText,
+    #      const QBrush &button, const QBrush &light, const QBrush &dark,
+    #      const QBrush &mid, const QBrush &text, const QBrush &bright_text,
+    #      const QBrush &base, const QBrush &alternate_base, const QBrush
+    #      &window, const QBrush &midlight, const QBrush &button_text, const
+    #      QBrush &shadow, const QBrush &highlight, const QBrush
+    #      &highlighted_text, const QBrush &link, const QBrush &link_visited)
+    self.uglySide.call(
+        'ritual_ZN8QPalette13setColorGroupENS_10ColorGroupERK6QBrushS3_S3_S'
+        '3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_',
+        cr.value, self._valueOf(windowText), self._valueOf(button),
+        self._valueOf(light), self._valueOf(dark), self._valueOf(mid),
+        self._valueOf(text), self._valueOf(bright_text), self._valueOf(base),
+        self._valueOf(alternate_base), self._valueOf(window),
+        self._valueOf(midlight), self._valueOf(button_text),
+        self._valueOf(shadow), self._valueOf(highlight),
+        self._valueOf(highlighted_text), self._valueOf(link),
+        self._valueOf(link_visited),
+    )
+
+  @overload(
+      ColorGroup, QBrush, QBrush, QBrush, QBrush, QBrush, QBrush, QBrush,
+      QBrush, QBrush, QBrush, QBrush, QBrush, QBrush, QBrush, QBrush, QBrush,
+      QBrush, QBrush, QBrush,
+  )
+  def setColorGroup(
+      self,
+      cr: ColorGroup,
+      windowText: QBrush,
+      button: QBrush,
+      light: QBrush,
+      dark: QBrush,
+      mid: QBrush,
+      text: QBrush,
+      bright_text: QBrush,
+      base: QBrush,
+      alternate_base: QBrush,
+      window: QBrush,
+      midlight: QBrush,
+      button_text: QBrush,
+      shadow: QBrush,
+      highlight: QBrush,
+      highlighted_text: QBrush,
+      link: QBrush,
+      link_visited: QBrush,
+      toolTipBase: QBrush,
+      toolTipText: QBrush,
+  ) -> None:
+    """
+    Calls Qt's 'void QPalette::setColorGroup(ColorGroup cr, const QBrush
+    &windowText, const QBrush &button, const QBrush &light, const QBrush
+    &dark, const QBrush &mid, const QBrush &text, const QBrush &bright_text,
+    const QBrush &base, const QBrush &alternate_base, const QBrush &window,
+    const QBrush &midlight, const QBrush &button_text, const QBrush &shadow,
+    const QBrush &highlight, const QBrush &highlighted_text, const QBrush
+    &link, const QBrush &link_visited, const QBrush &toolTipBase, const
+    QBrush &toolTipText)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpalette.html#setColorGroup
+
+    Parameters
+    ----------
+
+    cr : ColorGroup
+      Passed on as its number.
+
+    windowText : QBrush
+      Passed on as a value: Qt reads the C++ QBrush, which stays Python's
+      own.
+
+    button : QBrush
+      Passed on as a value: Qt reads the C++ QBrush, which stays Python's
+      own.
+
+    light : QBrush
+      Passed on as a value: Qt reads the C++ QBrush, which stays Python's
+      own.
+
+    dark : QBrush
+      Passed on as a value: Qt reads the C++ QBrush, which stays Python's
+      own.
+
+    mid : QBrush
+      Passed on as a value: Qt reads the C++ QBrush, which stays Python's
+      own.
+
+    text : QBrush
+      Passed on as a value: Qt reads the C++ QBrush, which stays Python's
+      own.
+
+    bright_text : QBrush
+      Passed on as a value: Qt reads the C++ QBrush, which stays Python's
+      own.
+
+    base : QBrush
+      Passed on as a value: Qt reads the C++ QBrush, which stays Python's
+      own.
+
+    alternate_base : QBrush
+      Passed on as a value: Qt reads the C++ QBrush, which stays Python's
+      own.
+
+    window : QBrush
+      Passed on as a value: Qt reads the C++ QBrush, which stays Python's
+      own.
+
+    midlight : QBrush
+      Passed on as a value: Qt reads the C++ QBrush, which stays Python's
+      own.
+
+    button_text : QBrush
+      Passed on as a value: Qt reads the C++ QBrush, which stays Python's
+      own.
+
+    shadow : QBrush
+      Passed on as a value: Qt reads the C++ QBrush, which stays Python's
+      own.
+
+    highlight : QBrush
+      Passed on as a value: Qt reads the C++ QBrush, which stays Python's
+      own.
+
+    highlighted_text : QBrush
+      Passed on as a value: Qt reads the C++ QBrush, which stays Python's
+      own.
+
+    link : QBrush
+      Passed on as a value: Qt reads the C++ QBrush, which stays Python's
+      own.
+
+    link_visited : QBrush
+      Passed on as a value: Qt reads the C++ QBrush, which stays Python's
+      own.
+
+    toolTipBase : QBrush
+      Passed on as a value: Qt reads the C++ QBrush, which stays Python's
+      own.
+
+    toolTipText : QBrush
+      Passed on as a value: Qt reads the C++ QBrush, which stays Python's
+      own.
+    """
+    #  void QPalette::setColorGroup(ColorGroup cr, const QBrush &windowText,
+    #      const QBrush &button, const QBrush &light, const QBrush &dark,
+    #      const QBrush &mid, const QBrush &text, const QBrush &bright_text,
+    #      const QBrush &base, const QBrush &alternate_base, const QBrush
+    #      &window, const QBrush &midlight, const QBrush &button_text, const
+    #      QBrush &shadow, const QBrush &highlight, const QBrush
+    #      &highlighted_text, const QBrush &link, const QBrush &link_visited,
+    #      const QBrush &toolTipBase, const QBrush &toolTipText)
+    self.uglySide.call(
+        'ritual_ZN8QPalette13setColorGroupENS_10ColorGroupERK6QBrushS3_S3_S'
+        '3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_',
+        cr.value, self._valueOf(windowText), self._valueOf(button),
+        self._valueOf(light), self._valueOf(dark), self._valueOf(mid),
+        self._valueOf(text), self._valueOf(bright_text), self._valueOf(base),
+        self._valueOf(alternate_base), self._valueOf(window),
+        self._valueOf(midlight), self._valueOf(button_text),
+        self._valueOf(shadow), self._valueOf(highlight),
+        self._valueOf(highlighted_text), self._valueOf(link),
+        self._valueOf(link_visited), self._valueOf(toolTipBase),
+        self._valueOf(toolTipText),
+    )
+
   @overload(int)
   def setResolveMask(self, mask: int) -> None:
     """
@@ -1286,3 +1561,21 @@ class QPalette(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def init(self) -> None:
+    """
+    Calls Qt's 'void QPalette::init()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpalette.html#init
+    """
+    #  void QPalette::init()
+    self.uglySide.call('ritual_ZN8QPalette4initEv')
+
+  def detach(self) -> None:
+    """
+    Calls Qt's 'void QPalette::detach()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpalette.html#detach
+    """
+    #  void QPalette::detach()
+    self.uglySide.call('ritual_ZN8QPalette6detachEv')

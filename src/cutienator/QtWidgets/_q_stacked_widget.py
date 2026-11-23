@@ -56,8 +56,9 @@ class QStackedWidget(QFrame):
   What has no ritual
   ------------------
 
-  11 of the 26 functions Qt declares: 3 private; 3 a signal; 2 takes or gives
-  a type that cannot be passed yet; 2 forbidden; 1 a template.
+  11 of the 26 functions Qt declares: 4 takes or gives a type that cannot be
+  passed yet; 3 a signal; 2 forbidden; 1 a template; 1 declared and nowhere
+  to be found.
 
   What to expect
   --------------
@@ -424,6 +425,7 @@ class QStackedWidget(QFrame):
       object.
     """
     #  bool QStackedWidget::event(QEvent *e)
-    return self.uglySide.call(
-        'ritual_own_ZN14QStackedWidget5eventEP6QEvent', self._addressOf(e),
-    )
+    ritual = 'ritual_ZN14QStackedWidget5eventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN14QStackedWidget5eventEP6QEvent'
+    return self.uglySide.call(ritual, self._addressOf(e))

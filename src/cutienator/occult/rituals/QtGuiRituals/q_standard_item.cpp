@@ -738,6 +738,12 @@ int ritual_ZNK13QStandardItem4typeEv(const QStandardItem *self) {
   return self->type();
 }
 
+//  void QStandardItem::emitDataChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QStandardItem15emitDataChangedEv(QStandardItem *self) {
+  self->emitDataChanged();
+}
+
 //  a Python function taken by a CuteQStandardItem, for the function named by
 //      the key
 extern "C" Q_DECL_EXPORT

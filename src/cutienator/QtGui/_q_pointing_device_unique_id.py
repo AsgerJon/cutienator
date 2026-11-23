@@ -43,8 +43,8 @@ class QPointingDeviceUniqueId(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  3 of the 10 functions Qt declares: 1 declared and nowhere to be found; 1 a
-  template; 1 private.
+  3 of the 10 functions Qt declares: 2 declared and nowhere to be found; 1 a
+  template.
 
   What to expect
   --------------

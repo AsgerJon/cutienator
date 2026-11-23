@@ -53,6 +53,24 @@
     "ritual_ZN9QSplitter16setStretchFactorEii": [
       "nothing", "address", "int", "int"
     ],
+    "ritual_ZN9QSplitter12createHandleEv": ["address", "address"],
+    "ritual_ZN9QSplitter10childEventEP11QChildEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QSplitter5eventEP6QEvent": ["bool", "address", "address"],
+    "ritual_ZN9QSplitter11resizeEventEP12QResizeEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QSplitter11changeEventEP6QEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QSplitter12moveSplitterEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN9QSplitter13setRubberBandEi": ["nothing", "address", "int"],
+    "ritual_ZN9QSplitter20closestLegalPositionEii": [
+      "int", "address", "int", "int"
+    ],
     "ritual_take_QSplitter": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK9QSplitter8sizeHintEv": ["address", "address"],
     "ritual_own_ZNK9QSplitter15minimumSizeHintEv": ["address", "address"],

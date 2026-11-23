@@ -68,9 +68,9 @@ class QAbstractItemDelegate(QObject):
   What has no ritual
   ------------------
 
-  14 of the 27 functions Qt declares: 3 takes or gives a type that cannot be
-  passed yet; 3 private; 3 a signal; 2 forbidden; 1 a template; 1 the class
-  is abstract, so C++ cannot make one; 1 protected.
+  14 of the 27 functions Qt declares: 5 takes or gives a type that cannot be
+  passed yet; 3 a signal; 2 the class is abstract, so C++ cannot make one; 2
+  forbidden; 1 a template; 1 declared and nowhere to be found.
 
   What to expect
   --------------

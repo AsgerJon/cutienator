@@ -49,10 +49,11 @@ class QSplitterHandle(QWidget):
   -----------
 
   Every function of Qt's QSplitterHandle that has a ritual and that Python
-  can call so far, 13 names in all: 'metaObject', 'tr', 'setOrientation',
+  can call so far, 15 names in all: 'metaObject', 'tr', 'setOrientation',
   'orientation', 'opaqueResize', 'splitter', 'sizeHint', 'paintEvent',
   'mouseMoveEvent', 'mousePressEvent', 'mouseReleaseEvent', 'resizeEvent',
-  'event'. It can be made from Python, in 1 way; see '__init__'.
+  'event', 'moveSplitter', 'closestLegalPosition'. It can be made from
+  Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -63,8 +64,8 @@ class QSplitterHandle(QWidget):
   What has no ritual
   ------------------
 
-  10 of the 25 functions Qt declares: 3 private; 2 takes or gives a type that
-  cannot be passed yet; 2 protected; 2 forbidden; 1 a template.
+  8 of the 25 functions Qt declares: 4 takes or gives a type that cannot be
+  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found.
 
   What to expect
   --------------
@@ -337,10 +338,10 @@ class QSplitterHandle(QWidget):
       object.
     """
     #  void QSplitterHandle::paintEvent(QPaintEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN15QSplitterHandle10paintEventEP11QPaintEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN15QSplitterHandle10paintEventEP11QPaintEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN15QSplitterHandle10paintEventEP11QPaintEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QMouseEvent)
   @overload(NoneType)
@@ -359,10 +360,11 @@ class QSplitterHandle(QWidget):
       object.
     """
     #  void QSplitterHandle::mouseMoveEvent(QMouseEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN15QSplitterHandle14mouseMoveEventEP11QMouseEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN15QSplitterHandle14mouseMoveEventEP11QMouseEvent'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN15QSplitterHandle14mouseMoveEventEP11QMouseEvent')
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QMouseEvent)
   @overload(NoneType)
@@ -381,10 +383,11 @@ class QSplitterHandle(QWidget):
       object.
     """
     #  void QSplitterHandle::mousePressEvent(QMouseEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN15QSplitterHandle15mousePressEventEP11QMouseEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN15QSplitterHandle15mousePressEventEP11QMouseEvent'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN15QSplitterHandle15mousePressEventEP11QMouseEvent')
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QMouseEvent)
   @overload(NoneType)
@@ -403,10 +406,11 @@ class QSplitterHandle(QWidget):
       object.
     """
     #  void QSplitterHandle::mouseReleaseEvent(QMouseEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN15QSplitterHandle17mouseReleaseEventEP11QMouseEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN15QSplitterHandle17mouseReleaseEventEP11QMouseEvent'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN15QSplitterHandle17mouseReleaseEventEP11QMouseEvent')
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QResizeEvent)
   @overload(NoneType)
@@ -424,10 +428,10 @@ class QSplitterHandle(QWidget):
       object.
     """
     #  void QSplitterHandle::resizeEvent(QResizeEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN15QSplitterHandle11resizeEventEP12QResizeEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN15QSplitterHandle11resizeEventEP12QResizeEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN15QSplitterHandle11resizeEventEP12QResizeEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QEvent)
   @overload(NoneType)
@@ -445,6 +449,42 @@ class QSplitterHandle(QWidget):
       object.
     """
     #  bool QSplitterHandle::event(QEvent *a0)
+    ritual = 'ritual_ZN15QSplitterHandle5eventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN15QSplitterHandle5eventEP6QEvent'
+    return self.uglySide.call(ritual, self._addressOf(a0))
+
+  @overload(int)
+  def moveSplitter(self, p: int) -> None:
+    """
+    Calls Qt's 'void QSplitterHandle::moveSplitter(int p)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qsplitterhandle.html#moveSplitter
+
+    Parameters
+    ----------
+
+    p : int
+      Passed on as it is.
+    """
+    #  void QSplitterHandle::moveSplitter(int p)
+    self.uglySide.call('ritual_ZN15QSplitterHandle12moveSplitterEi', p)
+
+  @overload(int)
+  def closestLegalPosition(self, p: int) -> int:
+    """
+    Calls Qt's 'int QSplitterHandle::closestLegalPosition(int p)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qsplitterhandle.html#closestLegalPosition
+
+    Parameters
+    ----------
+
+    p : int
+      Passed on as it is.
+    """
+    #  int QSplitterHandle::closestLegalPosition(int p)
     return self.uglySide.call(
-        'ritual_own_ZN15QSplitterHandle5eventEP6QEvent', self._addressOf(a0),
+        'ritual_ZN15QSplitterHandle20closestLegalPositionEi', p,
     )

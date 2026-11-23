@@ -43,12 +43,13 @@ class QAbstractAnimation(QObject):
   -----------
 
   Every function of Qt's QAbstractAnimation that has a ritual and that Python
-  can call so far, 22 names in all: 'metaObject', 'tr', 'state', 'group',
+  can call so far, 23 names in all: 'metaObject', 'tr', 'state', 'group',
   'direction', 'setDirection', 'currentTime', 'currentLoopTime', 'loopCount',
   'setLoopCount', 'currentLoop', 'duration', 'totalDuration', 'start',
   'pause', 'resume', 'setPaused', 'stop', 'setCurrentTime', 'event',
-  'updateState', 'updateDirection'. None can be made from Python: one comes
-  out of a function of another class that gives one back.
+  'updateCurrentTime', 'updateState', 'updateDirection'. None can be made
+  from Python: one comes out of a function of another class that gives one
+  back.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -59,9 +60,9 @@ class QAbstractAnimation(QObject):
   What has no ritual
   ------------------
 
-  20 of the 43 functions Qt declares: 7 takes or gives a type that cannot be
-  passed yet; 4 a signal; 3 private; 2 protected; 2 forbidden; 1 a template;
-  1 the class is abstract, so C++ cannot make one.
+  19 of the 43 functions Qt declares: 9 takes or gives a type that cannot be
+  passed yet; 4 a signal; 2 the class is abstract, so C++ cannot make one; 2
+  forbidden; 1 a template; 1 declared and nowhere to be found.
 
   What to expect
   --------------
@@ -535,9 +536,28 @@ class QAbstractAnimation(QObject):
       object.
     """
     #  bool QAbstractAnimation::event(QEvent *event)
-    return self.uglySide.call(
-        'ritual_own_ZN18QAbstractAnimation5eventEP6QEvent',
-        self._addressOf(event),
+    ritual = 'ritual_ZN18QAbstractAnimation5eventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN18QAbstractAnimation5eventEP6QEvent'
+    return self.uglySide.call(ritual, self._addressOf(event))
+
+  @overload(int)
+  def updateCurrentTime(self, currentTime: int) -> None:
+    """
+    Calls Qt's 'void QAbstractAnimation::updateCurrentTime(int currentTime)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractanimation.html#updateCurrentTime
+
+    Parameters
+    ----------
+
+    currentTime : int
+      Passed on as it is.
+    """
+    #  void QAbstractAnimation::updateCurrentTime(int currentTime)
+    self.uglySide.call(
+        'ritual_ZN18QAbstractAnimation17updateCurrentTimeEi', currentTime,
     )
 
   @overload(State, State)
@@ -561,10 +581,10 @@ class QAbstractAnimation(QObject):
     """
     #  void QAbstractAnimation::updateState(QAbstractAnimation::State
     #      newState, QAbstractAnimation::State oldState)
-    self.uglySide.call(
-        'ritual_own_ZN18QAbstractAnimation11updateStateENS_5StateES0_',
-        newState.value, oldState.value,
-    )
+    ritual = 'ritual_ZN18QAbstractAnimation11updateStateENS_5StateES0_'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN18QAbstractAnimation11updateStateENS_5StateES0_'
+    self.uglySide.call(ritual, newState.value, oldState.value)
 
   @overload(Direction)
   def updateDirection(self, direction: Direction) -> None:
@@ -584,7 +604,9 @@ class QAbstractAnimation(QObject):
     """
     #  void QAbstractAnimation::updateDirection(QAbstractAnimation::Direction
     #      direction)
-    self.uglySide.call(
-        'ritual_own_ZN18QAbstractAnimation15updateDirectionENS_9DirectionE',
-        direction.value,
-    )
+    ritual = 'ritual_ZN18QAbstractAnimation15updateDirectionENS_9DirectionE'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN18QAbstractAnimation15updateDirectionENS_9Direction'
+          'E')
+    self.uglySide.call(ritual, direction.value)

@@ -217,6 +217,14 @@ void ritual_ZN12QChronoTimer4stopEv(QChronoTimer *self) {
   self->stop();
 }
 
+//  void QChronoTimer::timerEvent(QTimerEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QChronoTimer10timerEventEP11QTimerEvent(
+    QChronoTimer *self,
+    QTimerEvent *a0) {
+  self->timerEvent(a0);
+}
+
 //  a Python function taken by a CuteQChronoTimer, for the function named by
 //      the key
 extern "C" Q_DECL_EXPORT

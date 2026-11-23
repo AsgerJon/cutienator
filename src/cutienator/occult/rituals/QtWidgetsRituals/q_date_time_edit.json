@@ -119,6 +119,37 @@
     "ritual_ZN13QDateTimeEdit7setTimeE5QTime": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN13QDateTimeEdit13keyPressEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QDateTimeEdit10wheelEventEP11QWheelEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QDateTimeEdit12focusInEventEP11QFocusEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QDateTimeEdit18focusNextPrevChildEb": [
+      "bool", "address", "bool"
+    ],
+    "ritual_ZNK13QDateTimeEdit16dateTimeFromTextERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK13QDateTimeEdit16textFromDateTimeERK9QDateTime": [
+      "text", "address", "address"
+    ],
+    "ritual_ZNK13QDateTimeEdit11stepEnabledEv": ["int", "address"],
+    "ritual_ZN13QDateTimeEdit15mousePressEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QDateTimeEdit10paintEventEP11QPaintEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QDateTimeEdit15initStyleOptionEP19QStyleOptionSpinBox": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QDateTimeEditC1ERK8QVariantN9QMetaType4TypeEP7QWidget": [
+      "address", "address", "int", "address"
+    ],
     "ritual_take_QDateTimeEdit": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK13QDateTimeEdit8sizeHintEv": ["address", "address"],
     "ritual_own_ZN13QDateTimeEdit5clearEv": ["nothing", "address"],

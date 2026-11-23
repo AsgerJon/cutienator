@@ -51,12 +51,12 @@ class QDialog(QWidget):
   -----------
 
   Every function of Qt's QDialog that has a ritual and that Python can call
-  so far, 21 names in all: 'metaObject', 'tr', 'result', 'setVisible',
+  so far, 22 names in all: 'metaObject', 'tr', 'result', 'setVisible',
   'sizeHint', 'minimumSizeHint', 'setSizeGripEnabled', 'isSizeGripEnabled',
   'setModal', 'setResult', 'open', 'exec', 'done', 'accept', 'reject',
   'keyPressEvent', 'closeEvent', 'showEvent', 'resizeEvent',
-  'contextMenuEvent', 'eventFilter'. It can be made from Python, in 1 way;
-  see '__init__'.
+  'contextMenuEvent', 'eventFilter', 'adjustPosition'. It can be made from
+  Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -67,8 +67,9 @@ class QDialog(QWidget):
   What has no ritual
   ------------------
 
-  13 of the 36 functions Qt declares: 3 private; 3 a signal; 2 takes or gives
-  a type that cannot be passed yet; 2 protected; 2 forbidden; 1 a template.
+  12 of the 36 functions Qt declares: 5 takes or gives a type that cannot be
+  passed yet; 3 a signal; 2 forbidden; 1 a template; 1 declared and nowhere
+  to be found.
 
   What to expect
   --------------
@@ -496,10 +497,10 @@ class QDialog(QWidget):
       object.
     """
     #  void QDialog::keyPressEvent(QKeyEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN7QDialog13keyPressEventEP9QKeyEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN7QDialog13keyPressEventEP9QKeyEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QDialog13keyPressEventEP9QKeyEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QCloseEvent)
   @overload(NoneType)
@@ -517,10 +518,10 @@ class QDialog(QWidget):
       object.
     """
     #  void QDialog::closeEvent(QCloseEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN7QDialog10closeEventEP11QCloseEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN7QDialog10closeEventEP11QCloseEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QDialog10closeEventEP11QCloseEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QShowEvent)
   @overload(NoneType)
@@ -538,9 +539,10 @@ class QDialog(QWidget):
       object.
     """
     #  void QDialog::showEvent(QShowEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN7QDialog9showEventEP10QShowEvent', self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN7QDialog9showEventEP10QShowEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QDialog9showEventEP10QShowEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QResizeEvent)
   @overload(NoneType)
@@ -558,10 +560,10 @@ class QDialog(QWidget):
       object.
     """
     #  void QDialog::resizeEvent(QResizeEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN7QDialog11resizeEventEP12QResizeEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN7QDialog11resizeEventEP12QResizeEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QDialog11resizeEventEP12QResizeEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QContextMenuEvent)
   @overload(NoneType)
@@ -579,10 +581,10 @@ class QDialog(QWidget):
       object.
     """
     #  void QDialog::contextMenuEvent(QContextMenuEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN7QDialog16contextMenuEventEP17QContextMenuEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN7QDialog16contextMenuEventEP17QContextMenuEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QDialog16contextMenuEventEP17QContextMenuEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QObject, QEvent)
   @overload(QObject, NoneType)
@@ -606,7 +608,29 @@ class QDialog(QWidget):
       object.
     """
     #  bool QDialog::eventFilter(QObject *a0, QEvent *a1)
+    ritual = 'ritual_ZN7QDialog11eventFilterEP7QObjectP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QDialog11eventFilterEP7QObjectP6QEvent'
     return self.uglySide.call(
-        'ritual_own_ZN7QDialog11eventFilterEP7QObjectP6QEvent',
-        self._addressOf(a0), self._addressOf(a1),
+        ritual, self._addressOf(a0), self._addressOf(a1),
+    )
+
+  @overload(QWidget)
+  @overload(NoneType)
+  def adjustPosition(self, a0: Optional[QWidget]) -> None:
+    """
+    Calls Qt's 'void QDialog::adjustPosition(QWidget *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdialog.html#adjustPosition
+
+    Parameters
+    ----------
+
+    a0 : Optional[QWidget]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QDialog::adjustPosition(QWidget *a0)
+    self.uglySide.call(
+        'ritual_ZN7QDialog14adjustPositionEP7QWidget', self._addressOf(a0),
     )

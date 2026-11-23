@@ -134,6 +134,12 @@
     "ritual_ZNK11QFormLayout19expandingDirectionsEv": ["int", "address"],
     "ritual_ZNK11QFormLayout5countEv": ["int", "address"],
     "ritual_ZNK11QFormLayout8rowCountEv": ["int", "address"],
+    "ritual_ZN11QFormLayout22resetFieldGrowthPolicyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN11QFormLayout18resetRowWrapPolicyEv": ["nothing", "address"],
+    "ritual_ZN11QFormLayout19resetLabelAlignmentEv": ["nothing", "address"],
+    "ritual_ZN11QFormLayout18resetFormAlignmentEv": ["nothing", "address"],
     "ritual_take_QFormLayout": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK11QFormLayout7spacingEv": ["int", "address"],
     "ritual_own_ZN11QFormLayout10setSpacingEi": [

@@ -987,6 +987,44 @@ void ritual_ZN8QToolBar18setToolButtonStyleEN2Qt15ToolButtonStyleE(
   self->setToolButtonStyle(toolButtonStyle);
 }
 
+//  void QToolBar::actionEvent(QActionEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QToolBar11actionEventEP12QActionEvent(
+    QToolBar *self,
+    QActionEvent *event) {
+  self->actionEvent(event);
+}
+
+//  void QToolBar::changeEvent(QEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QToolBar11changeEventEP6QEvent(
+    QToolBar *self,
+    QEvent *event) {
+  self->changeEvent(event);
+}
+
+//  void QToolBar::paintEvent(QPaintEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QToolBar10paintEventEP11QPaintEvent(
+    QToolBar *self,
+    QPaintEvent *event) {
+  self->paintEvent(event);
+}
+
+//  bool QToolBar::event(QEvent *event)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN8QToolBar5eventEP6QEvent(QToolBar *self, QEvent *event) {
+  return self->event(event);
+}
+
+//  void QToolBar::initStyleOption(QStyleOptionToolBar *option) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK8QToolBar15initStyleOptionEP19QStyleOptionToolBar(
+    const QToolBar *self,
+    QStyleOptionToolBar *option) {
+  self->initStyleOption(option);
+}
+
 //  a Python function taken by a CuteQToolBar, for the function named by the
 //      key
 extern "C" Q_DECL_EXPORT

@@ -11,6 +11,7 @@
     "ritual_ZN19QAccessibleWidgetV2C1EP7QWidgetN11QAccessible4RoleERK7QString": [
       "address", "address", "int", "text"
     ],
+    "ritual_ZN19QAccessibleWidgetV2D1Ev": ["nothing", "address"],
     "ritual_ZNK19QAccessibleWidgetV214attributeValueEN11QAccessible9AttributeE": [
       "address", "address", "int"
     ],

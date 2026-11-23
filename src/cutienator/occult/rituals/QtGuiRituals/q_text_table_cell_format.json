@@ -102,6 +102,9 @@
     "ritual_ZN20QTextTableCellFormat14setBorderBrushERK6QBrush": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN20QTextTableCellFormatC1ERK11QTextFormat": [
+      "address", "address"
+    ],
     "ritual_ZN20QTextTableCellFormatD1Ev": ["nothing", "address"]
   }
 }

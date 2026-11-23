@@ -140,6 +140,17 @@ bool ritual_ZgeRK11QModelIndexS1_(
   return operator>=(*lhs, *rhs);
 }
 
+//  QModelIndex::QModelIndex(int arow, int acolumn, quintptr id, const
+//      QAbstractItemModel *amodel)
+extern "C" Q_DECL_EXPORT
+QModelIndex *ritual_ZN11QModelIndexC1EiiyPK18QAbstractItemModel(
+    int arow,
+    int acolumn,
+    quintptr id,
+    const QAbstractItemModel *amodel) {
+  return new QModelIndex(arow, acolumn, id, amodel);
+}
+
 //  QModelIndex::~QModelIndex()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QModelIndexD1Ev(QModelIndex *self) {

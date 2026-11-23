@@ -149,6 +149,11 @@
     "ritual_ZN11QFileDialog15saveFileContentERK10QByteArrayRK7QStringP7QWidget": [
       "nothing", "address", "text", "address"
     ],
+    "ritual_ZN11QFileDialog4doneEi": ["nothing", "address", "int"],
+    "ritual_ZN11QFileDialog6acceptEv": ["nothing", "address"],
+    "ritual_ZN11QFileDialog11changeEventEP6QEvent": [
+      "nothing", "address", "address"
+    ],
     "ritual_take_QFileDialog": ["bool", "address", "chars", "address"],
     "ritual_own_ZN11QFileDialog10setVisibleEb": [
       "nothing", "address", "bool"

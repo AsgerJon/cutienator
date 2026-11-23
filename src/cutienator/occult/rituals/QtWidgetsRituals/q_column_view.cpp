@@ -1615,6 +1615,115 @@ void ritual_ZN11QColumnView16setPreviewWidgetEP7QWidget(
   self->setPreviewWidget(widget);
 }
 
+//  bool QColumnView::isIndexHidden(const QModelIndex &index) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK11QColumnView13isIndexHiddenERK11QModelIndex(
+    const QColumnView *self,
+    const QModelIndex *index) {
+  return self->isIndexHidden(*index);
+}
+
+//  QModelIndex QColumnView::moveCursor(CursorAction cursorAction,
+//      Qt::KeyboardModifiers modifiers)
+extern "C" Q_DECL_EXPORT
+QModelIndex *ritual_ZN11QColumnView10moveCursorEN17QAbstractItemView12CursorActionE6QFlagsIN2Qt16KeyboardModifierEE(
+    QColumnView *self,
+    QAbstractItemView::CursorAction cursorAction,
+    int modifiers) {
+  return new QModelIndex(
+      self->moveCursor(
+          cursorAction,
+          QFlags<Qt::KeyboardModifier>::fromInt(modifiers)));
+}
+
+//  void QColumnView::resizeEvent(QResizeEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QColumnView11resizeEventEP12QResizeEvent(
+    QColumnView *self,
+    QResizeEvent *event) {
+  self->resizeEvent(event);
+}
+
+//  void QColumnView::setSelection(const QRect &rect,
+//      QItemSelectionModel::SelectionFlags command)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QColumnView12setSelectionERK5QRect6QFlagsIN19QItemSelectionModel13SelectionFlagEE(
+    QColumnView *self,
+    const QRect *rect,
+    int command) {
+  self->setSelection(
+      *rect,
+      QFlags<QItemSelectionModel::SelectionFlag>::fromInt(command));
+}
+
+//  QRegion QColumnView::visualRegionForSelection(const QItemSelection
+//      &selection) const
+extern "C" Q_DECL_EXPORT
+QRegion *ritual_ZNK11QColumnView24visualRegionForSelectionERK14QItemSelection(
+    const QColumnView *self,
+    const QItemSelection *selection) {
+  return new QRegion(self->visualRegionForSelection(*selection));
+}
+
+//  int QColumnView::horizontalOffset() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK11QColumnView16horizontalOffsetEv(const QColumnView *self) {
+  return self->horizontalOffset();
+}
+
+//  int QColumnView::verticalOffset() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK11QColumnView14verticalOffsetEv(const QColumnView *self) {
+  return self->verticalOffset();
+}
+
+//  void QColumnView::rowsInserted(const QModelIndex &parent, int start, int
+//      end)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QColumnView12rowsInsertedERK11QModelIndexii(
+    QColumnView *self,
+    const QModelIndex *parent,
+    int start,
+    int end) {
+  self->rowsInserted(*parent, start, end);
+}
+
+//  void QColumnView::currentChanged(const QModelIndex &current, const
+//      QModelIndex &previous)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QColumnView14currentChangedERK11QModelIndexS2_(
+    QColumnView *self,
+    const QModelIndex *current,
+    const QModelIndex *previous) {
+  self->currentChanged(*current, *previous);
+}
+
+//  void QColumnView::scrollContentsBy(int dx, int dy)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QColumnView16scrollContentsByEii(
+    QColumnView *self,
+    int dx,
+    int dy) {
+  self->scrollContentsBy(dx, dy);
+}
+
+//  QAbstractItemView *QColumnView::createColumn(const QModelIndex
+//      &rootIndex)
+extern "C" Q_DECL_EXPORT
+QAbstractItemView *ritual_ZN11QColumnView12createColumnERK11QModelIndex(
+    QColumnView *self,
+    const QModelIndex *rootIndex) {
+  return self->createColumn(*rootIndex);
+}
+
+//  void QColumnView::initializeColumn(QAbstractItemView *column) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK11QColumnView16initializeColumnEP17QAbstractItemView(
+    const QColumnView *self,
+    QAbstractItemView *column) {
+  self->initializeColumn(column);
+}
+
 //  a Python function taken by a CuteQColumnView, for the function named by
 //      the key
 extern "C" Q_DECL_EXPORT

@@ -5,5 +5,7 @@
     "lost."
   ],
   "rows": {
+    "ritual_ZN20QStringConverterBaseC1Ev": ["address"],
+    "ritual_ZN20QStringConverterBaseD1Ev": ["nothing", "address"]
   }
 }

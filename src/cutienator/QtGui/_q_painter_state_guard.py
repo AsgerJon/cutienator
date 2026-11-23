@@ -39,8 +39,8 @@ class QPainterStateGuard(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QPainterStateGuard that has a ritual and that Python
-  can call so far, 2 names in all: 'save', 'restore'. It can be made from
-  Python, in 1 way; see '__init__'.
+  can call so far, 3 names in all: 'save', 'restore', 'verifyPainter'. It can
+  be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -51,8 +51,8 @@ class QPainterStateGuard(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  6 of the 10 functions Qt declares: 3 takes or gives a type that cannot be
-  passed yet; 2 forbidden; 1 private.
+  5 of the 10 functions Qt declares: 3 takes or gives a type that cannot be
+  passed yet; 2 forbidden.
 
   What to expect
   --------------
@@ -192,3 +192,13 @@ class QPainterStateGuard(CuteMixin, metaclass=MetaCute):
     """
     #  void QPainterStateGuard::restore()
     self.uglySide.call('ritual_ZN18QPainterStateGuard7restoreEv')
+
+  def verifyPainter(self) -> None:
+    """
+    Calls Qt's 'void QPainterStateGuard::verifyPainter()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qpainterstateguard.html#verifyPainter
+    """
+    #  void QPainterStateGuard::verifyPainter()
+    self.uglySide.call('ritual_ZN18QPainterStateGuard13verifyPainterEv')

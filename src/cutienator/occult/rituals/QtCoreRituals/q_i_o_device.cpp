@@ -645,6 +645,37 @@ QString *ritual_ZNK9QIODevice11errorStringEv(const QIODevice *self) {
   return new QString(self->errorString());
 }
 
+//  qint64 QIODevice::skipData(qint64 maxSize)
+extern "C" Q_DECL_EXPORT
+qint64 ritual_ZN9QIODevice8skipDataEx(QIODevice *self, qint64 maxSize) {
+  return self->skipData(maxSize);
+}
+
+//  qint64 QIODevice::writeData(const char *data, qint64 len)
+extern "C" Q_DECL_EXPORT
+qint64 ritual_ZN9QIODevice9writeDataEPKcx(
+    QIODevice *self,
+    const char *data,
+    qint64 len) {
+  return self->writeData(data, len);
+}
+
+//  void QIODevice::setOpenMode(QIODeviceBase::OpenMode openMode)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QIODevice11setOpenModeE6QFlagsIN13QIODeviceBase12OpenModeFlagEE(
+    QIODevice *self,
+    int openMode) {
+  self->setOpenMode(QFlags<QIODeviceBase::OpenModeFlag>::fromInt(openMode));
+}
+
+//  void QIODevice::setErrorString(const QString &errorString)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QIODevice14setErrorStringERK7QString(
+    QIODevice *self,
+    const QString *errorString) {
+  self->setErrorString(*errorString);
+}
+
 //  QIODevice as the QIODeviceBase it is built on
 extern "C" Q_DECL_EXPORT
 QIODeviceBase *ritual_cast_QIODevice_QIODeviceBase(QIODevice *self) {

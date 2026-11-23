@@ -199,6 +199,8 @@ class RitualTester:
       '-shared', to make a shared object and not a program;
       '-fPIC', so the code can sit at any address;
       '-O2', so the compiler tidies the result;
+      '-fno-access-control', so the compiler lets a ritual call a
+      function C++ marks 'private' or 'protected';
       '-fvisibility-inlines-hidden', so Qt's inline code leaves no
       names of its own in the target file;
       '-Wl,--version-script=' with the path of the offer file, so the
@@ -215,7 +217,7 @@ class RitualTester:
     qtParts = generator.getDependencyTree().getQtParts()
     return (
         'clang++', '-std=c++17', '-shared', '-fPIC', '-O2',
-        '-fvisibility-inlines-hidden',
+        '-fno-access-control', '-fvisibility-inlines-hidden',
         '-Wl,--version-script=%s' % self.getOfferFile(),
         '-Wl,--no-undefined',
         '-I%s' % QtPart.getQtHeaderFolder(), generator.getRitualFile(),

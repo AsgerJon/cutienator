@@ -48,7 +48,7 @@ class QCoreApplication(QObject):
   -----------
 
   Every function of Qt's QCoreApplication that has a ritual and that Python
-  can call so far, 46 names in all: 'metaObject', 'tr', 'arguments',
+  can call so far, 49 names in all: 'metaObject', 'tr', 'arguments',
   'setAttribute', 'testAttribute', 'setOrganizationDomain',
   'organizationDomain', 'setOrganizationName', 'organizationName',
   'setApplicationName', 'applicationName', 'setApplicationVersion',
@@ -60,20 +60,26 @@ class QCoreApplication(QObject):
   'checkPermission', 'setLibraryPaths', 'libraryPaths', 'addLibraryPath',
   'removeLibraryPath', 'installTranslator', 'removeTranslator', 'translate',
   'installNativeEventFilter', 'removeNativeEventFilter', 'isQuitLockEnabled',
-  'setQuitLockEnabled', 'quit', 'exit', 'event'. It can be made from Python,
-  in 1 way; see '__init__'.
+  'setQuitLockEnabled', 'quit', 'exit', 'event', 'sendSpontaneousEvent',
+  'notifyInternal2', 'forwardEvent'. It can be made from Python, in 1 way;
+  see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QCoreApplication::~QCoreApplication()': the destructor: Python
     never removes a C++ QCoreApplication.
+  - Qt's 'void QCoreApplication::requestPermissionImpl(const QPermission
+    &permission, QtPrivate::QSlotObjectBase *slotObj, const QObject
+    *context)': names 'QtPrivate::QSlotObjectBase', which has no cute class
+    yet.
 
   What has no ritual
   ------------------
 
-  23 of the 73 functions Qt declares: 7 private; 5 a signal; 4 a template; 3
-  protected; 2 takes or gives a type that cannot be passed yet; 2 forbidden.
+  19 of the 73 functions Qt declares: 7 takes or gives a type that cannot be
+  passed yet; 5 a signal; 4 a template; 2 forbidden; 1 declared and nowhere
+  to be found.
 
   What to expect
   --------------
@@ -1032,6 +1038,121 @@ class QCoreApplication(QObject):
     #  void QCoreApplication::exit(int retcode)
     Rituals.call('ritual_ZN16QCoreApplication4exitEi', retcode)
 
+  @staticmethod
+  @overload(QObject, QEvent)
+  @overload(QObject, NoneType)
+  @overload(NoneType, QEvent)
+  @overload(NoneType, NoneType)
+  def sendSpontaneousEvent(
+      receiver: Optional[QObject],
+      event: Optional[QEvent],
+  ) -> bool:
+    """
+    Calls Qt's 'bool QCoreApplication::sendSpontaneousEvent(QObject
+    *receiver, QEvent *event)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qcoreapplication.html#sendSpontaneousEvent
+
+    Parameters
+    ----------
+
+    receiver : Optional[QObject]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    event : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QCoreApplication::sendSpontaneousEvent(QObject *receiver, QEvent
+    #      *event)
+    return Rituals.call(
+        'ritual_ZN16QCoreApplication20sendSpontaneousEventEP7QObjectP6QEven'
+        't',
+        CuteMixin._addressOf(receiver), CuteMixin._addressOf(event),
+    )
+
+  @staticmethod
+  @overload(QObject, QEvent)
+  @overload(QObject, NoneType)
+  @overload(NoneType, QEvent)
+  @overload(NoneType, NoneType)
+  def notifyInternal2(
+      receiver: Optional[QObject],
+      a1: Optional[QEvent],
+  ) -> bool:
+    """
+    Calls Qt's 'bool QCoreApplication::notifyInternal2(QObject *receiver,
+    QEvent *a1)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qcoreapplication.html#notifyInternal2
+
+    Parameters
+    ----------
+
+    receiver : Optional[QObject]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    a1 : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QCoreApplication::notifyInternal2(QObject *receiver, QEvent *a1)
+    return Rituals.call(
+        'ritual_ZN16QCoreApplication15notifyInternal2EP7QObjectP6QEvent',
+        CuteMixin._addressOf(receiver), CuteMixin._addressOf(a1),
+    )
+
+  @staticmethod
+  @overload(QObject, QEvent)
+  @overload(QObject, NoneType)
+  @overload(NoneType, QEvent)
+  @overload(NoneType, NoneType)
+  @overload(QObject, QEvent, QEvent)
+  @overload(QObject, QEvent, NoneType)
+  @overload(QObject, NoneType, QEvent)
+  @overload(QObject, NoneType, NoneType)
+  @overload(NoneType, QEvent, QEvent)
+  @overload(NoneType, QEvent, NoneType)
+  @overload(NoneType, NoneType, QEvent)
+  @overload(NoneType, NoneType, NoneType)
+  def forwardEvent(
+      receiver: Optional[QObject],
+      event: Optional[QEvent],
+      originatingEvent: Optional[QEvent] = None,
+  ) -> bool:
+    """
+    Calls Qt's 'bool QCoreApplication::forwardEvent(QObject *receiver, QEvent
+    *event, QEvent *originatingEvent)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcoreapplication.html#forwardEvent
+
+    Parameters
+    ----------
+
+    receiver : Optional[QObject]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    event : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    originatingEvent : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object. May be left out, as in Qt: it is then None.
+    """
+    #  bool QCoreApplication::forwardEvent(QObject *receiver, QEvent *event,
+    #      QEvent *originatingEvent)
+    return Rituals.call(
+        'ritual_ZN16QCoreApplication12forwardEventEP7QObjectP6QEventS3_',
+        CuteMixin._addressOf(receiver), CuteMixin._addressOf(event),
+        CuteMixin._addressOf(originatingEvent),
+    )
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1301,7 +1422,7 @@ class QCoreApplication(QObject):
       object.
     """
     #  bool QCoreApplication::event(QEvent *a0)
-    return self.uglySide.call(
-        'ritual_own_ZN16QCoreApplication5eventEP6QEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN16QCoreApplication5eventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN16QCoreApplication5eventEP6QEvent'
+    return self.uglySide.call(ritual, self._addressOf(a0))

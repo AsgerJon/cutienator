@@ -375,6 +375,32 @@ bool ritual_ZNK19QGraphicsLayoutItem13ownedByLayoutEv(
   return self->ownedByLayout();
 }
 
+//  void QGraphicsLayoutItem::setGraphicsItem(QGraphicsItem *item)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QGraphicsLayoutItem15setGraphicsItemEP13QGraphicsItem(
+    QGraphicsLayoutItem *self,
+    QGraphicsItem *item) {
+  self->setGraphicsItem(item);
+}
+
+//  void QGraphicsLayoutItem::setOwnedByLayout(bool ownedByLayout)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QGraphicsLayoutItem16setOwnedByLayoutEb(
+    QGraphicsLayoutItem *self,
+    bool ownedByLayout) {
+  self->setOwnedByLayout(ownedByLayout);
+}
+
+//  QSizeF QGraphicsLayoutItem::sizeHint(Qt::SizeHint which, const QSizeF
+//      &constraint) const
+extern "C" Q_DECL_EXPORT
+QSizeF *ritual_ZNK19QGraphicsLayoutItem8sizeHintEN2Qt8SizeHintERK6QSizeF(
+    const QGraphicsLayoutItem *self,
+    Qt::SizeHint which,
+    const QSizeF *constraint) {
+  return new QSizeF(self->sizeHint(which, *constraint));
+}
+
 //  a Python function taken by a CuteQGraphicsLayoutItem, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT

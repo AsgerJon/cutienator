@@ -29,8 +29,9 @@ class QPartialOrdering(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QPartialOrdering that has a ritual and that Python
-  can call so far, 2 names in all: '__eq__', '__ne__'. None can be made from
-  Python: one comes out of a function of another class that gives one back.
+  can call so far, 3 names in all: '__eq__', '__ne__', 'isOrdered'. None can
+  be made from Python: one comes out of a function of another class that
+  gives one back.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -87,13 +88,13 @@ class QPartialOrdering(CuteMixin, metaclass=MetaCute):
     names 'Qt::partial_ordering', which has no cute class yet.
   - Qt's 'bool operator!=(Qt::partial_ordering lhs, QPartialOrdering rhs)':
     names 'Qt::partial_ordering', which has no cute class yet.
+  - Qt's 'QPartialOrdering::QPartialOrdering(QtPrivate::Ordering order)':
+    names the enum 'QtPrivate::Ordering', whose class cannot be named here.
+  - Qt's 'QPartialOrdering::QPartialOrdering(QtPrivate::LegacyUncomparable
+    order)': names the enum 'QtPrivate::LegacyUncomparable', whose class
+    cannot be named here.
   - Qt's 'QPartialOrdering::~QPartialOrdering()': the destructor: Python
     removes its C++ QPartialOrdering by it, and has no other use for it.
-
-  What has no ritual
-  ------------------
-
-  3 of the 26 functions Qt declares: 3 private.
 
   What to expect
   --------------
@@ -137,6 +138,15 @@ class QPartialOrdering(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def isOrdered(self) -> bool:
+    """
+    Calls Qt's 'bool QPartialOrdering::isOrdered() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpartialordering.html#isOrdered
+    """
+    #  bool QPartialOrdering::isOrdered() const
+    return self.uglySide.call('ritual_ZNK16QPartialOrdering9isOrderedEv')
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

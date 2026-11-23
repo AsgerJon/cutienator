@@ -1054,6 +1054,64 @@ bool ritual_ZgeRK5QCharRK10QByteArray(
   return operator>=(*lhs, *rhs);
 }
 
+//  void QByteArray::reallocData(qsizetype alloc,
+//      QArrayData::AllocationOption option)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QByteArray11reallocDataExN10QArrayData16AllocationOptionE(
+    QByteArray *self,
+    qsizetype alloc,
+    QArrayData::AllocationOption option) {
+  self->reallocData(alloc, option);
+}
+
+//  void QByteArray::reallocGrowData(qsizetype n)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QByteArray15reallocGrowDataEx(
+    QByteArray *self,
+    qsizetype n) {
+  self->reallocGrowData(n);
+}
+
+//  void QByteArray::expand(qsizetype i)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10QByteArray6expandEx(QByteArray *self, qsizetype i) {
+  self->expand(i);
+}
+
+//  void QByteArray::verify(qsizetype pos, qsizetype n) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK10QByteArray6verifyExx(
+    const QByteArray *self,
+    qsizetype pos,
+    qsizetype n) {
+  self->verify(pos, n);
+}
+
+//  QByteArray QByteArray::toLower_helper(const QByteArray &a)
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZN10QByteArray14toLower_helperERKS_(const QByteArray *a) {
+  return new QByteArray(QByteArray::toLower_helper(*a));
+}
+
+//  QByteArray QByteArray::toUpper_helper(const QByteArray &a)
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZN10QByteArray14toUpper_helperERKS_(const QByteArray *a) {
+  return new QByteArray(QByteArray::toUpper_helper(*a));
+}
+
+//  QByteArray QByteArray::trimmed_helper(const QByteArray &a)
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZN10QByteArray14trimmed_helperERKS_(const QByteArray *a) {
+  return new QByteArray(QByteArray::trimmed_helper(*a));
+}
+
+//  QByteArray QByteArray::simplified_helper(const QByteArray &a)
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZN10QByteArray17simplified_helperERKS_(
+    const QByteArray *a) {
+  return new QByteArray(QByteArray::simplified_helper(*a));
+}
+
 //  QList<QByteArray>::QList()
 extern "C" Q_DECL_EXPORT
 QList<QByteArray> *ritual_list_make_QByteArray() {

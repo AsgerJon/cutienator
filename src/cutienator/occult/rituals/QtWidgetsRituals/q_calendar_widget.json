@@ -80,6 +80,28 @@
     "ritual_ZN15QCalendarWidget22setDateEditAcceptDelayEi": [
       "nothing", "address", "int"
     ],
+    "ritual_ZN15QCalendarWidget5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN15QCalendarWidget11eventFilterEP7QObjectP6QEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN15QCalendarWidget15mousePressEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QCalendarWidget11resizeEventEP12QResizeEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QCalendarWidget13keyPressEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QCalendarWidget9paintCellEP8QPainterRK5QRect5QDate": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN15QCalendarWidget10updateCellE5QDate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QCalendarWidget11updateCellsEv": ["nothing", "address"],
     "ritual_ZN15QCalendarWidget15setSelectedDateE5QDate": [
       "nothing", "address", "address"
     ],

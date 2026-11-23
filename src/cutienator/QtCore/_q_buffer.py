@@ -43,10 +43,10 @@ class QBuffer(QIODevice):
   -----------
 
   Every function of Qt's QBuffer that has a ritual and that Python can call
-  so far, 15 names in all: 'metaObject', 'tr', 'buffer', 'setBuffer',
+  so far, 16 names in all: 'metaObject', 'tr', 'buffer', 'setBuffer',
   'setData', 'data', 'open', 'close', 'size', 'pos', 'seek', 'atEnd',
-  'canReadLine', 'connectNotify', 'disconnectNotify'. It can be made from
-  Python, in 2 ways; see '__init__'.
+  'canReadLine', 'connectNotify', 'disconnectNotify', 'writeData'. It can be
+  made from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -57,8 +57,8 @@ class QBuffer(QIODevice):
   What has no ritual
   ------------------
 
-  11 of the 30 functions Qt declares: 3 takes or gives a type that cannot be
-  passed yet; 3 private; 2 protected; 2 forbidden; 1 a template.
+  10 of the 30 functions Qt declares: 6 takes or gives a type that cannot be
+  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found.
 
   What to expect
   --------------
@@ -466,10 +466,10 @@ class QBuffer(QIODevice):
       Python's own.
     """
     #  void QBuffer::connectNotify(const QMetaMethod &a0)
-    self.uglySide.call(
-        'ritual_own_ZN7QBuffer13connectNotifyERK11QMetaMethod',
-        self._valueOf(a0),
-    )
+    ritual = 'ritual_ZN7QBuffer13connectNotifyERK11QMetaMethod'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QBuffer13connectNotifyERK11QMetaMethod'
+    self.uglySide.call(ritual, self._valueOf(a0))
 
   @overload(QMetaMethod)
   def disconnectNotify(self, a0: QMetaMethod) -> None:
@@ -486,7 +486,29 @@ class QBuffer(QIODevice):
       Python's own.
     """
     #  void QBuffer::disconnectNotify(const QMetaMethod &a0)
-    self.uglySide.call(
-        'ritual_own_ZN7QBuffer16disconnectNotifyERK11QMetaMethod',
-        self._valueOf(a0),
+    ritual = 'ritual_ZN7QBuffer16disconnectNotifyERK11QMetaMethod'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN7QBuffer16disconnectNotifyERK11QMetaMethod'
+    self.uglySide.call(ritual, self._valueOf(a0))
+
+  @overload(str, int)
+  @overload(NoneType, int)
+  def writeData(self, data: Optional[str], len: int) -> int:
+    """
+    Calls Qt's 'qint64 QBuffer::writeData(const char *data, qint64 len)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbuffer.html#writeData
+
+    Parameters
+    ----------
+
+    data : Optional[str]
+      Passed on as the bytes of the text. None is passed on as no text.
+
+    len : int
+      Passed on as it is.
+    """
+    #  qint64 QBuffer::writeData(const char *data, qint64 len)
+    return self.uglySide.call(
+        'ritual_ZN7QBuffer9writeDataEPKcx', self._bytesOf(data), len,
     )

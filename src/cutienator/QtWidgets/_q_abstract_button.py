@@ -75,9 +75,9 @@ class QAbstractButton(QWidget):
   What has no ritual
   ------------------
 
-  15 of the 57 functions Qt declares: 4 a signal; 3 private; 2 takes or gives
-  a type that cannot be passed yet; 2 protected; 2 forbidden; 1 a template; 1
-  the class is abstract, so C++ cannot make one.
+  15 of the 57 functions Qt declares: 4 takes or gives a type that cannot be
+  passed yet; 4 a signal; 2 declared and nowhere to be found; 2 the class is
+  abstract, so C++ cannot make one; 2 forbidden; 1 a template.
 
   What to expect
   --------------
@@ -377,10 +377,10 @@ class QAbstractButton(QWidget):
       own.
     """
     #  bool QAbstractButton::hitButton(const QPoint &pos) const
-    return self.uglySide.call(
-        'ritual_own_ZNK15QAbstractButton9hitButtonERK6QPoint',
-        self._valueOf(pos),
-    )
+    ritual = 'ritual_ZNK15QAbstractButton9hitButtonERK6QPoint'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK15QAbstractButton9hitButtonERK6QPoint'
+    return self.uglySide.call(ritual, self._valueOf(pos))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -644,7 +644,10 @@ class QAbstractButton(QWidget):
     Qt's own words: https://doc.qt.io/qt-6/qabstractbutton.html#checkStateSet
     """
     #  void QAbstractButton::checkStateSet()
-    self.uglySide.call('ritual_own_ZN15QAbstractButton13checkStateSetEv')
+    ritual = 'ritual_ZN15QAbstractButton13checkStateSetEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN15QAbstractButton13checkStateSetEv'
+    self.uglySide.call(ritual)
 
   def nextCheckState(self) -> None:
     """
@@ -654,7 +657,10 @@ class QAbstractButton(QWidget):
     https://doc.qt.io/qt-6/qabstractbutton.html#nextCheckState
     """
     #  void QAbstractButton::nextCheckState()
-    self.uglySide.call('ritual_own_ZN15QAbstractButton14nextCheckStateEv')
+    ritual = 'ritual_ZN15QAbstractButton14nextCheckStateEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN15QAbstractButton14nextCheckStateEv'
+    self.uglySide.call(ritual)
 
   @overload(QEvent)
   @overload(NoneType)
@@ -672,9 +678,10 @@ class QAbstractButton(QWidget):
       object.
     """
     #  bool QAbstractButton::event(QEvent *e)
-    return self.uglySide.call(
-        'ritual_own_ZN15QAbstractButton5eventEP6QEvent', self._addressOf(e),
-    )
+    ritual = 'ritual_ZN15QAbstractButton5eventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN15QAbstractButton5eventEP6QEvent'
+    return self.uglySide.call(ritual, self._addressOf(e))
 
   @overload(QKeyEvent)
   @overload(NoneType)
@@ -692,10 +699,10 @@ class QAbstractButton(QWidget):
       object.
     """
     #  void QAbstractButton::keyPressEvent(QKeyEvent *e)
-    self.uglySide.call(
-        'ritual_own_ZN15QAbstractButton13keyPressEventEP9QKeyEvent',
-        self._addressOf(e),
-    )
+    ritual = 'ritual_ZN15QAbstractButton13keyPressEventEP9QKeyEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN15QAbstractButton13keyPressEventEP9QKeyEvent'
+    self.uglySide.call(ritual, self._addressOf(e))
 
   @overload(QKeyEvent)
   @overload(NoneType)
@@ -714,10 +721,10 @@ class QAbstractButton(QWidget):
       object.
     """
     #  void QAbstractButton::keyReleaseEvent(QKeyEvent *e)
-    self.uglySide.call(
-        'ritual_own_ZN15QAbstractButton15keyReleaseEventEP9QKeyEvent',
-        self._addressOf(e),
-    )
+    ritual = 'ritual_ZN15QAbstractButton15keyReleaseEventEP9QKeyEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN15QAbstractButton15keyReleaseEventEP9QKeyEvent'
+    self.uglySide.call(ritual, self._addressOf(e))
 
   @overload(QMouseEvent)
   @overload(NoneType)
@@ -736,10 +743,11 @@ class QAbstractButton(QWidget):
       object.
     """
     #  void QAbstractButton::mousePressEvent(QMouseEvent *e)
-    self.uglySide.call(
-        'ritual_own_ZN15QAbstractButton15mousePressEventEP11QMouseEvent',
-        self._addressOf(e),
-    )
+    ritual = 'ritual_ZN15QAbstractButton15mousePressEventEP11QMouseEvent'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN15QAbstractButton15mousePressEventEP11QMouseEvent')
+    self.uglySide.call(ritual, self._addressOf(e))
 
   @overload(QMouseEvent)
   @overload(NoneType)
@@ -758,10 +766,11 @@ class QAbstractButton(QWidget):
       object.
     """
     #  void QAbstractButton::mouseReleaseEvent(QMouseEvent *e)
-    self.uglySide.call(
-        'ritual_own_ZN15QAbstractButton17mouseReleaseEventEP11QMouseEvent',
-        self._addressOf(e),
-    )
+    ritual = 'ritual_ZN15QAbstractButton17mouseReleaseEventEP11QMouseEvent'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN15QAbstractButton17mouseReleaseEventEP11QMouseEvent')
+    self.uglySide.call(ritual, self._addressOf(e))
 
   @overload(QMouseEvent)
   @overload(NoneType)
@@ -780,10 +789,11 @@ class QAbstractButton(QWidget):
       object.
     """
     #  void QAbstractButton::mouseMoveEvent(QMouseEvent *e)
-    self.uglySide.call(
-        'ritual_own_ZN15QAbstractButton14mouseMoveEventEP11QMouseEvent',
-        self._addressOf(e),
-    )
+    ritual = 'ritual_ZN15QAbstractButton14mouseMoveEventEP11QMouseEvent'
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN15QAbstractButton14mouseMoveEventEP11QMouseEvent')
+    self.uglySide.call(ritual, self._addressOf(e))
 
   @overload(QFocusEvent)
   @overload(NoneType)
@@ -801,10 +811,10 @@ class QAbstractButton(QWidget):
       object.
     """
     #  void QAbstractButton::focusInEvent(QFocusEvent *e)
-    self.uglySide.call(
-        'ritual_own_ZN15QAbstractButton12focusInEventEP11QFocusEvent',
-        self._addressOf(e),
-    )
+    ritual = 'ritual_ZN15QAbstractButton12focusInEventEP11QFocusEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN15QAbstractButton12focusInEventEP11QFocusEvent'
+    self.uglySide.call(ritual, self._addressOf(e))
 
   @overload(QFocusEvent)
   @overload(NoneType)
@@ -822,10 +832,10 @@ class QAbstractButton(QWidget):
       object.
     """
     #  void QAbstractButton::focusOutEvent(QFocusEvent *e)
-    self.uglySide.call(
-        'ritual_own_ZN15QAbstractButton13focusOutEventEP11QFocusEvent',
-        self._addressOf(e),
-    )
+    ritual = 'ritual_ZN15QAbstractButton13focusOutEventEP11QFocusEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN15QAbstractButton13focusOutEventEP11QFocusEvent'
+    self.uglySide.call(ritual, self._addressOf(e))
 
   @overload(QEvent)
   @overload(NoneType)
@@ -843,10 +853,10 @@ class QAbstractButton(QWidget):
       object.
     """
     #  void QAbstractButton::changeEvent(QEvent *e)
-    self.uglySide.call(
-        'ritual_own_ZN15QAbstractButton11changeEventEP6QEvent',
-        self._addressOf(e),
-    )
+    ritual = 'ritual_ZN15QAbstractButton11changeEventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN15QAbstractButton11changeEventEP6QEvent'
+    self.uglySide.call(ritual, self._addressOf(e))
 
   @overload(QTimerEvent)
   @overload(NoneType)
@@ -864,10 +874,10 @@ class QAbstractButton(QWidget):
       object.
     """
     #  void QAbstractButton::timerEvent(QTimerEvent *e)
-    self.uglySide.call(
-        'ritual_own_ZN15QAbstractButton10timerEventEP11QTimerEvent',
-        self._addressOf(e),
-    )
+    ritual = 'ritual_ZN15QAbstractButton10timerEventEP11QTimerEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN15QAbstractButton10timerEventEP11QTimerEvent'
+    self.uglySide.call(ritual, self._addressOf(e))
 
 
 #  Qt's 'QList<QAbstractButton *>': the list of QAbstractButton, which

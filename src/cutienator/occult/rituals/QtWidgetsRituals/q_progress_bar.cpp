@@ -993,6 +993,28 @@ void ritual_ZN12QProgressBar14setOrientationEN2Qt11OrientationE(
   self->setOrientation(a0);
 }
 
+//  bool QProgressBar::event(QEvent *e)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN12QProgressBar5eventEP6QEvent(QProgressBar *self, QEvent *e) {
+  return self->event(e);
+}
+
+//  void QProgressBar::paintEvent(QPaintEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QProgressBar10paintEventEP11QPaintEvent(
+    QProgressBar *self,
+    QPaintEvent *a0) {
+  self->paintEvent(a0);
+}
+
+//  void QProgressBar::initStyleOption(QStyleOptionProgressBar *option) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK12QProgressBar15initStyleOptionEP23QStyleOptionProgressBar(
+    const QProgressBar *self,
+    QStyleOptionProgressBar *option) {
+  self->initStyleOption(option);
+}
+
 //  a Python function taken by a CuteQProgressBar, for the function named by
 //      the key
 extern "C" Q_DECL_EXPORT

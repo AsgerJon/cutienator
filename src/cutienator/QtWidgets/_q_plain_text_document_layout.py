@@ -49,11 +49,12 @@ class QPlainTextDocumentLayout(QAbstractTextDocumentLayout):
   -----------
 
   Every function of Qt's QPlainTextDocumentLayout that has a ritual and that
-  Python can call so far, 13 names in all: 'metaObject', 'tr', 'draw',
+  Python can call so far, 17 names in all: 'metaObject', 'tr', 'draw',
   'hitTest', 'pageCount', 'documentSize', 'frameBoundingRect',
   'blockBoundingRect', 'ensureBlockLayout', 'setCursorWidth', 'cursorWidth',
-  'requestUpdate', 'documentChanged'. It can be made from Python, in 1 way;
-  see '__init__'.
+  'requestUpdate', 'documentChanged', 'setTextWidth', 'textWidth',
+  'layoutBlock', 'blockWidth'. It can be made from Python, in 1 way; see
+  '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -64,8 +65,8 @@ class QPlainTextDocumentLayout(QAbstractTextDocumentLayout):
   What has no ritual
   ------------------
 
-  11 of the 26 functions Qt declares: 8 private; 2 takes or gives a type that
-  cannot be passed yet; 1 a template.
+  7 of the 26 functions Qt declares: 5 takes or gives a type that cannot be
+  passed yet; 1 a template; 1 declared and nowhere to be found.
 
   What to expect
   --------------
@@ -325,6 +326,18 @@ class QPlainTextDocumentLayout(QAbstractTextDocumentLayout):
         'ritual_ZNK24QPlainTextDocumentLayout11cursorWidthEv',
     )
 
+  def textWidth(self) -> float:
+    """
+    Calls Qt's 'qreal QPlainTextDocumentLayout::textWidth() const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qplaintextdocumentlayout.html#textWidth
+    """
+    #  qreal QPlainTextDocumentLayout::textWidth() const
+    return self.uglySide.call(
+        'ritual_ZNK24QPlainTextDocumentLayout9textWidthEv',
+    )
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -346,6 +359,25 @@ class QPlainTextDocumentLayout(QAbstractTextDocumentLayout):
     #  void QPlainTextDocumentLayout::setCursorWidth(int width)
     self.uglySide.call(
         'ritual_ZN24QPlainTextDocumentLayout14setCursorWidthEi', width,
+    )
+
+  @overload(float)
+  def setTextWidth(self, newWidth: float) -> None:
+    """
+    Calls Qt's 'void QPlainTextDocumentLayout::setTextWidth(qreal newWidth)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qplaintextdocumentlayout.html#setTextWidth
+
+    Parameters
+    ----------
+
+    newWidth : float
+      Passed on as it is.
+    """
+    #  void QPlainTextDocumentLayout::setTextWidth(qreal newWidth)
+    self.uglySide.call(
+        'ritual_ZN24QPlainTextDocumentLayout12setTextWidthEd', newWidth,
     )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -499,7 +531,51 @@ class QPlainTextDocumentLayout(QAbstractTextDocumentLayout):
     """
     #  void QPlainTextDocumentLayout::documentChanged(int from, int a1, int
     #      charsAdded)
+    ritual = 'ritual_ZN24QPlainTextDocumentLayout15documentChangedEiii'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN24QPlainTextDocumentLayout15documentChangedEiii'
+    self.uglySide.call(ritual, from_, a1, charsAdded)
+
+  @overload(QTextBlock)
+  def layoutBlock(self, block: QTextBlock) -> None:
+    """
+    Calls Qt's 'void QPlainTextDocumentLayout::layoutBlock(const QTextBlock
+    &block)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qplaintextdocumentlayout.html#layoutBlock
+
+    Parameters
+    ----------
+
+    block : QTextBlock
+      Passed on as a value: Qt reads the C++ QTextBlock, which stays Python's
+      own.
+    """
+    #  void QPlainTextDocumentLayout::layoutBlock(const QTextBlock &block)
     self.uglySide.call(
-        'ritual_own_ZN24QPlainTextDocumentLayout15documentChangedEiii',
-        from_, a1, charsAdded,
+        'ritual_ZN24QPlainTextDocumentLayout11layoutBlockERK10QTextBlock',
+        self._valueOf(block),
+    )
+
+  @overload(QTextBlock)
+  def blockWidth(self, block: QTextBlock) -> float:
+    """
+    Calls Qt's 'qreal QPlainTextDocumentLayout::blockWidth(const QTextBlock
+    &block)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qplaintextdocumentlayout.html#blockWidth
+
+    Parameters
+    ----------
+
+    block : QTextBlock
+      Passed on as a value: Qt reads the C++ QTextBlock, which stays Python's
+      own.
+    """
+    #  qreal QPlainTextDocumentLayout::blockWidth(const QTextBlock &block)
+    return self.uglySide.call(
+        'ritual_ZN24QPlainTextDocumentLayout10blockWidthERK10QTextBlock',
+        self._valueOf(block),
     )

@@ -78,8 +78,9 @@ class QMenuBar(QWidget):
   What has no ritual
   ------------------
 
-  11 of the 51 functions Qt declares: 3 takes or gives a type that cannot be
-  passed yet; 3 private; 2 a signal; 2 forbidden; 1 a template.
+  11 of the 51 functions Qt declares: 5 takes or gives a type that cannot be
+  passed yet; 2 a signal; 2 forbidden; 1 a template; 1 declared and nowhere
+  to be found.
 
   What to expect
   --------------
@@ -748,9 +749,10 @@ class QMenuBar(QWidget):
       object.
     """
     #  void QMenuBar::changeEvent(QEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN8QMenuBar11changeEventEP6QEvent', self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN8QMenuBar11changeEventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN8QMenuBar11changeEventEP6QEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QKeyEvent)
   @overload(NoneType)
@@ -768,10 +770,10 @@ class QMenuBar(QWidget):
       object.
     """
     #  void QMenuBar::keyPressEvent(QKeyEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN8QMenuBar13keyPressEventEP9QKeyEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN8QMenuBar13keyPressEventEP9QKeyEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN8QMenuBar13keyPressEventEP9QKeyEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QMouseEvent)
   @overload(NoneType)
@@ -789,10 +791,10 @@ class QMenuBar(QWidget):
       object.
     """
     #  void QMenuBar::mouseReleaseEvent(QMouseEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN8QMenuBar17mouseReleaseEventEP11QMouseEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN8QMenuBar17mouseReleaseEventEP11QMouseEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN8QMenuBar17mouseReleaseEventEP11QMouseEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QMouseEvent)
   @overload(NoneType)
@@ -810,10 +812,10 @@ class QMenuBar(QWidget):
       object.
     """
     #  void QMenuBar::mousePressEvent(QMouseEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN8QMenuBar15mousePressEventEP11QMouseEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN8QMenuBar15mousePressEventEP11QMouseEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN8QMenuBar15mousePressEventEP11QMouseEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QMouseEvent)
   @overload(NoneType)
@@ -831,10 +833,10 @@ class QMenuBar(QWidget):
       object.
     """
     #  void QMenuBar::mouseMoveEvent(QMouseEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN8QMenuBar14mouseMoveEventEP11QMouseEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN8QMenuBar14mouseMoveEventEP11QMouseEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN8QMenuBar14mouseMoveEventEP11QMouseEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QEvent)
   @overload(NoneType)
@@ -852,9 +854,10 @@ class QMenuBar(QWidget):
       object.
     """
     #  void QMenuBar::leaveEvent(QEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN8QMenuBar10leaveEventEP6QEvent', self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN8QMenuBar10leaveEventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN8QMenuBar10leaveEventEP6QEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QPaintEvent)
   @overload(NoneType)
@@ -872,10 +875,10 @@ class QMenuBar(QWidget):
       object.
     """
     #  void QMenuBar::paintEvent(QPaintEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN8QMenuBar10paintEventEP11QPaintEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN8QMenuBar10paintEventEP11QPaintEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN8QMenuBar10paintEventEP11QPaintEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QResizeEvent)
   @overload(NoneType)
@@ -893,10 +896,10 @@ class QMenuBar(QWidget):
       object.
     """
     #  void QMenuBar::resizeEvent(QResizeEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN8QMenuBar11resizeEventEP12QResizeEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN8QMenuBar11resizeEventEP12QResizeEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN8QMenuBar11resizeEventEP12QResizeEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QActionEvent)
   @overload(NoneType)
@@ -914,10 +917,10 @@ class QMenuBar(QWidget):
       object.
     """
     #  void QMenuBar::actionEvent(QActionEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN8QMenuBar11actionEventEP12QActionEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN8QMenuBar11actionEventEP12QActionEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN8QMenuBar11actionEventEP12QActionEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QFocusEvent)
   @overload(NoneType)
@@ -935,10 +938,10 @@ class QMenuBar(QWidget):
       object.
     """
     #  void QMenuBar::focusOutEvent(QFocusEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN8QMenuBar13focusOutEventEP11QFocusEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN8QMenuBar13focusOutEventEP11QFocusEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN8QMenuBar13focusOutEventEP11QFocusEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QFocusEvent)
   @overload(NoneType)
@@ -956,10 +959,10 @@ class QMenuBar(QWidget):
       object.
     """
     #  void QMenuBar::focusInEvent(QFocusEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN8QMenuBar12focusInEventEP11QFocusEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN8QMenuBar12focusInEventEP11QFocusEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN8QMenuBar12focusInEventEP11QFocusEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QTimerEvent)
   @overload(NoneType)
@@ -977,10 +980,10 @@ class QMenuBar(QWidget):
       object.
     """
     #  void QMenuBar::timerEvent(QTimerEvent *a0)
-    self.uglySide.call(
-        'ritual_own_ZN8QMenuBar10timerEventEP11QTimerEvent',
-        self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN8QMenuBar10timerEventEP11QTimerEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN8QMenuBar10timerEventEP11QTimerEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QObject, QEvent)
   @overload(QObject, NoneType)
@@ -1004,9 +1007,11 @@ class QMenuBar(QWidget):
       object.
     """
     #  bool QMenuBar::eventFilter(QObject *a0, QEvent *a1)
+    ritual = 'ritual_ZN8QMenuBar11eventFilterEP7QObjectP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN8QMenuBar11eventFilterEP7QObjectP6QEvent'
     return self.uglySide.call(
-        'ritual_own_ZN8QMenuBar11eventFilterEP7QObjectP6QEvent',
-        self._addressOf(a0), self._addressOf(a1),
+        ritual, self._addressOf(a0), self._addressOf(a1),
     )
 
   @overload(QEvent)
@@ -1025,9 +1030,10 @@ class QMenuBar(QWidget):
       object.
     """
     #  bool QMenuBar::event(QEvent *a0)
-    return self.uglySide.call(
-        'ritual_own_ZN8QMenuBar5eventEP6QEvent', self._addressOf(a0),
-    )
+    ritual = 'ritual_ZN8QMenuBar5eventEP6QEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN8QMenuBar5eventEP6QEvent'
+    return self.uglySide.call(ritual, self._addressOf(a0))
 
   @overload(QStyleOptionMenuItem, QAction)
   @overload(QStyleOptionMenuItem, NoneType)
@@ -1057,8 +1063,13 @@ class QMenuBar(QWidget):
     """
     #  void QMenuBar::initStyleOption(QStyleOptionMenuItem *option, const
     #      QAction *action) const
+    ritual = (
+        'ritual_ZNK8QMenuBar15initStyleOptionEP20QStyleOptionMenuItemPK7QAc'
+        'tion')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK8QMenuBar15initStyleOptionEP20QStyleOptionMenuItem'
+          'PK7QAction')
     self.uglySide.call(
-        'ritual_own_ZNK8QMenuBar15initStyleOptionEP20QStyleOptionMenuItemPK'
-        '7QAction',
-        self._addressOf(option), self._addressOf(action),
+        ritual, self._addressOf(option), self._addressOf(action),
     )

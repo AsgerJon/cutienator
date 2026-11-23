@@ -511,6 +511,14 @@ void ritual_ZN15QGuiApplication4syncEv() {
   QGuiApplication::sync();
 }
 
+//  bool QGuiApplication::event(QEvent *a0)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN15QGuiApplication5eventEP6QEvent(
+    QGuiApplication *self,
+    QEvent *a0) {
+  return self->event(a0);
+}
+
 //  a Python function taken by a CuteQGuiApplication, for the function named
 //      by the key
 extern "C" Q_DECL_EXPORT
