@@ -34,9 +34,6 @@
     "ritual_ZN8QCborMap13ConstIterator20comparesEqual_helperERKS0_S2_": [
       "bool", "address", "address"
     ],
-    "ritual_ZN8QCborMap13ConstIterator22compareThreeWay_helperERKS0_S2_": [
-      "address", "address", "address"
-    ],
     "ritual_ZeqRKN8QCborMap13ConstIteratorES2_": [
       "bool", "address", "address"
     ],

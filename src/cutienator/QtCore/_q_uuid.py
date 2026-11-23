@@ -48,23 +48,14 @@ class QUuid(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
-  - Qt's 'bool QUuid::isNull(Qt::Disambiguated_t a0) const': names
-    'Qt::Disambiguated_t', which has no cute class yet.
-  - Qt's 'Qt::strong_ordering QUuid::compareThreeWay_helper(const QUuid &lhs,
-    const QUuid &rhs)': gives 'Qt::strong_ordering', which has no cute class
-    yet.
-  - Qt's 'Variant QUuid::variant(Qt::Disambiguated_t a0) const': names
-    'Qt::Disambiguated_t', which has no cute class yet.
-  - Qt's 'Version QUuid::version(Qt::Disambiguated_t a0) const': names
-    'Qt::Disambiguated_t', which has no cute class yet.
   - Qt's 'QUuid::~QUuid()': the destructor: Python removes its C++ QUuid by
     it, and has no other use for it.
 
   What has no ritual
   ------------------
 
-  3 of the 30 functions Qt declares: 2 a template; 1 takes or gives a type
-  that cannot be passed yet.
+  7 of the 30 functions Qt declares: 5 takes or gives a type that cannot be
+  passed yet; 2 a template.
 
   What to expect
   --------------

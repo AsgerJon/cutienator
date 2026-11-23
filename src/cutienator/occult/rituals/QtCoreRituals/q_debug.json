@@ -14,9 +14,6 @@
     "ritual_ZN6QDebug11putTimeUnitExx": [
       "nothing", "address", "long long", "long long"
     ],
-    "ritual_ZN6QDebug13putQtOrderingE6QFlagsIN17QtOrderingPrivate14QtOrderingTypeEEN2Qt16partial_orderingE": [
-      "nothing", "address", "int", "address"
-    ],
     "ritual_ZN6QDebugC1EP9QIODevice": ["address", "address"],
     "ritual_ZN6QDebugC1EP7QString": ["address", "address"],
     "ritual_ZN6QDebugC1EP10QByteArray": ["address", "address"],

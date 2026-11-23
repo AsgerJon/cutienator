@@ -56,16 +56,12 @@ class QGraphicsLayout(QGraphicsLayoutItem):
   - Qt's 'void QGraphicsLayout::getContentsMargins(qreal *left, qreal *top,
     qreal *right, qreal *bottom) const': takes a number to change where it
     is.
-  - Qt's 'QGraphicsLayoutPrivate *QGraphicsLayout::d_func()': gives
-    'QGraphicsLayoutPrivate', which has no cute class yet.
-  - Qt's 'const QGraphicsLayoutPrivate *QGraphicsLayout::d_func() const':
-    gives 'QGraphicsLayoutPrivate', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  4 of the 20 functions Qt declares: 2 the class is abstract, so C++ cannot
-  make one; 2 forbidden.
+  6 of the 20 functions Qt declares: 2 the class is abstract, so C++ cannot
+  make one; 2 forbidden; 2 takes or gives a type that cannot be passed yet.
 
   What to expect
   --------------

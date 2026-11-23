@@ -303,7 +303,9 @@ class ClassTester:
     generator = self.getClassGenerator()
     className = generator.getClassName()
     plans = dict()  # type: Dict[str, Tuple[str, ...]]
-    shown = dict()  # type: Dict[str, str]
+    #  Each function of Qt with every ritual written for it: the one
+    #  that calls it, and the one that runs just the class's own.
+    shown = dict()  # type: Dict[str, List[str]]
     #  The file holds the class and every class Qt writes inside it.
     everyOne = generator.getAllGenerators()
     named = []  # type: List[str]
@@ -322,7 +324,7 @@ class ClassTester:
           named.append(plan['ritualName'])
           continue
         plans[plan['ritualName']] = plan['row']
-        shown.setdefault(plan['function'], plan['ritualName'])
+        shown.setdefault(plan['function'], []).append(plan['ritualName'])
     texts = {
         node.value for node in ast.walk(tree)
         if isinstance(node, ast.Constant) and isinstance(node.value, str)
@@ -356,7 +358,7 @@ class ClassTester:
         '%s' has no ritual for it."""
         faults.append(' '.join((infoSpec % (function, className)).split()))
         continue
-      leftOut.add(shown[function])
+      leftOut.update(shown[function])
     for ritualName in sorted({*plans} - called - leftOut):
       infoSpec = """The ritual '%s' is neither called by the file of '%s'
       nor listed as left out."""

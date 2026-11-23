@@ -254,21 +254,6 @@ void ritual_ZN22QGraphicsOpacityEffect4drawEP8QPainter(
   self->draw(painter);
 }
 
-//  QGraphicsOpacityEffectPrivate *QGraphicsOpacityEffect::d_func()
-extern "C" Q_DECL_EXPORT
-QGraphicsOpacityEffectPrivate *ritual_ZN22QGraphicsOpacityEffect6d_funcEv(
-    QGraphicsOpacityEffect *self) {
-  return self->d_func();
-}
-
-//  const QGraphicsOpacityEffectPrivate *QGraphicsOpacityEffect::d_func()
-//      const
-extern "C" Q_DECL_EXPORT
-const QGraphicsOpacityEffectPrivate *ritual_ZNK22QGraphicsOpacityEffect6d_funcEv(
-    const QGraphicsOpacityEffect *self) {
-  return self->d_func();
-}
-
 //  a Python function taken by a CuteQGraphicsOpacityEffect, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT

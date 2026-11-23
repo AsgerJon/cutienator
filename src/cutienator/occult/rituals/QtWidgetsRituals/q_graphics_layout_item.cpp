@@ -401,20 +401,6 @@ QSizeF *ritual_ZNK19QGraphicsLayoutItem8sizeHintEN2Qt8SizeHintERK6QSizeF(
   return new QSizeF(self->sizeHint(which, *constraint));
 }
 
-//  QGraphicsLayoutItemPrivate *QGraphicsLayoutItem::d_func()
-extern "C" Q_DECL_EXPORT
-QGraphicsLayoutItemPrivate *ritual_ZN19QGraphicsLayoutItem6d_funcEv(
-    QGraphicsLayoutItem *self) {
-  return self->d_func();
-}
-
-//  const QGraphicsLayoutItemPrivate *QGraphicsLayoutItem::d_func() const
-extern "C" Q_DECL_EXPORT
-const QGraphicsLayoutItemPrivate *ritual_ZNK19QGraphicsLayoutItem6d_funcEv(
-    const QGraphicsLayoutItem *self) {
-  return self->d_func();
-}
-
 //  a Python function taken by a CuteQGraphicsLayoutItem, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT

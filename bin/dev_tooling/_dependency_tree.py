@@ -192,6 +192,7 @@ class DependencyTree:
   __qt_parts__ = None  # type: Optional[Tuple[QtPart, ...]]
   __qt_source__ = None  # type: Optional[Any]
   __kept_for_users__ = None  # type: Optional[Dict[str, Dict[Any, Any]]]
+  __cute_names__ = None  # type: Optional[FrozenSet[str]]
   __ordered_names__ = None  # type: Optional[Names]
   __class_parents__ = None  # type: Optional[Dict[str, Names]]
   __class_children__ = None  # type: Optional[Dict[str, Names]]
@@ -230,6 +231,59 @@ class DependencyTree:
     that Qt's library carries under no name gets its code from there.
     """
     self.__qt_source__ = qtSource
+  def getCuteNames(self) -> FrozenSet[str]:
+    """
+    Gives the name of every class of the tree that gets a cute class:
+    those 'setCuteNames' named, or every class of the tree when it was
+    not called.
+    """
+    if self.__cute_names__ is None:
+      return frozenset(self.getClassNames())
+    return self.__cute_names__
+
+  def setCuteNames(self, *cuteNames: str) -> None:
+    """
+    Tells which classes of the tree get a cute class.
+
+    Optional; without it every class of the tree counts as one that
+    does. The ritual generator goes by it: a function that takes or
+    gives a class with no cute class gets no ritual, since no function
+    of Python could call it, and a function Qt calls itself that takes
+    such a class is not handed to Python.
+
+    Call it before the generators are asked for their rituals. What
+    they kept with the tree is forgotten here, as 'getKept' has it,
+    and a generator made before is not to be used after.
+
+    Parameters
+    ----------
+
+    *cuteNames : str
+      The full names of the classes, as 'QMetaObject::Connection'.
+
+    Raises
+    ------
+
+    TypeException
+      A name is not text.
+
+    LookupError
+      A name is no class of the tree.
+
+    MissingVariable
+      'setQtParts' has not been called.
+    """
+    known = frozenset(self.getClassNames())
+    for cuteName in cuteNames:
+      if not isinstance(cuteName, str):
+        raise TypeException('cuteName', cuteName, str)
+      if cuteName not in known:
+        infoSpec = """'%s' is to get a cute class, and the tree has no
+        class of that name."""
+        raise LookupError(' '.join((infoSpec % cuteName).split()))
+    self.__cute_names__ = frozenset(cuteNames)
+    self.__kept_for_users__ = dict()
+
   def getKept(self, what: str) -> Dict[Any, Any]:
     """
     Gives a dict in which the generators keep what they worked out of
@@ -237,8 +291,8 @@ class DependencyTree:
     word, as 'hidden types'.
 
     The dict is the tree's own. It is new and empty when the parts are
-    set, and it goes when the tree goes, so nothing kept for one tree
-    is ever read for another.
+    set, and again when 'setCuteNames' is called. It goes when the
+    tree goes, so nothing kept for one tree is ever read for another.
 
     Parameters
     ----------
@@ -1031,6 +1085,7 @@ class DependencyTree:
         raise TypeException('qtPart', qtPart, QtPart)
     self.__qt_parts__ = (*qtParts,)
     self.__kept_for_users__ = dict()
+    self.__cute_names__ = None
     self.__ordered_names__ = None
     self.__class_parents__ = None
     self.__class_children__ = None

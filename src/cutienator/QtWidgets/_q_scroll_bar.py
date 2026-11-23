@@ -65,15 +65,11 @@ class QScrollBar(QAbstractSlider):
     C++ QScrollBar.
   - Qt's 'void QScrollBar::sliderChange(SliderChange change)': names the enum
     'QAbstractSlider::SliderChange', whose class cannot be named here.
-  - Qt's 'QScrollBarPrivate *QScrollBar::d_func()': gives
-    'QScrollBarPrivate', which has no cute class yet.
-  - Qt's 'const QScrollBarPrivate *QScrollBar::d_func() const': gives
-    'QScrollBarPrivate', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  6 of the 25 functions Qt declares: 2 takes or gives a type that cannot be
+  8 of the 25 functions Qt declares: 4 takes or gives a type that cannot be
   passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found.
 
   What to expect

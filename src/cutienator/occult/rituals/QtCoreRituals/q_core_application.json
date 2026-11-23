@@ -117,9 +117,6 @@
     "ritual_ZN16QCoreApplication12forwardEventEP7QObjectP6QEventS3_": [
       "bool", "address", "address", "address"
     ],
-    "ritual_ZN16QCoreApplication21requestPermissionImplERK11QPermissionPN9QtPrivate15QSlotObjectBaseEPK7QObject": [
-      "nothing", "address", "address", "address", "address"
-    ],
     "ritual_take_QCoreApplication": ["bool", "address", "chars", "address"],
     "ritual_own_ZN16QCoreApplication6notifyEP7QObjectP6QEvent": [
       "bool", "address", "address", "address"

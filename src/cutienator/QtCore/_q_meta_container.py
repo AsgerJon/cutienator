@@ -36,17 +36,13 @@ class QMetaContainer(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
-  - Qt's 'QMetaContainer::QMetaContainer(const
-    QtMetaContainerPrivate::QMetaContainerInterface *d)': names
-    'QtMetaContainerPrivate::QMetaContainerInterface', which has no cute
-    class yet.
   - Qt's 'QMetaContainer::~QMetaContainer()': the destructor: Python removes
     its C++ QMetaContainer by it, and has no other use for it.
 
   What has no ritual
   ------------------
 
-  16 of the 27 functions Qt declares: 16 takes or gives a type that cannot be
+  17 of the 27 functions Qt declares: 17 takes or gives a type that cannot be
   passed yet.
 
   What to expect

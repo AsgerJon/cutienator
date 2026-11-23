@@ -1148,18 +1148,6 @@ bool ritual_ZN6QLabel18focusNextPrevChildEb(QLabel *self, bool next) {
   return self->focusNextPrevChild(next);
 }
 
-//  QLabelPrivate *QLabel::d_func()
-extern "C" Q_DECL_EXPORT
-QLabelPrivate *ritual_ZN6QLabel6d_funcEv(QLabel *self) {
-  return self->d_func();
-}
-
-//  const QLabelPrivate *QLabel::d_func() const
-extern "C" Q_DECL_EXPORT
-const QLabelPrivate *ritual_ZNK6QLabel6d_funcEv(const QLabel *self) {
-  return self->d_func();
-}
-
 //  a Python function taken by a CuteQLabel, for the function named by the
 //      key
 extern "C" Q_DECL_EXPORT

@@ -51,13 +51,11 @@ class QDir(CuteMixin, metaclass=MetaCute):
 
   - Qt's 'QDir::~QDir()': the destructor: Python removes its C++ QDir by it,
     and has no other use for it.
-  - Qt's 'qsizetype QDir::count(Qt::Disambiguated_t a0) const': names
-    'Qt::Disambiguated_t', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  15 of the 80 functions Qt declares: 11 takes or gives a type that cannot be
+  16 of the 80 functions Qt declares: 12 takes or gives a type that cannot be
   passed yet; 4 a template.
 
   What to expect

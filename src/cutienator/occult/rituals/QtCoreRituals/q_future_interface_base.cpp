@@ -3,7 +3,6 @@
 #include <QtCore/qfutureinterface.h>
 #include <QtCore/qexception.h>
 #include <QtCore/qstring.h>
-#include <QtCore/qresultstore.h>
 
 //  QFutureInterfaceBase::QFutureInterfaceBase(State initialState)
 extern "C" Q_DECL_EXPORT
@@ -387,14 +386,6 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZNK20QFutureInterfaceBase12hasExceptionEv(
     const QFutureInterfaceBase *self) {
   return self->hasException();
-}
-
-//  const QtPrivate::ResultStoreBase &QFutureInterfaceBase::resultStoreBase()
-//      const
-extern "C" Q_DECL_EXPORT
-QtPrivate::ResultStoreBase *ritual_ZNK20QFutureInterfaceBase15resultStoreBaseEv(
-    const QFutureInterfaceBase *self) {
-  return new QtPrivate::ResultStoreBase(self->resultStoreBase());
 }
 
 //  bool QFutureInterfaceBase::operator==(const QFutureInterfaceBase &other)

@@ -51,8 +51,6 @@
     "ritual_ZNK11QPushButton9hitButtonERK6QPoint": [
       "bool", "address", "address"
     ],
-    "ritual_ZN11QPushButton6d_funcEv": ["address", "address"],
-    "ritual_ZNK11QPushButton6d_funcEv": ["address", "address"],
     "ritual_take_QPushButton": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK11QPushButton8sizeHintEv": ["address", "address"],
     "ritual_own_ZNK11QPushButton15minimumSizeHintEv": ["address", "address"],

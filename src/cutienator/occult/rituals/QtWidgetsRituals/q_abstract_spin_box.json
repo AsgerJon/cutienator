@@ -127,8 +127,6 @@
       "nothing", "address", "address"
     ],
     "ritual_ZNK16QAbstractSpinBox11stepEnabledEv": ["int", "address"],
-    "ritual_ZN16QAbstractSpinBox6d_funcEv": ["address", "address"],
-    "ritual_ZNK16QAbstractSpinBox6d_funcEv": ["address", "address"],
     "ritual_take_QAbstractSpinBox": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK16QAbstractSpinBox8sizeHintEv": ["address", "address"],
     "ritual_own_ZNK16QAbstractSpinBox15minimumSizeHintEv": [

@@ -538,18 +538,6 @@ QString *ritual_ZN7QLayout2trEPKcS1_i(const char *s, const char *c, int n) {
   return new QString(QLayout::tr(s, c, n));
 }
 
-//  QLayoutPrivate *QLayout::d_func()
-extern "C" Q_DECL_EXPORT
-QLayoutPrivate *ritual_ZN7QLayout6d_funcEv(QLayout *self) {
-  return self->d_func();
-}
-
-//  const QLayoutPrivate *QLayout::d_func() const
-extern "C" Q_DECL_EXPORT
-const QLayoutPrivate *ritual_ZNK7QLayout6d_funcEv(const QLayout *self) {
-  return self->d_func();
-}
-
 //  QLayout::~QLayout()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN7QLayoutD1Ev(QLayout *self) {

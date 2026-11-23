@@ -67,8 +67,6 @@
     "ritual_ZN16QDialogButtonBox5eventEP6QEvent": [
       "bool", "address", "address"
     ],
-    "ritual_ZN16QDialogButtonBox6d_funcEv": ["address", "address"],
-    "ritual_ZNK16QDialogButtonBox6d_funcEv": ["address", "address"],
     "ritual_take_QDialogButtonBox": ["bool", "address", "chars", "address"],
     "ritual_own_ZN16QDialogButtonBox11changeEventEP6QEvent": [
       "nothing", "address", "address"

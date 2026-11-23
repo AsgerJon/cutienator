@@ -293,20 +293,6 @@ bool ritual_ZN15QSystemTrayIcon5eventEP6QEvent(
   return self->event(event);
 }
 
-//  QSystemTrayIconPrivate *QSystemTrayIcon::d_func()
-extern "C" Q_DECL_EXPORT
-QSystemTrayIconPrivate *ritual_ZN15QSystemTrayIcon6d_funcEv(
-    QSystemTrayIcon *self) {
-  return self->d_func();
-}
-
-//  const QSystemTrayIconPrivate *QSystemTrayIcon::d_func() const
-extern "C" Q_DECL_EXPORT
-const QSystemTrayIconPrivate *ritual_ZNK15QSystemTrayIcon6d_funcEv(
-    const QSystemTrayIcon *self) {
-  return self->d_func();
-}
-
 //  a Python function taken by a CuteQSystemTrayIcon, for the function named
 //      by the key
 extern "C" Q_DECL_EXPORT

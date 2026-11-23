@@ -42,8 +42,6 @@
     "ritual_ZN21QAbstractItemDelegate9helpEventEP10QHelpEventP17QAbstractItemViewRK20QStyleOptionViewItemRK11QModelIndex": [
       "bool", "address", "address", "address", "address", "address"
     ],
-    "ritual_ZN21QAbstractItemDelegate6d_funcEv": ["address", "address"],
-    "ritual_ZNK21QAbstractItemDelegate6d_funcEv": ["address", "address"],
     "ritual_take_QAbstractItemDelegate": [
       "bool", "address", "chars", "address"
     ],

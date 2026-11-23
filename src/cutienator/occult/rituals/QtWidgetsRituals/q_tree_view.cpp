@@ -2327,19 +2327,6 @@ int ritual_ZNK9QTreeView11visualIndexERK11QModelIndex(
   return self->visualIndex(*index);
 }
 
-//  QTreeViewPrivate *QTreeView::d_func()
-extern "C" Q_DECL_EXPORT
-QTreeViewPrivate *ritual_ZN9QTreeView6d_funcEv(QTreeView *self) {
-  return self->d_func();
-}
-
-//  const QTreeViewPrivate *QTreeView::d_func() const
-extern "C" Q_DECL_EXPORT
-const QTreeViewPrivate *ritual_ZNK9QTreeView6d_funcEv(
-    const QTreeView *self) {
-  return self->d_func();
-}
-
 //  a Python function taken by a CuteQTreeView, for the function named by the
 //      key
 extern "C" Q_DECL_EXPORT

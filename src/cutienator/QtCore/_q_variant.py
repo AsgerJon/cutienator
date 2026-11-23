@@ -224,20 +224,14 @@ class QVariant(CuteMixin, metaclass=MetaCute):
     What has a ritual and is left out, and why
     ------------------------------------------
 
-    - Qt's 'bool QVariant::Private::canUseInternalSpace(const
-      QtPrivate::QMetaTypeInterface *type)': names
-      'QtPrivate::QMetaTypeInterface', which has no cute class yet.
-    - Qt's 'const QtPrivate::QMetaTypeInterface
-      *QVariant::Private::typeInterface() const': gives
-      'QtPrivate::QMetaTypeInterface', which has no cute class yet.
     - Qt's 'QVariant::Private::~Private()': the destructor: Python removes
       its C++ QVariant::Private by it, and has no other use for it.
 
     What has no ritual
     ------------------
 
-    6 of the 11 functions Qt declares: 4 a template; 1 declared and nowhere
-    to be found; 1 takes or gives a type that cannot be passed yet.
+    8 of the 11 functions Qt declares: 4 a template; 3 takes or gives a type
+    that cannot be passed yet; 1 declared and nowhere to be found.
 
     What to expect
     --------------

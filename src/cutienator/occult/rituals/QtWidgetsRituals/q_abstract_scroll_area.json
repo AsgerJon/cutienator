@@ -130,8 +130,6 @@
     "ritual_ZNK19QAbstractScrollArea16viewportSizeHintEv": [
       "address", "address"
     ],
-    "ritual_ZN19QAbstractScrollArea6d_funcEv": ["address", "address"],
-    "ritual_ZNK19QAbstractScrollArea6d_funcEv": ["address", "address"],
     "ritual_take_QAbstractScrollArea": [
       "bool", "address", "chars", "address"
     ],

@@ -3,10 +3,9 @@
 #include <QtCore/qrangemodel.h>
 #include <QtCore/qbytearray.h>
 #include <QtCore/qabstractitemmodel.h>
-#include <QtCore/qvariant.h>
-#include <QtCore/qcompare.h>
 #include <QtCore/qobjectdefs.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qvariant.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qlist.h>
 #include <QtCore/qmap.h>
@@ -219,20 +218,6 @@ QRangeModelImplBase::AutoConnectPolicy ritual_ZNK19QRangeModelImplBase17autoConn
   return self->autoConnectPolicy();
 }
 
-//  Qt::weak_ordering QRangeModelImplBase::compareData(const QVariant &lhs,
-//      const QVariant &rhs, const QCollator *collator)
-extern "C" Q_DECL_EXPORT
-Qt::weak_ordering *ritual_ZN19QRangeModelImplBase11compareDataERK8QVariantS2_PK9QCollator(
-    const QVariant *lhs,
-    const QVariant *rhs,
-    const QCollator *collator) {
-  return new Qt::weak_ordering(
-      QRangeModelImplBase::compareData(
-          *lhs,
-          *rhs,
-          collator));
-}
-
 //  QHash<int, QByteArray> QRangeModelImplBase::roleNamesForSimpleType()
 extern "C" Q_DECL_EXPORT
 QHash<int, QByteArray> *ritual_ZN19QRangeModelImplBase22roleNamesForSimpleTypeEv() {
@@ -248,74 +233,6 @@ QHash<int, QMetaProperty> *ritual_ZN19QRangeModelImplBase16columnPropertiesERK11
   return new QHash<int, QMetaProperty>(
       QRangeModelImplBase::columnProperties(
           *metaObject));
-}
-
-//  bool QRangeModelImplBase::connectProperty(const QModelIndex &index, const
-//      QObject *item, QRangeModelDetails::AutoConnectContext *context, int
-//      role, const QMetaProperty &property)
-extern "C" Q_DECL_EXPORT
-bool ritual_ZN19QRangeModelImplBase15connectPropertyERK11QModelIndexPK7QObjectPN18QRangeModelDetails18AutoConnectContextEiRK13QMetaProperty(
-    const QModelIndex *index,
-    const QObject *item,
-    QRangeModelDetails::AutoConnectContext *context,
-    int role,
-    const QMetaProperty *property) {
-  return QRangeModelImplBase::connectProperty(
-      *index,
-      item,
-      context,
-      role,
-      *property);
-}
-
-//  bool QRangeModelImplBase::connectPropertyConst(const QModelIndex &index,
-//      const QObject *item, QRangeModelDetails::AutoConnectContext *context,
-//      int role, const QMetaProperty &property)
-extern "C" Q_DECL_EXPORT
-bool ritual_ZN19QRangeModelImplBase20connectPropertyConstERK11QModelIndexPK7QObjectPN18QRangeModelDetails18AutoConnectContextEiRK13QMetaProperty(
-    const QModelIndex *index,
-    const QObject *item,
-    QRangeModelDetails::AutoConnectContext *context,
-    int role,
-    const QMetaProperty *property) {
-  return QRangeModelImplBase::connectPropertyConst(
-      *index,
-      item,
-      context,
-      role,
-      *property);
-}
-
-//  bool QRangeModelImplBase::connectProperties(const QModelIndex &index,
-//      const QObject *item, QRangeModelDetails::AutoConnectContext *context,
-//      const QHash<int, QMetaProperty> &properties)
-extern "C" Q_DECL_EXPORT
-bool ritual_ZN19QRangeModelImplBase17connectPropertiesERK11QModelIndexPK7QObjectPN18QRangeModelDetails18AutoConnectContextERK5QHashIi13QMetaPropertyE(
-    const QModelIndex *index,
-    const QObject *item,
-    QRangeModelDetails::AutoConnectContext *context,
-    const QHash<int, QMetaProperty> *properties) {
-  return QRangeModelImplBase::connectProperties(
-      *index,
-      item,
-      context,
-      *properties);
-}
-
-//  bool QRangeModelImplBase::connectPropertiesConst(const QModelIndex
-//      &index, const QObject *item, QRangeModelDetails::AutoConnectContext
-//      *context, const QHash<int, QMetaProperty> &properties)
-extern "C" Q_DECL_EXPORT
-bool ritual_ZN19QRangeModelImplBase22connectPropertiesConstERK11QModelIndexPK7QObjectPN18QRangeModelDetails18AutoConnectContextERK5QHashIi13QMetaPropertyE(
-    const QModelIndex *index,
-    const QObject *item,
-    QRangeModelDetails::AutoConnectContext *context,
-    const QHash<int, QMetaProperty> *properties) {
-  return QRangeModelImplBase::connectPropertiesConst(
-      *index,
-      item,
-      context,
-      *properties);
 }
 
 //  int QRangeModelImplBase::sortRole() const

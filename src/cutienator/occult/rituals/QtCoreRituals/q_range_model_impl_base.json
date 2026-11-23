@@ -69,24 +69,9 @@
     "ritual_ZNK19QRangeModelImplBase17autoConnectPolicyEv": [
       "int", "address"
     ],
-    "ritual_ZN19QRangeModelImplBase11compareDataERK8QVariantS2_PK9QCollator": [
-      "address", "address", "address", "address"
-    ],
     "ritual_ZN19QRangeModelImplBase22roleNamesForSimpleTypeEv": ["address"],
     "ritual_ZN19QRangeModelImplBase16columnPropertiesERK11QMetaObject": [
       "address", "address"
-    ],
-    "ritual_ZN19QRangeModelImplBase15connectPropertyERK11QModelIndexPK7QObjectPN18QRangeModelDetails18AutoConnectContextEiRK13QMetaProperty": [
-      "bool", "address", "address", "address", "int", "address"
-    ],
-    "ritual_ZN19QRangeModelImplBase20connectPropertyConstERK11QModelIndexPK7QObjectPN18QRangeModelDetails18AutoConnectContextEiRK13QMetaProperty": [
-      "bool", "address", "address", "address", "int", "address"
-    ],
-    "ritual_ZN19QRangeModelImplBase17connectPropertiesERK11QModelIndexPK7QObjectPN18QRangeModelDetails18AutoConnectContextERK5QHashIi13QMetaPropertyE": [
-      "bool", "address", "address", "address", "address"
-    ],
-    "ritual_ZN19QRangeModelImplBase22connectPropertiesConstERK11QModelIndexPK7QObjectPN18QRangeModelDetails18AutoConnectContextERK5QHashIi13QMetaPropertyE": [
-      "bool", "address", "address", "address", "address"
     ],
     "ritual_ZNK19QRangeModelImplBase8sortRoleEv": ["int", "address"],
     "ritual_ZNK19QRangeModelImplBase12sortCollatorEv": [

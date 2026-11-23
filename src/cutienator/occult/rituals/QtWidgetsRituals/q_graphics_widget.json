@@ -213,8 +213,6 @@
     "ritual_ZN15QGraphicsWidget19ungrabKeyboardEventEP6QEvent": [
       "nothing", "address", "address"
     ],
-    "ritual_ZN15QGraphicsWidget6d_funcEv": ["address", "address"],
-    "ritual_ZNK15QGraphicsWidget6d_funcEv": ["address", "address"],
     "ritual_cast_QGraphicsWidget_QGraphicsLayoutItem": [
       "address", "address"
     ],

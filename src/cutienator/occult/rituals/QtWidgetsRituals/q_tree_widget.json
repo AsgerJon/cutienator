@@ -136,8 +136,6 @@
     "ritual_ZN11QTreeWidget8setModelEP18QAbstractItemModel": [
       "nothing", "address", "address"
     ],
-    "ritual_ZN11QTreeWidget6d_funcEv": ["address", "address"],
-    "ritual_ZNK11QTreeWidget6d_funcEv": ["address", "address"],
     "ritual_take_QTreeWidget": ["bool", "address", "chars", "address"],
     "ritual_own_ZN11QTreeWidget17setSelectionModelEP19QItemSelectionModel": [
       "nothing", "address", "address"

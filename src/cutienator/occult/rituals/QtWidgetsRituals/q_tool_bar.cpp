@@ -7,7 +7,6 @@
 #include <QtCore/qsize.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
-#include <QtCore/qlist.h>
 #include <cstring>
 
 //  Only a class built on QToolBar may call these functions of it.
@@ -1026,18 +1025,6 @@ void ritual_ZNK8QToolBar15initStyleOptionEP19QStyleOptionToolBar(
   self->initStyleOption(option);
 }
 
-//  QToolBarPrivate *QToolBar::d_func()
-extern "C" Q_DECL_EXPORT
-QToolBarPrivate *ritual_ZN8QToolBar6d_funcEv(QToolBar *self) {
-  return self->d_func();
-}
-
-//  const QToolBarPrivate *QToolBar::d_func() const
-extern "C" Q_DECL_EXPORT
-const QToolBarPrivate *ritual_ZNK8QToolBar6d_funcEv(const QToolBar *self) {
-  return self->d_func();
-}
-
 //  a Python function taken by a CuteQToolBar, for the function named by the
 //      key
 extern "C" Q_DECL_EXPORT
@@ -1082,38 +1069,4 @@ void ritual_own_ZNK8QToolBar15initStyleOptionEP19QStyleOptionToolBar(
     QStyleOptionToolBar *option) {
   static_cast<const OwnQToolBar *>(self)->OwnQToolBar::initStyleOption(
       option);
-}
-
-//  QList<QToolBar *>::QList()
-extern "C" Q_DECL_EXPORT
-QList<QToolBar *> *ritual_list_make_QToolBar_ptr() {
-  return new QList<QToolBar *>();
-}
-
-//  void QList<QToolBar *>::append(const QToolBar * &value)
-extern "C" Q_DECL_EXPORT
-void ritual_list_add_QToolBar_ptr(
-    QList<QToolBar *> *self,
-    QToolBar *element) {
-  self->append(element);
-}
-
-//  qsizetype QList<QToolBar *>::size() const
-extern "C" Q_DECL_EXPORT
-long long ritual_list_size_QToolBar_ptr(const QList<QToolBar *> *self) {
-  return self->size();
-}
-
-//  const QToolBar * &QList<QToolBar *>::at(qsizetype i) const
-extern "C" Q_DECL_EXPORT
-QToolBar *ritual_list_at_QToolBar_ptr(
-    const QList<QToolBar *> *self,
-    long long index) {
-  return self->at(index);
-}
-
-//  QList<QToolBar *>::~QList()
-extern "C" Q_DECL_EXPORT
-void ritual_list_drop_QToolBar_ptr(QList<QToolBar *> *self) {
-  delete self;
 }

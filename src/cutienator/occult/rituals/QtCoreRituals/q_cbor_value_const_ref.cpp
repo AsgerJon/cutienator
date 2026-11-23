@@ -13,7 +13,6 @@
 #include <QtCore/qlatin1stringview.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qjsonvalue.h>
-#include <QtCore/qcompare.h>
 
 //  QCborValueConstRef::QCborValueConstRef(const QCborValueConstRef &a0)
 extern "C" Q_DECL_EXPORT
@@ -401,19 +400,6 @@ bool ritual_ZN18QCborValueConstRef20comparesEqual_helperES_S_(
   return QCborValueConstRef::comparesEqual_helper(*lhs, *rhs);
 }
 
-//  Qt::strong_ordering
-//      QCborValueConstRef::compareThreeWay_helper(QCborValueConstRef lhs,
-//      QCborValueConstRef rhs)
-extern "C" Q_DECL_EXPORT
-Qt::strong_ordering *ritual_ZN18QCborValueConstRef22compareThreeWay_helperES_S_(
-    const QCborValueConstRef *lhs,
-    const QCborValueConstRef *rhs) {
-  return new Qt::strong_ordering(
-      QCborValueConstRef::compareThreeWay_helper(
-          *lhs,
-          *rhs));
-}
-
 //  bool operator==(const QCborValueConstRef &lhs, const QCborValueConstRef
 //      &rhs)
 extern "C" Q_DECL_EXPORT
@@ -475,19 +461,6 @@ bool ritual_ZN18QCborValueConstRef20comparesEqual_helperES_RK10QCborValue(
     const QCborValueConstRef *lhs,
     const QCborValue *rhs) {
   return QCborValueConstRef::comparesEqual_helper(*lhs, *rhs);
-}
-
-//  Qt::strong_ordering
-//      QCborValueConstRef::compareThreeWay_helper(QCborValueConstRef lhs,
-//      const QCborValue &rhs)
-extern "C" Q_DECL_EXPORT
-Qt::strong_ordering *ritual_ZN18QCborValueConstRef22compareThreeWay_helperES_RK10QCborValue(
-    const QCborValueConstRef *lhs,
-    const QCborValue *rhs) {
-  return new Qt::strong_ordering(
-      QCborValueConstRef::compareThreeWay_helper(
-          *lhs,
-          *rhs));
 }
 
 //  bool operator==(const QCborValueConstRef &lhs, const QCborValue &rhs)

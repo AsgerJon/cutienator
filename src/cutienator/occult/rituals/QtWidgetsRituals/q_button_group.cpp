@@ -234,19 +234,6 @@ int ritual_ZNK12QButtonGroup9checkedIdEv(const QButtonGroup *self) {
   return self->checkedId();
 }
 
-//  QButtonGroupPrivate *QButtonGroup::d_func()
-extern "C" Q_DECL_EXPORT
-QButtonGroupPrivate *ritual_ZN12QButtonGroup6d_funcEv(QButtonGroup *self) {
-  return self->d_func();
-}
-
-//  const QButtonGroupPrivate *QButtonGroup::d_func() const
-extern "C" Q_DECL_EXPORT
-const QButtonGroupPrivate *ritual_ZNK12QButtonGroup6d_funcEv(
-    const QButtonGroup *self) {
-  return self->d_func();
-}
-
 //  a Python function taken by a CuteQButtonGroup, for the function named by
 //      the key
 extern "C" Q_DECL_EXPORT

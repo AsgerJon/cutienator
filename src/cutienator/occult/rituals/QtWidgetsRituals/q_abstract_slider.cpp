@@ -1035,20 +1035,6 @@ void ritual_ZN15QAbstractSlider11changeEventEP6QEvent(
   self->changeEvent(e);
 }
 
-//  QAbstractSliderPrivate *QAbstractSlider::d_func()
-extern "C" Q_DECL_EXPORT
-QAbstractSliderPrivate *ritual_ZN15QAbstractSlider6d_funcEv(
-    QAbstractSlider *self) {
-  return self->d_func();
-}
-
-//  const QAbstractSliderPrivate *QAbstractSlider::d_func() const
-extern "C" Q_DECL_EXPORT
-const QAbstractSliderPrivate *ritual_ZNK15QAbstractSlider6d_funcEv(
-    const QAbstractSlider *self) {
-  return self->d_func();
-}
-
 //  a Python function taken by a CuteQAbstractSlider, for the function named
 //      by the key
 extern "C" Q_DECL_EXPORT

@@ -90,8 +90,6 @@
     ],
     "ritual_ZNK10QTreeModel18executePendingSortEv": ["bool", "address"],
     "ritual_ZNK10QTreeModel10isChangingEv": ["bool", "address"],
-    "ritual_ZN10QTreeModel6d_funcEv": ["address", "address"],
-    "ritual_ZNK10QTreeModel6d_funcEv": ["address", "address"],
     "ritual_take_QTreeModel": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK10QTreeModel5indexEiiRK11QModelIndex": [
       "address", "address", "int", "int", "address"

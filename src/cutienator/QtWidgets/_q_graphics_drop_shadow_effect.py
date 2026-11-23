@@ -58,19 +58,13 @@ class QGraphicsDropShadowEffect(QGraphicsEffect):
 
   - Qt's 'QGraphicsDropShadowEffect::~QGraphicsDropShadowEffect()': the
     destructor: Python never removes a C++ QGraphicsDropShadowEffect.
-  - Qt's 'QGraphicsDropShadowEffectPrivate
-    *QGraphicsDropShadowEffect::d_func()': gives
-    'QGraphicsDropShadowEffectPrivate', which has no cute class yet.
-  - Qt's 'const QGraphicsDropShadowEffectPrivate
-    *QGraphicsDropShadowEffect::d_func() const': gives
-    'QGraphicsDropShadowEffectPrivate', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  9 of the 29 functions Qt declares: 3 a signal; 2 takes or gives a type that
-  cannot be passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to
-  be found.
+  11 of the 29 functions Qt declares: 4 takes or gives a type that cannot be
+  passed yet; 3 a signal; 2 forbidden; 1 a template; 1 declared and nowhere
+  to be found.
 
   What to expect
   --------------

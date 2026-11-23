@@ -277,8 +277,6 @@
     "ritual_ZN13QGraphicsView14drawForegroundEP8QPainterRK6QRectF": [
       "nothing", "address", "address", "address"
     ],
-    "ritual_ZN13QGraphicsView6d_funcEv": ["address", "address"],
-    "ritual_ZNK13QGraphicsView6d_funcEv": ["address", "address"],
     "ritual_take_QGraphicsView": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK13QGraphicsView8sizeHintEv": ["address", "address"],
     "ritual_own_ZNK13QGraphicsView16inputMethodQueryEN2Qt16InputMethodQueryE": [

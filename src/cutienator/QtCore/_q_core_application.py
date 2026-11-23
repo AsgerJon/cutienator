@@ -69,15 +69,11 @@ class QCoreApplication(QObject):
 
   - Qt's 'QCoreApplication::~QCoreApplication()': the destructor: Python
     never removes a C++ QCoreApplication.
-  - Qt's 'void QCoreApplication::requestPermissionImpl(const QPermission
-    &permission, QtPrivate::QSlotObjectBase *slotObj, const QObject
-    *context)': names 'QtPrivate::QSlotObjectBase', which has no cute class
-    yet.
 
   What has no ritual
   ------------------
 
-  19 of the 73 functions Qt declares: 7 takes or gives a type that cannot be
+  20 of the 73 functions Qt declares: 8 takes or gives a type that cannot be
   passed yet; 5 a signal; 4 a template; 2 forbidden; 1 declared and nowhere
   to be found.
 

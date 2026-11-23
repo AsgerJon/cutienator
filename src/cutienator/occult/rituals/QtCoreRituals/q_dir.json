@@ -45,9 +45,6 @@
     "ritual_ZN4QDir10setSortingE6QFlagsINS_8SortFlagEE": [
       "nothing", "address", "int"
     ],
-    "ritual_ZNK4QDir5countEN2Qt15Disambiguated_tE": [
-      "long long", "address", "address"
-    ],
     "ritual_ZNK4QDir7isEmptyE6QFlagsINS_6FilterEE": [
       "bool", "address", "int"
     ],

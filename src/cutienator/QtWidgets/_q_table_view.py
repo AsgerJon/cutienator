@@ -86,15 +86,11 @@ class QTableView(QAbstractItemView):
   - Qt's 'QModelIndex QTableView::moveCursor(CursorAction cursorAction,
     Qt::KeyboardModifiers modifiers)': names the enum
     'QAbstractItemView::CursorAction', whose class cannot be named here.
-  - Qt's 'QTableViewPrivate *QTableView::d_func()': gives
-    'QTableViewPrivate', which has no cute class yet.
-  - Qt's 'const QTableViewPrivate *QTableView::d_func() const': gives
-    'QTableViewPrivate', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  7 of the 88 functions Qt declares: 3 takes or gives a type that cannot be
+  9 of the 88 functions Qt declares: 5 takes or gives a type that cannot be
   passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found.
 
   What to expect

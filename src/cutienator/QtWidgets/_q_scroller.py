@@ -60,15 +60,11 @@ class QScroller(QObject):
     in Python what 'QScroller *QScroller::scroller(QObject *target)' takes.
   - Qt's 'QScroller::~QScroller()': the destructor: Python never removes a
     C++ QScroller.
-  - Qt's 'QScrollerPrivate *QScroller::d_func()': gives 'QScrollerPrivate',
-    which has no cute class yet.
-  - Qt's 'const QScrollerPrivate *QScroller::d_func() const': gives
-    'QScrollerPrivate', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  10 of the 39 functions Qt declares: 4 takes or gives a type that cannot be
+  12 of the 39 functions Qt declares: 6 takes or gives a type that cannot be
   passed yet; 2 a signal; 2 forbidden; 1 a template; 1 declared and nowhere
   to be found.
 

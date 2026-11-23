@@ -6,8 +6,6 @@
   "rows": {
     "ritual_ZNK6QStyle10metaObjectEv": ["address", "address"],
     "ritual_ZN6QStyle2trEPKcS1_i": ["text", "chars", "chars", "int"],
-    "ritual_ZN6QStyle6d_funcEv": ["address", "address"],
-    "ritual_ZNK6QStyle6d_funcEv": ["address", "address"],
     "ritual_ZN6QStyleD1Ev": ["nothing", "address"],
     "ritual_ZNK6QStyle4nameEv": ["text", "address"],
     "ritual_ZN6QStyle6polishEP7QWidget": ["nothing", "address", "address"],

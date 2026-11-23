@@ -1,7 +1,6 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/qdebug.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qdebug.h>
-#include <QtCore/qcompare.h>
 
 //  void QDebug::putUcs4(uint ucs4)
 extern "C" Q_DECL_EXPORT
@@ -33,18 +32,6 @@ void ritual_ZN6QDebug12putByteArrayEPKcmNS_13Latin1ContentE(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN6QDebug11putTimeUnitExx(QDebug *self, qint64 num, qint64 den) {
   self->putTimeUnit(num, den);
-}
-
-//  void QDebug::putQtOrdering(QtOrderingPrivate::QtOrderingTypeFlag flags,
-//      Qt::partial_ordering order)
-extern "C" Q_DECL_EXPORT
-void ritual_ZN6QDebug13putQtOrderingE6QFlagsIN17QtOrderingPrivate14QtOrderingTypeEEN2Qt16partial_orderingE(
-    QDebug *self,
-    int flags,
-    const Qt::partial_ordering *order) {
-  self->putQtOrdering(
-      QFlags<QtOrderingPrivate::QtOrderingType>::fromInt(flags),
-      *order);
 }
 
 //  QDebug::QDebug(QIODevice *device)

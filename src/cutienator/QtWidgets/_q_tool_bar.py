@@ -13,7 +13,7 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt, QList
+from ..QtCore import Qt
 from . import QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
@@ -65,15 +65,11 @@ class QToolBar(QWidget):
 
   - Qt's 'QToolBar::~QToolBar()': the destructor: Python never removes a C++
     QToolBar.
-  - Qt's 'QToolBarPrivate *QToolBar::d_func()': gives 'QToolBarPrivate',
-    which has no cute class yet.
-  - Qt's 'const QToolBarPrivate *QToolBar::d_func() const': gives
-    'QToolBarPrivate', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  14 of the 50 functions Qt declares: 8 a signal; 2 takes or gives a type
+  16 of the 50 functions Qt declares: 8 a signal; 4 takes or gives a type
   that cannot be passed yet; 2 forbidden; 1 a template; 1 declared and
   nowhere to be found.
 
@@ -869,16 +865,3 @@ class QToolBar(QWidget):
       ritual = (
           'ritual_own_ZNK8QToolBar15initStyleOptionEP19QStyleOptionToolBar')
     self.uglySide.call(ritual, self._addressOf(option))
-
-
-#  Qt's 'QList<QToolBar *>': the list of QToolBar, which 'QList[QToolBar]'
-#  gives. It is made here, so that there is one as soon as there can be a
-#  QToolBar.
-QList.createKind(
-    QToolBar, 'address',
-    make='ritual_list_make_QToolBar_ptr',
-    add='ritual_list_add_QToolBar_ptr',
-    size='ritual_list_size_QToolBar_ptr',
-    at='ritual_list_at_QToolBar_ptr',
-    drop='ritual_list_drop_QToolBar_ptr',
-)

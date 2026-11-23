@@ -1178,18 +1178,6 @@ void ritual_ZN8QMdiArea16scrollContentsByEii(
   self->scrollContentsBy(dx, dy);
 }
 
-//  QMdiAreaPrivate *QMdiArea::d_func()
-extern "C" Q_DECL_EXPORT
-QMdiAreaPrivate *ritual_ZN8QMdiArea6d_funcEv(QMdiArea *self) {
-  return self->d_func();
-}
-
-//  const QMdiAreaPrivate *QMdiArea::d_func() const
-extern "C" Q_DECL_EXPORT
-const QMdiAreaPrivate *ritual_ZNK8QMdiArea6d_funcEv(const QMdiArea *self) {
-  return self->d_func();
-}
-
 //  a Python function taken by a CuteQMdiArea, for the function named by the
 //      key
 extern "C" Q_DECL_EXPORT

@@ -1224,20 +1224,6 @@ QSize *ritual_ZNK19QAbstractScrollArea16viewportSizeHintEv(
   return new QSize(self->viewportSizeHint());
 }
 
-//  QAbstractScrollAreaPrivate *QAbstractScrollArea::d_func()
-extern "C" Q_DECL_EXPORT
-QAbstractScrollAreaPrivate *ritual_ZN19QAbstractScrollArea6d_funcEv(
-    QAbstractScrollArea *self) {
-  return self->d_func();
-}
-
-//  const QAbstractScrollAreaPrivate *QAbstractScrollArea::d_func() const
-extern "C" Q_DECL_EXPORT
-const QAbstractScrollAreaPrivate *ritual_ZNK19QAbstractScrollArea6d_funcEv(
-    const QAbstractScrollArea *self) {
-  return self->d_func();
-}
-
 //  a Python function taken by a CuteQAbstractScrollArea, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT

@@ -260,20 +260,6 @@ void ritual_ZN19QGraphicsBlurEffect4drawEP8QPainter(
   self->draw(painter);
 }
 
-//  QGraphicsBlurEffectPrivate *QGraphicsBlurEffect::d_func()
-extern "C" Q_DECL_EXPORT
-QGraphicsBlurEffectPrivate *ritual_ZN19QGraphicsBlurEffect6d_funcEv(
-    QGraphicsBlurEffect *self) {
-  return self->d_func();
-}
-
-//  const QGraphicsBlurEffectPrivate *QGraphicsBlurEffect::d_func() const
-extern "C" Q_DECL_EXPORT
-const QGraphicsBlurEffectPrivate *ritual_ZNK19QGraphicsBlurEffect6d_funcEv(
-    const QGraphicsBlurEffect *self) {
-  return self->d_func();
-}
-
 //  a Python function taken by a CuteQGraphicsBlurEffect, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT

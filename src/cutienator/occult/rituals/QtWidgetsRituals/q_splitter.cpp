@@ -1067,19 +1067,6 @@ int ritual_ZN9QSplitter20closestLegalPositionEii(
   return self->closestLegalPosition(a0, a1);
 }
 
-//  QSplitterPrivate *QSplitter::d_func()
-extern "C" Q_DECL_EXPORT
-QSplitterPrivate *ritual_ZN9QSplitter6d_funcEv(QSplitter *self) {
-  return self->d_func();
-}
-
-//  const QSplitterPrivate *QSplitter::d_func() const
-extern "C" Q_DECL_EXPORT
-const QSplitterPrivate *ritual_ZNK9QSplitter6d_funcEv(
-    const QSplitter *self) {
-  return self->d_func();
-}
-
 //  a Python function taken by a CuteQSplitter, for the function named by the
 //      key
 extern "C" Q_DECL_EXPORT

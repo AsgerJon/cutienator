@@ -236,6 +236,9 @@ class QtPart:
   __found_pullers__ = None  # type: Optional[Dict[str, Optional[str]]]
   __with_private__ = False
   __own_list_paths__ = None  # type: Optional[FrozenSet[str]]
+  #  The header files a reading leaves out, each by its name with the
+  #  reason given for it; see 'setLeftOutHeaders'.
+  __left_out_headers__ = None  # type: Optional[Dict[str, str]]
 
   #  Public Variables
 
@@ -937,6 +940,50 @@ class QtPart:
     self.__header_files__ = None
     self.__named_header_paths__ = None
 
+  def setLeftOutHeaders(self, reason: str, *names: str) -> None:
+    """
+    Tells 'read' to leave some header files of the part unread, and
+    why. The reading notes each as not read, with the reason, as it
+    notes a header file the compiler refused.
+
+    Optional, and only 'read' goes by it. It is for what cannot be
+    seen from one machine: Qt's package for one system holds header
+    files its packages for the others lack, as
+    'qeventdispatcher_glib_p.h', and no class of such a file can be in
+    a package that has to compile on every system. Some of them pull
+    in files of the system whose words break Qt's own header files
+    read after them. No record of such a file is kept, also when a
+    header file that is read pulls it in, so the tree knows no class
+    of it. Calling this again replaces what was told before.
+
+    Parameters
+    ----------
+
+    reason : str
+      Why they are left out, as it is to stand in the reading.
+
+    *names : str
+      The names of the header files, as 'qeventdispatcher_glib_p.h'.
+
+    Raises
+    ------
+
+    TypeException
+      The reason or a name is not text.
+    """
+    if not isinstance(reason, str):
+      raise TypeException('reason', reason, str)
+    for name in names:
+      if not isinstance(name, str):
+        raise TypeException('name', name, str)
+    self.__left_out_headers__ = {name: reason for name in names}
+
+  def getLeftOutHeaders(self) -> Dict[str, str]:
+    """Gives the header files 'read' is told to leave unread, each by
+    its name with the reason; 'setLeftOutHeaders' provides them. It is
+    empty when nothing was told."""
+    return dict(self.__left_out_headers__ or dict())
+
   def setWorkFolder(self, workFolder: str) -> None:
     """
     Tells where readings are kept.
@@ -1125,7 +1172,12 @@ class QtPart:
       filesRead.add(os.path.realpath(word))
     return filesRead
 
-  def _findComplaint(self, feed: str, known: str = '') -> str:
+  def _findComplaint(
+      self,
+      feed: str,
+      known: str = '',
+      *arguments: str,
+  ) -> str:
     """
     Has the compiler read some lines of C++ without writing anything
     down, and gives what it complained about, or '' when it took them
@@ -1146,8 +1198,12 @@ class QtPart:
     known : str
       What the compiler says of the lines the feed begins with, which
       is no complaint about the line added to them.
+
+    *arguments : str
+      What more to tell the compiler, as '-include-pch' and the path of
+      a precompiled header for the lines to stand on.
     """
-    done = self._runCompiler(feed, '-fsyntax-only')
+    done = self._runCompiler(feed, *arguments, '-fsyntax-only')
     if done.returncode:
       return done.stderr.strip() or 'The compiler refused it wordlessly.'
     knownLines = known.splitlines()
@@ -1164,39 +1220,80 @@ class QtPart:
 
     The own list of the part comes first. Each header file the own list
     does not reach is then tried on top of it, alone. Those the compiler
-    takes without a word are added. Those it refuses are left out, with
-    what it said, and so are those that warn for being pulled in.
+    takes without a word are added. Those it refuses are tried once
+    more on top of everything added so far: a header file may lean on
+    another without pulling it in, as 'qfusionstyle_p_p.h' leans on
+    'qfusionstyle_p.h'. That goes on until a round adds none. What is
+    still refused then is left out, with what the compiler said, and so
+    are the header files that warn for being pulled in, and those
+    'setLeftOutHeaders' named.
+
+    The compiler reads the lines so far once in each round, and writes
+    down what it made of them, as a precompiled header in the work
+    folder. Every trial of the round starts from that, so a trial costs
+    the reading of one header file and not of the whole part. The
+    precompiled header is removed when the round is over.
 
     Returns
     -------
 
     Tuple[str, Dict[str, str]]
-      The lines of C++, and what the compiler said of each header file
-      it refused, by the path of the header file.
+      The lines of C++, and why each header file is left out, by the
+      path of the header file.
+
+    Raises
+    ------
+
+    RuntimeError
+      The compiler refused the lines so far, which it had taken one by
+      one. The message holds what it said.
     """
     partName = self.getPartName()
     feed = ''
     if os.path.isfile(os.path.join(self.getPartFolder(), partName)):
       feed = '#include <%s/%s>\n' % (partName, partName)
     filesRead = self._listFilesRead(feed)
-    leftOut = [
-        headerPath for headerPath in self.getHeaderPaths()
-        if os.path.realpath(headerPath) not in filesRead
-    ]
-    trials = [feed + self._getIncludeLine(path) for path in leftOut]
-    known = self._runCompiler(feed, '-fsyntax-only').stderr if feed else ''
-
-    def findComplaint(trial: str) -> str:
-      return self._findComplaint(trial, known)
-
-    with ThreadPoolExecutor(max_workers=os.cpu_count() or 1) as pool:
-      said = (*pool.map(findComplaint, trials),)
-    complaints = dict()
-    for headerPath, complaint in zip(leftOut, said):
-      if complaint:
-        complaints[headerPath] = complaint
+    toldLeftOut = self.getLeftOutHeaders()
+    complaints = dict()  # type: Dict[str, str]
+    leftOut = []  # type: List[str]
+    for headerPath in self.getHeaderPaths():
+      if os.path.realpath(headerPath) in filesRead:
+        continue
+      name = os.path.basename(headerPath)
+      if name in toldLeftOut:
+        complaints[headerPath] = toldLeftOut[name]
       else:
-        feed += self._getIncludeLine(headerPath)
+        leftOut.append(headerPath)
+    while leftOut:
+      with tempfile.TemporaryDirectory(dir=self.getWorkFolder()) as folder:
+        feedHeader = os.path.join(folder, 'feed.pch')
+        made = self._runCompiler(
+            feed, '-x', 'c++-header', '-fpch-instantiate-templates',
+            '-o', feedHeader)
+        if made.returncode:
+          infoSpec = """The compiler refused the header files of the
+          part '%s' read together, which it took one by one: %s"""
+          info = infoSpec % (partName, made.stderr[:1200])
+          raise RuntimeError(' '.join(info.split()))
+
+        def findComplaint(headerPath: str) -> str:
+          return self._findComplaint(
+              self._getIncludeLine(headerPath), '', '-include-pch',
+              feedHeader)
+
+        with ThreadPoolExecutor(max_workers=os.cpu_count() or 1) as pool:
+          said = (*pool.map(findComplaint, leftOut),)
+      refused = []
+      for headerPath, complaint in zip(leftOut, said):
+        if complaint:
+          complaints[headerPath] = complaint
+          refused.append(headerPath)
+        else:
+          complaints.pop(headerPath, None)
+          feed += self._getIncludeLine(headerPath)
+      if len(refused) == len(leftOut):
+        break
+      leftOut = refused
     return feed, complaints
 
   def _cutReport(
@@ -1241,8 +1338,12 @@ class QtPart:
       The compiler refused the lines, or the report is not laid out the
       way this method expects.
     """
+    #  A header file 'setLeftOutHeaders' named gives no record, also
+    #  when another header file pulls it in.
+    toldLeftOut = self.getLeftOutHeaders()
     wanted = {
         os.path.realpath(path): path for path in self.getHeaderPaths()
+        if os.path.basename(path) not in toldLeftOut
     }
     realPaths = dict()  # type: Dict[str, str]
     thingOpens = self.__thing_opens__
@@ -1447,8 +1548,14 @@ class QtPart:
           file.write('\n')
         counts[headerPath] += 1
       entries = dict()
+      toldLeftOut = self.getLeftOutHeaders()
       for headerPath in headerPaths:
         wasRead = os.path.realpath(headerPath) in filesRead
+        if os.path.basename(headerPath) in toldLeftOut:
+          #  Pulled in by another header file or not: none of its
+          #  records was kept.
+          wasRead = False
+          complaints[headerPath] = toldLeftOut[os.path.basename(headerPath)]
         if not wasRead and headerPath not in complaints:
           infoSpec = """The header file '%s' was neither read nor
           refused by the compiler."""

@@ -150,8 +150,6 @@
     "ritual_ZNK7QTabBar15initStyleOptionEP15QStyleOptionTabi": [
       "nothing", "address", "address", "int"
     ],
-    "ritual_ZN7QTabBar6d_funcEv": ["address", "address"],
-    "ritual_ZNK7QTabBar6d_funcEv": ["address", "address"],
     "ritual_take_QTabBar": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK7QTabBar8sizeHintEv": ["address", "address"],
     "ritual_own_ZNK7QTabBar15minimumSizeHintEv": ["address", "address"],

@@ -173,10 +173,6 @@ class QJsonObject(CuteMixin, metaclass=MetaCute):
       an operator Python has no name for.
     - Qt's 'const_iterator QJsonObject::const_iterator::operator--(int a0)':
       an operator Python has no name for.
-    - Qt's 'Qt::strong_ordering
-      QJsonObject::const_iterator::compareThreeWay_helper(const
-      const_iterator &lhs, const const_iterator &rhs)': gives
-      'Qt::strong_ordering', which has no cute class yet.
     - Qt's 'QJsonObject::const_iterator::~const_iterator()': the destructor:
       Python removes its C++ QJsonObject::const_iterator by it, and has no
       other use for it.
@@ -184,7 +180,7 @@ class QJsonObject(CuteMixin, metaclass=MetaCute):
     What has no ritual
     ------------------
 
-    3 of the 29 functions Qt declares: 3 takes or gives a type that cannot be
+    4 of the 29 functions Qt declares: 4 takes or gives a type that cannot be
     passed yet.
 
     What to expect
@@ -840,15 +836,6 @@ class QJsonObject(CuteMixin, metaclass=MetaCute):
       &lhs, const const_iterator &rhs)': names 'QJsonObject::const_iterator',
       which stands beside this class inside 'QJsonObject' and cannot be named
       from here.
-    - Qt's 'Qt::strong_ordering
-      QJsonObject::iterator::compareThreeWay_helper(const iterator &lhs,
-      const iterator &rhs)': gives 'Qt::strong_ordering', which has no cute
-      class yet.
-    - Qt's 'Qt::strong_ordering
-      QJsonObject::iterator::compareThreeWay_helper(const iterator &lhs,
-      const const_iterator &rhs)': names 'QJsonObject::const_iterator', which
-      stands beside this class inside 'QJsonObject' and cannot be named from
-      here.
     - Qt's 'bool operator==(const iterator &lhs, const const_iterator &rhs)':
       names 'QJsonObject::const_iterator', which stands beside this class
       inside 'QJsonObject' and cannot be named from here.
@@ -892,7 +879,7 @@ class QJsonObject(CuteMixin, metaclass=MetaCute):
     What has no ritual
     ------------------
 
-    3 of the 43 functions Qt declares: 3 takes or gives a type that cannot be
+    5 of the 43 functions Qt declares: 5 takes or gives a type that cannot be
     passed yet.
 
     What to expect

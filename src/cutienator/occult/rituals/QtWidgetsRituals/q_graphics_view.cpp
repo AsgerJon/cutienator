@@ -1805,20 +1805,6 @@ void ritual_ZN13QGraphicsView14drawForegroundEP8QPainterRK6QRectF(
   self->drawForeground(painter, *rect);
 }
 
-//  QGraphicsViewPrivate *QGraphicsView::d_func()
-extern "C" Q_DECL_EXPORT
-QGraphicsViewPrivate *ritual_ZN13QGraphicsView6d_funcEv(
-    QGraphicsView *self) {
-  return self->d_func();
-}
-
-//  const QGraphicsViewPrivate *QGraphicsView::d_func() const
-extern "C" Q_DECL_EXPORT
-const QGraphicsViewPrivate *ritual_ZNK13QGraphicsView6d_funcEv(
-    const QGraphicsView *self) {
-  return self->d_func();
-}
-
 //  a Python function taken by a CuteQGraphicsView, for the function named by
 //      the key
 extern "C" Q_DECL_EXPORT

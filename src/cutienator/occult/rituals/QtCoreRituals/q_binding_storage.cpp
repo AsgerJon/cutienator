@@ -35,26 +35,6 @@ void ritual_ZNK15QBindingStorage18registerDependencyEPK20QUntypedPropertyData(
   self->registerDependency(data);
 }
 
-//  QtPrivate::QPropertyBindingData *QBindingStorage::bindingData(const
-//      QUntypedPropertyData *data) const
-extern "C" Q_DECL_EXPORT
-QtPrivate::QPropertyBindingData *ritual_ZNK15QBindingStorage11bindingDataEPK20QUntypedPropertyData(
-    const QBindingStorage *self,
-    const QUntypedPropertyData *data) {
-  return self->bindingData(data);
-}
-
-//  QtPrivate::QPropertyBindingData
-//      *QBindingStorage::bindingData(QUntypedPropertyData *data, bool
-//      create)
-extern "C" Q_DECL_EXPORT
-QtPrivate::QPropertyBindingData *ritual_ZN15QBindingStorage11bindingDataEP20QUntypedPropertyDatab(
-    QBindingStorage *self,
-    QUntypedPropertyData *data,
-    bool create) {
-  return self->bindingData(data, create);
-}
-
 //  void QBindingStorage::reinitAfterThreadMove()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QBindingStorage21reinitAfterThreadMoveEv(
@@ -75,25 +55,4 @@ void ritual_ZNK15QBindingStorage25registerDependency_helperEPK20QUntypedProperty
     const QBindingStorage *self,
     const QUntypedPropertyData *data) {
   self->registerDependency_helper(data);
-}
-
-//  QtPrivate::QPropertyBindingData
-//      *QBindingStorage::bindingData_helper(const QUntypedPropertyData
-//      *data) const
-extern "C" Q_DECL_EXPORT
-QtPrivate::QPropertyBindingData *ritual_ZNK15QBindingStorage18bindingData_helperEPK20QUntypedPropertyData(
-    const QBindingStorage *self,
-    const QUntypedPropertyData *data) {
-  return self->bindingData_helper(data);
-}
-
-//  QtPrivate::QPropertyBindingData
-//      *QBindingStorage::bindingData_helper(QUntypedPropertyData *data, bool
-//      create)
-extern "C" Q_DECL_EXPORT
-QtPrivate::QPropertyBindingData *ritual_ZN15QBindingStorage18bindingData_helperEP20QUntypedPropertyDatab(
-    QBindingStorage *self,
-    QUntypedPropertyData *data,
-    bool create) {
-  return self->bindingData_helper(data, create);
 }

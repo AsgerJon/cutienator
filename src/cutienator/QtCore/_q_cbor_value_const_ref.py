@@ -74,14 +74,6 @@ class QCborValueConstRef(CuteMixin, metaclass=MetaCute):
     cannot be named here.
   - Qt's 'QCborTag QCborValueConstRef::tag(QCborTag defaultValue) const':
     names the enum 'QCborTag', whose class cannot be named here.
-  - Qt's 'Qt::strong_ordering
-    QCborValueConstRef::compareThreeWay_helper(QCborValueConstRef lhs,
-    QCborValueConstRef rhs)': gives 'Qt::strong_ordering', which has no cute
-    class yet.
-  - Qt's 'Qt::strong_ordering
-    QCborValueConstRef::compareThreeWay_helper(QCborValueConstRef lhs, const
-    QCborValue &rhs)': gives 'Qt::strong_ordering', which has no cute class
-    yet.
   - Qt's 'bool operator==(const QCborValue &lhs, const QCborValueConstRef
     &rhs)': takes in Python what 'bool operator==(const QCborValueConstRef
     &lhs, const QCborValue &rhs)' takes.
@@ -106,7 +98,7 @@ class QCborValueConstRef(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  3 of the 84 functions Qt declares: 2 takes or gives a type that cannot be
+  5 of the 84 functions Qt declares: 4 takes or gives a type that cannot be
   passed yet; 1 forbidden.
 
   What to expect

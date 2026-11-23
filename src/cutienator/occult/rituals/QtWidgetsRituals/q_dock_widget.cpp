@@ -977,19 +977,6 @@ void ritual_ZNK11QDockWidget15initStyleOptionEP22QStyleOptionDockWidget(
   self->initStyleOption(option);
 }
 
-//  QDockWidgetPrivate *QDockWidget::d_func()
-extern "C" Q_DECL_EXPORT
-QDockWidgetPrivate *ritual_ZN11QDockWidget6d_funcEv(QDockWidget *self) {
-  return self->d_func();
-}
-
-//  const QDockWidgetPrivate *QDockWidget::d_func() const
-extern "C" Q_DECL_EXPORT
-const QDockWidgetPrivate *ritual_ZNK11QDockWidget6d_funcEv(
-    const QDockWidget *self) {
-  return self->d_func();
-}
-
 //  a Python function taken by a CuteQDockWidget, for the function named by
 //      the key
 extern "C" Q_DECL_EXPORT

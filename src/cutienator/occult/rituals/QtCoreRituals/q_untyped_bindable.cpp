@@ -1,37 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/qproperty.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qproperty.h>
-#include <QtCore/qmetaobject.h>
 #include <QtCore/qmetatype.h>
-
-//  QUntypedBindable::QUntypedBindable(QUntypedPropertyData *d, const
-//      QtPrivate::QBindableInterface *i)
-extern "C" Q_DECL_EXPORT
-QUntypedBindable *ritual_ZN16QUntypedBindableC1EP20QUntypedPropertyDataPKN9QtPrivate18QBindableInterfaceE(
-    QUntypedPropertyData *d,
-    const QtPrivate::QBindableInterface *i) {
-  return new QUntypedBindable(d, i);
-}
-
-//  QUntypedBindable::QUntypedBindable(QObject *obj, const QMetaProperty
-//      &property, const QtPrivate::QBindableInterface *i)
-extern "C" Q_DECL_EXPORT
-QUntypedBindable *ritual_ZN16QUntypedBindableC1EP7QObjectRK13QMetaPropertyPKN9QtPrivate18QBindableInterfaceE(
-    QObject *obj,
-    const QMetaProperty *property,
-    const QtPrivate::QBindableInterface *i) {
-  return new QUntypedBindable(obj, *property, i);
-}
-
-//  QUntypedBindable::QUntypedBindable(QObject *obj, const char *property,
-//      const QtPrivate::QBindableInterface *i)
-extern "C" Q_DECL_EXPORT
-QUntypedBindable *ritual_ZN16QUntypedBindableC1EP7QObjectPKcPKN9QtPrivate18QBindableInterfaceE(
-    QObject *obj,
-    const char *property,
-    const QtPrivate::QBindableInterface *i) {
-  return new QUntypedBindable(obj, property, i);
-}
 
 //  QUntypedBindable::QUntypedBindable()
 extern "C" Q_DECL_EXPORT

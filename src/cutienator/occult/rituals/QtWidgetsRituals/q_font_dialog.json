@@ -6,8 +6,6 @@
   "rows": {
     "ritual_ZNK11QFontDialog10metaObjectEv": ["address", "address"],
     "ritual_ZN11QFontDialog2trEPKcS1_i": ["text", "chars", "chars", "int"],
-    "ritual_ZN11QFontDialog6d_funcEv": ["address", "address"],
-    "ritual_ZNK11QFontDialog6d_funcEv": ["address", "address"],
     "ritual_ZN11QFontDialogC1EP7QWidget": ["address", "address"],
     "ritual_ZN11QFontDialogC1ERK5QFontP7QWidget": [
       "address", "address", "address"

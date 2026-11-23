@@ -5,7 +5,6 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qjsonarray.h>
-#include <QtCore/qcompare.h>
 #include <QtCore/qlist.h>
 
 //  QCborArray::QCborArray()
@@ -328,18 +327,6 @@ bool ritual_ZN10QCborArray20comparesEqual_helperERKS_RK10QCborValue(
   return QCborArray::comparesEqual_helper(*lhs, *rhs);
 }
 
-//  Qt::strong_ordering QCborArray::compareThreeWay_helper(const QCborArray
-//      &lhs, const QCborValue &rhs)
-extern "C" Q_DECL_EXPORT
-Qt::strong_ordering *ritual_ZN10QCborArray22compareThreeWay_helperERKS_RK10QCborValue(
-    const QCborArray *lhs,
-    const QCborValue *rhs) {
-  return new Qt::strong_ordering(
-      QCborArray::compareThreeWay_helper(
-          *lhs,
-          *rhs));
-}
-
 //  bool operator==(const QCborArray &lhs, const QCborValue &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZeqRK10QCborArrayRK10QCborValue(
@@ -443,18 +430,6 @@ bool ritual_ZN10QCborArray20comparesEqual_helperERKS_18QCborValueConstRef(
     const QCborArray *lhs,
     const QCborValueConstRef *rhs) {
   return QCborArray::comparesEqual_helper(*lhs, *rhs);
-}
-
-//  Qt::strong_ordering QCborArray::compareThreeWay_helper(const QCborArray
-//      &lhs, QCborValueConstRef rhs)
-extern "C" Q_DECL_EXPORT
-Qt::strong_ordering *ritual_ZN10QCborArray22compareThreeWay_helperERKS_18QCborValueConstRef(
-    const QCborArray *lhs,
-    const QCborValueConstRef *rhs) {
-  return new Qt::strong_ordering(
-      QCborArray::compareThreeWay_helper(
-          *lhs,
-          *rhs));
 }
 
 //  bool operator==(const QCborArray &lhs, const QCborValueConstRef &rhs)

@@ -973,19 +973,6 @@ QString *ritual_ZN9QTextEdit2trEPKcS1_i(
   return new QString(QTextEdit::tr(s, c, n));
 }
 
-//  QTextEditPrivate *QTextEdit::d_func()
-extern "C" Q_DECL_EXPORT
-QTextEditPrivate *ritual_ZN9QTextEdit6d_funcEv(QTextEdit *self) {
-  return self->d_func();
-}
-
-//  const QTextEditPrivate *QTextEdit::d_func() const
-extern "C" Q_DECL_EXPORT
-const QTextEditPrivate *ritual_ZNK9QTextEdit6d_funcEv(
-    const QTextEdit *self) {
-  return self->d_func();
-}
-
 //  QTextEdit::QTextEdit(QWidget *parent)
 extern "C" Q_DECL_EXPORT
 QTextEdit *ritual_ZN9QTextEditC1EP7QWidget(QWidget *parent) {

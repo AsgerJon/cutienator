@@ -8,10 +8,12 @@ import collections
 import json
 import os
 import re
+import shutil
 import subprocess
 import tempfile
 import textwrap
 import threading
+from multiprocessing.util import Finalize
 from typing import TYPE_CHECKING
 
 from worktoy.waitaminute import MissingVariable, TypeException
@@ -1033,7 +1035,11 @@ class RitualGenerator:
     kinds = dict()  # type: Dict[str, Record]
     aliases = self._getTypeTables()['aliases']
     wanted = ('CXXMethodDecl', 'CXXConstructorDecl')
+    cute = tree.getCuteNames()
     for className in tree.getClassNames():
+      if className not in cute:
+        #  No function of Python hands its lists around.
+        continue
       other = self._getOther(className)
       for member in other._readRecord(className).get('inner', ()):
         if member.get('kind') not in wanted:
@@ -1651,17 +1657,33 @@ class RitualGenerator:
     'classes', the names of those; 'enumTypes', the number type an enum
     is kept as; 'copyable', the classes C++ can copy. Kept after the
     first call.
+
+    Only what Python has something for counts: a class that gets a
+    cute class, as 'DependencyTree.getCuteNames' has them, the classes
+    of Qt that cross as Python's own text, and an enum written in such
+    a class or in no class at all. A type left out here cannot be
+    passed, and a function naming it gets no ritual.
     """
     if self.__type_tables__ is None:
       if kwargs.get('_recursion', False):
         raise RecursionError
       tree = self.getDependencyTree()
+      known = frozenset(tree.getClassNames())
+      cute = frozenset((
+          *tree.getCuteNames(), self.__text_name__, *self.__view_names__,
+      ))
+      enums = []  # type: List[str]
+      for enumName in tree.getEnumNames():
+        owner = enumName.rpartition('::')[0]
+        if owner not in known or owner in cute:
+          enums.append(enumName)
       self.__type_tables__ = dict(
           aliases=tree.getAliasTypes(),
-          enums=frozenset(tree.getEnumNames()),
-          classes=frozenset(tree.getClassNames()),
+          enums=frozenset(enums),
+          classes=frozenset(name for name in known if name in cute),
           enumTypes=tree.getEnumTypes(),
-          copyable=tree.getCopyableNames(),
+          copyable=frozenset(
+              name for name in tree.getCopyableNames() if name in cute),
       )
       return self._getTypeTables(_recursion=True)
     return self.__type_tables__
@@ -2179,13 +2201,79 @@ class RitualGenerator:
     Qt: a name of the C++ library or of the system does not."""
     return True if re.search(r'\d+[Qq][A-Za-z_]', symbol) else False
 
+  def _getProbeCommand(self) -> Tuple[str, ...]:
+    """Gives the start of the 'clang++' command of '_probeText', which
+    the precompiled header of 'getProbeHeader' is made with as well: a
+    precompiled header serves only a compile told the same."""
+    return (
+        'clang++', '-std=c++17', '-fPIC', '-O0', '-w',
+        '-fno-access-control', '-ffunction-sections', '-ferror-limit=0',
+        '-I%s' % QtPart.getQtHeaderFolder(), *self.getPrivateArguments(),
+    )
+
+  def getProbeHeader(self) -> str:
+    """
+    Gives the path of the precompiled header each compile of
+    '_probeText' starts from: the own list of every part of the tree,
+    as '#include <QtCore/QtCore>', read by the compiler once and
+    written down as the compiler keeps it. A compile that starts from
+    it takes a tenth of the time, since reading Qt's headers is most
+    of the work.
+
+    Made for you at the first call, which takes about twenty seconds,
+    and kept with the tree. It lies in a folder of its own in the work
+    folder of the first part of the tree, about 65 MB, and that folder
+    is removed when the Python that made it ends. Call it once before
+    handing the tree to other processes, and they all start from the
+    one file.
+
+    Raises
+    ------
+
+    RuntimeError
+      The compiler refused to make it. The message holds what it said.
+    """
+    kept = self.getDependencyTree().getKept('probe header')
+    if 'path' in kept:
+      return kept['path']
+    lines = []
+    qtParts = self.getDependencyTree().getQtParts()
+    for qtPart in qtParts:
+      partName = qtPart.getPartName()
+      if os.path.isfile(os.path.join(qtPart.getPartFolder(), partName)):
+        lines.append('#include <%s/%s>' % (partName, partName))
+    folder = tempfile.mkdtemp(
+        prefix='probe_header_', dir=qtParts[0].getWorkFolder())
+    Finalize(
+        None, shutil.rmtree, args=(folder,),
+        kwargs=dict(ignore_errors=True), exitpriority=0)
+    headerFile = os.path.join(folder, 'probe.h')
+    with open(headerFile, 'w') as file:
+      file.write('%s\n' % '\n'.join(lines))
+    probeHeader = os.path.join(folder, 'probe.pch')
+    command = (
+        *self._getProbeCommand(), '-fpch-instantiate-templates',
+        '-x', 'c++-header', headerFile, '-o', probeHeader,
+    )
+    done = subprocess.run(
+        command, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+        universal_newlines=True)
+    if done.returncode:
+      infoSpec = """The compiler refused to make the precompiled header
+      the settling compiles start from: %s"""
+      info = infoSpec % ' '.join(done.stderr.split())[:800]
+      raise RuntimeError(' '.join(info.split()))
+    kept['path'] = probeHeader
+    return probeHeader
+
   def _probeText(
       self,
       text: str,
   ) -> Tuple[Dict[int, str], Dict[str, Set[str]], Set[str]]:
     """
     Compiles the text of a ritual file to an object file, joining
-    nothing, and says what came of it.
+    nothing, and says what came of it. The compile starts from the
+    precompiled header of 'getProbeHeader'.
 
     Returns
     -------
@@ -2202,10 +2290,8 @@ class RitualGenerator:
       with open(probeFile, 'w') as file:
         file.write(text)
       command = (
-          'clang++', '-std=c++17', '-fPIC', '-O0', '-w', '-c',
-          '-fno-access-control', '-ffunction-sections',
-          '-ferror-limit=0', '-I%s' % QtPart.getQtHeaderFolder(),
-          *self.getPrivateArguments(), probeFile, '-o', objectFile,
+          *self._getProbeCommand(), '-c', '-include-pch',
+          self.getProbeHeader(), probeFile, '-o', objectFile,
       )
       done = subprocess.run(
           command, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
@@ -2313,7 +2399,11 @@ class RitualGenerator:
     if qtPart.hasPrivate():
       headerPath = tree.getHeaderPath(className)
       private = headerPath.startswith(qtPart.getPrivateFolder())
-    if not chosen and not private:
+    named = self._nameWritten(written)
+    if not private and not any(name in named for name in chosen):
+      #  No ritual calls a function whose code would be taken, so
+      #  there is nothing to compile for: every ritual calls what Qt's
+      #  library offers or what a header has the code of.
       return
     offered = self._getOfferedNames()
     helpers = dict()  # type: Dict[str, Record]
@@ -2333,6 +2423,7 @@ class RitualGenerator:
       taken.extend(
           (name, definition) for name, definition in chosen.items()
           if name in named and name not in helpers)
+      compiled = {*helpers}
       self._keepSource(taken, lost, marker)
       self.__written_rituals__ = (*written,)
       self.__unwritten_functions__ = (*unwritten,)
@@ -2398,9 +2489,20 @@ class RitualGenerator:
         for symbol in sorted(reached):
           if symbol not in wanted or symbol in offered:
             continue
-          if not self._isOfQt(symbol) or symbol in helpers:
+          if not self._isOfQt(symbol):
             continue
-          found = None if symbol in lost else self._findHelper(symbol)
+          found = None
+          if symbol in helpers and symbol not in compiled:
+            #  Found for a ritual higher up, in this very round.
+            continue
+          if symbol in helpers:
+            #  Its code was in the file that was compiled, and the name
+            #  is still not there: what Qt's source has under it is
+            #  another function. It is not taken a second time.
+            del helpers[symbol]
+            lost.add(symbol)
+          elif symbol not in lost:
+            found = self._findHelper(symbol)
           if found is not None:
             helpers[symbol] = found
             changed = True

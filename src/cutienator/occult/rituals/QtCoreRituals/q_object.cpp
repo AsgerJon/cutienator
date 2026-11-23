@@ -3,7 +3,6 @@
 #include <QtCore/qobject.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qanystringview.h>
-#include <QtCore/qnamespace.h>
 #include <QtCore/qobjectdefs.h>
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qvariant.h>
@@ -239,15 +238,6 @@ bool ritual_ZN7QObject12blockSignalsEb(QObject *self, bool b) {
 extern "C" Q_DECL_EXPORT
 QThread *ritual_ZNK7QObject6threadEv(const QObject *self) {
   return self->thread();
-}
-
-//  bool QObject::moveToThread(QThread *thread, Qt::Disambiguated_t a1)
-extern "C" Q_DECL_EXPORT
-bool ritual_ZN7QObject12moveToThreadEP7QThreadN2Qt15Disambiguated_tE(
-    QObject *self,
-    QThread *thread,
-    const Qt::Disambiguated_t *a1) {
-  return self->moveToThread(thread, *a1);
 }
 
 //  int QObject::startTimer(int interval, Qt::TimerType timerType)

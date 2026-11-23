@@ -131,20 +131,6 @@ QIcon *ritual_ZNK17QFileIconProvider4iconERK9QFileInfo(
   return new QIcon(self->icon(*info));
 }
 
-//  QFileIconProviderPrivate *QFileIconProvider::d_func()
-extern "C" Q_DECL_EXPORT
-QFileIconProviderPrivate *ritual_ZN17QFileIconProvider6d_funcEv(
-    QFileIconProvider *self) {
-  return self->d_func();
-}
-
-//  const QFileIconProviderPrivate *QFileIconProvider::d_func() const
-extern "C" Q_DECL_EXPORT
-const QFileIconProviderPrivate *ritual_ZNK17QFileIconProvider6d_funcEv(
-    const QFileIconProvider *self) {
-  return self->d_func();
-}
-
 //  a Python function taken by a CuteQFileIconProvider, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT

@@ -5,8 +5,6 @@
 #include <QtCore/qvariant.h>
 #include <QtCore/qsize.h>
 #include <QtCore/qbytearray.h>
-#include <QtCore/qcompare.h>
-#include <QtCore/qcollator.h>
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <QtCore/qmap.h>
@@ -1366,46 +1364,6 @@ extern "C" Q_DECL_EXPORT
 QList<QModelIndex> *ritual_ZNK18QAbstractItemModel19persistentIndexListEv(
     const QAbstractItemModel *self) {
   return new QList<QModelIndex>(self->persistentIndexList());
-}
-
-//  Qt::weak_ordering QAbstractItemModel::compareData(const QVariant &left,
-//      const QVariant &right)
-extern "C" Q_DECL_EXPORT
-Qt::weak_ordering *ritual_ZN18QAbstractItemModel11compareDataERK8QVariantS2_(
-    const QVariant *left,
-    const QVariant *right) {
-  return new Qt::weak_ordering(
-      QAbstractItemModel::compareData(
-          *left,
-          *right));
-}
-
-//  Qt::weak_ordering QAbstractItemModel::compareData(const QVariant &left,
-//      const QVariant &right, const QCollator &collator)
-extern "C" Q_DECL_EXPORT
-Qt::weak_ordering *ritual_ZN18QAbstractItemModel11compareDataERK8QVariantS2_RK9QCollator(
-    const QVariant *left,
-    const QVariant *right,
-    const QCollator *collator) {
-  return new Qt::weak_ordering(
-      QAbstractItemModel::compareData(
-          *left,
-          *right,
-          *collator));
-}
-
-//  Qt::weak_ordering QAbstractItemModel::compareDataImpl(const QVariant
-//      &left, const QVariant &right, const QCollator *collator)
-extern "C" Q_DECL_EXPORT
-Qt::weak_ordering *ritual_ZN18QAbstractItemModel15compareDataImplERK8QVariantS2_PK9QCollator(
-    const QVariant *left,
-    const QVariant *right,
-    const QCollator *collator) {
-  return new Qt::weak_ordering(
-      QAbstractItemModel::compareDataImpl(
-          *left,
-          *right,
-          collator));
 }
 
 //  a Python function taken by a CuteQAbstractItemModel, for the function

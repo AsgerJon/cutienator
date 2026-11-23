@@ -65,15 +65,11 @@ class QSplitter(QFrame):
     C++ QSplitter.
   - Qt's 'void QSplitter::getRange(int index, int *a1, int *a2) const': takes
     a number to change where it is.
-  - Qt's 'QSplitterPrivate *QSplitter::d_func()': gives 'QSplitterPrivate',
-    which has no cute class yet.
-  - Qt's 'const QSplitterPrivate *QSplitter::d_func() const': gives
-    'QSplitterPrivate', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  9 of the 48 functions Qt declares: 4 takes or gives a type that cannot be
+  11 of the 48 functions Qt declares: 6 takes or gives a type that cannot be
   passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found;
   1 a signal.
 

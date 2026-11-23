@@ -1,7 +1,6 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/qmetatype.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qmetatype.h>
-#include <QtCore/qnamespace.h>
 #include <QtCore/qbytearrayview.h>
 #include <QtCore/qdebug.h>
 
@@ -47,33 +46,10 @@ QMetaType *ritual_ZN9QMetaTypeC1Ei(int type) {
   return new QMetaType(type);
 }
 
-//  QMetaType::QMetaType(const QtPrivate::QMetaTypeInterface *d)
-extern "C" Q_DECL_EXPORT
-QMetaType *ritual_ZN9QMetaTypeC1EPKN9QtPrivate18QMetaTypeInterfaceE(
-    const QtPrivate::QMetaTypeInterface *d) {
-  return new QMetaType(d);
-}
-
 //  QMetaType::QMetaType()
 extern "C" Q_DECL_EXPORT
 QMetaType *ritual_ZN9QMetaTypeC1Ev() {
   return new QMetaType();
-}
-
-//  bool QMetaType::isValid(Qt::Disambiguated_t a0) const
-extern "C" Q_DECL_EXPORT
-bool ritual_ZNK9QMetaType7isValidEN2Qt15Disambiguated_tE(
-    const QMetaType *self,
-    const Qt::Disambiguated_t *a0) {
-  return self->isValid(*a0);
-}
-
-//  bool QMetaType::isRegistered(Qt::Disambiguated_t a0) const
-extern "C" Q_DECL_EXPORT
-bool ritual_ZNK9QMetaType12isRegisteredEN2Qt15Disambiguated_tE(
-    const QMetaType *self,
-    const Qt::Disambiguated_t *a0) {
-  return self->isRegistered(*a0);
 }
 
 //  void QMetaType::registerType() const
@@ -267,58 +243,6 @@ void ritual_ZN9QMetaType29unregisterMutableViewFunctionES_S_(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN9QMetaType18unregisterMetaTypeES_(const QMetaType *type) {
   QMetaType::unregisterMetaType(*type);
-}
-
-//  const QtPrivate::QMetaTypeInterface *QMetaType::iface()
-extern "C" Q_DECL_EXPORT
-const QtPrivate::QMetaTypeInterface *ritual_ZN9QMetaType5ifaceEv(
-    QMetaType *self) {
-  return self->iface();
-}
-
-//  const QtPrivate::QMetaTypeInterface *QMetaType::iface() const
-extern "C" Q_DECL_EXPORT
-const QtPrivate::QMetaTypeInterface *ritual_ZNK9QMetaType5ifaceEv(
-    const QMetaType *self) {
-  return self->iface();
-}
-
-//  bool QMetaType::isDefaultConstructible(const
-//      QtPrivate::QMetaTypeInterface *a0)
-extern "C" Q_DECL_EXPORT
-bool ritual_ZN9QMetaType22isDefaultConstructibleEPKN9QtPrivate18QMetaTypeInterfaceE(
-    const QtPrivate::QMetaTypeInterface *a0) {
-  return QMetaType::isDefaultConstructible(a0);
-}
-
-//  bool QMetaType::isCopyConstructible(const QtPrivate::QMetaTypeInterface
-//      *a0)
-extern "C" Q_DECL_EXPORT
-bool ritual_ZN9QMetaType19isCopyConstructibleEPKN9QtPrivate18QMetaTypeInterfaceE(
-    const QtPrivate::QMetaTypeInterface *a0) {
-  return QMetaType::isCopyConstructible(a0);
-}
-
-//  bool QMetaType::isMoveConstructible(const QtPrivate::QMetaTypeInterface
-//      *a0)
-extern "C" Q_DECL_EXPORT
-bool ritual_ZN9QMetaType19isMoveConstructibleEPKN9QtPrivate18QMetaTypeInterfaceE(
-    const QtPrivate::QMetaTypeInterface *a0) {
-  return QMetaType::isMoveConstructible(a0);
-}
-
-//  bool QMetaType::isDestructible(const QtPrivate::QMetaTypeInterface *a0)
-extern "C" Q_DECL_EXPORT
-bool ritual_ZN9QMetaType14isDestructibleEPKN9QtPrivate18QMetaTypeInterfaceE(
-    const QtPrivate::QMetaTypeInterface *a0) {
-  return QMetaType::isDestructible(a0);
-}
-
-//  int QMetaType::registerHelper(const QtPrivate::QMetaTypeInterface *iface)
-extern "C" Q_DECL_EXPORT
-int ritual_ZN9QMetaType14registerHelperEPKN9QtPrivate18QMetaTypeInterfaceE(
-    const QtPrivate::QMetaTypeInterface *iface) {
-  return QMetaType::registerHelper(iface);
 }
 
 //  int QMetaType::registerHelper() const

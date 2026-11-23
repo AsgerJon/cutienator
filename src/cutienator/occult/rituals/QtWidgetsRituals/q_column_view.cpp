@@ -1724,19 +1724,6 @@ void ritual_ZNK11QColumnView16initializeColumnEP17QAbstractItemView(
   self->initializeColumn(column);
 }
 
-//  QColumnViewPrivate *QColumnView::d_func()
-extern "C" Q_DECL_EXPORT
-QColumnViewPrivate *ritual_ZN11QColumnView6d_funcEv(QColumnView *self) {
-  return self->d_func();
-}
-
-//  const QColumnViewPrivate *QColumnView::d_func() const
-extern "C" Q_DECL_EXPORT
-const QColumnViewPrivate *ritual_ZNK11QColumnView6d_funcEv(
-    const QColumnView *self) {
-  return self->d_func();
-}
-
 //  a Python function taken by a CuteQColumnView, for the function named by
 //      the key
 extern "C" Q_DECL_EXPORT

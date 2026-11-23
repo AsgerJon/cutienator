@@ -71,9 +71,6 @@ class QFutureInterfaceBase(CuteMixin, metaclass=MetaCute):
   - Qt's 'QFutureInterfaceBase::~QFutureInterfaceBase()': the destructor:
     Python removes its C++ QFutureInterfaceBase by it, and has no other use
     for it.
-  - Qt's 'const QtPrivate::ResultStoreBase
-    &QFutureInterfaceBase::resultStoreBase() const': gives
-    'QtPrivate::ResultStoreBase', which has no cute class yet.
   - Qt's 'void QFutureInterfaceBase::cancel(CancelMode mode)': names the enum
     'QFutureInterfaceBase::CancelMode', whose class cannot be named here.
   - Qt's 'void QFutureInterfaceBase::cancelChain(CancelMode mode)': names the
@@ -83,7 +80,7 @@ class QFutureInterfaceBase(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  11 of the 78 functions Qt declares: 10 takes or gives a type that cannot be
+  12 of the 78 functions Qt declares: 11 takes or gives a type that cannot be
   passed yet; 1 a template.
 
   What to expect

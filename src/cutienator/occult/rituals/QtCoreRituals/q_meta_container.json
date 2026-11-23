@@ -5,9 +5,6 @@
   ],
   "rows": {
     "ritual_ZN14QMetaContainerC1Ev": ["address"],
-    "ritual_ZN14QMetaContainerC1EPKN22QtMetaContainerPrivate23QMetaContainerInterfaceE": [
-      "address", "address"
-    ],
     "ritual_ZNK14QMetaContainer16hasInputIteratorEv": ["bool", "address"],
     "ritual_ZNK14QMetaContainer18hasForwardIteratorEv": ["bool", "address"],
     "ritual_ZNK14QMetaContainer24hasBidirectionalIteratorEv": [

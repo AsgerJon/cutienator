@@ -63,30 +63,11 @@ class QRangeModelImplBase(CuteMixin, metaclass=MetaCute):
     *QRangeModelImplBase::getImplementation(const QRangeModel *model)': takes
     in Python what 'QRangeModelImplBase
     *QRangeModelImplBase::getImplementation(QRangeModel *model)' takes.
-  - Qt's 'Qt::weak_ordering QRangeModelImplBase::compareData(const QVariant
-    &lhs, const QVariant &rhs, const QCollator *collator)': gives
-    'Qt::weak_ordering', which has no cute class yet.
-  - Qt's 'bool QRangeModelImplBase::connectProperty(const QModelIndex &index,
-    const QObject *item, QRangeModelDetails::AutoConnectContext *context, int
-    role, const QMetaProperty &property)': names
-    'QRangeModelDetails::AutoConnectContext', which has no cute class yet.
-  - Qt's 'bool QRangeModelImplBase::connectPropertyConst(const QModelIndex
-    &index, const QObject *item, QRangeModelDetails::AutoConnectContext
-    *context, int role, const QMetaProperty &property)': names
-    'QRangeModelDetails::AutoConnectContext', which has no cute class yet.
-  - Qt's 'bool QRangeModelImplBase::connectProperties(const QModelIndex
-    &index, const QObject *item, QRangeModelDetails::AutoConnectContext
-    *context, const QHash<int, QMetaProperty> &properties)': names
-    'QRangeModelDetails::AutoConnectContext', which has no cute class yet.
-  - Qt's 'bool QRangeModelImplBase::connectPropertiesConst(const QModelIndex
-    &index, const QObject *item, QRangeModelDetails::AutoConnectContext
-    *context, const QHash<int, QMetaProperty> &properties)': names
-    'QRangeModelDetails::AutoConnectContext', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  38 of the 74 functions Qt declares: 31 declared and nowhere to be found; 7
+  43 of the 74 functions Qt declares: 31 declared and nowhere to be found; 12
   takes or gives a type that cannot be passed yet.
 
   What to expect

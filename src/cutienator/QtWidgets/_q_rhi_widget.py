@@ -60,17 +60,13 @@ class QRhiWidget(QWidget):
   What has a ritual and is left out, and why
   ------------------------------------------
 
-  - Qt's 'QRhiWidgetPrivate *QRhiWidget::d_func()': gives
-    'QRhiWidgetPrivate', which has no cute class yet.
-  - Qt's 'const QRhiWidgetPrivate *QRhiWidget::d_func() const': gives
-    'QRhiWidgetPrivate', which has no cute class yet.
   - Qt's 'QRhiWidget::~QRhiWidget()': the destructor: Python never removes a
     C++ QRhiWidget.
 
   What has no ritual
   ------------------
 
-  19 of the 45 functions Qt declares: 11 takes or gives a type that cannot be
+  21 of the 45 functions Qt declares: 13 takes or gives a type that cannot be
   passed yet; 6 a signal; 1 a template; 1 declared and nowhere to be found.
 
   What to expect

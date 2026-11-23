@@ -28,8 +28,6 @@
       "int", "address", "address"
     ],
     "ritual_ZNK12QButtonGroup9checkedIdEv": ["int", "address"],
-    "ritual_ZN12QButtonGroup6d_funcEv": ["address", "address"],
-    "ritual_ZNK12QButtonGroup6d_funcEv": ["address", "address"],
     "ritual_take_QButtonGroup": ["bool", "address", "chars", "address"]
   }
 }

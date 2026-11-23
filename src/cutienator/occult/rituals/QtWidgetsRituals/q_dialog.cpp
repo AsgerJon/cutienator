@@ -1008,18 +1008,6 @@ void ritual_ZN7QDialog14adjustPositionEP7QWidget(
   self->adjustPosition(a0);
 }
 
-//  QDialogPrivate *QDialog::d_func()
-extern "C" Q_DECL_EXPORT
-QDialogPrivate *ritual_ZN7QDialog6d_funcEv(QDialog *self) {
-  return self->d_func();
-}
-
-//  const QDialogPrivate *QDialog::d_func() const
-extern "C" Q_DECL_EXPORT
-const QDialogPrivate *ritual_ZNK7QDialog6d_funcEv(const QDialog *self) {
-  return self->d_func();
-}
-
 //  a Python function taken by a CuteQDialog, for the function named by the
 //      key
 extern "C" Q_DECL_EXPORT

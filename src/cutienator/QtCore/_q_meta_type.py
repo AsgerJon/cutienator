@@ -60,38 +60,13 @@ class QMetaType(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
-  - Qt's 'QMetaType::QMetaType(const QtPrivate::QMetaTypeInterface *d)':
-    names 'QtPrivate::QMetaTypeInterface', which has no cute class yet.
-  - Qt's 'bool QMetaType::isValid(Qt::Disambiguated_t a0) const': names
-    'Qt::Disambiguated_t', which has no cute class yet.
-  - Qt's 'bool QMetaType::isRegistered(Qt::Disambiguated_t a0) const': names
-    'Qt::Disambiguated_t', which has no cute class yet.
-  - Qt's 'const QtPrivate::QMetaTypeInterface *QMetaType::iface()': gives
-    'QtPrivate::QMetaTypeInterface', which has no cute class yet.
-  - Qt's 'const QtPrivate::QMetaTypeInterface *QMetaType::iface() const':
-    gives 'QtPrivate::QMetaTypeInterface', which has no cute class yet.
-  - Qt's 'bool QMetaType::isDefaultConstructible(const
-    QtPrivate::QMetaTypeInterface *a0)': names
-    'QtPrivate::QMetaTypeInterface', which has no cute class yet.
-  - Qt's 'bool QMetaType::isCopyConstructible(const
-    QtPrivate::QMetaTypeInterface *a0)': names
-    'QtPrivate::QMetaTypeInterface', which has no cute class yet.
-  - Qt's 'bool QMetaType::isMoveConstructible(const
-    QtPrivate::QMetaTypeInterface *a0)': names
-    'QtPrivate::QMetaTypeInterface', which has no cute class yet.
-  - Qt's 'bool QMetaType::isDestructible(const QtPrivate::QMetaTypeInterface
-    *a0)': names 'QtPrivate::QMetaTypeInterface', which has no cute class
-    yet.
-  - Qt's 'int QMetaType::registerHelper(const QtPrivate::QMetaTypeInterface
-    *iface)': names 'QtPrivate::QMetaTypeInterface', which has no cute class
-    yet.
   - Qt's 'QMetaType::~QMetaType()': the destructor: Python removes its C++
     QMetaType by it, and has no other use for it.
 
   What has no ritual
   ------------------
 
-  37 of the 86 functions Qt declares: 25 takes or gives a type that cannot be
+  47 of the 86 functions Qt declares: 35 takes or gives a type that cannot be
   passed yet; 12 a template.
 
   What to expect

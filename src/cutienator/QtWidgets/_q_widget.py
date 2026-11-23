@@ -167,17 +167,13 @@ class QWidget(QObject, QPaintDevice):
   What has a ritual and is left out, and why
   ------------------------------------------
 
-  - Qt's 'QWidgetPrivate *QWidget::d_func()': gives 'QWidgetPrivate', which
-    has no cute class yet.
-  - Qt's 'const QWidgetPrivate *QWidget::d_func() const': gives
-    'QWidgetPrivate', which has no cute class yet.
   - Qt's 'QWidget::~QWidget()': the destructor: Python never removes a C++
     QWidget.
 
   What has no ritual
   ------------------
 
-  17 of the 326 functions Qt declares: 5 takes or gives a type that cannot be
+  19 of the 326 functions Qt declares: 7 takes or gives a type that cannot be
   passed yet; 5 a template; 4 a signal; 2 forbidden; 1 declared and nowhere
   to be found.
 

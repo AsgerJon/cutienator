@@ -25,8 +25,6 @@
     "ritual_ZN19QGraphicsBlurEffect4drawEP8QPainter": [
       "nothing", "address", "address"
     ],
-    "ritual_ZN19QGraphicsBlurEffect6d_funcEv": ["address", "address"],
-    "ritual_ZNK19QGraphicsBlurEffect6d_funcEv": ["address", "address"],
     "ritual_take_QGraphicsBlurEffect": [
       "bool", "address", "chars", "address"
     ],

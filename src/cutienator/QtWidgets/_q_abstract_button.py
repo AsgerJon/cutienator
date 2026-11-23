@@ -71,17 +71,13 @@ class QAbstractButton(QWidget):
 
   - Qt's 'QAbstractButton::~QAbstractButton()': the destructor: Python never
     removes a C++ QAbstractButton.
-  - Qt's 'QAbstractButtonPrivate *QAbstractButton::d_func()': gives
-    'QAbstractButtonPrivate', which has no cute class yet.
-  - Qt's 'const QAbstractButtonPrivate *QAbstractButton::d_func() const':
-    gives 'QAbstractButtonPrivate', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  13 of the 57 functions Qt declares: 4 a signal; 2 takes or gives a type
-  that cannot be passed yet; 2 declared and nowhere to be found; 2 the class
-  is abstract, so C++ cannot make one; 2 forbidden; 1 a template.
+  15 of the 57 functions Qt declares: 4 takes or gives a type that cannot be
+  passed yet; 4 a signal; 2 declared and nowhere to be found; 2 the class is
+  abstract, so C++ cannot make one; 2 forbidden; 1 a template.
 
   What to expect
   --------------

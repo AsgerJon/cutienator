@@ -70,20 +70,11 @@ class QAbstractItemModel(QObject):
 
   - Qt's 'QAbstractItemModel::~QAbstractItemModel()': the destructor: Python
     never removes a C++ QAbstractItemModel.
-  - Qt's 'Qt::weak_ordering QAbstractItemModel::compareData(const QVariant
-    &left, const QVariant &right)': gives 'Qt::weak_ordering', which has no
-    cute class yet.
-  - Qt's 'Qt::weak_ordering QAbstractItemModel::compareData(const QVariant
-    &left, const QVariant &right, const QCollator &collator)': gives
-    'Qt::weak_ordering', which has no cute class yet.
-  - Qt's 'Qt::weak_ordering QAbstractItemModel::compareDataImpl(const
-    QVariant &left, const QVariant &right, const QCollator *collator)': gives
-    'Qt::weak_ordering', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  31 of the 100 functions Qt declares: 18 a signal; 7 takes or gives a type
+  34 of the 100 functions Qt declares: 18 a signal; 10 takes or gives a type
   that cannot be passed yet; 2 the class is abstract, so C++ cannot make one;
   2 forbidden; 1 a template; 1 declared and nowhere to be found.
 

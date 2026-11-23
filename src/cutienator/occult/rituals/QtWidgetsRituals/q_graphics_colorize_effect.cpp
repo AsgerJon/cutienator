@@ -254,21 +254,6 @@ void ritual_ZN23QGraphicsColorizeEffect4drawEP8QPainter(
   self->draw(painter);
 }
 
-//  QGraphicsColorizeEffectPrivate *QGraphicsColorizeEffect::d_func()
-extern "C" Q_DECL_EXPORT
-QGraphicsColorizeEffectPrivate *ritual_ZN23QGraphicsColorizeEffect6d_funcEv(
-    QGraphicsColorizeEffect *self) {
-  return self->d_func();
-}
-
-//  const QGraphicsColorizeEffectPrivate *QGraphicsColorizeEffect::d_func()
-//      const
-extern "C" Q_DECL_EXPORT
-const QGraphicsColorizeEffectPrivate *ritual_ZNK23QGraphicsColorizeEffect6d_funcEv(
-    const QGraphicsColorizeEffect *self) {
-  return self->d_func();
-}
-
 //  a Python function taken by a CuteQGraphicsColorizeEffect, for the
 //      function named by the key
 extern "C" Q_DECL_EXPORT

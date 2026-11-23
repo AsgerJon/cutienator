@@ -208,19 +208,6 @@ void ritual_ZN9QScrollerD1Ev(QScroller *self) {
   delete self;
 }
 
-//  QScrollerPrivate *QScroller::d_func()
-extern "C" Q_DECL_EXPORT
-QScrollerPrivate *ritual_ZN9QScroller6d_funcEv(QScroller *self) {
-  return self->d_func();
-}
-
-//  const QScrollerPrivate *QScroller::d_func() const
-extern "C" Q_DECL_EXPORT
-const QScrollerPrivate *ritual_ZNK9QScroller6d_funcEv(
-    const QScroller *self) {
-  return self->d_func();
-}
-
 //  QList<QScroller *>::QList()
 extern "C" Q_DECL_EXPORT
 QList<QScroller *> *ritual_list_make_QScroller_ptr() {

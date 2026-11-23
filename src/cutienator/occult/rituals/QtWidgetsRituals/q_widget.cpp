@@ -823,18 +823,6 @@ QString *ritual_ZN7QWidget2trEPKcS1_i(const char *s, const char *c, int n) {
   return new QString(QWidget::tr(s, c, n));
 }
 
-//  QWidgetPrivate *QWidget::d_func()
-extern "C" Q_DECL_EXPORT
-QWidgetPrivate *ritual_ZN7QWidget6d_funcEv(QWidget *self) {
-  return self->d_func();
-}
-
-//  const QWidgetPrivate *QWidget::d_func() const
-extern "C" Q_DECL_EXPORT
-const QWidgetPrivate *ritual_ZNK7QWidget6d_funcEv(const QWidget *self) {
-  return self->d_func();
-}
-
 //  QWidget::QWidget(QWidget *parent, Qt::WindowFlags f)
 extern "C" Q_DECL_EXPORT
 QWidget *ritual_ZN7QWidgetC1EPS_6QFlagsIN2Qt10WindowTypeEE(

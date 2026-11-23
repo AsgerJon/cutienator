@@ -77,15 +77,11 @@ class QMdiSubWindow(QWidget):
 
   - Qt's 'QMdiSubWindow::~QMdiSubWindow()': the destructor: Python never
     removes a C++ QMdiSubWindow.
-  - Qt's 'QMdiSubWindowPrivate *QMdiSubWindow::d_func()': gives
-    'QMdiSubWindowPrivate', which has no cute class yet.
-  - Qt's 'const QMdiSubWindowPrivate *QMdiSubWindow::d_func() const': gives
-    'QMdiSubWindowPrivate', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  8 of the 52 functions Qt declares: 2 takes or gives a type that cannot be
+  10 of the 52 functions Qt declares: 4 takes or gives a type that cannot be
   passed yet; 2 a signal; 2 forbidden; 1 a template; 1 declared and nowhere
   to be found.
 

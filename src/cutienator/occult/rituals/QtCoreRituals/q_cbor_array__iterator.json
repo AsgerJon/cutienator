@@ -35,12 +35,6 @@
     "ritual_ZN10QCborArray8Iterator20comparesEqual_helperERKS0_RKNS_13ConstIteratorE": [
       "bool", "address", "address"
     ],
-    "ritual_ZN10QCborArray8Iterator22compareThreeWay_helperERKS0_S2_": [
-      "address", "address", "address"
-    ],
-    "ritual_ZN10QCborArray8Iterator22compareThreeWay_helperERKS0_RKNS_13ConstIteratorE": [
-      "address", "address", "address"
-    ],
     "ritual_ZeqRKN10QCborArray8IteratorES2_": ["bool", "address", "address"],
     "ritual_ZneRKN10QCborArray8IteratorES2_": ["bool", "address", "address"],
     "ritual_ZltRKN10QCborArray8IteratorES2_": ["bool", "address", "address"],

@@ -1453,18 +1453,6 @@ void ritual_ZNK7QTabBar15initStyleOptionEP15QStyleOptionTabi(
   self->initStyleOption(option, tabIndex);
 }
 
-//  QTabBarPrivate *QTabBar::d_func()
-extern "C" Q_DECL_EXPORT
-QTabBarPrivate *ritual_ZN7QTabBar6d_funcEv(QTabBar *self) {
-  return self->d_func();
-}
-
-//  const QTabBarPrivate *QTabBar::d_func() const
-extern "C" Q_DECL_EXPORT
-const QTabBarPrivate *ritual_ZNK7QTabBar6d_funcEv(const QTabBar *self) {
-  return self->d_func();
-}
-
 //  a Python function taken by a CuteQTabBar, for the function named by the
 //      key
 extern "C" Q_DECL_EXPORT

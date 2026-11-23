@@ -52,25 +52,11 @@ class QBindingStorage(CuteMixin, metaclass=MetaCute):
 
   - Qt's 'QBindingStorage::~QBindingStorage()': the destructor: Python
     removes its C++ QBindingStorage by it, and has no other use for it.
-  - Qt's 'QtPrivate::QPropertyBindingData *QBindingStorage::bindingData(const
-    QUntypedPropertyData *data) const': gives
-    'QtPrivate::QPropertyBindingData', which has no cute class yet.
-  - Qt's 'QtPrivate::QPropertyBindingData
-    *QBindingStorage::bindingData(QUntypedPropertyData *data, bool create)':
-    gives 'QtPrivate::QPropertyBindingData', which has no cute class yet.
-  - Qt's 'QtPrivate::QPropertyBindingData
-    *QBindingStorage::bindingData_helper(const QUntypedPropertyData *data)
-    const': gives 'QtPrivate::QPropertyBindingData', which has no cute class
-    yet.
-  - Qt's 'QtPrivate::QPropertyBindingData
-    *QBindingStorage::bindingData_helper(QUntypedPropertyData *data, bool
-    create)': gives 'QtPrivate::QPropertyBindingData', which has no cute
-    class yet.
 
   What has no ritual
   ------------------
 
-  1 of the 13 functions Qt declares: 1 takes or gives a type that cannot be
+  5 of the 13 functions Qt declares: 5 takes or gives a type that cannot be
   passed yet.
 
   What to expect

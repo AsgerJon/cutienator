@@ -53,22 +53,14 @@ class QUntypedBindable(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
-  - Qt's 'QUntypedBindable::QUntypedBindable(QUntypedPropertyData *d, const
-    QtPrivate::QBindableInterface *i)': names
-    'QtPrivate::QBindableInterface', which has no cute class yet.
-  - Qt's 'QUntypedBindable::QUntypedBindable(QObject *obj, const
-    QMetaProperty &property, const QtPrivate::QBindableInterface *i)': names
-    'QtPrivate::QBindableInterface', which has no cute class yet.
-  - Qt's 'QUntypedBindable::QUntypedBindable(QObject *obj, const char
-    *property, const QtPrivate::QBindableInterface *i)': names
-    'QtPrivate::QBindableInterface', which has no cute class yet.
   - Qt's 'QUntypedBindable::~QUntypedBindable()': the destructor: Python
     removes its C++ QUntypedBindable by it, and has no other use for it.
 
   What has no ritual
   ------------------
 
-  4 of the 19 functions Qt declares: 4 a template.
+  7 of the 19 functions Qt declares: 4 a template; 3 takes or gives a type
+  that cannot be passed yet.
 
   What to expect
   --------------

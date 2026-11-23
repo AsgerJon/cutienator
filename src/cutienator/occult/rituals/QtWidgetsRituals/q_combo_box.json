@@ -183,8 +183,6 @@
     "ritual_ZNK9QComboBox15initStyleOptionEP20QStyleOptionComboBox": [
       "nothing", "address", "address"
     ],
-    "ritual_ZN9QComboBox6d_funcEv": ["address", "address"],
-    "ritual_ZNK9QComboBox6d_funcEv": ["address", "address"],
     "ritual_take_QComboBox": ["bool", "address", "chars", "address"],
     "ritual_own_ZN9QComboBox8setModelEP18QAbstractItemModel": [
       "nothing", "address", "address"

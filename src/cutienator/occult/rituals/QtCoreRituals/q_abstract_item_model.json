@@ -183,15 +183,6 @@
     "ritual_ZNK18QAbstractItemModel19persistentIndexListEv": [
       "address", "address"
     ],
-    "ritual_ZN18QAbstractItemModel11compareDataERK8QVariantS2_": [
-      "address", "address", "address"
-    ],
-    "ritual_ZN18QAbstractItemModel11compareDataERK8QVariantS2_RK9QCollator": [
-      "address", "address", "address", "address"
-    ],
-    "ritual_ZN18QAbstractItemModel15compareDataImplERK8QVariantS2_PK9QCollator": [
-      "address", "address", "address", "address"
-    ],
     "ritual_take_QAbstractItemModel": [
       "bool", "address", "chars", "address"
     ],

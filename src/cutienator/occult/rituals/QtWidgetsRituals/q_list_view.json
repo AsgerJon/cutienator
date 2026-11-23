@@ -150,8 +150,6 @@
     "ritual_ZNK9QListView11visualIndexERK11QModelIndex": [
       "int", "address", "address"
     ],
-    "ritual_ZN9QListView6d_funcEv": ["address", "address"],
-    "ritual_ZNK9QListView6d_funcEv": ["address", "address"],
     "ritual_take_QListView": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK9QListView10visualRectERK11QModelIndex": [
       "address", "address", "address"

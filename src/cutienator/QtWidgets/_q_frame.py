@@ -62,15 +62,11 @@ class QFrame(QWidget):
 
   - Qt's 'QFrame::~QFrame()': the destructor: Python never removes a C++
     QFrame.
-  - Qt's 'QFramePrivate *QFrame::d_func()': gives 'QFramePrivate', which has
-    no cute class yet.
-  - Qt's 'const QFramePrivate *QFrame::d_func() const': gives
-    'QFramePrivate', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  7 of the 32 functions Qt declares: 3 takes or gives a type that cannot be
+  9 of the 32 functions Qt declares: 5 takes or gives a type that cannot be
   passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found.
 
   What to expect

@@ -261,8 +261,6 @@
     "ritual_ZN14QGraphicsScene18focusNextPrevChildEb": [
       "bool", "address", "bool"
     ],
-    "ritual_ZN14QGraphicsScene6d_funcEv": ["address", "address"],
-    "ritual_ZNK14QGraphicsScene6d_funcEv": ["address", "address"],
     "ritual_take_QGraphicsScene": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK14QGraphicsScene16inputMethodQueryEN2Qt16InputMethodQueryE": [
       "address", "address", "int"

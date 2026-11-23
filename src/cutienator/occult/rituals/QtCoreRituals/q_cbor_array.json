@@ -78,9 +78,6 @@
     "ritual_ZN10QCborArray20comparesEqual_helperERKS_RK10QCborValue": [
       "bool", "address", "address"
     ],
-    "ritual_ZN10QCborArray22compareThreeWay_helperERKS_RK10QCborValue": [
-      "address", "address", "address"
-    ],
     "ritual_ZeqRK10QCborArrayRK10QCborValue": ["bool", "address", "address"],
     "ritual_ZneRK10QCborArrayRK10QCborValue": ["bool", "address", "address"],
     "ritual_ZltRK10QCborArrayRK10QCborValue": ["bool", "address", "address"],
@@ -95,9 +92,6 @@
     "ritual_ZgeRK10QCborValueRK10QCborArray": ["bool", "address", "address"],
     "ritual_ZN10QCborArray20comparesEqual_helperERKS_18QCborValueConstRef": [
       "bool", "address", "address"
-    ],
-    "ritual_ZN10QCborArray22compareThreeWay_helperERKS_18QCborValueConstRef": [
-      "address", "address", "address"
     ],
     "ritual_ZeqRK10QCborArrayRK18QCborValueConstRef": [
       "bool", "address", "address"

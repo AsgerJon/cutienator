@@ -1574,19 +1574,6 @@ bool ritual_ZNK10QTreeModel10isChangingEv(const QTreeModel *self) {
   return self->isChanging();
 }
 
-//  QTreeModelPrivate *QTreeModel::d_func()
-extern "C" Q_DECL_EXPORT
-QTreeModelPrivate *ritual_ZN10QTreeModel6d_funcEv(QTreeModel *self) {
-  return self->d_func();
-}
-
-//  const QTreeModelPrivate *QTreeModel::d_func() const
-extern "C" Q_DECL_EXPORT
-const QTreeModelPrivate *ritual_ZNK10QTreeModel6d_funcEv(
-    const QTreeModel *self) {
-  return self->d_func();
-}
-
 //  a Python function taken by a CuteQTreeModel, for the function named by
 //      the key
 extern "C" Q_DECL_EXPORT

@@ -107,17 +107,13 @@ class QPlainTextEdit(QAbstractScrollArea):
   What has a ritual and is left out, and why
   ------------------------------------------
 
-  - Qt's 'QPlainTextEditPrivate *QPlainTextEdit::d_func()': gives
-    'QPlainTextEditPrivate', which has no cute class yet.
-  - Qt's 'const QPlainTextEditPrivate *QPlainTextEdit::d_func() const': gives
-    'QPlainTextEditPrivate', which has no cute class yet.
   - Qt's 'QPlainTextEdit::~QPlainTextEdit()': the destructor: Python never
     removes a C++ QPlainTextEdit.
 
   What has no ritual
   ------------------
 
-  18 of the 124 functions Qt declares: 9 a signal; 5 takes or gives a type
+  20 of the 124 functions Qt declares: 9 a signal; 7 takes or gives a type
   that cannot be passed yet; 2 forbidden; 1 a template; 1 declared and
   nowhere to be found.
 

@@ -63,9 +63,6 @@ class QCborArray(CuteMixin, metaclass=MetaCute):
     QCborArray::last() const' takes.
   - Qt's 'QCborValueRef QCborArray::operator[](qsizetype i)': takes in Python
     what 'const QCborValue QCborArray::operator[](qsizetype i) const' takes.
-  - Qt's 'Qt::strong_ordering QCborArray::compareThreeWay_helper(const
-    QCborArray &lhs, const QCborValue &rhs)': gives 'Qt::strong_ordering',
-    which has no cute class yet.
   - Qt's 'bool operator==(const QCborValue &lhs, const QCborArray &rhs)':
     takes in Python what 'bool operator==(const QCborArray &lhs, const
     QCborValue &rhs)' takes.
@@ -84,9 +81,6 @@ class QCborArray(CuteMixin, metaclass=MetaCute):
   - Qt's 'bool operator>=(const QCborValue &lhs, const QCborArray &rhs)':
     takes in Python what 'bool operator<=(const QCborArray &lhs, const
     QCborValue &rhs)' takes.
-  - Qt's 'Qt::strong_ordering QCborArray::compareThreeWay_helper(const
-    QCborArray &lhs, QCborValueConstRef rhs)': gives 'Qt::strong_ordering',
-    which has no cute class yet.
   - Qt's 'bool operator==(const QCborValueConstRef &lhs, const QCborArray
     &rhs)': takes in Python what 'bool operator==(const QCborArray &lhs,
     const QCborValueConstRef &rhs)' takes.
@@ -109,7 +103,7 @@ class QCborArray(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  23 of the 97 functions Qt declares: 23 takes or gives a type that cannot be
+  25 of the 97 functions Qt declares: 25 takes or gives a type that cannot be
   passed yet.
 
   What to expect
@@ -157,10 +151,6 @@ class QCborArray(CuteMixin, metaclass=MetaCute):
       operator Python has no name for.
     - Qt's 'ConstIterator QCborArray::ConstIterator::operator--(int a0)': an
       operator Python has no name for.
-    - Qt's 'Qt::strong_ordering
-      QCborArray::ConstIterator::compareThreeWay_helper(const ConstIterator
-      &lhs, const ConstIterator &rhs)': gives 'Qt::strong_ordering', which
-      has no cute class yet.
     - Qt's 'QCborArray::ConstIterator::~ConstIterator()': the destructor:
       Python removes its C++ QCborArray::ConstIterator by it, and has no
       other use for it.
@@ -168,7 +158,7 @@ class QCborArray(CuteMixin, metaclass=MetaCute):
     What has no ritual
     ------------------
 
-    4 of the 25 functions Qt declares: 4 takes or gives a type that cannot be
+    5 of the 25 functions Qt declares: 5 takes or gives a type that cannot be
     passed yet.
 
     What to expect
@@ -724,14 +714,6 @@ class QCborArray(CuteMixin, metaclass=MetaCute):
       &lhs, const ConstIterator &rhs)': names 'QCborArray::ConstIterator',
       which stands beside this class inside 'QCborArray' and cannot be named
       from here.
-    - Qt's 'Qt::strong_ordering
-      QCborArray::Iterator::compareThreeWay_helper(const Iterator &lhs, const
-      Iterator &rhs)': gives 'Qt::strong_ordering', which has no cute class
-      yet.
-    - Qt's 'Qt::strong_ordering
-      QCborArray::Iterator::compareThreeWay_helper(const Iterator &lhs, const
-      ConstIterator &rhs)': names 'QCborArray::ConstIterator', which stands
-      beside this class inside 'QCborArray' and cannot be named from here.
     - Qt's 'bool operator==(const Iterator &lhs, const ConstIterator &rhs)':
       names 'QCborArray::ConstIterator', which stands beside this class
       inside 'QCborArray' and cannot be named from here.
@@ -775,7 +757,7 @@ class QCborArray(CuteMixin, metaclass=MetaCute):
     What has no ritual
     ------------------
 
-    4 of the 40 functions Qt declares: 4 takes or gives a type that cannot be
+    6 of the 40 functions Qt declares: 6 takes or gives a type that cannot be
     passed yet.
 
     What to expect

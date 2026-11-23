@@ -52,8 +52,6 @@
     "ritual_ZN16QKeySequenceEdit13focusOutEventEP11QFocusEvent": [
       "nothing", "address", "address"
     ],
-    "ritual_ZN16QKeySequenceEdit6d_funcEv": ["address", "address"],
-    "ritual_ZNK16QKeySequenceEdit6d_funcEv": ["address", "address"],
     "ritual_take_QKeySequenceEdit": ["bool", "address", "chars", "address"],
     "ritual_own_ZN16QKeySequenceEdit5eventEP6QEvent": [
       "bool", "address", "address"

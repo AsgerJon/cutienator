@@ -66,9 +66,6 @@ class QCborMap(CuteMixin, metaclass=MetaCute):
   - Qt's 'QCborValueRef QCborMap::operator[](const QCborValue &key)': takes
     in Python what 'const QCborValue QCborMap::operator[](const QCborValue
     &key) const' takes.
-  - Qt's 'Qt::strong_ordering QCborMap::compareThreeWay_helper(const QCborMap
-    &lhs, const QCborValue &rhs)': gives 'Qt::strong_ordering', which has no
-    cute class yet.
   - Qt's 'bool operator==(const QCborValue &lhs, const QCborMap &rhs)': takes
     in Python what 'bool operator==(const QCborMap &lhs, const QCborValue
     &rhs)' takes.
@@ -87,9 +84,6 @@ class QCborMap(CuteMixin, metaclass=MetaCute):
   - Qt's 'bool operator>=(const QCborValue &lhs, const QCborMap &rhs)': takes
     in Python what 'bool operator<=(const QCborMap &lhs, const QCborValue
     &rhs)' takes.
-  - Qt's 'Qt::strong_ordering QCborMap::compareThreeWay_helper(const QCborMap
-    &lhs, QCborValueConstRef rhs)': gives 'Qt::strong_ordering', which has no
-    cute class yet.
   - Qt's 'bool operator==(const QCborValueConstRef &lhs, const QCborMap
     &rhs)': takes in Python what 'bool operator==(const QCborMap &lhs, const
     QCborValueConstRef &rhs)' takes.
@@ -112,7 +106,7 @@ class QCborMap(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  46 of the 123 functions Qt declares: 42 takes or gives a type that cannot
+  48 of the 123 functions Qt declares: 44 takes or gives a type that cannot
   be passed yet; 2 a template; 2 can only be called on a value about to be
   thrown away.
 
@@ -161,15 +155,11 @@ class QCborMap(CuteMixin, metaclass=MetaCute):
       operator Python has no name for.
     - Qt's 'ConstIterator QCborMap::ConstIterator::operator--(int a0)': an
       operator Python has no name for.
-    - Qt's 'Qt::strong_ordering
-      QCborMap::ConstIterator::compareThreeWay_helper(const ConstIterator
-      &lhs, const ConstIterator &rhs)': gives 'Qt::strong_ordering', which
-      has no cute class yet.
 
     What has no ritual
     ------------------
 
-    6 of the 29 functions Qt declares: 6 takes or gives a type that cannot be
+    7 of the 29 functions Qt declares: 7 takes or gives a type that cannot be
     passed yet.
 
     What to expect
@@ -782,14 +772,6 @@ class QCborMap(CuteMixin, metaclass=MetaCute):
       &lhs, const ConstIterator &rhs)': names 'QCborMap::ConstIterator',
       which stands beside this class inside 'QCborMap' and cannot be named
       from here.
-    - Qt's 'Qt::strong_ordering
-      QCborMap::Iterator::compareThreeWay_helper(const Iterator &lhs, const
-      Iterator &rhs)': gives 'Qt::strong_ordering', which has no cute class
-      yet.
-    - Qt's 'Qt::strong_ordering
-      QCborMap::Iterator::compareThreeWay_helper(const Iterator &lhs, const
-      ConstIterator &rhs)': names 'QCborMap::ConstIterator', which stands
-      beside this class inside 'QCborMap' and cannot be named from here.
     - Qt's 'bool operator==(const Iterator &lhs, const ConstIterator &rhs)':
       names 'QCborMap::ConstIterator', which stands beside this class inside
       'QCborMap' and cannot be named from here.
@@ -830,7 +812,7 @@ class QCborMap(CuteMixin, metaclass=MetaCute):
     What has no ritual
     ------------------
 
-    6 of the 43 functions Qt declares: 6 takes or gives a type that cannot be
+    8 of the 43 functions Qt declares: 8 takes or gives a type that cannot be
     passed yet.
 
     What to expect

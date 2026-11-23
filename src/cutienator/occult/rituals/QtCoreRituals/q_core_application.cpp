@@ -554,18 +554,6 @@ bool ritual_ZN16QCoreApplication12forwardEventEP7QObjectP6QEventS3_(
   return QCoreApplication::forwardEvent(receiver, event, originatingEvent);
 }
 
-//  void QCoreApplication::requestPermissionImpl(const QPermission
-//      &permission, QtPrivate::QSlotObjectBase *slotObj, const QObject
-//      *context)
-extern "C" Q_DECL_EXPORT
-void ritual_ZN16QCoreApplication21requestPermissionImplERK11QPermissionPN9QtPrivate15QSlotObjectBaseEPK7QObject(
-    QCoreApplication *self,
-    const QPermission *permission,
-    QtPrivate::QSlotObjectBase *slotObj,
-    const QObject *context) {
-  self->requestPermissionImpl(*permission, slotObj, context);
-}
-
 //  a Python function taken by a CuteQCoreApplication, for the function named
 //      by the key
 extern "C" Q_DECL_EXPORT

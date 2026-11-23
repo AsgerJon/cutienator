@@ -79,16 +79,12 @@ class QMenu(QWidget):
   What has a ritual and is left out, and why
   ------------------------------------------
 
-  - Qt's 'QMenuPrivate *QMenu::d_func()': gives 'QMenuPrivate', which has no
-    cute class yet.
-  - Qt's 'const QMenuPrivate *QMenu::d_func() const': gives 'QMenuPrivate',
-    which has no cute class yet.
   - Qt's 'QMenu::~QMenu()': the destructor: Python never removes a C++ QMenu.
 
   What has no ritual
   ------------------
 
-  17 of the 83 functions Qt declares: 5 takes or gives a type that cannot be
+  19 of the 83 functions Qt declares: 7 takes or gives a type that cannot be
   passed yet; 5 a template; 4 a signal; 2 forbidden; 1 declared and nowhere
   to be found.
 

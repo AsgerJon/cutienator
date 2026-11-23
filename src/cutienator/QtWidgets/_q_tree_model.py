@@ -68,15 +68,11 @@ class QTreeModel(QAbstractItemModel):
 
   - Qt's 'QTreeModel::~QTreeModel()': the destructor: Python never removes a
     C++ QTreeModel.
-  - Qt's 'QTreeModelPrivate *QTreeModel::d_func()': gives
-    'QTreeModelPrivate', which has no cute class yet.
-  - Qt's 'const QTreeModelPrivate *QTreeModel::d_func() const': gives
-    'QTreeModelPrivate', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  15 of the 54 functions Qt declares: 8 takes or gives a type that cannot be
+  17 of the 54 functions Qt declares: 10 takes or gives a type that cannot be
   passed yet; 4 leans on 'QTreeModel; 2 declared and nowhere to be found; 1 a
   template.
 

@@ -194,20 +194,6 @@ QGraphicsAnchor *ritual_ZN15QGraphicsAnchorC1EP21QGraphicsAnchorLayout(
   return new CuteQGraphicsAnchor(parent);
 }
 
-//  QGraphicsAnchorPrivate *QGraphicsAnchor::d_func()
-extern "C" Q_DECL_EXPORT
-QGraphicsAnchorPrivate *ritual_ZN15QGraphicsAnchor6d_funcEv(
-    QGraphicsAnchor *self) {
-  return self->d_func();
-}
-
-//  const QGraphicsAnchorPrivate *QGraphicsAnchor::d_func() const
-extern "C" Q_DECL_EXPORT
-const QGraphicsAnchorPrivate *ritual_ZNK15QGraphicsAnchor6d_funcEv(
-    const QGraphicsAnchor *self) {
-  return self->d_func();
-}
-
 //  a Python function taken by a CuteQGraphicsAnchor, for the function named
 //      by the key
 extern "C" Q_DECL_EXPORT

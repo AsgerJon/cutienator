@@ -60,9 +60,6 @@ class QDebug(QIODeviceBase):
   - Qt's 'void QDebug::putByteArray(const char *begin, size_t length,
     Latin1Content content)': names the enum 'QDebug::Latin1Content', whose
     class cannot be named here.
-  - Qt's 'void QDebug::putQtOrdering(QtOrderingPrivate::QtOrderingTypeFlag
-    flags, Qt::partial_ordering order)': names the enum
-    'QtOrderingPrivate::QtOrderingType', whose class cannot be named here.
   - Qt's 'QDebug::QDebug(QString *string)': names 'QString', which has no
     cute class yet.
   - Qt's 'QDebug::QDebug(QtMsgType t)': names the enum 'QtMsgType', whose
@@ -73,7 +70,7 @@ class QDebug(QIODeviceBase):
   What has no ritual
   ------------------
 
-  62 of the 79 functions Qt declares: 46 takes or gives a type that cannot be
+  63 of the 79 functions Qt declares: 47 takes or gives a type that cannot be
   passed yet; 16 a template.
 
   What to expect

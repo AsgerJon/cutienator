@@ -1432,20 +1432,6 @@ bool ritual_ZN14QGraphicsScene18focusNextPrevChildEb(
   return self->focusNextPrevChild(next);
 }
 
-//  QGraphicsScenePrivate *QGraphicsScene::d_func()
-extern "C" Q_DECL_EXPORT
-QGraphicsScenePrivate *ritual_ZN14QGraphicsScene6d_funcEv(
-    QGraphicsScene *self) {
-  return self->d_func();
-}
-
-//  const QGraphicsScenePrivate *QGraphicsScene::d_func() const
-extern "C" Q_DECL_EXPORT
-const QGraphicsScenePrivate *ritual_ZNK14QGraphicsScene6d_funcEv(
-    const QGraphicsScene *self) {
-  return self->d_func();
-}
-
 //  a Python function taken by a CuteQGraphicsScene, for the function named
 //      by the key
 extern "C" Q_DECL_EXPORT

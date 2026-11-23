@@ -98,15 +98,11 @@ class QHeaderView(QAbstractItemView):
   - Qt's 'QModelIndex QHeaderView::moveCursor(CursorAction a0,
     Qt::KeyboardModifiers a1)': names the enum
     'QAbstractItemView::CursorAction', whose class cannot be named here.
-  - Qt's 'QHeaderViewPrivate *QHeaderView::d_func()': gives
-    'QHeaderViewPrivate', which has no cute class yet.
-  - Qt's 'const QHeaderViewPrivate *QHeaderView::d_func() const': gives
-    'QHeaderViewPrivate', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  19 of the 127 functions Qt declares: 11 a signal; 4 takes or gives a type
+  21 of the 127 functions Qt declares: 11 a signal; 6 takes or gives a type
   that cannot be passed yet; 2 forbidden; 1 a template; 1 declared and
   nowhere to be found.
 

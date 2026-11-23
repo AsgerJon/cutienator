@@ -25,6 +25,8 @@ from cutienator.QtCore import QAbstractItemModel, QAbstractListModel
 from cutienator.QtWidgets import QApplication, QListModel, QListWidget
 from cutienator.QtWidgets import QMessageBox, QPushButton, QTableModel
 from cutienator.QtWidgets import QTableWidget, QTreeModel, QTreeWidget
+from cutienator.QtWidgets import QCalendarWidget, QStyledItemDelegate
+from cutienator.QtWidgets import QTableView
 
 app = QApplication([])
 widget = QListWidget()
@@ -49,6 +51,10 @@ box = QMessageBox()
 box.addButton(QMessageBox.StandardButton.Ok)
 found = box.button(QMessageBox.StandardButton.Ok)
 print('button:', type(found) is QPushButton)
+children = QCalendarWidget().children()
+print('nearest:', [
+    sum(1 for child in children if type(child) is cuteClass)
+    for cuteClass in (QTableView, QStyledItemDelegate)])
 try:
   QListModel(widget)
   print('made: yes')
@@ -112,6 +118,14 @@ class TestPrivateClasses(BaseTest):
     """A button Qt made, handed out as a QAbstractButton, is a
     QPushButton."""
     self.assertEqual(self._found('button'), 'True')
+
+  def test_a_class_cutienator_has_not_gives_the_nearest_it_has(
+      self) -> None:
+    """A QCalendarWidget holds a view and a delegate of classes Qt
+    writes inside its own code, on top of QTableView and of
+    QStyledItemDelegate. Handed out as QObjects, they are a QTableView
+    and a QStyledItemDelegate: the nearest classes there are."""
+    self.assertEqual(self._found('nearest'), '[1, 1]')
 
   def test_what_qt_looks_up_in_the_object(self) -> None:
     """'rowCount' is found by C++ in the object, as for any model."""

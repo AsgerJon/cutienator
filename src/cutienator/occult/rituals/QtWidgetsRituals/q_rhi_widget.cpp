@@ -798,19 +798,6 @@ QString *ritual_ZN10QRhiWidget2trEPKcS1_i(
   return new QString(QRhiWidget::tr(s, c, n));
 }
 
-//  QRhiWidgetPrivate *QRhiWidget::d_func()
-extern "C" Q_DECL_EXPORT
-QRhiWidgetPrivate *ritual_ZN10QRhiWidget6d_funcEv(QRhiWidget *self) {
-  return self->d_func();
-}
-
-//  const QRhiWidgetPrivate *QRhiWidget::d_func() const
-extern "C" Q_DECL_EXPORT
-const QRhiWidgetPrivate *ritual_ZNK10QRhiWidget6d_funcEv(
-    const QRhiWidget *self) {
-  return self->d_func();
-}
-
 //  QRhiWidget::QRhiWidget(QWidget *parent, Qt::WindowFlags f)
 extern "C" Q_DECL_EXPORT
 QRhiWidget *ritual_ZN10QRhiWidgetC1EP7QWidget6QFlagsIN2Qt10WindowTypeEE(

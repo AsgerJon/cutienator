@@ -22,8 +22,6 @@
     "ritual_ZN15QGraphicsAnchorC1EP21QGraphicsAnchorLayout": [
       "address", "address"
     ],
-    "ritual_ZN15QGraphicsAnchor6d_funcEv": ["address", "address"],
-    "ritual_ZNK15QGraphicsAnchor6d_funcEv": ["address", "address"],
     "ritual_take_QGraphicsAnchor": ["bool", "address", "chars", "address"]
   }
 }

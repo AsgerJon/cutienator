@@ -182,20 +182,6 @@ void ritual_ZN18QGraphicsTransform6updateEv(QGraphicsTransform *self) {
   self->update();
 }
 
-//  QGraphicsTransformPrivate *QGraphicsTransform::d_func()
-extern "C" Q_DECL_EXPORT
-QGraphicsTransformPrivate *ritual_ZN18QGraphicsTransform6d_funcEv(
-    QGraphicsTransform *self) {
-  return self->d_func();
-}
-
-//  const QGraphicsTransformPrivate *QGraphicsTransform::d_func() const
-extern "C" Q_DECL_EXPORT
-const QGraphicsTransformPrivate *ritual_ZNK18QGraphicsTransform6d_funcEv(
-    const QGraphicsTransform *self) {
-  return self->d_func();
-}
-
 //  a Python function taken by a CuteQGraphicsTransform, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT

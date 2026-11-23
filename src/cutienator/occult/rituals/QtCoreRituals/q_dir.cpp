@@ -2,7 +2,6 @@
 //  Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qdir.h>
 #include <QtCore/qstring.h>
-#include <QtCore/qnamespace.h>
 #include <QtCore/qfileinfo.h>
 #include <QtCore/qchar.h>
 #include <QtCore/qlist.h>
@@ -182,14 +181,6 @@ void ritual_ZN4QDir10setSortingE6QFlagsINS_8SortFlagEE(
     QDir *self,
     int sort) {
   self->setSorting(QFlags<QDir::SortFlag>::fromInt(sort));
-}
-
-//  qsizetype QDir::count(Qt::Disambiguated_t a0) const
-extern "C" Q_DECL_EXPORT
-qsizetype ritual_ZNK4QDir5countEN2Qt15Disambiguated_tE(
-    const QDir *self,
-    const Qt::Disambiguated_t *a0) {
-  return self->count(*a0);
 }
 
 //  bool QDir::isEmpty(Filters filters) const

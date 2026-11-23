@@ -56,16 +56,12 @@ class QGraphicsAnchorLayout(QGraphicsLayout):
 
   - Qt's 'QGraphicsAnchorLayout::~QGraphicsAnchorLayout()': the destructor:
     Python never removes a C++ QGraphicsAnchorLayout.
-  - Qt's 'QGraphicsAnchorLayoutPrivate *QGraphicsAnchorLayout::d_func()':
-    gives 'QGraphicsAnchorLayoutPrivate', which has no cute class yet.
-  - Qt's 'const QGraphicsAnchorLayoutPrivate *QGraphicsAnchorLayout::d_func()
-    const': gives 'QGraphicsAnchorLayoutPrivate', which has no cute class
-    yet.
 
   What has no ritual
   ------------------
 
-  2 of the 21 functions Qt declares: 2 forbidden.
+  4 of the 21 functions Qt declares: 2 forbidden; 2 takes or gives a type
+  that cannot be passed yet.
 
   What to expect
   --------------

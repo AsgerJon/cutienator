@@ -57,15 +57,11 @@ class QScrollArea(QAbstractScrollArea):
 
   - Qt's 'QScrollArea::~QScrollArea()': the destructor: Python never removes
     a C++ QScrollArea.
-  - Qt's 'QScrollAreaPrivate *QScrollArea::d_func()': gives
-    'QScrollAreaPrivate', which has no cute class yet.
-  - Qt's 'const QScrollAreaPrivate *QScrollArea::d_func() const': gives
-    'QScrollAreaPrivate', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  7 of the 29 functions Qt declares: 3 takes or gives a type that cannot be
+  9 of the 29 functions Qt declares: 5 takes or gives a type that cannot be
   passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found.
 
   What to expect

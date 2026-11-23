@@ -9,14 +9,6 @@ QMetaAssociation *ritual_ZN16QMetaAssociationC1Ev() {
   return new QMetaAssociation();
 }
 
-//  QMetaAssociation::QMetaAssociation(const
-//      QtMetaContainerPrivate::QMetaAssociationInterface *d)
-extern "C" Q_DECL_EXPORT
-QMetaAssociation *ritual_ZN16QMetaAssociationC1EPKN22QtMetaContainerPrivate25QMetaAssociationInterfaceE(
-    const QtMetaContainerPrivate::QMetaAssociationInterface *d) {
-  return new QMetaAssociation(d);
-}
-
 //  QMetaType QMetaAssociation::keyMetaType() const
 extern "C" Q_DECL_EXPORT
 QMetaType *ritual_ZNK16QMetaAssociation11keyMetaTypeEv(
@@ -115,14 +107,6 @@ bool ritual_ZNK16QMetaAssociation27canCreateConstIteratorAtKeyEv(
   return self->canCreateConstIteratorAtKey();
 }
 
-//  const QtMetaContainerPrivate::QMetaAssociationInterface
-//      *QMetaAssociation::iface() const
-extern "C" Q_DECL_EXPORT
-const QtMetaContainerPrivate::QMetaAssociationInterface *ritual_ZNK16QMetaAssociation5ifaceEv(
-    const QMetaAssociation *self) {
-  return self->iface();
-}
-
 //  bool operator==(const QMetaAssociation &lhs, const QMetaAssociation &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZeqRK16QMetaAssociationS1_(
@@ -137,14 +121,6 @@ bool ritual_ZneRK16QMetaAssociationS1_(
     const QMetaAssociation *lhs,
     const QMetaAssociation *rhs) {
   return operator!=(*lhs, *rhs);
-}
-
-//  const QtMetaContainerPrivate::QMetaAssociationInterface
-//      *QMetaAssociation::d() const
-extern "C" Q_DECL_EXPORT
-const QtMetaContainerPrivate::QMetaAssociationInterface *ritual_ZNK16QMetaAssociation1dEv(
-    const QMetaAssociation *self) {
-  return self->d();
 }
 
 //  QMetaAssociation::~QMetaAssociation()

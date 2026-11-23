@@ -2006,19 +2006,6 @@ void ritual_ZN11QTreeWidget8setModelEP18QAbstractItemModel(
   self->setModel(model);
 }
 
-//  QTreeWidgetPrivate *QTreeWidget::d_func()
-extern "C" Q_DECL_EXPORT
-QTreeWidgetPrivate *ritual_ZN11QTreeWidget6d_funcEv(QTreeWidget *self) {
-  return self->d_func();
-}
-
-//  const QTreeWidgetPrivate *QTreeWidget::d_func() const
-extern "C" Q_DECL_EXPORT
-const QTreeWidgetPrivate *ritual_ZNK11QTreeWidget6d_funcEv(
-    const QTreeWidget *self) {
-  return self->d_func();
-}
-
 //  a Python function taken by a CuteQTreeWidget, for the function named by
 //      the key
 extern "C" Q_DECL_EXPORT

@@ -2367,19 +2367,6 @@ void ritual_ZNK11QHeaderView15initStyleOptionEP17QStyleOptionFrame(
   self->initStyleOption(option);
 }
 
-//  QHeaderViewPrivate *QHeaderView::d_func()
-extern "C" Q_DECL_EXPORT
-QHeaderViewPrivate *ritual_ZN11QHeaderView6d_funcEv(QHeaderView *self) {
-  return self->d_func();
-}
-
-//  const QHeaderViewPrivate *QHeaderView::d_func() const
-extern "C" Q_DECL_EXPORT
-const QHeaderViewPrivate *ritual_ZNK11QHeaderView6d_funcEv(
-    const QHeaderView *self) {
-  return self->d_func();
-}
-
 //  a Python function taken by a CuteQHeaderView, for the function named by
 //      the key
 extern "C" Q_DECL_EXPORT

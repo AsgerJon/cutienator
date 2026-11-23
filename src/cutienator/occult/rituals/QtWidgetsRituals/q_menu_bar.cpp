@@ -1088,18 +1088,6 @@ void ritual_ZNK8QMenuBar15initStyleOptionEP20QStyleOptionMenuItemPK7QAction(
   self->initStyleOption(option, action);
 }
 
-//  QMenuBarPrivate *QMenuBar::d_func()
-extern "C" Q_DECL_EXPORT
-QMenuBarPrivate *ritual_ZN8QMenuBar6d_funcEv(QMenuBar *self) {
-  return self->d_func();
-}
-
-//  const QMenuBarPrivate *QMenuBar::d_func() const
-extern "C" Q_DECL_EXPORT
-const QMenuBarPrivate *ritual_ZNK8QMenuBar6d_funcEv(const QMenuBar *self) {
-  return self->d_func();
-}
-
 //  a Python function taken by a CuteQMenuBar, for the function named by the
 //      key
 extern "C" Q_DECL_EXPORT

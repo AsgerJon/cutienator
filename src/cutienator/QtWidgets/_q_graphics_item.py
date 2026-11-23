@@ -127,16 +127,12 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
   - Qt's 'void QGraphicsItem::setExtension(Extension extension, const
     QVariant &variant)': names the enum 'QGraphicsItem::Extension', whose
     class cannot be named here.
-  - Qt's 'QGraphicsItemPrivate *QGraphicsItem::d_func()': gives
-    'QGraphicsItemPrivate', which has no cute class yet.
-  - Qt's 'const QGraphicsItemPrivate *QGraphicsItem::d_func() const': gives
-    'QGraphicsItemPrivate', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  5 of the 215 functions Qt declares: 2 the class is abstract, so C++ cannot
-  make one; 2 forbidden; 1 takes or gives a type that cannot be passed yet.
+  7 of the 215 functions Qt declares: 3 takes or gives a type that cannot be
+  passed yet; 2 the class is abstract, so C++ cannot make one; 2 forbidden.
 
   What to expect
   --------------

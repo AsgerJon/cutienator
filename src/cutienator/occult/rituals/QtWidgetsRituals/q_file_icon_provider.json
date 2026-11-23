@@ -13,8 +13,6 @@
     "ritual_ZNK17QFileIconProvider4iconERK9QFileInfo": [
       "address", "address", "address"
     ],
-    "ritual_ZN17QFileIconProvider6d_funcEv": ["address", "address"],
-    "ritual_ZNK17QFileIconProvider6d_funcEv": ["address", "address"],
     "ritual_take_QFileIconProvider": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK17QFileIconProvider4iconEN25QAbstractFileIconProvider8IconTypeE": [
       "address", "address", "int"

@@ -226,8 +226,6 @@
     "ritual_ZNK11QHeaderView15initStyleOptionEP17QStyleOptionFrame": [
       "nothing", "address", "address"
     ],
-    "ritual_ZN11QHeaderView6d_funcEv": ["address", "address"],
-    "ritual_ZNK11QHeaderView6d_funcEv": ["address", "address"],
     "ritual_take_QHeaderView": ["bool", "address", "chars", "address"],
     "ritual_own_ZN11QHeaderView8setModelEP18QAbstractItemModel": [
       "nothing", "address", "address"

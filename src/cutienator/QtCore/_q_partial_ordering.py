@@ -36,58 +36,6 @@ class QPartialOrdering(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
-  - Qt's 'bool operator==(QPartialOrdering lhs,
-    QtPrivate::CompareAgainstLiteralZero a1)': names
-    'QtPrivate::CompareAgainstLiteralZero', which has no cute class yet.
-  - Qt's 'bool operator!=(QPartialOrdering lhs,
-    QtPrivate::CompareAgainstLiteralZero a1)': names
-    'QtPrivate::CompareAgainstLiteralZero', which has no cute class yet.
-  - Qt's 'bool operator<(QPartialOrdering lhs,
-    QtPrivate::CompareAgainstLiteralZero a1)': names
-    'QtPrivate::CompareAgainstLiteralZero', which has no cute class yet.
-  - Qt's 'bool operator<=(QPartialOrdering lhs,
-    QtPrivate::CompareAgainstLiteralZero a1)': names
-    'QtPrivate::CompareAgainstLiteralZero', which has no cute class yet.
-  - Qt's 'bool operator>(QPartialOrdering lhs,
-    QtPrivate::CompareAgainstLiteralZero a1)': names
-    'QtPrivate::CompareAgainstLiteralZero', which has no cute class yet.
-  - Qt's 'bool operator>=(QPartialOrdering lhs,
-    QtPrivate::CompareAgainstLiteralZero a1)': names
-    'QtPrivate::CompareAgainstLiteralZero', which has no cute class yet.
-  - Qt's 'bool operator==(QtPrivate::CompareAgainstLiteralZero a0,
-    QPartialOrdering rhs)': names 'QtPrivate::CompareAgainstLiteralZero',
-    which has no cute class yet.
-  - Qt's 'bool operator!=(QtPrivate::CompareAgainstLiteralZero a0,
-    QPartialOrdering rhs)': names 'QtPrivate::CompareAgainstLiteralZero',
-    which has no cute class yet.
-  - Qt's 'bool operator<(QtPrivate::CompareAgainstLiteralZero a0,
-    QPartialOrdering rhs)': names 'QtPrivate::CompareAgainstLiteralZero',
-    which has no cute class yet.
-  - Qt's 'bool operator<=(QtPrivate::CompareAgainstLiteralZero a0,
-    QPartialOrdering rhs)': names 'QtPrivate::CompareAgainstLiteralZero',
-    which has no cute class yet.
-  - Qt's 'bool operator>(QtPrivate::CompareAgainstLiteralZero a0,
-    QPartialOrdering rhs)': names 'QtPrivate::CompareAgainstLiteralZero',
-    which has no cute class yet.
-  - Qt's 'bool operator>=(QtPrivate::CompareAgainstLiteralZero a0,
-    QPartialOrdering rhs)': names 'QtPrivate::CompareAgainstLiteralZero',
-    which has no cute class yet.
-  - Qt's 'QPartialOrdering::QPartialOrdering(Qt::partial_ordering order)':
-    names 'Qt::partial_ordering', which has no cute class yet.
-  - Qt's 'QPartialOrdering::QPartialOrdering(Qt::weak_ordering stdorder)':
-    names 'Qt::weak_ordering', which has no cute class yet.
-  - Qt's 'QPartialOrdering::QPartialOrdering(Qt::strong_ordering stdorder)':
-    names 'Qt::strong_ordering', which has no cute class yet.
-  - Qt's 'Qt::partial_ordering QPartialOrdering::operator partial_ordering()
-    const': an operator Python has no name for.
-  - Qt's 'bool operator==(QPartialOrdering lhs, Qt::partial_ordering rhs)':
-    names 'Qt::partial_ordering', which has no cute class yet.
-  - Qt's 'bool operator!=(QPartialOrdering lhs, Qt::partial_ordering rhs)':
-    names 'Qt::partial_ordering', which has no cute class yet.
-  - Qt's 'bool operator==(Qt::partial_ordering lhs, QPartialOrdering rhs)':
-    names 'Qt::partial_ordering', which has no cute class yet.
-  - Qt's 'bool operator!=(Qt::partial_ordering lhs, QPartialOrdering rhs)':
-    names 'Qt::partial_ordering', which has no cute class yet.
   - Qt's 'QPartialOrdering::QPartialOrdering(QtPrivate::Ordering order)':
     names the enum 'QtPrivate::Ordering', whose class cannot be named here.
   - Qt's 'QPartialOrdering::QPartialOrdering(QtPrivate::LegacyUncomparable
@@ -95,6 +43,12 @@ class QPartialOrdering(CuteMixin, metaclass=MetaCute):
     cannot be named here.
   - Qt's 'QPartialOrdering::~QPartialOrdering()': the destructor: Python
     removes its C++ QPartialOrdering by it, and has no other use for it.
+
+  What has no ritual
+  ------------------
+
+  20 of the 26 functions Qt declares: 20 takes or gives a type that cannot be
+  passed yet.
 
   What to expect
   --------------

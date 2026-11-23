@@ -62,15 +62,13 @@ class QObject(CuteMixin, metaclass=MetaCute):
 
   - Qt's 'QObject::~QObject()': the destructor: Python never removes a C++
     QObject.
-  - Qt's 'bool QObject::moveToThread(QThread *thread, Qt::Disambiguated_t
-    a1)': names 'Qt::Disambiguated_t', which has no cute class yet.
   - Qt's 'const QBindingStorage *QObject::bindingStorage() const': takes in
     Python what 'QBindingStorage *QObject::bindingStorage()' takes.
 
   What has no ritual
   ------------------
 
-  28 of the 80 functions Qt declares: 12 takes or gives a type that cannot be
+  29 of the 80 functions Qt declares: 13 takes or gives a type that cannot be
   passed yet; 11 a template; 2 a signal; 2 forbidden; 1 declared and nowhere
   to be found.
 

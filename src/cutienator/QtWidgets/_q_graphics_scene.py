@@ -107,17 +107,13 @@ class QGraphicsScene(QObject):
 
   - Qt's 'QGraphicsScene::~QGraphicsScene()': the destructor: Python never
     removes a C++ QGraphicsScene.
-  - Qt's 'QGraphicsScenePrivate *QGraphicsScene::d_func()': gives
-    'QGraphicsScenePrivate', which has no cute class yet.
-  - Qt's 'const QGraphicsScenePrivate *QGraphicsScene::d_func() const': gives
-    'QGraphicsScenePrivate', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  11 of the 117 functions Qt declares: 4 a signal; 3 takes or gives a type
-  that cannot be passed yet; 2 forbidden; 1 a template; 1 declared and
-  nowhere to be found.
+  13 of the 117 functions Qt declares: 5 takes or gives a type that cannot be
+  passed yet; 4 a signal; 2 forbidden; 1 a template; 1 declared and nowhere
+  to be found.
 
   What to expect
   --------------

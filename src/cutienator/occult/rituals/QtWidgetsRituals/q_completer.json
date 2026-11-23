@@ -79,8 +79,6 @@
       "bool", "address", "address", "address"
     ],
     "ritual_ZN10QCompleter5eventEP6QEvent": ["bool", "address", "address"],
-    "ritual_ZN10QCompleter6d_funcEv": ["address", "address"],
-    "ritual_ZNK10QCompleter6d_funcEv": ["address", "address"],
     "ritual_take_QCompleter": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK10QCompleter13pathFromIndexERK11QModelIndex": [
       "text", "address", "address"

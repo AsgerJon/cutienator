@@ -92,8 +92,6 @@
     "ritual_ZN8QMdiArea16scrollContentsByEii": [
       "nothing", "address", "int", "int"
     ],
-    "ritual_ZN8QMdiArea6d_funcEv": ["address", "address"],
-    "ritual_ZNK8QMdiArea6d_funcEv": ["address", "address"],
     "ritual_take_QMdiArea": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK8QMdiArea8sizeHintEv": ["address", "address"],
     "ritual_own_ZNK8QMdiArea15minimumSizeHintEv": ["address", "address"],

@@ -6,8 +6,6 @@
   "rows": {
     "ritual_ZNK13QPinchGesture10metaObjectEv": ["address", "address"],
     "ritual_ZN13QPinchGesture2trEPKcS1_i": ["text", "chars", "chars", "int"],
-    "ritual_ZN13QPinchGesture6d_funcEv": ["address", "address"],
-    "ritual_ZNK13QPinchGesture6d_funcEv": ["address", "address"],
     "ritual_ZN13QPinchGestureC1EP7QObject": ["address", "address"],
     "ritual_ZN13QPinchGestureD1Ev": ["nothing", "address"],
     "ritual_ZNK13QPinchGesture16totalChangeFlagsEv": ["int", "address"],

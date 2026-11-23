@@ -913,20 +913,6 @@ void ritual_ZN16QKeySequenceEdit13focusOutEventEP11QFocusEvent(
   self->focusOutEvent(a0);
 }
 
-//  QKeySequenceEditPrivate *QKeySequenceEdit::d_func()
-extern "C" Q_DECL_EXPORT
-QKeySequenceEditPrivate *ritual_ZN16QKeySequenceEdit6d_funcEv(
-    QKeySequenceEdit *self) {
-  return self->d_func();
-}
-
-//  const QKeySequenceEditPrivate *QKeySequenceEdit::d_func() const
-extern "C" Q_DECL_EXPORT
-const QKeySequenceEditPrivate *ritual_ZNK16QKeySequenceEdit6d_funcEv(
-    const QKeySequenceEdit *self) {
-  return self->d_func();
-}
-
 //  a Python function taken by a CuteQKeySequenceEdit, for the function named
 //      by the key
 extern "C" Q_DECL_EXPORT

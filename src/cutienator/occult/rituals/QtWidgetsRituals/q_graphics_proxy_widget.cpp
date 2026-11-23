@@ -1427,20 +1427,6 @@ QGraphicsProxyWidget *ritual_ZN20QGraphicsProxyWidget14newProxyWidgetEPK7QWidget
   return self->newProxyWidget(a0);
 }
 
-//  QGraphicsProxyWidgetPrivate *QGraphicsProxyWidget::d_func()
-extern "C" Q_DECL_EXPORT
-QGraphicsProxyWidgetPrivate *ritual_ZN20QGraphicsProxyWidget6d_funcEv(
-    QGraphicsProxyWidget *self) {
-  return self->d_func();
-}
-
-//  const QGraphicsProxyWidgetPrivate *QGraphicsProxyWidget::d_func() const
-extern "C" Q_DECL_EXPORT
-const QGraphicsProxyWidgetPrivate *ritual_ZNK20QGraphicsProxyWidget6d_funcEv(
-    const QGraphicsProxyWidget *self) {
-  return self->d_func();
-}
-
 //  a Python function taken by a CuteQGraphicsProxyWidget, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT

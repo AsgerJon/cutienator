@@ -27,12 +27,6 @@
     ],
     "ritual_ZNK5QUuid9toRfc4122Ev": ["address", "address"],
     "ritual_ZN5QUuid11fromRfc4122E14QByteArrayView": ["address", "address"],
-    "ritual_ZNK5QUuid6isNullEN2Qt15Disambiguated_tE": [
-      "bool", "address", "address"
-    ],
-    "ritual_ZN5QUuid22compareThreeWay_helperERKS_S1_": [
-      "address", "address", "address"
-    ],
     "ritual_ZeqRK5QUuidS1_": ["bool", "address", "address"],
     "ritual_ZneRK5QUuidS1_": ["bool", "address", "address"],
     "ritual_ZltRK5QUuidS1_": ["bool", "address", "address"],
@@ -48,12 +42,6 @@
     ],
     "ritual_ZN5QUuid12createUuidV7Ev": ["address"],
     "ritual_ZN5QUuid14isKnownVersionENS_7VersionE": ["bool", "int"],
-    "ritual_ZNK5QUuid7variantEN2Qt15Disambiguated_tE": [
-      "int", "address", "address"
-    ],
-    "ritual_ZNK5QUuid7versionEN2Qt15Disambiguated_tE": [
-      "int", "address", "address"
-    ],
     "ritual_ZN5QUuidD1Ev": ["nothing", "address"]
   }
 }

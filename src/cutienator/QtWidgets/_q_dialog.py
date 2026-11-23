@@ -63,15 +63,11 @@ class QDialog(QWidget):
 
   - Qt's 'QDialog::~QDialog()': the destructor: Python never removes a C++
     QDialog.
-  - Qt's 'QDialogPrivate *QDialog::d_func()': gives 'QDialogPrivate', which
-    has no cute class yet.
-  - Qt's 'const QDialogPrivate *QDialog::d_func() const': gives
-    'QDialogPrivate', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  10 of the 36 functions Qt declares: 3 takes or gives a type that cannot be
+  12 of the 36 functions Qt declares: 5 takes or gives a type that cannot be
   passed yet; 3 a signal; 2 forbidden; 1 a template; 1 declared and nowhere
   to be found.
 

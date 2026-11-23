@@ -86,18 +86,3 @@ bool ritual_ZNK23QTreeWidgetItemIterator12matchesFlagsEPK15QTreeWidgetItem(
     const QTreeWidgetItem *item) {
   return self->matchesFlags(item);
 }
-
-//  QTreeWidgetItemIteratorPrivate *QTreeWidgetItemIterator::d_func()
-extern "C" Q_DECL_EXPORT
-QTreeWidgetItemIteratorPrivate *ritual_ZN23QTreeWidgetItemIterator6d_funcEv(
-    QTreeWidgetItemIterator *self) {
-  return self->d_func();
-}
-
-//  const QTreeWidgetItemIteratorPrivate *QTreeWidgetItemIterator::d_func()
-//      const
-extern "C" Q_DECL_EXPORT
-const QTreeWidgetItemIteratorPrivate *ritual_ZNK23QTreeWidgetItemIterator6d_funcEv(
-    const QTreeWidgetItemIterator *self) {
-  return self->d_func();
-}

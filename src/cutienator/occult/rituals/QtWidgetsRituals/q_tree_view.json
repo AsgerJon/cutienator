@@ -232,8 +232,6 @@
     "ritual_ZNK9QTreeView11visualIndexERK11QModelIndex": [
       "int", "address", "address"
     ],
-    "ritual_ZN9QTreeView6d_funcEv": ["address", "address"],
-    "ritual_ZNK9QTreeView6d_funcEv": ["address", "address"],
     "ritual_take_QTreeView": ["bool", "address", "chars", "address"],
     "ritual_own_ZN9QTreeView8setModelEP18QAbstractItemModel": [
       "nothing", "address", "address"

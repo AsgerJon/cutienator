@@ -2,7 +2,6 @@
 //  QtCore/qcbormap.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qcbormap.h>
 #include <QtCore/qcborvalue.h>
-#include <QtCore/qcompare.h>
 
 //  QCborMap::ConstIterator::ConstIterator(QCborValueConstRef it)
 extern "C" Q_DECL_EXPORT
@@ -121,18 +120,6 @@ bool ritual_ZN8QCborMap13ConstIterator20comparesEqual_helperERKS0_S2_(
     const QCborMap::ConstIterator *lhs,
     const QCborMap::ConstIterator *rhs) {
   return QCborMap::ConstIterator::comparesEqual_helper(*lhs, *rhs);
-}
-
-//  Qt::strong_ordering QCborMap::ConstIterator::compareThreeWay_helper(const
-//      ConstIterator &lhs, const ConstIterator &rhs)
-extern "C" Q_DECL_EXPORT
-Qt::strong_ordering *ritual_ZN8QCborMap13ConstIterator22compareThreeWay_helperERKS0_S2_(
-    const QCborMap::ConstIterator *lhs,
-    const QCborMap::ConstIterator *rhs) {
-  return new Qt::strong_ordering(
-      QCborMap::ConstIterator::compareThreeWay_helper(
-          *lhs,
-          *rhs));
 }
 
 //  bool operator==(const ConstIterator &lhs, const ConstIterator &rhs)
