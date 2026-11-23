@@ -290,7 +290,8 @@ class QChronoTimer(QObject):
     """
     #  QChronoTimer::QChronoTimer(QObject *parent)
     self._noteCreation(QChronoTimer, lambda: Rituals.call(
-        'ritual_ZN12QChronoTimerC1EP7QObject', self._addressOf(parent),
+        'ritual_ZN12QChronoTimerC1EP7QObject',
+        self._addressOf(parent, 'QObject'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

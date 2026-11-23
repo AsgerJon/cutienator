@@ -1,0 +1,30 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qinputdevicemanager_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK19QInputDeviceManager10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QInputDeviceManager2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN19QInputDeviceManagerC1EP7QObject": ["address", "address"],
+    "ritual_ZN19QInputDeviceManagerD1Ev": ["nothing", "address"],
+    "ritual_ZNK19QInputDeviceManager11deviceCountENS_10DeviceTypeE": [
+      "int", "address", "int"
+    ],
+    "ritual_ZN19QInputDeviceManager12setCursorPosERK6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QInputDeviceManager17keyboardModifiersEv": [
+      "int", "address"
+    ],
+    "ritual_ZN19QInputDeviceManager20setKeyboardModifiersE6QFlagsIN2Qt16KeyboardModifierEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_take_QInputDeviceManager": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

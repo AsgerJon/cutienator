@@ -326,7 +326,7 @@ class QGraphicsBlurEffect(QGraphicsEffect):
     #  QGraphicsBlurEffect::QGraphicsBlurEffect(QObject *parent)
     self._noteCreation(QGraphicsBlurEffect, lambda: Rituals.call(
         'ritual_ZN19QGraphicsBlurEffectC1EP7QObject',
-        self._addressOf(parent),
+        self._addressOf(parent, 'QObject'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

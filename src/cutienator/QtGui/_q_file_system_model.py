@@ -1350,7 +1350,8 @@ class QFileSystemModel(QAbstractItemModel):
     """
     #  QFileSystemModel::QFileSystemModel(QObject *parent)
     self._noteCreation(QFileSystemModel, lambda: Rituals.call(
-        'ritual_ZN16QFileSystemModelC1EP7QObject', self._addressOf(parent),
+        'ritual_ZN16QFileSystemModelC1EP7QObject',
+        self._addressOf(parent, 'QObject'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

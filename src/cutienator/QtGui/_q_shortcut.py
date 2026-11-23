@@ -417,7 +417,8 @@ class QShortcut(QObject):
     """
     #  QShortcut::QShortcut(QObject *parent)
     self._noteCreation(QShortcut, lambda: Rituals.call(
-        'ritual_ZN9QShortcutC1EP7QObject', self._addressOf(parent),
+        'ritual_ZN9QShortcutC1EP7QObject',
+        self._addressOf(parent, 'QObject'),
     ))
 
   @overload(QKeySequence, QObject)
@@ -486,8 +487,8 @@ class QShortcut(QObject):
     self._noteCreation(QShortcut, lambda: Rituals.call(
         'ritual_ZN9QShortcutC1ERK12QKeySequenceP7QObjectPKcS6_N2Qt15Shortcu'
         'tContextE',
-        self._valueOf(key), self._addressOf(parent), self._bytesOf(member),
-        self._bytesOf(ambiguousMember), context.value,
+        self._valueOf(key), self._addressOf(parent, 'QObject'),
+        self._bytesOf(member), self._bytesOf(ambiguousMember), context.value,
     ))
 
   @overload(QKeySequence.StandardKey, QObject)
@@ -570,7 +571,7 @@ class QShortcut(QObject):
     self._noteCreation(QShortcut, lambda: Rituals.call(
         'ritual_ZN9QShortcutC1EN12QKeySequence11StandardKeyEP7QObjectPKcS5_'
         'N2Qt15ShortcutContextE',
-        key.value, self._addressOf(parent), self._bytesOf(member),
+        key.value, self._addressOf(parent, 'QObject'), self._bytesOf(member),
         self._bytesOf(ambiguousMember), context.value,
     ))
 

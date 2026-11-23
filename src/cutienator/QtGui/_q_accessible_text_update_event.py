@@ -198,7 +198,7 @@ class QAccessibleTextUpdateEvent(QAccessibleTextCursorEvent):
     #      int position, const QString &oldText, const QString &text)
     self._noteCreation(QAccessibleTextUpdateEvent, lambda: Rituals.call(
         'ritual_ZN26QAccessibleTextUpdateEventC1EP7QObjectiRK7QStringS4_',
-        self._addressOf(obj), position, oldText, text,
+        self._addressOf(obj, 'QObject'), position, oldText, text,
     ))
 
   @overload(QAccessibleInterface, int, str, str)

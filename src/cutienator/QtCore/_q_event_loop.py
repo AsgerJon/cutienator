@@ -228,7 +228,8 @@ class QEventLoop(QObject):
     """
     #  QEventLoop::QEventLoop(QObject *parent)
     self._noteCreation(QEventLoop, lambda: Rituals.call(
-        'ritual_ZN10QEventLoopC1EP7QObject', self._addressOf(parent),
+        'ritual_ZN10QEventLoopC1EP7QObject',
+        self._addressOf(parent, 'QObject'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -178,7 +178,7 @@ class QWhatsThis(CuteMixin, metaclass=MetaCute):
     #  QAction *QWhatsThis::createAction(QObject *parent)
     address = Rituals.call(
         'ritual_ZN10QWhatsThis12createActionEP7QObject',
-        CuteMixin._addressOf(parent),
+        CuteMixin._addressOf(parent, 'QObject'),
     )
     from ..QtGui import QAction
     return QAction._cuteAt(address)

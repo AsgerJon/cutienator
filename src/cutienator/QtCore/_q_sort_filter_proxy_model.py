@@ -1645,7 +1645,7 @@ class QSortFilterProxyModel(QAbstractProxyModel):
     #  QSortFilterProxyModel::QSortFilterProxyModel(QObject *parent)
     self._noteCreation(QSortFilterProxyModel, lambda: Rituals.call(
         'ritual_ZN21QSortFilterProxyModelC1EP7QObject',
-        self._addressOf(parent),
+        self._addressOf(parent, 'QObject'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

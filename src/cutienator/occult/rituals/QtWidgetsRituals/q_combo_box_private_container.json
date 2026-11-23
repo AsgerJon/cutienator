@@ -1,0 +1,108 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qcombobox_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK25QComboBoxPrivateContainer10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QComboBoxPrivateContainer2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN25QComboBoxPrivateContainerC1EP17QAbstractItemViewP9QComboBox": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN25QComboBoxPrivateContainerD1Ev": ["nothing", "address"],
+    "ritual_ZNK25QComboBoxPrivateContainer8itemViewEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QComboBoxPrivateContainer11setItemViewEP17QAbstractItemView": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK25QComboBoxPrivateContainer7spacingEv": ["int", "address"],
+    "ritual_ZNK25QComboBoxPrivateContainer9topMarginEv": ["int", "address"],
+    "ritual_ZNK25QComboBoxPrivateContainer12bottomMarginEv": [
+      "int", "address"
+    ],
+    "ritual_ZN25QComboBoxPrivateContainer21updateTopBottomMarginEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QComboBoxPrivateContainer19updateStyleSettingsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QComboBoxPrivateContainer14scrollItemViewEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN25QComboBoxPrivateContainer13hideScrollersEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QComboBoxPrivateContainer15updateScrollersEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QComboBoxPrivateContainer13viewDestroyedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QComboBoxPrivateContainer11changeEventEP6QEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QComboBoxPrivateContainer11eventFilterEP7QObjectP6QEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN25QComboBoxPrivateContainer15mousePressEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QComboBoxPrivateContainer17mouseReleaseEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QComboBoxPrivateContainer9showEventEP10QShowEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QComboBoxPrivateContainer9hideEventEP10QHideEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QComboBoxPrivateContainer10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QComboBoxPrivateContainer11resizeEventEP12QResizeEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QComboBoxPrivateContainer10paintEventEP11QPaintEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK25QComboBoxPrivateContainer16comboStyleOptionEv": [
+      "address", "address"
+    ],
+    "ritual_take_QComboBoxPrivateContainer": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN25QComboBoxPrivateContainer11changeEventEP6QEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN25QComboBoxPrivateContainer11eventFilterEP7QObjectP6QEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_own_ZN25QComboBoxPrivateContainer15mousePressEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN25QComboBoxPrivateContainer17mouseReleaseEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN25QComboBoxPrivateContainer9showEventEP10QShowEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN25QComboBoxPrivateContainer9hideEventEP10QHideEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN25QComboBoxPrivateContainer10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN25QComboBoxPrivateContainer11resizeEventEP12QResizeEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN25QComboBoxPrivateContainer10paintEventEP11QPaintEvent": [
+      "nothing", "address", "address"
+    ]
+  }
+}

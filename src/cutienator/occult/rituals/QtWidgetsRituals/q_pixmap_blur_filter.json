@@ -1,0 +1,36 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qpixmapfilter_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QPixmapBlurFilter10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QPixmapBlurFilter2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QPixmapBlurFilterC1EP7QObject": ["address", "address"],
+    "ritual_ZN17QPixmapBlurFilterD1Ev": ["nothing", "address"],
+    "ritual_ZN17QPixmapBlurFilter9setRadiusEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN17QPixmapBlurFilter12setBlurHintsE6QFlagsIN19QGraphicsBlurEffect8BlurHintEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK17QPixmapBlurFilter6radiusEv": ["double", "address"],
+    "ritual_ZNK17QPixmapBlurFilter9blurHintsEv": ["int", "address"],
+    "ritual_ZNK17QPixmapBlurFilter15boundingRectForERK6QRectF": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK17QPixmapBlurFilter4drawEP8QPainterRK7QPointFRK7QPixmapRK6QRectF": [
+      "nothing", "address", "address", "address", "address", "address"
+    ],
+    "ritual_take_QPixmapBlurFilter": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK17QPixmapBlurFilter15boundingRectForERK6QRectF": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZNK17QPixmapBlurFilter4drawEP8QPainterRK7QPointFRK7QPixmapRK6QRectF": [
+      "nothing", "address", "address", "address", "address", "address"
+    ]
+  }
+}

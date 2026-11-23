@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qitemeditorfactory_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK23QItemEditorDateTimeEdit10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QItemEditorDateTimeEdit21setDateTimeItemEditorERK9QDateTime": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QItemEditorDateTimeEdit": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

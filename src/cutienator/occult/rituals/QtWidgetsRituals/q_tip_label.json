@@ -1,0 +1,56 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qtooltip_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK9QTipLabel10metaObjectEv": ["address", "address"],
+    "ritual_ZN9QTipLabel2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN9QTipLabelC1ERK7QStringRK6QPointP7QWidgeti": [
+      "address", "text", "address", "address", "int"
+    ],
+    "ritual_ZN9QTipLabelD1Ev": ["nothing", "address"],
+    "ritual_ZN9QTipLabel10updateSizeERK6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QTipLabel11eventFilterEP7QObjectP6QEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN9QTipLabel8reuseTipERK7QStringiRK6QPoint": [
+      "nothing", "address", "text", "int", "address"
+    ],
+    "ritual_ZN9QTipLabel7hideTipEv": ["nothing", "address"],
+    "ritual_ZN9QTipLabel18hideTipImmediatelyEv": ["nothing", "address"],
+    "ritual_ZN9QTipLabel10setTipRectEP7QWidgetRK5QRect": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN9QTipLabel18restartExpireTimerEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN9QTipLabel10tipChangedERK6QPointRK7QStringP7QObject": [
+      "bool", "address", "address", "text", "address"
+    ],
+    "ritual_ZN9QTipLabel8placeTipERK6QPointP7QWidget": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN9QTipLabel12getTipScreenERK6QPointP7QWidget": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN9QTipLabel10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QTipLabel10paintEventEP11QPaintEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QTipLabel14mouseMoveEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QTipLabel11resizeEventEP12QResizeEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QTipLabel25styleSheetParentDestroyedEv": [
+      "nothing", "address"
+    ]
+  }
+}

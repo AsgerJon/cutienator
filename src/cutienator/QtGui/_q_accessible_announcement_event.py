@@ -204,7 +204,7 @@ class QAccessibleAnnouncementEvent(QAccessibleEvent):
     #      *object, const QString &message)
     self._noteCreation(QAccessibleAnnouncementEvent, lambda: Rituals.call(
         'ritual_ZN28QAccessibleAnnouncementEventC1EP7QObjectRK7QString',
-        self._addressOf(object), message,
+        self._addressOf(object, 'QObject'), message,
     ))
 
   @overload(QAccessibleInterface, str)

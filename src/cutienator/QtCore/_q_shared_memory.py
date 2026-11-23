@@ -473,7 +473,8 @@ class QSharedMemory(QObject):
     """
     #  QSharedMemory::QSharedMemory(QObject *parent)
     self._noteCreation(QSharedMemory, lambda: Rituals.call(
-        'ritual_ZN13QSharedMemoryC1EP7QObject', self._addressOf(parent),
+        'ritual_ZN13QSharedMemoryC1EP7QObject',
+        self._addressOf(parent, 'QObject'),
     ))
 
   @overload(QNativeIpcKey)
@@ -505,7 +506,7 @@ class QSharedMemory(QObject):
     #      *parent)
     self._noteCreation(QSharedMemory, lambda: Rituals.call(
         'ritual_ZN13QSharedMemoryC1ERK13QNativeIpcKeyP7QObject',
-        self._valueOf(key), self._addressOf(parent),
+        self._valueOf(key), self._addressOf(parent, 'QObject'),
     ))
 
   @overload(str)
@@ -531,7 +532,7 @@ class QSharedMemory(QObject):
     #  QSharedMemory::QSharedMemory(const QString &key, QObject *parent)
     self._noteCreation(QSharedMemory, lambda: Rituals.call(
         'ritual_ZN13QSharedMemoryC1ERK7QStringP7QObject',
-        key, self._addressOf(parent),
+        key, self._addressOf(parent, 'QObject'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

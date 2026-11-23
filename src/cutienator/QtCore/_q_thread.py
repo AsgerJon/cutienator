@@ -555,7 +555,7 @@ class QThread(QObject):
     """
     #  QThread::QThread(QObject *parent)
     self._noteCreation(QThread, lambda: Rituals.call(
-        'ritual_ZN7QThreadC1EP7QObject', self._addressOf(parent),
+        'ritual_ZN7QThreadC1EP7QObject', self._addressOf(parent, 'QObject'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

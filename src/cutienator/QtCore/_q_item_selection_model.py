@@ -690,7 +690,7 @@ class QItemSelectionModel(QObject):
     #      QObject *parent)
     self._noteCreation(QItemSelectionModel, lambda: Rituals.call(
         'ritual_ZN19QItemSelectionModelC1EP18QAbstractItemModelP7QObject',
-        self._addressOf(model), self._addressOf(parent),
+        self._addressOf(model), self._addressOf(parent, 'QObject'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

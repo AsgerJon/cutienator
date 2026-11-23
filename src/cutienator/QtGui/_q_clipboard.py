@@ -506,7 +506,8 @@ class QClipboard(QObject):
     """
     #  QClipboard::QClipboard(QObject *parent)
     self._noteCreation(QClipboard, lambda: Rituals.call(
-        'ritual_ZN10QClipboardC1EP7QObject', self._addressOf(parent),
+        'ritual_ZN10QClipboardC1EP7QObject',
+        self._addressOf(parent, 'QObject'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

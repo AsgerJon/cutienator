@@ -189,7 +189,7 @@ class QAccessibleTextSelectionEvent(QAccessibleTextCursorEvent):
     #      *obj, int start, int end)
     self._noteCreation(QAccessibleTextSelectionEvent, lambda: Rituals.call(
         'ritual_ZN29QAccessibleTextSelectionEventC1EP7QObjectii',
-        self._addressOf(obj), start, end,
+        self._addressOf(obj, 'QObject'), start, end,
     ))
 
   @overload(QAccessibleInterface, int, int)

@@ -235,7 +235,8 @@ class QTapGesture(QGesture):
     """
     #  QTapGesture::QTapGesture(QObject *parent)
     self._noteCreation(QTapGesture, lambda: Rituals.call(
-        'ritual_ZN11QTapGestureC1EP7QObject', self._addressOf(parent),
+        'ritual_ZN11QTapGestureC1EP7QObject',
+        self._addressOf(parent, 'QObject'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

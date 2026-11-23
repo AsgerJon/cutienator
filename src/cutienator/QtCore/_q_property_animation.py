@@ -232,7 +232,7 @@ class QPropertyAnimation(QVariantAnimation):
     #  void QPropertyAnimation::setTargetObject(QObject *target)
     self.uglySide.call(
         'ritual_ZN18QPropertyAnimation15setTargetObjectEP7QObject',
-        self._addressOf(target),
+        self._addressOf(target, 'QObject'),
     )
 
   @overload(QByteArray)
@@ -291,7 +291,8 @@ class QPropertyAnimation(QVariantAnimation):
     """
     #  QPropertyAnimation::QPropertyAnimation(QObject *parent)
     self._noteCreation(QPropertyAnimation, lambda: Rituals.call(
-        'ritual_ZN18QPropertyAnimationC1EP7QObject', self._addressOf(parent),
+        'ritual_ZN18QPropertyAnimationC1EP7QObject',
+        self._addressOf(parent, 'QObject'),
     ))
 
   @overload(QObject, QByteArray)
@@ -333,8 +334,8 @@ class QPropertyAnimation(QVariantAnimation):
     #      QByteArray &propertyName, QObject *parent)
     self._noteCreation(QPropertyAnimation, lambda: Rituals.call(
         'ritual_ZN18QPropertyAnimationC1EP7QObjectRK10QByteArrayS1_',
-        self._addressOf(target), self._valueOf(propertyName),
-        self._addressOf(parent),
+        self._addressOf(target, 'QObject'), self._valueOf(propertyName),
+        self._addressOf(parent, 'QObject'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

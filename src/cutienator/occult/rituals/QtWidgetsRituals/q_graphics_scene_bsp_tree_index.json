@@ -1,0 +1,47 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qgraphicsscenebsptreeindex_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK26QGraphicsSceneBspTreeIndex10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QGraphicsSceneBspTreeIndexD1Ev": ["nothing", "address"],
+    "ritual_ZNK26QGraphicsSceneBspTreeIndex13estimateItemsERK6QRectFN2Qt9SortOrderE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZNK26QGraphicsSceneBspTreeIndex21estimateTopLevelItemsERK6QRectFN2Qt9SortOrderE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZNK26QGraphicsSceneBspTreeIndex5itemsEN2Qt9SortOrderE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK26QGraphicsSceneBspTreeIndex12bspTreeDepthEv": [
+      "int", "address"
+    ],
+    "ritual_ZN26QGraphicsSceneBspTreeIndex15updateSceneRectERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QGraphicsSceneBspTreeIndex5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN26QGraphicsSceneBspTreeIndex5clearEv": ["nothing", "address"],
+    "ritual_ZN26QGraphicsSceneBspTreeIndex7addItemEP13QGraphicsItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QGraphicsSceneBspTreeIndex10removeItemEP13QGraphicsItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QGraphicsSceneBspTreeIndex25prepareBoundingRectChangeEPK13QGraphicsItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QGraphicsSceneBspTreeIndex": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN26QGraphicsSceneBspTreeIndex5clearEv": [
+      "nothing", "address"
+    ]
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qcolumnviewgrip_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK15QColumnViewGrip10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QColumnViewGripD1Ev": ["nothing", "address"],
+    "ritual_ZN15QColumnViewGrip10paintEventEP11QPaintEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QColumnViewGrip21mouseDoubleClickEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QColumnViewGrip14mouseMoveEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QColumnViewGrip17mouseReleaseEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QColumnViewGrip15mousePressEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QColumnViewGrip": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN15QColumnViewGrip10paintEventEP11QPaintEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN15QColumnViewGrip17mouseReleaseEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN15QColumnViewGrip15mousePressEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ]
+  }
+}

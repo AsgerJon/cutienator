@@ -276,7 +276,8 @@ class QSwipeGesture(QGesture):
     """
     #  QSwipeGesture::QSwipeGesture(QObject *parent)
     self._noteCreation(QSwipeGesture, lambda: Rituals.call(
-        'ritual_ZN13QSwipeGestureC1EP7QObject', self._addressOf(parent),
+        'ritual_ZN13QSwipeGestureC1EP7QObject',
+        self._addressOf(parent, 'QObject'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

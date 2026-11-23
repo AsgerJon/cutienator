@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qfiledialog_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QFileDialogListViewC1EP7QWidget": ["address", "address"],
+    "ritual_ZNK19QFileDialogListView8sizeHintEv": ["address", "address"],
+    "ritual_ZN19QFileDialogListView13keyPressEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK19QFileDialogListView8sizeHintEv": ["address", "address"],
+    "ritual_own_ZN19QFileDialogListView13keyPressEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ]
+  }
+}

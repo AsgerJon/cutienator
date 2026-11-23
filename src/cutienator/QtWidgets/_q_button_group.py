@@ -341,7 +341,8 @@ class QButtonGroup(QObject):
     """
     #  QButtonGroup::QButtonGroup(QObject *parent)
     self._noteCreation(QButtonGroup, lambda: Rituals.call(
-        'ritual_ZN12QButtonGroupC1EP7QObject', self._addressOf(parent),
+        'ritual_ZN12QButtonGroupC1EP7QObject',
+        self._addressOf(parent, 'QObject'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

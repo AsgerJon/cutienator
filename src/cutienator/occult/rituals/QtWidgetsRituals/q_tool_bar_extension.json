@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qtoolbarextension_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QToolBarExtension10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QToolBarExtension10paintEventEP11QPaintEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QToolBarExtension8sizeHintEv": ["address", "address"],
+    "ritual_ZN17QToolBarExtension14setOrientationEN2Qt11OrientationE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QToolBarExtension5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN17QToolBarExtension10paintEventEP11QPaintEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK17QToolBarExtension8sizeHintEv": ["address", "address"],
+    "ritual_own_ZN17QToolBarExtension5eventEP6QEvent": [
+      "bool", "address", "address"
+    ]
+  }
+}

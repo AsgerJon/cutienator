@@ -125,7 +125,8 @@ class QDesktopServices(CuteMixin, metaclass=MetaCute):
     #      *receiver, const char *method)
     Rituals.call(
         'ritual_ZN16QDesktopServices13setUrlHandlerERK7QStringP7QObjectPKc',
-        scheme, CuteMixin._addressOf(receiver), CuteMixin._bytesOf(method),
+        scheme, CuteMixin._addressOf(receiver, 'QObject'),
+        CuteMixin._bytesOf(method),
     )
 
   @staticmethod

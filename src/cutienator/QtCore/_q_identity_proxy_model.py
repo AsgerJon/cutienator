@@ -720,7 +720,7 @@ class QIdentityProxyModel(QAbstractProxyModel):
     #  QIdentityProxyModel::QIdentityProxyModel(QObject *parent)
     self._noteCreation(QIdentityProxyModel, lambda: Rituals.call(
         'ritual_ZN19QIdentityProxyModelC1EP7QObject',
-        self._addressOf(parent),
+        self._addressOf(parent, 'QObject'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

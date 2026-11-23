@@ -247,7 +247,7 @@ class QAccessibilityHints(QObject):
     #  QAccessibilityHints::QAccessibilityHints(QObject *parent)
     self._noteCreation(QAccessibilityHints, lambda: Rituals.call(
         'ritual_ZN19QAccessibilityHintsC1EP7QObject',
-        self._addressOf(parent),
+        self._addressOf(parent, 'QObject'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

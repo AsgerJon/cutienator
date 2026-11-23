@@ -1,0 +1,36 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qpixmapfilter_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK24QPixmapConvolutionFilter10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24QPixmapConvolutionFilter2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN24QPixmapConvolutionFilterC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN24QPixmapConvolutionFilterD1Ev": ["nothing", "address"],
+    "ritual_ZNK24QPixmapConvolutionFilter15boundingRectForERK6QRectF": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK24QPixmapConvolutionFilter4drawEP8QPainterRK7QPointFRK7QPixmapRK6QRectF": [
+      "nothing", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK24QPixmapConvolutionFilter4rowsEv": ["int", "address"],
+    "ritual_ZNK24QPixmapConvolutionFilter7columnsEv": ["int", "address"],
+    "ritual_take_QPixmapConvolutionFilter": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK24QPixmapConvolutionFilter15boundingRectForERK6QRectF": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZNK24QPixmapConvolutionFilter4drawEP8QPainterRK7QPointFRK7QPixmapRK6QRectF": [
+      "nothing", "address", "address", "address", "address", "address"
+    ]
+  }
+}

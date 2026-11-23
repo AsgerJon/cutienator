@@ -1011,7 +1011,7 @@ class QMenuBar(QWidget):
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZN8QMenuBar11eventFilterEP7QObjectP6QEvent'
     return self.uglySide.call(
-        ritual, self._addressOf(a0), self._addressOf(a1),
+        ritual, self._addressOf(a0, 'QObject'), self._addressOf(a1),
     )
 
   @overload(QEvent)

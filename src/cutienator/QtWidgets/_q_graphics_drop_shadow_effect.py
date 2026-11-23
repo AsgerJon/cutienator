@@ -467,7 +467,7 @@ class QGraphicsDropShadowEffect(QGraphicsEffect):
     #  QGraphicsDropShadowEffect::QGraphicsDropShadowEffect(QObject *parent)
     self._noteCreation(QGraphicsDropShadowEffect, lambda: Rituals.call(
         'ritual_ZN25QGraphicsDropShadowEffectC1EP7QObject',
-        self._addressOf(parent),
+        self._addressOf(parent, 'QObject'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

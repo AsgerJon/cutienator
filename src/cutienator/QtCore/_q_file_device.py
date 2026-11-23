@@ -514,7 +514,8 @@ class QFileDevice(QIODevice):
     """
     #  QFileDevice::QFileDevice(QObject *parent)
     self._noteCreation(QFileDevice, lambda: Rituals.call(
-        'ritual_ZN11QFileDeviceC1EP7QObject', self._addressOf(parent),
+        'ritual_ZN11QFileDeviceC1EP7QObject',
+        self._addressOf(parent, 'QObject'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

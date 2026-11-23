@@ -333,7 +333,8 @@ class QTemporaryFile(QFile):
     """
     #  QTemporaryFile::QTemporaryFile(QObject *parent)
     self._noteCreation(QTemporaryFile, lambda: Rituals.call(
-        'ritual_ZN14QTemporaryFileC1EP7QObject', self._addressOf(parent),
+        'ritual_ZN14QTemporaryFileC1EP7QObject',
+        self._addressOf(parent, 'QObject'),
     ))
 
   @overload(str, QObject)
@@ -360,7 +361,7 @@ class QTemporaryFile(QFile):
     #      *parent)
     self._noteCreation(QTemporaryFile, lambda: Rituals.call(
         'ritual_ZN14QTemporaryFileC1ERK7QStringP7QObject',
-        templateName, self._addressOf(parent),
+        templateName, self._addressOf(parent, 'QObject'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

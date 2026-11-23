@@ -389,7 +389,8 @@ class QPointingDevice(QInputDevice):
     """
     #  QPointingDevice::QPointingDevice(QObject *parent)
     self._noteCreation(QPointingDevice, lambda: Rituals.call(
-        'ritual_ZN15QPointingDeviceC1EP7QObject', self._addressOf(parent),
+        'ritual_ZN15QPointingDeviceC1EP7QObject',
+        self._addressOf(parent, 'QObject'),
     ))
 
   @overload(
@@ -487,7 +488,7 @@ class QPointingDevice(QInputDevice):
         'eUniqueIdP7QObject',
         name, systemId, devType.value, pType.value, caps.value, maxPoints,
         buttonCount, seatName, self._valueOf(uniqueId),
-        self._addressOf(parent),
+        self._addressOf(parent, 'QObject'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -653,7 +653,7 @@ class QProgressDialog(QDialog):
     #  void QProgressDialog::open(QObject *receiver, const char *member)
     self.uglySide.call(
         'ritual_ZN15QProgressDialog4openEP7QObjectPKc',
-        self._addressOf(receiver), self._bytesOf(member),
+        self._addressOf(receiver, 'QObject'), self._bytesOf(member),
     )
 
   def cancel(self) -> None:

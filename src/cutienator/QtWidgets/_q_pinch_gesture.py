@@ -589,7 +589,8 @@ class QPinchGesture(QGesture):
     """
     #  QPinchGesture::QPinchGesture(QObject *parent)
     self._noteCreation(QPinchGesture, lambda: Rituals.call(
-        'ritual_ZN13QPinchGestureC1EP7QObject', self._addressOf(parent),
+        'ritual_ZN13QPinchGestureC1EP7QObject',
+        self._addressOf(parent, 'QObject'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

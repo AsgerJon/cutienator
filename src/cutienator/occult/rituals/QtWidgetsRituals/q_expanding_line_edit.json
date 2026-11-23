@@ -1,0 +1,25 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qitemeditorfactory_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18QExpandingLineEdit10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QExpandingLineEdit21setWidgetOwnsGeometryEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN18QExpandingLineEdit11changeEventEP6QEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QExpandingLineEdit16resizeToContentsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QExpandingLineEdit18updateMinimumWidthEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN18QExpandingLineEdit11changeEventEP6QEvent": [
+      "nothing", "address", "address"
+    ]
+  }
+}

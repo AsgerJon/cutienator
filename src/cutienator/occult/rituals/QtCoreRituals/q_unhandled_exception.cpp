@@ -29,17 +29,3 @@ QUnhandledException *ritual_ZNK19QUnhandledException5cloneEv(
     const QUnhandledException *self) {
   return self->clone();
 }
-
-//  void QUnhandledException::raise() const
-extern "C" Q_DECL_EXPORT
-void ritual_own_ZNK19QUnhandledException5raiseEv(
-    const QUnhandledException *self) {
-  self->QUnhandledException::raise();
-}
-
-//  QUnhandledException *QUnhandledException::clone() const
-extern "C" Q_DECL_EXPORT
-QUnhandledException *ritual_own_ZNK19QUnhandledException5cloneEv(
-    const QUnhandledException *self) {
-  return self->QUnhandledException::clone();
-}

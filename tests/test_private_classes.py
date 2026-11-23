@@ -26,7 +26,8 @@ from cutienator.QtWidgets import QApplication, QListModel, QListWidget
 from cutienator.QtWidgets import QMessageBox, QPushButton, QTableModel
 from cutienator.QtWidgets import QTableWidget, QTreeModel, QTreeWidget
 from cutienator.QtWidgets import QCalendarWidget, QStyledItemDelegate
-from cutienator.QtWidgets import QTableView
+from cutienator.QtWidgets import QMainWindow, QMainWindowLayout
+from cutienator.QtWidgets import QTableView, QToolBar
 
 app = QApplication([])
 widget = QListWidget()
@@ -51,6 +52,10 @@ box = QMessageBox()
 box.addButton(QMessageBox.StandardButton.Ok)
 found = box.button(QMessageBox.StandardButton.Ok)
 print('button:', type(found) is QPushButton)
+window = QMainWindow()
+layout = window.layout()
+print('layout:', type(layout) is QMainWindowLayout, layout.documentMode())
+print('toolbar:', type(QToolBar(window).layout()).__name__)
 children = QCalendarWidget().children()
 print('nearest:', [
     sum(1 for child in children if type(child) is cuteClass)
@@ -118,6 +123,13 @@ class TestPrivateClasses(BaseTest):
     """A button Qt made, handed out as a QAbstractButton, is a
     QPushButton."""
     self.assertEqual(self._found('button'), 'True')
+
+  def test_the_layout_of_a_main_window(self) -> None:
+    """The layout Qt gives a QMainWindow is a QMainWindowLayout, of a
+    header Qt calls private, and so is the QToolBarLayout of a
+    toolbar. Their own functions can be called."""
+    self.assertEqual(self._found('layout'), 'True False')
+    self.assertEqual(self._found('toolbar'), 'QToolBarLayout')
 
   def test_a_class_cutienator_has_not_gives_the_nearest_it_has(
       self) -> None:

@@ -1,0 +1,89 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qcolorwell_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK10QWellArray10metaObjectEv": ["address", "address"],
+    "ritual_ZN10QWellArrayD1Ev": ["nothing", "address"],
+    "ritual_ZNK10QWellArray13currentColumnEv": ["int", "address"],
+    "ritual_ZNK10QWellArray10currentRowEv": ["int", "address"],
+    "ritual_ZNK10QWellArray14selectedColumnEv": ["int", "address"],
+    "ritual_ZNK10QWellArray11selectedRowEv": ["int", "address"],
+    "ritual_ZN10QWellArray10setCurrentEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN10QWellArray11setSelectedEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK10QWellArray8sizeHintEv": ["address", "address"],
+    "ritual_ZNK10QWellArray9cellWidthEv": ["int", "address"],
+    "ritual_ZNK10QWellArray10cellHeightEv": ["int", "address"],
+    "ritual_ZNK10QWellArray5rowAtEi": ["int", "address", "int"],
+    "ritual_ZNK10QWellArray8columnAtEi": ["int", "address", "int"],
+    "ritual_ZNK10QWellArray4rowYEi": ["int", "address", "int"],
+    "ritual_ZNK10QWellArray7columnXEi": ["int", "address", "int"],
+    "ritual_ZNK10QWellArray7numRowsEv": ["int", "address"],
+    "ritual_ZNK10QWellArray7numColsEv": ["int", "address"],
+    "ritual_ZN10QWellArray5indexEii": ["int", "address", "int", "int"],
+    "ritual_ZNK10QWellArray8cellRectEv": ["address", "address"],
+    "ritual_ZNK10QWellArray8gridSizeEv": ["address", "address"],
+    "ritual_ZN10QWellArray12cellGeometryEii": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZN10QWellArray10updateCellEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN10QWellArray9paintCellEP8QPainteriiRK5QRect": [
+      "nothing", "address", "address", "int", "int", "address"
+    ],
+    "ritual_ZN10QWellArray17paintCellContentsEP8QPainteriiRK5QRect": [
+      "nothing", "address", "address", "int", "int", "address"
+    ],
+    "ritual_ZN10QWellArray15mousePressEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QWellArray17mouseReleaseEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QWellArray13keyPressEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QWellArray12focusInEventEP11QFocusEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QWellArray13focusOutEventEP11QFocusEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QWellArray10paintEventEP11QPaintEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QWellArray29sendAccessibleChildFocusEventEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QWellArray": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK10QWellArray8sizeHintEv": ["address", "address"],
+    "ritual_own_ZN10QWellArray9paintCellEP8QPainteriiRK5QRect": [
+      "nothing", "address", "address", "int", "int", "address"
+    ],
+    "ritual_own_ZN10QWellArray17paintCellContentsEP8QPainteriiRK5QRect": [
+      "nothing", "address", "address", "int", "int", "address"
+    ],
+    "ritual_own_ZN10QWellArray15mousePressEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN10QWellArray17mouseReleaseEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN10QWellArray13keyPressEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN10QWellArray13focusOutEventEP11QFocusEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN10QWellArray10paintEventEP11QPaintEvent": [
+      "nothing", "address", "address"
+    ]
+  }
+}

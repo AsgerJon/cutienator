@@ -1,0 +1,62 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qsimpledrag_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN10QBasicDragD1Ev": ["nothing", "address"],
+    "ritual_ZN10QBasicDrag4dragEP5QDrag": ["int", "address", "address"],
+    "ritual_ZN10QBasicDrag10cancelDragEv": ["nothing", "address"],
+    "ritual_ZN10QBasicDrag11eventFilterEP7QObjectP6QEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN10QBasicDrag9startDragEv": ["nothing", "address"],
+    "ritual_ZN10QBasicDrag6cancelEv": ["nothing", "address"],
+    "ritual_ZN10QBasicDrag4moveERK6QPoint6QFlagsIN2Qt11MouseButtonEES3_INS4_16KeyboardModifierEE": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN10QBasicDrag4dropERK6QPoint6QFlagsIN2Qt11MouseButtonEES3_INS4_16KeyboardModifierEE": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN10QBasicDrag7endDragEv": ["nothing", "address"],
+    "ritual_ZN10QBasicDrag22moveShapedPixmapWindowERK6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10QBasicDrag18shapedPixmapWindowEv": ["address", "address"],
+    "ritual_ZN10QBasicDrag26recreateShapedPixmapWindowEP7QScreenRK6QPoint": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN10QBasicDrag12updateCursorEN2Qt10DropActionE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK10QBasicDrag7canDropEv": ["bool", "address"],
+    "ritual_ZN10QBasicDrag10setCanDropEb": ["nothing", "address", "bool"],
+    "ritual_ZNK10QBasicDrag14useCompositingEv": ["bool", "address"],
+    "ritual_ZN10QBasicDrag17setUseCompositingEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN10QBasicDrag9setScreenEP7QScreen": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10QBasicDrag18executedDropActionEv": ["int", "address"],
+    "ritual_ZN10QBasicDrag21setExecutedDropActionEN2Qt10DropActionE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK10QBasicDrag4dragEv": ["address", "address"],
+    "ritual_ZN10QBasicDrag17enableEventFilterEv": ["nothing", "address"],
+    "ritual_ZN10QBasicDrag18disableEventFilterEv": ["nothing", "address"],
+    "ritual_ZN10QBasicDrag13restoreCursorEv": ["nothing", "address"],
+    "ritual_ZN10QBasicDrag16exitDndEventLoopEv": ["nothing", "address"],
+    "ritual_cast_QBasicDrag_QObject": ["address", "address"],
+    "ritual_take_QBasicDrag": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN10QBasicDrag4dragEP5QDrag": ["int", "address", "address"],
+    "ritual_own_ZN10QBasicDrag10cancelDragEv": ["nothing", "address"],
+    "ritual_own_ZN10QBasicDrag11eventFilterEP7QObjectP6QEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_own_ZN10QBasicDrag9startDragEv": ["nothing", "address"],
+    "ritual_own_ZN10QBasicDrag6cancelEv": ["nothing", "address"],
+    "ritual_own_ZN10QBasicDrag7endDragEv": ["nothing", "address"]
+  }
+}

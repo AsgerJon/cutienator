@@ -155,7 +155,8 @@ class QTimer(QObject):
     #      *member)
     Rituals.call(
         'ritual_ZN6QTimer10singleShotEiPK7QObjectPKc',
-        msec, CuteMixin._addressOf(receiver), CuteMixin._bytesOf(member),
+        msec, CuteMixin._addressOf(receiver, 'QObject'),
+        CuteMixin._bytesOf(member),
     )
 
   @staticmethod
@@ -195,7 +196,7 @@ class QTimer(QObject):
     #      QObject *receiver, const char *member)
     Rituals.call(
         'ritual_ZN6QTimer10singleShotEiN2Qt9TimerTypeEPK7QObjectPKc',
-        msec, timerType.value, CuteMixin._addressOf(receiver),
+        msec, timerType.value, CuteMixin._addressOf(receiver, 'QObject'),
         CuteMixin._bytesOf(member),
     )
 
@@ -433,7 +434,7 @@ class QTimer(QObject):
     """
     #  QTimer::QTimer(QObject *parent)
     self._noteCreation(QTimer, lambda: Rituals.call(
-        'ritual_ZN6QTimerC1EP7QObject', self._addressOf(parent),
+        'ritual_ZN6QTimerC1EP7QObject', self._addressOf(parent, 'QObject'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

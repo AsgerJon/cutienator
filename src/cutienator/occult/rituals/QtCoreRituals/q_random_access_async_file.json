@@ -1,0 +1,32 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qrandomaccessasyncfile_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK22QRandomAccessAsyncFile10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QRandomAccessAsyncFile2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN22QRandomAccessAsyncFileC1EP7QObject": ["address", "address"],
+    "ritual_ZN22QRandomAccessAsyncFileD1Ev": ["nothing", "address"],
+    "ritual_ZN22QRandomAccessAsyncFile5closeEv": ["nothing", "address"],
+    "ritual_ZNK22QRandomAccessAsyncFile4sizeEv": ["long long", "address"],
+    "ritual_ZN22QRandomAccessAsyncFile4openERK7QString6QFlagsIN13QIODeviceBase12OpenModeFlagEE": [
+      "address", "address", "text", "int"
+    ],
+    "ritual_ZN22QRandomAccessAsyncFile5flushEv": ["address", "address"],
+    "ritual_ZN22QRandomAccessAsyncFile4readExx": [
+      "address", "address", "long long", "long long"
+    ],
+    "ritual_ZN22QRandomAccessAsyncFile5writeExRK10QByteArray": [
+      "address", "address", "long long", "address"
+    ],
+    "ritual_take_QRandomAccessAsyncFile": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

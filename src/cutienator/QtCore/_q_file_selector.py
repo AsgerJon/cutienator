@@ -307,7 +307,8 @@ class QFileSelector(QObject):
     """
     #  QFileSelector::QFileSelector(QObject *parent)
     self._noteCreation(QFileSelector, lambda: Rituals.call(
-        'ritual_ZN13QFileSelectorC1EP7QObject', self._addressOf(parent),
+        'ritual_ZN13QFileSelectorC1EP7QObject',
+        self._addressOf(parent, 'QObject'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

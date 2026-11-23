@@ -233,7 +233,8 @@ class QFileSystemWatcher(QObject):
     """
     #  QFileSystemWatcher::QFileSystemWatcher(QObject *parent)
     self._noteCreation(QFileSystemWatcher, lambda: Rituals.call(
-        'ritual_ZN18QFileSystemWatcherC1EP7QObject', self._addressOf(parent),
+        'ritual_ZN18QFileSystemWatcherC1EP7QObject',
+        self._addressOf(parent, 'QObject'),
     ))
 
   @overload(QStringList)
@@ -268,7 +269,7 @@ class QFileSystemWatcher(QObject):
     #      QObject *parent)
     self._noteCreation(QFileSystemWatcher, lambda: Rituals.call(
         'ritual_ZN18QFileSystemWatcherC1ERK5QListI7QStringEP7QObject',
-        self._valueOf(paths), self._addressOf(parent),
+        self._valueOf(paths), self._addressOf(parent, 'QObject'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

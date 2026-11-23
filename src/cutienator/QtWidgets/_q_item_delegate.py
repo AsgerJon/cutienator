@@ -774,7 +774,8 @@ class QItemDelegate(QAbstractItemDelegate):
     """
     #  QItemDelegate::QItemDelegate(QObject *parent)
     self._noteCreation(QItemDelegate, lambda: Rituals.call(
-        'ritual_ZN13QItemDelegateC1EP7QObject', self._addressOf(parent),
+        'ritual_ZN13QItemDelegateC1EP7QObject',
+        self._addressOf(parent, 'QObject'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1198,7 +1199,7 @@ class QItemDelegate(QAbstractItemDelegate):
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZN13QItemDelegate11eventFilterEP7QObjectP6QEvent'
     return self.uglySide.call(
-        ritual, self._addressOf(object), self._addressOf(event),
+        ritual, self._addressOf(object, 'QObject'), self._addressOf(event),
     )
 
   @overload(QEvent, QAbstractItemModel, QStyleOptionViewItem, QModelIndex)

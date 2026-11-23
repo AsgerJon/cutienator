@@ -496,7 +496,8 @@ class QVariantAnimation(QAbstractAnimation):
     """
     #  QVariantAnimation::QVariantAnimation(QObject *parent)
     self._noteCreation(QVariantAnimation, lambda: Rituals.call(
-        'ritual_ZN17QVariantAnimationC1EP7QObject', self._addressOf(parent),
+        'ritual_ZN17QVariantAnimationC1EP7QObject',
+        self._addressOf(parent, 'QObject'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -181,7 +181,7 @@ class QAccessibleValueChangeEvent(QAccessibleEvent):
     #      const QVariant &val)
     self._noteCreation(QAccessibleValueChangeEvent, lambda: Rituals.call(
         'ritual_ZN27QAccessibleValueChangeEventC1EP7QObjectRK8QVariant',
-        self._addressOf(obj), self._valueOf(val),
+        self._addressOf(obj, 'QObject'), self._valueOf(val),
     ))
 
   @overload(QAccessibleInterface, QVariant)

@@ -1,0 +1,78 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qcolumnview_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN24QColumnViewPreviewColumnC1EP7QWidget": [
+      "address", "address"
+    ],
+    "ritual_ZN24QColumnViewPreviewColumn16setPreviewWidgetEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QColumnViewPreviewColumn11resizeEventEP12QResizeEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QColumnViewPreviewColumn16scrollContentsByEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK24QColumnViewPreviewColumn10visualRectERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN24QColumnViewPreviewColumn8scrollToERK11QModelIndexN17QAbstractItemView10ScrollHintE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZNK24QColumnViewPreviewColumn7indexAtERK6QPoint": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN24QColumnViewPreviewColumn10moveCursorEN17QAbstractItemView12CursorActionE6QFlagsIN2Qt16KeyboardModifierEE": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZNK24QColumnViewPreviewColumn16horizontalOffsetEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK24QColumnViewPreviewColumn14verticalOffsetEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK24QColumnViewPreviewColumn24visualRegionForSelectionERK14QItemSelection": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK24QColumnViewPreviewColumn13isIndexHiddenERK11QModelIndex": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN24QColumnViewPreviewColumn12setSelectionERK5QRect6QFlagsIN19QItemSelectionModel13SelectionFlagEE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_own_ZN24QColumnViewPreviewColumn11resizeEventEP12QResizeEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN24QColumnViewPreviewColumn16scrollContentsByEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZNK24QColumnViewPreviewColumn10visualRectERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN24QColumnViewPreviewColumn8scrollToERK11QModelIndexN17QAbstractItemView10ScrollHintE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_own_ZNK24QColumnViewPreviewColumn7indexAtERK6QPoint": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZNK24QColumnViewPreviewColumn16horizontalOffsetEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZNK24QColumnViewPreviewColumn14verticalOffsetEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZNK24QColumnViewPreviewColumn24visualRegionForSelectionERK14QItemSelection": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZNK24QColumnViewPreviewColumn13isIndexHiddenERK11QModelIndex": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN24QColumnViewPreviewColumn12setSelectionERK5QRect6QFlagsIN19QItemSelectionModel13SelectionFlagEE": [
+      "nothing", "address", "address", "int"
+    ]
+  }
+}

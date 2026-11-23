@@ -1,0 +1,81 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qcompleter_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK16QCompletionModel10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QCompletionModel11setFilteredEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN16QCompletionModel6filterERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QCompletionModel15completionCountEv": ["int", "address"],
+    "ritual_ZNK16QCompletionModel10currentRowEv": ["int", "address"],
+    "ritual_ZN16QCompletionModel13setCurrentRowEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK16QCompletionModel12currentIndexEb": [
+      "address", "address", "bool"
+    ],
+    "ritual_ZNK16QCompletionModel5indexEiiRK11QModelIndex": [
+      "address", "address", "int", "int", "address"
+    ],
+    "ritual_ZNK16QCompletionModel8rowCountERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK16QCompletionModel11columnCountERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK16QCompletionModel11hasChildrenERK11QModelIndex": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK16QCompletionModel6parentERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK16QCompletionModel4dataERK11QModelIndexi": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN16QCompletionModel14setSourceModelEP18QAbstractItemModel": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QCompletionModel11mapToSourceERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK16QCompletionModel13mapFromSourceERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN16QCompletionModel10invalidateEv": ["nothing", "address"],
+    "ritual_ZN16QCompletionModel14modelDestroyedEv": ["nothing", "address"],
+    "ritual_take_QCompletionModel": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK16QCompletionModel5indexEiiRK11QModelIndex": [
+      "address", "address", "int", "int", "address"
+    ],
+    "ritual_own_ZNK16QCompletionModel8rowCountERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZNK16QCompletionModel11columnCountERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZNK16QCompletionModel11hasChildrenERK11QModelIndex": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZNK16QCompletionModel6parentERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZNK16QCompletionModel4dataERK11QModelIndexi": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_own_ZN16QCompletionModel14setSourceModelEP18QAbstractItemModel": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK16QCompletionModel11mapToSourceERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZNK16QCompletionModel13mapFromSourceERK11QModelIndex": [
+      "address", "address", "address"
+    ]
+  }
+}

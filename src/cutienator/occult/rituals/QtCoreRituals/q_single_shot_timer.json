@@ -1,0 +1,14 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qsingleshottimer_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK16QSingleShotTimer10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QSingleShotTimer10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QSingleShotTimer": ["bool", "address", "chars", "address"]
+  }
+}

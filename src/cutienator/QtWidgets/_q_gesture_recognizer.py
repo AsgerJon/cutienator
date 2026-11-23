@@ -273,7 +273,7 @@ class QGestureRecognizer(CuteMixin, metaclass=MetaCute):
     ritual = 'ritual_ZN18QGestureRecognizer6createEP7QObject'
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZN18QGestureRecognizer6createEP7QObject'
-    address = self.uglySide.call(ritual, self._addressOf(target))
+    address = self.uglySide.call(ritual, self._addressOf(target, 'QObject'))
     from . import QGesture
     return QGesture._cuteAt(address)
 
@@ -323,7 +323,7 @@ class QGestureRecognizer(CuteMixin, metaclass=MetaCute):
     return QGestureRecognizer.Result(self.uglySide.call(
         'ritual_ZN18QGestureRecognizer9recognizeEP8QGestureP7QObjectP6QEven'
         't',
-        self._addressOf(state), self._addressOf(watched),
+        self._addressOf(state), self._addressOf(watched, 'QObject'),
         self._addressOf(event),
     ))
 

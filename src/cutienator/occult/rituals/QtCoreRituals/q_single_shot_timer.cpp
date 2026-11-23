@@ -1,0 +1,193 @@
+//  Written by dev_tooling.RitualGenerator from the records of
+//  QtCore/6.12.0/QtCore/private/qsingleshottimer_p.h, Qt 6.12.0. Changes
+//  made here are lost.
+#include <QtCore/QtCore>
+#include <QtCore/6.12.0/QtCore/private/qsingleshottimer_p.h>
+#include <QtCore/qmetaobject.h>
+#include <cstring>
+#include <QtCore/private/qsingleshottimer_p.h>
+#include "qcoreapplication.h"
+#include "qmetaobject_p.h"
+#include "private/qnumeric_p.h"
+#include "qthread.h"
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it.
+
+//  from src/corelib/kernel/qsingleshottimer.cpp, line 67, as _ZN16QSingleShotTimer10timerEventEP11QTimerEvent
+inline void QSingleShotTimer::timerEvent(QTimerEvent *event)
+{
+    if (event->id() == Qt::TimerId::Invalid) {
+        StartTimerEvent *startTimerEvent = static_cast<StartTimerEvent *>(event);
+        Q_UNUSED(startTimerEvent->timer.release()); // it's the same as "this"
+        const QDeadlineTimer &deadline = startTimerEvent->deadline;
+        if (deadline.hasExpired()) {
+            timerFinished();
+        } else {
+            timer.start(deadline.remainingTimeAsDuration(), deadline.timerType(), this);
+            // we are now definitely in a thread that has an event dispatcher
+            setParent(QThread::currentThread()->eventDispatcher());
+        }
+    } else {
+        // need to kill the timer _before_ we emit timeout() in case the
+        // slot connected to timeout calls processEvents()
+        timer.stop();
+
+        timerFinished();
+    }
+}
+//  -----------------------------------------------------------------------
+
+//  A QSingleShotTimer that Python can take functions over in. Every QSingleShotTimer
+//  Python makes is one. Each function below asks the Python
+//  function handed over for it, and runs Qt's own without one.
+typedef void (*CuteQSingleShotTimerCall0)(const void *, QTimerEvent *, int *);
+typedef bool (*CuteQSingleShotTimerCall1)(const void *, QEvent *, int *);
+typedef bool (*CuteQSingleShotTimerCall2)(const void *, QObject *, QEvent *, int *);
+typedef void (*CuteQSingleShotTimerCall3)(const void *, QChildEvent *, int *);
+typedef void (*CuteQSingleShotTimerCall4)(const void *, QEvent *, int *);
+typedef void (*CuteQSingleShotTimerCall5)(const void *, const QMetaMethod *, int *);
+typedef void (*CuteQSingleShotTimerCall6)(const void *, const QMetaMethod *, int *);
+class CuteQSingleShotTimer : public QSingleShotTimer {
+public:
+  using QSingleShotTimer::QSingleShotTimer;
+  void *taken[7] = {};
+
+  bool take(const char *key, void *call) {
+    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
+      taken[0] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
+      taken[1] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
+      taken[2] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
+      taken[3] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+      taken[4] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+      taken[5] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+      taken[6] = call;
+      return true;
+    }
+    return false;
+  }
+
+  //  void QSingleShotTimer::timerEvent(QTimerEvent *a0)
+  void timerEvent(QTimerEvent *a0) override {
+    if (taken[0]) {
+      int handled = 0;
+      CuteQSingleShotTimerCall0 call = reinterpret_cast<CuteQSingleShotTimerCall0>(taken[0]);
+      call(this, a0, &handled);
+      if (handled) return;
+    }
+    QSingleShotTimer::timerEvent(a0);
+  }
+
+  //  bool QObject::event(QEvent *event)
+  bool event(QEvent *event) override {
+    if (taken[1]) {
+      int handled = 0;
+      CuteQSingleShotTimerCall1 call = reinterpret_cast<CuteQSingleShotTimerCall1>(taken[1]);
+      bool given = call(this, event, &handled);
+      if (handled) return given;
+    }
+    return QObject::event(event);
+  }
+
+  //  bool QObject::eventFilter(QObject *watched, QEvent *event)
+  bool eventFilter(QObject *watched, QEvent *event) override {
+    if (taken[2]) {
+      int handled = 0;
+      CuteQSingleShotTimerCall2 call = reinterpret_cast<CuteQSingleShotTimerCall2>(taken[2]);
+      bool given = call(this, watched, event, &handled);
+      if (handled) return given;
+    }
+    return QObject::eventFilter(watched, event);
+  }
+
+  //  void QObject::childEvent(QChildEvent *event)
+  void childEvent(QChildEvent *event) override {
+    if (taken[3]) {
+      int handled = 0;
+      CuteQSingleShotTimerCall3 call = reinterpret_cast<CuteQSingleShotTimerCall3>(taken[3]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QObject::childEvent(event);
+  }
+
+  //  void QObject::customEvent(QEvent *event)
+  void customEvent(QEvent *event) override {
+    if (taken[4]) {
+      int handled = 0;
+      CuteQSingleShotTimerCall4 call = reinterpret_cast<CuteQSingleShotTimerCall4>(taken[4]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QObject::customEvent(event);
+  }
+
+  //  void QObject::connectNotify(const QMetaMethod &signal)
+  void connectNotify(const QMetaMethod &signal) override {
+    if (taken[5]) {
+      int handled = 0;
+      CuteQSingleShotTimerCall5 call = reinterpret_cast<CuteQSingleShotTimerCall5>(taken[5]);
+      call(this, &signal, &handled);
+      if (handled) return;
+    }
+    QObject::connectNotify(signal);
+  }
+
+  //  void QObject::disconnectNotify(const QMetaMethod &signal)
+  void disconnectNotify(const QMetaMethod &signal) override {
+    if (taken[6]) {
+      int handled = 0;
+      CuteQSingleShotTimerCall6 call = reinterpret_cast<CuteQSingleShotTimerCall6>(taken[6]);
+      call(this, &signal, &handled);
+      if (handled) return;
+    }
+    QObject::disconnectNotify(signal);
+  }
+};
+
+//  const QMetaObject *QSingleShotTimer::metaObject() const
+extern "C" Q_DECL_EXPORT
+const QMetaObject *ritual_ZNK16QSingleShotTimer10metaObjectEv(
+    const QSingleShotTimer *self) {
+  return self->metaObject();
+}
+
+//  void QSingleShotTimer::timerEvent(QTimerEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSingleShotTimer10timerEventEP11QTimerEvent(
+    QSingleShotTimer *self,
+    QTimerEvent *a0) {
+  self->timerEvent(a0);
+}
+
+//  a Python function taken by a CuteQSingleShotTimer, for the function named
+//      by the key
+extern "C" Q_DECL_EXPORT
+bool ritual_take_QSingleShotTimer(
+    QSingleShotTimer *self,
+    const char *key,
+    void *call) {
+  return static_cast<CuteQSingleShotTimer *>(self)->take(key, call);
+}

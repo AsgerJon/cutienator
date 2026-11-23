@@ -282,7 +282,7 @@ class QGraphicsColorizeEffect(QGraphicsEffect):
     #  QGraphicsColorizeEffect::QGraphicsColorizeEffect(QObject *parent)
     self._noteCreation(QGraphicsColorizeEffect, lambda: Rituals.call(
         'ritual_ZN23QGraphicsColorizeEffectC1EP7QObject',
-        self._addressOf(parent),
+        self._addressOf(parent, 'QObject'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

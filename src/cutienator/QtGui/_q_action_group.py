@@ -385,7 +385,8 @@ class QActionGroup(QObject):
     """
     #  QActionGroup::QActionGroup(QObject *parent)
     self._noteCreation(QActionGroup, lambda: Rituals.call(
-        'ritual_ZN12QActionGroupC1EP7QObject', self._addressOf(parent),
+        'ritual_ZN12QActionGroupC1EP7QObject',
+        self._addressOf(parent, 'QObject'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

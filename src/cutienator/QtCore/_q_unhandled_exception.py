@@ -108,10 +108,7 @@ class QUnhandledException(QException):
       no object.
     """
     #  QUnhandledException *QUnhandledException::clone() const
-    ritual = 'ritual_ZNK19QUnhandledException5cloneEv'
-    if self.uglySide.isOurs():
-      ritual = 'ritual_own_ZNK19QUnhandledException5cloneEv'
-    address = self.uglySide.call(ritual)
+    address = self.uglySide.call('ritual_ZNK19QUnhandledException5cloneEv')
     return QUnhandledException._cuteAt(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -180,7 +177,4 @@ class QUnhandledException(QException):
     Qt's own words: https://doc.qt.io/qt-6/qunhandledexception.html#raise
     """
     #  void QUnhandledException::raise() const
-    ritual = 'ritual_ZNK19QUnhandledException5raiseEv'
-    if self.uglySide.isOurs():
-      ritual = 'ritual_own_ZNK19QUnhandledException5raiseEv'
-    self.uglySide.call(ritual)
+    self.uglySide.call('ritual_ZNK19QUnhandledException5raiseEv')

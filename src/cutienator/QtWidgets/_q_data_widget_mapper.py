@@ -588,7 +588,8 @@ class QDataWidgetMapper(QObject):
     """
     #  QDataWidgetMapper::QDataWidgetMapper(QObject *parent)
     self._noteCreation(QDataWidgetMapper, lambda: Rituals.call(
-        'ritual_ZN17QDataWidgetMapperC1EP7QObject', self._addressOf(parent),
+        'ritual_ZN17QDataWidgetMapperC1EP7QObject',
+        self._addressOf(parent, 'QObject'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

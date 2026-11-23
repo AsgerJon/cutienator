@@ -1,0 +1,14 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qpermissions_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN17QPermissionPluginD1Ev": ["nothing", "address"],
+    "ritual_ZN17QPermissionPlugin15checkPermissionERK11QPermission": [
+      "int", "address", "address"
+    ],
+    "ritual_take_QPermissionPlugin": ["bool", "address", "chars", "address"]
+  }
+}

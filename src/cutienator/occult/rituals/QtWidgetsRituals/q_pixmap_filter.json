@@ -1,0 +1,23 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qpixmapfilter_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK13QPixmapFilter10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QPixmapFilter2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN13QPixmapFilterD1Ev": ["nothing", "address"],
+    "ritual_ZNK13QPixmapFilter4typeEv": ["int", "address"],
+    "ritual_ZNK13QPixmapFilter15boundingRectForERK6QRectF": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK13QPixmapFilter4drawEP8QPainterRK7QPointFRK7QPixmapRK6QRectF": [
+      "nothing", "address", "address", "address", "address", "address"
+    ],
+    "ritual_take_QPixmapFilter": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK13QPixmapFilter15boundingRectForERK6QRectF": [
+      "address", "address", "address"
+    ]
+  }
+}

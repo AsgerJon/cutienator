@@ -1,0 +1,33 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qstyleanimation_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK20QBlendStyleAnimation10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QBlendStyleAnimation2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN20QBlendStyleAnimationC1ENS_4TypeEP7QObject": [
+      "address", "int", "address"
+    ],
+    "ritual_ZNK20QBlendStyleAnimation10startImageEv": ["address", "address"],
+    "ritual_ZN20QBlendStyleAnimation13setStartImageERK6QImage": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QBlendStyleAnimation8endImageEv": ["address", "address"],
+    "ritual_ZN20QBlendStyleAnimation11setEndImageERK6QImage": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QBlendStyleAnimation12currentImageEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QBlendStyleAnimation17updateCurrentTimeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN20QBlendStyleAnimation17updateCurrentTimeEi": [
+      "nothing", "address", "int"
+    ]
+  }
+}

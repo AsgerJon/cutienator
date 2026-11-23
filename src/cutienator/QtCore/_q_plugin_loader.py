@@ -342,7 +342,8 @@ class QPluginLoader(QObject):
     """
     #  QPluginLoader::QPluginLoader(QObject *parent)
     self._noteCreation(QPluginLoader, lambda: Rituals.call(
-        'ritual_ZN13QPluginLoaderC1EP7QObject', self._addressOf(parent),
+        'ritual_ZN13QPluginLoaderC1EP7QObject',
+        self._addressOf(parent, 'QObject'),
     ))
 
   @overload(str)
@@ -372,7 +373,7 @@ class QPluginLoader(QObject):
     #  QPluginLoader::QPluginLoader(const QString &fileName, QObject *parent)
     self._noteCreation(QPluginLoader, lambda: Rituals.call(
         'ritual_ZN13QPluginLoaderC1ERK7QStringP7QObject',
-        fileName, self._addressOf(parent),
+        fileName, self._addressOf(parent, 'QObject'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

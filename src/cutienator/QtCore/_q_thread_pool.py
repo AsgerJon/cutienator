@@ -411,7 +411,8 @@ class QThreadPool(QObject):
     """
     #  QThreadPool::QThreadPool(QObject *parent)
     self._noteCreation(QThreadPool, lambda: Rituals.call(
-        'ritual_ZN11QThreadPoolC1EP7QObject', self._addressOf(parent),
+        'ritual_ZN11QThreadPoolC1EP7QObject',
+        self._addressOf(parent, 'QObject'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

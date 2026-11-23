@@ -896,7 +896,7 @@ class QMdiArea(QAbstractScrollArea):
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZN8QMdiArea11eventFilterEP7QObjectP6QEvent'
     return self.uglySide.call(
-        ritual, self._addressOf(object), self._addressOf(event),
+        ritual, self._addressOf(object, 'QObject'), self._addressOf(event),
     )
 
   @overload(QPaintEvent)

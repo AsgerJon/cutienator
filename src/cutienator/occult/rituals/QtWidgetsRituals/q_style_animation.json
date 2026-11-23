@@ -1,0 +1,42 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qstyleanimation_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK15QStyleAnimation10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QStyleAnimation2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN15QStyleAnimationC1EP7QObject": ["address", "address"],
+    "ritual_ZN15QStyleAnimationD1Ev": ["nothing", "address"],
+    "ritual_ZNK15QStyleAnimation6targetEv": ["address", "address"],
+    "ritual_ZNK15QStyleAnimation8durationEv": ["int", "address"],
+    "ritual_ZN15QStyleAnimation11setDurationEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QStyleAnimation5delayEv": ["int", "address"],
+    "ritual_ZN15QStyleAnimation8setDelayEi": ["nothing", "address", "int"],
+    "ritual_ZNK15QStyleAnimation9startTimeEv": ["address", "address"],
+    "ritual_ZN15QStyleAnimation12setStartTimeE5QTime": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QStyleAnimation9frameRateEv": ["int", "address"],
+    "ritual_ZN15QStyleAnimation12setFrameRateENS_9FrameRateE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN15QStyleAnimation12updateTargetEv": ["nothing", "address"],
+    "ritual_ZN15QStyleAnimation5startEv": ["nothing", "address"],
+    "ritual_ZNK15QStyleAnimation14isUpdateNeededEv": ["bool", "address"],
+    "ritual_ZN15QStyleAnimation17updateCurrentTimeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_take_QStyleAnimation": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK15QStyleAnimation8durationEv": ["int", "address"],
+    "ritual_own_ZNK15QStyleAnimation14isUpdateNeededEv": ["bool", "address"],
+    "ritual_own_ZN15QStyleAnimation17updateCurrentTimeEi": [
+      "nothing", "address", "int"
+    ]
+  }
+}

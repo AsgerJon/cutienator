@@ -246,7 +246,8 @@ class QAnimationDriver(QObject):
     """
     #  QAnimationDriver::QAnimationDriver(QObject *parent)
     self._noteCreation(QAnimationDriver, lambda: Rituals.call(
-        'ritual_ZN16QAnimationDriverC1EP7QObject', self._addressOf(parent),
+        'ritual_ZN16QAnimationDriverC1EP7QObject',
+        self._addressOf(parent, 'QObject'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

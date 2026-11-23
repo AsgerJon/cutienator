@@ -1,0 +1,57 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qwidgetwindow_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK13QWidgetWindow10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QWidgetWindowD1Ev": ["nothing", "address"],
+    "ritual_ZNK13QWidgetWindow6widgetEv": ["address", "address"],
+    "ritual_ZNK13QWidgetWindow14accessibleRootEv": ["address", "address"],
+    "ritual_ZNK13QWidgetWindow11focusObjectEv": ["address", "address"],
+    "ritual_ZN13QWidgetWindow18focusNextPrevChildEP7QWidgetb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN13QWidgetWindow29handleNonClientAreaMouseEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QWidgetWindow16handleTouchEventEP11QTouchEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QWidgetWindow15handleMoveEventEP10QMoveEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QWidgetWindow17handleResizeEventEP12QResizeEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QWidgetWindow20handleDragLeaveEventEP15QDragLeaveEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QWidgetWindow15handleDropEventEP10QDropEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QWidgetWindow17handleExposeEventEP12QExposeEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QWidgetWindow29handleWindowStateChangedEventEP23QWindowStateChangeEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QWidgetWindow17handleTabletEventEP12QTabletEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QWidgetWindow18handleGestureEventEP19QNativeGestureEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QWidgetWindow10updateSizeEv": ["bool", "address"],
+    "ritual_ZN13QWidgetWindow13updateMarginsEv": ["nothing", "address"],
+    "ritual_ZN13QWidgetWindow20updateNormalGeometryEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QWidgetWindow": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK13QWidgetWindow14accessibleRootEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK13QWidgetWindow11focusObjectEv": ["address", "address"]
+  }
+}

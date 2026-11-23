@@ -338,7 +338,8 @@ class QAbstractEventDispatcherV2(QAbstractEventDispatcher):
     self.uglySide.call(
         'ritual_ZN26QAbstractEventDispatcherV213registerTimerEixN2Qt9TimerT'
         'ypeEP7QObject',
-        timerId, interval, timerType.value, self._addressOf(object),
+        timerId, interval, timerType.value, self._addressOf(object,
+        'QObject'),
     )
 
   @overload(int)

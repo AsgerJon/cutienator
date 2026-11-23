@@ -559,7 +559,8 @@ class QOpenGLContext(QObject):
     """
     #  QOpenGLContext::QOpenGLContext(QObject *parent)
     self._noteCreation(QOpenGLContext, lambda: Rituals.call(
-        'ritual_ZN14QOpenGLContextC1EP7QObject', self._addressOf(parent),
+        'ritual_ZN14QOpenGLContextC1EP7QObject',
+        self._addressOf(parent, 'QObject'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

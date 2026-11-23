@@ -1,0 +1,45 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qdatetimeedit_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK14QCalendarPopup10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QCalendarPopup12selectedDateEv": ["address", "address"],
+    "ritual_ZN14QCalendarPopup7setDateE5QDate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QCalendarPopup12setDateRangeE5QDateS0_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN14QCalendarPopup17setFirstDayOfWeekEN2Qt9DayOfWeekE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK14QCalendarPopup14calendarWidgetEv": ["address", "address"],
+    "ritual_ZN14QCalendarPopup17setCalendarWidgetEP15QCalendarWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QCalendarPopup9hideEventEP10QHideEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QCalendarPopup15mousePressEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QCalendarPopup17mouseReleaseEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QCalendarPopup5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN14QCalendarPopup22verifyCalendarInstanceEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN14QCalendarPopup15mousePressEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN14QCalendarPopup5eventEP6QEvent": [
+      "bool", "address", "address"
+    ]
+  }
+}

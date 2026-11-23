@@ -318,7 +318,8 @@ class QTextDocument(QObject):
     """
     #  QTextDocument *QTextDocument::clone(QObject *parent) const
     address = self.uglySide.call(
-        'ritual_ZNK13QTextDocument5cloneEP7QObject', self._addressOf(parent),
+        'ritual_ZNK13QTextDocument5cloneEP7QObject',
+        self._addressOf(parent, 'QObject'),
     )
     return QTextDocument._cuteAt(address)
 
@@ -1767,7 +1768,8 @@ class QTextDocument(QObject):
     """
     #  QTextDocument::QTextDocument(QObject *parent)
     self._noteCreation(QTextDocument, lambda: Rituals.call(
-        'ritual_ZN13QTextDocumentC1EP7QObject', self._addressOf(parent),
+        'ritual_ZN13QTextDocumentC1EP7QObject',
+        self._addressOf(parent, 'QObject'),
     ))
 
   @overload(str)
@@ -1793,7 +1795,7 @@ class QTextDocument(QObject):
     #  QTextDocument::QTextDocument(const QString &text, QObject *parent)
     self._noteCreation(QTextDocument, lambda: Rituals.call(
         'ritual_ZN13QTextDocumentC1ERK7QStringP7QObject',
-        text, self._addressOf(parent),
+        text, self._addressOf(parent, 'QObject'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

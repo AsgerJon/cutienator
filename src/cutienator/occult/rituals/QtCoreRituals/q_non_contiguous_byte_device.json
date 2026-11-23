@@ -1,0 +1,32 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qnoncontiguousbytedevice_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK24QNonContiguousByteDevice10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24QNonContiguousByteDevice2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN24QNonContiguousByteDevice11readPointerExRx": [
+      "chars", "address", "long long", "address"
+    ],
+    "ritual_ZN24QNonContiguousByteDevice18advanceReadPointerEx": [
+      "bool", "address", "long long"
+    ],
+    "ritual_ZNK24QNonContiguousByteDevice5atEndEv": ["bool", "address"],
+    "ritual_ZNK24QNonContiguousByteDevice3posEv": ["long long", "address"],
+    "ritual_ZN24QNonContiguousByteDevice5resetEv": ["bool", "address"],
+    "ritual_ZNK24QNonContiguousByteDevice4sizeEv": ["long long", "address"],
+    "ritual_ZN24QNonContiguousByteDeviceD1Ev": ["nothing", "address"],
+    "ritual_take_QNonContiguousByteDevice": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK24QNonContiguousByteDevice3posEv": [
+      "long long", "address"
+    ]
+  }
+}

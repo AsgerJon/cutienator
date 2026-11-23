@@ -408,7 +408,8 @@ class QInputDevice(QObject):
     """
     #  QInputDevice::QInputDevice(QObject *parent)
     self._noteCreation(QInputDevice, lambda: Rituals.call(
-        'ritual_ZN12QInputDeviceC1EP7QObject', self._addressOf(parent),
+        'ritual_ZN12QInputDeviceC1EP7QObject',
+        self._addressOf(parent, 'QObject'),
     ))
 
   @overload(str, int, DeviceType)
@@ -454,7 +455,8 @@ class QInputDevice(QObject):
     #      DeviceType type, const QString &seatName, QObject *parent)
     self._noteCreation(QInputDevice, lambda: Rituals.call(
         'ritual_ZN12QInputDeviceC1ERK7QStringxNS_10DeviceTypeES2_P7QObject',
-        name, systemId, type.value, seatName, self._addressOf(parent),
+        name, systemId, type.value, seatName, self._addressOf(parent,
+        'QObject'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -238,7 +238,7 @@ class QUndoGroup(QObject):
     #      &prefix) const
     address = self.uglySide.call(
         'ritual_ZNK10QUndoGroup16createUndoActionEP7QObjectRK7QString',
-        self._addressOf(parent), prefix,
+        self._addressOf(parent, 'QObject'), prefix,
     )
     from . import QAction
     return QAction._cuteAt(address)
@@ -280,7 +280,7 @@ class QUndoGroup(QObject):
     #      &prefix) const
     address = self.uglySide.call(
         'ritual_ZNK10QUndoGroup16createRedoActionEP7QObjectRK7QString',
-        self._addressOf(parent), prefix,
+        self._addressOf(parent, 'QObject'), prefix,
     )
     from . import QAction
     return QAction._cuteAt(address)
@@ -398,7 +398,8 @@ class QUndoGroup(QObject):
     """
     #  QUndoGroup::QUndoGroup(QObject *parent)
     self._noteCreation(QUndoGroup, lambda: Rituals.call(
-        'ritual_ZN10QUndoGroupC1EP7QObject', self._addressOf(parent),
+        'ritual_ZN10QUndoGroupC1EP7QObject',
+        self._addressOf(parent, 'QObject'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

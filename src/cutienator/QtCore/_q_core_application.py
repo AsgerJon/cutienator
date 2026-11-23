@@ -556,7 +556,8 @@ class QCoreApplication(QObject):
     #  bool QCoreApplication::sendEvent(QObject *receiver, QEvent *event)
     return Rituals.call(
         'ritual_ZN16QCoreApplication9sendEventEP7QObjectP6QEvent',
-        CuteMixin._addressOf(receiver), CuteMixin._addressOf(event),
+        CuteMixin._addressOf(receiver, 'QObject'),
+        CuteMixin._addressOf(event),
     )
 
   @staticmethod
@@ -597,8 +598,8 @@ class QCoreApplication(QObject):
     #      priority)
     Rituals.call(
         'ritual_ZN16QCoreApplication9postEventEP7QObjectP6QEventi',
-        CuteMixin._addressOf(receiver), CuteMixin._addressOf(event),
-        priority,
+        CuteMixin._addressOf(receiver, 'QObject'),
+        CuteMixin._addressOf(event), priority,
     )
 
   @staticmethod
@@ -632,7 +633,7 @@ class QCoreApplication(QObject):
     #      event_type)
     Rituals.call(
         'ritual_ZN16QCoreApplication16sendPostedEventsEP7QObjecti',
-        CuteMixin._addressOf(receiver), event_type,
+        CuteMixin._addressOf(receiver, 'QObject'), event_type,
     )
 
   @staticmethod
@@ -665,7 +666,7 @@ class QCoreApplication(QObject):
     #      eventType)
     Rituals.call(
         'ritual_ZN16QCoreApplication18removePostedEventsEP7QObjecti',
-        CuteMixin._addressOf(receiver), eventType,
+        CuteMixin._addressOf(receiver, 'QObject'), eventType,
     )
 
   @staticmethod
@@ -1066,7 +1067,8 @@ class QCoreApplication(QObject):
     return Rituals.call(
         'ritual_ZN16QCoreApplication20sendSpontaneousEventEP7QObjectP6QEven'
         't',
-        CuteMixin._addressOf(receiver), CuteMixin._addressOf(event),
+        CuteMixin._addressOf(receiver, 'QObject'),
+        CuteMixin._addressOf(event),
     )
 
   @staticmethod
@@ -1099,7 +1101,7 @@ class QCoreApplication(QObject):
     #  bool QCoreApplication::notifyInternal2(QObject *receiver, QEvent *a1)
     return Rituals.call(
         'ritual_ZN16QCoreApplication15notifyInternal2EP7QObjectP6QEvent',
-        CuteMixin._addressOf(receiver), CuteMixin._addressOf(a1),
+        CuteMixin._addressOf(receiver, 'QObject'), CuteMixin._addressOf(a1),
     )
 
   @staticmethod
@@ -1145,8 +1147,8 @@ class QCoreApplication(QObject):
     #      QEvent *originatingEvent)
     return Rituals.call(
         'ritual_ZN16QCoreApplication12forwardEventEP7QObjectP6QEventS3_',
-        CuteMixin._addressOf(receiver), CuteMixin._addressOf(event),
-        CuteMixin._addressOf(originatingEvent),
+        CuteMixin._addressOf(receiver, 'QObject'),
+        CuteMixin._addressOf(event), CuteMixin._addressOf(originatingEvent),
     )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1310,7 +1312,7 @@ class QCoreApplication(QObject):
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZN16QCoreApplication6notifyEP7QObjectP6QEvent'
     return self.uglySide.call(
-        ritual, self._addressOf(a0), self._addressOf(a1),
+        ritual, self._addressOf(a0, 'QObject'), self._addressOf(a1),
     )
 
   @overload(QPermission)

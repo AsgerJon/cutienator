@@ -24,14 +24,11 @@ __all__ = (
     'QPaintEngineState',
     'QRgba64',
     'QTextBlockUserData',
-    'QTextFragment',
     'QTextFrameLayoutData',
-    'QTextInlineObject',
     'QTextItem',
     'QTextLength',
     'QTextOption',
     'QBrushDataPointerDeleter',
-    'QTextBlock',
     'QAccessibleViewportInterface',
     'QAccessibleActionInterface',
     'QAccessibleEditableTextInterface',
@@ -64,8 +61,10 @@ __all__ = (
     'QIconEnginePlugin',
     'QImageIOPlugin',
     'QInputDevice',
+    'QInputDeviceManager',
     'QInputMethodEvent',
     'QInputMethodQueryEvent',
+    'QInternalMimeData',
     'QKeySequence',
     'QMoveEvent',
     'QOpenGLContextGroup',
@@ -126,6 +125,7 @@ __all__ = (
     'QEventPoint',
     'QPointerEvent',
     'QPointingDevice',
+    'QTouchEvent',
     'QExposeEvent',
     'QFileOpenEvent',
     'QFontMetrics',
@@ -140,7 +140,6 @@ __all__ = (
     'QOffscreenSurface',
     'QOpenGLContext',
     'QPagedPaintDevice',
-    'QPaintEngine',
     'QPaintEvent',
     'QPainterPathStroker',
     'QPainterStateGuard',
@@ -148,40 +147,47 @@ __all__ = (
     'QPixmapCache',
     'QShortcutEvent',
     'QTextFormat',
-    'QTextLayout',
+    'QBasicDrag',
+    'QDragManager',
     'QFontMetricsF',
+    'QInputControl',
+    'QKeyMapper',
     'QOpenGLFunctionsPrivate',
     'QPdfWriter',
     'QSinglePointEvent',
     'QTextBlockFormat',
     'QTextCharFormat',
     'QTextFrameFormat',
-    'QTextLine',
     'QTextListFormat',
-    'QTouchEvent',
-    'QAbstractFileIconProvider',
     'QEnterEvent',
+    'QFontCache',
     'QHoverEvent',
     'QMouseEvent',
     'QNativeGestureEvent',
     'QOpenGLExtraFunctionsPrivate',
     'QOpenGLFunctions',
+    'QSimpleDrag',
     'QTabletEvent',
     'QTextImageFormat',
     'QTextTableCellFormat',
     'QTextTableFormat',
     'QWheelEvent',
+    'QAbstractFileIconProvider',
     'QTextDocument',
-    'QTextDocumentFragment',
+    'QTextBlock',
+    'QTextInlineObject',
+    'QTextLayout',
     'QTextObject',
     'QTextFrame',
     'QAbstractTextDocumentLayout',
     'QTextCursor',
-    'QFileSystemModel',
+    'QTextTable',
+    'QTextDocumentFragment',
     'QIcon',
     'QIconEngine',
     'QWindow',
     'QOpenGLExtraFunctions',
+    'QPaintEngine',
     'QAccessibleInterface',
     'QAccessible',
     'QAccessibleEvent',
@@ -189,18 +195,20 @@ __all__ = (
     'QActionGroup',
     'QBackingStore',
     'QChildWindowEvent',
-    'QGuiApplication',
-    'QSessionManager',
-    'QPaintDeviceWindow',
+    'QFileInfoGatherer',
+    'QFileSystemModel',
     'QStandardItem',
+    'QStandardItemModel',
     'QSyntaxHighlighter',
-    'QTextBlockGroup',
     'QTextDocumentWriter',
+    'QTextFragment',
+    'QTextLine',
     'QTextObjectInterface',
-    'QTextTable',
+    'QTextTableCell',
     'QAccessibleAnnouncementEvent',
     'QAccessibleAttributesInterface',
     'QAccessibleBridge',
+    'QAccessibleCache',
     'QAccessibleObject',
     'QAccessibleSelectionInterface',
     'QAccessibleStateChangeEvent',
@@ -209,16 +217,22 @@ __all__ = (
     'QAccessibleTextInterface',
     'QAccessibleValueChangeEvent',
     'QActionEvent',
-    'QRasterWindow',
-    'QStandardItemModel',
-    'QTextList',
-    'QTextTableCell',
+    'QBackingStoreRhiSupportWindowWatcher',
+    'QGuiApplication',
+    'QSessionManager',
+    'QPaintDeviceWindow',
+    'QTextBlockGroup',
+    'QTextDocumentLayout',
+    'QTextImageHandler',
     'QAccessibleApplication',
     'QAccessibleTableInterface',
     'QAccessibleTextInsertEvent',
     'QAccessibleTextRemoveEvent',
     'QAccessibleTextSelectionEvent',
     'QAccessibleTextUpdateEvent',
+    'QRasterWindow',
+    'QTextList',
+    'QShapedPixmapWindow',
     'QWindowList',
 )
 
@@ -233,14 +247,11 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from ._q_paint_engine_state import QPaintEngineState
   from ._q_rgba64 import QRgba64
   from ._q_text_block_user_data import QTextBlockUserData
-  from ._q_text_fragment import QTextFragment
   from ._q_text_frame_layout_data import QTextFrameLayoutData
-  from ._q_text_inline_object import QTextInlineObject
   from ._q_text_item import QTextItem
   from ._q_text_length import QTextLength
   from ._q_text_option import QTextOption
   from ._q_brush_data_pointer_deleter import QBrushDataPointerDeleter
-  from ._q_text_block import QTextBlock
   from ._q_accessible_viewport_interface import QAccessibleViewportInterface
   from ._q_accessible_action_interface import QAccessibleActionInterface
   from ._q_accessible_editable_text_interface import QAccessibleEditableTextInterface
@@ -273,8 +284,10 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from ._q_icon_engine_plugin import QIconEnginePlugin
   from ._q_image_i_o_plugin import QImageIOPlugin
   from ._q_input_device import QInputDevice
+  from ._q_input_device_manager import QInputDeviceManager
   from ._q_input_method_event import QInputMethodEvent
   from ._q_input_method_query_event import QInputMethodQueryEvent
+  from ._q_internal_mime_data import QInternalMimeData
   from ._q_key_sequence import QKeySequence
   from ._q_move_event import QMoveEvent
   from ._q_open_g_l_context_group import QOpenGLContextGroup
@@ -335,6 +348,7 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from ._q_event_point import QEventPoint
   from ._q_pointer_event import QPointerEvent
   from ._q_pointing_device import QPointingDevice
+  from ._q_touch_event import QTouchEvent
   from ._q_expose_event import QExposeEvent
   from ._q_file_open_event import QFileOpenEvent
   from ._q_font_metrics import QFontMetrics
@@ -349,7 +363,6 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from ._q_offscreen_surface import QOffscreenSurface
   from ._q_open_g_l_context import QOpenGLContext
   from ._q_paged_paint_device import QPagedPaintDevice
-  from ._q_paint_engine import QPaintEngine
   from ._q_paint_event import QPaintEvent
   from ._q_painter_path_stroker import QPainterPathStroker
   from ._q_painter_state_guard import QPainterStateGuard
@@ -357,40 +370,47 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from ._q_pixmap_cache import QPixmapCache
   from ._q_shortcut_event import QShortcutEvent
   from ._q_text_format import QTextFormat
-  from ._q_text_layout import QTextLayout
+  from ._q_basic_drag import QBasicDrag
+  from ._q_drag_manager import QDragManager
   from ._q_font_metrics_f import QFontMetricsF
+  from ._q_input_control import QInputControl
+  from ._q_key_mapper import QKeyMapper
   from ._q_open_g_l_functions_private import QOpenGLFunctionsPrivate
   from ._q_pdf_writer import QPdfWriter
   from ._q_single_point_event import QSinglePointEvent
   from ._q_text_block_format import QTextBlockFormat
   from ._q_text_char_format import QTextCharFormat
   from ._q_text_frame_format import QTextFrameFormat
-  from ._q_text_line import QTextLine
   from ._q_text_list_format import QTextListFormat
-  from ._q_touch_event import QTouchEvent
-  from ._q_abstract_file_icon_provider import QAbstractFileIconProvider
   from ._q_enter_event import QEnterEvent
+  from ._q_font_cache import QFontCache
   from ._q_hover_event import QHoverEvent
   from ._q_mouse_event import QMouseEvent
   from ._q_native_gesture_event import QNativeGestureEvent
   from ._q_open_g_l_extra_functions_private import QOpenGLExtraFunctionsPrivate
   from ._q_open_g_l_functions import QOpenGLFunctions
+  from ._q_simple_drag import QSimpleDrag
   from ._q_tablet_event import QTabletEvent
   from ._q_text_image_format import QTextImageFormat
   from ._q_text_table_cell_format import QTextTableCellFormat
   from ._q_text_table_format import QTextTableFormat
   from ._q_wheel_event import QWheelEvent
+  from ._q_abstract_file_icon_provider import QAbstractFileIconProvider
   from ._q_text_document import QTextDocument
-  from ._q_text_document_fragment import QTextDocumentFragment
+  from ._q_text_block import QTextBlock
+  from ._q_text_inline_object import QTextInlineObject
+  from ._q_text_layout import QTextLayout
   from ._q_text_object import QTextObject
   from ._q_text_frame import QTextFrame
   from ._q_abstract_text_document_layout import QAbstractTextDocumentLayout
   from ._q_text_cursor import QTextCursor
-  from ._q_file_system_model import QFileSystemModel
+  from ._q_text_table import QTextTable
+  from ._q_text_document_fragment import QTextDocumentFragment
   from ._q_icon import QIcon
   from ._q_icon_engine import QIconEngine
   from ._q_window import QWindow
   from ._q_open_g_l_extra_functions import QOpenGLExtraFunctions
+  from ._q_paint_engine import QPaintEngine
   from ._q_accessible_interface import QAccessibleInterface
   from ._q_accessible import QAccessible
   from ._q_accessible_event import QAccessibleEvent
@@ -398,18 +418,20 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from ._q_action_group import QActionGroup
   from ._q_backing_store import QBackingStore
   from ._q_child_window_event import QChildWindowEvent
-  from ._q_gui_application import QGuiApplication
-  from ._q_session_manager import QSessionManager
-  from ._q_paint_device_window import QPaintDeviceWindow
+  from ._q_file_info_gatherer import QFileInfoGatherer
+  from ._q_file_system_model import QFileSystemModel
   from ._q_standard_item import QStandardItem
+  from ._q_standard_item_model import QStandardItemModel
   from ._q_syntax_highlighter import QSyntaxHighlighter
-  from ._q_text_block_group import QTextBlockGroup
   from ._q_text_document_writer import QTextDocumentWriter
+  from ._q_text_fragment import QTextFragment
+  from ._q_text_line import QTextLine
   from ._q_text_object_interface import QTextObjectInterface
-  from ._q_text_table import QTextTable
+  from ._q_text_table_cell import QTextTableCell
   from ._q_accessible_announcement_event import QAccessibleAnnouncementEvent
   from ._q_accessible_attributes_interface import QAccessibleAttributesInterface
   from ._q_accessible_bridge import QAccessibleBridge
+  from ._q_accessible_cache import QAccessibleCache
   from ._q_accessible_object import QAccessibleObject
   from ._q_accessible_selection_interface import QAccessibleSelectionInterface
   from ._q_accessible_state_change_event import QAccessibleStateChangeEvent
@@ -418,16 +440,22 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from ._q_accessible_text_interface import QAccessibleTextInterface
   from ._q_accessible_value_change_event import QAccessibleValueChangeEvent
   from ._q_action_event import QActionEvent
-  from ._q_raster_window import QRasterWindow
-  from ._q_standard_item_model import QStandardItemModel
-  from ._q_text_list import QTextList
-  from ._q_text_table_cell import QTextTableCell
+  from ._q_backing_store_rhi_support_window_watcher import QBackingStoreRhiSupportWindowWatcher
+  from ._q_gui_application import QGuiApplication
+  from ._q_session_manager import QSessionManager
+  from ._q_paint_device_window import QPaintDeviceWindow
+  from ._q_text_block_group import QTextBlockGroup
+  from ._q_text_document_layout import QTextDocumentLayout
+  from ._q_text_image_handler import QTextImageHandler
   from ._q_accessible_application import QAccessibleApplication
   from ._q_accessible_table_interface import QAccessibleTableInterface
   from ._q_accessible_text_insert_event import QAccessibleTextInsertEvent
   from ._q_accessible_text_remove_event import QAccessibleTextRemoveEvent
   from ._q_accessible_text_selection_event import QAccessibleTextSelectionEvent
   from ._q_accessible_text_update_event import QAccessibleTextUpdateEvent
+  from ._q_raster_window import QRasterWindow
+  from ._q_text_list import QTextList
+  from ._q_shaped_pixmap_window import QShapedPixmapWindow
   from ._q_window import QWindowList
 else:
   #  Where each class is: the file that is brought in the first
@@ -441,14 +469,11 @@ else:
       'QPaintEngineState': '_q_paint_engine_state',
       'QRgba64': '_q_rgba64',
       'QTextBlockUserData': '_q_text_block_user_data',
-      'QTextFragment': '_q_text_fragment',
       'QTextFrameLayoutData': '_q_text_frame_layout_data',
-      'QTextInlineObject': '_q_text_inline_object',
       'QTextItem': '_q_text_item',
       'QTextLength': '_q_text_length',
       'QTextOption': '_q_text_option',
       'QBrushDataPointerDeleter': '_q_brush_data_pointer_deleter',
-      'QTextBlock': '_q_text_block',
       'QAccessibleViewportInterface': '_q_accessible_viewport_interface',
       'QAccessibleActionInterface': '_q_accessible_action_interface',
       'QAccessibleEditableTextInterface': '_q_accessible_editable_text_interface',
@@ -481,8 +506,10 @@ else:
       'QIconEnginePlugin': '_q_icon_engine_plugin',
       'QImageIOPlugin': '_q_image_i_o_plugin',
       'QInputDevice': '_q_input_device',
+      'QInputDeviceManager': '_q_input_device_manager',
       'QInputMethodEvent': '_q_input_method_event',
       'QInputMethodQueryEvent': '_q_input_method_query_event',
+      'QInternalMimeData': '_q_internal_mime_data',
       'QKeySequence': '_q_key_sequence',
       'QMoveEvent': '_q_move_event',
       'QOpenGLContextGroup': '_q_open_g_l_context_group',
@@ -543,6 +570,7 @@ else:
       'QEventPoint': '_q_event_point',
       'QPointerEvent': '_q_pointer_event',
       'QPointingDevice': '_q_pointing_device',
+      'QTouchEvent': '_q_touch_event',
       'QExposeEvent': '_q_expose_event',
       'QFileOpenEvent': '_q_file_open_event',
       'QFontMetrics': '_q_font_metrics',
@@ -557,7 +585,6 @@ else:
       'QOffscreenSurface': '_q_offscreen_surface',
       'QOpenGLContext': '_q_open_g_l_context',
       'QPagedPaintDevice': '_q_paged_paint_device',
-      'QPaintEngine': '_q_paint_engine',
       'QPaintEvent': '_q_paint_event',
       'QPainterPathStroker': '_q_painter_path_stroker',
       'QPainterStateGuard': '_q_painter_state_guard',
@@ -565,40 +592,47 @@ else:
       'QPixmapCache': '_q_pixmap_cache',
       'QShortcutEvent': '_q_shortcut_event',
       'QTextFormat': '_q_text_format',
-      'QTextLayout': '_q_text_layout',
+      'QBasicDrag': '_q_basic_drag',
+      'QDragManager': '_q_drag_manager',
       'QFontMetricsF': '_q_font_metrics_f',
+      'QInputControl': '_q_input_control',
+      'QKeyMapper': '_q_key_mapper',
       'QOpenGLFunctionsPrivate': '_q_open_g_l_functions_private',
       'QPdfWriter': '_q_pdf_writer',
       'QSinglePointEvent': '_q_single_point_event',
       'QTextBlockFormat': '_q_text_block_format',
       'QTextCharFormat': '_q_text_char_format',
       'QTextFrameFormat': '_q_text_frame_format',
-      'QTextLine': '_q_text_line',
       'QTextListFormat': '_q_text_list_format',
-      'QTouchEvent': '_q_touch_event',
-      'QAbstractFileIconProvider': '_q_abstract_file_icon_provider',
       'QEnterEvent': '_q_enter_event',
+      'QFontCache': '_q_font_cache',
       'QHoverEvent': '_q_hover_event',
       'QMouseEvent': '_q_mouse_event',
       'QNativeGestureEvent': '_q_native_gesture_event',
       'QOpenGLExtraFunctionsPrivate': '_q_open_g_l_extra_functions_private',
       'QOpenGLFunctions': '_q_open_g_l_functions',
+      'QSimpleDrag': '_q_simple_drag',
       'QTabletEvent': '_q_tablet_event',
       'QTextImageFormat': '_q_text_image_format',
       'QTextTableCellFormat': '_q_text_table_cell_format',
       'QTextTableFormat': '_q_text_table_format',
       'QWheelEvent': '_q_wheel_event',
+      'QAbstractFileIconProvider': '_q_abstract_file_icon_provider',
       'QTextDocument': '_q_text_document',
-      'QTextDocumentFragment': '_q_text_document_fragment',
+      'QTextBlock': '_q_text_block',
+      'QTextInlineObject': '_q_text_inline_object',
+      'QTextLayout': '_q_text_layout',
       'QTextObject': '_q_text_object',
       'QTextFrame': '_q_text_frame',
       'QAbstractTextDocumentLayout': '_q_abstract_text_document_layout',
       'QTextCursor': '_q_text_cursor',
-      'QFileSystemModel': '_q_file_system_model',
+      'QTextTable': '_q_text_table',
+      'QTextDocumentFragment': '_q_text_document_fragment',
       'QIcon': '_q_icon',
       'QIconEngine': '_q_icon_engine',
       'QWindow': '_q_window',
       'QOpenGLExtraFunctions': '_q_open_g_l_extra_functions',
+      'QPaintEngine': '_q_paint_engine',
       'QAccessibleInterface': '_q_accessible_interface',
       'QAccessible': '_q_accessible',
       'QAccessibleEvent': '_q_accessible_event',
@@ -606,18 +640,20 @@ else:
       'QActionGroup': '_q_action_group',
       'QBackingStore': '_q_backing_store',
       'QChildWindowEvent': '_q_child_window_event',
-      'QGuiApplication': '_q_gui_application',
-      'QSessionManager': '_q_session_manager',
-      'QPaintDeviceWindow': '_q_paint_device_window',
+      'QFileInfoGatherer': '_q_file_info_gatherer',
+      'QFileSystemModel': '_q_file_system_model',
       'QStandardItem': '_q_standard_item',
+      'QStandardItemModel': '_q_standard_item_model',
       'QSyntaxHighlighter': '_q_syntax_highlighter',
-      'QTextBlockGroup': '_q_text_block_group',
       'QTextDocumentWriter': '_q_text_document_writer',
+      'QTextFragment': '_q_text_fragment',
+      'QTextLine': '_q_text_line',
       'QTextObjectInterface': '_q_text_object_interface',
-      'QTextTable': '_q_text_table',
+      'QTextTableCell': '_q_text_table_cell',
       'QAccessibleAnnouncementEvent': '_q_accessible_announcement_event',
       'QAccessibleAttributesInterface': '_q_accessible_attributes_interface',
       'QAccessibleBridge': '_q_accessible_bridge',
+      'QAccessibleCache': '_q_accessible_cache',
       'QAccessibleObject': '_q_accessible_object',
       'QAccessibleSelectionInterface': '_q_accessible_selection_interface',
       'QAccessibleStateChangeEvent': '_q_accessible_state_change_event',
@@ -626,16 +662,22 @@ else:
       'QAccessibleTextInterface': '_q_accessible_text_interface',
       'QAccessibleValueChangeEvent': '_q_accessible_value_change_event',
       'QActionEvent': '_q_action_event',
-      'QRasterWindow': '_q_raster_window',
-      'QStandardItemModel': '_q_standard_item_model',
-      'QTextList': '_q_text_list',
-      'QTextTableCell': '_q_text_table_cell',
+      'QBackingStoreRhiSupportWindowWatcher': '_q_backing_store_rhi_support_window_watcher',
+      'QGuiApplication': '_q_gui_application',
+      'QSessionManager': '_q_session_manager',
+      'QPaintDeviceWindow': '_q_paint_device_window',
+      'QTextBlockGroup': '_q_text_block_group',
+      'QTextDocumentLayout': '_q_text_document_layout',
+      'QTextImageHandler': '_q_text_image_handler',
       'QAccessibleApplication': '_q_accessible_application',
       'QAccessibleTableInterface': '_q_accessible_table_interface',
       'QAccessibleTextInsertEvent': '_q_accessible_text_insert_event',
       'QAccessibleTextRemoveEvent': '_q_accessible_text_remove_event',
       'QAccessibleTextSelectionEvent': '_q_accessible_text_selection_event',
       'QAccessibleTextUpdateEvent': '_q_accessible_text_update_event',
+      'QRasterWindow': '_q_raster_window',
+      'QTextList': '_q_text_list',
+      'QShapedPixmapWindow': '_q_shaped_pixmap_window',
       'QWindowList': '_q_window',
   }
 

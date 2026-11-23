@@ -481,7 +481,8 @@ class QStringListModel(QAbstractListModel):
     """
     #  QStringListModel::QStringListModel(QObject *parent)
     self._noteCreation(QStringListModel, lambda: Rituals.call(
-        'ritual_ZN16QStringListModelC1EP7QObject', self._addressOf(parent),
+        'ritual_ZN16QStringListModelC1EP7QObject',
+        self._addressOf(parent, 'QObject'),
     ))
 
   @overload(QStringList)
@@ -516,7 +517,7 @@ class QStringListModel(QAbstractListModel):
     #      *parent)
     self._noteCreation(QStringListModel, lambda: Rituals.call(
         'ritual_ZN16QStringListModelC1ERK5QListI7QStringEP7QObject',
-        self._valueOf(strings), self._addressOf(parent),
+        self._valueOf(strings), self._addressOf(parent, 'QObject'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

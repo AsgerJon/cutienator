@@ -1,0 +1,34 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qstyleanimation_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK23QProgressStyleAnimation10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QProgressStyleAnimation2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN23QProgressStyleAnimationC1EiP7QObject": [
+      "address", "int", "address"
+    ],
+    "ritual_ZNK23QProgressStyleAnimation13animationStepEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK23QProgressStyleAnimation12progressStepEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK23QProgressStyleAnimation5speedEv": ["int", "address"],
+    "ritual_ZN23QProgressStyleAnimation8setSpeedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK23QProgressStyleAnimation14isUpdateNeededEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZNK23QProgressStyleAnimation14isUpdateNeededEv": [
+      "bool", "address"
+    ]
+  }
+}

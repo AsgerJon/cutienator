@@ -887,7 +887,7 @@ class QAbstractScrollArea(QFrame):
           'ritual_own_ZN19QAbstractScrollArea11eventFilterEP7QObjectP6QEven'
           't')
     return self.uglySide.call(
-        ritual, self._addressOf(a0), self._addressOf(a1),
+        ritual, self._addressOf(a0, 'QObject'), self._addressOf(a1),
     )
 
   @overload(QEvent)

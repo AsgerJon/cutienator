@@ -38,6 +38,7 @@
     "ritual_ZNK15QGraphicsEffect12sourcePixmapEN2Qt16CoordinateSystemEP6QPointNS_13PixmapPadModeE": [
       "address", "address", "int", "address", "int"
     ],
+    "ritual_ZNK15QGraphicsEffect6sourceEv": ["address", "address"],
     "ritual_take_QGraphicsEffect": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK15QGraphicsEffect15boundingRectForERK6QRectF": [
       "address", "address", "address"

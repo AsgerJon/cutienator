@@ -248,7 +248,7 @@ class QAccessiblePlugin(QObject):
     #      QObject *object)
     address = self.uglySide.call(
         'ritual_ZN17QAccessiblePlugin6createERK7QStringP7QObject',
-        key, self._addressOf(object),
+        key, self._addressOf(object, 'QObject'),
     )
     from . import QAccessibleInterface
     return QAccessibleInterface._cuteAt(address)

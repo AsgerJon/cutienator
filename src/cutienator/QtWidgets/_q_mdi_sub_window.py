@@ -616,7 +616,7 @@ class QMdiSubWindow(QWidget):
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZN13QMdiSubWindow11eventFilterEP7QObjectP6QEvent'
     return self.uglySide.call(
-        ritual, self._addressOf(object), self._addressOf(event),
+        ritual, self._addressOf(object, 'QObject'), self._addressOf(event),
     )
 
   @overload(QEvent)

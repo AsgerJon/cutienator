@@ -258,7 +258,7 @@ class QRegularExpressionValidator(QValidator):
     #      *parent)
     self._noteCreation(QRegularExpressionValidator, lambda: Rituals.call(
         'ritual_ZN27QRegularExpressionValidatorC1EP7QObject',
-        self._addressOf(parent),
+        self._addressOf(parent, 'QObject'),
     ))
 
   @overload(QRegularExpression)
@@ -294,7 +294,7 @@ class QRegularExpressionValidator(QValidator):
     self._noteCreation(QRegularExpressionValidator, lambda: Rituals.call(
         'ritual_ZN27QRegularExpressionValidatorC1ERK18QRegularExpressionP7Q'
         'Object',
-        self._valueOf(re), self._addressOf(parent),
+        self._valueOf(re), self._addressOf(parent, 'QObject'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -816,7 +816,7 @@ class QCompleter(QObject):
     #  QCompleter::QCompleter(QAbstractItemModel *model, QObject *parent)
     self._noteCreation(QCompleter, lambda: Rituals.call(
         'ritual_ZN10QCompleterC1EP18QAbstractItemModelP7QObject',
-        self._addressOf(model), self._addressOf(parent),
+        self._addressOf(model), self._addressOf(parent, 'QObject'),
     ))
 
   @overload()
@@ -838,7 +838,8 @@ class QCompleter(QObject):
     """
     #  QCompleter::QCompleter(QObject *parent)
     self._noteCreation(QCompleter, lambda: Rituals.call(
-        'ritual_ZN10QCompleterC1EP7QObject', self._addressOf(parent),
+        'ritual_ZN10QCompleterC1EP7QObject',
+        self._addressOf(parent, 'QObject'),
     ))
 
   @overload(QStringList)
@@ -871,7 +872,7 @@ class QCompleter(QObject):
     #      *parent)
     self._noteCreation(QCompleter, lambda: Rituals.call(
         'ritual_ZN10QCompleterC1ERK5QListI7QStringEP7QObject',
-        self._valueOf(completions), self._addressOf(parent),
+        self._valueOf(completions), self._addressOf(parent, 'QObject'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -942,7 +943,9 @@ class QCompleter(QObject):
     ritual = 'ritual_ZN10QCompleter11eventFilterEP7QObjectP6QEvent'
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZN10QCompleter11eventFilterEP7QObjectP6QEvent'
-    return self.uglySide.call(ritual, self._addressOf(o), self._addressOf(e))
+    return self.uglySide.call(
+        ritual, self._addressOf(o, 'QObject'), self._addressOf(e),
+    )
 
   @overload(QEvent)
   @overload(NoneType)

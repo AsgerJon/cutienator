@@ -577,7 +577,7 @@ class QTimeLine(QObject):
     #  QTimeLine::QTimeLine(int duration, QObject *parent)
     self._noteCreation(QTimeLine, lambda: Rituals.call(
         'ritual_ZN9QTimeLineC1EiP7QObject',
-        duration, self._addressOf(parent),
+        duration, self._addressOf(parent, 'QObject'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

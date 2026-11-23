@@ -228,7 +228,8 @@ class QPauseAnimation(QAbstractAnimation):
     """
     #  QPauseAnimation::QPauseAnimation(QObject *parent)
     self._noteCreation(QPauseAnimation, lambda: Rituals.call(
-        'ritual_ZN15QPauseAnimationC1EP7QObject', self._addressOf(parent),
+        'ritual_ZN15QPauseAnimationC1EP7QObject',
+        self._addressOf(parent, 'QObject'),
     ))
 
   @overload(int)
@@ -255,7 +256,7 @@ class QPauseAnimation(QAbstractAnimation):
     #  QPauseAnimation::QPauseAnimation(int msecs, QObject *parent)
     self._noteCreation(QPauseAnimation, lambda: Rituals.call(
         'ritual_ZN15QPauseAnimationC1EiP7QObject',
-        msecs, self._addressOf(parent),
+        msecs, self._addressOf(parent, 'QObject'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

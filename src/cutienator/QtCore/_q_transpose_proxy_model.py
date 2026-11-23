@@ -621,7 +621,7 @@ class QTransposeProxyModel(QAbstractProxyModel):
     #  QTransposeProxyModel::QTransposeProxyModel(QObject *parent)
     self._noteCreation(QTransposeProxyModel, lambda: Rituals.call(
         'ritual_ZN20QTransposeProxyModelC1EP7QObject',
-        self._addressOf(parent),
+        self._addressOf(parent, 'QObject'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

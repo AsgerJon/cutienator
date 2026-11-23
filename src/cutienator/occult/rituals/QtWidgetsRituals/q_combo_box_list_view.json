@@ -1,0 +1,29 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qcombobox_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QComboBoxListView10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QComboBoxListView11resizeEventEP12QResizeEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QComboBoxListView18initViewItemOptionEP20QStyleOptionViewItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QComboBoxListView10paintEventEP11QPaintEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QComboBoxListView": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN17QComboBoxListView11resizeEventEP12QResizeEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK17QComboBoxListView18initViewItemOptionEP20QStyleOptionViewItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN17QComboBoxListView10paintEventEP11QPaintEvent": [
+      "nothing", "address", "address"
+    ]
+  }
+}

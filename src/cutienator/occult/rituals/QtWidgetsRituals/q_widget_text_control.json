@@ -1,0 +1,262 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qwidgettextcontrol_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18QWidgetTextControl10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QWidgetTextControl2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18QWidgetTextControlC1EP7QObject": ["address", "address"],
+    "ritual_ZN18QWidgetTextControlC1ERK7QStringP7QObject": [
+      "address", "text", "address"
+    ],
+    "ritual_ZN18QWidgetTextControlC1EP13QTextDocumentP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18QWidgetTextControlD1Ev": ["nothing", "address"],
+    "ritual_ZN18QWidgetTextControl11setDocumentEP13QTextDocument": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QWidgetTextControl8documentEv": ["address", "address"],
+    "ritual_ZN18QWidgetTextControl13setTextCursorERK11QTextCursorb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZNK18QWidgetTextControl10textCursorEv": ["address", "address"],
+    "ritual_ZN18QWidgetTextControl23setTextInteractionFlagsE6QFlagsIN2Qt19TextInteractionFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK18QWidgetTextControl20textInteractionFlagsEv": [
+      "int", "address"
+    ],
+    "ritual_ZN18QWidgetTextControl22mergeCurrentCharFormatERK15QTextCharFormat": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QWidgetTextControl20setCurrentCharFormatERK15QTextCharFormat": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QWidgetTextControl17currentCharFormatEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18QWidgetTextControl4findERK7QString6QFlagsIN13QTextDocument8FindFlagEE": [
+      "bool", "address", "text", "int"
+    ],
+    "ritual_ZN18QWidgetTextControl4findERK18QRegularExpression6QFlagsIN13QTextDocument8FindFlagEE": [
+      "bool", "address", "address", "int"
+    ],
+    "ritual_ZNK18QWidgetTextControl11toPlainTextEv": ["text", "address"],
+    "ritual_ZNK18QWidgetTextControl6toHtmlEv": ["text", "address"],
+    "ritual_ZNK18QWidgetTextControl10toMarkdownE6QFlagsIN13QTextDocument15MarkdownFeatureEE": [
+      "text", "address", "int"
+    ],
+    "ritual_ZN18QWidgetTextControl19ensureCursorVisibleEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QWidgetTextControl12loadResourceEiRK4QUrl": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_ZN18QWidgetTextControl25createStandardContextMenuERK7QPointFP7QWidget": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK18QWidgetTextControl17cursorForPositionERK7QPointF": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK18QWidgetTextControl10cursorRectERK11QTextCursor": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK18QWidgetTextControl10cursorRectEv": ["address", "address"],
+    "ritual_ZNK18QWidgetTextControl13selectionRectERK11QTextCursor": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK18QWidgetTextControl13selectionRectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18QWidgetTextControl8anchorAtERK7QPointF": [
+      "text", "address", "address"
+    ],
+    "ritual_ZNK18QWidgetTextControl14anchorPositionERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK18QWidgetTextControl14anchorAtCursorEv": ["text", "address"],
+    "ritual_ZNK18QWidgetTextControl17blockWithMarkerAtERK7QPointF": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK18QWidgetTextControl13overwriteModeEv": ["bool", "address"],
+    "ritual_ZN18QWidgetTextControl16setOverwriteModeEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK18QWidgetTextControl11cursorWidthEv": ["int", "address"],
+    "ritual_ZN18QWidgetTextControl14setCursorWidthEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK18QWidgetTextControl14acceptRichTextEv": ["bool", "address"],
+    "ritual_ZN18QWidgetTextControl17setAcceptRichTextEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN18QWidgetTextControl12setTextWidthEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK18QWidgetTextControl9textWidthEv": ["double", "address"],
+    "ritual_ZNK18QWidgetTextControl4sizeEv": ["address", "address"],
+    "ritual_ZN18QWidgetTextControl20setOpenExternalLinksEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK18QWidgetTextControl17openExternalLinksEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN18QWidgetTextControl31setIgnoreUnusedNavigationEventsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK18QWidgetTextControl28ignoreUnusedNavigationEventsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN18QWidgetTextControl10moveCursorEN11QTextCursor13MoveOperationENS0_8MoveModeE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK18QWidgetTextControl8canPasteEv": ["bool", "address"],
+    "ritual_ZN18QWidgetTextControl25setCursorIsFocusIndicatorEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK18QWidgetTextControl22cursorIsFocusIndicatorEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN18QWidgetTextControl14setDragEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK18QWidgetTextControl13isDragEnabledEv": ["bool", "address"],
+    "ritual_ZNK18QWidgetTextControl22isWordSelectionEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN18QWidgetTextControl23setWordSelectionEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN18QWidgetTextControl12isPreeditingEv": ["bool", "address"],
+    "ritual_ZNK18QWidgetTextControl5printEP17QPagedPaintDevice": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QWidgetTextControl7hitTestERK7QPointFN2Qt15HitTestAccuracyE": [
+      "int", "address", "address", "int"
+    ],
+    "ritual_ZNK18QWidgetTextControl17blockBoundingRectERK10QTextBlock": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK18QWidgetTextControl15getPaintContextEP7QWidget": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18QWidgetTextControl12setPlainTextERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN18QWidgetTextControl11setMarkdownERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN18QWidgetTextControl7setHtmlERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN18QWidgetTextControl3cutEv": ["nothing", "address"],
+    "ritual_ZN18QWidgetTextControl4copyEv": ["nothing", "address"],
+    "ritual_ZN18QWidgetTextControl5pasteEN10QClipboard4ModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18QWidgetTextControl4undoEv": ["nothing", "address"],
+    "ritual_ZN18QWidgetTextControl4redoEv": ["nothing", "address"],
+    "ritual_ZN18QWidgetTextControl5clearEv": ["nothing", "address"],
+    "ritual_ZN18QWidgetTextControl9selectAllEv": ["nothing", "address"],
+    "ritual_ZN18QWidgetTextControl15insertPlainTextERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN18QWidgetTextControl10insertHtmlERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN18QWidgetTextControl6appendERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN18QWidgetTextControl10appendHtmlERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN18QWidgetTextControl15appendPlainTextERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN18QWidgetTextControl10adjustSizeEv": ["nothing", "address"],
+    "ritual_ZNK18QWidgetTextControl7paletteEv": ["address", "address"],
+    "ritual_ZN18QWidgetTextControl10setPaletteERK8QPalette": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QWidgetTextControl12processEventEP6QEventRK10QTransformP7QWidget": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN18QWidgetTextControl12processEventEP6QEventRK7QPointFP7QWidget": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN18QWidgetTextControl12drawContentsEP8QPainterRK6QRectFP7QWidget": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN18QWidgetTextControl8setFocusEbN2Qt11FocusReasonE": [
+      "nothing", "address", "bool", "int"
+    ],
+    "ritual_ZNK18QWidgetTextControl16inputMethodQueryEN2Qt16InputMethodQueryE8QVariant": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_ZNK18QWidgetTextControl27createMimeDataFromSelectionEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18QWidgetTextControl21canInsertFromMimeDataEPK9QMimeData": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN18QWidgetTextControl18insertFromMimeDataEPK9QMimeData": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QWidgetTextControl16setFocusToAnchorERK11QTextCursor": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN18QWidgetTextControl30setFocusToNextOrPreviousAnchorEb": [
+      "bool", "address", "bool"
+    ],
+    "ritual_ZN18QWidgetTextControl10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QWidgetTextControl5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_take_QWidgetTextControl": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN18QWidgetTextControl19ensureCursorVisibleEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN18QWidgetTextControl12loadResourceEiRK4QUrl": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_own_ZNK18QWidgetTextControl8anchorAtERK7QPointF": [
+      "text", "address", "address"
+    ],
+    "ritual_own_ZNK18QWidgetTextControl7hitTestERK7QPointFN2Qt15HitTestAccuracyE": [
+      "int", "address", "address", "int"
+    ],
+    "ritual_own_ZNK18QWidgetTextControl17blockBoundingRectERK10QTextBlock": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN18QWidgetTextControl12processEventEP6QEventRK10QTransformP7QWidget": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZNK18QWidgetTextControl16inputMethodQueryEN2Qt16InputMethodQueryE8QVariant": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_own_ZNK18QWidgetTextControl27createMimeDataFromSelectionEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK18QWidgetTextControl21canInsertFromMimeDataEPK9QMimeData": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN18QWidgetTextControl18insertFromMimeDataEPK9QMimeData": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN18QWidgetTextControl10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN18QWidgetTextControl5eventEP6QEvent": [
+      "bool", "address", "address"
+    ]
+  }
+}

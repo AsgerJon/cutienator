@@ -1,0 +1,53 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qstylesheetstyle_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK16QStyleSheetStyle10metaObjectEv": ["address", "address"],
+    "ritual_ZNK16QStyleSheetStyle14drawItemPixmapEP8QPainterRK5QRectiRK7QPixmap": [
+      "nothing", "address", "address", "address", "int", "address"
+    ],
+    "ritual_ZNK16QStyleSheetStyle12drawItemTextEP8QPainterRK5QRectiRK8QPalettebRK7QStringNS5_9ColorRoleE": [
+      "nothing", "address", "address", "address", "int", "address", "bool",
+      "text", "int"
+    ],
+    "ritual_ZNK16QStyleSheetStyle19generatedIconPixmapEN5QIcon4ModeERK7QPixmapPK12QStyleOption": [
+      "address", "address", "int", "address", "address"
+    ],
+    "ritual_ZNK16QStyleSheetStyle14itemPixmapRectERK5QRectiRK7QPixmap": [
+      "address", "address", "address", "int", "address"
+    ],
+    "ritual_ZNK16QStyleSheetStyle12itemTextRectERK12QFontMetricsRK5QRectibRK7QString": [
+      "address", "address", "address", "address", "int", "bool", "text"
+    ],
+    "ritual_ZN16QStyleSheetStyle6polishEP12QApplication": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QStyleSheetStyle15standardPaletteEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK16QStyleSheetStyle13layoutSpacingEN11QSizePolicy11ControlTypeES1_N2Qt11OrientationEPK12QStyleOptionPK7QWidget": [
+      "int", "address", "int", "int", "int", "address", "address"
+    ],
+    "ritual_ZN16QStyleSheetStyle3refEv": ["nothing", "address"],
+    "ritual_ZN16QStyleSheetStyle5derefEv": ["nothing", "address"],
+    "ritual_ZNK16QStyleSheetStyle14saveWidgetFontEP7QWidgetRK5QFont": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK16QStyleSheetStyle15clearWidgetFontEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QStyleSheetStyle5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN16QStyleSheetStyle16resolveAlignmentEN2Qt15LayoutDirectionE6QFlagsINS0_13AlignmentFlagEE": [
+      "int", "int", "int"
+    ],
+    "ritual_ZN16QStyleSheetStyle10loadPixmapERK7QStringPK7QObject": [
+      "address", "text", "address"
+    ],
+    "ritual_take_QStyleSheetStyle": ["bool", "address", "chars", "address"]
+  }
+}

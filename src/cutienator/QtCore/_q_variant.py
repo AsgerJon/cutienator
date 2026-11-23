@@ -230,8 +230,8 @@ class QVariant(CuteMixin, metaclass=MetaCute):
     What has no ritual
     ------------------
 
-    8 of the 11 functions Qt declares: 4 a template; 3 takes or gives a type
-    that cannot be passed yet; 1 declared and nowhere to be found.
+    8 of the 11 functions Qt declares: 4 takes or gives a type that cannot be
+    passed yet; 4 a template.
 
     What to expect
     --------------
@@ -354,8 +354,9 @@ class QVariant(CuteMixin, metaclass=MetaCute):
     What exists
     -----------
 
-    No function of Qt's QVariant::PrivateShared yet. It can be made from
-    Python, in 1 way; see '__init__'.
+    Every function of Qt's QVariant::PrivateShared that has a ritual and that
+    Python can call so far, 3 names in all: 'computeOffset', 'create',
+    'free'. It can be made from Python, in 1 way; see '__init__'.
 
     What has a ritual and is left out, and why
     ------------------------------------------
@@ -367,8 +368,8 @@ class QVariant(CuteMixin, metaclass=MetaCute):
     What has no ritual
     ------------------
 
-    6 of the 8 functions Qt declares: 4 declared and nowhere to be found; 2
-    takes or gives a type that cannot be passed yet.
+    3 of the 8 functions Qt declares: 3 takes or gives a type that cannot be
+    passed yet.
 
     What to expect
     --------------
@@ -387,6 +388,92 @@ class QVariant(CuteMixin, metaclass=MetaCute):
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    @staticmethod
+    @overload(THIS, int)
+    @overload(NoneType, int)
+    def computeOffset(
+        ps: Optional[QVariant.PrivateShared],
+        align: int,
+    ) -> int:
+      """
+      Calls Qt's 'int QVariant::PrivateShared::computeOffset(PrivateShared
+      *ps, size_t align)'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qvariant-privateshared.html#computeOffset
+
+      Parameters
+      ----------
+
+      ps : Optional[QVariant.PrivateShared]
+        Passed on as the address of its C++ object. None is passed on as no
+        object.
+
+      align : int
+        Passed on as it is.
+      """
+      #  int QVariant::PrivateShared::computeOffset(PrivateShared *ps, size_t
+      #      align)
+      return Rituals.call(
+          'ritual_ZN8QVariant13PrivateShared13computeOffsetEPS0_m',
+          CuteMixin._addressOf(ps), align,
+      )
+
+    @staticmethod
+    @overload(int, int)
+    def create(size: int, align: int) -> Optional[QVariant.PrivateShared]:
+      """
+      Calls Qt's 'PrivateShared *QVariant::PrivateShared::create(size_t size,
+      size_t align)'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qvariant-privateshared.html#create
+
+      Parameters
+      ----------
+
+      size : int
+        Passed on as it is.
+
+      align : int
+        Passed on as it is.
+
+      Returns
+      -------
+
+      Optional[QVariant.PrivateShared]
+        The cute object standing for what Qt gave back. None when Qt gave
+        back no object.
+      """
+      #  PrivateShared *QVariant::PrivateShared::create(size_t size, size_t
+      #      align)
+      address = Rituals.call(
+          'ritual_ZN8QVariant13PrivateShared6createEmm', size, align,
+      )
+      return QVariant.PrivateShared._cuteAt(address)
+
+    @staticmethod
+    @overload(THIS)
+    @overload(NoneType)
+    def free(p: Optional[QVariant.PrivateShared]) -> None:
+      """
+      Calls Qt's 'void QVariant::PrivateShared::free(PrivateShared *p)'.
+
+      Qt's own words: https://doc.qt.io/qt-6/qvariant-privateshared.html#free
+
+      Parameters
+      ----------
+
+      p : Optional[QVariant.PrivateShared]
+        Passed on as the address of its C++ object. None is passed on as no
+        object.
+      """
+      #  void QVariant::PrivateShared::free(PrivateShared *p)
+      Rituals.call(
+          'ritual_ZN8QVariant13PrivateShared4freeEPS0_',
+          CuteMixin._addressOf(p),
+      )
 
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

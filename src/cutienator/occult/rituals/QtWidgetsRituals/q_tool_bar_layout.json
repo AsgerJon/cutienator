@@ -1,0 +1,58 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qtoolbarlayout_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK14QToolBarLayout10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QToolBarLayoutD1Ev": ["nothing", "address"],
+    "ritual_ZN14QToolBarLayout7addItemEP11QLayoutItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QToolBarLayout6itemAtEi": ["address", "address", "int"],
+    "ritual_ZN14QToolBarLayout6takeAtEi": ["address", "address", "int"],
+    "ritual_ZNK14QToolBarLayout5countEv": ["int", "address"],
+    "ritual_ZNK14QToolBarLayout7isEmptyEv": ["bool", "address"],
+    "ritual_ZN14QToolBarLayout10invalidateEv": ["nothing", "address"],
+    "ritual_ZNK14QToolBarLayout19expandingDirectionsEv": ["int", "address"],
+    "ritual_ZN14QToolBarLayout11setGeometryERK5QRect": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QToolBarLayout11minimumSizeEv": ["address", "address"],
+    "ritual_ZNK14QToolBarLayout8sizeHintEv": ["address", "address"],
+    "ritual_ZNK14QToolBarLayout7indexOfEPK7QAction": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK14QToolBarLayout12expandedSizeERK5QSize": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN14QToolBarLayout15setUsePopupMenuEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN14QToolBarLayout17checkUsePopupMenuEv": ["nothing", "address"],
+    "ritual_ZNK14QToolBarLayout7movableEv": ["bool", "address"],
+    "ritual_ZN14QToolBarLayout22updateMarginAndSpacingEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK14QToolBarLayout13hasExpandFlagEv": ["bool", "address"],
+    "ritual_ZN14QToolBarLayout22updateMacBorderMetricsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK14QToolBarLayout15updateGeomArrayEv": ["nothing", "address"],
+    "ritual_take_QToolBarLayout": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN14QToolBarLayout7addItemEP11QLayoutItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK14QToolBarLayout6itemAtEi": ["address", "address", "int"],
+    "ritual_own_ZN14QToolBarLayout6takeAtEi": ["address", "address", "int"],
+    "ritual_own_ZNK14QToolBarLayout5countEv": ["int", "address"],
+    "ritual_own_ZNK14QToolBarLayout7isEmptyEv": ["bool", "address"],
+    "ritual_own_ZN14QToolBarLayout10invalidateEv": ["nothing", "address"],
+    "ritual_own_ZNK14QToolBarLayout19expandingDirectionsEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZNK14QToolBarLayout11minimumSizeEv": ["address", "address"],
+    "ritual_own_ZNK14QToolBarLayout8sizeHintEv": ["address", "address"]
+  }
+}

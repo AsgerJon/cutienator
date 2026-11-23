@@ -1,0 +1,40 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qplaintextedit_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK21QPlainTextEditControl10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK21QPlainTextEditControl8anchorAtERK7QPointF": [
+      "text", "address", "address"
+    ],
+    "ritual_ZNK21QPlainTextEditControl10cursorRectERK11QTextCursor": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN21QPlainTextEditControl10cursorRectEv": ["address", "address"],
+    "ritual_ZN21QPlainTextEditControl19ensureCursorVisibleEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK21QPlainTextEditControl17firstVisibleBlockEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QPlainTextEditControl12loadResourceEiRK4QUrl": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_take_QPlainTextEditControl": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK21QPlainTextEditControl8anchorAtERK7QPointF": [
+      "text", "address", "address"
+    ],
+    "ritual_own_ZN21QPlainTextEditControl19ensureCursorVisibleEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN21QPlainTextEditControl12loadResourceEiRK4QUrl": [
+      "address", "address", "int", "address"
+    ]
+  }
+}

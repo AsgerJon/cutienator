@@ -1,0 +1,26 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qabstractanimation_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK23QDefaultAnimationDriver10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QDefaultAnimationDriverD1Ev": ["nothing", "address"],
+    "ritual_ZN23QDefaultAnimationDriver10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QDefaultAnimationDriver10startTimerEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QDefaultAnimationDriver9stopTimerEv": ["nothing", "address"],
+    "ritual_take_QDefaultAnimationDriver": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN23QDefaultAnimationDriver10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ]
+  }
+}

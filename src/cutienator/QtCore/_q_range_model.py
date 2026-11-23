@@ -1163,7 +1163,7 @@ class QRangeModel(QAbstractItemModel):
     #  QRangeModel::QRangeModel(QRangeModelImplBase *impl, QObject *parent)
     self._noteCreation(QRangeModel, lambda: Rituals.call(
         'ritual_ZN11QRangeModelC1EP19QRangeModelImplBaseP7QObject',
-        self._addressOf(impl), self._addressOf(parent),
+        self._addressOf(impl), self._addressOf(parent, 'QObject'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1687,5 +1687,5 @@ class QRangeModel(QAbstractItemModel):
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZN11QRangeModel11eventFilterEP7QObjectP6QEvent'
     return self.uglySide.call(
-        ritual, self._addressOf(a0), self._addressOf(a1),
+        ritual, self._addressOf(a0, 'QObject'), self._addressOf(a1),
     )

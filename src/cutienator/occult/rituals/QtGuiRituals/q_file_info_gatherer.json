@@ -1,0 +1,66 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qfileinfogatherer_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QFileInfoGatherer10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QFileInfoGatherer2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QFileInfoGathererC1EP7QObject": ["address", "address"],
+    "ritual_ZN17QFileInfoGathererD1Ev": ["nothing", "address"],
+    "ritual_ZNK17QFileInfoGatherer12watchedFilesEv": ["address", "address"],
+    "ritual_ZNK17QFileInfoGatherer18watchedDirectoriesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QFileInfoGatherer10watchPathsERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QFileInfoGatherer12unwatchPathsERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QFileInfoGatherer10isWatchingEv": ["bool", "address"],
+    "ritual_ZN17QFileInfoGatherer11setWatchingEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN17QFileInfoGatherer5clearEv": ["nothing", "address"],
+    "ritual_ZN17QFileInfoGatherer10removePathERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK17QFileInfoGatherer12iconProviderEv": ["address", "address"],
+    "ritual_ZNK17QFileInfoGatherer15resolveSymlinksEv": ["bool", "address"],
+    "ritual_ZN17QFileInfoGatherer12requestAbortEv": ["nothing", "address"],
+    "ritual_ZN17QFileInfoGatherer4listERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN17QFileInfoGatherer24fetchExtendedInformationERK7QStringRK5QListIS0_E": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZN17QFileInfoGatherer10updateFileERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN17QFileInfoGatherer18setResolveSymlinksEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN17QFileInfoGatherer15setIconProviderEP25QAbstractFileIconProvider": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QFileInfoGatherer10driveAddedEv": ["nothing", "address"],
+    "ritual_ZN17QFileInfoGatherer12driveRemovedEv": ["nothing", "address"],
+    "ritual_ZN17QFileInfoGatherer5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN17QFileInfoGatherer3runEv": ["nothing", "address"],
+    "ritual_ZN17QFileInfoGatherer12getFileInfosERK7QStringRK5QListIS0_E": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZN17QFileInfoGatherer13createWatcherEv": ["nothing", "address"],
+    "ritual_take_QFileInfoGatherer": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN17QFileInfoGatherer5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN17QFileInfoGatherer3runEv": ["nothing", "address"]
+  }
+}

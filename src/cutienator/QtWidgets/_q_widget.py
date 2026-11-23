@@ -5167,7 +5167,8 @@ class QWidget(QObject, QPaintDevice):
     address = self.uglySide.call(
         'ritual_ZN7QWidget9addActionERK7QStringPK7QObjectPKcN2Qt14Connectio'
         'nTypeE',
-        text, self._addressOf(receiver), self._bytesOf(member), type.value,
+        text, self._addressOf(receiver, 'QObject'), self._bytesOf(member),
+        type.value,
     )
     from ..QtGui import QAction
     return QAction._cuteAt(address)
@@ -5228,7 +5229,7 @@ class QWidget(QObject, QPaintDevice):
     address = self.uglySide.call(
         'ritual_ZN7QWidget9addActionERK5QIconRK7QStringPK7QObjectPKcN2Qt14C'
         'onnectionTypeE',
-        self._valueOf(icon), text, self._addressOf(receiver),
+        self._valueOf(icon), text, self._addressOf(receiver, 'QObject'),
         self._bytesOf(member), type.value,
     )
     from ..QtGui import QAction
@@ -5371,7 +5372,7 @@ class QWidget(QObject, QPaintDevice):
     address = self.uglySide.call(
         'ritual_ZN7QWidget9addActionERK7QStringRK12QKeySequencePK7QObjectPK'
         'cN2Qt14ConnectionTypeE',
-        text, self._valueOf(shortcut), self._addressOf(receiver),
+        text, self._valueOf(shortcut), self._addressOf(receiver, 'QObject'),
         self._bytesOf(member), type.value,
     )
     from ..QtGui import QAction
@@ -5439,7 +5440,8 @@ class QWidget(QObject, QPaintDevice):
         'ritual_ZN7QWidget9addActionERK5QIconRK7QStringRK12QKeySequencePK7Q'
         'ObjectPKcN2Qt14ConnectionTypeE',
         self._valueOf(icon), text, self._valueOf(shortcut),
-        self._addressOf(receiver), self._bytesOf(member), type.value,
+        self._addressOf(receiver, 'QObject'), self._bytesOf(member),
+        type.value,
     )
     from ..QtGui import QAction
     return QAction._cuteAt(address)

@@ -1,0 +1,54 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qcombobox_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK24QComboBoxPrivateScroller10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK24QComboBoxPrivateScroller8sizeHintEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24QComboBoxPrivateScroller9stopTimerEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QComboBoxPrivateScroller10enterEventEP11QEnterEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QComboBoxPrivateScroller10leaveEventEP6QEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QComboBoxPrivateScroller10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QComboBoxPrivateScroller9hideEventEP10QHideEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QComboBoxPrivateScroller14mouseMoveEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QComboBoxPrivateScroller10paintEventEP11QPaintEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QComboBoxPrivateScroller": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK24QComboBoxPrivateScroller8sizeHintEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN24QComboBoxPrivateScroller10leaveEventEP6QEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN24QComboBoxPrivateScroller9hideEventEP10QHideEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN24QComboBoxPrivateScroller14mouseMoveEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN24QComboBoxPrivateScroller10paintEventEP11QPaintEvent": [
+      "nothing", "address", "address"
+    ]
+  }
+}

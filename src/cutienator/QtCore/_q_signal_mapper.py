@@ -235,7 +235,7 @@ class QSignalMapper(QObject):
     #  QObject *QSignalMapper::mapping(QObject *object) const
     address = self.uglySide.call(
         'ritual_ZNK13QSignalMapper7mappingEP7QObject',
-        self._addressOf(object),
+        self._addressOf(object, 'QObject'),
     )
     return QObject._cuteAt(address)
 
@@ -264,7 +264,7 @@ class QSignalMapper(QObject):
     #  void QSignalMapper::setMapping(QObject *sender, int id)
     self.uglySide.call(
         'ritual_ZN13QSignalMapper10setMappingEP7QObjecti',
-        self._addressOf(sender), id,
+        self._addressOf(sender, 'QObject'), id,
     )
 
   @overload(QObject, str)
@@ -289,7 +289,7 @@ class QSignalMapper(QObject):
     #  void QSignalMapper::setMapping(QObject *sender, const QString &text)
     self.uglySide.call(
         'ritual_ZN13QSignalMapper10setMappingEP7QObjectRK7QString',
-        self._addressOf(sender), text,
+        self._addressOf(sender, 'QObject'), text,
     )
 
   @overload(QObject, QObject)
@@ -321,7 +321,8 @@ class QSignalMapper(QObject):
     #  void QSignalMapper::setMapping(QObject *sender, QObject *object)
     self.uglySide.call(
         'ritual_ZN13QSignalMapper10setMappingEP7QObjectS1_',
-        self._addressOf(sender), self._addressOf(object),
+        self._addressOf(sender, 'QObject'), self._addressOf(object,
+        'QObject'),
     )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -355,7 +356,8 @@ class QSignalMapper(QObject):
     """
     #  QSignalMapper::QSignalMapper(QObject *parent)
     self._noteCreation(QSignalMapper, lambda: Rituals.call(
-        'ritual_ZN13QSignalMapperC1EP7QObject', self._addressOf(parent),
+        'ritual_ZN13QSignalMapperC1EP7QObject',
+        self._addressOf(parent, 'QObject'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -396,7 +398,7 @@ class QSignalMapper(QObject):
     #  void QSignalMapper::removeMappings(QObject *sender)
     self.uglySide.call(
         'ritual_ZN13QSignalMapper14removeMappingsEP7QObject',
-        self._addressOf(sender),
+        self._addressOf(sender, 'QObject'),
     )
 
   @overload()
@@ -426,5 +428,6 @@ class QSignalMapper(QObject):
     """
     #  void QSignalMapper::map(QObject *sender)
     self.uglySide.call(
-        'ritual_ZN13QSignalMapper3mapEP7QObject', self._addressOf(sender),
+        'ritual_ZN13QSignalMapper3mapEP7QObject',
+        self._addressOf(sender, 'QObject'),
     )

@@ -439,7 +439,8 @@ class QMetaProperty(CuteMixin, metaclass=MetaCute):
     """
     #  QVariant QMetaProperty::read(const QObject *obj) const
     address = self.uglySide.call(
-        'ritual_ZNK13QMetaProperty4readEPK7QObject', self._addressOf(obj),
+        'ritual_ZNK13QMetaProperty4readEPK7QObject',
+        self._addressOf(obj, 'QObject'),
     )
     return QVariant._cuteOwning(address)
 
@@ -466,7 +467,7 @@ class QMetaProperty(CuteMixin, metaclass=MetaCute):
     #  bool QMetaProperty::write(QObject *obj, const QVariant &value) const
     return self.uglySide.call(
         'ritual_ZNK13QMetaProperty5writeEP7QObjectRK8QVariant',
-        self._addressOf(obj), self._valueOf(value),
+        self._addressOf(obj, 'QObject'), self._valueOf(value),
     )
 
   @overload(QObject)
@@ -486,7 +487,8 @@ class QMetaProperty(CuteMixin, metaclass=MetaCute):
     """
     #  bool QMetaProperty::reset(QObject *obj) const
     return self.uglySide.call(
-        'ritual_ZNK13QMetaProperty5resetEP7QObject', self._addressOf(obj),
+        'ritual_ZNK13QMetaProperty5resetEP7QObject',
+        self._addressOf(obj, 'QObject'),
     )
 
   @overload(QObject)
@@ -515,7 +517,7 @@ class QMetaProperty(CuteMixin, metaclass=MetaCute):
     #  QUntypedBindable QMetaProperty::bindable(QObject *object) const
     address = self.uglySide.call(
         'ritual_ZNK13QMetaProperty8bindableEP7QObject',
-        self._addressOf(object),
+        self._addressOf(object, 'QObject'),
     )
     from . import QUntypedBindable
     return QUntypedBindable._cuteOwning(address)

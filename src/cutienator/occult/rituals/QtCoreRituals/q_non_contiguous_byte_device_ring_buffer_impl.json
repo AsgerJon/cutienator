@@ -1,0 +1,51 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qnoncontiguousbytedevice_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK38QNonContiguousByteDeviceRingBufferImpl10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN38QNonContiguousByteDeviceRingBufferImplD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN38QNonContiguousByteDeviceRingBufferImpl11readPointerExRx": [
+      "chars", "address", "long long", "address"
+    ],
+    "ritual_ZN38QNonContiguousByteDeviceRingBufferImpl18advanceReadPointerEx": [
+      "bool", "address", "long long"
+    ],
+    "ritual_ZNK38QNonContiguousByteDeviceRingBufferImpl5atEndEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN38QNonContiguousByteDeviceRingBufferImpl5resetEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK38QNonContiguousByteDeviceRingBufferImpl4sizeEv": [
+      "long long", "address"
+    ],
+    "ritual_ZNK38QNonContiguousByteDeviceRingBufferImpl3posEv": [
+      "long long", "address"
+    ],
+    "ritual_take_QNonContiguousByteDeviceRingBufferImpl": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN38QNonContiguousByteDeviceRingBufferImpl18advanceReadPointerEx": [
+      "bool", "address", "long long"
+    ],
+    "ritual_own_ZNK38QNonContiguousByteDeviceRingBufferImpl5atEndEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZN38QNonContiguousByteDeviceRingBufferImpl5resetEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZNK38QNonContiguousByteDeviceRingBufferImpl4sizeEv": [
+      "long long", "address"
+    ],
+    "ritual_own_ZNK38QNonContiguousByteDeviceRingBufferImpl3posEv": [
+      "long long", "address"
+    ]
+  }
+}

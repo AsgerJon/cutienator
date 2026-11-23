@@ -1083,7 +1083,7 @@ class QCalendarWidget(QWidget):
       ritual = (
           'ritual_own_ZN15QCalendarWidget11eventFilterEP7QObjectP6QEvent')
     return self.uglySide.call(
-        ritual, self._addressOf(watched), self._addressOf(event),
+        ritual, self._addressOf(watched, 'QObject'), self._addressOf(event),
     )
 
   @overload(QMouseEvent)

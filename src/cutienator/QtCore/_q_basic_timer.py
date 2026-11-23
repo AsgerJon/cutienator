@@ -196,7 +196,7 @@ class QBasicTimer(CuteMixin, metaclass=MetaCute):
     #  void QBasicTimer::start(int msec, QObject *obj)
     self.uglySide.call(
         'ritual_ZN11QBasicTimer5startEiP7QObject',
-        msec, self._addressOf(obj),
+        msec, self._addressOf(obj, 'QObject'),
     )
 
   @overload(int, Qt.TimerType, QObject)
@@ -230,7 +230,7 @@ class QBasicTimer(CuteMixin, metaclass=MetaCute):
     #      *obj)
     self.uglySide.call(
         'ritual_ZN11QBasicTimer5startEiN2Qt9TimerTypeEP7QObject',
-        msec, timerType.value, self._addressOf(obj),
+        msec, timerType.value, self._addressOf(obj, 'QObject'),
     )
 
   def stop(self) -> None:

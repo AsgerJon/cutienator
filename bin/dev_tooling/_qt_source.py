@@ -69,7 +69,7 @@ class QtSource:
   __opening_line__ = re.compile(
       r'^(?![\s#/}{]).*?\b((?:[A-Za-z_]\w*::)+~?[A-Za-z_]\w*)\s*\(')
   #  A line of the file that pulls another file in.
-  __include_line__ = re.compile(r'^#\s*include\s+([<"])([^>"]+)[>"]')
+  __include_line__ = re.compile(r'^\s*#\s*include\s+([<"])([^>"]+)[>"]')
 
   #  Private Variables
   __source_folder__ = None  # type: Optional[str]
@@ -189,7 +189,8 @@ class QtSource:
     while Qt is built.
     """
     kept = []  # type: List[str]
-    directive = re.compile(r'^#\s*(if|ifdef|ifndef|elif|else|endif)\b')
+    #  Qt indents such a line here and there, as ' #if QT_CONFIG(...)'.
+    directive = re.compile(r'^\s*#\s*(if|ifdef|ifndef|elif|else|endif)\b')
     for line in lines:
       match = self.__include_line__.match(line)
       if match is not None:
@@ -222,6 +223,21 @@ class QtSource:
           break
       else:
         break
+    #  Every '#if' that is left has its '#endif', or what is taken
+    #  along would not compile.
+    depth = 0
+    for line in kept:
+      word = ''.join(line.split())
+      if word.startswith(opening):
+        depth += 1
+      elif word.startswith('#endif'):
+        depth -= 1
+      if depth < 0:
+        break
+    if depth:
+      infoSpec = """The '#if' and '#endif' lines of a file of Qt's source
+      do not pair up as they were read: %s"""
+      raise ValueError(' '.join((infoSpec % ' | '.join(kept)).split()))
     return (*kept,)
 
   def _readFile(self, path: str) -> List[Record]:
@@ -229,7 +245,10 @@ class QtSource:
     the way Qt writes one."""
     with open(path, errors='replace') as file:
       lines = file.read().split('\n')
-    includes = self._findIncludes(lines)
+    try:
+      includes = self._findIncludes(lines)
+    except ValueError as valueError:
+      raise ValueError('%s: %s' % (path, valueError)) from valueError
     found = []
     for index, line in enumerate(lines):
       match = self.__opening_line__.match(line)

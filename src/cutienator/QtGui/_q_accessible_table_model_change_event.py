@@ -341,7 +341,7 @@ class QAccessibleTableModelChangeEvent(QAccessibleEvent):
         QAccessibleTableModelChangeEvent, lambda: Rituals.call(
             'ritual_ZN32QAccessibleTableModelChangeEventC1EP7QObjectNS_15Mo'
             'delChangeTypeE',
-            self._addressOf(obj), changeType.value,
+            self._addressOf(obj, 'QObject'), changeType.value,
         ))
 
   @overload(QAccessibleInterface, ModelChangeType)

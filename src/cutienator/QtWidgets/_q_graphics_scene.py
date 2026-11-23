@@ -1735,7 +1735,8 @@ class QGraphicsScene(QObject):
     """
     #  QGraphicsScene::QGraphicsScene(QObject *parent)
     self._noteCreation(QGraphicsScene, lambda: Rituals.call(
-        'ritual_ZN14QGraphicsSceneC1EP7QObject', self._addressOf(parent),
+        'ritual_ZN14QGraphicsSceneC1EP7QObject',
+        self._addressOf(parent, 'QObject'),
     ))
 
   @overload(QRectF)
@@ -1767,7 +1768,7 @@ class QGraphicsScene(QObject):
     #      *parent)
     self._noteCreation(QGraphicsScene, lambda: Rituals.call(
         'ritual_ZN14QGraphicsSceneC1ERK6QRectFP7QObject',
-        self._valueOf(sceneRect), self._addressOf(parent),
+        self._valueOf(sceneRect), self._addressOf(parent, 'QObject'),
     ))
 
   @overload(float, float, float, float)
@@ -1811,7 +1812,7 @@ class QGraphicsScene(QObject):
     #      height, QObject *parent)
     self._noteCreation(QGraphicsScene, lambda: Rituals.call(
         'ritual_ZN14QGraphicsSceneC1EddddP7QObject',
-        x, y, width, height, self._addressOf(parent),
+        x, y, width, height, self._addressOf(parent, 'QObject'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -2828,7 +2829,7 @@ class QGraphicsScene(QObject):
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZN14QGraphicsScene11eventFilterEP7QObjectP6QEvent'
     return self.uglySide.call(
-        ritual, self._addressOf(watched), self._addressOf(event),
+        ritual, self._addressOf(watched, 'QObject'), self._addressOf(event),
     )
 
   @overload(QGraphicsSceneContextMenuEvent)

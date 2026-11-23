@@ -1,0 +1,139 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qfusionstyle_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK12QFusionStyle10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QFusionStyle2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN12QFusionStyleC1Ev": ["address"],
+    "ritual_ZN12QFusionStyleD1Ev": ["nothing", "address"],
+    "ritual_ZNK12QFusionStyle15standardPaletteEv": ["address", "address"],
+    "ritual_ZNK12QFusionStyle13drawPrimitiveEN6QStyle16PrimitiveElementEPK12QStyleOptionP8QPainterPK7QWidget": [
+      "nothing", "address", "int", "address", "address", "address"
+    ],
+    "ritual_ZNK12QFusionStyle11drawControlEN6QStyle14ControlElementEPK12QStyleOptionP8QPainterPK7QWidget": [
+      "nothing", "address", "int", "address", "address", "address"
+    ],
+    "ritual_ZNK12QFusionStyle11pixelMetricEN6QStyle11PixelMetricEPK12QStyleOptionPK7QWidget": [
+      "int", "address", "int", "address", "address"
+    ],
+    "ritual_ZNK12QFusionStyle18drawComplexControlEN6QStyle14ComplexControlEPK19QStyleOptionComplexP8QPainterPK7QWidget": [
+      "nothing", "address", "int", "address", "address", "address"
+    ],
+    "ritual_ZNK12QFusionStyle14subElementRectEN6QStyle10SubElementEPK12QStyleOptionPK7QWidget": [
+      "address", "address", "int", "address", "address"
+    ],
+    "ritual_ZNK12QFusionStyle16sizeFromContentsEN6QStyle12ContentsTypeEPK12QStyleOptionRK5QSizePK7QWidget": [
+      "address", "address", "int", "address", "address", "address"
+    ],
+    "ritual_ZNK12QFusionStyle21hitTestComplexControlEN6QStyle14ComplexControlEPK19QStyleOptionComplexRK6QPointPK7QWidget": [
+      "int", "address", "int", "address", "address", "address"
+    ],
+    "ritual_ZNK12QFusionStyle14subControlRectEN6QStyle14ComplexControlEPK19QStyleOptionComplexNS0_10SubControlEPK7QWidget": [
+      "address", "address", "int", "address", "int", "address"
+    ],
+    "ritual_ZNK12QFusionStyle19generatedIconPixmapEN5QIcon4ModeERK7QPixmapPK12QStyleOption": [
+      "address", "address", "int", "address", "address"
+    ],
+    "ritual_ZNK12QFusionStyle9styleHintEN6QStyle9StyleHintEPK12QStyleOptionPK7QWidgetP16QStyleHintReturn": [
+      "int", "address", "int", "address", "address", "address"
+    ],
+    "ritual_ZNK12QFusionStyle14itemPixmapRectERK5QRectiRK7QPixmap": [
+      "address", "address", "address", "int", "address"
+    ],
+    "ritual_ZNK12QFusionStyle13iconFromThemeEN6QStyle14StandardPixmapE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK12QFusionStyle12standardIconEN6QStyle14StandardPixmapEPK12QStyleOptionPK7QWidget": [
+      "address", "address", "int", "address", "address"
+    ],
+    "ritual_ZNK12QFusionStyle14standardPixmapEN6QStyle14StandardPixmapEPK12QStyleOptionPK7QWidget": [
+      "address", "address", "int", "address", "address"
+    ],
+    "ritual_ZNK12QFusionStyle14drawItemPixmapEP8QPainterRK5QRectiRK7QPixmap": [
+      "nothing", "address", "address", "address", "int", "address"
+    ],
+    "ritual_ZNK12QFusionStyle12drawItemTextEP8QPainterRK5QRectiRK8QPalettebRK7QStringNS5_9ColorRoleE": [
+      "nothing", "address", "address", "address", "int", "address", "bool",
+      "text", "int"
+    ],
+    "ritual_ZN12QFusionStyle6polishEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QFusionStyle6polishEP12QApplication": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QFusionStyle8unpolishEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QFusionStyle8unpolishEP12QApplication": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12QFusionStyle14isHighContrastEv": ["bool", "address"],
+    "ritual_ZNK12QFusionStyle11colorSchemeEv": ["int", "address"],
+    "ritual_take_QFusionStyle": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK12QFusionStyle15standardPaletteEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK12QFusionStyle13drawPrimitiveEN6QStyle16PrimitiveElementEPK12QStyleOptionP8QPainterPK7QWidget": [
+      "nothing", "address", "int", "address", "address", "address"
+    ],
+    "ritual_own_ZNK12QFusionStyle11drawControlEN6QStyle14ControlElementEPK12QStyleOptionP8QPainterPK7QWidget": [
+      "nothing", "address", "int", "address", "address", "address"
+    ],
+    "ritual_own_ZNK12QFusionStyle11pixelMetricEN6QStyle11PixelMetricEPK12QStyleOptionPK7QWidget": [
+      "int", "address", "int", "address", "address"
+    ],
+    "ritual_own_ZNK12QFusionStyle18drawComplexControlEN6QStyle14ComplexControlEPK19QStyleOptionComplexP8QPainterPK7QWidget": [
+      "nothing", "address", "int", "address", "address", "address"
+    ],
+    "ritual_own_ZNK12QFusionStyle14subElementRectEN6QStyle10SubElementEPK12QStyleOptionPK7QWidget": [
+      "address", "address", "int", "address", "address"
+    ],
+    "ritual_own_ZNK12QFusionStyle16sizeFromContentsEN6QStyle12ContentsTypeEPK12QStyleOptionRK5QSizePK7QWidget": [
+      "address", "address", "int", "address", "address", "address"
+    ],
+    "ritual_own_ZNK12QFusionStyle21hitTestComplexControlEN6QStyle14ComplexControlEPK19QStyleOptionComplexRK6QPointPK7QWidget": [
+      "int", "address", "int", "address", "address", "address"
+    ],
+    "ritual_own_ZNK12QFusionStyle14subControlRectEN6QStyle14ComplexControlEPK19QStyleOptionComplexNS0_10SubControlEPK7QWidget": [
+      "address", "address", "int", "address", "int", "address"
+    ],
+    "ritual_own_ZNK12QFusionStyle19generatedIconPixmapEN5QIcon4ModeERK7QPixmapPK12QStyleOption": [
+      "address", "address", "int", "address", "address"
+    ],
+    "ritual_own_ZNK12QFusionStyle9styleHintEN6QStyle9StyleHintEPK12QStyleOptionPK7QWidgetP16QStyleHintReturn": [
+      "int", "address", "int", "address", "address", "address"
+    ],
+    "ritual_own_ZNK12QFusionStyle14itemPixmapRectERK5QRectiRK7QPixmap": [
+      "address", "address", "address", "int", "address"
+    ],
+    "ritual_own_ZNK12QFusionStyle12standardIconEN6QStyle14StandardPixmapEPK12QStyleOptionPK7QWidget": [
+      "address", "address", "int", "address", "address"
+    ],
+    "ritual_own_ZNK12QFusionStyle14standardPixmapEN6QStyle14StandardPixmapEPK12QStyleOptionPK7QWidget": [
+      "address", "address", "int", "address", "address"
+    ],
+    "ritual_own_ZNK12QFusionStyle14drawItemPixmapEP8QPainterRK5QRectiRK7QPixmap": [
+      "nothing", "address", "address", "address", "int", "address"
+    ],
+    "ritual_own_ZNK12QFusionStyle12drawItemTextEP8QPainterRK5QRectiRK8QPalettebRK7QStringNS5_9ColorRoleE": [
+      "nothing", "address", "address", "address", "int", "address", "bool",
+      "text", "int"
+    ],
+    "ritual_own_ZN12QFusionStyle6polishEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN12QFusionStyle6polishEP12QApplication": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN12QFusionStyle8unpolishEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN12QFusionStyle8unpolishEP12QApplication": [
+      "nothing", "address", "address"
+    ]
+  }
+}

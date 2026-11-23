@@ -282,7 +282,7 @@ class QGraphicsOpacityEffect(QGraphicsEffect):
     #  QGraphicsOpacityEffect::QGraphicsOpacityEffect(QObject *parent)
     self._noteCreation(QGraphicsOpacityEffect, lambda: Rituals.call(
         'ritual_ZN22QGraphicsOpacityEffectC1EP7QObject',
-        self._addressOf(parent),
+        self._addressOf(parent, 'QObject'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

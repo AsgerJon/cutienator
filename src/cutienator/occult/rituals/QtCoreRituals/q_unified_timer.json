@@ -1,0 +1,76 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qabstractanimation_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK13QUnifiedTimer10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QUnifiedTimer2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN13QUnifiedTimerC1Ev": ["address"],
+    "ritual_ZN13QUnifiedTimerD1Ev": ["nothing", "address"],
+    "ritual_ZN13QUnifiedTimer8instanceEv": ["address"],
+    "ritual_ZN13QUnifiedTimer8instanceEb": ["address", "bool"],
+    "ritual_ZN13QUnifiedTimer19startAnimationTimerEP23QAbstractAnimationTimer": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13QUnifiedTimer18stopAnimationTimerEP23QAbstractAnimationTimer": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13QUnifiedTimer19pauseAnimationTimerEP23QAbstractAnimationTimeri": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN13QUnifiedTimer20resumeAnimationTimerEP23QAbstractAnimationTimer": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13QUnifiedTimer17setTimingIntervalEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN13QUnifiedTimer19setConsistentTimingEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK13QUnifiedTimer16getSpeedModifierEv": ["double", "address"],
+    "ritual_ZN13QUnifiedTimer16setSpeedModifierEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN13QUnifiedTimer22installAnimationDriverEP16QAnimationDriver": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QUnifiedTimer24uninstallAnimationDriverEP16QAnimationDriver": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QUnifiedTimer27canUninstallAnimationDriverEP16QAnimationDriver": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN13QUnifiedTimer7restartEv": ["nothing", "address"],
+    "ritual_ZN13QUnifiedTimer34maybeUpdateAnimationsToCurrentTimeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13QUnifiedTimer21updateAnimationTimersEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK13QUnifiedTimer21runningAnimationCountEv": [
+      "long long", "address"
+    ],
+    "ritual_ZN13QUnifiedTimer20startAnimationDriverEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13QUnifiedTimer19stopAnimationDriverEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK13QUnifiedTimer7elapsedEv": ["long long", "address"],
+    "ritual_ZN13QUnifiedTimer10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QUnifiedTimer11startTimersEv": ["nothing", "address"],
+    "ritual_ZN13QUnifiedTimer9stopTimerEv": ["nothing", "address"],
+    "ritual_ZN13QUnifiedTimer12localRestartEv": ["nothing", "address"],
+    "ritual_ZN13QUnifiedTimer39closestPausedAnimationTimerTimeToFinishEv": [
+      "int", "address"
+    ],
+    "ritual_take_QUnifiedTimer": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN13QUnifiedTimer10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ]
+  }
+}

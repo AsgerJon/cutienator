@@ -1,0 +1,29 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qfont_p.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZN10QFontCache8instanceEv": ["address"],
+    "ritual_ZN10QFontCache7cleanupEv": ["nothing"],
+    "ritual_ZN10QFontCacheC1Ev": ["address"],
+    "ritual_ZN10QFontCacheD1Ev": ["nothing", "address"],
+    "ritual_ZNK10QFontCache2idEv": ["int", "address"],
+    "ritual_ZN10QFontCache5clearEv": ["nothing", "address"],
+    "ritual_ZN10QFontCache12increaseCostEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN10QFontCache12decreaseCostEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN10QFontCache10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QFontCache13decreaseCacheEv": ["nothing", "address"],
+    "ritual_take_QFontCache": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN10QFontCache10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ]
+  }
+}

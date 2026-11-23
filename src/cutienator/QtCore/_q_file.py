@@ -529,7 +529,7 @@ class QFile(QFileDevice):
     """
     #  QFile::QFile(QObject *parent)
     self._noteCreation(QFile, lambda: Rituals.call(
-        'ritual_ZN5QFileC1EP7QObject', self._addressOf(parent),
+        'ritual_ZN5QFileC1EP7QObject', self._addressOf(parent, 'QObject'),
     ))
 
   @overload(str, QObject)
@@ -554,7 +554,7 @@ class QFile(QFileDevice):
     #  QFile::QFile(const QString &name, QObject *parent)
     self._noteCreation(QFile, lambda: Rituals.call(
         'ritual_ZN5QFileC1ERK7QStringP7QObject',
-        name, self._addressOf(parent),
+        name, self._addressOf(parent, 'QObject'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -284,7 +284,8 @@ class QWidgetAction(QAction):
     """
     #  QWidgetAction::QWidgetAction(QObject *parent)
     self._noteCreation(QWidgetAction, lambda: Rituals.call(
-        'ritual_ZN13QWidgetActionC1EP7QObject', self._addressOf(parent),
+        'ritual_ZN13QWidgetActionC1EP7QObject',
+        self._addressOf(parent, 'QObject'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -405,7 +406,7 @@ class QWidgetAction(QAction):
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZN13QWidgetAction11eventFilterEP7QObjectP6QEvent'
     return self.uglySide.call(
-        ritual, self._addressOf(a0), self._addressOf(a1),
+        ritual, self._addressOf(a0, 'QObject'), self._addressOf(a1),
     )
 
   @overload(QWidget)

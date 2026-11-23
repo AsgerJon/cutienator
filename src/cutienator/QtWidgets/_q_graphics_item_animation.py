@@ -660,7 +660,7 @@ class QGraphicsItemAnimation(QObject):
     #  QGraphicsItemAnimation::QGraphicsItemAnimation(QObject *parent)
     self._noteCreation(QGraphicsItemAnimation, lambda: Rituals.call(
         'ritual_ZN22QGraphicsItemAnimationC1EP7QObject',
-        self._addressOf(parent),
+        self._addressOf(parent, 'QObject'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

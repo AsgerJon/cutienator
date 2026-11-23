@@ -265,7 +265,8 @@ class QIntValidator(QValidator):
     """
     #  QIntValidator::QIntValidator(QObject *parent)
     self._noteCreation(QIntValidator, lambda: Rituals.call(
-        'ritual_ZN13QIntValidatorC1EP7QObject', self._addressOf(parent),
+        'ritual_ZN13QIntValidatorC1EP7QObject',
+        self._addressOf(parent, 'QObject'),
     ))
 
   @overload(int, int)
@@ -299,7 +300,7 @@ class QIntValidator(QValidator):
     #  QIntValidator::QIntValidator(int bottom, int top, QObject *parent)
     self._noteCreation(QIntValidator, lambda: Rituals.call(
         'ritual_ZN13QIntValidatorC1EiiP7QObject',
-        bottom, top, self._addressOf(parent),
+        bottom, top, self._addressOf(parent, 'QObject'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

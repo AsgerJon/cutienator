@@ -681,8 +681,8 @@ class QMetaObject(CuteMixin, metaclass=MetaCute):
     #      const QObject *receiver, int method_index)
     return Rituals.call(
         'ritual_ZN11QMetaObject10disconnectEPK7QObjectiS2_i',
-        CuteMixin._addressOf(sender), signal_index,
-        CuteMixin._addressOf(receiver), method_index,
+        CuteMixin._addressOf(sender, 'QObject'), signal_index,
+        CuteMixin._addressOf(receiver, 'QObject'), method_index,
     )
 
   @staticmethod
@@ -723,8 +723,8 @@ class QMetaObject(CuteMixin, metaclass=MetaCute):
     #      signal_index, const QObject *receiver, int method_index)
     return Rituals.call(
         'ritual_ZN11QMetaObject13disconnectOneEPK7QObjectiS2_i',
-        CuteMixin._addressOf(sender), signal_index,
-        CuteMixin._addressOf(receiver), method_index,
+        CuteMixin._addressOf(sender, 'QObject'), signal_index,
+        CuteMixin._addressOf(receiver, 'QObject'), method_index,
     )
 
   @staticmethod
@@ -747,7 +747,7 @@ class QMetaObject(CuteMixin, metaclass=MetaCute):
     #  void QMetaObject::connectSlotsByName(QObject *o)
     Rituals.call(
         'ritual_ZN11QMetaObject18connectSlotsByNameEP7QObject',
-        CuteMixin._addressOf(o),
+        CuteMixin._addressOf(o, 'QObject'),
     )
 
   @staticmethod
@@ -868,8 +868,8 @@ class QMetaObject(CuteMixin, metaclass=MetaCute):
         'ritual_ZN11QMetaObject12invokeMethodEP7QObjectPKcN2Qt14ConnectionT'
         'ypeE22QGenericReturnArgument16QGenericArgumentS7_S7_S7_S7_S7_S7_S7'
         '_S7_S7_',
-        CuteMixin._addressOf(obj), CuteMixin._bytesOf(member), a2.value,
-        CuteMixin._valueOf(ret), CuteMixin._valueOf(val0),
+        CuteMixin._addressOf(obj, 'QObject'), CuteMixin._bytesOf(member),
+        a2.value, CuteMixin._valueOf(ret), CuteMixin._valueOf(val0),
         CuteMixin._valueOf(val1), CuteMixin._valueOf(val2),
         CuteMixin._valueOf(val3), CuteMixin._valueOf(val4),
         CuteMixin._valueOf(val5), CuteMixin._valueOf(val6),
@@ -989,7 +989,7 @@ class QMetaObject(CuteMixin, metaclass=MetaCute):
     return Rituals.call(
         'ritual_ZN11QMetaObject12invokeMethodEP7QObjectPKc22QGenericReturnA'
         'rgument16QGenericArgumentS5_S5_S5_S5_S5_S5_S5_S5_S5_',
-        CuteMixin._addressOf(obj), CuteMixin._bytesOf(member),
+        CuteMixin._addressOf(obj, 'QObject'), CuteMixin._bytesOf(member),
         CuteMixin._valueOf(ret), CuteMixin._valueOf(val0),
         CuteMixin._valueOf(val1), CuteMixin._valueOf(val2),
         CuteMixin._valueOf(val3), CuteMixin._valueOf(val4),
@@ -1107,8 +1107,8 @@ class QMetaObject(CuteMixin, metaclass=MetaCute):
     return Rituals.call(
         'ritual_ZN11QMetaObject12invokeMethodEP7QObjectPKcN2Qt14ConnectionT'
         'ypeE16QGenericArgumentS6_S6_S6_S6_S6_S6_S6_S6_S6_',
-        CuteMixin._addressOf(obj), CuteMixin._bytesOf(member), type.value,
-        CuteMixin._valueOf(val0), CuteMixin._valueOf(val1),
+        CuteMixin._addressOf(obj, 'QObject'), CuteMixin._bytesOf(member),
+        type.value, CuteMixin._valueOf(val0), CuteMixin._valueOf(val1),
         CuteMixin._valueOf(val2), CuteMixin._valueOf(val3),
         CuteMixin._valueOf(val4), CuteMixin._valueOf(val5),
         CuteMixin._valueOf(val6), CuteMixin._valueOf(val7),
@@ -1217,7 +1217,7 @@ class QMetaObject(CuteMixin, metaclass=MetaCute):
     return Rituals.call(
         'ritual_ZN11QMetaObject12invokeMethodEP7QObjectPKc16QGenericArgumen'
         'tS4_S4_S4_S4_S4_S4_S4_S4_S4_',
-        CuteMixin._addressOf(obj), CuteMixin._bytesOf(member),
+        CuteMixin._addressOf(obj, 'QObject'), CuteMixin._bytesOf(member),
         CuteMixin._valueOf(val0), CuteMixin._valueOf(val1),
         CuteMixin._valueOf(val2), CuteMixin._valueOf(val3),
         CuteMixin._valueOf(val4), CuteMixin._valueOf(val5),
@@ -1327,7 +1327,8 @@ class QMetaObject(CuteMixin, metaclass=MetaCute):
     """
     #  QObject *QMetaObject::cast(QObject *obj) const
     address = self.uglySide.call(
-        'ritual_ZNK11QMetaObject4castEP7QObject', self._addressOf(obj),
+        'ritual_ZNK11QMetaObject4castEP7QObject',
+        self._addressOf(obj, 'QObject'),
     )
     from . import QObject
     return QObject._cuteAt(address)

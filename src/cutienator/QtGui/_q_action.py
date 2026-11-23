@@ -996,7 +996,7 @@ class QAction(QObject):
     #  void QAction::setMenuObject(QObject *object)
     self.uglySide.call(
         'ritual_ZN7QAction13setMenuObjectEP7QObject',
-        self._addressOf(object),
+        self._addressOf(object, 'QObject'),
     )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1030,7 +1030,7 @@ class QAction(QObject):
     """
     #  QAction::QAction(QObject *parent)
     self._noteCreation(QAction, lambda: Rituals.call(
-        'ritual_ZN7QActionC1EP7QObject', self._addressOf(parent),
+        'ritual_ZN7QActionC1EP7QObject', self._addressOf(parent, 'QObject'),
     ))
 
   @overload(str)
@@ -1056,7 +1056,7 @@ class QAction(QObject):
     #  QAction::QAction(const QString &text, QObject *parent)
     self._noteCreation(QAction, lambda: Rituals.call(
         'ritual_ZN7QActionC1ERK7QStringP7QObject',
-        text, self._addressOf(parent),
+        text, self._addressOf(parent, 'QObject'),
     ))
 
   @overload(QIcon, str)
@@ -1091,7 +1091,7 @@ class QAction(QObject):
     #      *parent)
     self._noteCreation(QAction, lambda: Rituals.call(
         'ritual_ZN7QActionC1ERK5QIconRK7QStringP7QObject',
-        self._valueOf(icon), text, self._addressOf(parent),
+        self._valueOf(icon), text, self._addressOf(parent, 'QObject'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1151,7 +1151,7 @@ class QAction(QObject):
     #  bool QAction::showStatusText(QObject *object)
     return self.uglySide.call(
         'ritual_ZN7QAction14showStatusTextEP7QObject',
-        self._addressOf(object),
+        self._addressOf(object, 'QObject'),
     )
 
   @overload(QEvent)

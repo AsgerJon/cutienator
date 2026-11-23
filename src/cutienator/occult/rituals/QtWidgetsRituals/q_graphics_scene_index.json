@@ -1,0 +1,65 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qgraphicssceneindex_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK19QGraphicsSceneIndex10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QGraphicsSceneIndexD1Ev": ["nothing", "address"],
+    "ritual_ZNK19QGraphicsSceneIndex5sceneEv": ["address", "address"],
+    "ritual_ZNK19QGraphicsSceneIndex5itemsEN2Qt9SortOrderE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK19QGraphicsSceneIndex5itemsERK7QPointFN2Qt17ItemSelectionModeENS3_9SortOrderERK10QTransform": [
+      "address", "address", "address", "int", "int", "address"
+    ],
+    "ritual_ZNK19QGraphicsSceneIndex5itemsERK6QRectFN2Qt17ItemSelectionModeENS3_9SortOrderERK10QTransform": [
+      "address", "address", "address", "int", "int", "address"
+    ],
+    "ritual_ZNK19QGraphicsSceneIndex5itemsERK9QPolygonFN2Qt17ItemSelectionModeENS3_9SortOrderERK10QTransform": [
+      "address", "address", "address", "int", "int", "address"
+    ],
+    "ritual_ZNK19QGraphicsSceneIndex5itemsERK12QPainterPathN2Qt17ItemSelectionModeENS3_9SortOrderERK10QTransform": [
+      "address", "address", "address", "int", "int", "address"
+    ],
+    "ritual_ZNK19QGraphicsSceneIndex13estimateItemsERK7QPointFN2Qt9SortOrderE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZNK19QGraphicsSceneIndex13estimateItemsERK6QRectFN2Qt9SortOrderE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZNK19QGraphicsSceneIndex21estimateTopLevelItemsERK6QRectFN2Qt9SortOrderE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN19QGraphicsSceneIndex15updateSceneRectERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QGraphicsSceneIndex5clearEv": ["nothing", "address"],
+    "ritual_ZN19QGraphicsSceneIndex7addItemEP13QGraphicsItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QGraphicsSceneIndex10removeItemEP13QGraphicsItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QGraphicsSceneIndex10deleteItemEP13QGraphicsItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QGraphicsSceneIndex25prepareBoundingRectChangeEPK13QGraphicsItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QGraphicsSceneIndex": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN19QGraphicsSceneIndex15updateSceneRectERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN19QGraphicsSceneIndex5clearEv": ["nothing", "address"],
+    "ritual_own_ZN19QGraphicsSceneIndex10deleteItemEP13QGraphicsItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN19QGraphicsSceneIndex25prepareBoundingRectChangeEPK13QGraphicsItem": [
+      "nothing", "address", "address"
+    ]
+  }
+}

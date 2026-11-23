@@ -372,7 +372,8 @@ class QDoubleValidator(QValidator):
     """
     #  QDoubleValidator::QDoubleValidator(QObject *parent)
     self._noteCreation(QDoubleValidator, lambda: Rituals.call(
-        'ritual_ZN16QDoubleValidatorC1EP7QObject', self._addressOf(parent),
+        'ritual_ZN16QDoubleValidatorC1EP7QObject',
+        self._addressOf(parent, 'QObject'),
     ))
 
   @overload(float, float, int)
@@ -413,7 +414,7 @@ class QDoubleValidator(QValidator):
     #      decimals, QObject *parent)
     self._noteCreation(QDoubleValidator, lambda: Rituals.call(
         'ritual_ZN16QDoubleValidatorC1EddiP7QObject',
-        bottom, top, decimals, self._addressOf(parent),
+        bottom, top, decimals, self._addressOf(parent, 'QObject'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -20,7 +20,7 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QMetaObject, QPointF, QRectF
-  from . import QScrollerProperties
+  from . import QScrollerPrivate, QScrollerProperties
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -46,12 +46,13 @@ class QScroller(QObject):
   -----------
 
   Every function of Qt's QScroller that has a ritual and that Python can call
-  so far, 22 names in all: 'metaObject', 'tr', 'hasScroller', 'scroller',
+  so far, 23 names in all: 'metaObject', 'tr', 'hasScroller', 'scroller',
   'grabGesture', 'grabbedGesture', 'ungrabGesture', 'activeScrollers',
   'target', 'state', 'handleInput', 'stop', 'velocity', 'finalPosition',
   'pixelPerMeter', 'scrollerProperties', 'setSnapPositionsX',
   'setSnapPositionsY', 'setScrollerProperties', 'scrollTo', 'ensureVisible',
-  'resendPrepareEvent'. It can be made from Python, in 1 way; see '__init__'.
+  'resendPrepareEvent', 'd_func'. It can be made from Python, in 1 way; see
+  '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -60,11 +61,13 @@ class QScroller(QObject):
     in Python what 'QScroller *QScroller::scroller(QObject *target)' takes.
   - Qt's 'QScroller::~QScroller()': the destructor: Python never removes a
     C++ QScroller.
+  - Qt's 'const QScrollerPrivate *QScroller::d_func() const': takes in Python
+    what 'QScrollerPrivate *QScroller::d_func()' takes.
 
   What has no ritual
   ------------------
 
-  12 of the 39 functions Qt declares: 6 takes or gives a type that cannot be
+  10 of the 39 functions Qt declares: 4 takes or gives a type that cannot be
   passed yet; 2 a signal; 2 forbidden; 1 a template; 1 declared and nowhere
   to be found.
 
@@ -177,7 +180,7 @@ class QScroller(QObject):
     #  bool QScroller::hasScroller(QObject *target)
     return Rituals.call(
         'ritual_ZN9QScroller11hasScrollerEP7QObject',
-        CuteMixin._addressOf(target),
+        CuteMixin._addressOf(target, 'QObject'),
     )
 
   @staticmethod
@@ -206,7 +209,7 @@ class QScroller(QObject):
     #  QScroller *QScroller::scroller(QObject *target)
     address = Rituals.call(
         'ritual_ZN9QScroller8scrollerEP7QObject',
-        CuteMixin._addressOf(target),
+        CuteMixin._addressOf(target, 'QObject'),
     )
     return QScroller._cuteAt(address)
 
@@ -249,7 +252,7 @@ class QScroller(QObject):
     return Qt.GestureType(Rituals.call(
         'ritual_ZN9QScroller11grabGestureEP7QObjectNS_19ScrollerGestureType'
         'E',
-        CuteMixin._addressOf(target), gestureType.value,
+        CuteMixin._addressOf(target, 'QObject'), gestureType.value,
     ))
 
   @staticmethod
@@ -279,7 +282,7 @@ class QScroller(QObject):
     #  Qt::GestureType QScroller::grabbedGesture(QObject *target)
     return Qt.GestureType(Rituals.call(
         'ritual_ZN9QScroller14grabbedGestureEP7QObject',
-        CuteMixin._addressOf(target),
+        CuteMixin._addressOf(target, 'QObject'),
     ))
 
   @staticmethod
@@ -301,7 +304,7 @@ class QScroller(QObject):
     #  void QScroller::ungrabGesture(QObject *target)
     Rituals.call(
         'ritual_ZN9QScroller13ungrabGestureEP7QObject',
-        CuteMixin._addressOf(target),
+        CuteMixin._addressOf(target, 'QObject'),
     )
 
   @staticmethod
@@ -565,7 +568,8 @@ class QScroller(QObject):
     """
     #  QScroller::QScroller(QObject *target)
     self._noteCreation(QScroller, lambda: Rituals.call(
-        'ritual_ZN9QScrollerC1EP7QObject', self._addressOf(target),
+        'ritual_ZN9QScrollerC1EP7QObject',
+        self._addressOf(target, 'QObject'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -752,6 +756,24 @@ class QScroller(QObject):
     """
     #  void QScroller::resendPrepareEvent()
     self.uglySide.call('ritual_ZN9QScroller18resendPrepareEventEv')
+
+  def d_func(self) -> Optional[QScrollerPrivate]:
+    """
+    Calls Qt's 'QScrollerPrivate *QScroller::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qscroller.html#d_func
+
+    Returns
+    -------
+
+    Optional[QScrollerPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QScrollerPrivate *QScroller::d_func()
+    address = self.uglySide.call('ritual_ZN9QScroller6d_funcEv')
+    from . import QScrollerPrivate
+    return QScrollerPrivate._cuteAt(address)
 
 
 #  Qt's 'QList<QScroller *>': the list of QScroller, which 'QList[QScroller]'

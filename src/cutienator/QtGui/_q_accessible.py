@@ -704,7 +704,7 @@ class QAccessible(CuteMixin, metaclass=MetaCute):
     #      *a0)
     address = Rituals.call(
         'ritual_ZN11QAccessible24queryAccessibleInterfaceEP7QObject',
-        CuteMixin._addressOf(a0),
+        CuteMixin._addressOf(a0, 'QObject'),
     )
     from . import QAccessibleInterface
     return QAccessibleInterface._cuteAt(address)
@@ -879,7 +879,7 @@ class QAccessible(CuteMixin, metaclass=MetaCute):
     #  void QAccessible::setRootObject(QObject *object)
     Rituals.call(
         'ritual_ZN11QAccessible13setRootObjectEP7QObject',
-        CuteMixin._addressOf(object),
+        CuteMixin._addressOf(object, 'QObject'),
     )
 
   @staticmethod

@@ -1,0 +1,29 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qstyleanimation_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK24QScrollbarStyleAnimation10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24QScrollbarStyleAnimation2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN24QScrollbarStyleAnimationC1ENS_4ModeEP7QObject": [
+      "address", "int", "address"
+    ],
+    "ritual_ZNK24QScrollbarStyleAnimation4modeEv": ["int", "address"],
+    "ritual_ZNK24QScrollbarStyleAnimation9wasActiveEv": ["bool", "address"],
+    "ritual_ZN24QScrollbarStyleAnimation9setActiveEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN24QScrollbarStyleAnimation17updateCurrentTimeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN24QScrollbarStyleAnimation17updateCurrentTimeEi": [
+      "nothing", "address", "int"
+    ]
+  }
+}

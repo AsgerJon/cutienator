@@ -196,7 +196,8 @@ class QTextObjectInterface(CuteMixin, metaclass=MetaCute):
     """
     #  QSizeF QTextObjectInterface::intrinsicSize(QTextDocument *doc, int
     #      posInDocument, const QTextFormat &format)
-    address = self.uglySide.call(
+    address = self._callAs(
+        'QTextObjectInterface',
         'ritual_ZN20QTextObjectInterface13intrinsicSizeEP13QTextDocumentiRK'
         '11QTextFormat',
         self._addressOf(doc), posInDocument, self._valueOf(format),
@@ -249,7 +250,8 @@ class QTextObjectInterface(CuteMixin, metaclass=MetaCute):
     #  void QTextObjectInterface::drawObject(QPainter *painter, const QRectF
     #      &rect, QTextDocument *doc, int posInDocument, const QTextFormat
     #      &format)
-    self.uglySide.call(
+    self._callAs(
+        'QTextObjectInterface',
         'ritual_ZN20QTextObjectInterface10drawObjectEP8QPainterRK6QRectFP13'
         'QTextDocumentiRK11QTextFormat',
         self._addressOf(painter), self._valueOf(rect), self._addressOf(doc),

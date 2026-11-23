@@ -245,7 +245,7 @@ class QAccessibleEvent(CuteMixin, metaclass=MetaCute):
     #      typ)
     self._noteCreation(QAccessibleEvent, lambda: Rituals.call(
         'ritual_ZN16QAccessibleEventC1EP7QObjectN11QAccessible5EventE',
-        self._addressOf(obj), typ.value,
+        self._addressOf(obj, 'QObject'), typ.value,
     ))
 
   @overload(QAccessibleInterface, QAccessible.Event)

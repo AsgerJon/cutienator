@@ -2822,7 +2822,7 @@ class QAbstractItemView(QAbstractScrollArea):
     ritual = 'ritual_ZN17QAbstractItemView15editorDestroyedEP7QObject'
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZN17QAbstractItemView15editorDestroyedEP7QObject'
-    self.uglySide.call(ritual, self._addressOf(editor))
+    self.uglySide.call(ritual, self._addressOf(editor, 'QObject'))
 
   @overload(Qt.DropActions)
   def startDrag(self, supportedActions: Qt.DropActions) -> None:
@@ -3383,5 +3383,5 @@ class QAbstractItemView(QAbstractScrollArea):
       ritual = (
           'ritual_own_ZN17QAbstractItemView11eventFilterEP7QObjectP6QEvent')
     return self.uglySide.call(
-        ritual, self._addressOf(object), self._addressOf(event),
+        ritual, self._addressOf(object, 'QObject'), self._addressOf(event),
     )

@@ -624,7 +624,7 @@ class QColorDialog(QDialog):
     #  void QColorDialog::open(QObject *receiver, const char *member)
     self.uglySide.call(
         'ritual_ZN12QColorDialog4openEP7QObjectPKc',
-        self._addressOf(receiver), self._bytesOf(member),
+        self._addressOf(receiver, 'QObject'), self._bytesOf(member),
     )
 
   @overload(QEvent)

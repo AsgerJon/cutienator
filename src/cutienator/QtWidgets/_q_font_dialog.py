@@ -456,7 +456,7 @@ class QFontDialog(QDialog):
     #  void QFontDialog::open(QObject *receiver, const char *member)
     self.uglySide.call(
         'ritual_ZN11QFontDialog4openEP7QObjectPKc',
-        self._addressOf(receiver), self._bytesOf(member),
+        self._addressOf(receiver, 'QObject'), self._bytesOf(member),
     )
 
   @overload(QEvent)
@@ -530,5 +530,5 @@ class QFontDialog(QDialog):
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZN11QFontDialog11eventFilterEP7QObjectP6QEvent'
     return self.uglySide.call(
-        ritual, self._addressOf(object), self._addressOf(event),
+        ritual, self._addressOf(object, 'QObject'), self._addressOf(event),
     )

@@ -916,7 +916,7 @@ class QProcess(QIODevice):
     """
     #  QProcess::QProcess(QObject *parent)
     self._noteCreation(QProcess, lambda: Rituals.call(
-        'ritual_ZN8QProcessC1EP7QObject', self._addressOf(parent),
+        'ritual_ZN8QProcessC1EP7QObject', self._addressOf(parent, 'QObject'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

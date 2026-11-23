@@ -671,7 +671,7 @@ class QSettings(QObject):
     #      &application, QObject *parent)
     self._noteCreation(QSettings, lambda: Rituals.call(
         'ritual_ZN9QSettingsC1ERK7QStringS2_P7QObject',
-        organization, application, self._addressOf(parent),
+        organization, application, self._addressOf(parent, 'QObject'),
     ))
 
   @overload(Scope, str)
@@ -713,7 +713,8 @@ class QSettings(QObject):
     #      QString &application, QObject *parent)
     self._noteCreation(QSettings, lambda: Rituals.call(
         'ritual_ZN9QSettingsC1ENS_5ScopeERK7QStringS3_P7QObject',
-        scope.value, organization, application, self._addressOf(parent),
+        scope.value, organization, application, self._addressOf(parent,
+        'QObject'),
     ))
 
   @overload(Format, Scope, str)
@@ -760,7 +761,7 @@ class QSettings(QObject):
     self._noteCreation(QSettings, lambda: Rituals.call(
         'ritual_ZN9QSettingsC1ENS_6FormatENS_5ScopeERK7QStringS4_P7QObject',
         format.value, scope.value, organization, application,
-        self._addressOf(parent),
+        self._addressOf(parent, 'QObject'),
     ))
 
   @overload(str, Format)
@@ -796,7 +797,7 @@ class QSettings(QObject):
     #      *parent)
     self._noteCreation(QSettings, lambda: Rituals.call(
         'ritual_ZN9QSettingsC1ERK7QStringNS_6FormatEP7QObject',
-        fileName, format.value, self._addressOf(parent),
+        fileName, format.value, self._addressOf(parent, 'QObject'),
     ))
 
   @overload()
@@ -818,7 +819,8 @@ class QSettings(QObject):
     """
     #  QSettings::QSettings(QObject *parent)
     self._noteCreation(QSettings, lambda: Rituals.call(
-        'ritual_ZN9QSettingsC1EP7QObject', self._addressOf(parent),
+        'ritual_ZN9QSettingsC1EP7QObject',
+        self._addressOf(parent, 'QObject'),
     ))
 
   @overload(Scope)
@@ -844,7 +846,7 @@ class QSettings(QObject):
     #  QSettings::QSettings(Scope scope, QObject *parent)
     self._noteCreation(QSettings, lambda: Rituals.call(
         'ritual_ZN9QSettingsC1ENS_5ScopeEP7QObject',
-        scope.value, self._addressOf(parent),
+        scope.value, self._addressOf(parent, 'QObject'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

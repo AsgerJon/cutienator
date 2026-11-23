@@ -720,7 +720,7 @@ class QAbstractEventDispatcher(QObject):
     return self.uglySide.call(
         'ritual_ZN24QAbstractEventDispatcher13registerTimerExN2Qt9TimerType'
         'EP7QObject',
-        interval, timerType.value, self._addressOf(object),
+        interval, timerType.value, self._addressOf(object, 'QObject'),
     )
 
   @overload(int, int, Qt.TimerType, QObject)
@@ -760,7 +760,8 @@ class QAbstractEventDispatcher(QObject):
     self.uglySide.call(
         'ritual_ZN24QAbstractEventDispatcher13registerTimerEixN2Qt9TimerTyp'
         'eEP7QObject',
-        timerId, interval, timerType.value, self._addressOf(object),
+        timerId, interval, timerType.value, self._addressOf(object,
+        'QObject'),
     )
 
   @overload(int)
@@ -823,7 +824,7 @@ class QAbstractEventDispatcher(QObject):
     #  bool QAbstractEventDispatcher::unregisterTimers(QObject *object)
     return self.uglySide.call(
         'ritual_ZN24QAbstractEventDispatcher16unregisterTimersEP7QObject',
-        self._addressOf(object),
+        self._addressOf(object, 'QObject'),
     )
 
   @overload(int)

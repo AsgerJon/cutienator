@@ -306,7 +306,7 @@ class QSinglePointEvent(QPointerEvent):
     #      *exclusiveGrabber)
     self.uglySide.call(
         'ritual_ZN17QSinglePointEvent24setExclusivePointGrabberEP7QObject',
-        self._addressOf(exclusiveGrabber),
+        self._addressOf(exclusiveGrabber, 'QObject'),
     )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

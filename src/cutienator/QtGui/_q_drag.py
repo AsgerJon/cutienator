@@ -441,7 +441,8 @@ class QDrag(QObject):
     """
     #  QDrag::QDrag(QObject *dragSource)
     self._noteCreation(QDrag, lambda: Rituals.call(
-        'ritual_ZN5QDragC1EP7QObject', self._addressOf(dragSource),
+        'ritual_ZN5QDragC1EP7QObject',
+        self._addressOf(dragSource, 'QObject'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

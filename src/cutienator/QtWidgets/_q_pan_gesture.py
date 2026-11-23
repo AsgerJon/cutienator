@@ -315,7 +315,8 @@ class QPanGesture(QGesture):
     """
     #  QPanGesture::QPanGesture(QObject *parent)
     self._noteCreation(QPanGesture, lambda: Rituals.call(
-        'ritual_ZN11QPanGestureC1EP7QObject', self._addressOf(parent),
+        'ritual_ZN11QPanGestureC1EP7QObject',
+        self._addressOf(parent, 'QObject'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

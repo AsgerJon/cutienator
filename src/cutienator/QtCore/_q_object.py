@@ -213,8 +213,9 @@ class QObject(CuteMixin, metaclass=MetaCute):
     #      Qt::ConnectionType a4)
     address = Rituals.call(
         'ritual_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE',
-        CuteMixin._addressOf(sender), CuteMixin._bytesOf(signal),
-        CuteMixin._addressOf(receiver), CuteMixin._bytesOf(member), a4.value,
+        CuteMixin._addressOf(sender, 'QObject'), CuteMixin._bytesOf(signal),
+        CuteMixin._addressOf(receiver, 'QObject'),
+        CuteMixin._bytesOf(member), a4.value,
     )
     return QMetaObject.Connection._cuteOwning(address)
 
@@ -277,9 +278,9 @@ class QObject(CuteMixin, metaclass=MetaCute):
     address = Rituals.call(
         'ritual_ZN7QObject7connectEPKS_RK11QMetaMethodS1_S4_N2Qt14Connectio'
         'nTypeE',
-        CuteMixin._addressOf(sender), CuteMixin._valueOf(signal),
-        CuteMixin._addressOf(receiver), CuteMixin._valueOf(method),
-        type.value,
+        CuteMixin._addressOf(sender, 'QObject'), CuteMixin._valueOf(signal),
+        CuteMixin._addressOf(receiver, 'QObject'),
+        CuteMixin._valueOf(method), type.value,
     )
     return QMetaObject.Connection._cuteOwning(address)
 
@@ -339,9 +340,10 @@ class QObject(CuteMixin, metaclass=MetaCute):
     """
     #  QMetaObject::Connection QObject::connect(const QObject *sender, const
     #      char *signal, const char *member, Qt::ConnectionType type) const
-    address = self.uglySide.call(
+    address = self._callAs(
+        'QObject',
         'ritual_ZNK7QObject7connectEPKS_PKcS3_N2Qt14ConnectionTypeE',
-        self._addressOf(sender), self._bytesOf(signal),
+        self._addressOf(sender, 'QObject'), self._bytesOf(signal),
         self._bytesOf(member), type.value,
     )
     return QMetaObject.Connection._cuteOwning(address)
@@ -396,8 +398,9 @@ class QObject(CuteMixin, metaclass=MetaCute):
     #      const QObject *receiver, const char *member)
     return Rituals.call(
         'ritual_ZN7QObject10disconnectEPKS_PKcS1_S3_',
-        CuteMixin._addressOf(sender), CuteMixin._bytesOf(signal),
-        CuteMixin._addressOf(receiver), CuteMixin._bytesOf(member),
+        CuteMixin._addressOf(sender, 'QObject'), CuteMixin._bytesOf(signal),
+        CuteMixin._addressOf(receiver, 'QObject'),
+        CuteMixin._bytesOf(member),
     )
 
   @staticmethod
@@ -441,8 +444,9 @@ class QObject(CuteMixin, metaclass=MetaCute):
     #      &signal, const QObject *receiver, const QMetaMethod &member)
     return Rituals.call(
         'ritual_ZN7QObject10disconnectEPKS_RK11QMetaMethodS1_S4_',
-        CuteMixin._addressOf(sender), CuteMixin._valueOf(signal),
-        CuteMixin._addressOf(receiver), CuteMixin._valueOf(member),
+        CuteMixin._addressOf(sender, 'QObject'), CuteMixin._valueOf(signal),
+        CuteMixin._addressOf(receiver, 'QObject'),
+        CuteMixin._valueOf(member),
     )
 
   @overload()
@@ -489,9 +493,9 @@ class QObject(CuteMixin, metaclass=MetaCute):
     """
     #  bool QObject::disconnect(const char *signal, const QObject *receiver,
     #      const char *member) const
-    return self.uglySide.call(
-        'ritual_ZNK7QObject10disconnectEPKcPKS_S1_',
-        self._bytesOf(signal), self._addressOf(receiver),
+    return self._callAs(
+        'QObject', 'ritual_ZNK7QObject10disconnectEPKcPKS_S1_',
+        self._bytesOf(signal), self._addressOf(receiver, 'QObject'),
         self._bytesOf(member),
     )
 
@@ -523,9 +527,9 @@ class QObject(CuteMixin, metaclass=MetaCute):
     """
     #  bool QObject::disconnect(const QObject *receiver, const char *member)
     #      const
-    return self.uglySide.call(
-        'ritual_ZNK7QObject10disconnectEPKS_PKc',
-        self._addressOf(receiver), self._bytesOf(member),
+    return self._callAs(
+        'QObject', 'ritual_ZNK7QObject10disconnectEPKS_PKc',
+        self._addressOf(receiver, 'QObject'), self._bytesOf(member),
     )
 
   @staticmethod
@@ -649,7 +653,7 @@ class QObject(CuteMixin, metaclass=MetaCute):
       no object.
     """
     #  const QMetaObject *QObject::metaObject() const
-    address = self.uglySide.call('ritual_ZNK7QObject10metaObjectEv')
+    address = self._callAs('QObject', 'ritual_ZNK7QObject10metaObjectEv')
     return QMetaObject._cuteAt(address)
 
   def objectName(self) -> str:
@@ -665,7 +669,7 @@ class QObject(CuteMixin, metaclass=MetaCute):
       The text Qt gave back.
     """
     #  QString QObject::objectName() const
-    return self.uglySide.call('ritual_ZNK7QObject10objectNameEv')
+    return self._callAs('QObject', 'ritual_ZNK7QObject10objectNameEv')
 
   def isWidgetType(self) -> bool:
     """
@@ -674,7 +678,7 @@ class QObject(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qobject.html#isWidgetType
     """
     #  bool QObject::isWidgetType() const
-    return self.uglySide.call('ritual_ZNK7QObject12isWidgetTypeEv')
+    return self._callAs('QObject', 'ritual_ZNK7QObject12isWidgetTypeEv')
 
   def isWindowType(self) -> bool:
     """
@@ -683,7 +687,7 @@ class QObject(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qobject.html#isWindowType
     """
     #  bool QObject::isWindowType() const
-    return self.uglySide.call('ritual_ZNK7QObject12isWindowTypeEv')
+    return self._callAs('QObject', 'ritual_ZNK7QObject12isWindowTypeEv')
 
   def isQuickItemType(self) -> bool:
     """
@@ -692,7 +696,7 @@ class QObject(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qobject.html#isQuickItemType
     """
     #  bool QObject::isQuickItemType() const
-    return self.uglySide.call('ritual_ZNK7QObject15isQuickItemTypeEv')
+    return self._callAs('QObject', 'ritual_ZNK7QObject15isQuickItemTypeEv')
 
   def isQmlExposed(self) -> bool:
     """
@@ -701,7 +705,7 @@ class QObject(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qobject.html#isQmlExposed
     """
     #  bool QObject::isQmlExposed() const
-    return self.uglySide.call('ritual_ZNK7QObject12isQmlExposedEv')
+    return self._callAs('QObject', 'ritual_ZNK7QObject12isQmlExposedEv')
 
   def signalsBlocked(self) -> bool:
     """
@@ -710,7 +714,7 @@ class QObject(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qobject.html#signalsBlocked
     """
     #  bool QObject::signalsBlocked() const
-    return self.uglySide.call('ritual_ZNK7QObject14signalsBlockedEv')
+    return self._callAs('QObject', 'ritual_ZNK7QObject14signalsBlockedEv')
 
   def thread(self) -> Optional[QThread]:
     """
@@ -726,7 +730,7 @@ class QObject(CuteMixin, metaclass=MetaCute):
       no object.
     """
     #  QThread *QObject::thread() const
-    address = self.uglySide.call('ritual_ZNK7QObject6threadEv')
+    address = self._callAs('QObject', 'ritual_ZNK7QObject6threadEv')
     from . import QThread
     return QThread._cuteAt(address)
 
@@ -743,7 +747,7 @@ class QObject(CuteMixin, metaclass=MetaCute):
       A new cute list around the copy Qt gave back. Python owns it.
     """
     #  const QObjectList &QObject::children() const
-    address = self.uglySide.call('ritual_ZNK7QObject8childrenEv')
+    address = self._callAs('QObject', 'ritual_ZNK7QObject8childrenEv')
     return QList[QObject]._cuteOwning(address)
 
   @overload(str)
@@ -767,8 +771,8 @@ class QObject(CuteMixin, metaclass=MetaCute):
       A new cute QVariant around the copy Qt gave back. Python owns it.
     """
     #  QVariant QObject::property(const char *name) const
-    address = self.uglySide.call(
-        'ritual_ZNK7QObject8propertyEPKc', self._bytesOf(name),
+    address = self._callAs(
+        'QObject', 'ritual_ZNK7QObject8propertyEPKc', self._bytesOf(name),
     )
     from . import QVariant
     return QVariant._cuteOwning(address)
@@ -786,8 +790,8 @@ class QObject(CuteMixin, metaclass=MetaCute):
       A new cute list around the copy Qt gave back. Python owns it.
     """
     #  QList<QByteArray> QObject::dynamicPropertyNames() const
-    address = self.uglySide.call(
-        'ritual_ZNK7QObject20dynamicPropertyNamesEv',
+    address = self._callAs(
+        'QObject', 'ritual_ZNK7QObject20dynamicPropertyNamesEv',
     )
     from . import QByteArray
     return QList[QByteArray]._cuteOwning(address)
@@ -806,7 +810,7 @@ class QObject(CuteMixin, metaclass=MetaCute):
       no object.
     """
     #  QObject *QObject::parent() const
-    address = self.uglySide.call('ritual_ZNK7QObject6parentEv')
+    address = self._callAs('QObject', 'ritual_ZNK7QObject6parentEv')
     return QObject._cuteAt(address)
 
   @overload(str)
@@ -824,8 +828,9 @@ class QObject(CuteMixin, metaclass=MetaCute):
       Passed on as the bytes of the text. None is passed on as no text.
     """
     #  bool QObject::inherits(const char *classname) const
-    return self.uglySide.call(
-        'ritual_ZNK7QObject8inheritsEPKc', self._bytesOf(classname),
+    return self._callAs(
+        'QObject', 'ritual_ZNK7QObject8inheritsEPKc',
+        self._bytesOf(classname),
     )
 
   def sender(self) -> Optional[QObject]:
@@ -842,7 +847,7 @@ class QObject(CuteMixin, metaclass=MetaCute):
       no object.
     """
     #  QObject *QObject::sender() const
-    address = self.uglySide.call('ritual_ZNK7QObject6senderEv')
+    address = self._callAs('QObject', 'ritual_ZNK7QObject6senderEv')
     return QObject._cuteAt(address)
 
   def senderSignalIndex(self) -> int:
@@ -852,7 +857,7 @@ class QObject(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qobject.html#senderSignalIndex
     """
     #  int QObject::senderSignalIndex() const
-    return self.uglySide.call('ritual_ZNK7QObject17senderSignalIndexEv')
+    return self._callAs('QObject', 'ritual_ZNK7QObject17senderSignalIndexEv')
 
   @overload(str)
   @overload(NoneType)
@@ -869,8 +874,8 @@ class QObject(CuteMixin, metaclass=MetaCute):
       Passed on as the bytes of the text. None is passed on as no text.
     """
     #  int QObject::receivers(const char *signal) const
-    return self.uglySide.call(
-        'ritual_ZNK7QObject9receiversEPKc', self._bytesOf(signal),
+    return self._callAs(
+        'QObject', 'ritual_ZNK7QObject9receiversEPKc', self._bytesOf(signal),
     )
 
   @overload(QMetaMethod)
@@ -889,8 +894,8 @@ class QObject(CuteMixin, metaclass=MetaCute):
       Python's own.
     """
     #  bool QObject::isSignalConnected(const QMetaMethod &signal) const
-    return self.uglySide.call(
-        'ritual_ZNK7QObject17isSignalConnectedERK11QMetaMethod',
+    return self._callAs(
+        'QObject', 'ritual_ZNK7QObject17isSignalConnectedERK11QMetaMethod',
         self._valueOf(signal),
     )
 
@@ -912,8 +917,8 @@ class QObject(CuteMixin, metaclass=MetaCute):
       Passed on as it is: a QString is made of it for the call.
     """
     #  void QObject::setObjectName(QAnyStringView name)
-    self.uglySide.call(
-        'ritual_ZN7QObject13setObjectNameE14QAnyStringView', name,
+    self._callAs(
+        'QObject', 'ritual_ZN7QObject13setObjectNameE14QAnyStringView', name,
     )
 
   @overload(THIS)
@@ -932,8 +937,9 @@ class QObject(CuteMixin, metaclass=MetaCute):
       object.
     """
     #  void QObject::setParent(QObject *parent)
-    self.uglySide.call(
-        'ritual_ZN7QObject9setParentEPS_', self._addressOf(parent),
+    self._callAs(
+        'QObject', 'ritual_ZN7QObject9setParentEPS_',
+        self._addressOf(parent, 'QObject'),
     )
 
   @overload(str, QVariant)
@@ -956,8 +962,8 @@ class QObject(CuteMixin, metaclass=MetaCute):
       own.
     """
     #  bool QObject::setProperty(const char *name, const QVariant &value)
-    return self.uglySide.call(
-        'ritual_ZN7QObject11setPropertyEPKcRK8QVariant',
+    return self._callAs(
+        'QObject', 'ritual_ZN7QObject11setPropertyEPKcRK8QVariant',
         self._bytesOf(name), self._valueOf(value),
     )
 
@@ -992,7 +998,7 @@ class QObject(CuteMixin, metaclass=MetaCute):
     """
     #  QObject::QObject(QObject *parent)
     self._noteCreation(QObject, lambda: Rituals.call(
-        'ritual_ZN7QObjectC1EPS_', self._addressOf(parent),
+        'ritual_ZN7QObjectC1EPS_', self._addressOf(parent, 'QObject'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1034,7 +1040,7 @@ class QObject(CuteMixin, metaclass=MetaCute):
     ritual = 'ritual_ZN7QObject5eventEP6QEvent'
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZN7QObject5eventEP6QEvent'
-    return self.uglySide.call(ritual, self._addressOf(event))
+    return self._callAs('QObject', ritual, self._addressOf(event))
 
   @overload(THIS, QEvent)
   @overload(THIS, NoneType)
@@ -1065,8 +1071,9 @@ class QObject(CuteMixin, metaclass=MetaCute):
     ritual = 'ritual_ZN7QObject11eventFilterEPS_P6QEvent'
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZN7QObject11eventFilterEPS_P6QEvent'
-    return self.uglySide.call(
-        ritual, self._addressOf(watched), self._addressOf(event),
+    return self._callAs(
+        'QObject', ritual,
+        self._addressOf(watched, 'QObject'), self._addressOf(event),
     )
 
   @overload(bool)
@@ -1083,7 +1090,7 @@ class QObject(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  bool QObject::blockSignals(bool b)
-    return self.uglySide.call('ritual_ZN7QObject12blockSignalsEb', b)
+    return self._callAs('QObject', 'ritual_ZN7QObject12blockSignalsEb', b)
 
   @overload(int)
   @overload(int, Qt.TimerType)
@@ -1109,8 +1116,8 @@ class QObject(CuteMixin, metaclass=MetaCute):
       Qt.TimerType.CoarseTimer.
     """
     #  int QObject::startTimer(int interval, Qt::TimerType timerType)
-    return self.uglySide.call(
-        'ritual_ZN7QObject10startTimerEiN2Qt9TimerTypeE',
+    return self._callAs(
+        'QObject', 'ritual_ZN7QObject10startTimerEiN2Qt9TimerTypeE',
         interval, timerType.value,
     )
 
@@ -1128,7 +1135,7 @@ class QObject(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  void QObject::killTimer(int id)
-    self.uglySide.call('ritual_ZN7QObject9killTimerEi', id)
+    self._callAs('QObject', 'ritual_ZN7QObject9killTimerEi', id)
 
   @overload(Qt.TimerId)
   def killTimer(self, id: Qt.TimerId) -> None:
@@ -1144,7 +1151,9 @@ class QObject(CuteMixin, metaclass=MetaCute):
       Passed on as its number.
     """
     #  void QObject::killTimer(Qt::TimerId id)
-    self.uglySide.call('ritual_ZN7QObject9killTimerEN2Qt7TimerIdE', id.value)
+    self._callAs(
+        'QObject', 'ritual_ZN7QObject9killTimerEN2Qt7TimerIdE', id.value,
+    )
 
   @overload(THIS)
   @overload(NoneType)
@@ -1162,9 +1171,9 @@ class QObject(CuteMixin, metaclass=MetaCute):
       object.
     """
     #  void QObject::installEventFilter(QObject *filterObj)
-    self.uglySide.call(
-        'ritual_ZN7QObject18installEventFilterEPS_',
-        self._addressOf(filterObj),
+    self._callAs(
+        'QObject', 'ritual_ZN7QObject18installEventFilterEPS_',
+        self._addressOf(filterObj, 'QObject'),
     )
 
   @overload(THIS)
@@ -1183,8 +1192,9 @@ class QObject(CuteMixin, metaclass=MetaCute):
       object.
     """
     #  void QObject::removeEventFilter(QObject *obj)
-    self.uglySide.call(
-        'ritual_ZN7QObject17removeEventFilterEPS_', self._addressOf(obj),
+    self._callAs(
+        'QObject', 'ritual_ZN7QObject17removeEventFilterEPS_',
+        self._addressOf(obj, 'QObject'),
     )
 
   def dumpObjectTree(self) -> None:
@@ -1194,7 +1204,7 @@ class QObject(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qobject.html#dumpObjectTree
     """
     #  void QObject::dumpObjectTree() const
-    self.uglySide.call('ritual_ZNK7QObject14dumpObjectTreeEv')
+    self._callAs('QObject', 'ritual_ZNK7QObject14dumpObjectTreeEv')
 
   def dumpObjectInfo(self) -> None:
     """
@@ -1203,7 +1213,7 @@ class QObject(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo
     """
     #  void QObject::dumpObjectInfo() const
-    self.uglySide.call('ritual_ZNK7QObject14dumpObjectInfoEv')
+    self._callAs('QObject', 'ritual_ZNK7QObject14dumpObjectInfoEv')
 
   def bindingStorage(self) -> Optional[QBindingStorage]:
     """
@@ -1219,7 +1229,7 @@ class QObject(CuteMixin, metaclass=MetaCute):
       no object.
     """
     #  QBindingStorage *QObject::bindingStorage()
-    address = self.uglySide.call('ritual_ZN7QObject14bindingStorageEv')
+    address = self._callAs('QObject', 'ritual_ZN7QObject14bindingStorageEv')
     from . import QBindingStorage
     return QBindingStorage._cuteAt(address)
 
@@ -1230,7 +1240,7 @@ class QObject(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qobject.html#deleteLater
     """
     #  void QObject::deleteLater()
-    self.uglySide.call('ritual_ZN7QObject11deleteLaterEv')
+    self._callAs('QObject', 'ritual_ZN7QObject11deleteLaterEv')
 
   @overload(QTimerEvent)
   @overload(NoneType)
@@ -1251,7 +1261,7 @@ class QObject(CuteMixin, metaclass=MetaCute):
     ritual = 'ritual_ZN7QObject10timerEventEP11QTimerEvent'
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZN7QObject10timerEventEP11QTimerEvent'
-    self.uglySide.call(ritual, self._addressOf(event))
+    self._callAs('QObject', ritual, self._addressOf(event))
 
   @overload(QChildEvent)
   @overload(NoneType)
@@ -1272,7 +1282,7 @@ class QObject(CuteMixin, metaclass=MetaCute):
     ritual = 'ritual_ZN7QObject10childEventEP11QChildEvent'
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZN7QObject10childEventEP11QChildEvent'
-    self.uglySide.call(ritual, self._addressOf(event))
+    self._callAs('QObject', ritual, self._addressOf(event))
 
   @overload(QEvent)
   @overload(NoneType)
@@ -1293,7 +1303,7 @@ class QObject(CuteMixin, metaclass=MetaCute):
     ritual = 'ritual_ZN7QObject11customEventEP6QEvent'
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZN7QObject11customEventEP6QEvent'
-    self.uglySide.call(ritual, self._addressOf(event))
+    self._callAs('QObject', ritual, self._addressOf(event))
 
   @overload(QMetaMethod)
   def connectNotify(self, signal: QMetaMethod) -> None:
@@ -1313,7 +1323,7 @@ class QObject(CuteMixin, metaclass=MetaCute):
     ritual = 'ritual_ZN7QObject13connectNotifyERK11QMetaMethod'
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZN7QObject13connectNotifyERK11QMetaMethod'
-    self.uglySide.call(ritual, self._valueOf(signal))
+    self._callAs('QObject', ritual, self._valueOf(signal))
 
   @overload(QMetaMethod)
   def disconnectNotify(self, signal: QMetaMethod) -> None:
@@ -1333,7 +1343,7 @@ class QObject(CuteMixin, metaclass=MetaCute):
     ritual = 'ritual_ZN7QObject16disconnectNotifyERK11QMetaMethod'
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZN7QObject16disconnectNotifyERK11QMetaMethod'
-    self.uglySide.call(ritual, self._valueOf(signal))
+    self._callAs('QObject', ritual, self._valueOf(signal))
 
   @overload(str)
   def doSetObjectName(self, name: str) -> None:
@@ -1349,7 +1359,9 @@ class QObject(CuteMixin, metaclass=MetaCute):
       Passed on as it is: a QString is made of it for the call.
     """
     #  void QObject::doSetObjectName(const QString &name)
-    self.uglySide.call('ritual_ZN7QObject15doSetObjectNameERK7QString', name)
+    self._callAs(
+        'QObject', 'ritual_ZN7QObject15doSetObjectNameERK7QString', name,
+    )
 
   @overload(str, QVariant, QVariant)
   @overload(str, QVariant, NoneType)
@@ -1383,8 +1395,8 @@ class QObject(CuteMixin, metaclass=MetaCute):
     """
     #  bool QObject::doSetProperty(const char *name, const QVariant &value,
     #      QVariant *rvalue)
-    return self.uglySide.call(
-        'ritual_ZN7QObject13doSetPropertyEPKcRK8QVariantPS2_',
+    return self._callAs(
+        'QObject', 'ritual_ZN7QObject13doSetPropertyEPKcRK8QVariantPS2_',
         self._bytesOf(name), self._valueOf(value), self._addressOf(rvalue),
     )
 

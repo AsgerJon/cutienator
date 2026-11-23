@@ -1,0 +1,28 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qwidgetresizehandler_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK20QWidgetResizeHandler10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QWidgetResizeHandler10setEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK20QWidgetResizeHandler9isEnabledEv": ["bool", "address"],
+    "ritual_ZNK20QWidgetResizeHandler12isButtonDownEv": ["bool", "address"],
+    "ritual_ZN20QWidgetResizeHandler14setExtraHeightEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QWidgetResizeHandler13setFrameWidthEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QWidgetResizeHandler11eventFilterEP7QObjectP6QEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN20QWidgetResizeHandler14setMouseCursorENS_13MousePositionE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK20QWidgetResizeHandler10isResizingEv": ["bool", "address"]
+  }
+}

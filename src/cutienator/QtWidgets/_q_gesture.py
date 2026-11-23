@@ -333,7 +333,7 @@ class QGesture(QObject):
     """
     #  QGesture::QGesture(QObject *parent)
     self._noteCreation(QGesture, lambda: Rituals.call(
-        'ritual_ZN8QGestureC1EP7QObject', self._addressOf(parent),
+        'ritual_ZN8QGestureC1EP7QObject', self._addressOf(parent, 'QObject'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

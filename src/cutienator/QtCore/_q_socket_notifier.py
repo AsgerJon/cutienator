@@ -295,7 +295,7 @@ class QSocketNotifier(QObject):
     #  QSocketNotifier::QSocketNotifier(Type a0, QObject *parent)
     self._noteCreation(QSocketNotifier, lambda: Rituals.call(
         'ritual_ZN15QSocketNotifierC1ENS_4TypeEP7QObject',
-        a0.value, self._addressOf(parent),
+        a0.value, self._addressOf(parent, 'QObject'),
     ))
 
   @overload(int, Type)
@@ -331,7 +331,7 @@ class QSocketNotifier(QObject):
     #      *parent)
     self._noteCreation(QSocketNotifier, lambda: Rituals.call(
         'ritual_ZN15QSocketNotifierC1ExNS_4TypeEP7QObject',
-        socket, a1.value, self._addressOf(parent),
+        socket, a1.value, self._addressOf(parent, 'QObject'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

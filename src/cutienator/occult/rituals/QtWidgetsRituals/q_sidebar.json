@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qsidebar_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK8QSidebar10metaObjectEv": ["address", "address"],
+    "ritual_ZN8QSidebarD1Ev": ["nothing", "address"],
+    "ritual_ZNK8QSidebar8sizeHintEv": ["address", "address"],
+    "ritual_ZNK8QSidebar4urlsEv": ["address", "address"],
+    "ritual_ZN8QSidebar5eventEP6QEvent": ["bool", "address", "address"],
+    "ritual_ZN8QSidebar12focusInEventEP11QFocusEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8QSidebar14dragEnterEventEP15QDragEnterEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8QSidebar11removeEntryEv": ["nothing", "address"],
+    "ritual_take_QSidebar": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK8QSidebar8sizeHintEv": ["address", "address"],
+    "ritual_own_ZN8QSidebar5eventEP6QEvent": ["bool", "address", "address"],
+    "ritual_own_ZN8QSidebar12focusInEventEP11QFocusEvent": [
+      "nothing", "address", "address"
+    ]
+  }
+}

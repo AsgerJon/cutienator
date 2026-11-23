@@ -721,7 +721,7 @@ class QAbstractItemDelegate(QObject):
     return self.uglySide.call(
         'ritual_ZN21QAbstractItemDelegate17handleEditorEventEP7QObjectP6QEv'
         'ent',
-        self._addressOf(object), self._addressOf(event),
+        self._addressOf(object, 'QObject'), self._addressOf(event),
     )
 
   @overload(QHelpEvent, QAbstractItemView, QStyleOptionViewItem, QModelIndex)

@@ -955,7 +955,7 @@ class QAbstractTextDocumentLayout(QObject):
     #      QObject *component)
     self.uglySide.call(
         'ritual_ZN27QAbstractTextDocumentLayout15registerHandlerEiP7QObject',
-        objectType, self._addressOf(component),
+        objectType, self._addressOf(component, 'QObject'),
     )
 
   @overload(int)
@@ -988,7 +988,7 @@ class QAbstractTextDocumentLayout(QObject):
     self.uglySide.call(
         'ritual_ZN27QAbstractTextDocumentLayout17unregisterHandlerEiP7QObje'
         'ct',
-        objectType, self._addressOf(component),
+        objectType, self._addressOf(component, 'QObject'),
     )
 
   @overload(int, int, int)

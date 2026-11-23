@@ -202,7 +202,7 @@ class QChildEvent(QEvent):
     #  QChildEvent::QChildEvent(Type type, QObject *child)
     self._noteCreation(QChildEvent, lambda: Rituals.call(
         'ritual_ZN11QChildEventC1EN6QEvent4TypeEP7QObject',
-        type.value, self._addressOf(child),
+        type.value, self._addressOf(child, 'QObject'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

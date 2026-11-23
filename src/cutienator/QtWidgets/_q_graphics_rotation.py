@@ -323,7 +323,8 @@ class QGraphicsRotation(QGraphicsTransform):
     """
     #  QGraphicsRotation::QGraphicsRotation(QObject *parent)
     self._noteCreation(QGraphicsRotation, lambda: Rituals.call(
-        'ritual_ZN17QGraphicsRotationC1EP7QObject', self._addressOf(parent),
+        'ritual_ZN17QGraphicsRotationC1EP7QObject',
+        self._addressOf(parent, 'QObject'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

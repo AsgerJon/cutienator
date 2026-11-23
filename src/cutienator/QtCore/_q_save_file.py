@@ -255,7 +255,8 @@ class QSaveFile(QFileDevice):
     """
     #  QSaveFile::QSaveFile(QObject *parent)
     self._noteCreation(QSaveFile, lambda: Rituals.call(
-        'ritual_ZN9QSaveFileC1EP7QObject', self._addressOf(parent),
+        'ritual_ZN9QSaveFileC1EP7QObject',
+        self._addressOf(parent, 'QObject'),
     ))
 
   @overload(str)
@@ -281,7 +282,7 @@ class QSaveFile(QFileDevice):
     #  QSaveFile::QSaveFile(const QString &name, QObject *parent)
     self._noteCreation(QSaveFile, lambda: Rituals.call(
         'ritual_ZN9QSaveFileC1ERK7QStringP7QObject',
-        name, self._addressOf(parent),
+        name, self._addressOf(parent, 'QObject'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

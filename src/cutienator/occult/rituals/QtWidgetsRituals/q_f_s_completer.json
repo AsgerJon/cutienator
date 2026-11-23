@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qfscompleter_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN12QFSCompleterC1EP16QFileSystemModelP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK12QFSCompleter13pathFromIndexERK11QModelIndex": [
+      "text", "address", "address"
+    ],
+    "ritual_ZNK12QFSCompleter9splitPathERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_take_QFSCompleter": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK12QFSCompleter13pathFromIndexERK11QModelIndex": [
+      "text", "address", "address"
+    ]
+  }
+}

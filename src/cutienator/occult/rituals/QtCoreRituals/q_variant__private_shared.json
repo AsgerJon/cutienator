@@ -5,6 +5,13 @@
   ],
   "rows": {
     "ritual_ZN8QVariant13PrivateSharedC1Ev": ["address"],
+    "ritual_ZN8QVariant13PrivateShared13computeOffsetEPS0_m": [
+      "int", "address", "size_t"
+    ],
+    "ritual_ZN8QVariant13PrivateShared6createEmm": [
+      "address", "size_t", "size_t"
+    ],
+    "ritual_ZN8QVariant13PrivateShared4freeEPS0_": ["nothing", "address"],
     "ritual_ZN8QVariant13PrivateSharedD1Ev": ["nothing", "address"]
   }
 }

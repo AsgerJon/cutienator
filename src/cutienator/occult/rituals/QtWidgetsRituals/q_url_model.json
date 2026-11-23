@@ -1,0 +1,36 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qsidebar_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK9QUrlModel10metaObjectEv": ["address", "address"],
+    "ritual_ZN9QUrlModelD1Ev": ["nothing", "address"],
+    "ritual_ZNK9QUrlModel8mimeDataERK5QListI11QModelIndexE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK9QUrlModel5flagsERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN9QUrlModel7setDataERK11QModelIndexRK8QVarianti": [
+      "bool", "address", "address", "address", "int"
+    ],
+    "ritual_ZNK9QUrlModel4urlsEv": ["address", "address"],
+    "ritual_ZN9QUrlModel11dataChangedERK11QModelIndexS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN9QUrlModel13layoutChangedEv": ["nothing", "address"],
+    "ritual_ZN9QUrlModel6setUrlERK11QModelIndexRK4QUrlS2_": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN9QUrlModel7changedERK7QString": ["nothing", "address", "text"],
+    "ritual_take_QUrlModel": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK9QUrlModel5flagsERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZN9QUrlModel7setDataERK11QModelIndexRK8QVarianti": [
+      "bool", "address", "address", "address", "int"
+    ]
+  }
+}

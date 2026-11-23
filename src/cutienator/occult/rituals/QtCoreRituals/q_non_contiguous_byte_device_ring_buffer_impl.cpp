@@ -1,0 +1,392 @@
+//  Written by dev_tooling.RitualGenerator from the records of
+//  QtCore/6.12.0/QtCore/private/qnoncontiguousbytedevice_p.h, Qt 6.12.0.
+//  Changes made here are lost.
+#include <QtCore/QtCore>
+#include <QtCore/6.12.0/QtCore/private/qnoncontiguousbytedevice_p.h>
+#include <QtCore/qmetaobject.h>
+#include <cstring>
+#include "qnoncontiguousbytedevice_p.h"
+#include <qbuffer.h>
+#include <qdebug.h>
+#include <qfile.h>
+#include <utility>
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it.
+
+//  from src/corelib/io/qnoncontiguousbytedevice.cpp, line 169, as _ZN38QNonContiguousByteDeviceRingBufferImplD1Ev
+inline QNonContiguousByteDeviceRingBufferImpl::~QNonContiguousByteDeviceRingBufferImpl()
+{
+}
+
+//  from src/corelib/io/qnoncontiguousbytedevice.cpp, line 173, as _ZN38QNonContiguousByteDeviceRingBufferImpl11readPointerExRx
+inline const char* QNonContiguousByteDeviceRingBufferImpl::readPointer(qint64 maximumLength, qint64 &len)
+{
+    if (atEnd()) {
+        len = -1;
+        return nullptr;
+    }
+
+    const char *returnValue = ringBuffer->readPointerAtPosition(currentPosition, len);
+
+    if (maximumLength != -1)
+        len = qMin(len, maximumLength);
+
+    return returnValue;
+}
+
+//  from src/corelib/io/qnoncontiguousbytedevice.cpp, line 188, as _ZN38QNonContiguousByteDeviceRingBufferImpl18advanceReadPointerEx
+inline bool QNonContiguousByteDeviceRingBufferImpl::advanceReadPointer(qint64 amount)
+{
+    currentPosition += amount;
+    emit readProgress(currentPosition, size());
+    return true;
+}
+
+//  from src/corelib/io/qnoncontiguousbytedevice.cpp, line 195, as _ZNK38QNonContiguousByteDeviceRingBufferImpl5atEndEv
+inline bool QNonContiguousByteDeviceRingBufferImpl::atEnd() const
+{
+    return currentPosition >= size();
+}
+
+//  from src/corelib/io/qnoncontiguousbytedevice.cpp, line 205, as _ZN38QNonContiguousByteDeviceRingBufferImpl5resetEv
+inline bool QNonContiguousByteDeviceRingBufferImpl::reset()
+{
+    currentPosition = 0;
+    return true;
+}
+
+//  from src/corelib/io/qnoncontiguousbytedevice.cpp, line 211, as _ZNK38QNonContiguousByteDeviceRingBufferImpl4sizeEv
+inline qint64 QNonContiguousByteDeviceRingBufferImpl::size() const
+{
+    return ringBuffer->size();
+}
+
+//  from src/corelib/io/qnoncontiguousbytedevice.cpp, line 200, as _ZNK38QNonContiguousByteDeviceRingBufferImpl3posEv
+inline qint64 QNonContiguousByteDeviceRingBufferImpl::pos() const
+{
+    return currentPosition;
+}
+//  -----------------------------------------------------------------------
+
+//  A QNonContiguousByteDeviceRingBufferImpl that Python can take functions over in. Every QNonContiguousByteDeviceRingBufferImpl
+//  Python makes is one. Each function below asks the Python
+//  function handed over for it, and runs Qt's own without one.
+typedef bool (*CuteQNonContiguousByteDeviceRingBufferImplCall0)(const void *, qint64, int *);
+typedef bool (*CuteQNonContiguousByteDeviceRingBufferImplCall1)(const void *, int *);
+typedef bool (*CuteQNonContiguousByteDeviceRingBufferImplCall2)(const void *, int *);
+typedef qint64 (*CuteQNonContiguousByteDeviceRingBufferImplCall3)(const void *, int *);
+typedef qint64 (*CuteQNonContiguousByteDeviceRingBufferImplCall4)(const void *, int *);
+typedef bool (*CuteQNonContiguousByteDeviceRingBufferImplCall5)(const void *, QEvent *, int *);
+typedef bool (*CuteQNonContiguousByteDeviceRingBufferImplCall6)(const void *, QObject *, QEvent *, int *);
+typedef void (*CuteQNonContiguousByteDeviceRingBufferImplCall7)(const void *, QTimerEvent *, int *);
+typedef void (*CuteQNonContiguousByteDeviceRingBufferImplCall8)(const void *, QChildEvent *, int *);
+typedef void (*CuteQNonContiguousByteDeviceRingBufferImplCall9)(const void *, QEvent *, int *);
+typedef void (*CuteQNonContiguousByteDeviceRingBufferImplCall10)(const void *, const QMetaMethod *, int *);
+typedef void (*CuteQNonContiguousByteDeviceRingBufferImplCall11)(const void *, const QMetaMethod *, int *);
+class CuteQNonContiguousByteDeviceRingBufferImpl : public QNonContiguousByteDeviceRingBufferImpl {
+public:
+  using QNonContiguousByteDeviceRingBufferImpl::QNonContiguousByteDeviceRingBufferImpl;
+  void *taken[12] = {};
+
+  bool take(const char *key, void *call) {
+    if (!std::strcmp(key, "_ZN24QNonContiguousByteDevice18advanceReadPointerEx")) {
+      taken[0] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK24QNonContiguousByteDevice5atEndEv")) {
+      taken[1] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN24QNonContiguousByteDevice5resetEv")) {
+      taken[2] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK24QNonContiguousByteDevice4sizeEv")) {
+      taken[3] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK24QNonContiguousByteDevice3posEv")) {
+      taken[4] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
+      taken[5] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
+      taken[6] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
+      taken[7] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
+      taken[8] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+      taken[9] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+      taken[10] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+      taken[11] = call;
+      return true;
+    }
+    return false;
+  }
+
+  //  bool
+  //      QNonContiguousByteDeviceRingBufferImpl::advanceReadPointer(qint64
+  //      amount)
+  bool advanceReadPointer(qint64 amount) override {
+    if (taken[0]) {
+      int handled = 0;
+      CuteQNonContiguousByteDeviceRingBufferImplCall0 call = reinterpret_cast<CuteQNonContiguousByteDeviceRingBufferImplCall0>(taken[0]);
+      bool given = call(this, amount, &handled);
+      if (handled) return given;
+    }
+    return QNonContiguousByteDeviceRingBufferImpl::advanceReadPointer(amount);
+  }
+
+  //  bool QNonContiguousByteDeviceRingBufferImpl::atEnd() const
+  bool atEnd() const override {
+    if (taken[1]) {
+      int handled = 0;
+      CuteQNonContiguousByteDeviceRingBufferImplCall1 call = reinterpret_cast<CuteQNonContiguousByteDeviceRingBufferImplCall1>(taken[1]);
+      bool given = call(this, &handled);
+      if (handled) return given;
+    }
+    return QNonContiguousByteDeviceRingBufferImpl::atEnd();
+  }
+
+  //  bool QNonContiguousByteDeviceRingBufferImpl::reset()
+  bool reset() override {
+    if (taken[2]) {
+      int handled = 0;
+      CuteQNonContiguousByteDeviceRingBufferImplCall2 call = reinterpret_cast<CuteQNonContiguousByteDeviceRingBufferImplCall2>(taken[2]);
+      bool given = call(this, &handled);
+      if (handled) return given;
+    }
+    return QNonContiguousByteDeviceRingBufferImpl::reset();
+  }
+
+  //  qint64 QNonContiguousByteDeviceRingBufferImpl::size() const
+  qint64 size() const override {
+    if (taken[3]) {
+      int handled = 0;
+      CuteQNonContiguousByteDeviceRingBufferImplCall3 call = reinterpret_cast<CuteQNonContiguousByteDeviceRingBufferImplCall3>(taken[3]);
+      qint64 given = call(this, &handled);
+      if (handled) return given;
+    }
+    return QNonContiguousByteDeviceRingBufferImpl::size();
+  }
+
+  //  qint64 QNonContiguousByteDeviceRingBufferImpl::pos() const
+  qint64 pos() const override {
+    if (taken[4]) {
+      int handled = 0;
+      CuteQNonContiguousByteDeviceRingBufferImplCall4 call = reinterpret_cast<CuteQNonContiguousByteDeviceRingBufferImplCall4>(taken[4]);
+      qint64 given = call(this, &handled);
+      if (handled) return given;
+    }
+    return QNonContiguousByteDeviceRingBufferImpl::pos();
+  }
+
+  //  bool QObject::event(QEvent *event)
+  bool event(QEvent *event) override {
+    if (taken[5]) {
+      int handled = 0;
+      CuteQNonContiguousByteDeviceRingBufferImplCall5 call = reinterpret_cast<CuteQNonContiguousByteDeviceRingBufferImplCall5>(taken[5]);
+      bool given = call(this, event, &handled);
+      if (handled) return given;
+    }
+    return QObject::event(event);
+  }
+
+  //  bool QObject::eventFilter(QObject *watched, QEvent *event)
+  bool eventFilter(QObject *watched, QEvent *event) override {
+    if (taken[6]) {
+      int handled = 0;
+      CuteQNonContiguousByteDeviceRingBufferImplCall6 call = reinterpret_cast<CuteQNonContiguousByteDeviceRingBufferImplCall6>(taken[6]);
+      bool given = call(this, watched, event, &handled);
+      if (handled) return given;
+    }
+    return QObject::eventFilter(watched, event);
+  }
+
+  //  void QObject::timerEvent(QTimerEvent *event)
+  void timerEvent(QTimerEvent *event) override {
+    if (taken[7]) {
+      int handled = 0;
+      CuteQNonContiguousByteDeviceRingBufferImplCall7 call = reinterpret_cast<CuteQNonContiguousByteDeviceRingBufferImplCall7>(taken[7]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QObject::timerEvent(event);
+  }
+
+  //  void QObject::childEvent(QChildEvent *event)
+  void childEvent(QChildEvent *event) override {
+    if (taken[8]) {
+      int handled = 0;
+      CuteQNonContiguousByteDeviceRingBufferImplCall8 call = reinterpret_cast<CuteQNonContiguousByteDeviceRingBufferImplCall8>(taken[8]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QObject::childEvent(event);
+  }
+
+  //  void QObject::customEvent(QEvent *event)
+  void customEvent(QEvent *event) override {
+    if (taken[9]) {
+      int handled = 0;
+      CuteQNonContiguousByteDeviceRingBufferImplCall9 call = reinterpret_cast<CuteQNonContiguousByteDeviceRingBufferImplCall9>(taken[9]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QObject::customEvent(event);
+  }
+
+  //  void QObject::connectNotify(const QMetaMethod &signal)
+  void connectNotify(const QMetaMethod &signal) override {
+    if (taken[10]) {
+      int handled = 0;
+      CuteQNonContiguousByteDeviceRingBufferImplCall10 call = reinterpret_cast<CuteQNonContiguousByteDeviceRingBufferImplCall10>(taken[10]);
+      call(this, &signal, &handled);
+      if (handled) return;
+    }
+    QObject::connectNotify(signal);
+  }
+
+  //  void QObject::disconnectNotify(const QMetaMethod &signal)
+  void disconnectNotify(const QMetaMethod &signal) override {
+    if (taken[11]) {
+      int handled = 0;
+      CuteQNonContiguousByteDeviceRingBufferImplCall11 call = reinterpret_cast<CuteQNonContiguousByteDeviceRingBufferImplCall11>(taken[11]);
+      call(this, &signal, &handled);
+      if (handled) return;
+    }
+    QObject::disconnectNotify(signal);
+  }
+};
+
+//  const QMetaObject *QNonContiguousByteDeviceRingBufferImpl::metaObject()
+//      const
+extern "C" Q_DECL_EXPORT
+const QMetaObject *ritual_ZNK38QNonContiguousByteDeviceRingBufferImpl10metaObjectEv(
+    const QNonContiguousByteDeviceRingBufferImpl *self) {
+  return self->metaObject();
+}
+
+//  QNonContiguousByteDeviceRingBufferImpl::~QNonContiguousByteDeviceRingBuff
+//      erImpl()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN38QNonContiguousByteDeviceRingBufferImplD1Ev(
+    QNonContiguousByteDeviceRingBufferImpl *self) {
+  delete self;
+}
+
+//  const char *QNonContiguousByteDeviceRingBufferImpl::readPointer(qint64
+//      maximumLength, qint64 &len)
+extern "C" Q_DECL_EXPORT
+const char *ritual_ZN38QNonContiguousByteDeviceRingBufferImpl11readPointerExRx(
+    QNonContiguousByteDeviceRingBufferImpl *self,
+    qint64 maximumLength,
+    qint64 *len) {
+  return self->readPointer(maximumLength, *len);
+}
+
+//  bool QNonContiguousByteDeviceRingBufferImpl::advanceReadPointer(qint64
+//      amount)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN38QNonContiguousByteDeviceRingBufferImpl18advanceReadPointerEx(
+    QNonContiguousByteDeviceRingBufferImpl *self,
+    qint64 amount) {
+  return self->advanceReadPointer(amount);
+}
+
+//  bool QNonContiguousByteDeviceRingBufferImpl::atEnd() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK38QNonContiguousByteDeviceRingBufferImpl5atEndEv(
+    const QNonContiguousByteDeviceRingBufferImpl *self) {
+  return self->atEnd();
+}
+
+//  bool QNonContiguousByteDeviceRingBufferImpl::reset()
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN38QNonContiguousByteDeviceRingBufferImpl5resetEv(
+    QNonContiguousByteDeviceRingBufferImpl *self) {
+  return self->reset();
+}
+
+//  qint64 QNonContiguousByteDeviceRingBufferImpl::size() const
+extern "C" Q_DECL_EXPORT
+qint64 ritual_ZNK38QNonContiguousByteDeviceRingBufferImpl4sizeEv(
+    const QNonContiguousByteDeviceRingBufferImpl *self) {
+  return self->size();
+}
+
+//  qint64 QNonContiguousByteDeviceRingBufferImpl::pos() const
+extern "C" Q_DECL_EXPORT
+qint64 ritual_ZNK38QNonContiguousByteDeviceRingBufferImpl3posEv(
+    const QNonContiguousByteDeviceRingBufferImpl *self) {
+  return self->pos();
+}
+
+//  a Python function taken by a CuteQNonContiguousByteDeviceRingBufferImpl,
+//      for the function named by the key
+extern "C" Q_DECL_EXPORT
+bool ritual_take_QNonContiguousByteDeviceRingBufferImpl(
+    QNonContiguousByteDeviceRingBufferImpl *self,
+    const char *key,
+    void *call) {
+  return static_cast<CuteQNonContiguousByteDeviceRingBufferImpl *>(self)->take(key, call);
+}
+
+//  bool QNonContiguousByteDeviceRingBufferImpl::advanceReadPointer(qint64
+//      amount)
+extern "C" Q_DECL_EXPORT
+bool ritual_own_ZN38QNonContiguousByteDeviceRingBufferImpl18advanceReadPointerEx(
+    QNonContiguousByteDeviceRingBufferImpl *self,
+    qint64 amount) {
+  return self->QNonContiguousByteDeviceRingBufferImpl::advanceReadPointer(
+      amount);
+}
+
+//  bool QNonContiguousByteDeviceRingBufferImpl::atEnd() const
+extern "C" Q_DECL_EXPORT
+bool ritual_own_ZNK38QNonContiguousByteDeviceRingBufferImpl5atEndEv(
+    const QNonContiguousByteDeviceRingBufferImpl *self) {
+  return self->QNonContiguousByteDeviceRingBufferImpl::atEnd();
+}
+
+//  bool QNonContiguousByteDeviceRingBufferImpl::reset()
+extern "C" Q_DECL_EXPORT
+bool ritual_own_ZN38QNonContiguousByteDeviceRingBufferImpl5resetEv(
+    QNonContiguousByteDeviceRingBufferImpl *self) {
+  return self->QNonContiguousByteDeviceRingBufferImpl::reset();
+}
+
+//  qint64 QNonContiguousByteDeviceRingBufferImpl::size() const
+extern "C" Q_DECL_EXPORT
+qint64 ritual_own_ZNK38QNonContiguousByteDeviceRingBufferImpl4sizeEv(
+    const QNonContiguousByteDeviceRingBufferImpl *self) {
+  return self->QNonContiguousByteDeviceRingBufferImpl::size();
+}
+
+//  qint64 QNonContiguousByteDeviceRingBufferImpl::pos() const
+extern "C" Q_DECL_EXPORT
+qint64 ritual_own_ZNK38QNonContiguousByteDeviceRingBufferImpl3posEv(
+    const QNonContiguousByteDeviceRingBufferImpl *self) {
+  return self->QNonContiguousByteDeviceRingBufferImpl::pos();
+}

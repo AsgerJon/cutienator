@@ -315,7 +315,8 @@ class QGraphicsScale(QGraphicsTransform):
     """
     #  QGraphicsScale::QGraphicsScale(QObject *parent)
     self._noteCreation(QGraphicsScale, lambda: Rituals.call(
-        'ritual_ZN14QGraphicsScaleC1EP7QObject', self._addressOf(parent),
+        'ritual_ZN14QGraphicsScaleC1EP7QObject',
+        self._addressOf(parent, 'QObject'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

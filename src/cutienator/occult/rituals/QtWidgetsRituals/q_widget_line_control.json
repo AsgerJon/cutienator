@@ -1,0 +1,294 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qwidgetlinecontrol_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18QWidgetLineControl10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QWidgetLineControl2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18QWidgetLineControlC1ERK7QString": ["address", "text"],
+    "ritual_ZN18QWidgetLineControlD1Ev": ["nothing", "address"],
+    "ritual_ZN18QWidgetLineControl19setAccessibleObjectEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QWidgetLineControl16accessibleObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18QWidgetLineControl13nextMaskBlankEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZN18QWidgetLineControl13prevMaskBlankEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK18QWidgetLineControl15isUndoAvailableEv": ["bool", "address"],
+    "ritual_ZNK18QWidgetLineControl15isRedoAvailableEv": ["bool", "address"],
+    "ritual_ZN18QWidgetLineControl9clearUndoEv": ["nothing", "address"],
+    "ritual_ZNK18QWidgetLineControl10isModifiedEv": ["bool", "address"],
+    "ritual_ZN18QWidgetLineControl11setModifiedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK18QWidgetLineControl11allSelectedEv": ["bool", "address"],
+    "ritual_ZNK18QWidgetLineControl15hasSelectedTextEv": ["bool", "address"],
+    "ritual_ZNK18QWidgetLineControl5widthEv": ["int", "address"],
+    "ritual_ZNK18QWidgetLineControl6heightEv": ["int", "address"],
+    "ritual_ZNK18QWidgetLineControl6ascentEv": ["int", "address"],
+    "ritual_ZNK18QWidgetLineControl16naturalTextWidthEv": [
+      "double", "address"
+    ],
+    "ritual_ZN18QWidgetLineControl12setSelectionEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK18QWidgetLineControl12selectedTextEv": ["text", "address"],
+    "ritual_ZNK18QWidgetLineControl19textBeforeSelectionEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK18QWidgetLineControl18textAfterSelectionEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK18QWidgetLineControl14selectionStartEv": ["int", "address"],
+    "ritual_ZNK18QWidgetLineControl12selectionEndEv": ["int", "address"],
+    "ritual_ZNK18QWidgetLineControl11inSelectionEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN18QWidgetLineControl15removeSelectionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK18QWidgetLineControl5startEv": ["int", "address"],
+    "ritual_ZNK18QWidgetLineControl3endEv": ["int", "address"],
+    "ritual_ZNK18QWidgetLineControl4copyEN10QClipboard4ModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18QWidgetLineControl5pasteEN10QClipboard4ModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK18QWidgetLineControl6cursorEv": ["int", "address"],
+    "ritual_ZNK18QWidgetLineControl13preeditCursorEv": ["int", "address"],
+    "ritual_ZNK18QWidgetLineControl11cursorWidthEv": ["int", "address"],
+    "ritual_ZN18QWidgetLineControl14setCursorWidthEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK18QWidgetLineControl15cursorMoveStyleEv": ["int", "address"],
+    "ritual_ZN18QWidgetLineControl18setCursorMoveStyleEN2Qt15CursorMoveStyleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18QWidgetLineControl10moveCursorEib": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZN18QWidgetLineControl13cursorForwardEbi": [
+      "nothing", "address", "bool", "int"
+    ],
+    "ritual_ZN18QWidgetLineControl17cursorWordForwardEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN18QWidgetLineControl18cursorWordBackwardEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN18QWidgetLineControl4homeEb": ["nothing", "address", "bool"],
+    "ritual_ZN18QWidgetLineControl3endEb": ["nothing", "address", "bool"],
+    "ritual_ZNK18QWidgetLineControl6xToPosEiN9QTextLine14CursorPositionE": [
+      "int", "address", "int", "int"
+    ],
+    "ritual_ZNK18QWidgetLineControl10rectForPosEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK18QWidgetLineControl10cursorRectEv": ["address", "address"],
+    "ritual_ZNK18QWidgetLineControl10anchorRectEv": ["address", "address"],
+    "ritual_ZNK18QWidgetLineControl9cursorToXEi": [
+      "double", "address", "int"
+    ],
+    "ritual_ZNK18QWidgetLineControl9cursorToXEv": ["double", "address"],
+    "ritual_ZNK18QWidgetLineControl10isReadOnlyEv": ["bool", "address"],
+    "ritual_ZN18QWidgetLineControl11setReadOnlyEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK18QWidgetLineControl4textEv": ["text", "address"],
+    "ritual_ZN18QWidgetLineControl7setTextERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN18QWidgetLineControl13commitPreeditEv": ["nothing", "address"],
+    "ritual_ZNK18QWidgetLineControl11displayTextEv": ["text", "address"],
+    "ritual_ZNK18QWidgetLineControl15surroundingTextEv": ["text", "address"],
+    "ritual_ZN18QWidgetLineControl9backspaceEv": ["nothing", "address"],
+    "ritual_ZN18QWidgetLineControl3delEv": ["nothing", "address"],
+    "ritual_ZN18QWidgetLineControl8deselectEv": ["nothing", "address"],
+    "ritual_ZN18QWidgetLineControl9selectAllEv": ["nothing", "address"],
+    "ritual_ZN18QWidgetLineControl6insertERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN18QWidgetLineControl5clearEv": ["nothing", "address"],
+    "ritual_ZN18QWidgetLineControl4undoEv": ["nothing", "address"],
+    "ritual_ZN18QWidgetLineControl4redoEv": ["nothing", "address"],
+    "ritual_ZN18QWidgetLineControl15selectWordAtPosEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK18QWidgetLineControl8echoModeEv": ["unsigned int", "address"],
+    "ritual_ZN18QWidgetLineControl11setEchoModeEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZNK18QWidgetLineControl9maxLengthEv": ["int", "address"],
+    "ritual_ZN18QWidgetLineControl12setMaxLengthEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK18QWidgetLineControl9validatorEv": ["address", "address"],
+    "ritual_ZN18QWidgetLineControl12setValidatorEPK10QValidator": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QWidgetLineControl9completerEv": ["address", "address"],
+    "ritual_ZN18QWidgetLineControl12setCompleterEPK10QCompleter": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QWidgetLineControl8completeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK18QWidgetLineControl14cursorPositionEv": ["int", "address"],
+    "ritual_ZN18QWidgetLineControl17setCursorPositionEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK18QWidgetLineControl18hasAcceptableInputEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN18QWidgetLineControl5fixupEv": ["bool", "address"],
+    "ritual_ZNK18QWidgetLineControl9inputMaskEv": ["text", "address"],
+    "ritual_ZN18QWidgetLineControl12setInputMaskERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK18QWidgetLineControl11composeModeEv": ["bool", "address"],
+    "ritual_ZN18QWidgetLineControl14setPreeditAreaEiRK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZNK18QWidgetLineControl15preeditAreaTextEv": ["text", "address"],
+    "ritual_ZN18QWidgetLineControl25updatePasswordEchoEditingEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK18QWidgetLineControl19passwordEchoEditingEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK18QWidgetLineControl17passwordCharacterEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18QWidgetLineControl20setPasswordCharacterE5QChar": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QWidgetLineControl17passwordMaskDelayEv": [
+      "int", "address"
+    ],
+    "ritual_ZN18QWidgetLineControl20setPasswordMaskDelayEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK18QWidgetLineControl15layoutDirectionEv": ["int", "address"],
+    "ritual_ZN18QWidgetLineControl18setLayoutDirectionEN2Qt15LayoutDirectionE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18QWidgetLineControl7setFontERK5QFont": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QWidgetLineControl23processInputMethodEventEP17QInputMethodEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QWidgetLineControl15processKeyEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QWidgetLineControl24setBlinkingCursorEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN18QWidgetLineControl20updateCursorBlinkingEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QWidgetLineControl21resetCursorBlinkTimerEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK18QWidgetLineControl17cursorBlinkStatusEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK18QWidgetLineControl10cancelTextEv": ["text", "address"],
+    "ritual_ZN18QWidgetLineControl13setCancelTextERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK18QWidgetLineControl7paletteEv": ["address", "address"],
+    "ritual_ZN18QWidgetLineControl10setPaletteERK8QPalette": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QWidgetLineControl4drawEP8QPainterRK6QPointRK5QRecti": [
+      "nothing", "address", "address", "address", "address", "int"
+    ],
+    "ritual_ZN18QWidgetLineControl28processShortcutOverrideEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QWidgetLineControl10textLayoutEv": ["address", "address"],
+    "ritual_ZN18QWidgetLineControl4initERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN18QWidgetLineControl18removeSelectedTextEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QWidgetLineControl15internalSetTextERK7QStringib": [
+      "nothing", "address", "text", "int", "bool"
+    ],
+    "ritual_ZN18QWidgetLineControl17updateDisplayTextEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN18QWidgetLineControl14internalInsertERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN18QWidgetLineControl14internalDeleteEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN18QWidgetLineControl16internalDeselectEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QWidgetLineControl12internalUndoEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18QWidgetLineControl12internalRedoEv": ["nothing", "address"],
+    "ritual_ZN18QWidgetLineControl25emitCursorPositionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QWidgetLineControl12finishChangeEibb": [
+      "bool", "address", "int", "bool", "bool"
+    ],
+    "ritual_ZN18QWidgetLineControl20advanceToEnabledItemEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN18QWidgetLineControl8separateEv": ["nothing", "address"],
+    "ritual_ZN18QWidgetLineControl14parseInputMaskERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK18QWidgetLineControl12isValidInputE5QCharS0_": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZNK18QWidgetLineControl18hasAcceptableInputERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZNK18QWidgetLineControl10maskStringEiRK7QStringb": [
+      "text", "address", "int", "text", "bool"
+    ],
+    "ritual_ZNK18QWidgetLineControl11clearStringEii": [
+      "text", "address", "int", "int"
+    ],
+    "ritual_ZNK18QWidgetLineControl11stripStringERK7QString": [
+      "text", "address", "text"
+    ],
+    "ritual_ZNK18QWidgetLineControl10findInMaskEibb5QChar": [
+      "int", "address", "int", "bool", "bool", "address"
+    ],
+    "ritual_ZN18QWidgetLineControl23cancelPasswordEchoTimerEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK18QWidgetLineControl14redoTextLayoutEv": ["int", "address"],
+    "ritual_ZN18QWidgetLineControl10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QWidgetLineControl17_q_deleteSelectedEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QWidgetLineControl": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN18QWidgetLineControl10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ]
+  }
+}

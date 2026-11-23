@@ -727,7 +727,7 @@ class QMenu(QWidget):
     #      *receiver, const char *member, const QKeySequence &shortcut)
     address = self.uglySide.call(
         'ritual_ZN5QMenu9addActionERK7QStringPK7QObjectPKcRK12QKeySequence',
-        text, self._addressOf(receiver), self._bytesOf(member),
+        text, self._addressOf(receiver, 'QObject'), self._bytesOf(member),
         self._valueOf(shortcut),
     )
     from ..QtGui import QAction
@@ -785,7 +785,7 @@ class QMenu(QWidget):
     address = self.uglySide.call(
         'ritual_ZN5QMenu9addActionERK5QIconRK7QStringPK7QObjectPKcRK12QKeyS'
         'equence',
-        self._valueOf(icon), text, self._addressOf(receiver),
+        self._valueOf(icon), text, self._addressOf(receiver, 'QObject'),
         self._bytesOf(member), self._valueOf(shortcut),
     )
     from ..QtGui import QAction

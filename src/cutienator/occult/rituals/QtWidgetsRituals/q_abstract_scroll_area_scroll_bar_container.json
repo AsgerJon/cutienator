@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qabstractscrollarea_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN37QAbstractScrollAreaScrollBarContainerC1EN2Qt11OrientationEP7QWidget": [
+      "address", "int", "address"
+    ],
+    "ritual_ZN37QAbstractScrollAreaScrollBarContainer9addWidgetEP7QWidgetNS_15LogicalPositionE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN37QAbstractScrollAreaScrollBarContainer7widgetsENS_15LogicalPositionE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK37QAbstractScrollAreaScrollBarContainer20scrollBarLayoutIndexEv": [
+      "int", "address"
+    ]
+  }
+}

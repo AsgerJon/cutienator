@@ -248,7 +248,7 @@ class QObjectCleanupHandler(QObject):
     #  QObject *QObjectCleanupHandler::add(QObject *object)
     address = self.uglySide.call(
         'ritual_ZN21QObjectCleanupHandler3addEP7QObject',
-        self._addressOf(object),
+        self._addressOf(object, 'QObject'),
     )
     return QObject._cuteAt(address)
 
@@ -270,7 +270,7 @@ class QObjectCleanupHandler(QObject):
     #  void QObjectCleanupHandler::remove(QObject *object)
     self.uglySide.call(
         'ritual_ZN21QObjectCleanupHandler6removeEP7QObject',
-        self._addressOf(object),
+        self._addressOf(object, 'QObject'),
     )
 
   def clear(self) -> None:
@@ -301,5 +301,5 @@ class QObjectCleanupHandler(QObject):
     #  void QObjectCleanupHandler::objectDestroyed(QObject *a0)
     self.uglySide.call(
         'ritual_ZN21QObjectCleanupHandler15objectDestroyedEP7QObject',
-        self._addressOf(a0),
+        self._addressOf(a0, 'QObject'),
     )

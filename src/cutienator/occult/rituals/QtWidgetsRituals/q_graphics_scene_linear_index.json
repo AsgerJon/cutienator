@@ -1,0 +1,34 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qgraphicsscenelinearindex_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK25QGraphicsSceneLinearIndex10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK25QGraphicsSceneLinearIndex5itemsEN2Qt9SortOrderE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK25QGraphicsSceneLinearIndex13estimateItemsERK6QRectFN2Qt9SortOrderE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN25QGraphicsSceneLinearIndex5clearEv": ["nothing", "address"],
+    "ritual_ZN25QGraphicsSceneLinearIndex7addItemEP13QGraphicsItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QGraphicsSceneLinearIndex10removeItemEP13QGraphicsItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN25QGraphicsSceneLinearIndex5clearEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN25QGraphicsSceneLinearIndex7addItemEP13QGraphicsItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN25QGraphicsSceneLinearIndex10removeItemEP13QGraphicsItem": [
+      "nothing", "address", "address"
+    ]
+  }
+}

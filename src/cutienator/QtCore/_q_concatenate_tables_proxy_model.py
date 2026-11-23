@@ -832,7 +832,7 @@ class QConcatenateTablesProxyModel(QAbstractItemModel):
     #      *parent)
     self._noteCreation(QConcatenateTablesProxyModel, lambda: Rituals.call(
         'ritual_ZN28QConcatenateTablesProxyModelC1EP7QObject',
-        self._addressOf(parent),
+        self._addressOf(parent, 'QObject'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

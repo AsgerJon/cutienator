@@ -342,7 +342,7 @@ class QBuffer(QIODevice):
     """
     #  QBuffer::QBuffer(QObject *parent)
     self._noteCreation(QBuffer, lambda: Rituals.call(
-        'ritual_ZN7QBufferC1EP7QObject', self._addressOf(parent),
+        'ritual_ZN7QBufferC1EP7QObject', self._addressOf(parent, 'QObject'),
     ))
 
   @overload(QByteArray)
@@ -375,7 +375,7 @@ class QBuffer(QIODevice):
     #  QBuffer::QBuffer(QByteArray *buf, QObject *parent)
     self._noteCreation(QBuffer, lambda: Rituals.call(
         'ritual_ZN7QBufferC1EP10QByteArrayP7QObject',
-        self._addressOf(buf), self._addressOf(parent),
+        self._addressOf(buf), self._addressOf(parent, 'QObject'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -641,7 +641,7 @@ class QGraphicsProxyWidget(QGraphicsWidget):
           'ritual_own_ZN20QGraphicsProxyWidget11eventFilterEP7QObjectP6QEve'
           'nt')
     return self.uglySide.call(
-        ritual, self._addressOf(object), self._addressOf(event),
+        ritual, self._addressOf(object, 'QObject'), self._addressOf(event),
     )
 
   @overload(QShowEvent)

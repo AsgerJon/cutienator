@@ -21,6 +21,7 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
 
   from ..QtCore import QMetaObject, QPoint, QRectF
   from ..QtGui import QPainter, QPixmap
+  from . import QGraphicsEffectSource
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -46,11 +47,12 @@ class QGraphicsEffect(QObject):
   -----------
 
   Every function of Qt's QGraphicsEffect that has a ritual and that Python
-  can call so far, 14 names in all: 'metaObject', 'tr', 'boundingRectFor',
+  can call so far, 15 names in all: 'metaObject', 'tr', 'boundingRectFor',
   'boundingRect', 'isEnabled', 'setEnabled', 'update', 'draw',
   'sourceChanged', 'updateBoundingRect', 'sourceIsPixmap',
-  'sourceBoundingRect', 'drawSource', 'sourcePixmap'. None can be made from
-  Python: one comes out of a function of another class that gives one back.
+  'sourceBoundingRect', 'drawSource', 'sourcePixmap', 'source'. None can be
+  made from Python: one comes out of a function of another class that gives
+  one back.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -61,7 +63,7 @@ class QGraphicsEffect(QObject):
   What has no ritual
   ------------------
 
-  12 of the 27 functions Qt declares: 5 takes or gives a type that cannot be
+  11 of the 27 functions Qt declares: 4 takes or gives a type that cannot be
   passed yet; 2 the class is abstract, so C++ cannot make one; 2 forbidden; 1
   a template; 1 declared and nowhere to be found; 1 a signal.
 
@@ -381,6 +383,24 @@ class QGraphicsEffect(QObject):
     )
     from ..QtGui import QPixmap
     return QPixmap._cuteOwning(address)
+
+  def source(self) -> Optional[QGraphicsEffectSource]:
+    """
+    Calls Qt's 'QGraphicsEffectSource *QGraphicsEffect::source() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicseffect.html#source
+
+    Returns
+    -------
+
+    Optional[QGraphicsEffectSource]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QGraphicsEffectSource *QGraphicsEffect::source() const
+    address = self.uglySide.call('ritual_ZNK15QGraphicsEffect6sourceEv')
+    from . import QGraphicsEffectSource
+    return QGraphicsEffectSource._cuteAt(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

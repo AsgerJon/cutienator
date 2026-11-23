@@ -1,0 +1,114 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qtextdocumentlayout_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK19QTextDocumentLayout10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QTextDocumentLayout2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN19QTextDocumentLayoutC1EP13QTextDocument": [
+      "address", "address"
+    ],
+    "ritual_ZN19QTextDocumentLayout4drawEP8QPainterRKN27QAbstractTextDocumentLayout12PaintContextE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK19QTextDocumentLayout7hitTestERK7QPointFN2Qt15HitTestAccuracyE": [
+      "int", "address", "address", "int"
+    ],
+    "ritual_ZNK19QTextDocumentLayout9pageCountEv": ["int", "address"],
+    "ritual_ZNK19QTextDocumentLayout12documentSizeEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QTextDocumentLayout14setCursorWidthEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK19QTextDocumentLayout11cursorWidthEv": ["int", "address"],
+    "ritual_ZN19QTextDocumentLayout19setFixedColumnWidthEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN19QTextDocumentLayout11setViewportERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QTextDocumentLayout17frameBoundingRectEP10QTextFrame": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK19QTextDocumentLayout17blockBoundingRectERK10QTextBlock": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK19QTextDocumentLayout17tableBoundingRectEP10QTextTable": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK19QTextDocumentLayout21tableCellBoundingRectEP10QTextTableRK14QTextTableCell": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK19QTextDocumentLayout12layoutStatusEv": ["int", "address"],
+    "ritual_ZNK19QTextDocumentLayout16dynamicPageCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK19QTextDocumentLayout19dynamicDocumentSizeEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QTextDocumentLayout14ensureLayoutedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK19QTextDocumentLayout10idealWidthEv": ["double", "address"],
+    "ritual_ZNK19QTextDocumentLayout19contentHasAlignmentEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN19QTextDocumentLayout15documentChangedEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZN19QTextDocumentLayout18resizeInlineObjectE17QTextInlineObjectiRK11QTextFormat": [
+      "nothing", "address", "address", "int", "address"
+    ],
+    "ritual_ZN19QTextDocumentLayout20positionInlineObjectE17QTextInlineObjectiRK11QTextFormat": [
+      "nothing", "address", "address", "int", "address"
+    ],
+    "ritual_ZN19QTextDocumentLayout16drawInlineObjectEP8QPainterRK6QRectF17QTextInlineObjectiRK11QTextFormat": [
+      "nothing", "address", "address", "address", "address", "int", "address"
+    ],
+    "ritual_ZN19QTextDocumentLayout10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QTextDocumentLayout8doLayoutEiii": [
+      "address", "address", "int", "int", "int"
+    ],
+    "ritual_ZN19QTextDocumentLayout14layoutFinishedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN19QTextDocumentLayout4drawEP8QPainterRKN27QAbstractTextDocumentLayout12PaintContextE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZNK19QTextDocumentLayout7hitTestERK7QPointFN2Qt15HitTestAccuracyE": [
+      "int", "address", "address", "int"
+    ],
+    "ritual_own_ZNK19QTextDocumentLayout9pageCountEv": ["int", "address"],
+    "ritual_own_ZNK19QTextDocumentLayout12documentSizeEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK19QTextDocumentLayout17frameBoundingRectEP10QTextFrame": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZNK19QTextDocumentLayout17blockBoundingRectERK10QTextBlock": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN19QTextDocumentLayout15documentChangedEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_own_ZN19QTextDocumentLayout18resizeInlineObjectE17QTextInlineObjectiRK11QTextFormat": [
+      "nothing", "address", "address", "int", "address"
+    ],
+    "ritual_own_ZN19QTextDocumentLayout20positionInlineObjectE17QTextInlineObjectiRK11QTextFormat": [
+      "nothing", "address", "address", "int", "address"
+    ],
+    "ritual_own_ZN19QTextDocumentLayout16drawInlineObjectEP8QPainterRK6QRectF17QTextInlineObjectiRK11QTextFormat": [
+      "nothing", "address", "address", "address", "address", "int", "address"
+    ],
+    "ritual_own_ZN19QTextDocumentLayout10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ]
+  }
+}

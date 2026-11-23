@@ -124,7 +124,8 @@ class QSignalBlocker(CuteMixin, metaclass=MetaCute):
     """
     #  QSignalBlocker::QSignalBlocker(QObject *o)
     self._noteCreation(QSignalBlocker, lambda: Rituals.call(
-        'ritual_ZN14QSignalBlockerC1EP7QObject', self._addressOf(o),
+        'ritual_ZN14QSignalBlockerC1EP7QObject',
+        self._addressOf(o, 'QObject'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

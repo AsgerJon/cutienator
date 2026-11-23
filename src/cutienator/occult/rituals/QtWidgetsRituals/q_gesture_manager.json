@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qgesturemanager_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK15QGestureManager10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QGestureManagerD1Ev": ["nothing", "address"],
+    "ritual_ZN15QGestureManager25registerGestureRecognizerEP18QGestureRecognizer": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN15QGestureManager27unregisterGestureRecognizerEN2Qt11GestureTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN15QGestureManager21cleanupCachedGesturesEP7QObjectN2Qt11GestureTypeE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN15QGestureManager7recycleEP8QGesture": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QGestureManager35cleanupGesturesForRemovedRecognizerEP8QGesture": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QGestureManager": ["bool", "address", "chars", "address"]
+  }
+}

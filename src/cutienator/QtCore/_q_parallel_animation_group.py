@@ -220,7 +220,7 @@ class QParallelAnimationGroup(QAnimationGroup):
     #  QParallelAnimationGroup::QParallelAnimationGroup(QObject *parent)
     self._noteCreation(QParallelAnimationGroup, lambda: Rituals.call(
         'ritual_ZN23QParallelAnimationGroupC1EP7QObject',
-        self._addressOf(parent),
+        self._addressOf(parent, 'QObject'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

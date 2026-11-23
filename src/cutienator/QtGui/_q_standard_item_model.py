@@ -1250,7 +1250,8 @@ class QStandardItemModel(QAbstractItemModel):
     """
     #  QStandardItemModel::QStandardItemModel(QObject *parent)
     self._noteCreation(QStandardItemModel, lambda: Rituals.call(
-        'ritual_ZN18QStandardItemModelC1EP7QObject', self._addressOf(parent),
+        'ritual_ZN18QStandardItemModelC1EP7QObject',
+        self._addressOf(parent, 'QObject'),
     ))
 
   @overload(int, int)
@@ -1287,7 +1288,7 @@ class QStandardItemModel(QAbstractItemModel):
     #      *parent)
     self._noteCreation(QStandardItemModel, lambda: Rituals.call(
         'ritual_ZN18QStandardItemModelC1EiiP7QObject',
-        rows, columns, self._addressOf(parent),
+        rows, columns, self._addressOf(parent, 'QObject'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

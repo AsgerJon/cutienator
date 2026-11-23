@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qtabbar_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN17QMovableTabWidgetC1EP7QWidget": ["address", "address"],
+    "ritual_ZN17QMovableTabWidget9setPixmapERK7QPixmap": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QMovableTabWidget10paintEventEP11QPaintEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN17QMovableTabWidget10paintEventEP11QPaintEvent": [
+      "nothing", "address", "address"
+    ]
+  }
+}

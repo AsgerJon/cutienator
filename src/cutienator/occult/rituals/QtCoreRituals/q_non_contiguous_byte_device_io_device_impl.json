@@ -1,0 +1,51 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qnoncontiguousbytedevice_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK36QNonContiguousByteDeviceIoDeviceImpl10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN36QNonContiguousByteDeviceIoDeviceImplD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN36QNonContiguousByteDeviceIoDeviceImpl11readPointerExRx": [
+      "chars", "address", "long long", "address"
+    ],
+    "ritual_ZN36QNonContiguousByteDeviceIoDeviceImpl18advanceReadPointerEx": [
+      "bool", "address", "long long"
+    ],
+    "ritual_ZNK36QNonContiguousByteDeviceIoDeviceImpl5atEndEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN36QNonContiguousByteDeviceIoDeviceImpl5resetEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK36QNonContiguousByteDeviceIoDeviceImpl4sizeEv": [
+      "long long", "address"
+    ],
+    "ritual_ZNK36QNonContiguousByteDeviceIoDeviceImpl3posEv": [
+      "long long", "address"
+    ],
+    "ritual_take_QNonContiguousByteDeviceIoDeviceImpl": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN36QNonContiguousByteDeviceIoDeviceImpl18advanceReadPointerEx": [
+      "bool", "address", "long long"
+    ],
+    "ritual_own_ZNK36QNonContiguousByteDeviceIoDeviceImpl5atEndEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZN36QNonContiguousByteDeviceIoDeviceImpl5resetEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZNK36QNonContiguousByteDeviceIoDeviceImpl4sizeEv": [
+      "long long", "address"
+    ],
+    "ritual_own_ZNK36QNonContiguousByteDeviceIoDeviceImpl3posEv": [
+      "long long", "address"
+    ]
+  }
+}

@@ -655,7 +655,7 @@ class QMetaMethod(CuteMixin, metaclass=MetaCute):
     return self.uglySide.call(
         'ritual_ZNK11QMetaMethod6invokeEP7QObjectN2Qt14ConnectionTypeE22QGe'
         'nericReturnArgument16QGenericArgumentS5_S5_S5_S5_S5_S5_S5_S5_S5_',
-        self._addressOf(object), connectionType.value,
+        self._addressOf(object, 'QObject'), connectionType.value,
         self._valueOf(returnValue), self._valueOf(val0), self._valueOf(val1),
         self._valueOf(val2), self._valueOf(val3), self._valueOf(val4),
         self._valueOf(val5), self._valueOf(val6), self._valueOf(val7),
@@ -757,7 +757,7 @@ class QMetaMethod(CuteMixin, metaclass=MetaCute):
     return self.uglySide.call(
         'ritual_ZNK11QMetaMethod6invokeEP7QObject22QGenericReturnArgument16'
         'QGenericArgumentS3_S3_S3_S3_S3_S3_S3_S3_S3_',
-        self._addressOf(object), self._valueOf(returnValue),
+        self._addressOf(object, 'QObject'), self._valueOf(returnValue),
         self._valueOf(val0), self._valueOf(val1), self._valueOf(val2),
         self._valueOf(val3), self._valueOf(val4), self._valueOf(val5),
         self._valueOf(val6), self._valueOf(val7), self._valueOf(val8),
@@ -857,10 +857,11 @@ class QMetaMethod(CuteMixin, metaclass=MetaCute):
     return self.uglySide.call(
         'ritual_ZNK11QMetaMethod6invokeEP7QObjectN2Qt14ConnectionTypeE16QGe'
         'nericArgumentS4_S4_S4_S4_S4_S4_S4_S4_S4_',
-        self._addressOf(object), connectionType.value, self._valueOf(val0),
-        self._valueOf(val1), self._valueOf(val2), self._valueOf(val3),
-        self._valueOf(val4), self._valueOf(val5), self._valueOf(val6),
-        self._valueOf(val7), self._valueOf(val8), self._valueOf(val9),
+        self._addressOf(object, 'QObject'), connectionType.value,
+        self._valueOf(val0), self._valueOf(val1), self._valueOf(val2),
+        self._valueOf(val3), self._valueOf(val4), self._valueOf(val5),
+        self._valueOf(val6), self._valueOf(val7), self._valueOf(val8),
+        self._valueOf(val9),
     )
 
   @overload(
@@ -951,10 +952,10 @@ class QMetaMethod(CuteMixin, metaclass=MetaCute):
     return self.uglySide.call(
         'ritual_ZNK11QMetaMethod6invokeEP7QObject16QGenericArgumentS2_S2_S2'
         '_S2_S2_S2_S2_S2_S2_',
-        self._addressOf(object), self._valueOf(val0), self._valueOf(val1),
-        self._valueOf(val2), self._valueOf(val3), self._valueOf(val4),
-        self._valueOf(val5), self._valueOf(val6), self._valueOf(val7),
-        self._valueOf(val8), self._valueOf(val9),
+        self._addressOf(object, 'QObject'), self._valueOf(val0),
+        self._valueOf(val1), self._valueOf(val2), self._valueOf(val3),
+        self._valueOf(val4), self._valueOf(val5), self._valueOf(val6),
+        self._valueOf(val7), self._valueOf(val8), self._valueOf(val9),
     )
 
   def isValid(self) -> bool:

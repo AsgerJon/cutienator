@@ -245,7 +245,7 @@ class QSequentialAnimationGroup(QAnimationGroup):
     #  QSequentialAnimationGroup::QSequentialAnimationGroup(QObject *parent)
     self._noteCreation(QSequentialAnimationGroup, lambda: Rituals.call(
         'ritual_ZN25QSequentialAnimationGroupC1EP7QObject',
-        self._addressOf(parent),
+        self._addressOf(parent, 'QObject'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

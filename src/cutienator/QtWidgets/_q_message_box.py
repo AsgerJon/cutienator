@@ -2136,7 +2136,7 @@ class QMessageBox(QDialog):
     #  void QMessageBox::open(QObject *receiver, const char *member)
     self.uglySide.call(
         'ritual_ZN11QMessageBox4openEP7QObjectPKc',
-        self._addressOf(receiver), self._bytesOf(member),
+        self._addressOf(receiver, 'QObject'), self._bytesOf(member),
     )
 
   @overload(QEvent)

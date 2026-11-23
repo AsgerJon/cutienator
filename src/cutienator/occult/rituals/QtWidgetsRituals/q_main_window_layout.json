@@ -1,0 +1,75 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qmainwindowlayout_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QMainWindowLayout10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QMainWindowLayoutD1Ev": ["nothing", "address"],
+    "ritual_ZN17QMainWindowLayout12setStatusBarEP10QStatusBar": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QMainWindowLayout13centralWidgetEv": ["address", "address"],
+    "ritual_ZN17QMainWindowLayout16setCentralWidgetEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QMainWindowLayout18insertToolBarBreakEP8QToolBar": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QMainWindowLayout18removeToolBarBreakEP8QToolBar": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QMainWindowLayout11toolBarAreaEPK8QToolBar": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK17QMainWindowLayout12toolBarBreakEP8QToolBar": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK17QMainWindowLayout18getStyleOptionInfoEP19QStyleOptionToolBarP8QToolBar": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN17QMainWindowLayout13removeToolBarEP8QToolBar": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QMainWindowLayout21toggleToolBarsVisibleEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QMainWindowLayout9setCornerEN2Qt6CornerENS0_14DockWidgetAreaE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK17QMainWindowLayout6cornerEN2Qt6CornerE": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK17QMainWindowLayout12documentModeEv": ["bool", "address"],
+    "ritual_ZN17QMainWindowLayout15setDocumentModeEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK17QMainWindowLayout8tabShapeEv": ["int", "address"],
+    "ritual_ZN17QMainWindowLayout11setGeometryERK5QRect": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QMainWindowLayout6itemAtEi": ["address", "address", "int"],
+    "ritual_ZN17QMainWindowLayout6takeAtEi": ["address", "address", "int"],
+    "ritual_ZNK17QMainWindowLayout5countEv": ["int", "address"],
+    "ritual_ZNK17QMainWindowLayout8sizeHintEv": ["address", "address"],
+    "ritual_ZNK17QMainWindowLayout11minimumSizeEv": ["address", "address"],
+    "ritual_ZN17QMainWindowLayout10invalidateEv": ["nothing", "address"],
+    "ritual_ZN17QMainWindowLayout18applyRestoredStateEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QMainWindowLayout10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QMainWindowLayout11showTabBarsEv": ["nothing", "address"],
+    "ritual_take_QMainWindowLayout": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK17QMainWindowLayout6itemAtEi": [
+      "address", "address", "int"
+    ],
+    "ritual_own_ZNK17QMainWindowLayout5countEv": ["int", "address"],
+    "ritual_own_ZN17QMainWindowLayout10invalidateEv": ["nothing", "address"],
+    "ritual_own_ZN17QMainWindowLayout10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ]
+  }
+}

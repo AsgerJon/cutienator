@@ -170,7 +170,7 @@ class QAccessibleTextCursorEvent(QAccessibleEvent):
     #      int cursorPos)
     self._noteCreation(QAccessibleTextCursorEvent, lambda: Rituals.call(
         'ritual_ZN26QAccessibleTextCursorEventC1EP7QObjecti',
-        self._addressOf(obj), cursorPos,
+        self._addressOf(obj, 'QObject'), cursorPos,
     ))
 
   @overload(QAccessibleInterface, int)

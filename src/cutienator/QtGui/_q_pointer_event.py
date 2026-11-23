@@ -378,7 +378,7 @@ class QPointerEvent(QInputEvent):
     self.uglySide.call(
         'ritual_ZN13QPointerEvent19setExclusiveGrabberERK11QEventPointP7QOb'
         'ject',
-        self._valueOf(point), self._addressOf(exclusiveGrabber),
+        self._valueOf(point), self._addressOf(exclusiveGrabber, 'QObject'),
     )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -535,7 +535,7 @@ class QPointerEvent(QInputEvent):
     return self.uglySide.call(
         'ritual_ZN13QPointerEvent17addPassiveGrabberERK11QEventPointP7QObje'
         'ct',
-        self._valueOf(point), self._addressOf(grabber),
+        self._valueOf(point), self._addressOf(grabber, 'QObject'),
     )
 
   @overload(QEventPoint, QObject)
@@ -568,5 +568,5 @@ class QPointerEvent(QInputEvent):
     return self.uglySide.call(
         'ritual_ZN13QPointerEvent20removePassiveGrabberERK11QEventPointP7QO'
         'bject',
-        self._valueOf(point), self._addressOf(grabber),
+        self._valueOf(point), self._addressOf(grabber, 'QObject'),
     )

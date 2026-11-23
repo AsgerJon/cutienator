@@ -380,7 +380,7 @@ class QOffscreenSurface(QObject, QSurface):
     #  QOffscreenSurface::QOffscreenSurface(QScreen *screen, QObject *parent)
     self._noteCreation(QOffscreenSurface, lambda: Rituals.call(
         'ritual_ZN17QOffscreenSurfaceC1EP7QScreenP7QObject',
-        self._addressOf(screen), self._addressOf(parent),
+        self._addressOf(screen), self._addressOf(parent, 'QObject'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -440,5 +440,5 @@ class QOffscreenSurface(QObject, QSurface):
     #  void QOffscreenSurface::screenDestroyed(QObject *screen)
     self.uglySide.call(
         'ritual_ZN17QOffscreenSurface15screenDestroyedEP7QObject',
-        self._addressOf(screen),
+        self._addressOf(screen, 'QObject'),
     )

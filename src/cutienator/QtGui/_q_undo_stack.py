@@ -292,7 +292,7 @@ class QUndoStack(QObject):
     #      &prefix) const
     address = self.uglySide.call(
         'ritual_ZNK10QUndoStack16createUndoActionEP7QObjectRK7QString',
-        self._addressOf(parent), prefix,
+        self._addressOf(parent, 'QObject'), prefix,
     )
     from . import QAction
     return QAction._cuteAt(address)
@@ -334,7 +334,7 @@ class QUndoStack(QObject):
     #      &prefix) const
     address = self.uglySide.call(
         'ritual_ZNK10QUndoStack16createRedoActionEP7QObjectRK7QString',
-        self._addressOf(parent), prefix,
+        self._addressOf(parent, 'QObject'), prefix,
     )
     from . import QAction
     return QAction._cuteAt(address)
@@ -493,7 +493,8 @@ class QUndoStack(QObject):
     """
     #  QUndoStack::QUndoStack(QObject *parent)
     self._noteCreation(QUndoStack, lambda: Rituals.call(
-        'ritual_ZN10QUndoStackC1EP7QObject', self._addressOf(parent),
+        'ritual_ZN10QUndoStackC1EP7QObject',
+        self._addressOf(parent, 'QObject'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

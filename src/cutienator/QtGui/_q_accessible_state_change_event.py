@@ -164,7 +164,7 @@ class QAccessibleStateChangeEvent(QAccessibleEvent):
     self._noteCreation(QAccessibleStateChangeEvent, lambda: Rituals.call(
         'ritual_ZN27QAccessibleStateChangeEventC1EP7QObjectN11QAccessible5S'
         'tateE',
-        self._addressOf(obj), self._valueOf(state),
+        self._addressOf(obj, 'QObject'), self._valueOf(state),
     ))
 
   @overload(QAccessibleInterface, QAccessible.State)

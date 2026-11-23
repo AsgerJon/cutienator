@@ -327,7 +327,8 @@ class QTranslator(QObject):
     """
     #  QTranslator::QTranslator(QObject *parent)
     self._noteCreation(QTranslator, lambda: Rituals.call(
-        'ritual_ZN11QTranslatorC1EP7QObject', self._addressOf(parent),
+        'ritual_ZN11QTranslatorC1EP7QObject',
+        self._addressOf(parent, 'QObject'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

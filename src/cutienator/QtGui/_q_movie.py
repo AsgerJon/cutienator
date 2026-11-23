@@ -654,7 +654,7 @@ class QMovie(QObject):
     self._noteCreation(QMovie, lambda: Rituals.call(
         'ritual_ZN6QMovieC1EP9QIODeviceRK10QByteArrayP7QObject',
         self._addressOf(device), self._valueOf(format),
-        self._addressOf(parent),
+        self._addressOf(parent, 'QObject'),
     ))
 
   @overload()
@@ -676,7 +676,7 @@ class QMovie(QObject):
     """
     #  QMovie::QMovie(QObject *parent)
     self._noteCreation(QMovie, lambda: Rituals.call(
-        'ritual_ZN6QMovieC1EP7QObject', self._addressOf(parent),
+        'ritual_ZN6QMovieC1EP7QObject', self._addressOf(parent, 'QObject'),
     ))
 
   @overload(str)
@@ -717,7 +717,7 @@ class QMovie(QObject):
       format = QByteArray()
     self._noteCreation(QMovie, lambda: Rituals.call(
         'ritual_ZN6QMovieC1ERK7QStringRK10QByteArrayP7QObject',
-        fileName, self._valueOf(format), self._addressOf(parent),
+        fileName, self._valueOf(format), self._addressOf(parent, 'QObject'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -207,6 +207,7 @@ class DependencyTree:
   __alias_types__ = None  # type: Optional[Dict[str, str]]
   __copyable_names__ = None  # type: Optional[FrozenSet[str]]
   __defined_names__ = None  # type: Optional[FrozenSet[str]]
+  __defined_paths__ = None  # type: Optional[Dict[str, str]]
   __make_order__ = None  # type: Optional[Names]
   __make_places__ = None  # type: Optional[Dict[str, int]]
   __class_rings__ = None  # type: Optional[Tuple[Names, ...]]
@@ -337,7 +338,7 @@ class DependencyTree:
     enumTypes = dict()  # type: Dict[str, Tuple[str, str]]
     enumRecords = dict()  # type: Dict[str, Record]
     aliasTypes = dict()  # type: Dict[str, str]
-    definedNames = set()  # type: Set[str]
+    definedNames = dict()  # type: Dict[str, str]
     leftOut = []  # type: List[str]
     for qtPart in self.getQtParts():
       partName = qtPart.getPartName()
@@ -410,6 +411,7 @@ class DependencyTree:
     self.__enum_records__ = enumRecords
     self.__alias_types__ = aliasTypes
     self.__defined_names__ = frozenset(definedNames)
+    self.__defined_paths__ = definedNames
     takes, gives = dict(), dict()
     for name in parents:
       takes[name] = self._findClasses(taken[name], parents, name)
@@ -885,20 +887,23 @@ class DependencyTree:
     Asks the compiler which classes of the tree it can copy, and keeps
     the answer.
 
-    A small C++ program is written into a folder of its own, compiled
-    with 'clang++', run once and thrown away. For each class it prints
-    whether these two lines of C++ are allowed for anyone:
-    'new T(other)', which makes a copy of another one, and 'delete' of
-    the copy. The compiler alone knows that for sure. The records say
-    it for a class that declares its copying itself, and leave it open
-    for the many classes that let the compiler write it.
+    A small C++ file is written into a folder of its own and compiled
+    with 'clang++' to an object file. Nothing is joined to it and
+    nothing is run: the compiler works every answer out itself, and
+    writes them into the object file as one letter for each class,
+    which 'objcopy' then hands over. The letter says whether these two
+    lines of C++ are allowed for anyone: 'new T(other)', which makes a
+    copy of another one, and 'delete' of the copy. The compiler alone
+    knows that for sure. The records say it for a class that declares
+    its copying itself, and leave it open for the many classes that
+    let the compiler write it.
 
     Raises
     ------
 
     RuntimeError
-      'clang++' refused the program, or the program did not run. What
-      it said is in the message.
+      'clang++' refused the file, or the object file does not hold one
+      letter for each class. What was said is in the message.
     """
     classNames = self.getClassNames()
     includeLines = []  # type: List[str]
@@ -910,7 +915,6 @@ class DependencyTree:
           includeLines.append(line)
     lines = [
         *includeLines,
-        '#include <cstdio>',
         '#include <type_traits>',
         '#include <utility>',
         '',
@@ -922,15 +926,19 @@ class DependencyTree:
         '    decltype(new T(std::declval<const T &>())),',
         '    decltype(delete std::declval<T *>())>> : std::true_type {};',
         '',
-        'int main() {',
+        "//  One letter for each class, in order: '1' when it can be",
+        "//  copied, '0' when not.",
+        'extern const char cutienatorCopyable[];',
+        'const char cutienatorCopyable[] = {',
     ]
-    lineSpec = '  std::printf("%%d %%s\\n", int(CanCopy<%s>::value), "%s");'
-    lines.extend(lineSpec % (name, name) for name in classNames)
-    lines.extend(('  return 0;', '}', ''))
+    lineSpec = "    char('0' + int(CanCopy<%s>::value)),"
+    lines.extend(lineSpec % name for name in classNames)
+    lines.extend(('    0,', '};', ''))
     qtParts = self.getQtParts()
     with tempfile.TemporaryDirectory() as folder:
       sourceFile = os.path.join(folder, 'copyable.cpp')
-      programFile = os.path.join(folder, 'copyable')
+      objectFile = os.path.join(folder, 'copyable.o')
+      answerFile = os.path.join(folder, 'copyable.txt')
       with open(sourceFile, 'w') as file:
         file.write('\n'.join(lines))
       private = []  # type: List[str]
@@ -939,15 +947,19 @@ class DependencyTree:
           for privateFolder in qtPart.getPrivateIncludeFolders():
             if '-I%s' % privateFolder not in private:
               private.append('-I%s' % privateFolder)
+      #  '-fdata-sections' gives the letters a stretch of the object
+      #  file to themselves, under their own name.
       command = (
-          'clang++', '-std=c++17', '-fPIC',
+          'clang++', '-std=c++17', '-fPIC', '-fdata-sections', '-c',
           '-I%s' % QtPart.getQtHeaderFolder(), *private, sourceFile,
-          '-o', programFile,
-          '-Wl,-rpath,%s' % QtPart.getQtSharedObjectFolder(),
-          *(qtPart.getQtSharedObject() for qtPart in qtParts),
+          '-o', objectFile,
       )
-      said = ''
-      for step in (command, (programFile,)):
+      handOver = (
+          'objcopy', '-O', 'binary',
+          '--only-section=.rodata.cutienatorCopyable', objectFile,
+          answerFile,
+      )
+      for step in (command, handOver):
         done = subprocess.run(
             step, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
             universal_newlines=True,
@@ -957,11 +969,16 @@ class DependencyTree:
           failed at '%s', which said: %s"""
           info = infoSpec % (os.path.basename(step[0]), done.stderr)
           raise RuntimeError(' '.join(info.split()))
-        said = done.stdout
+      with open(answerFile, 'rb') as file:
+        said = file.read()
+    if len(said) != len(classNames) + 1 or said.strip(b'01') != b'\x00':
+      infoSpec = """Asking the compiler which classes it can copy gave
+      %d letters for %d classes, or other letters than '0' and '1'."""
+      info = infoSpec % (len(said) - 1, len(classNames))
+      raise RuntimeError(' '.join(info.split()))
     copyable = set()  # type: Set[str]
-    for line in said.split('\n'):
-      answer, _, name = line.partition(' ')
-      if answer == '1':
+    for name, letter in zip(classNames, said.decode('ascii')):
+      if letter == '1':
         copyable.add(name)
     self.__copyable_names__ = frozenset(copyable)
 
@@ -1002,6 +1019,21 @@ class DependencyTree:
     """
     self.getClassNames()
     return self.__defined_names__
+
+  def getDefinedPath(self, compilerName: str) -> Optional[str]:
+    """
+    Gives the full path of the header file that has the body of code
+    of a function, by the compiler's own name of the function, or None
+    when no header file of the parts has it.
+
+    Kept with 'getDefinedNames'. A header declares some functions in a
+    class and has their code in another header file, as 'qvariant.h'
+    declares 'QVariant::PrivateShared::free' and 'qvariant_p.h' has
+    its code. Whoever calls such a function has to pull that other
+    header file in.
+    """
+    self.getClassNames()
+    return self.__defined_paths__.get(compilerName, None)
 
   def getAliasTypes(self) -> Dict[str, str]:
     """
@@ -1100,6 +1132,7 @@ class DependencyTree:
     self.__alias_types__ = None
     self.__copyable_names__ = None
     self.__defined_names__ = None
+    self.__defined_paths__ = None
     self.__make_order__ = None
     self.__make_places__ = None
     self.__class_rings__ = None
@@ -1239,7 +1272,7 @@ class DependencyTree:
       return
     if kind in self.__body_kinds__:
       if 'mangledName' in node and self.hasBody(node):
-        found['defined'].add(node['mangledName'])
+        found['defined'].setdefault(node['mangledName'], headerPath)
       return
     if kind != 'CXXRecordDecl':
       return

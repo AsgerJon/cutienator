@@ -301,6 +301,13 @@ QPixmap *ritual_ZNK15QGraphicsEffect12sourcePixmapEN2Qt16CoordinateSystemEP6QPoi
   return new QPixmap(self->sourcePixmap(system, offset, mode));
 }
 
+//  QGraphicsEffectSource *QGraphicsEffect::source() const
+extern "C" Q_DECL_EXPORT
+QGraphicsEffectSource *ritual_ZNK15QGraphicsEffect6sourceEv(
+    const QGraphicsEffect *self) {
+  return self->source();
+}
+
 //  a Python function taken by a CuteQGraphicsEffect, for the function named
 //      by the key
 extern "C" Q_DECL_EXPORT

@@ -175,7 +175,7 @@ class QAccessibleTextRemoveEvent(QAccessibleTextCursorEvent):
     #      int position, const QString &text)
     self._noteCreation(QAccessibleTextRemoveEvent, lambda: Rituals.call(
         'ritual_ZN26QAccessibleTextRemoveEventC1EP7QObjectiRK7QString',
-        self._addressOf(obj), position, text,
+        self._addressOf(obj, 'QObject'), position, text,
     ))
 
   @overload(QAccessibleInterface, int, str)

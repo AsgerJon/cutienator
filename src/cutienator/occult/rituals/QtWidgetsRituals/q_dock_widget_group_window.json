@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qmainwindowlayout_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK22QDockWidgetGroupWindow10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK22QDockWidgetGroupWindow21hasVisibleDockWidgetsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN22QDockWidgetGroupWindow10childEventEP11QChildEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK22QDockWidgetGroupWindow11dockWidgetsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QDockWidgetGroupWindow11eventFilterEP7QObjectP6QEvent": [
+      "bool", "address", "address", "address"
+    ]
+  }
+}

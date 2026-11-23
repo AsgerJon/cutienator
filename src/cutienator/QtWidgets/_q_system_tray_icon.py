@@ -410,7 +410,8 @@ class QSystemTrayIcon(QObject):
     """
     #  QSystemTrayIcon::QSystemTrayIcon(QObject *parent)
     self._noteCreation(QSystemTrayIcon, lambda: Rituals.call(
-        'ritual_ZN15QSystemTrayIconC1EP7QObject', self._addressOf(parent),
+        'ritual_ZN15QSystemTrayIconC1EP7QObject',
+        self._addressOf(parent, 'QObject'),
     ))
 
   @overload(QIcon)
@@ -437,7 +438,7 @@ class QSystemTrayIcon(QObject):
     #  QSystemTrayIcon::QSystemTrayIcon(const QIcon &icon, QObject *parent)
     self._noteCreation(QSystemTrayIcon, lambda: Rituals.call(
         'ritual_ZN15QSystemTrayIconC1ERK5QIconP7QObject',
-        self._valueOf(icon), self._addressOf(parent),
+        self._valueOf(icon), self._addressOf(parent, 'QObject'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

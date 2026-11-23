@@ -1,0 +1,33 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qtextimagehandler_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QTextImageHandler10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QTextImageHandler2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QTextImageHandlerC1EP7QObject": ["address", "address"],
+    "ritual_ZN17QTextImageHandler13intrinsicSizeEP13QTextDocumentiRK11QTextFormat": [
+      "address", "address", "address", "int", "address"
+    ],
+    "ritual_ZN17QTextImageHandler10drawObjectEP8QPainterRK6QRectFP13QTextDocumentiRK11QTextFormat": [
+      "nothing", "address", "address", "address", "address", "int", "address"
+    ],
+    "ritual_ZN17QTextImageHandler5imageEP13QTextDocumentRK16QTextImageFormat": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_cast_QTextImageHandler_QTextObjectInterface": [
+      "address", "address"
+    ],
+    "ritual_take_QTextImageHandler": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN17QTextImageHandler13intrinsicSizeEP13QTextDocumentiRK11QTextFormat": [
+      "address", "address", "address", "int", "address"
+    ],
+    "ritual_own_ZN17QTextImageHandler10drawObjectEP8QPainterRK6QRectFP13QTextDocumentiRK11QTextFormat": [
+      "nothing", "address", "address", "address", "address", "int", "address"
+    ]
+  }
+}

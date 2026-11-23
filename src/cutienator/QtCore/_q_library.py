@@ -370,7 +370,7 @@ class QLibrary(QObject):
     """
     #  QLibrary::QLibrary(QObject *parent)
     self._noteCreation(QLibrary, lambda: Rituals.call(
-        'ritual_ZN8QLibraryC1EP7QObject', self._addressOf(parent),
+        'ritual_ZN8QLibraryC1EP7QObject', self._addressOf(parent, 'QObject'),
     ))
 
   @overload(str)
@@ -400,7 +400,7 @@ class QLibrary(QObject):
     #  QLibrary::QLibrary(const QString &fileName, QObject *parent)
     self._noteCreation(QLibrary, lambda: Rituals.call(
         'ritual_ZN8QLibraryC1ERK7QStringP7QObject',
-        fileName, self._addressOf(parent),
+        fileName, self._addressOf(parent, 'QObject'),
     ))
 
   @overload(str, int)
@@ -436,7 +436,7 @@ class QLibrary(QObject):
     #      *parent)
     self._noteCreation(QLibrary, lambda: Rituals.call(
         'ritual_ZN8QLibraryC1ERK7QStringiP7QObject',
-        fileName, verNum, self._addressOf(parent),
+        fileName, verNum, self._addressOf(parent, 'QObject'),
     ))
 
   @overload(str, str)
@@ -472,7 +472,7 @@ class QLibrary(QObject):
     #      QObject *parent)
     self._noteCreation(QLibrary, lambda: Rituals.call(
         'ritual_ZN8QLibraryC1ERK7QStringS2_P7QObject',
-        fileName, version, self._addressOf(parent),
+        fileName, version, self._addressOf(parent, 'QObject'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -512,7 +512,7 @@ class QStyledItemDelegate(QAbstractItemDelegate):
     #  QStyledItemDelegate::QStyledItemDelegate(QObject *parent)
     self._noteCreation(QStyledItemDelegate, lambda: Rituals.call(
         'ritual_ZN19QStyledItemDelegateC1EP7QObject',
-        self._addressOf(parent),
+        self._addressOf(parent, 'QObject'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -695,7 +695,7 @@ class QStyledItemDelegate(QAbstractItemDelegate):
           'ritual_own_ZN19QStyledItemDelegate11eventFilterEP7QObjectP6QEven'
           't')
     return self.uglySide.call(
-        ritual, self._addressOf(object), self._addressOf(event),
+        ritual, self._addressOf(object, 'QObject'), self._addressOf(event),
     )
 
   @overload(QEvent, QAbstractItemModel, QStyleOptionViewItem, QModelIndex)
