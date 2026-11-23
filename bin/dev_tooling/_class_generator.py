@@ -2103,13 +2103,12 @@ class ClassGenerator:
     #  up in the object: it belongs to the function of that name.
     apart = ('cast', 'take', 'own', 'list', 'map')
     written = self.getRitualGenerator().getWritten()
-    start = len('ritual_own')
     owned = {
-        plan['ritualName'][start:]: plan for plan in written
+        plan['compilerName']: plan for plan in written
         if plan['kind'] == 'own'
     }
     plans = [plan for plan in written if plan['kind'] not in apart]
-    ordinary = {plan['ritualName'][len('ritual'):] for plan in plans}
+    ordinary = {plan.get('compilerName', '') for plan in plans}
     for compilerName, plan in owned.items():
       if compilerName not in ordinary:
         #  A function only a class built on this one may call has no
@@ -2126,7 +2125,7 @@ class ClassGenerator:
         leftOut.append((plan['function'], ' '.join(infoSpec.split())))
         continue
       function['section'] = self._findSection(function)
-      compilerName = plan['ritualName'][len('ritual'):]
+      compilerName = plan.get('compilerName', '')
       if not plan.get('ownOnly') and compilerName in owned:
         function['ownRitual'] = owned[compilerName]['ritualName']
       self._createSignatures(function)

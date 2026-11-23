@@ -284,8 +284,11 @@ class RitualTester:
       name, kind = ritual['ritualName'], ritual['kind']
       if kind in ('cast', 'take', 'list', 'map'):
         continue
-      start = len('ritual_own') if kind == 'own' else len('ritual')
-      if name[start:] not in compilerNames:
+      if ritual.get('fromText'):
+        #  Read from the text of the header file: the compiler reported
+        #  no function for it, so there is no name to hold it against.
+        continue
+      if ritual.get('compilerName', '') not in compilerNames:
         infoSpec = """The ritual '%s' is named after no function the
         class '%s' has."""
         faults.append(' '.join((infoSpec % (name, className)).split()))

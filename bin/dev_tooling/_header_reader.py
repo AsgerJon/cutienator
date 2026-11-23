@@ -15,7 +15,7 @@ from typing import TYPE_CHECKING
 
 from worktoy.waitaminute import MissingVariable, TypeException
 
-from . import HeaderFile
+from . import HeaderFile, HeaderFolder
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Any, Dict, Iterator, List, Optional, Set, Tuple
@@ -74,15 +74,22 @@ class HeaderReader:
   Found for you
   -------------
 
-  - 'getQtHeaderFolder' and 'getQtVersion': asked of Qt's own program
-    'qmake6'.
+  - 'getQtHeaderFolder' and 'getQtVersion': from Qt's source, through
+    the 'HeaderFolder' given to 'setHeaderFolder'. No Qt that is
+    installed is asked.
   - 'getHeaderPaths': every header file lying right in the folder of
     the part.
   - 'getHeaderFiles': one 'HeaderFile' per header file, once the part
     has been read.
   - 'getIncludeLines': the lines of C++ that pull a header file in.
-  - 'getQtSharedObject': the compiled Qt code of this part.
-  - 'getClassSummary': what Qt's own summary says about a class.
+  - 'getConditions': what the '#if' lines around a line of a header
+    file ask, read from its text.
+  - 'getSignalLines': the lines of a header file that declare signals,
+    read from its text.
+  - 'getQtSharedObject': the compiled Qt code of this part, of the Qt
+    installed on the machine. It is for the testers alone, which have
+    to try what was written against a Qt; nothing that is written is
+    decided by it.
 
   What to expect
   --------------
@@ -203,8 +210,10 @@ class HeaderReader:
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   #  Class Variables
-  #  Where Qt keeps its headers and which version it is. Asked of
-  #  'qmake6' once, and kept for every 'HeaderReader'.
+  #  The 'HeaderFolder' that makes the folder Qt's header files are
+  #  read in, that folder, and the version of Qt: all from Qt's source,
+  #  and kept for every 'HeaderReader'.
+  __header_folder__ = None  # type: Optional[HeaderFolder]
   __qt_header_folder__ = None  # type: Optional[str]
   __qt_version__ = None  # type: Optional[str]
   __qt_shared_object_folder__ = None  # type: Optional[str]
@@ -236,6 +245,51 @@ class HeaderReader:
   #  The conditions of each header file whose text was read for them,
   #  kept for every 'HeaderReader'.
   __read_conditions__ = dict()  # type: Dict[str, Any]
+  #  What stands in front of a function in its declaration and is no
+  #  part of the type it gives.
+  __leading_words__ = (
+      r'(?:(?:static|virtual|inline|explicit|constexpr|'
+      r'Q_INVOKABLE|Q_SCRIPTABLE|Q_REQUIRED_RESULT|Q_ALWAYS_INLINE|'
+      r'Q_NEVER_INLINE|\[\[nodiscard\]\]|Q_DECL_\w+|Q_\w+_EXPORT)\s+)*')
+  #  The declaration of a function up to the bracket that opens what it
+  #  takes, and what may stand after the bracket that closes it.
+  __function_head__ = re.compile(
+      r'^(?P<lead>%s)(?P<gives>[\w:<>,\s\*&]*?[\s\*&])?'
+      r'(?P<name>~?[A-Za-z_]\w*)\s*\($' % __leading_words__)
+  __function_tail__ = re.compile(
+      r'^\s*(?P<const>const)?\s*(?:&{1,2})?\s*'
+      r'(?:noexcept(?:\([^()]*\))?)?\s*(?:override|final)?\s*'
+      r'(?:Q_DECL_\w+(?:\([^()]*\))?\s*)*'
+      r'(?P<how>=\s*0|=\s*default|=\s*delete)?\s*$')
+  #  A line that opens a class, with its name; the bracket may stand
+  #  on a later line.
+  __class_opening__ = re.compile(
+      r'^\s*(?P<word>class|struct)\s+(?:Q[A-Z0-9_]+(?:\([^()]*\))?\s+)*'
+      r'(?P<name>[A-Za-z_]\w*)\b(?!\s*;)[^;]*$')
+  #  A line that opens a section of a class.
+  __section_line__ = re.compile(
+      r'^\s*(?:(?P<access>public|protected|private)\b[^;()]*'
+      r'|(?P<signals>Q_SIGNALS|signals)\s*|(?:Q_SLOTS|slots)\s*):\s*$')
+  #  What starts a line inside a class that declares no function.
+  __no_function__ = re.compile(
+      r'^\s*(?:typedef|using|return|if|for|while|switch|Q_PROPERTY|'
+      r'Q_DECLARE_\w+|Q_ENUM\w*|Q_FLAG\w*|Q_DISABLE_\w+|'
+      r'Q_STATIC_ASSERT\w*|Q_CLASSINFO|Q_INTERFACES|'
+      r'Q_OBJECT|Q_GADGET|template\b|namespace\b|extern\b|enum\b|'
+      r'friend\b)')
+  #  A line that is nothing but one of Qt's words in capitals, with or
+  #  without brackets, as 'Q_OBJECT' and 'Q_DECLARE_PRIVATE(QWidget)'.
+  #  It ends with no ';' and is no part of what follows it.
+  __macro_line__ = re.compile(r'^\s*Q[A-Z0-9_]+(?:\([^;{}]*\))?\s*$')
+  #  Qt's notice that a function is deprecated, in front of it.
+  __deprecated_words__ = re.compile(
+      r'^(?:QT_DEPRECATED\w*(?:\((?:[^()]|\([^()]*\))*\))?\s*)+')
+  #  The functions of each header file read from its text so far, kept
+  #  for every 'HeaderReader'.
+  __text_functions__ = dict()  # type: Dict[str, Tuple[Record, ...]]
+  #  The lines of each header file read so far on which Qt declares
+  #  signals, kept for every 'HeaderReader'.
+  __signal_lines__ = dict()  # type: Dict[str, FrozenSet[int]]
 
   #  A line of C++ pulling a header file in by its place in Qt's header
   #  folder, as the own list of a part has them.
@@ -247,7 +301,6 @@ class HeaderReader:
   __part_name__ = None  # type: Optional[str]
   __work_folder__ = None  # type: Optional[str]
   __header_files__ = None  # type: Optional[HeaderFiles]
-  __class_summaries__ = None  # type: Optional[Dict[str, Record]]
   __named_header_paths__ = None  # type: Optional[Paths]
   __offered_names__ = None  # type: Optional[FrozenSet[str]]
   __found_pullers__ = None  # type: Optional[Dict[str, Optional[str]]]
@@ -266,28 +319,68 @@ class HeaderReader:
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   @classmethod
-  def _createQtHeaderFolder(cls, ) -> None:
-    """Asks 'qmake6' where Qt keeps its headers and remembers it."""
-    answer = cls._run('qmake6', '-query', 'QT_INSTALL_HEADERS')
-    cls.__qt_header_folder__ = answer.strip()
-
-  @classmethod
-  def getQtHeaderFolder(cls, **kwargs) -> str:
+  def getHeaderFolder(cls) -> HeaderFolder:
     """
-    Gives the folder where Qt keeps its headers, as '/usr/include/qt6'.
+    Gives the 'HeaderFolder' that makes, from Qt's source alone, the
+    folder the compiler reads Qt's header files in.
 
-    Found for you: there is no setter. The first call asks Qt's own
-    program 'qmake6', and the answer is kept for every 'HeaderReader'. You
-    pass nothing; the keyword is for the method's own use.
+    Provided by you, through 'setHeaderFolder', once for every
+    'HeaderReader'.
 
     Raises
     ------
 
-    FileNotFoundError
-      'qmake6' is not installed.
+    MissingVariable
+      'setHeaderFolder' has not been called.
+    """
+    if cls.__header_folder__ is None:
+      raise MissingVariable(cls, '__header_folder__', HeaderFolder)
+    return cls.__header_folder__
 
-    RuntimeError
-      'qmake6' ran and reported a failure; its message is included.
+  @classmethod
+  def setHeaderFolder(cls, headerFolder: HeaderFolder) -> None:
+    """
+    Tells where Qt's header files are read: in the folder a
+    'HeaderFolder' makes from Qt's source. Every 'HeaderReader' reads
+    there, and no Qt that is installed is asked where its header files
+    are or which version it is.
+
+    Raises
+    ------
+
+    TypeException
+      It is no 'HeaderFolder'.
+    """
+    if not isinstance(headerFolder, HeaderFolder):
+      raise TypeException('headerFolder', headerFolder, HeaderFolder)
+    cls.__header_folder__ = headerFolder
+    cls.__qt_header_folder__ = None
+    cls.__qt_version__ = None
+
+  @classmethod
+  def _createQtHeaderFolder(cls, ) -> None:
+    """Has the 'HeaderFolder' make its folder, where that has not been
+    done from this very source, and remembers where the folder is."""
+    headerFolder = cls.getHeaderFolder()
+    if not headerFolder.isMade():
+      headerFolder.make()
+    cls.__qt_header_folder__ = headerFolder.getFolder()
+
+  @classmethod
+  def getQtHeaderFolder(cls, **kwargs) -> str:
+    """
+    Gives the folder in which the compiler finds Qt's header files.
+
+    Found for you: it is the folder the 'HeaderFolder' makes from Qt's
+    source, laid out the way the header folder of an installed Qt is.
+    It is made at the first call where it is not there yet. You pass
+    nothing; the keyword is for the method's own use.
+
+    Raises
+    ------
+
+    MissingVariable
+      'setHeaderFolder' has not been called.
     """
     if cls.__qt_header_folder__ is None:
       if kwargs.get('_recursion', False):
@@ -298,27 +391,23 @@ class HeaderReader:
 
   @classmethod
   def _createQtVersion(cls, ) -> None:
-    """Asks 'qmake6' which version of Qt is installed and remembers it."""
-    answer = cls._run('qmake6', '-query', 'QT_VERSION')
-    cls.__qt_version__ = answer.strip()
+    """Takes the version of Qt from its source and remembers it."""
+    cls.__qt_version__ = cls.getHeaderFolder().getQtVersion()
 
   @classmethod
   def getQtVersion(cls, **kwargs) -> str:
     """
-    Gives the version of the Qt that is installed, as '6.12.0'.
+    Gives the version of Qt that is read, as '6.12.0'.
 
-    Found for you: there is no setter. The first call asks Qt's own
-    program 'qmake6', and the answer is kept for every 'HeaderReader'. You
-    pass nothing; the keyword is for the method's own use.
+    Found for you: Qt's source names its own version, and the
+    'HeaderFolder' reads it there. You pass nothing; the keyword is for
+    the method's own use.
 
     Raises
     ------
 
-    FileNotFoundError
-      'qmake6' is not installed.
-
-    RuntimeError
-      'qmake6' ran and reported a failure; its message is included.
+    MissingVariable
+      'setHeaderFolder' has not been called.
     """
     if cls.__qt_version__ is None:
       if kwargs.get('_recursion', False):
@@ -381,65 +470,6 @@ class HeaderReader:
       raise FileNotFoundError(' '.join(info.split()))
     return path
 
-  def getSummaryFile(self) -> str:
-    """
-    Gives the path of Qt's own summary of this part, as
-    '/usr/lib/qt6/metatypes/qt6core_metatypes.json'.
-
-    Found for you. Qt installs one such file per part. It says what the
-    compiler cannot: which functions are signals and slots, and which
-    properties a class has.
-    """
-    folder = self._run('qmake6', '-query', 'QT_INSTALL_ARCHDATA').strip()
-    name = 'qt6%s_metatypes.json' % self.getPartName()[2:].lower()
-    return os.path.join(folder, 'metatypes', name)
-
-  def _createClassSummaries(self, ) -> None:
-    """Loads Qt's own summary of this part, by the name of each class."""
-    summaryFile = self.getSummaryFile()
-    if not os.path.isfile(summaryFile):
-      infoSpec = """Qt's summary of the part '%s' was expected at '%s',
-      and there is no such file."""
-      info = infoSpec % (self.getPartName(), summaryFile)
-      raise FileNotFoundError(' '.join(info.split()))
-    with open(summaryFile) as file:
-      units = json.load(file)
-    summaries = dict()
-    for unit in units:
-      for entry in unit.get('classes', ()):
-        summaries[entry.get('qualifiedClassName')] = entry
-    self.__class_summaries__ = summaries
-
-  def getClassSummary(self, className: str, **kwargs) -> Record:
-    """
-    Gives what Qt's own summary says about one class, untouched.
-
-    Loaded for you from the summary file, at the first call, and kept.
-    You pass the name of the class; the keyword is for the method's own
-    use.
-
-    Returns
-    -------
-
-    Record
-      A 'Dict[str, Any]'. Its entries 'signals', 'slots' and
-      'properties' list what the class has of each. It is empty for a
-      class the summary does not mention, as every class not built on
-      'QObject'.
-
-    Raises
-    ------
-
-    FileNotFoundError
-      The summary file is not where it is expected to be.
-    """
-    if self.__class_summaries__ is None:
-      if kwargs.get('_recursion', False):
-        raise RecursionError
-      self._createClassSummaries()
-      return self.getClassSummary(className, _recursion=True)
-    return self.__class_summaries__.get(className, dict())
-
   def getPartName(self) -> str:
     """
     Gives the part of Qt this object reads, as 'QtCore'.
@@ -489,8 +519,8 @@ class HeaderReader:
     """
     partFolder = os.path.join(self.getQtHeaderFolder(), self.getPartName())
     if not os.path.isdir(partFolder):
-      infoSpec = """The Qt that is installed has no part named '%s':
-      there is no folder '%s'."""
+      infoSpec = """Qt's source has no part named '%s': there is no
+      folder '%s'."""
       info = infoSpec % (self.getPartName(), partFolder)
       raise LookupError(' '.join(info.split()))
     return partFolder
@@ -561,12 +591,9 @@ class HeaderReader:
         found.append(folder)
         found.append(os.path.join(folder, name))
         found.append(os.path.join(folder, name, 'private'))
-    #  Some of those headers name 'qplatformdefs.h', which Qt keeps
-    #  with what it knows of the system and the compiler it was built
-    #  for, as '/usr/lib/qt6/mkspecs/linux-g++'.
-    found.append(os.path.join(
-        self._run('qmake6', '-query', 'QT_HOST_DATA').strip(), 'mkspecs',
-        self._run('qmake6', '-query', 'QMAKE_SPEC').strip()))
+    #  Some of those headers name 'qplatformdefs.h', which Qt's source
+    #  keeps with what it knows of each system and compiler.
+    found.append(self.getHeaderFolder().getSpecFolder())
     return (*found,)
 
   def getCompilerCommand(self) -> Tuple[str, ...]:
@@ -940,7 +967,6 @@ class HeaderReader:
       raise ValueError(' '.join((infoSpec % partName).split()))
     self.__part_name__ = partName
     self.__header_files__ = None
-    self.__class_summaries__ = None
     self.__named_header_paths__ = None
     self.__offered_names__ = None
     self.__found_pullers__ = None
@@ -1187,7 +1213,42 @@ class HeaderReader:
         and there is no such file."""
         raise RuntimeError(' '.join((infoSpec % word).split()))
       filesRead.add(os.path.realpath(word))
+    self._refuseForeignQt(filesRead)
     return filesRead
+
+  def _refuseForeignQt(self, filesRead: Set[str]) -> None:
+    """
+    Raises when the compiler read a header file of Qt that lies
+    anywhere but in Qt's source or in the folder made from it.
+
+    Everything that is read of Qt is to come from Qt's source alone.
+    A header file of a Qt that is installed on the machine would bring
+    in what that one Qt has and leaves out, unseen.
+
+    Raises
+    ------
+
+    RuntimeError
+      Such a file was read; the first few are named.
+    """
+    headerFolder = self.getHeaderFolder()
+    ours = (
+        '%s%s' % (os.path.realpath(headerFolder.getSourceFolder()), os.sep),
+        '%s%s' % (os.path.realpath(headerFolder.getFolder()), os.sep),
+    )
+    partNames = headerFolder.getPartNames()
+    foreign = []
+    for path in sorted(filesRead):
+      if path.startswith(ours):
+        continue
+      pieces = path.split(os.sep)
+      if any(partName in pieces for partName in partNames):
+        foreign.append(path)
+    if foreign:
+      infoSpec = """The compiler read %d header files of a Qt that is
+      not Qt's source, the first of them: %s"""
+      info = infoSpec % (len(foreign), ', '.join(foreign[:3]))
+      raise RuntimeError(' '.join(info.split()))
 
   def _findComplaint(
       self,
@@ -1817,3 +1878,278 @@ class HeaderReader:
       infoSpec = """'%s' has %d lines and no line %d."""
       raise LookupError(infoSpec % (headerPath, len(found), line))
     return found[line - 1]
+
+  @classmethod
+  def getSignalLines(cls, headerPath: str) -> FrozenSet[int]:
+    """
+    Gives the lines of a header file on which Qt declares signals,
+    read from the text of the file alone.
+
+    Qt writes the signals of a class under a line 'Q_SIGNALS:' or
+    'signals:', up to the next line that opens another section of the
+    class, as 'public:' and 'private Q_SLOTS:', or the line that closes
+    the class. A function marked 'Q_SIGNAL' by itself counts as well.
+    The compiler does not report which functions are signals, and
+    Qt's own list of them is made when Qt is built, so it is no part
+    of Qt's source.
+
+    Parameters
+    ----------
+
+    headerPath : str
+      The full path of the header file, as a record names it under
+      'loc'.
+
+    Returns
+    -------
+
+    FrozenSet[int]
+      The numbers of those lines, the first line of the file being 1.
+    """
+    kept = cls.__signal_lines__
+    if headerPath in kept:
+      return kept[headerPath]
+    with open(headerPath, errors='replace') as file:
+      text = file.read().replace('\r', '')
+    #  Comments go, and the lines keep their numbers.
+    text = re.sub(
+        r'/\*.*?\*/', lambda found: '\n' * found.group(0).count('\n'),
+        text, flags=re.S)
+    opens = re.compile(r'^\s*(?:Q_SIGNALS|signals)\s*:')
+    closes = re.compile(
+        r'^\s*(?:(?:public|protected|private)\b[^;()]*:\s*$'
+        r'|(?:Q_SLOTS|slots)\s*:|\};)')
+    found, inside = set(), False  # type: Set[int], bool
+    for number, line in enumerate(text.split('\n'), 1):
+      line = re.sub(r'//.*$', '', line)
+      if opens.match(line):
+        inside = True
+      elif closes.match(line):
+        inside = False
+      elif inside or re.search(r'\bQ_SIGNAL\b', line):
+        found.add(number)
+    kept[headerPath] = frozenset(found)
+    return kept[headerPath]
+
+  @staticmethod
+  def _cutArguments(text: str) -> List[str]:
+    """Gives what stands between the brackets of a function, cut at the
+    commas that stand in no other brackets."""
+    found, depth, start = [], 0, 0
+    for index, letter in enumerate(text):
+      depth += 1 if letter in '<([{' else -1 if letter in '>)]}' else 0
+      if letter == ',' and depth == 0:
+        found.append(text[start:index].strip())
+        start = index + 1
+    last = text[start:].strip()
+    if last and last != 'void':
+      found.append(last)
+    return found
+
+  @staticmethod
+  def _cutArgument(text: str) -> Tuple[str, str]:
+    """Gives the type and the name of one argument as a declaration
+    writes it, as ('const QString &', 'text') for 'const QString &text
+    = QString()'. An argument written without a name has ''."""
+    depth = 0
+    for index, letter in enumerate(text):
+      depth += 1 if letter in '<([{' else -1 if letter in '>)]}' else 0
+      if letter == '=' and depth == 0:
+        text = text[:index]
+        break
+    text = text.strip()
+    plain = ('int', 'char', 'long', 'short', 'double', 'float', 'bool',
+             'unsigned', 'signed', 'void', 'const')
+    last = re.search(r'(?<=[\s\*&>])([A-Za-z_]\w*)$', text)
+    if last is not None and last.group(1) not in plain:
+      rest = text[:last.start()].strip()
+      if re.search(r'[A-Za-z_]', rest):
+        return rest, last.group(1)
+    return text, ''
+
+  @classmethod
+  def _readDeclaration(cls, statement: str) -> Any:
+    """
+    Reads one statement of a class as the declaration of a function.
+
+    Returns
+    -------
+
+    Any
+      None for a statement that declares no function. Text, the
+      reason, for one that looks like a function and cannot be read
+      with certainty. Else what was read: 'name', 'gives', 'takes' as
+      pairs of type and name, 'const', 'static', 'virtual', 'marked'
+      for one that carries a word such as 'Q_CORE_EXPORT', 'how' for
+      '=0', '=default' or '=delete', and 'hasCode' for one whose code
+      stands right there.
+    """
+    statement = ' '.join(statement.split())
+    ending, statement = statement[-1], statement[:-1].strip()
+    statement = cls.__deprecated_words__.sub('', statement)
+    if cls.__no_function__.match(statement) or '(' not in statement:
+      return None
+    if re.search(r'\boperator\b', statement):
+      return 'an operator, which is not read from text yet'
+    opens = statement.find('(')
+    head = cls.__function_head__.match(statement[:opens + 1])
+    if head is None:
+      return 'what stands before the bracket is not plain'
+    depth, closes = 0, -1
+    for index in range(opens, len(statement)):
+      letter = statement[index]
+      depth += 1 if letter == '(' else -1 if letter == ')' else 0
+      if depth == 0:
+        closes = index
+        break
+    if closes < 0:
+      return 'its brackets do not pair up'
+    after = statement[closes + 1:]
+    tail = cls.__function_tail__.match(after)
+    if tail is None and ending == '{' and ':' in after:
+      #  A constructor that fills in its members before its code.
+      tail = cls.__function_tail__.match(after.split(':')[0])
+    if tail is None:
+      return 'what stands after the bracket is not plain'
+    lead = head.group('lead')
+    takes = [cls._cutArgument(one)
+             for one in cls._cutArguments(statement[opens + 1:closes])]
+    return dict(
+        name=head.group('name'), gives=(head.group('gives') or '').strip(),
+        takes=takes, const=True if tail.group('const') else False,
+        static=True if re.search(r'\bstatic\b', lead) else False,
+        virtual=True if re.search(r'\bvirtual\b', lead) else False,
+        marked=True if re.search(r'\bQ_\w+_EXPORT\b', lead) else False,
+        how=(tail.group('how') or '').replace(' ', ''),
+        hasCode=True if ending == '{' else False,
+    )
+
+  @classmethod
+  def getTextFunctions(cls, headerPath: str) -> Tuple[Record, ...]:
+    """
+    Gives every function a header file declares inside a class, read
+    from the text of the file alone, each in the form the compiler's
+    report has for a function.
+
+    The compiler reports only what it reads, and it skips the lines
+    under an '#if' it answers with no, as the ones Qt writes for
+    another system. The text has them all. What is read here is less
+    exact than the report: the types are as the header file writes
+    them, with no second name followed.
+
+    Parameters
+    ----------
+
+    headerPath : str
+      The full path of the header file.
+
+    Returns
+    -------
+
+    Tuple[Record, ...]
+      One record for each function, in the order of the lines. As the
+      report, it has 'kind', 'name', 'type' with 'qualType', one entry
+      under 'inner' for each argument, 'loc' with 'file' and 'line',
+      and where they hold 'storageClass', 'virtual', 'pure' and
+      'explicitlyDeleted'. Beyond the report: 'fromText', which is
+      True; 'className', the class it stands in, with the classes
+      around that one in front; 'access'; 'hasCode'; 'marked'; and
+      'unsure', the reason where the statement looks like a function
+      and cannot be read with certainty, in which case only 'loc',
+      'className' and 'written' are to be relied on.
+    """
+    kept = cls.__text_functions__
+    if headerPath in kept:
+      return kept[headerPath]
+    with open(headerPath, errors='replace') as file:
+      text = file.read().replace('\r', '')
+    #  Comments go, and the lines keep their numbers.
+    text = re.sub(
+        r'/\*.*?\*/', lambda found: '\n' * found.group(0).count('\n'),
+        text, flags=re.S)
+    lines = [re.sub(r'//.*$', '', line) for line in text.split('\n')]
+    found = []  # type: List[Record]
+    #  The classes open at a line: name, the depth of brackets it was
+    #  opened at, and the section its lines stand in.
+    classes = []  # type: List[List[Any]]
+    pending = None  # type: Optional[Tuple[str, str]]
+    depth, statement, first = 0, '', 0
+    for index, line in enumerate(lines):
+      if line.lstrip().startswith('#'):
+        continue
+      opening = cls.__class_opening__.match(line)
+      if opening is not None and not statement:
+        pending = (opening.group('name'), opening.group('word'))
+      if pending is not None:
+        if '{' in line:
+          access = 'private' if pending[1] == 'class' else 'public'
+          classes.append([pending[0], depth, access])
+          pending = None
+          depth += line.count('{') - line.count('}')
+        continue
+      section = cls.__section_line__.match(line)
+      if section is not None and classes:
+        if section.group('access'):
+          classes[-1][2] = section.group('access')
+        elif section.group('signals'):
+          classes[-1][2] = 'signal'
+        statement = ''
+        continue
+      if not statement and cls.__macro_line__.match(line):
+        continue
+      opened = depth
+      depth += line.count('{') - line.count('}')
+      while classes and depth <= classes[-1][1]:
+        classes.pop()
+      if not line.strip():
+        continue
+      if not statement:
+        first = index
+      statement = '%s %s' % (statement, line.strip())
+      if statement[-1] not in ';{}:':
+        continue
+      whole, statement = statement, ''
+      if whole[-1] in '}:' or not classes:
+        continue
+      if opened != classes[-1][1] + 1:
+        #  Inside the code of a function, not right in the class.
+        continue
+      read = cls._readDeclaration(whole)
+      if read is None:
+        continue
+      className = '::'.join(entry[0] for entry in classes)
+      record = dict(
+          fromText=True, className=className, access=classes[-1][2],
+          loc=dict(file=headerPath, line=first + 1),
+          written=' '.join(whole.split()),
+      )  # type: Record
+      if isinstance(read, str):
+        record.update(unsure=read, name='')
+        found.append(record)
+        continue
+      name, ownName = read['name'], classes[-1][0]
+      kind = 'CXXMethodDecl'
+      if name == ownName:
+        kind = 'CXXConstructorDecl'
+      elif name == '~%s' % ownName:
+        kind = 'CXXDestructorDecl'
+      takes = ', '.join(one for one, _ in read['takes'])
+      gives = read['gives'] if kind == 'CXXMethodDecl' else 'void'
+      functionType = '%s (%s)%s' % (
+          gives, takes, ' const' if read['const'] else '')
+      record.update(
+          unsure='', kind=kind, name=name,
+          type=dict(qualType=functionType),
+          inner=[dict(kind='ParmVarDecl', name=argumentName,
+                      type=dict(qualType=argumentType))
+                 for argumentType, argumentName in read['takes']],
+          virtual=read['virtual'], pure=read['how'] == '=0',
+          hasCode=read['hasCode'], marked=read['marked'],
+      )
+      if read['static']:
+        record['storageClass'] = 'static'
+      if read['how'] == '=delete':
+        record['explicitlyDeleted'] = True
+      found.append(record)
+    kept[headerPath] = (*found,)
+    return kept[headerPath]

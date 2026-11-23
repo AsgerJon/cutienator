@@ -295,11 +295,6 @@ class RitualGenerator:
   #  of list the functions of the tree hand around. The lock keeps two
   #  threads from both going through the tree for those kinds.
   __list_kinds_lock__ = threading.Lock()
-  #  A name Qt's headers go by to tell one system or one compiler from
-  #  another, as 'Q_OS_UNIX' and 'Q_CC_MSVC', and what '_findSystemLines'
-  #  found in each header read so far.
-  __system_name__ = re.compile(r'\b(?:Q_OS|Q_CC)_\w+')
-  __system_lines__ = dict()  # type: Dict[str, Dict[int, str]]
   #  The header file of each part of Qt that has to be read before an
   #  '#if QT_CONFIG(...)' of that part can be answered.
   __global_headers__ = dict(
@@ -314,7 +309,30 @@ class RitualGenerator:
   __written_rituals__ = None  # type: Optional[Rituals]
   __unwritten_functions__ = None  # type: Optional[Reasons]
   __known_names__ = None  # type: Optional[FrozenSet[str]]
-  __offered_names__ = None  # type: Optional[FrozenSet[str]]
+  #  The word each operator of C++ gets in the name of a ritual.
+  __operator_words__ = {
+      '==': 'eq', '!=': 'ne', '<': 'lt', '>': 'gt', '<=': 'le',
+      '>=': 'ge', '<=>': 'compare', '+': 'plus', '-': 'minus',
+      '*': 'times', '/': 'over', '%': 'mod', '=': 'assign',
+      '+=': 'add', '-=': 'subtract', '*=': 'multiply', '/=': 'divide',
+      '%=': 'mod_assign', '[]': 'at', '()': 'call', '<<': 'shl',
+      '>>': 'shr', '<<=': 'shl_assign', '>>=': 'shr_assign',
+      '&': 'and', '|': 'or', '^': 'xor', '~': 'not', '!': 'no',
+      '&=': 'and_assign', '|=': 'or_assign', '^=': 'xor_assign',
+      '&&': 'both', '||': 'either', '++': 'inc', '--': 'dec',
+      '->': 'arrow', '->*': 'arrow_star', ',': 'comma',
+  }
+  #  What an '#if' of Qt's names when it asks which system this is.
+  __system_word__ = re.compile(r'\bQ_OS_\w+')
+  #  An '#if' that holds for no program: only for Qt's documentation,
+  #  or only while Qt itself is built.
+  __never_holds__ = re.compile(
+      r'^\(?\s*defined\s*\(?\s*Q_(?:CLANG_)?QDOC\s*\)?\s*\)?$'
+      r'|QT_BUILD_|_BUILD_REMOVED_API|_REMOVED_SINCE\(|QT_BOOTSTRAPPED'
+      r'|Q_MOC_RUN')
+  #  How the names of the functions begin that Qt declares only for
+  #  the compiler to check something, and writes no code for.
+  __never_written__ = ('qt_check_for_',)
   __type_tables__ = None  # type: Optional[Record]
 
   #  Public Variables
@@ -432,8 +450,16 @@ class RitualGenerator:
     tree = self.getDependencyTree()
     className = self.getClassName()
     record = tree.getClassRecord(className)
-    summary = self.getHeaderReader().getClassSummary(className)
-    signals = {signal['name'] for signal in summary.get('signals', ())}
+    #  Which functions are signals is read from the text of the header
+    #  file: the compiler does not report it.
+    signals = set()  # type: Set[str]
+    for member in record.get('inner', ()):
+      place = member.get('loc', dict())
+      place = place.get('expansionLoc', place)
+      headerPath, line = place.get('file'), place.get('line')
+      if headerPath and line:
+        if line in HeaderReader.getSignalLines(headerPath):
+          signals.add(member.get('name'))
     abstract = record.get('definitionData', dict()).get('isAbstract', False)
     barred = self._findBarred(record)
     written, unwritten = [], []  # type: List[Record], List[Tuple[str, str]]
@@ -482,6 +508,28 @@ class RitualGenerator:
       plan = self._planFunction(member)
       reason = self._findReason(
           plan, member, access, signals, abstract, barred,
+      )
+      if reason:
+        unwritten.append((plan['function'], reason))
+      else:
+        written.append(plan)
+    #  The functions Qt writes for another system than the one the
+    #  compiler reads as. The report has none of them. They are read
+    #  from the text of the header file, and each gets its ritual
+    #  between the '#if' lines it stands under.
+    for member in self._findTextMembers():
+      if member['unsure']:
+        infoSpec = """Qt writes it for some systems only, and its
+        declaration could not be read from the header file with
+        certainty: %s"""
+        reason = ' '.join((infoSpec % member['unsure']).split())
+        unwritten.append((member['written'][:200], reason))
+        continue
+      plan = self._planFunction(member)
+      plan['fromText'] = True
+      reason = 'a signal' if member['access'] == 'signal' else ''
+      reason = reason or self._findReason(
+          plan, member, member['access'], signals, abstract, barred,
       )
       if reason:
         unwritten.append((plan['function'], reason))
@@ -766,9 +814,6 @@ class RitualGenerator:
       if nearest['member'].get('explicitlyDeleted'):
         #  Qt forbids the function in the nearest class.
         continue
-      if self._findSystemCondition(nearest['member']):
-        #  Qt has the function on some systems only.
-        continue
       other = self._getOther(nearest['owner'])
       plan = other._planFunction(nearest['member'])
       if plan['unknownTypes'] or plan['unsureNumbers'] or plan['variadic']:
@@ -784,10 +829,17 @@ class RitualGenerator:
         #  A type Qt keeps for classes built on its class cannot be
         #  named by a ritual, which stands outside every class.
         continue
+      #  Where Qt declares the function under an '#if', what is written
+      #  for it here stands under the same: every '#if' around it in
+      #  the class that declares it first and in the nearest one.
+      conditions = self._findConditions(root['member'])
+      for condition in self._findConditions(nearest['member']):
+        if condition not in conditions:
+          conditions = (*conditions, condition)
       found.append(dict(
           plan, key=root['member']['mangledName'], owner=nearest['owner'],
           rootOwner=root['owner'], access=nearest['access'],
-          pure=nearest['pure'], **shape))
+          pure=nearest['pure'], conditions=conditions, **shape))
     self.__overridable_functions__ = (*found,)
     return self.__overridable_functions__
 
@@ -911,8 +963,9 @@ class RitualGenerator:
     ]
     for index, function in enumerate(functions):
       handed = ['const void *', *function['cTakes'], 'int *']
-      lines.append('typedef %s (*%sCall%d)(%s);' % (
-          function['cGives'], cuteName, index, ', '.join(handed)))
+      named = 'typedef %s (*%sCall%d)(%s);' % (
+          function['cGives'], cuteName, index, ', '.join(handed))
+      lines.append(self._wrapInConditions(named, function['conditions']))
     lines.append('class %s : public %s {' % (cuteName, className))
     lines.append('public:')
     lines.append('  using %s::%s;' % (className, className.split('::')[-1]))
@@ -924,15 +977,21 @@ class RitualGenerator:
     lines.append('')
     lines.append('  bool take(const char *key, void *call) {')
     for index, function in enumerate(functions):
-      lines.append('    if (!std::strcmp(key, "%s")) {' % function['key'])
-      lines.append('      taken[%d] = call;' % index)
-      lines.append('      return true;')
-      lines.append('    }')
+      #  Where a Qt has no such function, its key is not known here
+      #  and 'take' says no for it: Qt would never call what Python
+      #  hands over.
+      asked = '\n'.join((
+          '    if (!std::strcmp(key, "%s")) {' % function['key'],
+          '      taken[%d] = call;' % index,
+          '      return true;',
+          '    }'))
+      lines.append(self._wrapInConditions(asked, function['conditions']))
     lines.append('    return false;')
     lines.append('  }')
     for index, function in enumerate(functions):
       lines.append('')
-      lines.extend(self._writeOverride(index, function))
+      written = '\n'.join(self._writeOverride(index, function))
+      lines.append(self._wrapInConditions(written, function['conditions']))
     lines.append('};')
     return '\n'.join(lines)
 
@@ -1275,7 +1334,7 @@ class RitualGenerator:
       if function['access'] == 'protected' and function['name'] in closed:
         continue
       for member in self._findOwnMembers(function['name']):
-        if member.get('mangledName') != function['ritualName'][6:]:
+        if member.get('mangledName') != function['compilerName']:
           continue
         hidden = function['access'] == 'protected'
         plan = self._planFunction(member, own=True, hidden=hidden)
@@ -1439,6 +1498,7 @@ class RitualGenerator:
     """
     tree = self.getDependencyTree()
     className = self.getClassName()
+    self._refuseSharedNames(self.getWritten())
     heading = textwrap.wrap(self._getHeading(), 73)
     blocks = ['\n'.join('//  %s' % line for line in heading)]
     needed = [className]
@@ -1461,11 +1521,7 @@ class RitualGenerator:
     #  its class is declared in: that header file is pulled in as well.
     ownPath = tree.getHeaderPath(className)
     for ritual in self.getWritten():
-      ritualName = ritual['ritualName']
-      for start in ('ritual_own', 'ritual'):
-        if ritualName.startswith(start):
-          break
-      codePath = tree.getDefinedPath(ritualName[len(start):])
+      codePath = tree.getDefinedPath(ritual.get('compilerName', ''))
       if codePath is None or codePath == ownPath:
         continue
       for headerReader in tree.getHeaderReaders():
@@ -1602,7 +1658,6 @@ class RitualGenerator:
     self.__overridable_functions__ = None
     self.__has_cute_class__ = None
     self.__known_names__ = None
-    self.__offered_names__ = None
     self.__type_tables__ = None
 
   def setClassName(self, className: str) -> None:
@@ -2060,116 +2115,178 @@ class RitualGenerator:
       return self._getKnownNames(_recursion=True)
     return self.__known_names__
 
-  def _getOfferedNames(self, **kwargs) -> FrozenSet[str]:
+  def _findTextMembers(self) -> List[Record]:
     """
-    Gives the name of everything the Qt shared objects of the parts of
-    the dependency tree offer, each as the compiler names it. Kept
-    after the first call.
-    """
-    if self.__offered_names__ is None:
-      if kwargs.get('_recursion', False):
-        raise RecursionError
-      offered = set()  # type: Set[str]
-      for headerReader in self.getDependencyTree().getHeaderReaders():
-        offered.update(headerReader.getOfferedNames())
-      self.__offered_names__ = frozenset(offered)
-      return self._getOfferedNames(_recursion=True)
-    return self.__offered_names__
+    Gives the functions of the class that Qt writes for another system
+    than the one the compiler reads as, read from the text of the
+    header file of the class; see 'HeaderReader.getTextFunctions'.
 
-  @classmethod
-  def _findSystemLines(cls, headerPath: str) -> Dict[int, str]:
-    """
-    Gives the lines of one header that Qt writes for some systems only,
-    each with the '#if' it stands under.
-
-    Such a line stands between an '#if' that names a system or a
-    compiler, as '#if defined(Q_OS_UNIX)' and '#if !defined(Q_CC_MSVC)',
-    and the '#endif' of it, where that '#if' has no '#else' and no
-    '#elif'. With an '#else', Qt as a rule writes the same thing another
-    way for the other systems, as 'QFile::encodeName' for macOS and for
-    the rest, so those lines are not counted. Where Qt does not, the
-    compiler of the system that lacks the thing says so.
-
-    Parameters
-    ----------
-
-    headerPath : str
-      The full path of the header.
+    A function counts as one of them when it stands under an '#if'
+    that names a system, as 'defined(Q_OS_DARWIN)', when the report
+    has no function of the class at its line, and none of its name
+    that takes as many arguments. One that stands under an '#if' that
+    holds only for Qt's documentation, or only while Qt itself is
+    built, is left out: no program ever sees it.
 
     Returns
     -------
 
-    Dict[int, str]
-      The number of each such line, counted from 1, and the condition of
-      the '#if' as Qt wrote it. A header that cannot be read has none.
+    List[Record]
+      Each in the form of the report, with 'fromText'. One whose
+      declaration could not be read with certainty has the reason
+      under 'unsure'.
     """
-    if headerPath in cls.__system_lines__:
-      return cls.__system_lines__[headerPath]
-    try:
-      with open(headerPath, errors='replace') as file:
-        lines = file.read().split('\n')
-    except OSError:
-      lines = []
-    found, opened = dict(), []  # type: Dict[int, str], List[List[Any]]
-    number = 0
-    while number < len(lines):
-      first, line = number + 1, lines[number]
-      #  A line ending in a backslash goes on in the next one.
-      while line.endswith('\\') and number + 1 < len(lines):
-        number += 1
-        line = '%s %s' % (line[:-1], lines[number])
-      number += 1
-      words = line.strip()
-      if not words.startswith('#'):
+    tree = self.getDependencyTree()
+    className = self.getClassName()
+    headerPath = tree.getHeaderPath(className)
+    lines, shapes = set(), set()  # type: Set[int], Set[Tuple[str, int]]
+    waiting = [*self._readRecord(className).get('inner', ())]
+    while waiting:
+      member = waiting.pop()
+      if not isinstance(member, dict):
         continue
-      words = words[1:].strip()
-      if words.startswith('if'):
-        #  '#if', '#ifdef' and '#ifndef': where it opens, its condition,
-        #  and whether an '#else' or '#elif' follows.
-        opened.append([first, ' '.join(words.split()), False])
-      elif words.startswith(('else', 'elif')) and opened:
-        opened[-1][2] = True
-      elif words.startswith('endif') and opened:
-        start, condition, branched = opened.pop()
-        if branched or not cls.__system_name__.search(condition):
+      if member.get('kind') == 'FriendDecl':
+        waiting.extend(member.get('inner', ()))
+        continue
+      place = member.get('loc', dict())
+      place = place.get('expansionLoc', place)
+      if place.get('file') == headerPath and place.get('line'):
+        lines.add(place['line'])
+      taken = [
+          entry for entry in member.get('inner', ())
+          if isinstance(entry, dict) and entry.get('kind') == 'ParmVarDecl']
+      shapes.add((member.get('name', ''), len(taken)))
+    found = []  # type: List[Record]
+    for function in HeaderReader.getTextFunctions(headerPath):
+      if function['className'] != className:
+        continue
+      line = function['loc']['line']
+      if line in lines:
+        continue
+      conditions = HeaderReader.getConditions(headerPath, line)
+      if not any(self.__system_word__.search(one) for one in conditions):
+        continue
+      if any(self.__never_holds__.search(one) for one in conditions):
+        continue
+      if not function['unsure']:
+        if (function['name'], len(function['inner'])) in shapes:
           continue
-        for between in range(start + 1, first):
-          found.setdefault(between, '#%s' % condition)
-    cls.__system_lines__[headerPath] = found
+      found.append(function)
     return found
 
-  def _findSystemCondition(self, record: Record) -> str:
+  def _joinRitualName(self, word: str, number: int, own: bool) -> str:
     """
-    Gives the '#if' under which Qt declares a thing for some systems
-    only, as '#if defined(Q_OS_UNIX) || defined(Q_QDOC)', or '' for a
-    thing Qt declares for every system. See '_findSystemLines'.
+    Gives the name of a ritual that stands for a function of the class:
+    'r', the part of Qt, the class, the word for the function, and a
+    number where Qt has several functions under that word.
 
-    cutienator is the same on Linux, on macOS and on Windows, and a
-    ritual file is compiled as it is on each of them. A ritual calling
-    'QProcess::unixProcessParameters()' is refused by the compiler on
-    Windows, where Qt declares no such function.
+      r_QtCore_QSize_width
+      r_QtWidgets_QWidget_resize_1
+      r_QtWidgets_QWidget_resize_2
 
-    Parameters
-    ----------
-
-    record : Record
-      What the compiler wrote down about a function, a class or an enum,
-      with the place it is declared at under 'loc'.
+    The ritual that runs just the class's own function of that name
+    starts with 'r_own' instead. What is no letter and no digit in the
+    name of the class becomes '_', as in 'QMetaObject_Connection'.
     """
-    place = record.get('loc', dict())
-    place = place.get('expansionLoc', place)
-    headerPath, line = place.get('file'), place.get('line')
-    if not headerPath or not line:
-      return ''
-    return self._findSystemLines(headerPath).get(line, '')
+    className = self.getClassName()
+    partName = self.getDependencyTree().getPartName(className)
+    words = ['r_own' if own else 'r', partName,
+             re.sub(r'[^A-Za-z0-9]+', '_', className).strip('_'), word]
+    if number:
+      words.append(str(number))
+    return '_'.join(words)
 
-  def isForSomeSystemsOnly(self) -> bool:
+  def _nameRitual(self, member: Record, own: bool = False) -> str:
     """
-    Says whether Qt declares the class for some systems only, as it does
-    'QProcess::UnixProcessParameters'. Such a class gets no cute class.
+    Gives the name of the ritual for one function of the class.
+
+    The name says which function it is in plain words. Where the class
+    has several functions of one name, which C++ tells apart by what
+    they take, each gets a number: 1 for the first as the compiler's
+    report lists them, which is the order of Qt's header file. The
+    number of a function does not depend on which of them get a
+    ritual. See '_joinRitualName' for the form.
+
+    A destructor is 'delete'. An operator is 'operator_' and a word
+    for its sign, as 'operator_eq' for 'operator=='; one that turns
+    the object into another type is 'operator_to_' and that type.
+
+    Raises
+    ------
+
+    LookupError
+      The function is not among those the record of the class holds.
     """
-    record = self.getDependencyTree().getClassRecord(self.getClassName())
-    return True if self._findSystemCondition(record) else False
+    name = member.get('name', '')
+    sameName = []  # type: List[Record]
+    record = self._readRecord(self.getClassName())
+    for child in record.get('inner', ()):
+      if not isinstance(child, dict):
+        continue
+      found = [child]
+      if child.get('kind') == 'FriendDecl':
+        found = [
+            friend for friend in child.get('inner', ())
+            if isinstance(friend, dict)
+            and friend.get('kind') == 'FunctionDecl']
+      elif child.get('kind') not in self.__function_kinds__:
+        continue
+      sameName.extend(one for one in found if one.get('name') == name)
+    #  The functions read from the text of the header file come after
+    #  those of the report.
+    sameName.extend(
+        one for one in self._findTextMembers()
+        if not one['unsure'] and one.get('name') == name)
+    place = 0
+    for index, other in enumerate(sameName, 1):
+      if other is member:
+        place = index
+        break
+      if 'mangledName' in member:
+        if other.get('mangledName') == member['mangledName']:
+          place = index
+          break
+    if not place:
+      infoSpec = """The function '%s' is not among those the record of
+      the class '%s' holds, so it cannot be given a name."""
+      info = infoSpec % (name, self.getClassName())
+      raise LookupError(' '.join(info.split()))
+    if name.startswith('~'):
+      word = 'delete'
+    elif name.startswith('operator'):
+      sign = name[len('operator'):].strip()
+      if sign in self.__operator_words__:
+        word = 'operator_%s' % self.__operator_words__[sign]
+      else:
+        turned = re.sub(r'[^A-Za-z0-9]+', '_', sign).strip('_')
+        word = 'operator_to_%s' % turned
+    else:
+      word = re.sub(r'[^A-Za-z0-9_]+', '_', name)
+    number = place if len(sameName) > 1 else 0
+    return self._joinRitualName(word, number, own)
+
+  def _refuseSharedNames(self, written: Any) -> None:
+    """
+    Raises when two rituals of the class have one name. A ritual is
+    found by its name alone, so two of a name would be one.
+
+    Raises
+    ------
+
+    RuntimeError
+      Two rituals share a name; the names are given.
+    """
+    seen, shared = set(), []  # type: Set[str], List[str]
+    for ritual in written:
+      name = ritual['ritualName']
+      if name in seen and name not in shared:
+        shared.append(name)
+      seen.add(name)
+    if shared:
+      infoSpec = """The class '%s' would get more than one ritual of
+      one name: %s"""
+      info = infoSpec % (self.getClassName(), ', '.join(shared))
+      raise RuntimeError(' '.join(info.split()))
 
   def _findConditions(self, record: Record) -> Tuple[str, ...]:
     """
@@ -2544,7 +2661,16 @@ class RitualGenerator:
       #  there is nothing to compile for: every ritual calls what Qt's
       #  library offers or what a header has the code of.
       return
-    offered = self._getOfferedNames()
+    #  From here on the code that is taken along is compiled, and
+    #  what it leans on is sorted into what can be called and what has
+    #  to be taken along as well. That sorting used to ask the Qt that
+    #  is installed which names it has. It is to go by Qt's source, as
+    #  '_canBeCalled' does, and until it does nothing is settled.
+    infoSpec = """The class '%s' needs code copied from Qt's source,
+    and what that code leans on cannot be sorted from Qt's source
+    alone yet."""
+    raise RuntimeError(' '.join((infoSpec % className).split()))
+    offered = frozenset()  # type: FrozenSet[str]
     helpers = dict()  # type: Dict[str, Record]
     lost = set()  # type: Set[str]
     marker = '//  ' + '-' * 71
@@ -2607,7 +2733,7 @@ class RitualGenerator:
             changed = True
           elif owner in chosen:
             for plan in [*written]:
-              if plan.get('ritualName', '')[len('ritual'):] == owner:
+              if plan.get('compilerName', '') == owner:
                 drop(plan, reason)
             del chosen[owner]
             changed = True
@@ -2691,7 +2817,7 @@ class RitualGenerator:
     """Gives the name the compiler has for the function each ritual
     calls: the name of the ritual without 'ritual' in front."""
     return {
-        plan.get('ritualName', '')[len('ritual'):] for plan in written
+        plan.get('compilerName', '') for plan in written
     }
 
   def _keepSource(
@@ -2862,32 +2988,38 @@ class RitualGenerator:
         stderr=subprocess.PIPE, universal_newlines=True).stdout
     return dict(zip(symbols, said.split('\n')))
 
-  def _isOfferedHereOnly(self, member: Record) -> bool:
-    """Says whether a function of the class is offered by Qt's library
-    here and not on every system: the class is written inside another
-    and neither it nor the function is marked for export."""
-    if member.get('mangledName') not in self._getOfferedNames():
-      return False
-    className = self.getClassName()
-    if not self._isInsideClass(className):
-      return False
-    if self._isMarkedForExport(className):
-      return False
-    return not any(
+  def _isMarked(self, member: Record) -> bool:
+    """
+    Says whether Qt's source marks a function of the class for use
+    from outside Qt: the function carries a word such as
+    'Q_CORE_EXPORT' itself, or the class it belongs to does.
+
+    The class it belongs to is that very class. A class written inside
+    a marked class, with no mark of its own, counts as not marked:
+    only then does every system agree that the function is there.
+    """
+    own = True if member.get('marked') else any(
         isinstance(child, dict) and child.get('kind') == 'VisibilityAttr'
         for child in member.get('inner', ()))
+    return True if own else self._isMarkedForExport(self.getClassName())
 
   def _canBeCalled(self, member: Record) -> bool:
     """
-    Says whether a ritual calling this function could ever run.
+    Says whether a ritual can call this function of Qt, going by Qt's
+    source alone. No Qt that is compiled or installed is looked at.
 
-    A function can be called when its code is somewhere: in a header,
-    so the ritual gets a copy of it, or in a Qt shared object, which
-    then offers it by name. A virtual function is found through the
-    object it is called on and needs neither. Qt's headers declare a
-    few functions that are nowhere, as
-    'QEvent::qt_check_for_QGADGET_macro()'. One ritual calling such a
-    function keeps the whole shared object of rituals from being opened.
+    A function can be called in three cases. Its code is written in a
+    header file, so the compiler of each machine makes it where the
+    ritual is compiled. Or it is virtual, so it is found through the
+    object it is called on. Or Qt's source marks it, or the class it
+    belongs to, for use from outside; see '_isMarked'. Any other
+    function has no name by which anything outside Qt could reach it,
+    and a ritual for it has to carry a copy of its code.
+
+    A few functions Qt declares only to have the compiler check
+    something, and writes no code for anywhere, as
+    'QEvent::qt_check_for_QGADGET_macro()'. They cannot be called
+    whatever they are marked.
 
     Parameters
     ----------
@@ -2897,15 +3029,20 @@ class RitualGenerator:
       for it under 'mangledName'.
     """
     tree = self.getDependencyTree()
+    if member.get('name', '').startswith(self.__never_written__):
+      return False
+    if member.get('fromText'):
+      #  Read from the text of the header file, where the compiler
+      #  reported nothing: the text says the same three things.
+      if member.get('virtual') or member.get('hasCode'):
+        return True
+      return self._isMarked(member)
     name = member['mangledName']
     if member.get('virtual') or tree.hasBody(member):
       return True
     if name in tree.getDefinedNames():
       return True
-    if self._isOfferedHereOnly(member):
-      #  Offered here, and not by Qt's library for Windows.
-      return False
-    return True if name in self._getOfferedNames() else False
+    return self._isMarked(member)
 
   def _spellOutside(self, cppType: str) -> str:
     """
@@ -3158,8 +3295,8 @@ class RitualGenerator:
       elif giving['kind'] != 'nothing':
         opening = 'return '
     plan = dict(
-        ritualName='ritual%s%s' % (
-            '_own' if own else '', member.get('mangledName', '')),
+        ritualName=self._nameRitual(member, own),
+        compilerName=member.get('mangledName', ''),
         function=shown, kind=kind, gives=given, takes=(*takes,),
         row=(gives, *row), needs=(*dict.fromkeys(needs),),
         unknownTypes=(*dict.fromkeys(unknown),),
@@ -3234,7 +3371,8 @@ class RitualGenerator:
     words = className.split('::')
     lengths = ''.join('%d%s' % (len(word), word) for word in words)
     plan = dict(
-        ritualName='ritual_ZN%sD1Ev' % lengths,
+        ritualName=self._joinRitualName('delete', 0, False),
+        compilerName='_ZN%sD1Ev' % lengths,
         function='%s::~%s()' % (className, words[-1]),
         kind='destructor', gives='void',
         takes=(('self', '%s *' % className),),
@@ -3285,20 +3423,15 @@ class RitualGenerator:
       return 'takes any number of arguments'
     if '&&' in plan['words']:
       return 'can only be called on a value about to be thrown away'
-    if 'mangledName' not in member:
+    fromText = True if member.get('fromText') else False
+    if 'mangledName' not in member and not fromText:
       return 'the compiler gave it no name of its own'
     if not self._canBeCalled(member):
-      if self._findSourceCode(member) is None:
-        if self._isOfferedHereOnly(member):
-          infoSpec = """Qt's library offers it on some systems only:
-          its class is written inside another class and is not marked
-          for export on its own, so Qt's library for Windows has no
-          name for it, and Qt's source has no code for it that could
-          be told from the rest"""
-          return ' '.join(infoSpec.split())
-        infoSpec = """declared and nowhere to be found: no header has
-        its code, no Qt shared object offers it, and Qt's source has no
-        code for it that could be told from the rest"""
+      if fromText or self._findSourceCode(member) is None:
+        infoSpec = """cannot be called and cannot be copied: no header
+        file has its code, Qt's source does not mark it or its class
+        for use from outside Qt, and Qt's source has no code for it
+        that could be told from the rest"""
         return ' '.join(infoSpec.split())
     if plan['unknownTypes']:
       names = ', '.join(plan['unknownTypes'])
