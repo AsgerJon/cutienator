@@ -232,6 +232,10 @@ It also needs the headers of Qt that Qt calls private. Qt's own
 installer brings them along. On Linux, where Qt comes from the system,
 they may be a package of their own, as `qt6-base-private-dev`.
 
+On Linux it needs the OpenGL headers as well, which Qt's own headers
+pull in and which are no part of Qt: the package `libgl-dev` on Debian
+and Ubuntu.
+
 # Nothing Is Private
 
 Qt marks functions `private` and `protected`, and keeps whole classes

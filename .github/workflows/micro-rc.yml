@@ -110,6 +110,17 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v7
+      # Linux only. Qt's own header 'QtGui/qopengl.h' pulls in the
+      # OpenGL header 'GL/gl.h'. That file is no part of Qt, and a
+      # Linux machine of GitHub does not carry it by itself: the image
+      # 'ubuntu-26.04' has none. 'libgl-dev' brings it. It is the one
+      # header of the system the ritual files need beside the C and
+      # C++ libraries.
+      - name: Install the OpenGL headers
+        if: ${{ runner.os == 'Linux' }}
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libgl-dev
       # The tests call Qt for real, so Qt has to be on the machine, in
       # the very release the ritual files were written from: an older Qt
       # lacks functions the rituals call, and the Qt that Ubuntu offers

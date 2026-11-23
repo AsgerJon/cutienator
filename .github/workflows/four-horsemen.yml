@@ -27,6 +27,17 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v7
+      # Linux only. Qt's own header 'QtGui/qopengl.h' pulls in the
+      # OpenGL header 'GL/gl.h'. That file is no part of Qt, and a
+      # Linux machine of GitHub does not carry it by itself: the image
+      # 'ubuntu-26.04' has none. 'libgl-dev' brings it. It is the one
+      # header of the system the ritual files need beside the C and
+      # C++ libraries.
+      - name: Install the OpenGL headers
+        if: ${{ runner.os == 'Linux' }}
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libgl-dev
       # The same Qt, fetched the same way, as the release workflows
       # fetch it; see 'micro-dev.yml' for why each line is there.
       - name: Install Qt 6.12.0
