@@ -555,41 +555,6 @@ void ritual_ZN8QProcess24setStandardOutputProcessEPS_(
   self->setStandardOutputProcess(destination);
 }
 
-//  void QProcess::failChildProcessModifier(const char *description, int
-//      error)
-extern "C" Q_DECL_EXPORT
-void ritual_ZN8QProcess24failChildProcessModifierEPKci(
-    QProcess *self,
-    const char *description,
-    int error) {
-  self->failChildProcessModifier(description, error);
-}
-
-//  UnixProcessParameters QProcess::unixProcessParameters() const
-extern "C" Q_DECL_EXPORT
-QProcess::UnixProcessParameters *ritual_ZNK8QProcess21unixProcessParametersEv(
-    const QProcess *self) {
-  return new QProcess::UnixProcessParameters(self->unixProcessParameters());
-}
-
-//  void QProcess::setUnixProcessParameters(const UnixProcessParameters
-//      &params)
-extern "C" Q_DECL_EXPORT
-void ritual_ZN8QProcess24setUnixProcessParametersERKNS_21UnixProcessParametersE(
-    QProcess *self,
-    const QProcess::UnixProcessParameters *params) {
-  self->setUnixProcessParameters(*params);
-}
-
-//  void QProcess::setUnixProcessParameters(UnixProcessFlags flagsOnly)
-extern "C" Q_DECL_EXPORT
-void ritual_ZN8QProcess24setUnixProcessParametersE6QFlagsINS_15UnixProcessFlagEE(
-    QProcess *self,
-    int flagsOnly) {
-  self->setUnixProcessParameters(
-      QFlags<QProcess::UnixProcessFlag>::fromInt(flagsOnly));
-}
-
 //  QString QProcess::workingDirectory() const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK8QProcess16workingDirectoryEv(const QProcess *self) {

@@ -4,11 +4,7 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qrect.h>
-#include <QtGui/QtGui>
-#include <QtGui/qtestsupport_gui.h>
-#include <QtGui/qvulkanfunctions.h>
-#include <QtGui/qvulkaninstance.h>
-#include <QtGui/qvulkanwindow.h>
+#include <QtGui/qaccessible.h>
 #include <QtGui/qcolor.h>
 #include <cstring>
 

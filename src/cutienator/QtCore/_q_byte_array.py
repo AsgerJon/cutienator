@@ -187,9 +187,9 @@ class QByteArray(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  140 of the 283 functions Qt declares: 110 takes or gives a type that cannot
+  140 of the 283 functions Qt declares: 109 takes or gives a type that cannot
   be passed yet; 14 can only be called on a value about to be thrown away; 13
-  private; 3 a template.
+  private; 3 a template; 1 Qt has it on some systems only.
 
   What to expect
   --------------

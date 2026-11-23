@@ -40,6 +40,12 @@ class Build:
   - An object file is what 'clang++' makes of one ritual file by
     itself. The object files are then joined into the target file.
     They are kept, in the object folder, from one build to the next.
+  - The common header is one header the build writes: every '#include'
+    line of the ritual files, each once.
+  - The precompiled header is what 'clang++' makes of the common header
+    by reading it once. Each ritual file is compiled with it, and so
+    reads none of Qt's headers again. Reading them is nine tenths of
+    the work of compiling a ritual file.
   - A Qt shared object is one of Qt's own compiled files, which the
     rituals call into.
 
@@ -82,15 +88,21 @@ class Build:
     and only when it has to be: when it has no object file, when it
     changed after its object file was made, or when Qt or what
     'clang++' is told is no longer what it was when the object files
-    were made. So the first build takes a couple of seconds for each
-    ritual file, shared among the processors, and a build after one
-    ritual file changed takes a couple of seconds in all.
+    were made.
+  - A build that compiles any ritual file first makes the precompiled
+    header, which takes some seconds, and removes it when it ends: it
+    is some 60 MB, and the next build may be of other ritual files.
+    The common header is kept, so that what 'clang++' says of it can
+    be looked up.
+  - So the first build takes those seconds and then about a fifth of a
+    second for each ritual file, shared among the processors, and a
+    build after one ritual file changed takes those seconds again.
   - A setter refuses a wrong value at once: one that is not text, or a
     path that leads nowhere.
   - A getter whose setter was never called raises 'MissingVariable',
     naming what is missing.
-  - 'getCompileCommand' and 'getLinkCommand' give the exact 'clang++'
-    commands without running them.
+  - 'getPrecompileCommand', 'getCompileCommand' and 'getLinkCommand'
+    give the exact 'clang++' commands without running them.
   - 'print(build)' lists the setters still to be called.
   """
 
@@ -434,6 +446,42 @@ class Build:
     stem = os.path.splitext(os.path.basename(ritualFile))[0]
     return os.path.join(self.getObjectFolder(), '%s.o' % stem)
 
+  def getCommonHeaderFile(self) -> str:
+    """
+    Gives the path of the common header: 'common.h' in the object
+    folder. 'run' writes it before it compiles any ritual file, and
+    leaves it there.
+    """
+    return os.path.join(self.getObjectFolder(), 'common.h')
+
+  def getCommonHeaderText(self) -> str:
+    """
+    Gives the text of the common header: every line of the ritual files
+    that begins with '#include', each once, in the order they are first
+    met. It is read off the ritual files as they are now.
+
+    Raises
+    ------
+
+    MissingVariable
+      'setRitualFiles' has not been called on this build.
+    """
+    lines = []
+    for ritualFile in self.getRitualFiles():
+      with open(ritualFile, encoding='utf-8') as file:
+        for line in file:
+          line = line.strip()
+          if line.startswith('#include') and line not in lines:
+            lines.append(line)
+    return ''.join('%s\n' % line for line in lines)
+
+  def getPrecompiledHeaderFile(self) -> str:
+    """
+    Gives the path of the precompiled header: 'common.pch' in the
+    object folder. The file is there only while 'run' compiles.
+    """
+    return os.path.join(self.getObjectFolder(), 'common.pch')
+
   def getToldFile(self) -> str:
     """
     Gives the file in the object folder that says what the object files
@@ -445,11 +493,13 @@ class Build:
   def getToldText(self) -> str:
     """
     Gives what the object files are made with as this build has it: the
-    version of Qt, and the command 'clang++' is run by for one ritual
-    file, with the name of the file left open.
+    version of Qt, the command 'clang++' is run by for the precompiled
+    header, and the one for a ritual file, with the name of the file
+    left open.
     """
-    command = self.getCompileCommand('RITUAL_FILE')
-    return 'Qt %s\n%s\n' % (self.getQtVersion(), ' '.join(command))
+    precompile = ' '.join(self.getPrecompileCommand())
+    command = ' '.join(self.getCompileCommand('RITUAL_FILE'))
+    return 'Qt %s\n%s\n%s\n' % (self.getQtVersion(), precompile, command)
 
   def getJobCount(self) -> int:
     """
@@ -491,10 +541,61 @@ class Build:
         stale.append(ritualFile)
     return (*stale,)
 
+  def getPrecompileCommand(self) -> Paths:
+    """
+    Gives the exact 'clang++' command that makes the precompiled header
+    of the common header, without running it.
+
+    It holds everything 'getCompileCommand' tells 'clang++' of how to
+    compile. 'clang++' refuses a precompiled header made by another
+    '-std', another '-O' or other flags than the ritual file it is used
+    for.
+
+    Returns
+    -------
+
+    Paths
+      A 'Tuple[str, ...]', one argument per entry: 'clang++', then
+      '-std=c++17' and '-O2', as for a ritual file;
+      what the system adds for the compiler, as for a ritual file;
+      '-I' with the folder of Qt's headers;
+      '-fpch-instantiate-templates', so the templates the headers use
+      are worked out here, once, and not again for every ritual file.
+      Without it a ritual file is compiled three times faster than
+      with no precompiled header, with it twenty times;
+      '-x' and 'c++-header', which say that the file is a header to
+      precompile;
+      the path of the common header;
+      '-o' with the path of the precompiled header.
+
+    Raises
+    ------
+
+    MissingVariable
+      'setTargetFile' has not been called on this build.
+
+    FileNotFoundError
+      'qmake6' is not installed.
+
+    NotImplementedError
+      Python runs on a system that 'System' has no subclass for.
+    """
+    system = System.getHere()
+    qtFolder = self.getQtSharedObjectFolder()
+    return (
+        'clang++', '-std=c++17', '-O2',
+        *system.getCompilerFlags(qtFolder),
+        '-I%s' % self.getQtHeaderFolder(),
+        '-fpch-instantiate-templates', '-x', 'c++-header',
+        self.getCommonHeaderFile(),
+        '-o', self.getPrecompiledHeaderFile(),
+    )
+
   def getCompileCommand(self, ritualFile: str) -> Paths:
     """
     Gives the exact 'clang++' command that makes the object file of one
-    ritual file, without running it.
+    ritual file, without running it. It runs only while the precompiled
+    header is there: after the command 'getPrecompileCommand' gives.
 
     The compiler and its '-std' are those that read Qt's headers when
     the ritual files were generated. A header may give a class other
@@ -520,6 +621,9 @@ class Build:
       and the two '-fvisibility' flags. 'getCompilerFlags' of 'Linux',
       'MacOS' and 'Windows' says what each is for;
       '-I' with the folder of Qt's headers;
+      '-include-pch' with the path of the precompiled header, which
+      'clang++' then reads before the ritual file. The headers the
+      ritual file names are in it already, and are not read again;
       the path of the ritual file;
       '-o' with the path of its object file.
 
@@ -540,7 +644,8 @@ class Build:
     return (
         'clang++', '-std=c++17', '-O2', '-c',
         *system.getCompilerFlags(qtFolder),
-        '-I%s' % self.getQtHeaderFolder(), ritualFile,
+        '-I%s' % self.getQtHeaderFolder(),
+        '-include-pch', self.getPrecompiledHeaderFile(), ritualFile,
         '-o', self.getObjectFile(ritualFile),
     )
 
@@ -791,6 +896,28 @@ class Build:
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  def _precompile(self) -> None:
+    """
+    Writes the common header and makes the precompiled header of it.
+
+    Raises
+    ------
+
+    RuntimeError
+      'clang++' refused the common header. What it said is included,
+      and names the line of the common header it stopped at.
+    """
+    commonHeader = self.getCommonHeaderFile()
+    with open(commonHeader, 'w', encoding='utf-8') as file:
+      file.write(self.getCommonHeaderText())
+    try:
+      self._run(*self.getPrecompileCommand())
+    except RuntimeError as runtimeError:
+      infoSpec = """'clang++' refused the common header '%s', which
+      holds every '#include' line of the ritual files."""
+      info = ' '.join((infoSpec % commonHeader).split())
+      raise RuntimeError('%s %s' % (info, runtimeError)) from runtimeError
+
   def _compile(self, ritualFile: str) -> Optional[str]:
     """
     Makes the object file of one ritual file.
@@ -813,11 +940,14 @@ class Build:
     Compiles the ritual files into the target file.
 
     This is the only method that compiles. All three setters must have
-    been called first. Each ritual file 'getStaleRitualFiles' names is
-    compiled into its object file, 'getJobCount' of them at the same
-    time. Then the object files of all the ritual files are joined into
-    the target file. A ritual file takes one to three seconds; joining
-    takes about one.
+    been called first. When 'getStaleRitualFiles' names any ritual
+    file, the common header is written and the precompiled header made
+    of it; each ritual file named is compiled into its object file,
+    'getJobCount' of them at the same time; and the precompiled header
+    is removed, also when 'clang++' refused a file. Then the object
+    files of all the ritual files are joined into the target file. The
+    precompiled header takes some seconds, a ritual file about a fifth
+    of a second, and joining about one.
 
     Returns
     -------
@@ -839,9 +969,10 @@ class Build:
       'clang++' or 'qmake6' is not installed.
 
     RuntimeError
-      'clang++' refused a ritual file, or could not join the object
-      files. Its own message, with the file names and line numbers, is
-      included. Every ritual file it did compile keeps its object file.
+      'clang++' refused the common header or a ritual file, or could
+      not join the object files. Its own message, with the file names
+      and line numbers, is included. Every ritual file it did compile
+      keeps its object file.
     """
     ritualFiles = self.getRitualFiles()
     objectFiles = [self.getObjectFile(f) for f in ritualFiles]
@@ -860,8 +991,16 @@ class Build:
       #  Every object file is made anew. Until all of them are, nothing
       #  says what the ones lying there were made with.
       os.remove(toldFile)
-    with ThreadPoolExecutor(max_workers=self.getJobCount()) as pool:
-      refusals = [r for r in pool.map(self._compile, stale) if r]
+    refusals = []
+    if stale:
+      precompiledHeader = self.getPrecompiledHeaderFile()
+      try:
+        self._precompile()
+        with ThreadPoolExecutor(max_workers=self.getJobCount()) as pool:
+          refusals = [r for r in pool.map(self._compile, stale) if r]
+      finally:
+        if os.path.isfile(precompiledHeader):
+          os.remove(precompiledHeader)
     if refusals:
       infoSpec = """'clang++' refused %d of %d ritual files. The first:
       %s"""

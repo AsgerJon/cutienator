@@ -3,11 +3,7 @@
 #include <QtGui/qaccessibleobject.h>
 #include <QtCore/qrect.h>
 #include <QtCore/qstring.h>
-#include <QtGui/QtGui>
-#include <QtGui/qtestsupport_gui.h>
-#include <QtGui/qvulkanfunctions.h>
-#include <QtGui/qvulkaninstance.h>
-#include <QtGui/qvulkanwindow.h>
+#include <QtGui/qaccessible.h>
 #include <QtGui/qcolor.h>
 #include <cstring>
 

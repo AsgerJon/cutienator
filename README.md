@@ -125,7 +125,7 @@ in a Python of its own, the best of five:
 | `QWidget`                     |          about 4 s |               0.24 s |
 | a window, shown and closed    |          about 4 s |               0.46 s |
 | 78 classes, a large program   |          about 4 s |               0.95 s |
-| all 694 classes there are yet |          about 4 s |               4.27 s |
+| all 693 classes there are yet |          about 4 s |               4.27 s |
 
 Without the three steps every program would bring in every class,
 whatever it uses, so the first column is the last line for all of them.

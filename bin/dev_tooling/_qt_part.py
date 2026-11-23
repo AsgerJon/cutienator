@@ -233,6 +233,7 @@ class QtPart:
   __class_summaries__ = None  # type: Optional[Dict[str, Record]]
   __named_header_paths__ = None  # type: Optional[Paths]
   __offered_names__ = None  # type: Optional[FrozenSet[str]]
+  __found_pullers__ = None  # type: Optional[Dict[str, Optional[str]]]
 
   #  Public Variables
 
@@ -769,10 +770,16 @@ class QtPart:
 
     Found for you. For a header file among 'getNamedHeaderPaths' it is
     the one line naming it, as '#include <QtCore/qobject.h>'. For any
-    other it is every line the reading handed the compiler, the 'feed'
-    of the stamp. Those lines are known to reach the header file, since
-    that is how it was read, and they take the compiler two to three
-    times as long.
+    other it is the one line naming the nearest header file among
+    'getNamedHeaderPaths' that pulled it in when the part was read:
+    'QtGui/qaccessible_base.h' is named by no line and pulled in by
+    'QtGui/qaccessible.h', so its line is '#include
+    <QtGui/qaccessible.h>'.
+
+    It is never every line the reading handed the compiler. Those name
+    header files that only some systems have, as
+    'QtGui/qvulkaninstance.h', which Qt's package for macOS lacks, and a
+    file of ours has to compile on every system.
 
     Parameters
     ----------
@@ -791,15 +798,25 @@ class QtPart:
     ------
 
     LookupError
-      The part has no header file at that path.
+      The part has no header file at that path, or no record of the
+      reading says which named header file pulled it in.
     """
     if headerPath not in self.getHeaderPaths():
       infoSpec = """The part '%s' has no header file at '%s'."""
       info = infoSpec % (self.getPartName(), headerPath)
       raise LookupError(' '.join(info.split()))
-    if headerPath in self.getNamedHeaderPaths():
-      return self._getIncludeLine(headerPath)
-    return self.getStamp()['feed']
+    named = self.getNamedHeaderPaths()
+    reached, passed = headerPath, []  # type: str, List[str]
+    while reached not in named:
+      passed.append(reached)
+      reached = self._findPuller(reached)
+      if reached is None or reached in passed:
+        infoSpec = """No line names the header file '%s' of the part
+        '%s', and the records of the reading do not lead from it to a
+        header file that a line names: they lead through %s."""
+        info = infoSpec % (headerPath, self.getPartName(), passed)
+        raise LookupError(' '.join(info.split()))
+    return self._getIncludeLine(reached)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -838,6 +855,7 @@ class QtPart:
     self.__class_summaries__ = None
     self.__named_header_paths__ = None
     self.__offered_names__ = None
+    self.__found_pullers__ = None
 
   def setWorkFolder(self, workFolder: str) -> None:
     """
@@ -906,6 +924,37 @@ class QtPart:
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def _findPuller(self, headerPath: str) -> Optional[str]:
+    """
+    Gives the path of the file that pulled a header file of the part in
+    when the part was read, as the compiler wrote it down beside the
+    first place it names in that header file, or None when the header
+    file is none of the part or no record says.
+    """
+    if self.__found_pullers__ is None:
+      self.__found_pullers__ = dict()
+    if headerPath in self.__found_pullers__:
+      return self.__found_pullers__[headerPath]
+    found = None  # type: Optional[str]
+    for headerFile in self.getHeaderFiles():
+      if headerFile.getHeaderPath() != headerPath:
+        continue
+      if not headerFile.wasRead():
+        break
+      waiting = [*headerFile.getContents()]  # type: List[Any]
+      while waiting and found is None:
+        node = waiting.pop()
+        if isinstance(node, list):
+          waiting.extend(node)
+        elif isinstance(node, dict):
+          if node.get('file') == headerPath and 'includedFrom' in node:
+            found = node['includedFrom'].get('file')
+          else:
+            waiting.extend(node.values())
+      break
+    self.__found_pullers__[headerPath] = found
+    return found
 
   def _getIncludeLine(self, headerPath: str) -> str:
     """Gives the line of C++ that pulls one header file in."""

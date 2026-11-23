@@ -75,8 +75,9 @@ class TestBuild(BaseTest):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   def test_commands_are_put_together_from_what_the_system_says(self) -> None:
-    """One command makes the object file of a ritual file, and one
-    joins the object files. Both hold what this system is told."""
+    """One command makes the precompiled header, one the object file
+    of a ritual file, and one joins the object files. Each holds what
+    this system is told."""
     system = System.getHere()
     build = Build()
     build.setRitualFiles(*Rituals.getRitualFiles())
@@ -85,9 +86,19 @@ class TestBuild(BaseTest):
     qtFolder = Build.getQtSharedObjectFolder()
     ritualFile = build.getRitualFiles()[0]
     expected = (
+        'clang++', '-std=c++17', '-O2',
+        *system.getCompilerFlags(qtFolder),
+        '-I%s' % Build.getQtHeaderFolder(),
+        '-fpch-instantiate-templates', '-x', 'c++-header',
+        build.getCommonHeaderFile(),
+        '-o', build.getPrecompiledHeaderFile(),
+    )
+    self.assertEqual(build.getPrecompileCommand(), expected)
+    expected = (
         'clang++', '-std=c++17', '-O2', '-c',
         *system.getCompilerFlags(qtFolder),
-        '-I%s' % Build.getQtHeaderFolder(), ritualFile,
+        '-I%s' % Build.getQtHeaderFolder(),
+        '-include-pch', build.getPrecompiledHeaderFile(), ritualFile,
         '-o', build.getObjectFile(ritualFile),
     )
     self.assertEqual(build.getCompileCommand(ritualFile), expected)
@@ -109,6 +120,10 @@ class TestBuild(BaseTest):
       Build().getLinkCommand()
     with self.assertRaises(MissingVariable):
       Build().getCompileCommand('q_object.cpp')
+    with self.assertRaises(MissingVariable):
+      Build().getPrecompileCommand()
+    with self.assertRaises(MissingVariable):
+      Build().getCommonHeaderText()
 
   def test_an_object_file_is_named_after_its_ritual_file(self) -> None:
     """It lies in the folder 'demons' beside the target file, and for
@@ -131,6 +146,30 @@ class TestBuild(BaseTest):
         build.getObjectFile(os.path.join('anywhere', 'q_object.cpp')),
         os.path.join(folder, 'q_object.o'),
     )
+
+  def test_the_headers_lie_beside_the_object_files(self) -> None:
+    """The common header and the precompiled header of it are named
+    for the folder 'demons' beside the target file."""
+    build = Build()
+    build.setTargetFile(Rituals.getTargetFile())
+    folder = build.getObjectFolder()
+    self.assertEqual(
+        build.getCommonHeaderFile(), os.path.join(folder, 'common.h'))
+    self.assertEqual(
+        build.getPrecompiledHeaderFile(),
+        os.path.join(folder, 'common.pch'))
+
+  def test_the_common_header_of_the_package(self) -> None:
+    """It holds each '#include' line of the ritual files once, the
+    header of 'QObject' among them, and nothing else."""
+    build = Build()
+    build.setRitualFiles(*Rituals.getRitualFiles())
+    lines = build.getCommonHeaderText().split('\n')
+    self.assertEqual(lines.pop(), '')
+    self.assertIn('#include <QtCore/qobject.h>', lines)
+    self.assertEqual(len(lines), len({*lines}))
+    for line in lines:
+      self.assertTrue(line.startswith('#include <'), line)
 
   def test_job_count(self) -> None:
     """As many at once as the machine has processors, or as told."""
@@ -163,6 +202,21 @@ class TestBuild(BaseTest):
     build.setRitualFiles(*ritualFiles)
     build.setTargetFile(os.path.join(folder, 'libmade_up.so'))
     build.setQtSharedObjects()
+    return build
+
+  def _makeBuildWithHeaders(self) -> Build:
+    """Gives a build as '_makeBuild' does, of two ritual files that
+    name headers of C++ itself, one of them in both files."""
+    build = self._makeBuild()
+    one, two = build.getRitualFiles()
+    with open(one, 'w') as file:
+      file.write('#include <cstring>\n#include <cstdlib>\n')
+      file.write('extern "C" int ritual_one() {\n')
+      file.write('  return (int) std::strlen("one");\n}\n')
+    with open(two, 'w') as file:
+      file.write('#include <cstdlib>\n#include <climits>\n')
+      file.write('extern "C" int ritual_two() {\n')
+      file.write('  return std::abs(INT_MIN + 2);\n}\n')
     return build
 
   @staticmethod
@@ -224,3 +278,68 @@ class TestBuild(BaseTest):
     self.assertIn(two, str(context.exception))
     self.assertTrue(os.path.isfile(build.getObjectFile(one)))
     self.assertFalse(os.path.isfile(build.getTargetFile()))
+
+  def test_the_common_header_names_each_header_once(self) -> None:
+    """Every '#include' line of the ritual files, in the order they
+    are first met, and a build of files naming none has an empty one."""
+    build = self._makeBuildWithHeaders()
+    expected = '#include <cstring>\n#include <cstdlib>\n#include <climits>\n'
+    self.assertEqual(build.getCommonHeaderText(), expected)
+    self.assertEqual(self._makeBuild().getCommonHeaderText(), '')
+
+  def test_ritual_files_are_compiled_with_the_precompiled_header(
+      self) -> None:
+    """A build writes the common header and keeps it. The precompiled
+    header is gone again when the build ends."""
+    build = self._makeBuildWithHeaders()
+    self.assertFalse(os.path.isfile(build.getCommonHeaderFile()))
+    build.run()
+    for ritualFile in build.getRitualFiles():
+      self.assertTrue(os.path.isfile(build.getObjectFile(ritualFile)))
+    with open(build.getCommonHeaderFile()) as file:
+      self.assertEqual(file.read(), build.getCommonHeaderText())
+    self.assertFalse(os.path.isfile(build.getPrecompiledHeaderFile()))
+    with open(build.getToldFile()) as file:
+      told = file.read()
+    self.assertIn(' '.join(build.getPrecompileCommand()), told)
+
+  def test_nothing_to_compile_needs_no_precompiled_header(self) -> None:
+    """A build that has no ritual file to compile leaves the common
+    header as it was and only joins the object files."""
+    build = self._makeBuildWithHeaders()
+    build.run()
+    self._setBack(build.getCommonHeaderFile(), 100)
+    written = os.path.getmtime(build.getCommonHeaderFile())
+    build.run()
+    self.assertEqual(
+        os.path.getmtime(build.getCommonHeaderFile()), written)
+    self.assertFalse(os.path.isfile(build.getPrecompiledHeaderFile()))
+
+  def test_a_header_clang_refuses_names_the_common_header(self) -> None:
+    """A ritual file naming a header that is nowhere stops the build
+    before any ritual file is compiled. The refusal names the common
+    header and the header that is missing."""
+    build = self._makeBuildWithHeaders()
+    one, two = build.getRitualFiles()
+    with open(two, 'a') as file:
+      file.write('#include <no_such_header_of_cutienator.h>\n')
+    with self.assertRaises(RuntimeError) as context:
+      build.run()
+    self.assertIn(build.getCommonHeaderFile(), str(context.exception))
+    self.assertIn('no_such_header_of_cutienator.h', str(context.exception))
+    self.assertFalse(os.path.isfile(build.getPrecompiledHeaderFile()))
+    self.assertFalse(os.path.isfile(build.getObjectFile(one)))
+    self.assertFalse(os.path.isfile(build.getTargetFile()))
+
+  def test_the_precompiled_header_is_gone_after_a_refusal(self) -> None:
+    """When 'clang++' refuses a ritual file, the precompiled header
+    is removed all the same."""
+    build = self._makeBuildWithHeaders()
+    one, two = build.getRitualFiles()
+    with open(two, 'a') as file:
+      file.write('this is no C++\n')
+    with self.assertRaises(RuntimeError) as context:
+      build.run()
+    self.assertIn(two, str(context.exception))
+    self.assertTrue(os.path.isfile(build.getObjectFile(one)))
+    self.assertFalse(os.path.isfile(build.getPrecompiledHeaderFile()))

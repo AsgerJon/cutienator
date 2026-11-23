@@ -1,9 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/qcompare.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qcompare.h>
-#include <QtCore/QtCore>
-#include <QtCore/qtestsupport_core.h>
-#include <QtCore/qtmochelpers.h>
+#include <QtCore/qflags.h>
 
 //  bool operator==(QPartialOrdering lhs,
 //      QtPrivate::CompareAgainstLiteralZero a1)

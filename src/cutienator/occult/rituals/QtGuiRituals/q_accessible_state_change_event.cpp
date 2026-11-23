@@ -1,11 +1,6 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGui/qaccessible.h, Qt 6.12.0. Changes made here are lost.
 #include <QtGui/qaccessible.h>
-#include <QtGui/QtGui>
-#include <QtGui/qtestsupport_gui.h>
-#include <QtGui/qvulkanfunctions.h>
-#include <QtGui/qvulkaninstance.h>
-#include <QtGui/qvulkanwindow.h>
 #include <cstring>
 
 //  A QAccessibleStateChangeEvent that Python can take functions over in. Every QAccessibleStateChangeEvent

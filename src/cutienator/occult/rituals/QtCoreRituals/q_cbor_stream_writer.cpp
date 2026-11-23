@@ -5,9 +5,7 @@
 #include <QtCore/qlatin1stringview.h>
 #include <QtCore/qstringview.h>
 #include <QtCore/qstring.h>
-#include <QtCore/QtCore>
-#include <QtCore/qtestsupport_core.h>
-#include <QtCore/qtmochelpers.h>
+#include <QtCore/qmetatype.h>
 
 //  QCborStreamWriter::QCborStreamWriter(QIODevice *device)
 extern "C" Q_DECL_EXPORT

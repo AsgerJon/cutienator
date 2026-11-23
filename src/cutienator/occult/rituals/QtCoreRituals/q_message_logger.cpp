@@ -1,8 +1,6 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/qlogging.h, Qt 6.12.0. Changes made here are lost.
-#include <QtCore/QtCore>
-#include <QtCore/qtestsupport_core.h>
-#include <QtCore/qtmochelpers.h>
+#include <QtCore/qglobal.h>
 #include <QtCore/qdebug.h>
 
 //  QMessageLogger::QMessageLogger()

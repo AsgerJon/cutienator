@@ -1,8 +1,6 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/qfloat16.h, Qt 6.12.0. Changes made here are lost.
-#include <QtCore/QtCore>
-#include <QtCore/qtestsupport_core.h>
-#include <QtCore/qtmochelpers.h>
+#include <QtCore/qmetatype.h>
 
 //  qfloat16::qfloat16(Qt::Initialization a0)
 extern "C" Q_DECL_EXPORT

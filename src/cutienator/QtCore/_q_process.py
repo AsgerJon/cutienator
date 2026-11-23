@@ -13,7 +13,7 @@ from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
 from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, CuteFlags, CuteNum, MetaCute, WAIT
+from ..cute import CuteMixin, CuteFlags, CuteNum, WAIT
 from ..occult import Rituals
 from . import QIODevice, QIODeviceBase, QObject, QStringList
 
@@ -44,21 +44,19 @@ class QProcess(QIODevice):
   -----------
 
   Every function of Qt's QProcess that has a ritual and that Python can call
-  so far, 50 names in all: 'metaObject', 'tr', 'start', 'startCommand',
+  so far, 47 names in all: 'metaObject', 'tr', 'start', 'startCommand',
   'open', 'program', 'setProgram', 'arguments', 'setArguments',
   'processChannelMode', 'setProcessChannelMode', 'inputChannelMode',
   'setInputChannelMode', 'readChannel', 'setReadChannel', 'closeReadChannel',
   'closeWriteChannel', 'setStandardInputFile', 'setStandardOutputFile',
-  'setStandardErrorFile', 'setStandardOutputProcess',
-  'failChildProcessModifier', 'unixProcessParameters',
-  'setUnixProcessParameters', 'workingDirectory', 'setWorkingDirectory',
-  'setEnvironment', 'environment', 'setProcessEnvironment',
-  'processEnvironment', 'error', 'state', 'processId', 'waitForStarted',
-  'waitForReadyRead', 'waitForBytesWritten', 'waitForFinished',
-  'readAllStandardOutput', 'readAllStandardError', 'exitCode', 'exitStatus',
-  'bytesToWrite', 'isSequential', 'close', 'execute', 'systemEnvironment',
-  'nullDevice', 'splitCommand', 'terminate', 'kill'. It can be made from
-  Python, in 1 way; see '__init__'.
+  'setStandardErrorFile', 'setStandardOutputProcess', 'workingDirectory',
+  'setWorkingDirectory', 'setEnvironment', 'environment',
+  'setProcessEnvironment', 'processEnvironment', 'error', 'state',
+  'processId', 'waitForStarted', 'waitForReadyRead', 'waitForBytesWritten',
+  'waitForFinished', 'readAllStandardOutput', 'readAllStandardError',
+  'exitCode', 'exitStatus', 'bytesToWrite', 'isSequential', 'close',
+  'execute', 'systemEnvironment', 'nullDevice', 'splitCommand', 'terminate',
+  'kill'. It can be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -74,9 +72,9 @@ class QProcess(QIODevice):
   What has no ritual
   ------------------
 
-  20 of the 76 functions Qt declares: 6 a signal; 4 takes or gives a type
-  that cannot be passed yet; 4 private; 3 protected; 2 forbidden; 1 a
-  template.
+  24 of the 76 functions Qt declares: 6 Qt has it on some systems only; 6 a
+  signal; 4 private; 3 protected; 2 takes or gives a type that cannot be
+  passed yet; 2 forbidden; 1 a template.
 
   What to expect
   --------------
@@ -173,112 +171,6 @@ class QProcess(QIODevice):
     DisableCoreDumps = 0x200
 
   UnixProcessFlags = UnixProcessFlag
-
-  #  The classes Qt writes inside QProcess, each a class in here as in C++.
-
-  class UnixProcessParameters(CuteMixin, metaclass=MetaCute):
-    """
-    The cute side of Qt's QProcess::UnixProcessParameters: a plain Python
-    object standing in front of one C++ QProcess::UnixProcessParameters.
-
-    C++ hands a QProcess::UnixProcessParameters around as a copy, so every
-    C++ QProcess::UnixProcessParameters behind a cute one is Python's own: it
-    is removed, by the ritual named in '__delete_ritual__', when the cute
-    object goes.
-
-    What exists
-    -----------
-
-    No function of Qt's QProcess::UnixProcessParameters yet. None can be made
-    from Python: one comes out of a function of another class that gives one
-    back.
-
-    What has a ritual and is left out, and why
-    ------------------------------------------
-
-    - Qt's 'QProcess::UnixProcessParameters::~UnixProcessParameters()': the
-      destructor: Python removes its C++ QProcess::UnixProcessParameters by
-      it, and has no other use for it.
-
-    What to expect
-    --------------
-
-    - The C++ QProcess::UnixProcessParameters is created at the first use,
-      not by 'QProcess::UnixProcessParameters(...)'.
-    - A wrong argument is refused in Python, with 'DispatchException', and
-      never reaches C++.
-    - None is taken wherever Qt takes an object by its address, or text as C
-      has it, and is passed on as nothing. Whether Qt can do with nothing
-      there is as in C++.
-    - A function giving a QProcess::UnixProcessParameters back gives a copy
-      the ritual made for Python, in a new cute
-      QProcess::UnixProcessParameters.
-    """
-
-    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-    #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
-    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-
-    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-    #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-
-    #  Class Variables
-    #  The class of Qt this class stands for.
-    __qt_class__ = 'QProcess::UnixProcessParameters'
-
-    #  Qt's '~QProcess::UnixProcessParameters()'. Naming it makes this a
-    #  value class: Python owns every C++ QProcess::UnixProcessParameters
-    #  behind a cute one, and removes it by this ritual.
-    __delete_ritual__ = 'ritual_ZN8QProcess21UnixProcessParametersD1Ev'
-
-    #  Fallback Variables
-
-    #  Private Variables
-
-    #  Public Variables
-
-    #  Virtual Variables
-
-    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-    #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-
-    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-    #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-
-    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-    #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-
-    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-    #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-
-    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-    #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-
-    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-    #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # #
-    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-
-    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-    #  OPTIONAL METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # #
-    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-
-    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-    #  REQUIRED METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # #
-    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-
-    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-    #  PARENT METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
-    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-
-    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-    #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
-    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -542,27 +434,6 @@ class QProcess(QIODevice):
     return QProcess.ProcessChannel(self.uglySide.call(
         'ritual_ZNK8QProcess11readChannelEv',
     ))
-
-  def unixProcessParameters(self) -> UnixProcessParameters:
-    """
-    Calls Qt's 'UnixProcessParameters QProcess::unixProcessParameters()
-    const'.
-
-    Qt's own words:
-    https://doc.qt.io/qt-6/qprocess.html#unixProcessParameters
-
-    Returns
-    -------
-
-    UnixProcessParameters
-      A new cute QProcess::UnixProcessParameters around the copy Qt gave
-      back. Python owns it.
-    """
-    #  UnixProcessParameters QProcess::unixProcessParameters() const
-    address = self.uglySide.call(
-        'ritual_ZNK8QProcess21unixProcessParametersEv',
-    )
-    return QProcess.UnixProcessParameters._cuteOwning(address)
 
   def workingDirectory(self) -> str:
     """
@@ -920,52 +791,6 @@ class QProcess(QIODevice):
         self._addressOf(destination),
     )
 
-  @overload(UnixProcessParameters)
-  def setUnixProcessParameters(self, params: UnixProcessParameters) -> None:
-    """
-    Calls Qt's 'void QProcess::setUnixProcessParameters(const
-    UnixProcessParameters &params)'.
-
-    Qt's own words:
-    https://doc.qt.io/qt-6/qprocess.html#setUnixProcessParameters
-
-    Parameters
-    ----------
-
-    params : UnixProcessParameters
-      Passed on as a value: Qt reads the C++ QProcess::UnixProcessParameters,
-      which stays Python's own.
-    """
-    #  void QProcess::setUnixProcessParameters(const UnixProcessParameters
-    #      &params)
-    self.uglySide.call(
-        'ritual_ZN8QProcess24setUnixProcessParametersERKNS_21UnixProcessPar'
-        'ametersE',
-        self._valueOf(params),
-    )
-
-  @overload(UnixProcessFlags)
-  def setUnixProcessParameters(self, flagsOnly: UnixProcessFlags) -> None:
-    """
-    Calls Qt's 'void QProcess::setUnixProcessParameters(UnixProcessFlags
-    flagsOnly)'.
-
-    Qt's own words:
-    https://doc.qt.io/qt-6/qprocess.html#setUnixProcessParameters
-
-    Parameters
-    ----------
-
-    flagsOnly : UnixProcessFlags
-      Passed on as its number.
-    """
-    #  void QProcess::setUnixProcessParameters(UnixProcessFlags flagsOnly)
-    self.uglySide.call(
-        'ritual_ZN8QProcess24setUnixProcessParametersE6QFlagsINS_15UnixProc'
-        'essFlagEE',
-        flagsOnly.value,
-    )
-
   @overload(str)
   def setWorkingDirectory(self, dir: str) -> None:
     """
@@ -1228,38 +1053,6 @@ class QProcess(QIODevice):
     """
     #  void QProcess::closeWriteChannel()
     self.uglySide.call('ritual_ZN8QProcess17closeWriteChannelEv')
-
-  @overload(str)
-  @overload(NoneType)
-  @overload(str, int)
-  @overload(NoneType, int)
-  def failChildProcessModifier(
-      self,
-      description: Optional[str],
-      error: int = 0,
-  ) -> None:
-    """
-    Calls Qt's 'void QProcess::failChildProcessModifier(const char
-    *description, int error)'.
-
-    Qt's own words:
-    https://doc.qt.io/qt-6/qprocess.html#failChildProcessModifier
-
-    Parameters
-    ----------
-
-    description : Optional[str]
-      Passed on as the bytes of the text. None is passed on as no text.
-
-    error : int
-      Passed on as it is. May be left out, as in Qt: it is then 0.
-    """
-    #  void QProcess::failChildProcessModifier(const char *description, int
-    #      error)
-    self.uglySide.call(
-        'ritual_ZN8QProcess24failChildProcessModifierEPKci',
-        self._bytesOf(description), error,
-    )
 
   @overload()
   @overload(int)

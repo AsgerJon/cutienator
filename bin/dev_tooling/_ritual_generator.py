@@ -296,6 +296,11 @@ class RitualGenerator:
   #  at every asking, and the work on the functions Python can take
   #  over asks for the same ones over and over.
   __class_records__ = dict()  # type: Dict[Tuple[int, str], Record]
+  #  A name Qt's headers go by to tell one system or one compiler from
+  #  another, as 'Q_OS_UNIX' and 'Q_CC_MSVC', and what '_findSystemLines'
+  #  found in each header read so far.
+  __system_name__ = re.compile(r'\b(?:Q_OS|Q_CC)_\w+')
+  __system_lines__ = dict()  # type: Dict[str, Dict[int, str]]
   __has_cute_class__ = None  # type: Optional[bool]
   __other_generators__ = dict()  # type: Dict[Tuple[int, str], Any]
   __written_rituals__ = None  # type: Optional[Rituals]
@@ -749,6 +754,9 @@ class RitualGenerator:
         continue
       if nearest['member'].get('explicitlyDeleted'):
         #  Qt forbids the function in the nearest class.
+        continue
+      if self._findSystemCondition(nearest['member']):
+        #  Qt has the function on some systems only.
         continue
       other = self._getOther(nearest['owner'])
       plan = other._planFunction(nearest['member'])
@@ -1992,6 +2000,101 @@ class RitualGenerator:
       return self._getOfferedNames(_recursion=True)
     return self.__offered_names__
 
+  @classmethod
+  def _findSystemLines(cls, headerPath: str) -> Dict[int, str]:
+    """
+    Gives the lines of one header that Qt writes for some systems only,
+    each with the '#if' it stands under.
+
+    Such a line stands between an '#if' that names a system or a
+    compiler, as '#if defined(Q_OS_UNIX)' and '#if !defined(Q_CC_MSVC)',
+    and the '#endif' of it, where that '#if' has no '#else' and no
+    '#elif'. With an '#else', Qt as a rule writes the same thing another
+    way for the other systems, as 'QFile::encodeName' for macOS and for
+    the rest, so those lines are not counted. Where Qt does not, the
+    compiler of the system that lacks the thing says so.
+
+    Parameters
+    ----------
+
+    headerPath : str
+      The full path of the header.
+
+    Returns
+    -------
+
+    Dict[int, str]
+      The number of each such line, counted from 1, and the condition of
+      the '#if' as Qt wrote it. A header that cannot be read has none.
+    """
+    if headerPath in cls.__system_lines__:
+      return cls.__system_lines__[headerPath]
+    try:
+      with open(headerPath, errors='replace') as file:
+        lines = file.read().split('\n')
+    except OSError:
+      lines = []
+    found, opened = dict(), []  # type: Dict[int, str], List[List[Any]]
+    number = 0
+    while number < len(lines):
+      first, line = number + 1, lines[number]
+      #  A line ending in a backslash goes on in the next one.
+      while line.endswith('\\') and number + 1 < len(lines):
+        number += 1
+        line = '%s %s' % (line[:-1], lines[number])
+      number += 1
+      words = line.strip()
+      if not words.startswith('#'):
+        continue
+      words = words[1:].strip()
+      if words.startswith('if'):
+        #  '#if', '#ifdef' and '#ifndef': where it opens, its condition,
+        #  and whether an '#else' or '#elif' follows.
+        opened.append([first, ' '.join(words.split()), False])
+      elif words.startswith(('else', 'elif')) and opened:
+        opened[-1][2] = True
+      elif words.startswith('endif') and opened:
+        start, condition, branched = opened.pop()
+        if branched or not cls.__system_name__.search(condition):
+          continue
+        for between in range(start + 1, first):
+          found.setdefault(between, '#%s' % condition)
+    cls.__system_lines__[headerPath] = found
+    return found
+
+  def _findSystemCondition(self, record: Record) -> str:
+    """
+    Gives the '#if' under which Qt declares a thing for some systems
+    only, as '#if defined(Q_OS_UNIX) || defined(Q_QDOC)', or '' for a
+    thing Qt declares for every system. See '_findSystemLines'.
+
+    cutienator is the same on Linux, on macOS and on Windows, and a
+    ritual file is compiled as it is on each of them. A ritual calling
+    'QProcess::unixProcessParameters()' is refused by the compiler on
+    Windows, where Qt declares no such function.
+
+    Parameters
+    ----------
+
+    record : Record
+      What the compiler wrote down about a function, a class or an enum,
+      with the place it is declared at under 'loc'.
+    """
+    place = record.get('loc', dict())
+    place = place.get('expansionLoc', place)
+    headerPath, line = place.get('file'), place.get('line')
+    if not headerPath or not line:
+      return ''
+    return self._findSystemLines(headerPath).get(line, '')
+
+  def isForSomeSystemsOnly(self) -> bool:
+    """
+    Says whether Qt declares the class for some systems only, as it does
+    'QProcess::UnixProcessParameters'. Such a class gets no cute class.
+    """
+    record = self.getDependencyTree().getClassRecord(self.getClassName())
+    return True if self._findSystemCondition(record) else False
+
   def _canBeCalled(self, member: Record) -> bool:
     """
     Says whether a ritual calling this function could ever run.
@@ -2389,6 +2492,11 @@ class RitualGenerator:
       infoSpec = """the class keeps 'delete' to itself, so no ritual can
       remove one"""
       return ' '.join(infoSpec.split())
+    condition = self._findSystemCondition(member)
+    if condition:
+      infoSpec = """Qt has it on some systems only: it stands under
+      '%s'"""
+      return ' '.join((infoSpec % condition).split())
     if plan['variadic']:
       return 'takes any number of arguments'
     if '&&' in plan['words']:

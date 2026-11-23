@@ -2,11 +2,7 @@
 //  QtGui/qaccessibleobject.h, Qt 6.12.0. Changes made here are lost.
 #include <QtGui/qaccessibleobject.h>
 #include <QtCore/qstring.h>
-#include <QtGui/QtGui>
-#include <QtGui/qtestsupport_gui.h>
-#include <QtGui/qvulkanfunctions.h>
-#include <QtGui/qvulkaninstance.h>
-#include <QtGui/qvulkanwindow.h>
+#include <QtGui/qaccessible.h>
 #include <QtCore/qrect.h>
 #include <QtGui/qcolor.h>
 #include <cstring>

@@ -3,9 +3,7 @@
 #include <QtCore/qcborstreamreader.h>
 #include <QtCore/qbytearray.h>
 #include <QtCore/qcborcommon.h>
-#include <QtCore/QtCore>
-#include <QtCore/qtestsupport_core.h>
-#include <QtCore/qtmochelpers.h>
+#include <QtCore/qmetatype.h>
 #include <QtCore/qstring.h>
 
 //  QCborStreamReader::QCborStreamReader()

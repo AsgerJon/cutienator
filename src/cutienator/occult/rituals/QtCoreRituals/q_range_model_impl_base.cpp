@@ -1,8 +1,6 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/qrangemodel_impl.h, Qt 6.12.0. Changes made here are lost.
-#include <QtCore/QtCore>
-#include <QtCore/qtestsupport_core.h>
-#include <QtCore/qtmochelpers.h>
+#include <QtCore/qrangemodel.h>
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmap.h>
 #include <QtCore/qhash.h>
