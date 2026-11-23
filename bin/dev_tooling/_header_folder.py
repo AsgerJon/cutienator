@@ -69,7 +69,7 @@ class HeaderFolder:
     installed Qt has it; one small file for each class, named as the
     class, that pulls in the header file of that class; the file named
     as the part, which pulls in every header file meant for direct
-    use; and the lists of switches.
+    use on every system; and the lists of switches.
   - In the lists every switch is in, so that the compiler skips
     nothing Qt can have. The few that name the shape of a build, and
     contradict another switch when both are in, are out: see
@@ -92,14 +92,24 @@ class HeaderFolder:
       QtCore='src/corelib', QtGui='src/gui', QtWidgets='src/widgets',
   )
   __part_words__ = dict(QtCore='CORE', QtGui='GUI', QtWidgets='WIDGETS')
+  #  The header file of each part that brings in its list of switches.
+  __global_headers__ = dict(
+      QtCore='qglobal.h', QtGui='qtguiglobal.h',
+      QtWidgets='qtwidgetsglobal.h',
+  )
   #  The parts each part is built on: its file '...Depends' pulls
   #  those in.
   __part_needs__ = dict(
       QtCore=(), QtGui=('QtCore',), QtWidgets=('QtCore', 'QtGui'),
   )
-  #  Switches that name the shape of one build, not a thing Qt can
-  #  have, and contradict another switch when both are in.
-  __left_out_switches__ = ('static',)
+  #  Switches that are out while every other switch is in, because
+  #  each contradicts another one when both are in. 'static' names the
+  #  shape of a build, against 'shared'. The four of OpenGL ES are the
+  #  other of two kinds of OpenGL that Qt's source says exclude each
+  #  other; the kind for desktops is the one that is in.
+  __left_out_switches__ = (
+      'static', 'opengles2', 'opengles3', 'opengles31', 'opengles32',
+  )
   #  What Qt keeps of the system and the compiler it is built for, as
   #  'qplatformdefs.h'. The compiler here reads as Linux.
   __spec_name__ = 'linux-g++'
@@ -138,6 +148,14 @@ class HeaderFolder:
        ('QMutable%sIterator',)),
   )
   __named_class__ = re.compile(r'^\s*#\s*pragma\s+qt_class\((\w+)\)')
+  #  Where a 'CMakeLists.txt' of the source begins to list files of a
+  #  part: for all of it, or, with 'CONDITION', for where that holds.
+  __sources_call__ = re.compile(
+      r'^qt_internal_(?:add_module|extend_target)\(\s*(\w+)', re.M)
+  #  The words a condition of such a list may be made of and still hold
+  #  on every system: the switches of Qt, which are all in here, and
+  #  the words that join them.
+  __everywhere_word__ = re.compile(r'^(?:QT_FEATURE_\w+|AND|OR|NOT)$')
 
   #  Private Variables
   __source_folder__ = None  # type: Optional[str]
@@ -404,6 +422,47 @@ class HeaderFolder:
         return folder
     return 'private' if name.endswith('_p.h') else ''
 
+  def _findEverywhereHeaders(self, partName: str) -> Any:
+    """
+    Gives the names of the header files of a part that Qt's source
+    lists for every system: in the part's 'CMakeLists.txt' they stand
+    in the list of the part itself, or in one whose 'CONDITION' names
+    nothing but switches of Qt. A header file listed only under a
+    condition that names a system, as 'WIN32' or 'ANDROID', is for
+    that system, and one listed nowhere is not known to be for all.
+
+    Only these go into the file named as the part, as Qt's own build
+    puts only the header files of the system it builds for into it.
+    The others still lie in the folder, each to be read by itself.
+    """
+    path = os.path.join(self.getPartFolder(partName), 'CMakeLists.txt')
+    with open(path) as file:
+      text = file.read()
+    target = partName[len('Qt'):]
+    found = set()  # type: Any
+    for call in self.__sources_call__.finditer(text):
+      if call.group(1) != target:
+        continue
+      depth, end = 0, len(text)
+      for index in range(call.start(), len(text)):
+        letter = text[index]
+        depth += 1 if letter == '(' else -1 if letter == ')' else 0
+        if depth == 0 and letter == ')':
+          end = index
+          break
+      block = text[call.end():end]
+      block = re.sub(r'#[^\n]*', '', block)
+      head = block.split('SOURCES')[0]
+      if 'CONDITION' in head:
+        asked = head.split('CONDITION', 1)[1]
+        words = re.findall(r'[A-Za-z_][A-Za-z0-9_]*', asked)
+        if not all(self.__everywhere_word__.match(word) for word in words):
+          continue
+      found.update(
+          os.path.basename(name)
+          for name in re.findall(r'[\w/+.-]+\.h\b', block))
+    return found
+
   def _findClassNames(self, path: str) -> List[str]:
     """
     Gives the classes one header file is the header file of: those it
@@ -468,9 +527,21 @@ class HeaderFolder:
     inner = os.path.join(target, version, partName)
     os.makedirs(os.path.join(inner, 'private'), exist_ok=True)
     filters = self._findFilters(partName)
-    direct, classFiles = [], dict()  # type: List[str], Dict[str, str]
+    everywhere = self._findEverywhereHeaders(partName)
+    #  The header file a part is built with, as 'qt_pch.h', is named in
+    #  its 'CMakeLists.txt' after 'PRECOMPILED_HEADER'. It is for the
+    #  building of Qt alone and is no header file of Qt for anyone
+    #  else, so the folder has none.
+    listPath = os.path.join(self.getPartFolder(partName), 'CMakeLists.txt')
+    with open(listPath) as file:
+      buildOnly = {
+          os.path.basename(name) for name in re.findall(
+              r'PRECOMPILED_HEADER\s+"([^"]+)"', file.read())}
+    direct, classFiles = [], dict()  # type: List[Any], Dict[str, str]
     for path in self.getHeaderFiles(partName):
       name = os.path.basename(path)
+      if name in buildOnly:
+        continue
       folder = self._findInnerFolder(name, filters)
       if folder:
         os.makedirs(os.path.join(inner, folder), exist_ok=True)
@@ -479,8 +550,15 @@ class HeaderFolder:
       os.symlink(path, os.path.join(target, name))
       with open(path, errors='replace') as file:
         text = file.read()
-      if 'qt_no_master_include' not in text:
-        direct.append(name)
+      #  The rule of Qt's own build for the file named as the part: a
+      #  header file meant for everybody whose name has no '_', and
+      #  that does not say 'qt_no_master_include'. Here it also has to
+      #  be one Qt's source lists for every system.
+      wanted = name in everywhere and '_' not in name
+      if wanted and 'qt_no_master_include' not in text:
+        required = re.search(
+            r'^ *QT_REQUIRE_CONFIG\((\w+)\);?$', text, re.M)
+        direct.append((name, required.group(1) if required else ''))
       for className in self._findClassNames(path):
         classFiles.setdefault(className, name)
     for className, name in sorted(classFiles.items()):
@@ -491,8 +569,17 @@ class HeaderFolder:
       file.write(''.join('#include <%s/%s>\n' % (n, n) for n in needs))
     with open(os.path.join(target, partName), 'w') as file:
       file.write('#include <%s/%sDepends>\n' % (partName, partName))
-      file.write(''.join(
-          '#include <%s/%s>\n' % (partName, name) for name in direct))
+      #  What a switch of the part is set to is known only once this
+      #  header file of the part has been read.
+      file.write('#include <%s/%s>\n' % (
+          partName, self.__global_headers__[partName]))
+      for name, switch in direct:
+        line = '#include <%s/%s>\n' % (partName, name)
+        if switch:
+          #  A header file that is all of one switch of Qt is pulled
+          #  in only where that switch is in, as Qt's build has it.
+          line = '#if QT_CONFIG(%s)\n%s#endif\n' % (switch, line)
+        file.write(line)
     low, word = partName.lower(), self.__part_words__[partName]
     public, private = self._findSwitches(
         os.path.join(self.getPartFolder(partName), 'configure.cmake'))

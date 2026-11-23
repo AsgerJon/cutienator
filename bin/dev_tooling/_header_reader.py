@@ -1334,6 +1334,9 @@ class HeaderReader:
     toldLeftOut = self.getLeftOutHeaders()
     complaints = dict()  # type: Dict[str, str]
     leftOut = []  # type: List[str]
+    #  The lines for the header files that pull in files from outside
+    #  Qt. They are held back to the very end; see '_pullsInOutside'.
+    outside = []  # type: List[str]
     for headerPath in self.getHeaderPaths():
       if os.path.realpath(headerPath) in filesRead:
         continue
@@ -1361,18 +1364,66 @@ class HeaderReader:
 
         with ThreadPoolExecutor(max_workers=os.cpu_count() or 1) as pool:
           said = (*pool.map(findComplaint, leftOut),)
-      refused = []
+      refused, taken = [], []  # type: List[str], List[str]
       for headerPath, complaint in zip(leftOut, said):
         if complaint:
           complaints[headerPath] = complaint
           refused.append(headerPath)
         else:
           complaints.pop(headerPath, None)
+          taken.append(headerPath)
+
+      def pullsInOutside(headerPath: str) -> bool:
+        return self._pullsInOutside(headerPath, filesRead)
+
+      with ThreadPoolExecutor(max_workers=os.cpu_count() or 1) as pool:
+        fromOutside = (*pool.map(pullsInOutside, taken),)
+      for headerPath, isOutside in zip(taken, fromOutside):
+        if isOutside:
+          outside.append(self._getIncludeLine(headerPath))
+        else:
           feed += self._getIncludeLine(headerPath)
       if len(refused) == len(leftOut):
         break
       leftOut = refused
-    return feed, complaints
+    return '%s%s' % (feed, ''.join(outside)), complaints
+
+  def _pullsInOutside(self, headerPath: str, known: Set[str]) -> bool:
+    """
+    Says whether a header file pulls in a file from outside Qt that
+    the own list of the part does not pull in: a file of the system or
+    of another library, as those of X11.
+
+    Such files may give plain words a meaning of their own, as X11
+    does with 'Expose' and 'None', and a header file of Qt read after
+    them no longer says what Qt wrote. A header file that pulls one in
+    is therefore read after all the others, where nothing of Qt comes
+    after it.
+
+    Parameters
+    ----------
+
+    headerPath : str
+      The header file.
+
+    known : Set[str]
+      The real path of every file the own list of the part pulls in.
+    """
+    try:
+      opened = self._listFilesRead(self._getIncludeLine(headerPath))
+    except RuntimeError:
+      #  It cannot be followed by itself: it leans on a header file
+      #  read before it, and was taken on top of those.
+      return False
+    headerFolder = self.getHeaderFolder()
+    ours = (
+        '%s%s' % (os.path.realpath(headerFolder.getSourceFolder()), os.sep),
+        '%s%s' % (os.path.realpath(headerFolder.getFolder()), os.sep),
+    )
+    for path in opened:
+      if path not in known and not path.startswith(ours):
+        return True
+    return False
 
   def _cutReport(
       self,
