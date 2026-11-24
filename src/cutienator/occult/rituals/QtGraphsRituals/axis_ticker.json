@@ -1,0 +1,36 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGraphs/6.12.0/QtGraphs/private/axisticker_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "parts first": [
+    "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
+  ],
+  "rows": {
+    "ritual_ZNK10AxisTicker10metaObjectEv": ["address", "address"],
+    "ritual_ZN10AxisTicker12setupShadersEv": ["nothing", "address"],
+    "ritual_ZNK10AxisTicker11iResolutionEv": ["address", "address"],
+    "ritual_ZNK10AxisTicker9smoothingEv": ["double", "address"],
+    "ritual_ZNK10AxisTicker5origoEv": ["int", "address"],
+    "ritual_ZNK10AxisTicker15subTicksVisibleEv": ["bool", "address"],
+    "ritual_ZNK10AxisTicker7spacingEv": ["double", "address"],
+    "ritual_ZNK10AxisTicker12displacementEv": ["double", "address"],
+    "ritual_ZNK10AxisTicker12subTickColorEv": ["address", "address"],
+    "ritual_ZNK10AxisTicker9tickColorEv": ["address", "address"],
+    "ritual_ZNK10AxisTicker16subTickLineWidthEv": ["double", "address"],
+    "ritual_ZNK10AxisTicker13tickLineWidthEv": ["double", "address"],
+    "ritual_ZNK10AxisTicker12subTickScaleEv": ["double", "address"],
+    "ritual_ZNK10AxisTicker13subTickLengthEv": ["double", "address"],
+    "ritual_ZNK10AxisTicker12isHorizontalEv": ["bool", "address"],
+    "ritual_ZNK10AxisTicker9isFlippedEv": ["bool", "address"],
+    "ritual_ZNK10AxisTicker13isLogarithmicEv": ["bool", "address"],
+    "ritual_ZNK10AxisTicker4baseEv": ["double", "address"],
+    "ritual_ZN10AxisTicker17componentCompleteEv": ["nothing", "address"],
+    "ritual_ZN10AxisTicker14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_take_AxisTicker": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN10AxisTicker17componentCompleteEv": ["nothing", "address"]
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtOpcUa/qopcuahistoryreadeventrequest.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN29QOpcUaHistoryReadEventRequestC1Ev": ["address"],
+    "ritual_ZN29QOpcUaHistoryReadEventRequestC1ERK5QListI14QOpcUaReadItemERK9QDateTimeS7_RKN26QOpcUaMonitoringParameters11EventFilterE": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN29QOpcUaHistoryReadEventRequestC1ERKS_": [
+      "address", "address"
+    ],
+    "ritual_ZN29QOpcUaHistoryReadEventRequestD1Ev": ["nothing", "address"],
+    "ritual_ZNK29QOpcUaHistoryReadEventRequest14startTimestampEv": [
+      "address", "address"
+    ],
+    "ritual_ZN29QOpcUaHistoryReadEventRequest17setStartTimestampERK9QDateTime": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK29QOpcUaHistoryReadEventRequest12endTimestampEv": [
+      "address", "address"
+    ],
+    "ritual_ZN29QOpcUaHistoryReadEventRequest15setEndTimestampERK9QDateTime": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK29QOpcUaHistoryReadEventRequest16numValuesPerNodeEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZN29QOpcUaHistoryReadEventRequest19setNumValuesPerNodeEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZNK29QOpcUaHistoryReadEventRequest6filterEv": [
+      "address", "address"
+    ],
+    "ritual_ZN29QOpcUaHistoryReadEventRequest9setFilterERKN26QOpcUaMonitoringParameters11EventFilterE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK29QOpcUaHistoryReadEventRequest11nodesToReadEv": [
+      "address", "address"
+    ],
+    "ritual_ZN29QOpcUaHistoryReadEventRequest14setNodesToReadERK5QListI14QOpcUaReadItemE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN29QOpcUaHistoryReadEventRequest13addNodeToReadERK14QOpcUaReadItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZeqRK29QOpcUaHistoryReadEventRequestS1_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZneRK29QOpcUaHistoryReadEventRequestS1_": [
+      "bool", "address", "address"
+    ]
+  }
+}

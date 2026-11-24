@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtMqtt/qmqtttopicname.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN14QMqttTopicNameC1ERK7QString": ["address", "text"],
+    "ritual_ZN14QMqttTopicNameC1ERK13QLatin1String": ["address", "address"],
+    "ritual_ZN14QMqttTopicNameC1ERKS_": ["address", "address"],
+    "ritual_ZN14QMqttTopicNameD1Ev": ["nothing", "address"],
+    "ritual_ZNK14QMqttTopicName4nameEv": ["text", "address"],
+    "ritual_ZN14QMqttTopicName7setNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK14QMqttTopicName7isValidEv": ["bool", "address"],
+    "ritual_ZNK14QMqttTopicName10levelCountEv": ["int", "address"],
+    "ritual_ZNK14QMqttTopicName6levelsEv": ["address", "address"],
+    "ritual_ZeqRK14QMqttTopicNameS1_": ["bool", "address", "address"],
+    "ritual_ZneRK14QMqttTopicNameS1_": ["bool", "address", "address"],
+    "ritual_ZltRK14QMqttTopicNameS1_": ["bool", "address", "address"]
+  }
+}

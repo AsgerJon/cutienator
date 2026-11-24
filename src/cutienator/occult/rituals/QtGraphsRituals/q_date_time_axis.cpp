@@ -1,0 +1,416 @@
+//  Written by dev_tooling.RitualGenerator from the records of
+//  QtGraphs/qdatetimeaxis.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGraphs/qgraphsglobal.h>
+#if !(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))
+#include <QtGraphs/QtGraphs>
+#include <QtGraphs/qdatetimeaxis.h>
+#include <QtCore/qstring.h>
+#include <QtCore/qdatetime.h>
+#include <QtCore/qtimezone.h>
+#include <QtCore/qmetaobject.h>
+#include <cstring>
+
+//  A QDateTimeAxis that Python can take functions over in. Every QDateTimeAxis
+//  Python makes is one. Each function below asks the Python
+//  function handed over for it, and runs Qt's own without one.
+typedef int (*CuteQDateTimeAxisCall0)(const void *, int *);
+#if !defined(QT_NO_QOBJECT)
+typedef bool (*CuteQDateTimeAxisCall1)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+typedef bool (*CuteQDateTimeAxisCall2)(const void *, QObject *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+typedef void (*CuteQDateTimeAxisCall3)(const void *, QTimerEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+typedef void (*CuteQDateTimeAxisCall4)(const void *, QChildEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+typedef void (*CuteQDateTimeAxisCall5)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+typedef void (*CuteQDateTimeAxisCall6)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+typedef void (*CuteQDateTimeAxisCall7)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+class CuteQDateTimeAxis : public QDateTimeAxis {
+public:
+  using QDateTimeAxis::QDateTimeAxis;
+  void *taken[8] = {};
+
+  bool take(const char *key, void *call) {
+    if (!std::strcmp(key, "_ZNK13QAbstractAxis4typeEv")) {
+      taken[0] = call;
+      return true;
+    }
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
+      taken[1] = call;
+      return true;
+    }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
+      taken[2] = call;
+      return true;
+    }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
+      taken[3] = call;
+      return true;
+    }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
+      taken[4] = call;
+      return true;
+    }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+      taken[5] = call;
+      return true;
+    }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+      taken[6] = call;
+      return true;
+    }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+      taken[7] = call;
+      return true;
+    }
+#endif  // !defined(QT_NO_QOBJECT)
+    return false;
+  }
+
+  //  AxisType QDateTimeAxis::type() const
+  QAbstractAxis::AxisType type() const override {
+    if (taken[0]) {
+      int handled = 0;
+      CuteQDateTimeAxisCall0 call = reinterpret_cast<CuteQDateTimeAxisCall0>(taken[0]);
+      int given = call(this, &handled);
+      if (handled) return static_cast<QAbstractAxis::AxisType>(given);
+    }
+    return QDateTimeAxis::type();
+  }
+
+#if !defined(QT_NO_QOBJECT)
+  //  bool QObject::event(QEvent *event)
+  bool event(QEvent *event) override {
+    if (taken[1]) {
+      int handled = 0;
+      CuteQDateTimeAxisCall1 call = reinterpret_cast<CuteQDateTimeAxisCall1>(taken[1]);
+      bool given = call(this, event, &handled);
+      if (handled) return given;
+    }
+    return QObject::event(event);
+  }
+#endif  // !defined(QT_NO_QOBJECT)
+
+#if !defined(QT_NO_QOBJECT)
+  //  bool QObject::eventFilter(QObject *watched, QEvent *event)
+  bool eventFilter(QObject *watched, QEvent *event) override {
+    if (taken[2]) {
+      int handled = 0;
+      CuteQDateTimeAxisCall2 call = reinterpret_cast<CuteQDateTimeAxisCall2>(taken[2]);
+      bool given = call(this, watched, event, &handled);
+      if (handled) return given;
+    }
+    return QObject::eventFilter(watched, event);
+  }
+#endif  // !defined(QT_NO_QOBJECT)
+
+#if !defined(QT_NO_QOBJECT)
+  //  void QObject::timerEvent(QTimerEvent *event)
+  void timerEvent(QTimerEvent *event) override {
+    if (taken[3]) {
+      int handled = 0;
+      CuteQDateTimeAxisCall3 call = reinterpret_cast<CuteQDateTimeAxisCall3>(taken[3]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QObject::timerEvent(event);
+  }
+#endif  // !defined(QT_NO_QOBJECT)
+
+#if !defined(QT_NO_QOBJECT)
+  //  void QObject::childEvent(QChildEvent *event)
+  void childEvent(QChildEvent *event) override {
+    if (taken[4]) {
+      int handled = 0;
+      CuteQDateTimeAxisCall4 call = reinterpret_cast<CuteQDateTimeAxisCall4>(taken[4]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QObject::childEvent(event);
+  }
+#endif  // !defined(QT_NO_QOBJECT)
+
+#if !defined(QT_NO_QOBJECT)
+  //  void QObject::customEvent(QEvent *event)
+  void customEvent(QEvent *event) override {
+    if (taken[5]) {
+      int handled = 0;
+      CuteQDateTimeAxisCall5 call = reinterpret_cast<CuteQDateTimeAxisCall5>(taken[5]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QObject::customEvent(event);
+  }
+#endif  // !defined(QT_NO_QOBJECT)
+
+#if !defined(QT_NO_QOBJECT)
+  //  void QObject::connectNotify(const QMetaMethod &signal)
+  void connectNotify(const QMetaMethod &signal) override {
+    if (taken[6]) {
+      int handled = 0;
+      CuteQDateTimeAxisCall6 call = reinterpret_cast<CuteQDateTimeAxisCall6>(taken[6]);
+      call(this, &signal, &handled);
+      if (handled) return;
+    }
+    QObject::connectNotify(signal);
+  }
+#endif  // !defined(QT_NO_QOBJECT)
+
+#if !defined(QT_NO_QOBJECT)
+  //  void QObject::disconnectNotify(const QMetaMethod &signal)
+  void disconnectNotify(const QMetaMethod &signal) override {
+    if (taken[7]) {
+      int handled = 0;
+      CuteQDateTimeAxisCall7 call = reinterpret_cast<CuteQDateTimeAxisCall7>(taken[7]);
+      call(this, &signal, &handled);
+      if (handled) return;
+    }
+    QObject::disconnectNotify(signal);
+  }
+#endif  // !defined(QT_NO_QOBJECT)
+};
+
+//  const QMetaObject *QDateTimeAxis::metaObject() const
+extern "C" Q_DECL_EXPORT
+const QMetaObject *ritual_ZNK13QDateTimeAxis10metaObjectEv(
+    const QDateTimeAxis *self) {
+  return self->metaObject();
+}
+
+//  QString QDateTimeAxis::tr(const char *s, const char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN13QDateTimeAxis2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QDateTimeAxis::tr(s, c, n));
+}
+
+//  QDateTimeAxis::QDateTimeAxis(QObject *parent)
+extern "C" Q_DECL_EXPORT
+QDateTimeAxis *ritual_ZN13QDateTimeAxisC1EP7QObject(QObject *parent) {
+  return new CuteQDateTimeAxis(parent);
+}
+
+//  QDateTimeAxis::~QDateTimeAxis()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QDateTimeAxisD1Ev(QDateTimeAxis *self) {
+  delete self;
+}
+
+//  AxisType QDateTimeAxis::type() const
+extern "C" Q_DECL_EXPORT
+QAbstractAxis::AxisType ritual_ZNK13QDateTimeAxis4typeEv(
+    const QDateTimeAxis *self) {
+  return self->type();
+}
+
+//  void QDateTimeAxis::setMin(const QDateTime &min)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QDateTimeAxis6setMinERK9QDateTime(
+    QDateTimeAxis *self,
+    const QDateTime *min) {
+  self->setMin(*min);
+}
+
+//  QDateTime QDateTimeAxis::min() const
+extern "C" Q_DECL_EXPORT
+QDateTime *ritual_ZNK13QDateTimeAxis3minEv(const QDateTimeAxis *self) {
+  return new QDateTime(self->min());
+}
+
+//  void QDateTimeAxis::setMax(const QDateTime &max)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QDateTimeAxis6setMaxERK9QDateTime(
+    QDateTimeAxis *self,
+    const QDateTime *max) {
+  self->setMax(*max);
+}
+
+//  QDateTime QDateTimeAxis::max() const
+extern "C" Q_DECL_EXPORT
+QDateTime *ritual_ZNK13QDateTimeAxis3maxEv(const QDateTimeAxis *self) {
+  return new QDateTime(self->max());
+}
+
+//  void QDateTimeAxis::setLabelFormat(const QString &format)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QDateTimeAxis14setLabelFormatERK7QString(
+    QDateTimeAxis *self,
+    const QString *format) {
+  self->setLabelFormat(*format);
+}
+
+//  QString QDateTimeAxis::labelFormat() const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK13QDateTimeAxis11labelFormatEv(
+    const QDateTimeAxis *self) {
+  return new QString(self->labelFormat());
+}
+
+#if QT_REMOVAL_QT7_DEPRECATED_SINCE(6, 15)
+//  qreal QDateTimeAxis::tickInterval() const
+extern "C" Q_DECL_EXPORT
+qreal ritual_ZNK13QDateTimeAxis12tickIntervalEv(const QDateTimeAxis *self) {
+  return self->tickInterval();
+}
+#endif  // QT_REMOVAL_QT7_DEPRECATED_SINCE(6, 15)
+
+#if QT_REMOVAL_QT7_DEPRECATED_SINCE(6, 15)
+//  void QDateTimeAxis::setTickInterval(qreal newTickInterval)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QDateTimeAxis15setTickIntervalEd(
+    QDateTimeAxis *self,
+    qreal newTickInterval) {
+  self->setTickInterval(newTickInterval);
+}
+#endif  // QT_REMOVAL_QT7_DEPRECATED_SINCE(6, 15)
+
+//  int QDateTimeAxis::subTickCount() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK13QDateTimeAxis12subTickCountEv(const QDateTimeAxis *self) {
+  return self->subTickCount();
+}
+
+//  void QDateTimeAxis::setSubTickCount(int newSubTickCount)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QDateTimeAxis15setSubTickCountEi(
+    QDateTimeAxis *self,
+    int newSubTickCount) {
+  self->setSubTickCount(newSubTickCount);
+}
+
+//  QTimeZone QDateTimeAxis::timeZone() const
+extern "C" Q_DECL_EXPORT
+QTimeZone *ritual_ZNK13QDateTimeAxis8timeZoneEv(const QDateTimeAxis *self) {
+  return new QTimeZone(self->timeZone());
+}
+
+//  void QDateTimeAxis::setTimeZone(const QTimeZone &zoneId)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QDateTimeAxis11setTimeZoneERK9QTimeZone(
+    QDateTimeAxis *self,
+    const QTimeZone *zoneId) {
+  self->setTimeZone(*zoneId);
+}
+
+//  void QDateTimeAxis::setZoom(qreal zoom)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QDateTimeAxis7setZoomEd(QDateTimeAxis *self, qreal zoom) {
+  self->setZoom(zoom);
+}
+
+//  qreal QDateTimeAxis::zoom() const
+extern "C" Q_DECL_EXPORT
+qreal ritual_ZNK13QDateTimeAxis4zoomEv(const QDateTimeAxis *self) {
+  return self->zoom();
+}
+
+//  qreal QDateTimeAxis::pan() const
+extern "C" Q_DECL_EXPORT
+qreal ritual_ZNK13QDateTimeAxis3panEv(const QDateTimeAxis *self) {
+  return self->pan();
+}
+
+//  void QDateTimeAxis::setPan(qreal pan)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QDateTimeAxis6setPanEd(QDateTimeAxis *self, qreal pan) {
+  self->setPan(pan);
+}
+
+//  QDateTime QDateTimeAxis::visualMin() const
+extern "C" Q_DECL_EXPORT
+QDateTime *ritual_ZNK13QDateTimeAxis9visualMinEv(const QDateTimeAxis *self) {
+  return new QDateTime(self->visualMin());
+}
+
+//  QDateTime QDateTimeAxis::visualMax() const
+extern "C" Q_DECL_EXPORT
+QDateTime *ritual_ZNK13QDateTimeAxis9visualMaxEv(const QDateTimeAxis *self) {
+  return new QDateTime(self->visualMax());
+}
+
+//  QTimeZone QDateTimeAxis::timeZoneFromString(const QString &zoneId) const
+extern "C" Q_DECL_EXPORT
+QTimeZone *ritual_ZNK13QDateTimeAxis18timeZoneFromStringERK7QString(
+    const QDateTimeAxis *self,
+    const QString *zoneId) {
+  return new QTimeZone(self->timeZoneFromString(*zoneId));
+}
+
+//  QString QDateTimeAxis::timeZoneAsString() const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK13QDateTimeAxis16timeZoneAsStringEv(
+    const QDateTimeAxis *self) {
+  return new QString(self->timeZoneAsString());
+}
+
+//  qsizetype QDateTimeAxis::tickCount() const
+extern "C" Q_DECL_EXPORT
+qsizetype ritual_ZNK13QDateTimeAxis9tickCountEv(const QDateTimeAxis *self) {
+  return self->tickCount();
+}
+
+//  void QDateTimeAxis::setTickCount(qsizetype count)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QDateTimeAxis12setTickCountEx(
+    QDateTimeAxis *self,
+    qsizetype count) {
+  self->setTickCount(count);
+}
+
+//  QDateTimeAxisPrivate *QDateTimeAxis::d_func()
+extern "C" Q_DECL_EXPORT
+QDateTimeAxisPrivate *ritual_ZN13QDateTimeAxis6d_funcEv(
+    QDateTimeAxis *self) {
+  return self->d_func();
+}
+
+//  const QDateTimeAxisPrivate *QDateTimeAxis::d_func() const
+extern "C" Q_DECL_EXPORT
+const QDateTimeAxisPrivate *ritual_ZNK13QDateTimeAxis6d_funcEv(
+    const QDateTimeAxis *self) {
+  return self->d_func();
+}
+
+//  a Python function taken by a CuteQDateTimeAxis, for the function named by
+//      the key
+extern "C" Q_DECL_EXPORT
+bool ritual_take_QDateTimeAxis(
+    QDateTimeAxis *self,
+    const char *key,
+    void *call) {
+  return static_cast<CuteQDateTimeAxis *>(self)->take(key, call);
+}
+
+//  AxisType QDateTimeAxis::type() const
+extern "C" Q_DECL_EXPORT
+QAbstractAxis::AxisType ritual_own_ZNK13QDateTimeAxis4typeEv(
+    const QDateTimeAxis *self) {
+  return self->QDateTimeAxis::type();
+}
+
+#endif  // !(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))

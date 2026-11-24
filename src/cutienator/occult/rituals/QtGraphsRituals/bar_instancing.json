@@ -1,0 +1,30 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGraphs/6.12.0/QtGraphs/private/barinstancing_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "parts first": [
+    "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
+  ],
+  "rows": {
+    "ritual_ZNK13BarInstancing10metaObjectEv": ["address", "address"],
+    "ritual_ZN13BarInstancing2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN13BarInstancingC1Ev": ["address"],
+    "ritual_ZN13BarInstancingD1Ev": ["nothing", "address"],
+    "ritual_ZNK13BarInstancing9dataArrayEv": ["address", "address"],
+    "ritual_ZN13BarInstancing12setDataArrayERK5QListIP13BarItemHolderE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13BarInstancing13markDataDirtyEv": ["nothing", "address"],
+    "ritual_ZNK13BarInstancing12transparencyEv": ["bool", "address"],
+    "ritual_ZN13BarInstancing15setTransparencyEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN13BarInstancing14clearDataArrayEv": ["nothing", "address"],
+    "ritual_ZN13BarInstancing17getInstanceBufferEPi": [
+      "address", "address", "address"
+    ],
+    "ritual_take_BarInstancing": ["bool", "address", "chars", "address"]
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGraphsWidgets/q3dscatterwidgetitem.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "parts first": [
+    "QtGraphsWidgets", "QtGraphs", "QtQuickWidgets", "QtCore", "QtGui",
+    "QtQuick", "QtQml", "QtWidgets", "QtQmlIntegration"
+  ],
+  "rows": {
+    "ritual_ZNK20Q3DScatterWidgetItem10metaObjectEv": ["address", "address"],
+    "ritual_ZN20Q3DScatterWidgetItem2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN20Q3DScatterWidgetItemC1EP7QObject": ["address", "address"],
+    "ritual_ZN20Q3DScatterWidgetItemD1Ev": ["nothing", "address"],
+    "ritual_ZN20Q3DScatterWidgetItem9addSeriesEP16QScatter3DSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20Q3DScatterWidgetItem12removeSeriesEP16QScatter3DSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20Q3DScatterWidgetItem10seriesListEv": ["address", "address"],
+    "ritual_ZNK20Q3DScatterWidgetItem5axisXEv": ["address", "address"],
+    "ritual_ZNK20Q3DScatterWidgetItem5axisYEv": ["address", "address"],
+    "ritual_ZNK20Q3DScatterWidgetItem5axisZEv": ["address", "address"],
+    "ritual_ZN20Q3DScatterWidgetItem7addAxisEP12QValue3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20Q3DScatterWidgetItem11releaseAxisEP12QValue3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20Q3DScatterWidgetItem4axesEv": ["address", "address"],
+    "ritual_ZNK20Q3DScatterWidgetItem14selectedSeriesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20Q3DScatterWidgetItem8setAxisXEP12QValue3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20Q3DScatterWidgetItem8setAxisYEP12QValue3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20Q3DScatterWidgetItem8setAxisZEP12QValue3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20Q3DScatterWidgetItem5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN20Q3DScatterWidgetItem6d_funcEv": ["address", "address"],
+    "ritual_ZNK20Q3DScatterWidgetItem6d_funcEv": ["address", "address"],
+    "ritual_take_Q3DScatterWidgetItem": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN20Q3DScatterWidgetItem5eventEP6QEvent": [
+      "bool", "address", "address"
+    ]
+  }
+}

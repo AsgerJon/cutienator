@@ -57,15 +57,21 @@ class TestQSize(BaseTest):
 
   @staticmethod
   def _watchCalls(called: List[Any]) -> Any:
-    """Gives a stand-in for 'Rituals.call' that notes each call in
-    'called', as the name and what was passed, and then makes it."""
-    realCall = Rituals.call
+    """Gives stand-ins for 'Rituals.call' and 'Rituals.callFrom', by
+    which an Ugly of a part runs its rituals, that note each call in
+    'called', as the name and what was passed, and then make it."""
+    realCall, realCallFrom = Rituals.call, Rituals.callFrom
 
     def watching(name: str, *args: Any) -> Any:
       called.append((name, *args))
       return realCall(name, *args)
 
-    return mock.patch.object(Rituals, 'call', watching)
+    def watchingFrom(partName: str, name: str, *args: Any) -> Any:
+      called.append((name, *args))
+      return realCallFrom(partName, name, *args)
+
+    return mock.patch.multiple(
+        Rituals, call=watching, callFrom=watchingFrom)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  TESTS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

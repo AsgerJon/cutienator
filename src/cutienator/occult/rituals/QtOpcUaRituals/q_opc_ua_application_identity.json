@@ -1,0 +1,37 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtOpcUa/qopcuaapplicationidentity.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZN25QOpcUaApplicationIdentityC1Ev": ["address"],
+    "ritual_ZN25QOpcUaApplicationIdentityD1Ev": ["nothing", "address"],
+    "ritual_ZN25QOpcUaApplicationIdentityC1ERKS_": ["address", "address"],
+    "ritual_ZNK25QOpcUaApplicationIdentity14applicationUriEv": [
+      "text", "address"
+    ],
+    "ritual_ZN25QOpcUaApplicationIdentity17setApplicationUriERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK25QOpcUaApplicationIdentity15applicationNameEv": [
+      "text", "address"
+    ],
+    "ritual_ZN25QOpcUaApplicationIdentity18setApplicationNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK25QOpcUaApplicationIdentity10productUriEv": [
+      "text", "address"
+    ],
+    "ritual_ZN25QOpcUaApplicationIdentity13setProductUriERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK25QOpcUaApplicationIdentity15applicationTypeEv": [
+      "int", "address"
+    ],
+    "ritual_ZN25QOpcUaApplicationIdentity18setApplicationTypeEN28QOpcUaApplicationDescription15ApplicationTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK25QOpcUaApplicationIdentity7isValidEv": ["bool", "address"]
+  }
+}

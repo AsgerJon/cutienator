@@ -1,0 +1,25 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCoap/6.12.0/QtCoap/private/qcoapqudpconnection_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN26QCoapQUdpConnectionPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN26QCoapQUdpConnectionPrivate4bindEv": ["bool", "address"],
+    "ritual_ZNK26QCoapQUdpConnectionPrivate6socketEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK26QCoapQUdpConnectionPrivate31datagramMatchesNetworkInterfaceERK16QNetworkDatagram": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN26QCoapQUdpConnectionPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK26QCoapQUdpConnectionPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_take_QCoapQUdpConnectionPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN26QCoapQUdpConnectionPrivate4bindEv": ["bool", "address"]
+  }
+}

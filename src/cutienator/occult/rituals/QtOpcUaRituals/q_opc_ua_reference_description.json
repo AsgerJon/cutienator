@@ -1,0 +1,61 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtOpcUa/qopcuareferencedescription.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZN26QOpcUaReferenceDescriptionC1Ev": ["address"],
+    "ritual_ZN26QOpcUaReferenceDescriptionC1ERKS_": ["address", "address"],
+    "ritual_ZN26QOpcUaReferenceDescriptionD1Ev": ["nothing", "address"],
+    "ritual_ZNK26QOpcUaReferenceDescription9refTypeIdEv": [
+      "text", "address"
+    ],
+    "ritual_ZN26QOpcUaReferenceDescription12setRefTypeIdERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK26QOpcUaReferenceDescription12targetNodeIdEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QOpcUaReferenceDescription15setTargetNodeIdERK20QOpcUaExpandedNodeId": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK26QOpcUaReferenceDescription10browseNameEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QOpcUaReferenceDescription13setBrowseNameERK19QOpcUaQualifiedName": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK26QOpcUaReferenceDescription11displayNameEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QOpcUaReferenceDescription14setDisplayNameERK19QOpcUaLocalizedText": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK26QOpcUaReferenceDescription9nodeClassEv": ["int", "address"],
+    "ritual_ZN26QOpcUaReferenceDescription12setNodeClassEN6QOpcUa9NodeClassE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN26QOpcUaReferenceDescription21setIsForwardReferenceEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK26QOpcUaReferenceDescription18isForwardReferenceEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN26QOpcUaReferenceDescription17setTypeDefinitionERK20QOpcUaExpandedNodeId": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK26QOpcUaReferenceDescription14typeDefinitionEv": [
+      "address", "address"
+    ],
+    "ritual_list_make_QOpcUaReferenceDescription": ["address"],
+    "ritual_list_add_QOpcUaReferenceDescription": [
+      "nothing", "address", "address"
+    ],
+    "ritual_list_size_QOpcUaReferenceDescription": ["long long", "address"],
+    "ritual_list_at_QOpcUaReferenceDescription": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_QOpcUaReferenceDescription": ["nothing", "address"]
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGraphs/qcustomseriescanvasrenderer.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "parts first": [
+    "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
+  ],
+  "rows": {
+    "ritual_ZN27QCustomSeriesCanvasRendererD1Ev": ["nothing", "address"],
+    "ritual_ZN27QCustomSeriesCanvasRenderer19initializeResourcesEP13QCustomSeriesP14QCanvasPainter": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN27QCustomSeriesCanvasRenderer15synchronizeDataEP13QCustomSeriesP18QCanvasPainterItem": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN27QCustomSeriesCanvasRenderer14canvasPrePaintEP14QCanvasPainter": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN27QCustomSeriesCanvasRenderer11canvasPaintEP14QCanvasPainter": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QCustomSeriesCanvasRenderer": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN27QCustomSeriesCanvasRenderer19initializeResourcesEP13QCustomSeriesP14QCanvasPainter": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN27QCustomSeriesCanvasRenderer15synchronizeDataEP13QCustomSeriesP18QCanvasPainterItem": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN27QCustomSeriesCanvasRenderer14canvasPrePaintEP14QCanvasPainter": [
+      "nothing", "address", "address"
+    ]
+  }
+}

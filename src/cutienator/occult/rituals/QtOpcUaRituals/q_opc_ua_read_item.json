@@ -1,0 +1,33 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtOpcUa/qopcuareaditem.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN14QOpcUaReadItemC1Ev": ["address"],
+    "ritual_ZN14QOpcUaReadItemC1ERKS_": ["address", "address"],
+    "ritual_ZN14QOpcUaReadItemC1ERK7QStringN6QOpcUa13NodeAttributeES2_": [
+      "address", "text", "int", "text"
+    ],
+    "ritual_ZN14QOpcUaReadItemD1Ev": ["nothing", "address"],
+    "ritual_ZNK14QOpcUaReadItem6nodeIdEv": ["text", "address"],
+    "ritual_ZN14QOpcUaReadItem9setNodeIdERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK14QOpcUaReadItem9attributeEv": ["int", "address"],
+    "ritual_ZN14QOpcUaReadItem12setAttributeEN6QOpcUa13NodeAttributeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK14QOpcUaReadItem10indexRangeEv": ["text", "address"],
+    "ritual_ZN14QOpcUaReadItem13setIndexRangeERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZeqRK14QOpcUaReadItemS1_": ["bool", "address", "address"],
+    "ritual_ZneRK14QOpcUaReadItemS1_": ["bool", "address", "address"],
+    "ritual_list_make_QOpcUaReadItem": ["address"],
+    "ritual_list_add_QOpcUaReadItem": ["nothing", "address", "address"],
+    "ritual_list_size_QOpcUaReadItem": ["long long", "address"],
+    "ritual_list_at_QOpcUaReadItem": ["address", "address", "long long"],
+    "ritual_list_drop_QOpcUaReadItem": ["nothing", "address"]
+  }
+}

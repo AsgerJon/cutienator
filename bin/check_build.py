@@ -1,6 +1,7 @@
 """
-Compiles every ritual file and joins them, on the machine it runs on,
-and says EVERYTHING the compiler and the linker refuse.
+Compiles every ritual file and joins those of each part of Qt into
+its target file, on the machine it runs on, and says EVERYTHING the
+compiler and the linker refuse.
 
   PYTHONPATH=src python bin/check_build.py REPORT_FILE
 
@@ -31,16 +32,6 @@ from cutienator.occult import Build, Rituals
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import List
-
-
-def createBuild() -> Build:
-  """Gives a 'Build' told what 'Rituals.build()' tells its own."""
-  build = Build()
-  build.setRitualFiles(*Rituals.getBuiltRitualFiles())
-  build.setTargetFile(Rituals.getTargetFile())
-  build.setQtSharedObjects(*Rituals.getQtSharedObjects())
-  build.setComponents(*Rituals.getInstalledParts())
-  return build
 
 
 def describeMachine(build: Build) -> List[str]:
@@ -107,38 +98,45 @@ def main(reportFile: str) -> int:
   -------
 
   int
-    The exit code: 0 when every ritual file compiled and the link
-    missed nothing, else 1.
+    The exit code: 0 when every ritual file compiled and no link
+    missed anything, else 1.
   """
-  build = createBuild()
+  builds = [
+      Rituals.createPartBuild(partName)
+      for partName in Rituals.getBuiltParts()]
   began = time.time()
-  lines = [*describeMachine(build)]
-  ritualFiles = build.getRitualFiles()
-  verdict = 0
-  try:
-    refusals = compileAll(build)
-  except RuntimeError as runtimeError:
-    #  The common header itself was refused: no ritual file was tried.
-    lines.append('the precompiled header was refused:')
-    lines.append('  %s' % str(runtimeError)[-3000:])
-    refusals, verdict = [], 1
-  lines.append('ritual files: %d, refused by the compiler: %d' % (
-      len(ritualFiles), len(refusals)))
+  lines = [*describeMachine(builds[0])]
+  ritualCount, refusals, verdict = 0, [], 0
+  for build in builds:
+    ritualCount += len(build.getRitualFiles())
+    try:
+      refusals.extend(compileAll(build))
+    except RuntimeError as runtimeError:
+      #  The common header itself was refused: no ritual file of the
+      #  part was tried.
+      lines.append('the precompiled header of %s was refused:' % (
+          os.path.basename(build.getTargetFile())))
+      lines.append('  %s' % str(runtimeError)[-3000:])
+      verdict = 1
+  lines.append('target files: %d, ritual files: %d, refused by the '
+               'compiler: %d' % (len(builds), ritualCount, len(refusals)))
   for refusal in refusals:
     lines.extend(describeRefusal(refusal))
   if refusals:
     verdict = 1
   if not verdict:
-    try:
-      build._run(*build.getLinkCommand())
-    except RuntimeError as runtimeError:
-      #  The linker names every function it misses, and who asks for
-      #  it. Its words are kept as they are.
-      lines.append('the link was refused:')
-      lines.append(str(runtimeError)[-20000:])
-      verdict = 1
-    else:
-      lines.append('the link missed nothing: %s' % build.getTargetFile())
+    for build in builds:
+      try:
+        build._run(*build.getLinkCommand())
+      except RuntimeError as runtimeError:
+        #  The linker names every function it misses, and who asks for
+        #  it. Its words are kept as they are.
+        lines.append('the link of %s was refused:' % build.getTargetFile())
+        lines.append(str(runtimeError)[-20000:])
+        verdict = 1
+    if not verdict:
+      lines.append('the links missed nothing: %d target files beside %s' % (
+          len(builds), os.path.dirname(builds[0].getTargetFile())))
   lines.append('seconds: %d' % (time.time() - began))
   lines.append('verdict: %s' % ('REFUSED' if verdict else 'OK'))
   text = '%s\n' % '\n'.join(lines)

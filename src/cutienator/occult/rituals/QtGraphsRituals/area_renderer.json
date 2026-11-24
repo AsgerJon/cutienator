@@ -1,0 +1,31 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGraphs/6.12.0/QtGraphs/private/arearenderer_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "parts first": [
+    "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
+  ],
+  "rows": {
+    "ritual_ZNK12AreaRenderer10metaObjectEv": ["address", "address"],
+    "ritual_ZN12AreaRendererD1Ev": ["nothing", "address"],
+    "ritual_ZN12AreaRenderer19resetShapePathCountEv": ["nothing", "address"],
+    "ritual_ZN12AreaRenderer15synchronizeDataEv": ["nothing", "address"],
+    "ritual_ZN12AreaRenderer12updateSeriesEP11QAreaSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12AreaRenderer22seriesAboutToBeRemovedEP15QAbstractSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12AreaRenderer26calculateRenderCoordinatesEP11QAreaSeriesddPdS2_": [
+      "nothing", "address", "address", "double", "double", "address",
+      "address"
+    ],
+    "ritual_ZNK12AreaRenderer24calculateAxisCoordinatesEP11QAreaSeriesddPdS2_": [
+      "nothing", "address", "address", "double", "double", "address",
+      "address"
+    ],
+    "ritual_take_AreaRenderer": ["bool", "address", "chars", "address"]
+  }
+}

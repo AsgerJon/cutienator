@@ -1,0 +1,58 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGraphs/qscatterdataproxy.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "parts first": [
+    "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
+  ],
+  "rows": {
+    "ritual_ZNK17QScatterDataProxy10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QScatterDataProxy2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QScatterDataProxy24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QScatterDataProxyC1EP7QObject": ["address", "address"],
+    "ritual_ZN17QScatterDataProxyD1Ev": ["nothing", "address"],
+    "ritual_ZNK17QScatterDataProxy6seriesEv": ["address", "address"],
+    "ritual_ZNK17QScatterDataProxy9itemCountEv": ["long long", "address"],
+    "ritual_ZNK17QScatterDataProxy6itemAtEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZNK17QScatterDataProxy7scaleAtEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN17QScatterDataProxy10resetArrayEv": ["nothing", "address"],
+    "ritual_ZN17QScatterDataProxy10resetArrayE5QListI16QScatterDataItemE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QScatterDataProxy15resetScaleArrayE5QListI9QVector3DE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QScatterDataProxy7setItemEx16QScatterDataItem": [
+      "nothing", "address", "long long", "address"
+    ],
+    "ritual_ZN17QScatterDataProxy8setItemsEx5QListI16QScatterDataItemE": [
+      "nothing", "address", "long long", "address"
+    ],
+    "ritual_ZN17QScatterDataProxy7addItemE16QScatterDataItem": [
+      "long long", "address", "address"
+    ],
+    "ritual_ZN17QScatterDataProxy8addItemsE5QListI16QScatterDataItemE": [
+      "long long", "address", "address"
+    ],
+    "ritual_ZN17QScatterDataProxy10insertItemEx16QScatterDataItem": [
+      "nothing", "address", "long long", "address"
+    ],
+    "ritual_ZN17QScatterDataProxy11insertItemsEx5QListI16QScatterDataItemE": [
+      "nothing", "address", "long long", "address"
+    ],
+    "ritual_ZN17QScatterDataProxy11removeItemsExx": [
+      "nothing", "address", "long long", "long long"
+    ],
+    "ritual_take_QScatterDataProxy": ["bool", "address", "chars", "address"]
+  }
+}

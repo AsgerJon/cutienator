@@ -1,0 +1,85 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGraphs/qvalue3daxisformatter.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "parts first": [
+    "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
+  ],
+  "rows": {
+    "ritual_ZNK21QValue3DAxisFormatter10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QValue3DAxisFormatter2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN21QValue3DAxisFormatter6d_funcEv": ["address", "address"],
+    "ritual_ZNK21QValue3DAxisFormatter6d_funcEv": ["address", "address"],
+    "ritual_ZN21QValue3DAxisFormatterC1EP7QObject": ["address", "address"],
+    "ritual_ZN21QValue3DAxisFormatterD1Ev": ["nothing", "address"],
+    "ritual_ZN21QValue3DAxisFormatter22markDirtyNoLabelChangeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QValue3DAxisFormatter17setAllowNegativesEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK21QValue3DAxisFormatter14allowNegativesEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QValue3DAxisFormatter12setAllowZeroEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK21QValue3DAxisFormatter9allowZeroEv": ["bool", "address"],
+    "ritual_ZN21QValue3DAxisFormatter7setAxisEP12QValue3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21QValue3DAxisFormatter17createNewInstanceEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QValue3DAxisFormatter11recalculateEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QValue3DAxisFormatter14stringForValueEdRK7QString": [
+      "text", "address", "double", "text"
+    ],
+    "ritual_ZNK21QValue3DAxisFormatter10positionAtEf": [
+      "float", "address", "float"
+    ],
+    "ritual_ZNK21QValue3DAxisFormatter7valueAtEf": [
+      "float", "address", "float"
+    ],
+    "ritual_ZN21QValue3DAxisFormatter9markDirtyEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK21QValue3DAxisFormatter4axisEv": ["address", "address"],
+    "ritual_ZNKR21QValue3DAxisFormatter12labelStringsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QValue3DAxisFormatter15setLabelStringsE5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QValue3DAxisFormatter9setLocaleERK7QLocale": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21QValue3DAxisFormatter6localeEv": ["address", "address"],
+    "ritual_take_QValue3DAxisFormatter": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK21QValue3DAxisFormatter17createNewInstanceEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN21QValue3DAxisFormatter11recalculateEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN21QValue3DAxisFormatter14stringForValueEdRK7QString": [
+      "text", "address", "double", "text"
+    ],
+    "ritual_own_ZNK21QValue3DAxisFormatter10positionAtEf": [
+      "float", "address", "float"
+    ],
+    "ritual_own_ZNK21QValue3DAxisFormatter7valueAtEf": [
+      "float", "address", "float"
+    ]
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGraphs/qvalue3daxis.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "parts first": [
+    "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
+  ],
+  "rows": {
+    "ritual_ZNK12QValue3DAxis10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QValue3DAxis2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN12QValue3DAxisC1EP7QObject": ["address", "address"],
+    "ritual_ZN12QValue3DAxisD1Ev": ["nothing", "address"],
+    "ritual_ZN12QValue3DAxis15setSegmentCountEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZNK12QValue3DAxis12segmentCountEv": ["long long", "address"],
+    "ritual_ZN12QValue3DAxis18setSubSegmentCountEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZNK12QValue3DAxis15subSegmentCountEv": ["long long", "address"],
+    "ritual_ZN12QValue3DAxis14setLabelFormatERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK12QValue3DAxis11labelFormatEv": ["text", "address"],
+    "ritual_ZN12QValue3DAxis12setFormatterEP21QValue3DAxisFormatter": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12QValue3DAxis9formatterEv": ["address", "address"],
+    "ritual_ZN12QValue3DAxis11setReversedEb": ["nothing", "address", "bool"],
+    "ritual_ZNK12QValue3DAxis8reversedEv": ["bool", "address"],
+    "ritual_ZN12QValue3DAxis11recalculateEv": ["nothing", "address"],
+    "ritual_ZN12QValue3DAxis8gridSizeEv": ["long long", "address"],
+    "ritual_ZN12QValue3DAxis11subGridSizeEv": ["long long", "address"],
+    "ritual_ZN12QValue3DAxis14gridPositionAtEx": [
+      "float", "address", "long long"
+    ],
+    "ritual_ZN12QValue3DAxis17subGridPositionAtEx": [
+      "float", "address", "long long"
+    ],
+    "ritual_ZN12QValue3DAxis15labelPositionAtEx": [
+      "float", "address", "long long"
+    ],
+    "ritual_ZN12QValue3DAxis10positionAtEf": ["float", "address", "float"],
+    "ritual_ZN12QValue3DAxis14stringForValueEf": [
+      "text", "address", "float"
+    ],
+    "ritual_take_QValue3DAxis": ["bool", "address", "chars", "address"],
+    "ritual_list_make_QValue3DAxis_ptr": ["address"],
+    "ritual_list_add_QValue3DAxis_ptr": ["nothing", "address", "address"],
+    "ritual_list_size_QValue3DAxis_ptr": ["long long", "address"],
+    "ritual_list_at_QValue3DAxis_ptr": ["address", "address", "long long"],
+    "ritual_list_drop_QValue3DAxis_ptr": ["nothing", "address"]
+  }
+}

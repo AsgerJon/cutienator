@@ -1,0 +1,34 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtOpcUa/qopcuahistoryevent.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN18QOpcUaHistoryEventC1Ev": ["address"],
+    "ritual_ZN18QOpcUaHistoryEventC1ERK7QString": ["address", "text"],
+    "ritual_ZN18QOpcUaHistoryEventC1ERKS_": ["address", "address"],
+    "ritual_ZN18QOpcUaHistoryEventD1Ev": ["nothing", "address"],
+    "ritual_ZNK18QOpcUaHistoryEvent10statusCodeEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZN18QOpcUaHistoryEvent13setStatusCodeEN6QOpcUa12UaStatusCodeE": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZNK18QOpcUaHistoryEvent5countEv": ["int", "address"],
+    "ritual_ZN18QOpcUaHistoryEvent8addEventERK5QListI8QVariantE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QOpcUaHistoryEvent6nodeIdEv": ["text", "address"],
+    "ritual_ZN18QOpcUaHistoryEvent9setNodeIdERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZeqRK18QOpcUaHistoryEventS1_": ["bool", "address", "address"],
+    "ritual_ZneRK18QOpcUaHistoryEventS1_": ["bool", "address", "address"],
+    "ritual_list_make_QOpcUaHistoryEvent": ["address"],
+    "ritual_list_add_QOpcUaHistoryEvent": ["nothing", "address", "address"],
+    "ritual_list_size_QOpcUaHistoryEvent": ["long long", "address"],
+    "ritual_list_at_QOpcUaHistoryEvent": ["address", "address", "long long"],
+    "ritual_list_drop_QOpcUaHistoryEvent": ["nothing", "address"]
+  }
+}

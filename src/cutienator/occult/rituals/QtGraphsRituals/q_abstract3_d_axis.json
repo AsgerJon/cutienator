@@ -1,0 +1,78 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGraphs/qabstract3daxis.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "parts first": [
+    "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
+  ],
+  "rows": {
+    "ritual_ZNK15QAbstract3DAxis10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QAbstract3DAxis2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN15QAbstract3DAxis24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QAbstract3DAxisD1Ev": ["nothing", "address"],
+    "ritual_ZN15QAbstract3DAxis8setTitleERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK15QAbstract3DAxis5titleEv": ["text", "address"],
+    "ritual_ZN15QAbstract3DAxis9setLabelsERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QAbstract3DAxis6labelsEv": ["address", "address"],
+    "ritual_ZNK15QAbstract3DAxis11orientationEv": ["int", "address"],
+    "ritual_ZNK15QAbstract3DAxis4typeEv": ["int", "address"],
+    "ritual_ZN15QAbstract3DAxis6setMinEf": ["nothing", "address", "float"],
+    "ritual_ZNK15QAbstract3DAxis3minEv": ["float", "address"],
+    "ritual_ZN15QAbstract3DAxis6setMaxEf": ["nothing", "address", "float"],
+    "ritual_ZNK15QAbstract3DAxis3maxEv": ["float", "address"],
+    "ritual_ZN15QAbstract3DAxis18setAutoAdjustRangeEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK15QAbstract3DAxis17isAutoAdjustRangeEv": ["bool", "address"],
+    "ritual_ZN15QAbstract3DAxis21setScaleLabelsByCountEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK15QAbstract3DAxis20isScaleLabelsByCountEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN15QAbstract3DAxis12setLabelSizeEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK15QAbstract3DAxis9labelSizeEv": ["double", "address"],
+    "ritual_ZN15QAbstract3DAxis8setRangeEff": [
+      "nothing", "address", "float", "float"
+    ],
+    "ritual_ZN15QAbstract3DAxis17setLabelAutoAngleEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK15QAbstract3DAxis14labelAutoAngleEv": ["float", "address"],
+    "ritual_ZN15QAbstract3DAxis15setTitleVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK15QAbstract3DAxis14isTitleVisibleEv": ["bool", "address"],
+    "ritual_ZN15QAbstract3DAxis16setLabelsVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK15QAbstract3DAxis13labelsVisibleEv": ["bool", "address"],
+    "ritual_ZN15QAbstract3DAxis13setTitleFixedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK15QAbstract3DAxis12isTitleFixedEv": ["bool", "address"],
+    "ritual_ZN15QAbstract3DAxis14setTitleOffsetEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK15QAbstract3DAxis11titleOffsetEv": ["float", "address"],
+    "ritual_take_QAbstract3DAxis": ["bool", "address", "chars", "address"],
+    "ritual_list_make_QAbstract3DAxis_ptr": ["address"],
+    "ritual_list_add_QAbstract3DAxis_ptr": ["nothing", "address", "address"],
+    "ritual_list_size_QAbstract3DAxis_ptr": ["long long", "address"],
+    "ritual_list_at_QAbstract3DAxis_ptr": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_QAbstract3DAxis_ptr": ["nothing", "address"]
+  }
+}

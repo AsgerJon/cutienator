@@ -1,0 +1,63 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGraphs/qbarcategoryaxis.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "parts first": [
+    "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
+  ],
+  "rows": {
+    "ritual_ZNK16QBarCategoryAxis10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QBarCategoryAxis2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN16QBarCategoryAxisC1EP7QObject": ["address", "address"],
+    "ritual_ZN16QBarCategoryAxisD1Ev": ["nothing", "address"],
+    "ritual_ZNK16QBarCategoryAxis4typeEv": ["int", "address"],
+    "ritual_ZN16QBarCategoryAxis6appendERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QBarCategoryAxis6appendERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN16QBarCategoryAxis6removeERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN16QBarCategoryAxis6removeEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN16QBarCategoryAxis6insertExRK7QString": [
+      "nothing", "address", "long long", "text"
+    ],
+    "ritual_ZN16QBarCategoryAxis7replaceERK7QStringS2_": [
+      "nothing", "address", "text", "text"
+    ],
+    "ritual_ZN16QBarCategoryAxis5clearEv": ["nothing", "address"],
+    "ritual_ZNK16QBarCategoryAxis2atEx": ["text", "address", "long long"],
+    "ritual_ZN16QBarCategoryAxis13setCategoriesERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QBarCategoryAxis10categoriesEv": ["address", "address"],
+    "ritual_ZNK16QBarCategoryAxis5countEv": ["long long", "address"],
+    "ritual_ZN16QBarCategoryAxis16setLabelPositionENS_13LabelPositionE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK16QBarCategoryAxis13labelPositionEv": ["int", "address"],
+    "ritual_ZN16QBarCategoryAxis6setMinERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK16QBarCategoryAxis3minEv": ["text", "address"],
+    "ritual_ZN16QBarCategoryAxis6setMaxERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK16QBarCategoryAxis3maxEv": ["text", "address"],
+    "ritual_ZN16QBarCategoryAxis8setRangeERK7QStringS2_": [
+      "nothing", "address", "text", "text"
+    ],
+    "ritual_ZN16QBarCategoryAxis6d_funcEv": ["address", "address"],
+    "ritual_ZNK16QBarCategoryAxis6d_funcEv": ["address", "address"],
+    "ritual_take_QBarCategoryAxis": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK16QBarCategoryAxis4typeEv": ["int", "address"]
+  }
+}

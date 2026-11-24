@@ -1,0 +1,95 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGraphs/qpieseries.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "parts first": [
+    "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
+  ],
+  "rows": {
+    "ritual_ZNK10QPieSeries10metaObjectEv": ["address", "address"],
+    "ritual_ZN10QPieSeries2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN10QPieSeriesC1EP7QObject": ["address", "address"],
+    "ritual_ZN10QPieSeriesD1Ev": ["nothing", "address"],
+    "ritual_ZNK10QPieSeries4typeEv": ["int", "address"],
+    "ritual_ZN10QPieSeries6appendEP9QPieSlice": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN10QPieSeries6appendERK5QListIP9QPieSliceE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN10QPieSeries6insertExP9QPieSlice": [
+      "bool", "address", "long long", "address"
+    ],
+    "ritual_ZN10QPieSeries6removeEP9QPieSlice": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN10QPieSeries5clearEv": ["nothing", "address"],
+    "ritual_ZN10QPieSeries6appendERK7QStringd": [
+      "address", "address", "text", "double"
+    ],
+    "ritual_ZN10QPieSeries2atEx": ["address", "address", "long long"],
+    "ritual_ZN10QPieSeries4findERK7QString": ["address", "address", "text"],
+    "ritual_ZN10QPieSeries7replaceExP9QPieSlice": [
+      "bool", "address", "long long", "address"
+    ],
+    "ritual_ZN10QPieSeries14removeMultipleExi": [
+      "nothing", "address", "long long", "int"
+    ],
+    "ritual_ZN10QPieSeries6removeEx": ["bool", "address", "long long"],
+    "ritual_ZN10QPieSeries7replaceEP9QPieSliceS1_": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN10QPieSeries7replaceERK5QListIP9QPieSliceE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN10QPieSeries4takeEP9QPieSlice": ["bool", "address", "address"],
+    "ritual_ZNK10QPieSeries6slicesEv": ["address", "address"],
+    "ritual_ZNK10QPieSeries5countEv": ["long long", "address"],
+    "ritual_ZNK10QPieSeries7isEmptyEv": ["bool", "address"],
+    "ritual_ZNK10QPieSeries3sumEv": ["double", "address"],
+    "ritual_ZN10QPieSeries21setHorizontalPositionEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK10QPieSeries18horizontalPositionEv": ["double", "address"],
+    "ritual_ZN10QPieSeries19setVerticalPositionEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK10QPieSeries16verticalPositionEv": ["double", "address"],
+    "ritual_ZN10QPieSeries10setPieSizeEd": ["nothing", "address", "double"],
+    "ritual_ZNK10QPieSeries7pieSizeEv": ["double", "address"],
+    "ritual_ZN10QPieSeries13setStartAngleEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK10QPieSeries10startAngleEv": ["double", "address"],
+    "ritual_ZN10QPieSeries11setEndAngleEd": ["nothing", "address", "double"],
+    "ritual_ZNK10QPieSeries8endAngleEv": ["double", "address"],
+    "ritual_ZN10QPieSeries11setHoleSizeEd": ["nothing", "address", "double"],
+    "ritual_ZNK10QPieSeries8holeSizeEv": ["double", "address"],
+    "ritual_ZN10QPieSeries16setLabelsVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN10QPieSeries17setLabelsPositionEN9QPieSlice13LabelPositionE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK10QPieSeries21angleSpanVisibleLimitEv": ["double", "address"],
+    "ritual_ZN10QPieSeries24setAngleSpanVisibleLimitEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK10QPieSeries24angleSpanLabelVisibilityEv": ["int", "address"],
+    "ritual_ZN10QPieSeries27setAngleSpanLabelVisibilityENS_15LabelVisibilityE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNKR10QPieSeries11sliceLabelsEv": ["address", "address"],
+    "ritual_ZN10QPieSeries14setSliceLabelsE5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QPieSeries17handleSliceChangeEv": ["nothing", "address"],
+    "ritual_ZN10QPieSeries17componentCompleteEv": ["nothing", "address"],
+    "ritual_ZN10QPieSeries6d_funcEv": ["address", "address"],
+    "ritual_ZNK10QPieSeries6d_funcEv": ["address", "address"],
+    "ritual_take_QPieSeries": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK10QPieSeries4typeEv": ["int", "address"],
+    "ritual_own_ZN10QPieSeries17componentCompleteEv": ["nothing", "address"]
+  }
+}

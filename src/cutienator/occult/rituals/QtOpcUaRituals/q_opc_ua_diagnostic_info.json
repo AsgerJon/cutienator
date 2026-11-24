@@ -1,0 +1,87 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtOpcUa/qopcuadiagnosticinfo.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN20QOpcUaDiagnosticInfoC1Ev": ["address"],
+    "ritual_ZN20QOpcUaDiagnosticInfoD1Ev": ["nothing", "address"],
+    "ritual_ZN20QOpcUaDiagnosticInfoC1ERKS_": ["address", "address"],
+    "ritual_ZNK20QOpcUaDiagnosticInfocv8QVariantEv": ["address", "address"],
+    "ritual_ZNK20QOpcUaDiagnosticInfo10symbolicIdEv": ["int", "address"],
+    "ritual_ZN20QOpcUaDiagnosticInfo13setSymbolicIdEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK20QOpcUaDiagnosticInfo13hasSymbolicIdEv": ["bool", "address"],
+    "ritual_ZN20QOpcUaDiagnosticInfo16setHasSymbolicIdEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK20QOpcUaDiagnosticInfo12namespaceUriEv": ["int", "address"],
+    "ritual_ZN20QOpcUaDiagnosticInfo15setNamespaceUriEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK20QOpcUaDiagnosticInfo15hasNamespaceUriEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN20QOpcUaDiagnosticInfo18setHasNamespaceUriEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK20QOpcUaDiagnosticInfo6localeEv": ["int", "address"],
+    "ritual_ZN20QOpcUaDiagnosticInfo9setLocaleEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK20QOpcUaDiagnosticInfo9hasLocaleEv": ["bool", "address"],
+    "ritual_ZN20QOpcUaDiagnosticInfo12setHasLocaleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK20QOpcUaDiagnosticInfo13localizedTextEv": ["int", "address"],
+    "ritual_ZN20QOpcUaDiagnosticInfo16setLocalizedTextEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK20QOpcUaDiagnosticInfo16hasLocalizedTextEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN20QOpcUaDiagnosticInfo19setHasLocalizedTextEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK20QOpcUaDiagnosticInfo14additionalInfoEv": [
+      "text", "address"
+    ],
+    "ritual_ZN20QOpcUaDiagnosticInfo17setAdditionalInfoERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK20QOpcUaDiagnosticInfo17hasAdditionalInfoEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN20QOpcUaDiagnosticInfo20setHasAdditionalInfoEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK20QOpcUaDiagnosticInfo15innerStatusCodeEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZN20QOpcUaDiagnosticInfo18setInnerStatusCodeEN6QOpcUa12UaStatusCodeE": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZNK20QOpcUaDiagnosticInfo18hasInnerStatusCodeEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN20QOpcUaDiagnosticInfo21setHasInnerStatusCodeEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK20QOpcUaDiagnosticInfo19innerDiagnosticInfoEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QOpcUaDiagnosticInfo22setInnerDiagnosticInfoERKS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QOpcUaDiagnosticInfo22hasInnerDiagnosticInfoEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN20QOpcUaDiagnosticInfo25setHasInnerDiagnosticInfoEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZeqRK20QOpcUaDiagnosticInfoS1_": ["bool", "address", "address"],
+    "ritual_ZneRK20QOpcUaDiagnosticInfoS1_": ["bool", "address", "address"]
+  }
+}

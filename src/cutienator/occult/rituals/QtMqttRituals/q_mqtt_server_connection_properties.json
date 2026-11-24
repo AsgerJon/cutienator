@@ -1,0 +1,53 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtMqtt/qmqttconnectionproperties.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZN31QMqttServerConnectionPropertiesC1Ev": ["address"],
+    "ritual_ZN31QMqttServerConnectionPropertiesC1ERKS_": [
+      "address", "address"
+    ],
+    "ritual_ZN31QMqttServerConnectionPropertiesD1Ev": ["nothing", "address"],
+    "ritual_ZNK31QMqttServerConnectionProperties19availablePropertiesEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK31QMqttServerConnectionProperties7isValidEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK31QMqttServerConnectionProperties10maximumQoSEv": [
+      "unsigned char", "address"
+    ],
+    "ritual_ZNK31QMqttServerConnectionProperties15retainAvailableEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK31QMqttServerConnectionProperties16clientIdAssignedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK31QMqttServerConnectionProperties6reasonEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK31QMqttServerConnectionProperties10reasonCodeEv": [
+      "unsigned char", "address"
+    ],
+    "ritual_ZNK31QMqttServerConnectionProperties17wildcardSupportedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK31QMqttServerConnectionProperties31subscriptionIdentifierSupportedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK31QMqttServerConnectionProperties27sharedSubscriptionSupportedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK31QMqttServerConnectionProperties15serverKeepAliveEv": [
+      "unsigned short", "address"
+    ],
+    "ritual_ZNK31QMqttServerConnectionProperties19responseInformationEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK31QMqttServerConnectionProperties15serverReferenceEv": [
+      "text", "address"
+    ]
+  }
+}

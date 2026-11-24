@@ -1,0 +1,48 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtOpcUa/6.12.0/QtOpcUa/private/qopcuaclient_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QOpcUaClientPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK19QOpcUaClientPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN19QOpcUaClientPrivateC1EP16QOpcUaClientImpl": [
+      "address", "address"
+    ],
+    "ritual_ZN19QOpcUaClientPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN19QOpcUaClientPrivate17connectToEndpointERK25QOpcUaEndpointDescription": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QOpcUaClientPrivate22disconnectFromEndpointEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QOpcUaClientPrivate16setStateAndErrorEN12QOpcUaClient11ClientStateENS0_11ClientErrorE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN19QOpcUaClientPrivate20updateNamespaceArrayEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK19QOpcUaClientPrivate14namespaceArrayEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QOpcUaClientPrivate21namespaceArrayUpdatedE6QFlagsIN6QOpcUa13NodeAttributeEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN19QOpcUaClientPrivate29setupNamespaceArrayMonitoringEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QOpcUaClientPrivate22setApplicationIdentityERK25QOpcUaApplicationIdentity": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QOpcUaClientPrivate19applicationIdentityEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QOpcUaClientPrivate19setPkiConfigurationERK22QOpcUaPkiConfiguration": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QOpcUaClientPrivate16pkiConfigurationEv": [
+      "address", "address"
+    ]
+  }
+}

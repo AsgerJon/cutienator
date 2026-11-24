@@ -1,0 +1,126 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtOpcUa/qopcuamonitoringparameters.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZN26QOpcUaMonitoringParametersC1Ev": ["address"],
+    "ritual_ZN26QOpcUaMonitoringParametersD1Ev": ["nothing", "address"],
+    "ritual_ZN26QOpcUaMonitoringParametersC1EdNS_16SubscriptionTypeEj": [
+      "address", "double", "int", "unsigned int"
+    ],
+    "ritual_ZN26QOpcUaMonitoringParametersC1ERKS_": ["address", "address"],
+    "ritual_ZNK26QOpcUaMonitoringParameters16samplingIntervalEv": [
+      "double", "address"
+    ],
+    "ritual_ZN26QOpcUaMonitoringParameters19setSamplingIntervalEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK26QOpcUaMonitoringParameters6filterEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QOpcUaMonitoringParameters9setFilterERKNS_16DataChangeFilterE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QOpcUaMonitoringParameters9setFilterERKNS_11EventFilterE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QOpcUaMonitoringParameters11clearFilterEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK26QOpcUaMonitoringParameters12filterResultEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QOpcUaMonitoringParameters15setFilterResultERK23QOpcUaEventFilterResult": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QOpcUaMonitoringParameters17clearFilterResultEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK26QOpcUaMonitoringParameters9queueSizeEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZN26QOpcUaMonitoringParameters12setQueueSizeEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZNK26QOpcUaMonitoringParameters13discardOldestEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN26QOpcUaMonitoringParameters16setDiscardOldestEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK26QOpcUaMonitoringParameters14monitoringModeEv": [
+      "int", "address"
+    ],
+    "ritual_ZN26QOpcUaMonitoringParameters17setMonitoringModeENS_14MonitoringModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK26QOpcUaMonitoringParameters14subscriptionIdEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZN26QOpcUaMonitoringParameters17setSubscriptionIdEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZNK26QOpcUaMonitoringParameters15monitoredItemIdEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZN26QOpcUaMonitoringParameters18setMonitoredItemIdEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZNK26QOpcUaMonitoringParameters18publishingIntervalEv": [
+      "double", "address"
+    ],
+    "ritual_ZN26QOpcUaMonitoringParameters21setPublishingIntervalEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK26QOpcUaMonitoringParameters13lifetimeCountEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZN26QOpcUaMonitoringParameters16setLifetimeCountEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZNK26QOpcUaMonitoringParameters17maxKeepAliveCountEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZN26QOpcUaMonitoringParameters20setMaxKeepAliveCountEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZNK26QOpcUaMonitoringParameters26maxNotificationsPerPublishEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZN26QOpcUaMonitoringParameters29setMaxNotificationsPerPublishEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZNK26QOpcUaMonitoringParameters8priorityEv": [
+      "unsigned char", "address"
+    ],
+    "ritual_ZN26QOpcUaMonitoringParameters11setPriorityEh": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZNK26QOpcUaMonitoringParameters19isPublishingEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN26QOpcUaMonitoringParameters20setPublishingEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK26QOpcUaMonitoringParameters10statusCodeEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZN26QOpcUaMonitoringParameters13setStatusCodeEN6QOpcUa12UaStatusCodeE": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZNK26QOpcUaMonitoringParameters16subscriptionTypeEv": [
+      "int", "address"
+    ],
+    "ritual_ZN26QOpcUaMonitoringParameters19setSubscriptionTypeENS_16SubscriptionTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK26QOpcUaMonitoringParameters10indexRangeEv": [
+      "text", "address"
+    ],
+    "ritual_ZN26QOpcUaMonitoringParameters13setIndexRangeERK7QString": [
+      "nothing", "address", "text"
+    ]
+  }
+}

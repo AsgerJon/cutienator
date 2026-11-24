@@ -1,0 +1,70 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtOpcUa/qopcuaendpointdescription.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZN25QOpcUaEndpointDescriptionC1Ev": ["address"],
+    "ritual_ZN25QOpcUaEndpointDescriptionC1ERKS_": ["address", "address"],
+    "ritual_ZNK25QOpcUaEndpointDescriptioneqERKS_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN25QOpcUaEndpointDescriptionD1Ev": ["nothing", "address"],
+    "ritual_ZNK25QOpcUaEndpointDescription11endpointUrlEv": [
+      "text", "address"
+    ],
+    "ritual_ZN25QOpcUaEndpointDescription14setEndpointUrlERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK25QOpcUaEndpointDescription6serverEv": ["address", "address"],
+    "ritual_ZN25QOpcUaEndpointDescription9setServerERK28QOpcUaApplicationDescription": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK25QOpcUaEndpointDescription17serverCertificateEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QOpcUaEndpointDescription20setServerCertificateERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK25QOpcUaEndpointDescription12securityModeEv": [
+      "int", "address"
+    ],
+    "ritual_ZN25QOpcUaEndpointDescription15setSecurityModeENS_19MessageSecurityModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK25QOpcUaEndpointDescription14securityPolicyEv": [
+      "text", "address"
+    ],
+    "ritual_ZN25QOpcUaEndpointDescription17setSecurityPolicyERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK25QOpcUaEndpointDescription18userIdentityTokensEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QOpcUaEndpointDescription21setUserIdentityTokensERK5QListI21QOpcUaUserTokenPolicyE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK25QOpcUaEndpointDescription19transportProfileUriEv": [
+      "text", "address"
+    ],
+    "ritual_ZN25QOpcUaEndpointDescription22setTransportProfileUriERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK25QOpcUaEndpointDescription13securityLevelEv": [
+      "unsigned char", "address"
+    ],
+    "ritual_ZN25QOpcUaEndpointDescription16setSecurityLevelEh": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_list_make_QOpcUaEndpointDescription": ["address"],
+    "ritual_list_add_QOpcUaEndpointDescription": [
+      "nothing", "address", "address"
+    ],
+    "ritual_list_size_QOpcUaEndpointDescription": ["long long", "address"],
+    "ritual_list_at_QOpcUaEndpointDescription": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_QOpcUaEndpointDescription": ["nothing", "address"]
+  }
+}

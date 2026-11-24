@@ -1,0 +1,35 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtOpcUa/qopcuaenumfield.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15QOpcUaEnumFieldC1Ev": ["address"],
+    "ritual_ZN15QOpcUaEnumFieldC1ERKS_": ["address", "address"],
+    "ritual_ZNK15QOpcUaEnumFieldcv8QVariantEv": ["address", "address"],
+    "ritual_ZN15QOpcUaEnumFieldD1Ev": ["nothing", "address"],
+    "ritual_ZNK15QOpcUaEnumField5valueEv": ["long long", "address"],
+    "ritual_ZN15QOpcUaEnumField8setValueEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZNK15QOpcUaEnumField11displayNameEv": ["address", "address"],
+    "ritual_ZN15QOpcUaEnumField14setDisplayNameERK19QOpcUaLocalizedText": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QOpcUaEnumField11descriptionEv": ["address", "address"],
+    "ritual_ZN15QOpcUaEnumField14setDescriptionERK19QOpcUaLocalizedText": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QOpcUaEnumField4nameEv": ["text", "address"],
+    "ritual_ZN15QOpcUaEnumField7setNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZeqRK15QOpcUaEnumFieldS1_": ["bool", "address", "address"],
+    "ritual_ZneRK15QOpcUaEnumFieldS1_": ["bool", "address", "address"],
+    "ritual_list_make_QOpcUaEnumField": ["address"],
+    "ritual_list_add_QOpcUaEnumField": ["nothing", "address", "address"],
+    "ritual_list_size_QOpcUaEnumField": ["long long", "address"],
+    "ritual_list_at_QOpcUaEnumField": ["address", "address", "long long"],
+    "ritual_list_drop_QOpcUaEnumField": ["nothing", "address"]
+  }
+}

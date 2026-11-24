@@ -1,0 +1,20 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtOpcUa/6.12.0/QtOpcUa/private/qopcuainternaldatatypenode_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK26QOpcUaInternalDataTypeNode10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK26QOpcUaInternalDataTypeNode10definitionEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK26QOpcUaInternalDataTypeNode10isAbstractEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK26QOpcUaInternalDataTypeNode4nameEv": ["text", "address"],
+    "ritual_ZNK26QOpcUaInternalDataTypeNode6nodeIdEv": ["text", "address"]
+  }
+}

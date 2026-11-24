@@ -1,0 +1,42 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtOpcUa/qopcuadeletereferenceitem.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZN25QOpcUaDeleteReferenceItemC1Ev": ["address"],
+    "ritual_ZN25QOpcUaDeleteReferenceItemC1ERKS_": ["address", "address"],
+    "ritual_ZN25QOpcUaDeleteReferenceItemD1Ev": ["nothing", "address"],
+    "ritual_ZNK25QOpcUaDeleteReferenceItem12sourceNodeIdEv": [
+      "text", "address"
+    ],
+    "ritual_ZN25QOpcUaDeleteReferenceItem15setSourceNodeIdERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK25QOpcUaDeleteReferenceItem15referenceTypeIdEv": [
+      "text", "address"
+    ],
+    "ritual_ZN25QOpcUaDeleteReferenceItem18setReferenceTypeIdERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK25QOpcUaDeleteReferenceItem18isForwardReferenceEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN25QOpcUaDeleteReferenceItem21setIsForwardReferenceEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK25QOpcUaDeleteReferenceItem12targetNodeIdEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QOpcUaDeleteReferenceItem15setTargetNodeIdERK20QOpcUaExpandedNodeId": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK25QOpcUaDeleteReferenceItem19deleteBidirectionalEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN25QOpcUaDeleteReferenceItem22setDeleteBidirectionalEb": [
+      "nothing", "address", "bool"
+    ]
+  }
+}

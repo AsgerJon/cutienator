@@ -1,0 +1,52 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtOpcUa/6.12.0/QtOpcUa/private/qopcuanodeimpl_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK14QOpcUaNodeImpl10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QOpcUaNodeImpl2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN14QOpcUaNodeImplD1Ev": ["nothing", "address"],
+    "ritual_ZN14QOpcUaNodeImpl14readAttributesE6QFlagsIN6QOpcUa13NodeAttributeEERK7QString": [
+      "bool", "address", "int", "text"
+    ],
+    "ritual_ZN14QOpcUaNodeImpl16enableMonitoringE6QFlagsIN6QOpcUa13NodeAttributeEERK26QOpcUaMonitoringParameters": [
+      "bool", "address", "int", "address"
+    ],
+    "ritual_ZN14QOpcUaNodeImpl17disableMonitoringE6QFlagsIN6QOpcUa13NodeAttributeEE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN14QOpcUaNodeImpl6browseERK19QOpcUaBrowseRequest": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK14QOpcUaNodeImpl6nodeIdEv": ["text", "address"],
+    "ritual_ZN14QOpcUaNodeImpl14writeAttributeEN6QOpcUa13NodeAttributeERK8QVariantNS0_5TypesERK7QString": [
+      "bool", "address", "int", "address", "int", "text"
+    ],
+    "ritual_ZN14QOpcUaNodeImpl16modifyMonitoringEN6QOpcUa13NodeAttributeEN26QOpcUaMonitoringParameters9ParameterERK8QVariant": [
+      "bool", "address", "int", "int", "address"
+    ],
+    "ritual_ZN14QOpcUaNodeImpl14readHistoryRawERK9QDateTimeS2_jbN6QOpcUa18TimestampsToReturnE": [
+      "address", "address", "address", "address", "unsigned int", "bool",
+      "int"
+    ],
+    "ritual_ZN14QOpcUaNodeImpl17readHistoryEventsERK9QDateTimeS2_RKN26QOpcUaMonitoringParameters11EventFilterEj": [
+      "address", "address", "address", "address", "address", "unsigned int"
+    ],
+    "ritual_ZN14QOpcUaNodeImpl17resolveBrowsePathERK5QListI25QOpcUaRelativePathElementE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK14QOpcUaNodeImpl6handleEv": ["unsigned long long", "address"],
+    "ritual_ZN14QOpcUaNodeImpl9setHandleEy": [
+      "nothing", "address", "unsigned long long"
+    ],
+    "ritual_ZNK14QOpcUaNodeImpl10registeredEv": ["bool", "address"],
+    "ritual_ZN14QOpcUaNodeImpl13setRegisteredEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_take_QOpcUaNodeImpl": ["bool", "address", "chars", "address"]
+  }
+}

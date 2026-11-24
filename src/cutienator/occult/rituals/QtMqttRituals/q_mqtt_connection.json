@@ -1,0 +1,38 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtMqtt/6.12.0/QtMqtt/private/qmqttconnection_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK15QMqttConnection10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QMqttConnectionD1Ev": ["nothing", "address"],
+    "ritual_ZNK15QMqttConnection9transportEv": ["address", "address"],
+    "ritual_ZN15QMqttConnection16setClientPrivateEP18QMqttClientPrivate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QMqttConnection13internalStateEv": ["int", "address"],
+    "ritual_ZN15QMqttConnection20setClientDestructionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QMqttConnection18cleanSubscriptionsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QMqttConnection25transportConnectionClosedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QMqttConnection10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QMqttConnection15closeConnectionEN11QMqttClient11ClientErrorE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QMqttConnection20isPendingUnsubscribeEP17QMqttSubscription": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK15QMqttConnection22findActiveSubscriptionERK16QMqttTopicFilter": [
+      "address", "address", "address"
+    ],
+    "ritual_take_QMqttConnection": ["bool", "address", "chars", "address"]
+  }
+}

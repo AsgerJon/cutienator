@@ -25,7 +25,8 @@ def main() -> int:
     The exit code: 0 when nothing is at fault, 1 otherwise.
   """
   if Rituals.isStale():
-    print('Building %s' % Rituals.getTargetFile())
+    print('Building %d target files beside %s' % (
+        len(Rituals.getBuiltParts()), Rituals.getRitualFolder()))
     Rituals.build()
 
   judge = Judge()
@@ -37,8 +38,8 @@ def main() -> int:
   for fault in faults:
     print('  %s' % fault)
   if not faults:
-    infoSpec = """  all %d listed rituals are offered by the shared object,
-    and it offers no others"""
+    infoSpec = """  all %d listed rituals are offered by the shared objects
+    of their parts, and they offer no others"""
     count = len(Rituals.getRitualNames())
     print('  %s' % ' '.join((infoSpec % count).split()))
 

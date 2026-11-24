@@ -1,0 +1,51 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGraphs/6.12.0/QtGraphs/private/axisrenderer_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "parts first": [
+    "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
+  ],
+  "rows": {
+    "ritual_ZNK12AxisRenderer10metaObjectEv": ["address", "address"],
+    "ritual_ZN12AxisRenderer11handleWheelEP11QWheelEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN12AxisRenderer16handlePinchScaleEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN12AxisRenderer15handlePinchGrabEN15QPointingDevice14GrabTransitionE11QEventPoint": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN12AxisRenderer16updateAxisTitlesEv": ["nothing", "address"],
+    "ritual_ZNK12AxisRenderer16formatValueLabelEdiRK7QStringc": [
+      "text", "address", "double", "int", "text", "char"
+    ],
+    "ritual_ZN12AxisRenderer17deleteDragHandlerEv": ["nothing", "address"],
+    "ritual_ZN12AxisRenderer20onTranslationChangedE9QVector2D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12AxisRenderer13onGrabChangedEN15QPointingDevice14GrabTransitionE11QEventPoint": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZNK12AxisRenderer22getValueStepsFromRangeEd": [
+      "double", "address", "double"
+    ],
+    "ritual_ZNK12AxisRenderer25getValueDecimalsFromRangeEd": [
+      "int", "address", "double"
+    ],
+    "ritual_ZN12AxisRenderer22setLabelTextPropertiesEP10QQuickItemRK7QStringbN10QQuickText10HAlignmentENS5_10VAlignmentEN2Qt13TextElideModeE": [
+      "nothing", "address", "address", "text", "bool", "int", "int", "int"
+    ],
+    "ritual_ZN12AxisRenderer18windowToAxisCoordsE9QVector2D": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN12AxisRenderer13calculateZoomEP13QAbstractAxisd": [
+      "bool", "address", "address", "double"
+    ],
+    "ritual_ZN12AxisRenderer4zoomEd": ["bool", "address", "double"],
+    "ritual_ZNK12AxisRenderer5themeEv": ["address", "address"],
+    "ritual_take_AxisRenderer": ["bool", "address", "chars", "address"]
+  }
+}

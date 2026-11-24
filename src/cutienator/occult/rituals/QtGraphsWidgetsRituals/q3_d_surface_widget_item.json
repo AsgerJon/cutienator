@@ -1,0 +1,68 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGraphsWidgets/q3dsurfacewidgetitem.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "parts first": [
+    "QtGraphsWidgets", "QtGraphs", "QtQuickWidgets", "QtCore", "QtGui",
+    "QtQuick", "QtQml", "QtWidgets", "QtQmlIntegration"
+  ],
+  "rows": {
+    "ritual_ZNK20Q3DSurfaceWidgetItem10metaObjectEv": ["address", "address"],
+    "ritual_ZN20Q3DSurfaceWidgetItem2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN20Q3DSurfaceWidgetItemC1EP7QObject": ["address", "address"],
+    "ritual_ZN20Q3DSurfaceWidgetItemD1Ev": ["nothing", "address"],
+    "ritual_ZN20Q3DSurfaceWidgetItem9addSeriesEP16QSurface3DSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20Q3DSurfaceWidgetItem12removeSeriesEP16QSurface3DSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20Q3DSurfaceWidgetItem10seriesListEv": ["address", "address"],
+    "ritual_ZNK20Q3DSurfaceWidgetItem5axisXEv": ["address", "address"],
+    "ritual_ZNK20Q3DSurfaceWidgetItem5axisYEv": ["address", "address"],
+    "ritual_ZNK20Q3DSurfaceWidgetItem5axisZEv": ["address", "address"],
+    "ritual_ZN20Q3DSurfaceWidgetItem7addAxisEP12QValue3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20Q3DSurfaceWidgetItem11releaseAxisEP12QValue3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20Q3DSurfaceWidgetItem4axesEv": ["address", "address"],
+    "ritual_ZNK20Q3DSurfaceWidgetItem14selectedSeriesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20Q3DSurfaceWidgetItem18flipHorizontalGridEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN20Q3DSurfaceWidgetItem18renderSliceToImageEiiN10QtGraphs3D16SliceCaptureTypeE": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZN20Q3DSurfaceWidgetItem8setAxisXEP12QValue3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20Q3DSurfaceWidgetItem8setAxisYEP12QValue3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20Q3DSurfaceWidgetItem8setAxisZEP12QValue3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20Q3DSurfaceWidgetItem21setFlipHorizontalGridEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20Q3DSurfaceWidgetItem5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN20Q3DSurfaceWidgetItem6d_funcEv": ["address", "address"],
+    "ritual_ZNK20Q3DSurfaceWidgetItem6d_funcEv": ["address", "address"],
+    "ritual_take_Q3DSurfaceWidgetItem": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN20Q3DSurfaceWidgetItem5eventEP6QEvent": [
+      "bool", "address", "address"
+    ]
+  }
+}

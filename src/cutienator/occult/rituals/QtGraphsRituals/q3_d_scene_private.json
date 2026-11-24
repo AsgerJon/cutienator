@@ -1,0 +1,33 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGraphs/6.12.0/QtGraphs/private/q3dscene_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "parts first": [
+    "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
+  ],
+  "rows": {
+    "ritual_ZN15Q3DScenePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK15Q3DScenePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN15Q3DScenePrivateC1Ev": ["address"],
+    "ritual_ZN15Q3DScenePrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN15Q3DScenePrivate11setViewportE5QRect": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15Q3DScenePrivate15setViewportSizeEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN15Q3DScenePrivate13setWindowSizeE5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15Q3DScenePrivate10windowSizeEv": ["address", "address"],
+    "ritual_ZN15Q3DScenePrivate22updateDefaultViewportsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15Q3DScenePrivate9markDirtyEv": ["nothing", "address"],
+    "ritual_ZNK15Q3DScenePrivate8isInAreaE5QRectii": [
+      "bool", "address", "address", "int", "int"
+    ]
+  }
+}

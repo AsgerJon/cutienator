@@ -1,0 +1,55 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtOpcUa/qopcuapkiconfiguration.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN22QOpcUaPkiConfigurationC1Ev": ["address"],
+    "ritual_ZN22QOpcUaPkiConfigurationD1Ev": ["nothing", "address"],
+    "ritual_ZN22QOpcUaPkiConfigurationC1ERKS_": ["address", "address"],
+    "ritual_ZNK22QOpcUaPkiConfiguration21clientCertificateFileEv": [
+      "text", "address"
+    ],
+    "ritual_ZN22QOpcUaPkiConfiguration24setClientCertificateFileERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK22QOpcUaPkiConfiguration14privateKeyFileEv": [
+      "text", "address"
+    ],
+    "ritual_ZN22QOpcUaPkiConfiguration17setPrivateKeyFileERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK22QOpcUaPkiConfiguration18trustListDirectoryEv": [
+      "text", "address"
+    ],
+    "ritual_ZN22QOpcUaPkiConfiguration21setTrustListDirectoryERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK22QOpcUaPkiConfiguration23revocationListDirectoryEv": [
+      "text", "address"
+    ],
+    "ritual_ZN22QOpcUaPkiConfiguration26setRevocationListDirectoryERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK22QOpcUaPkiConfiguration19issuerListDirectoryEv": [
+      "text", "address"
+    ],
+    "ritual_ZN22QOpcUaPkiConfiguration22setIssuerListDirectoryERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK22QOpcUaPkiConfiguration29issuerRevocationListDirectoryEv": [
+      "text", "address"
+    ],
+    "ritual_ZN22QOpcUaPkiConfiguration32setIssuerRevocationListDirectoryERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK22QOpcUaPkiConfiguration19applicationIdentityEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK22QOpcUaPkiConfiguration10isPkiValidEv": ["bool", "address"],
+    "ritual_ZNK22QOpcUaPkiConfiguration26isKeyAndCertificateFileSetEv": [
+      "bool", "address"
+    ]
+  }
+}

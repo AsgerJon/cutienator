@@ -1,0 +1,72 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCoap/6.12.0/QtCoap/private/qcoapinternalrequest_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK20QCoapInternalRequest10metaObjectEv": ["address", "address"],
+    "ritual_ZNK20QCoapInternalRequest7isValidEv": ["bool", "address"],
+    "ritual_ZN20QCoapInternalRequest16initEmptyMessageEtN12QCoapMessage4TypeE": [
+      "nothing", "address", "unsigned short", "unsigned char"
+    ],
+    "ritual_ZN20QCoapInternalRequest12setMessageIdEt": [
+      "nothing", "address", "unsigned short"
+    ],
+    "ritual_ZN20QCoapInternalRequest8setTokenERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QCoapInternalRequest9addOptionERK11QCoapOption": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QCoapInternalRequest5tokenEv": ["address", "address"],
+    "ritual_ZNK20QCoapInternalRequest9targetUriEv": ["address", "address"],
+    "ritual_ZNK20QCoapInternalRequest6methodEv": [
+      "unsigned char", "address"
+    ],
+    "ritual_ZNK20QCoapInternalRequest9isObserveEv": ["bool", "address"],
+    "ritual_ZNK20QCoapInternalRequest18isObserveCancelledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK20QCoapInternalRequest11isMulticastEv": ["bool", "address"],
+    "ritual_ZNK20QCoapInternalRequest10connectionEv": ["address", "address"],
+    "ritual_ZNK20QCoapInternalRequest21retransmissionCounterEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZN20QCoapInternalRequest9setMethodEN6QtCoap6MethodE": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZN20QCoapInternalRequest13setConnectionEP15QCoapConnection": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QCoapInternalRequest19setObserveCancelledEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QCoapInternalRequest12setTargetUriE4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QCoapInternalRequest10setTimeoutEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN20QCoapInternalRequest22setMaxTransmissionWaitEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN20QCoapInternalRequest19setMulticastTimeoutEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN20QCoapInternalRequest19restartTransmissionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QCoapInternalRequest26startMulticastTransmissionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QCoapInternalRequest16stopTransmissionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK20QCoapInternalRequest13uriHostOptionERK4QUrl": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN20QCoapInternalRequest6d_funcEv": ["address", "address"],
+    "ritual_ZNK20QCoapInternalRequest6d_funcEv": ["address", "address"]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCoap/qcoapreply.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK10QCoapReply10metaObjectEv": ["address", "address"],
+    "ritual_ZN10QCoapReply2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN10QCoapReplyD1Ev": ["nothing", "address"],
+    "ritual_ZNK10QCoapReply12responseCodeEv": ["unsigned char", "address"],
+    "ritual_ZNK10QCoapReply7messageEv": ["address", "address"],
+    "ritual_ZNK10QCoapReply7requestEv": ["address", "address"],
+    "ritual_ZNK10QCoapReply3urlEv": ["address", "address"],
+    "ritual_ZNK10QCoapReply6methodEv": ["unsigned char", "address"],
+    "ritual_ZNK10QCoapReply13errorReceivedEv": ["unsigned char", "address"],
+    "ritual_ZNK10QCoapReply9isRunningEv": ["bool", "address"],
+    "ritual_ZNK10QCoapReply10isFinishedEv": ["bool", "address"],
+    "ritual_ZNK10QCoapReply9isAbortedEv": ["bool", "address"],
+    "ritual_ZNK10QCoapReply12isSuccessfulEv": ["bool", "address"],
+    "ritual_ZN10QCoapReply12abortRequestEv": ["nothing", "address"],
+    "ritual_ZN10QCoapReply9writeDataEPKcx": [
+      "long long", "address", "chars", "long long"
+    ],
+    "ritual_ZN10QCoapReply6d_funcEv": ["address", "address"],
+    "ritual_ZNK10QCoapReply6d_funcEv": ["address", "address"],
+    "ritual_take_QCoapReply": ["bool", "address", "chars", "address"]
+  }
+}

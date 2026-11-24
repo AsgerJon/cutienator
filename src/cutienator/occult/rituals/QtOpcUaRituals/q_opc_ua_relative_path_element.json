@@ -1,0 +1,61 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtOpcUa/qopcuarelativepathelement.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZN25QOpcUaRelativePathElementC1Ev": ["address"],
+    "ritual_ZN25QOpcUaRelativePathElementC1ERK19QOpcUaQualifiedNameRK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN25QOpcUaRelativePathElementC1ERK19QOpcUaQualifiedNameN6QOpcUa15ReferenceTypeIdE": [
+      "address", "address", "unsigned int"
+    ],
+    "ritual_ZN25QOpcUaRelativePathElementC1ERKS_": ["address", "address"],
+    "ritual_ZN25QOpcUaRelativePathElementD1Ev": ["nothing", "address"],
+    "ritual_ZNK25QOpcUaRelativePathElement15referenceTypeIdEv": [
+      "text", "address"
+    ],
+    "ritual_ZN25QOpcUaRelativePathElement18setReferenceTypeIdERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN25QOpcUaRelativePathElement18setReferenceTypeIdEN6QOpcUa15ReferenceTypeIdE": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZNK25QOpcUaRelativePathElement9isInverseEv": ["bool", "address"],
+    "ritual_ZN25QOpcUaRelativePathElement12setIsInverseEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK25QOpcUaRelativePathElement15includeSubtypesEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN25QOpcUaRelativePathElement18setIncludeSubtypesEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK25QOpcUaRelativePathElementcv8QVariantEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK25QOpcUaRelativePathElement10targetNameEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QOpcUaRelativePathElement13setTargetNameERK19QOpcUaQualifiedName": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZeqRK25QOpcUaRelativePathElementS1_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZneRK25QOpcUaRelativePathElementS1_": [
+      "bool", "address", "address"
+    ],
+    "ritual_list_make_QOpcUaRelativePathElement": ["address"],
+    "ritual_list_add_QOpcUaRelativePathElement": [
+      "nothing", "address", "address"
+    ],
+    "ritual_list_size_QOpcUaRelativePathElement": ["long long", "address"],
+    "ritual_list_at_QOpcUaRelativePathElement": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_QOpcUaRelativePathElement": ["nothing", "address"]
+  }
+}

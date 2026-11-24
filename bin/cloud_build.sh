@@ -3,7 +3,8 @@
 #  Copyright (c) 2026 Asger Jon Vistisen
 #
 #  Builds the Ugly side on the build machine in Google's cloud, so this
-#  PC does not have to, and brings the built library back.
+#  PC does not have to, and brings the built libraries back: one for
+#  each part of Qt, as 'libcutienator_QtCore.so'.
 #
 #    bin/cloud_build.sh
 #
@@ -25,8 +26,8 @@
 #  4. Builds there, with 'Rituals.build()', the way a build runs here.
 #     While it builds, '/run/deadhand' on the machine is touched from
 #     here once a minute.
-#  5. Copies the built library back, to where a build here puts it,
-#     and opens it here.
+#  5. Copies the built libraries back, to where a build here puts
+#     them, and opens each here.
 #  When the connection drops, it begins again at 1, five times at
 #  most. A build the compiler refuses is no dropped connection: that
 #  ends it at once, with what the compiler said.
@@ -336,7 +337,8 @@ chmod 755 $THERE/shims/qmake6 $THERE/shims/clang++"
   [ $code -eq 0 ] || { endTry $code "writing the two programs"; return; }
 }
 
-#  Builds on the machine, and says where the library lies there. One
+#  Builds on the machine, and writes where each library lies there,
+#  from the tree, one to a line, into 'targets.txt' beside it. One
 #  build at a time: a build left over from a dropped connection is
 #  waited for.
 buildThere() {
@@ -347,8 +349,13 @@ export PATH=\"\$HOME/$THERE/shims:\$HOME/$TOOLS/bin:\$PATH\"
 export PYTHONPATH=\"src:\$HOME/$THERE/pydeps\"
 export CCACHE_SLOPPINESS=pch_defines,time_macros
 ccache --zero-stats > /dev/null
-flock ../lock python3 -B -c 'from cutienator.occult import Rituals
-print(Rituals.build())' > ../build.log 2>&1
+rm -f ../targets.txt
+flock ../lock python3 -B -c 'import os
+from cutienator.occult import Rituals
+targets = Rituals.build()
+with open(\"../targets.txt\", \"w\") as file:
+  file.write(\"\".join(\"%s\\n\" % os.path.relpath(t) for t in targets))
+print(\"built %d libraries\" % len(targets))' > ../build.log 2>&1
 code=\$?
 tail -n 12 ../build.log
 ccache --show-stats | grep -E '^ *(Hits|Misses)' | head -n 2
@@ -363,22 +370,29 @@ exit \$code" | tr -d '\r' | tee "$KEPT/build.log"
   fi
 }
 
-#  Copies the library back to where a build here puts it. Its time is
-#  kept, so 'Rituals.isStale()' sees it is newer than the ritual files.
+#  Copies the libraries back to where a build here puts them. Their
+#  times are kept, so 'Rituals.isStale()' sees they are newer than the
+#  ritual files.
 copyBack() {
-  local target relative code
-  target=$(grep -E "/$THERE/tree/src/cutienator/.+" "$KEPT/build.log" \
-    | grep -vE '[[:space:]]' | tail -n 1)
-  [ -n "$target" ] || fail "the build did not say where the library is"
-  relative=${target#*/"$THERE"/tree/}
-  case "$relative" in
-    src/cutienator/*) ;;
-    *) fail "the library lies at '$target', outside the package";;
-  esac
-  copy -t "$LOGIN@$ADDRESS:$THERE/tree/$relative" "$REPO/$relative"
+  local line code
+  onMachine "$LOGIN@$ADDRESS" "cat $THERE/targets.txt" \
+    > "$KEPT/targets.txt"
   code=$?
-  [ $code -eq 0 ] || { endTry $code "copying the library back"; return; }
-  say "the library is at $relative"
+  [ $code -eq 0 ] || { endTry $code "reading where the libraries are"; \
+    return; }
+  [ -s "$KEPT/targets.txt" ] \
+    || fail "the build did not say where the libraries are"
+  while IFS= read -r line; do
+    case "$line" in
+      src/cutienator/occult/libcutienator_*.so) ;;
+      *) fail "a library lies at '$line', outside the package";;
+    esac
+  done < "$KEPT/targets.txt"
+  copy -t --files-from="$KEPT/targets.txt" \
+    "$LOGIN@$ADDRESS:$THERE/tree/" "$REPO/"
+  code=$?
+  [ $code -eq 0 ] || { endTry $code "copying the libraries back"; return; }
+  say "$(wc -l < "$KEPT/targets.txt") libraries are in src/cutienator/occult"
 }
 
 #  One try, from starting the machine to the library lying here.
@@ -425,14 +439,15 @@ while :; do
   try=$((try + 1))
   sleep 10
 done
-#  The library has to open on this PC, against this PC's Qt.
+#  Each library has to open on this PC, against this PC's Qt.
 PYTHONPATH="$REPO/src" "$PYTHON" -B -c '
 from cutienator.occult import Rituals
 if Rituals.isStale():
-  raise SystemExit("the library is older than a ritual file")
-Rituals.getOpened()
-print("opened here: %s, with %d rituals" % (
-    Rituals.getTargetFile(), len(Rituals.getRitualNames())))
-' || fail "the library does not open on this PC"
+  raise SystemExit("a library is missing or older than a ritual file")
+for partName in Rituals.getBuiltParts():
+  Rituals.getOpened(partName)
+print("opened here: %d libraries, with %d rituals" % (
+    len(Rituals.getBuiltParts()), len(Rituals.getRitualNames())))
+' || fail "a library does not open on this PC"
 say "done in $(( $(date +%s) - began )) s; the dead hand will power \
 the machine off after 15 idle minutes"

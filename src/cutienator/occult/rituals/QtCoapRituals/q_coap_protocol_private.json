@@ -1,0 +1,51 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCoap/6.12.0/QtCoap/private/qcoapprotocol_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QCoapProtocolPrivateC1Ev": ["address"],
+    "ritual_ZNK20QCoapProtocolPrivate23generateUniqueMessageIdEv": [
+      "unsigned short", "address"
+    ],
+    "ritual_ZNK20QCoapProtocolPrivate19generateUniqueTokenEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QCoapProtocolPrivate16onRequestAbortedERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QCoapProtocolPrivate21isMessageIdRegisteredEt": [
+      "bool", "address", "unsigned short"
+    ],
+    "ritual_ZNK20QCoapProtocolPrivate17isTokenRegisteredERK10QByteArray": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK20QCoapProtocolPrivate19isRequestRegisteredEPK20QCoapInternalRequest": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK20QCoapProtocolPrivate15requestForTokenERK10QByteArray": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK20QCoapProtocolPrivate17lastReplyForTokenERK10QByteArray": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK20QCoapProtocolPrivate22findRequestByMessageIdEt": [
+      "address", "address", "unsigned short"
+    ],
+    "ritual_ZNK20QCoapProtocolPrivate22findRequestByUserReplyEPK10QCoapReply": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN20QCoapProtocolPrivate14forgetExchangeERK10QByteArray": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN20QCoapProtocolPrivate14forgetExchangeEPK20QCoapInternalRequest": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN20QCoapProtocolPrivate21forgetExchangeRepliesERK10QByteArray": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN20QCoapProtocolPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK20QCoapProtocolPrivate6q_funcEv": ["address", "address"]
+  }
+}

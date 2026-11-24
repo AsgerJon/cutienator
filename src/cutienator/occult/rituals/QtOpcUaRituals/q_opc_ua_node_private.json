@@ -1,0 +1,30 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtOpcUa/6.12.0/QtOpcUa/private/qopcuanode_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN17QOpcUaNodePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK17QOpcUaNodePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN17QOpcUaNodePrivateC1EP14QOpcUaNodeImplP12QOpcUaClient": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN17QOpcUaNodePrivate17createConnectionsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QOpcUaNodePrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN17QOpcUaNodePrivate20handleAttributesReadERK5QListI16QOpcUaReadResultEN6QOpcUa12UaStatusCodeE": [
+      "nothing", "address", "address", "unsigned int"
+    ],
+    "ritual_ZN17QOpcUaNodePrivate23handleAttributesWrittenEN6QOpcUa13NodeAttributeERK8QVariantNS0_12UaStatusCodeE": [
+      "nothing", "address", "int", "address", "unsigned int"
+    ],
+    "ritual_ZN17QOpcUaNodePrivate29handleMonitoringEnableDisableEN6QOpcUa13NodeAttributeEbRK26QOpcUaMonitoringParameters": [
+      "nothing", "address", "int", "bool", "address"
+    ],
+    "ritual_ZN17QOpcUaNodePrivate28handleMonitoringStatusChangeEN6QOpcUa13NodeAttributeE6QFlagsIN26QOpcUaMonitoringParameters9ParameterEERKS3_": [
+      "nothing", "address", "int", "int", "address"
+    ]
+  }
+}

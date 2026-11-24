@@ -1,0 +1,52 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtMqtt/qmqttsubscription.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QMqttSubscription10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QMqttSubscription2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QMqttSubscriptionD1Ev": ["nothing", "address"],
+    "ritual_ZNK17QMqttSubscription5stateEv": ["int", "address"],
+    "ritual_ZNK17QMqttSubscription5topicEv": ["address", "address"],
+    "ritual_ZNK17QMqttSubscription3qosEv": ["unsigned char", "address"],
+    "ritual_ZNK17QMqttSubscription6reasonEv": ["text", "address"],
+    "ritual_ZNK17QMqttSubscription10reasonCodeEv": [
+      "unsigned char", "address"
+    ],
+    "ritual_ZNK17QMqttSubscription14userPropertiesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK17QMqttSubscription20isSharedSubscriptionEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK17QMqttSubscription22sharedSubscriptionNameEv": [
+      "text", "address"
+    ],
+    "ritual_ZN17QMqttSubscription11unsubscribeEv": ["nothing", "address"],
+    "ritual_ZN17QMqttSubscription6d_funcEv": ["address", "address"],
+    "ritual_ZNK17QMqttSubscription6d_funcEv": ["address", "address"],
+    "ritual_ZN17QMqttSubscription8setStateENS_17SubscriptionStateE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QMqttSubscription8setTopicERK16QMqttTopicFilter": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QMqttSubscription9setClientEP11QMqttClient": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QMqttSubscription6setQosEh": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZN17QMqttSubscription21setSharedSubscriptionEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN17QMqttSubscription25setSharedSubscriptionNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN17QMqttSubscriptionC1EP7QObject": ["address", "address"],
+    "ritual_take_QMqttSubscription": ["bool", "address", "chars", "address"]
+  }
+}

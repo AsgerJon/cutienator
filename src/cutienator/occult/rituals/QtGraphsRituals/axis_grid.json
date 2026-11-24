@@ -1,0 +1,38 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGraphs/6.12.0/QtGraphs/private/axisgrid_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "parts first": [
+    "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
+  ],
+  "rows": {
+    "ritual_ZNK8AxisGrid10metaObjectEv": ["address", "address"],
+    "ritual_ZN8AxisGrid12setupShadersEv": ["nothing", "address"],
+    "ritual_ZNK8AxisGrid11iResolutionEv": ["address", "address"],
+    "ritual_ZNK8AxisGrid9smoothingEv": ["double", "address"],
+    "ritual_ZNK8AxisGrid5origoEv": ["int", "address"],
+    "ritual_ZNK8AxisGrid14gridVisibilityEv": ["address", "address"],
+    "ritual_ZNK8AxisGrid9gridWidthEv": ["double", "address"],
+    "ritual_ZNK8AxisGrid10gridHeightEv": ["double", "address"],
+    "ritual_ZNK8AxisGrid12gridMovementEv": ["address", "address"],
+    "ritual_ZNK8AxisGrid12subGridColorEv": ["address", "address"],
+    "ritual_ZNK8AxisGrid9gridColorEv": ["address", "address"],
+    "ritual_ZNK8AxisGrid23plotAreaBackgroundColorEv": ["address", "address"],
+    "ritual_ZNK8AxisGrid16subGridLineWidthEv": ["double", "address"],
+    "ritual_ZNK8AxisGrid13gridLineWidthEv": ["double", "address"],
+    "ritual_ZNK8AxisGrid20verticalSubGridScaleEv": ["double", "address"],
+    "ritual_ZNK8AxisGrid22horizontalSubGridScaleEv": ["double", "address"],
+    "ritual_ZNK8AxisGrid21isVerticalLogarithmicEv": ["bool", "address"],
+    "ritual_ZNK8AxisGrid23isHorizontalLogarithmicEv": ["bool", "address"],
+    "ritual_ZNK8AxisGrid12verticalBaseEv": ["double", "address"],
+    "ritual_ZNK8AxisGrid14horizontalBaseEv": ["double", "address"],
+    "ritual_ZN8AxisGrid17componentCompleteEv": ["nothing", "address"],
+    "ritual_ZN8AxisGrid14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_take_AxisGrid": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN8AxisGrid17componentCompleteEv": ["nothing", "address"]
+  }
+}

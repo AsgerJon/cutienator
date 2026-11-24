@@ -1,0 +1,129 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtMqtt/qmqttclient.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK11QMqttClient10metaObjectEv": ["address", "address"],
+    "ritual_ZN11QMqttClient2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN11QMqttClientC1EP7QObject": ["address", "address"],
+    "ritual_ZN11QMqttClientD1Ev": ["nothing", "address"],
+    "ritual_ZN11QMqttClient12setTransportEP9QIODeviceNS_13TransportTypeE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZNK11QMqttClient9transportEv": ["address", "address"],
+    "ritual_ZN11QMqttClient9subscribeERK16QMqttTopicFilterh": [
+      "address", "address", "address", "unsigned char"
+    ],
+    "ritual_ZN11QMqttClient9subscribeERK16QMqttTopicFilterRK27QMqttSubscriptionPropertiesh": [
+      "address", "address", "address", "address", "unsigned char"
+    ],
+    "ritual_ZN11QMqttClient11unsubscribeERK16QMqttTopicFilter": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QMqttClient11unsubscribeERK16QMqttTopicFilterRK29QMqttUnsubscriptionProperties": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN11QMqttClient7publishERK14QMqttTopicNameRK10QByteArrayhb": [
+      "int", "address", "address", "address", "unsigned char", "bool"
+    ],
+    "ritual_ZN11QMqttClient7publishERK14QMqttTopicNameRK22QMqttPublishPropertiesRK10QByteArrayhb": [
+      "int", "address", "address", "address", "address", "unsigned char",
+      "bool"
+    ],
+    "ritual_ZN11QMqttClient11requestPingEv": ["bool", "address"],
+    "ritual_ZNK11QMqttClient8hostnameEv": ["text", "address"],
+    "ritual_ZNK11QMqttClient4portEv": ["unsigned short", "address"],
+    "ritual_ZNK11QMqttClient8clientIdEv": ["text", "address"],
+    "ritual_ZNK11QMqttClient9keepAliveEv": ["unsigned short", "address"],
+    "ritual_ZNK11QMqttClient15protocolVersionEv": ["int", "address"],
+    "ritual_ZN11QMqttClient13connectToHostEv": ["nothing", "address"],
+    "ritual_ZN11QMqttClient22connectToHostEncryptedERK17QSslConfiguration": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QMqttClient22connectToHostWebSocketEP10QWebSocket": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QMqttClient31connectToHostWebSocketEncryptedEP10QWebSocket": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QMqttClient18disconnectFromHostEv": ["nothing", "address"],
+    "ritual_ZNK11QMqttClient5stateEv": ["int", "address"],
+    "ritual_ZNK11QMqttClient5errorEv": ["int", "address"],
+    "ritual_ZNK11QMqttClient8usernameEv": ["text", "address"],
+    "ritual_ZNK11QMqttClient8passwordEv": ["text", "address"],
+    "ritual_ZNK11QMqttClient12cleanSessionEv": ["bool", "address"],
+    "ritual_ZNK11QMqttClient9willTopicEv": ["text", "address"],
+    "ritual_ZNK11QMqttClient7willQoSEv": ["unsigned char", "address"],
+    "ritual_ZNK11QMqttClient11willMessageEv": ["address", "address"],
+    "ritual_ZNK11QMqttClient10willRetainEv": ["bool", "address"],
+    "ritual_ZNK11QMqttClient13autoKeepAliveEv": ["bool", "address"],
+    "ritual_ZN11QMqttClient23setConnectionPropertiesERK25QMqttConnectionProperties": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QMqttClient20connectionPropertiesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN11QMqttClient21setLastWillPropertiesERK23QMqttLastWillProperties": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QMqttClient18lastWillPropertiesEv": ["address", "address"],
+    "ritual_ZNK11QMqttClient26serverConnectionPropertiesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN11QMqttClient12authenticateERK29QMqttAuthenticationProperties": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QMqttClient11setHostnameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN11QMqttClient7setPortEt": [
+      "nothing", "address", "unsigned short"
+    ],
+    "ritual_ZN11QMqttClient11setClientIdERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN11QMqttClient12setKeepAliveEt": [
+      "nothing", "address", "unsigned short"
+    ],
+    "ritual_ZN11QMqttClient18setProtocolVersionENS_15ProtocolVersionE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN11QMqttClient8setStateENS_11ClientStateE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN11QMqttClient8setErrorENS_11ClientErrorE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN11QMqttClient11setUsernameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN11QMqttClient11setPasswordERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN11QMqttClient15setCleanSessionEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN11QMqttClient12setWillTopicERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN11QMqttClient10setWillQoSEh": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZN11QMqttClient14setWillMessageERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QMqttClient13setWillRetainEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN11QMqttClient16setAutoKeepAliveEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN11QMqttClient13connectToHostEbRK7QString": [
+      "nothing", "address", "bool", "text"
+    ],
+    "ritual_ZN11QMqttClient6d_funcEv": ["address", "address"],
+    "ritual_ZNK11QMqttClient6d_funcEv": ["address", "address"],
+    "ritual_take_QMqttClient": ["bool", "address", "chars", "address"]
+  }
+}

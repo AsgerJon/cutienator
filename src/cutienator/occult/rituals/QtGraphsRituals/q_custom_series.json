@@ -1,0 +1,54 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGraphs/qcustomseries.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "parts first": [
+    "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
+  ],
+  "rows": {
+    "ritual_ZNK13QCustomSeries10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QCustomSeries2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN13QCustomSeriesC1EP7QObject": ["address", "address"],
+    "ritual_ZN13QCustomSeriesD1Ev": ["nothing", "address"],
+    "ritual_ZNK13QCustomSeries4typeEv": ["int", "address"],
+    "ritual_ZNK13QCustomSeries9dataItemsEv": ["address", "address"],
+    "ritual_ZNK13QCustomSeries8delegateEv": ["address", "address"],
+    "ritual_ZN13QCustomSeries11setDelegateEP13QQmlComponent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QCustomSeries22setCustomSeriesPainterEP27QCustomSeriesCanvasRenderer": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QCustomSeries4mapXEd": ["double", "address", "double"],
+    "ritual_ZN13QCustomSeries4mapYEd": ["double", "address", "double"],
+    "ritual_ZN13QCustomSeries6appendERK4QMapI7QString8QVariantE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QCustomSeries6appendEv": ["nothing", "address"],
+    "ritual_ZN13QCustomSeries6insertExRK4QMapI7QString8QVariantE": [
+      "nothing", "address", "long long", "address"
+    ],
+    "ritual_ZN13QCustomSeries6insertEx": ["nothing", "address", "long long"],
+    "ritual_ZN13QCustomSeries6removeEx": ["nothing", "address", "long long"],
+    "ritual_ZN13QCustomSeries5clearEv": ["nothing", "address"],
+    "ritual_ZN13QCustomSeries17componentCompleteEv": ["nothing", "address"],
+    "ritual_ZN13QCustomSeries14updateDelegateEP10QQuickItemx": [
+      "nothing", "address", "address", "long long"
+    ],
+    "ritual_ZN13QCustomSeries5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_take_QCustomSeries": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK13QCustomSeries4typeEv": ["int", "address"],
+    "ritual_own_ZN13QCustomSeries17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN13QCustomSeries14updateDelegateEP10QQuickItemx": [
+      "nothing", "address", "address", "long long"
+    ],
+    "ritual_own_ZN13QCustomSeries5eventEP6QEvent": [
+      "bool", "address", "address"
+    ]
+  }
+}

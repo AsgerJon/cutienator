@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtOpcUa/qopcuaconnectionsettings.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZN24QOpcUaConnectionSettingsC1Ev": ["address"],
+    "ritual_ZN24QOpcUaConnectionSettingsC1ERKS_": ["address", "address"],
+    "ritual_ZN24QOpcUaConnectionSettingsD1Ev": ["nothing", "address"],
+    "ritual_ZNK24QOpcUaConnectionSettings16sessionLocaleIdsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24QOpcUaConnectionSettings19setSessionLocaleIdsERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZeqRK24QOpcUaConnectionSettingsS1_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZneRK24QOpcUaConnectionSettingsS1_": [
+      "bool", "address", "address"
+    ]
+  }
+}

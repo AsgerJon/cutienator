@@ -1,0 +1,57 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGraphs/qvalueaxis.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "parts first": [
+    "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
+  ],
+  "rows": {
+    "ritual_ZNK10QValueAxis10metaObjectEv": ["address", "address"],
+    "ritual_ZN10QValueAxis2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN10QValueAxisC1EP7QObject": ["address", "address"],
+    "ritual_ZN10QValueAxisD1Ev": ["nothing", "address"],
+    "ritual_ZNK10QValueAxis4typeEv": ["int", "address"],
+    "ritual_ZN10QValueAxis6setMinEd": ["nothing", "address", "double"],
+    "ritual_ZNK10QValueAxis3minEv": ["double", "address"],
+    "ritual_ZN10QValueAxis6setMaxEd": ["nothing", "address", "double"],
+    "ritual_ZNK10QValueAxis3maxEv": ["double", "address"],
+    "ritual_ZN10QValueAxis8setRangeEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN10QValueAxis15setSubTickCountEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZNK10QValueAxis12subTickCountEv": ["long long", "address"],
+    "ritual_ZN10QValueAxis13setTickAnchorEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK10QValueAxis10tickAnchorEv": ["double", "address"],
+    "ritual_ZN10QValueAxis15setTickIntervalEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK10QValueAxis12tickIntervalEv": ["double", "address"],
+    "ritual_ZN10QValueAxis14setLabelFormatERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK10QValueAxis11labelFormatEv": ["text", "address"],
+    "ritual_ZN10QValueAxis18setLabelPostFormatERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK10QValueAxis15labelPostFormatEv": ["text", "address"],
+    "ritual_ZN10QValueAxis16setLabelDecimalsEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK10QValueAxis13labelDecimalsEv": ["int", "address"],
+    "ritual_ZN10QValueAxis7setZoomEd": ["nothing", "address", "double"],
+    "ritual_ZNK10QValueAxis4zoomEv": ["double", "address"],
+    "ritual_ZN10QValueAxis6setPanEd": ["nothing", "address", "double"],
+    "ritual_ZNK10QValueAxis3panEv": ["double", "address"],
+    "ritual_ZNK10QValueAxis9visualMinEv": ["double", "address"],
+    "ritual_ZNK10QValueAxis9visualMaxEv": ["double", "address"],
+    "ritual_ZN10QValueAxis6d_funcEv": ["address", "address"],
+    "ritual_ZNK10QValueAxis6d_funcEv": ["address", "address"],
+    "ritual_take_QValueAxis": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK10QValueAxis4typeEv": ["int", "address"]
+  }
+}

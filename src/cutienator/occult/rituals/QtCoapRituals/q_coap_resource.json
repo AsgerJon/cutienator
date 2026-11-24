@@ -1,0 +1,50 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCoap/qcoapresource.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN13QCoapResourceC1Ev": ["address"],
+    "ritual_ZN13QCoapResourceC1ERKS_": ["address", "address"],
+    "ritual_ZN13QCoapResourceD1Ev": ["nothing", "address"],
+    "ritual_ZNK13QCoapResource4hostEv": ["address", "address"],
+    "ritual_ZNK13QCoapResource4pathEv": ["text", "address"],
+    "ritual_ZNK13QCoapResource5titleEv": ["text", "address"],
+    "ritual_ZNK13QCoapResource10observableEv": ["bool", "address"],
+    "ritual_ZNK13QCoapResource12resourceTypeEv": ["text", "address"],
+    "ritual_ZNK13QCoapResource9interfaceEv": ["text", "address"],
+    "ritual_ZNK13QCoapResource11maximumSizeEv": ["int", "address"],
+    "ritual_ZNK13QCoapResource13contentFormatEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZN13QCoapResource7setHostERK12QHostAddress": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QCoapResource7setPathERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN13QCoapResource8setTitleERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN13QCoapResource13setObservableEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN13QCoapResource15setResourceTypeERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN13QCoapResource12setInterfaceERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN13QCoapResource14setMaximumSizeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN13QCoapResource16setContentFormatEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_list_make_QCoapResource": ["address"],
+    "ritual_list_add_QCoapResource": ["nothing", "address", "address"],
+    "ritual_list_size_QCoapResource": ["long long", "address"],
+    "ritual_list_at_QCoapResource": ["address", "address", "long long"],
+    "ritual_list_drop_QCoapResource": ["nothing", "address"]
+  }
+}

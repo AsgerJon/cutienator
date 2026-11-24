@@ -1,0 +1,53 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGraphs/q3dscene.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "parts first": [
+    "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
+  ],
+  "rows": {
+    "ritual_ZNK8Q3DScene10metaObjectEv": ["address", "address"],
+    "ritual_ZN8Q3DScene2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN8Q3DScene6d_funcEv": ["address", "address"],
+    "ritual_ZNK8Q3DScene6d_funcEv": ["address", "address"],
+    "ritual_ZN8Q3DScene24qt_qmlMarker_uncreatableEv": ["nothing", "address"],
+    "ritual_ZN8Q3DSceneC1EP7QObject": ["address", "address"],
+    "ritual_ZN8Q3DSceneD1Ev": ["nothing", "address"],
+    "ritual_ZNK8Q3DScene8viewportEv": ["address", "address"],
+    "ritual_ZNK8Q3DScene18primarySubViewportEv": ["address", "address"],
+    "ritual_ZN8Q3DScene21setPrimarySubViewportE5QRect": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Q3DScene23isPointInPrimarySubViewE6QPoint": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK8Q3DScene20secondarySubViewportEv": ["address", "address"],
+    "ritual_ZN8Q3DScene23setSecondarySubViewportE5QRect": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Q3DScene25isPointInSecondarySubViewE6QPoint": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN8Q3DScene25setSelectionQueryPositionE6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK8Q3DScene22selectionQueryPositionEv": ["address", "address"],
+    "ritual_ZN8Q3DScene21setGraphPositionQueryE6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK8Q3DScene18graphPositionQueryEv": ["address", "address"],
+    "ritual_ZN8Q3DScene16setSlicingActiveEb": ["nothing", "address", "bool"],
+    "ritual_ZNK8Q3DScene15isSlicingActiveEv": ["bool", "address"],
+    "ritual_ZN8Q3DScene24setSecondarySubviewOnTopEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK8Q3DScene23isSecondarySubviewOnTopEv": ["bool", "address"],
+    "ritual_ZNK8Q3DScene16devicePixelRatioEv": ["double", "address"],
+    "ritual_ZN8Q3DScene19setDevicePixelRatioEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK8Q3DScene21invalidSelectionPointEv": ["address", "address"],
+    "ritual_take_Q3DScene": ["bool", "address", "chars", "address"]
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCoap/6.12.0/QtCoap/private/qcoapqudpconnection_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK19QCoapQUdpConnection10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QCoapQUdpConnectionD1Ev": ["nothing", "address"],
+    "ritual_ZNK19QCoapQUdpConnection6socketEv": ["address", "address"],
+    "ritual_ZN19QCoapQUdpConnection15setSocketOptionEN15QAbstractSocket12SocketOptionERK8QVariant": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN19QCoapQUdpConnection11pskRequiredEP29QSslPreSharedKeyAuthenticator": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QCoapQUdpConnection4bindERK7QStringt": [
+      "nothing", "address", "text", "unsigned short"
+    ],
+    "ritual_ZN19QCoapQUdpConnection9writeDataERK10QByteArrayRK7QStringt": [
+      "nothing", "address", "address", "text", "unsigned short"
+    ],
+    "ritual_ZN19QCoapQUdpConnection5closeEv": ["nothing", "address"],
+    "ritual_ZN19QCoapQUdpConnection6d_funcEv": ["address", "address"],
+    "ritual_ZNK19QCoapQUdpConnection6d_funcEv": ["address", "address"],
+    "ritual_take_QCoapQUdpConnection": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN19QCoapQUdpConnection5closeEv": ["nothing", "address"]
+  }
+}

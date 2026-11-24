@@ -1,0 +1,60 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtOpcUa/qopcuasimpleattributeoperand.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN28QOpcUaSimpleAttributeOperandC1Ev": ["address"],
+    "ritual_ZN28QOpcUaSimpleAttributeOperandC1ERKS_": ["address", "address"],
+    "ritual_ZN28QOpcUaSimpleAttributeOperandC1ERK7QStringtS2_N6QOpcUa13NodeAttributeE": [
+      "address", "text", "unsigned short", "text", "int"
+    ],
+    "ritual_ZN28QOpcUaSimpleAttributeOperandC1EN6QOpcUa13NodeAttributeERK7QString": [
+      "address", "int", "text"
+    ],
+    "ritual_ZNK28QOpcUaSimpleAttributeOperandcv8QVariantEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QOpcUaSimpleAttributeOperandD1Ev": ["nothing", "address"],
+    "ritual_ZNK28QOpcUaSimpleAttributeOperand6typeIdEv": ["text", "address"],
+    "ritual_ZN28QOpcUaSimpleAttributeOperand9setTypeIdERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK28QOpcUaSimpleAttributeOperand10browsePathEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QOpcUaSimpleAttributeOperand13setBrowsePathERK5QListI19QOpcUaQualifiedNameE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK28QOpcUaSimpleAttributeOperand11attributeIdEv": [
+      "int", "address"
+    ],
+    "ritual_ZN28QOpcUaSimpleAttributeOperand14setAttributeIdEN6QOpcUa13NodeAttributeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK28QOpcUaSimpleAttributeOperand10indexRangeEv": [
+      "text", "address"
+    ],
+    "ritual_ZN28QOpcUaSimpleAttributeOperand13setIndexRangeERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZeqRK28QOpcUaSimpleAttributeOperandS1_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZneRK28QOpcUaSimpleAttributeOperandS1_": [
+      "bool", "address", "address"
+    ],
+    "ritual_list_make_QOpcUaSimpleAttributeOperand": ["address"],
+    "ritual_list_add_QOpcUaSimpleAttributeOperand": [
+      "nothing", "address", "address"
+    ],
+    "ritual_list_size_QOpcUaSimpleAttributeOperand": [
+      "long long", "address"
+    ],
+    "ritual_list_at_QOpcUaSimpleAttributeOperand": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_QOpcUaSimpleAttributeOperand": ["nothing", "address"]
+  }
+}

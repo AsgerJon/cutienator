@@ -1,0 +1,97 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGraphsWidgets/q3dbarswidgetitem.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "parts first": [
+    "QtGraphsWidgets", "QtGraphs", "QtQuickWidgets", "QtCore", "QtGui",
+    "QtQuick", "QtQml", "QtWidgets", "QtQmlIntegration"
+  ],
+  "rows": {
+    "ritual_ZNK17Q3DBarsWidgetItem10metaObjectEv": ["address", "address"],
+    "ritual_ZN17Q3DBarsWidgetItem2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17Q3DBarsWidgetItemC1EP7QObject": ["address", "address"],
+    "ritual_ZN17Q3DBarsWidgetItemD1Ev": ["nothing", "address"],
+    "ritual_ZNK17Q3DBarsWidgetItem13primarySeriesEv": ["address", "address"],
+    "ritual_ZN17Q3DBarsWidgetItem9addSeriesEP12QBar3DSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17Q3DBarsWidgetItem12removeSeriesEP12QBar3DSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17Q3DBarsWidgetItem12insertSeriesEiP12QBar3DSeries": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZNK17Q3DBarsWidgetItem10seriesListEv": ["address", "address"],
+    "ritual_ZNK17Q3DBarsWidgetItem20isMultiSeriesUniformEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK17Q3DBarsWidgetItem12barThicknessEv": ["float", "address"],
+    "ritual_ZNK17Q3DBarsWidgetItem10barSpacingEv": ["address", "address"],
+    "ritual_ZNK17Q3DBarsWidgetItem20isBarSpacingRelativeEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK17Q3DBarsWidgetItem15barSeriesMarginEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK17Q3DBarsWidgetItem7rowAxisEv": ["address", "address"],
+    "ritual_ZNK17Q3DBarsWidgetItem10columnAxisEv": ["address", "address"],
+    "ritual_ZNK17Q3DBarsWidgetItem9valueAxisEv": ["address", "address"],
+    "ritual_ZN17Q3DBarsWidgetItem7addAxisEP15QAbstract3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17Q3DBarsWidgetItem11releaseAxisEP15QAbstract3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17Q3DBarsWidgetItem4axesEv": ["address", "address"],
+    "ritual_ZNK17Q3DBarsWidgetItem14selectedSeriesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK17Q3DBarsWidgetItem10floorLevelEv": ["float", "address"],
+    "ritual_ZN17Q3DBarsWidgetItem18renderSliceToImageEiN10QtGraphs3D16SliceCaptureTypeE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN17Q3DBarsWidgetItem16setPrimarySeriesEP12QBar3DSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17Q3DBarsWidgetItem21setMultiSeriesUniformEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN17Q3DBarsWidgetItem15setBarThicknessEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN17Q3DBarsWidgetItem13setBarSpacingE6QSizeF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17Q3DBarsWidgetItem21setBarSpacingRelativeEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN17Q3DBarsWidgetItem18setBarSeriesMarginE6QSizeF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17Q3DBarsWidgetItem10setRowAxisEP15QCategory3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17Q3DBarsWidgetItem13setColumnAxisEP15QCategory3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17Q3DBarsWidgetItem12setValueAxisEP12QValue3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17Q3DBarsWidgetItem13setFloorLevelEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN17Q3DBarsWidgetItem5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN17Q3DBarsWidgetItem6d_funcEv": ["address", "address"],
+    "ritual_ZNK17Q3DBarsWidgetItem6d_funcEv": ["address", "address"],
+    "ritual_take_Q3DBarsWidgetItem": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN17Q3DBarsWidgetItem5eventEP6QEvent": [
+      "bool", "address", "address"
+    ]
+  }
+}

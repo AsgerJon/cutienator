@@ -1,0 +1,45 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGraphs/6.12.0/QtGraphs/private/qlogvalueaxis_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "parts first": [
+    "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
+  ],
+  "rows": {
+    "ritual_ZN20QLogValueAxisPrivate3minEv": ["double", "address"],
+    "ritual_ZN20QLogValueAxisPrivate3maxEv": ["double", "address"],
+    "ritual_ZN20QLogValueAxisPrivate8setRangeEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN20QLogValueAxisPrivate20calculateVisualRangeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QLogValueAxisPrivate6setMinERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QLogValueAxisPrivate6setMaxERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QLogValueAxisPrivate8setRangeERK8QVariantS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN20QLogValueAxisPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK20QLogValueAxisPrivate6q_funcEv": ["address", "address"],
+    "ritual_take_QLogValueAxisPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN20QLogValueAxisPrivate3minEv": ["double", "address"],
+    "ritual_own_ZN20QLogValueAxisPrivate3maxEv": ["double", "address"],
+    "ritual_own_ZN20QLogValueAxisPrivate6setMinERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20QLogValueAxisPrivate6setMaxERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20QLogValueAxisPrivate8setRangeERK8QVariantS2_": [
+      "nothing", "address", "address", "address"
+    ]
+  }
+}

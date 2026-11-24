@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGraphs/6.12.0/QtGraphs/private/qxypoint_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "parts first": [
+    "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
+  ],
+  "rows": {
+    "ritual_ZNK8QXYPoint10metaObjectEv": ["address", "address"],
+    "ritual_cast_QXYPoint_QPointF": ["address", "address"],
+    "ritual_take_QXYPoint": ["bool", "address", "chars", "address"]
+  }
+}

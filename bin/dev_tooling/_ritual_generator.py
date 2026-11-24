@@ -1807,7 +1807,11 @@ class RitualGenerator:
     Gives the whole text of the rows file, without writing it.
 
     Written for you from 'getRows', as JSON: under 'about' the heading
-    of the ritual file, and under 'rows' each ritual with its row.
+    of the ritual file; for a part of 'HeaderReader.getOwnOrderParts'
+    only, under 'parts first' the part and the parts it needs, the
+    nearest first, whose folders the compiler looked in first, so that
+    'Rituals.build' does the same; and under 'rows' each ritual with
+    its row.
     """
     about = textwrap.wrap(self._getHeading(), 66)
     lines = ['{', '  "about": [']
@@ -1815,7 +1819,23 @@ class RitualGenerator:
         '    %s%s' % (json.dumps(line), ',' if line is not about[-1] else '')
         for line in about
     )
-    lines.extend(('  ],', '  "rows": {'))
+    lines.append('  ],')
+    partName = self.getPartName()
+    if partName in HeaderReader.getOwnOrderParts():
+      first = HeaderReader.getNeededParts(partName)
+      lines.append('  "parts first": [')
+      packed = '   '
+      for position, name in enumerate(first):
+        piece = json.dumps(name)
+        if position < len(first) - 1:
+          piece = '%s,' % piece
+        if len(packed) + 1 + len(piece) > 77 and packed.strip():
+          lines.append(packed)
+          packed = '   '
+        packed = '%s %s' % (packed, piece)
+      lines.append(packed)
+      lines.append('  ],')
+    lines.append('  "rows": {')
     rows = [*self.getRows().items()]
     for index, (ritualName, row) in enumerate(rows):
       end = '' if index == len(rows) - 1 else ','

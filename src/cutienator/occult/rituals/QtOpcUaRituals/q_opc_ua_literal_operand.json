@@ -1,0 +1,26 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtOpcUa/qopcualiteraloperand.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN20QOpcUaLiteralOperandC1Ev": ["address"],
+    "ritual_ZN20QOpcUaLiteralOperandC1ERKS_": ["address", "address"],
+    "ritual_ZN20QOpcUaLiteralOperandC1ERK8QVariantN6QOpcUa5TypesE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK20QOpcUaLiteralOperandcv8QVariantEv": ["address", "address"],
+    "ritual_ZN20QOpcUaLiteralOperandD1Ev": ["nothing", "address"],
+    "ritual_ZNK20QOpcUaLiteralOperand5valueEv": ["address", "address"],
+    "ritual_ZN20QOpcUaLiteralOperand8setValueERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QOpcUaLiteralOperand4typeEv": ["int", "address"],
+    "ritual_ZN20QOpcUaLiteralOperand7setTypeEN6QOpcUa5TypesE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZeqRK20QOpcUaLiteralOperandS1_": ["bool", "address", "address"],
+    "ritual_ZneRK20QOpcUaLiteralOperandS1_": ["bool", "address", "address"]
+  }
+}

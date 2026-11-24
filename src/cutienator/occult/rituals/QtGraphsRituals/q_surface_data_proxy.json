@@ -1,0 +1,50 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGraphs/qsurfacedataproxy.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "parts first": [
+    "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
+  ],
+  "rows": {
+    "ritual_ZNK17QSurfaceDataProxy10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QSurfaceDataProxy2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QSurfaceDataProxy24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QSurfaceDataProxyC1EP7QObject": ["address", "address"],
+    "ritual_ZN17QSurfaceDataProxyD1Ev": ["nothing", "address"],
+    "ritual_ZNK17QSurfaceDataProxy6seriesEv": ["address", "address"],
+    "ritual_ZNK17QSurfaceDataProxy8rowCountEv": ["long long", "address"],
+    "ritual_ZNK17QSurfaceDataProxy11columnCountEv": ["long long", "address"],
+    "ritual_ZNK17QSurfaceDataProxy6itemAtExx": [
+      "address", "address", "long long", "long long"
+    ],
+    "ritual_ZNK17QSurfaceDataProxy6itemAtE6QPoint": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN17QSurfaceDataProxy10resetArrayEv": ["nothing", "address"],
+    "ritual_ZN17QSurfaceDataProxy6setRowEx5QListI16QSurfaceDataItemE": [
+      "nothing", "address", "long long", "address"
+    ],
+    "ritual_ZN17QSurfaceDataProxy7setItemExx16QSurfaceDataItem": [
+      "nothing", "address", "long long", "long long", "address"
+    ],
+    "ritual_ZN17QSurfaceDataProxy7setItemE6QPoint16QSurfaceDataItem": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN17QSurfaceDataProxy6addRowE5QListI16QSurfaceDataItemE": [
+      "long long", "address", "address"
+    ],
+    "ritual_ZN17QSurfaceDataProxy9insertRowEx5QListI16QSurfaceDataItemE": [
+      "nothing", "address", "long long", "address"
+    ],
+    "ritual_ZN17QSurfaceDataProxy10removeRowsExx": [
+      "nothing", "address", "long long", "long long"
+    ],
+    "ritual_take_QSurfaceDataProxy": ["bool", "address", "chars", "address"]
+  }
+}

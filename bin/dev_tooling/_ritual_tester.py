@@ -14,7 +14,7 @@ from worktoy.waitaminute import MissingVariable, TypeException
 from . import HeaderFolder, HeaderReader, RitualGenerator
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Any, Dict, List, Optional, Set, Tuple
+  from typing import Any, Dict, List, Optional, Sequence, Set, Tuple
 
   Record = Dict[str, Any]
   Faults = Tuple[str, ...]
@@ -219,15 +219,16 @@ class RitualTester:
     version = HeaderReader.getQtVersion()
     found = [include]
     #  The parts in the order of the alphabet, as the generator reads
-    #  them; for a part of 'HeaderReader.getOwnOrderParts' in the order
-    #  it sees them, its own first: the compiler takes the first file
-    #  it finds by a name, and two parts may each have one, as
-    #  'private/qabstractseries_p.h' of QtCharts and of QtGraphs.
+    #  them; for a part of 'HeaderReader.getOwnOrderParts' first the
+    #  part and the parts it needs, the nearest first, as the generator
+    #  reads them and 'Rituals.build' builds them: the compiler takes
+    #  the first file it finds by a name, and two parts may each have
+    #  one, as 'private/qabstractseries_p.h' of QtCharts and of
+    #  QtGraphs.
     generator = self.getRitualGenerator()
-    order = ()  # type: Tuple[str, ...]
+    order = ()  # type: Sequence[str]
     if generator.getPartName() in HeaderReader.getOwnOrderParts():
-      order = generator.getDependencyTree().getPartOrder(
-          generator.getPartName())
+      order = HeaderReader.getNeededParts(generator.getPartName())
     names = sorted(os.listdir(include))
     names = [
         *(name for name in order if name in names),

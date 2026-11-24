@@ -1,0 +1,86 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGraphs/qsurface3dseries.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "parts first": [
+    "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
+  ],
+  "rows": {
+    "ritual_ZNK16QSurface3DSeries10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QSurface3DSeries2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN16QSurface3DSeries24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QSurface3DSeriesC1EP7QObject": ["address", "address"],
+    "ritual_ZN16QSurface3DSeriesC1EP17QSurfaceDataProxyP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN16QSurface3DSeriesD1Ev": ["nothing", "address"],
+    "ritual_ZN16QSurface3DSeries12setDataProxyEP17QSurfaceDataProxy": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QSurface3DSeries9dataProxyEv": ["address", "address"],
+    "ritual_ZN16QSurface3DSeries16setSelectedPointE6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QSurface3DSeries13selectedPointEv": ["address", "address"],
+    "ritual_ZN16QSurface3DSeries24invalidSelectionPositionEv": ["address"],
+    "ritual_ZNK16QSurface3DSeries7shadingEv": ["int", "address"],
+    "ritual_ZN16QSurface3DSeries11setDrawModeE6QFlagsINS_8DrawFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK16QSurface3DSeries8drawModeEv": ["int", "address"],
+    "ritual_ZNK16QSurface3DSeries22isFlatShadingSupportedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN16QSurface3DSeries10setTextureERK6QImage": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QSurface3DSeries7textureEv": ["address", "address"],
+    "ritual_ZN16QSurface3DSeries14setTextureFileERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK16QSurface3DSeries11textureFileEv": ["text", "address"],
+    "ritual_ZN16QSurface3DSeries17setWireframeColorE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QSurface3DSeries14wireframeColorEv": ["address", "address"],
+    "ritual_ZN16QSurface3DSeries16setRowsSanitizedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK16QSurface3DSeries13rowsSanitizedEv": ["bool", "address"],
+    "ritual_ZN16QSurface3DSeries8clearRowEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN16QSurface3DSeries10clearArrayEv": ["nothing", "address"],
+    "ritual_ZN16QSurface3DSeries8setAxisXEP12QValue3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QSurface3DSeries8setAxisYEP12QValue3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QSurface3DSeries8setAxisZEP12QValue3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QSurface3DSeries5axisXEv": ["address", "address"],
+    "ritual_ZNK16QSurface3DSeries5axisYEv": ["address", "address"],
+    "ritual_ZNK16QSurface3DSeries5axisZEv": ["address", "address"],
+    "ritual_ZN16QSurface3DSeries10resetAxisXEv": ["nothing", "address"],
+    "ritual_ZN16QSurface3DSeries10resetAxisYEv": ["nothing", "address"],
+    "ritual_ZN16QSurface3DSeries10resetAxisZEv": ["nothing", "address"],
+    "ritual_take_QSurface3DSeries": ["bool", "address", "chars", "address"],
+    "ritual_list_make_QSurface3DSeries_ptr": ["address"],
+    "ritual_list_add_QSurface3DSeries_ptr": [
+      "nothing", "address", "address"
+    ],
+    "ritual_list_size_QSurface3DSeries_ptr": ["long long", "address"],
+    "ritual_list_at_QSurface3DSeries_ptr": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_QSurface3DSeries_ptr": ["nothing", "address"]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtMqtt/qmqtttopicfilter.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN16QMqttTopicFilterC1ERK7QString": ["address", "text"],
+    "ritual_ZN16QMqttTopicFilterC1ERK13QLatin1String": [
+      "address", "address"
+    ],
+    "ritual_ZN16QMqttTopicFilterC1ERKS_": ["address", "address"],
+    "ritual_ZN16QMqttTopicFilterD1Ev": ["nothing", "address"],
+    "ritual_ZNK16QMqttTopicFilter6filterEv": ["text", "address"],
+    "ritual_ZN16QMqttTopicFilter9setFilterERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK16QMqttTopicFilter22sharedSubscriptionNameEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK16QMqttTopicFilter7isValidEv": ["bool", "address"],
+    "ritual_ZNK16QMqttTopicFilter5matchERK14QMqttTopicName6QFlagsINS_11MatchOptionEE": [
+      "bool", "address", "address", "int"
+    ],
+    "ritual_ZeqRK16QMqttTopicFilterS1_": ["bool", "address", "address"],
+    "ritual_ZneRK16QMqttTopicFilterS1_": ["bool", "address", "address"],
+    "ritual_ZltRK16QMqttTopicFilterS1_": ["bool", "address", "address"]
+  }
+}

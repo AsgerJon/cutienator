@@ -1,0 +1,11 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCoap/6.12.0/QtCoap/private/qcoapinternalmessage_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN27QCoapInternalMessagePrivateC1Ev": ["address"],
+    "ritual_ZN27QCoapInternalMessagePrivateD1Ev": ["nothing", "address"]
+  }
+}

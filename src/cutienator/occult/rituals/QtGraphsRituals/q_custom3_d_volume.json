@@ -1,0 +1,99 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGraphs/qcustom3dvolume.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "parts first": [
+    "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
+  ],
+  "rows": {
+    "ritual_ZNK15QCustom3DVolume10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QCustom3DVolume2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN15QCustom3DVolumeC1EP7QObject": ["address", "address"],
+    "ritual_ZN15QCustom3DVolumeD1Ev": ["nothing", "address"],
+    "ritual_ZN15QCustom3DVolume15setTextureWidthEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QCustom3DVolume12textureWidthEv": ["int", "address"],
+    "ritual_ZN15QCustom3DVolume16setTextureHeightEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QCustom3DVolume13textureHeightEv": ["int", "address"],
+    "ritual_ZN15QCustom3DVolume15setTextureDepthEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QCustom3DVolume12textureDepthEv": ["int", "address"],
+    "ritual_ZN15QCustom3DVolume20setTextureDimensionsEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZNK15QCustom3DVolume16textureDataWidthEv": ["int", "address"],
+    "ritual_ZN15QCustom3DVolume14setSliceIndexXEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QCustom3DVolume11sliceIndexXEv": ["int", "address"],
+    "ritual_ZN15QCustom3DVolume14setSliceIndexYEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QCustom3DVolume11sliceIndexYEv": ["int", "address"],
+    "ritual_ZN15QCustom3DVolume14setSliceIndexZEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QCustom3DVolume11sliceIndexZEv": ["int", "address"],
+    "ritual_ZN15QCustom3DVolume15setSliceIndicesEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZN15QCustom3DVolume17setSubTextureDataEN2Qt4AxisEiRK6QImage": [
+      "nothing", "address", "int", "int", "address"
+    ],
+    "ritual_ZN15QCustom3DVolume16setTextureFormatEN6QImage6FormatE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QCustom3DVolume13textureFormatEv": ["int", "address"],
+    "ritual_ZN15QCustom3DVolume18setAlphaMultiplierEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK15QCustom3DVolume15alphaMultiplierEv": ["float", "address"],
+    "ritual_ZN15QCustom3DVolume18setPreserveOpacityEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK15QCustom3DVolume15preserveOpacityEv": ["bool", "address"],
+    "ritual_ZN15QCustom3DVolume19setUseHighDefShaderEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK15QCustom3DVolume16useHighDefShaderEv": ["bool", "address"],
+    "ritual_ZN15QCustom3DVolume13setDrawSlicesEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK15QCustom3DVolume10drawSlicesEv": ["bool", "address"],
+    "ritual_ZN15QCustom3DVolume18setDrawSliceFramesEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK15QCustom3DVolume15drawSliceFramesEv": ["bool", "address"],
+    "ritual_ZN15QCustom3DVolume18setSliceFrameColorE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QCustom3DVolume15sliceFrameColorEv": ["address", "address"],
+    "ritual_ZN15QCustom3DVolume19setSliceFrameWidthsE9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QCustom3DVolume16sliceFrameWidthsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN15QCustom3DVolume17setSliceFrameGapsE9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QCustom3DVolume14sliceFrameGapsEv": ["address", "address"],
+    "ritual_ZN15QCustom3DVolume24setSliceFrameThicknessesE9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QCustom3DVolume21sliceFrameThicknessesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN15QCustom3DVolume11renderSliceEN2Qt4AxisEi": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_take_QCustom3DVolume": ["bool", "address", "chars", "address"]
+  }
+}

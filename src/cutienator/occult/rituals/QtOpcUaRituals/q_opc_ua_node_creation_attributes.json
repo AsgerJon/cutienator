@@ -1,0 +1,180 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtOpcUa/qopcuanodecreationattributes.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN28QOpcUaNodeCreationAttributesC1Ev": ["address"],
+    "ritual_ZN28QOpcUaNodeCreationAttributesC1ERKS_": ["address", "address"],
+    "ritual_ZN28QOpcUaNodeCreationAttributesD1Ev": ["nothing", "address"],
+    "ritual_ZNK28QOpcUaNodeCreationAttributes11accessLevelEv": [
+      "int", "address"
+    ],
+    "ritual_ZN28QOpcUaNodeCreationAttributes14setAccessLevelE6QFlagsIN6QOpcUa14AccessLevelBitEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK28QOpcUaNodeCreationAttributes14hasAccessLevelEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK28QOpcUaNodeCreationAttributes18hasArrayDimensionsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK28QOpcUaNodeCreationAttributes15containsNoLoopsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN28QOpcUaNodeCreationAttributes18setContainsNoLoopsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK28QOpcUaNodeCreationAttributes18hasContainsNoLoopsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK28QOpcUaNodeCreationAttributes10dataTypeIdEv": [
+      "text", "address"
+    ],
+    "ritual_ZN28QOpcUaNodeCreationAttributes13setDataTypeIdERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK28QOpcUaNodeCreationAttributes13hasDataTypeIdEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK28QOpcUaNodeCreationAttributes11descriptionEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QOpcUaNodeCreationAttributes14setDescriptionERK19QOpcUaLocalizedText": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK28QOpcUaNodeCreationAttributes14hasDescriptionEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK28QOpcUaNodeCreationAttributes11displayNameEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QOpcUaNodeCreationAttributes14setDisplayNameERK19QOpcUaLocalizedText": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK28QOpcUaNodeCreationAttributes14hasDisplayNameEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK28QOpcUaNodeCreationAttributes13eventNotifierEv": [
+      "int", "address"
+    ],
+    "ritual_ZN28QOpcUaNodeCreationAttributes16setEventNotifierE6QFlagsIN6QOpcUa16EventNotifierBitEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK28QOpcUaNodeCreationAttributes16hasEventNotifierEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK28QOpcUaNodeCreationAttributes10executableEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN28QOpcUaNodeCreationAttributes13setExecutableEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK28QOpcUaNodeCreationAttributes13hasExecutableEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK28QOpcUaNodeCreationAttributes11historizingEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN28QOpcUaNodeCreationAttributes14setHistorizingEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK28QOpcUaNodeCreationAttributes14hasHistorizingEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK28QOpcUaNodeCreationAttributes11inverseNameEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QOpcUaNodeCreationAttributes14setInverseNameERK19QOpcUaLocalizedText": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK28QOpcUaNodeCreationAttributes14hasInverseNameEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK28QOpcUaNodeCreationAttributes10isAbstractEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN28QOpcUaNodeCreationAttributes13setIsAbstractEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK28QOpcUaNodeCreationAttributes13hasIsAbstractEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK28QOpcUaNodeCreationAttributes23minimumSamplingIntervalEv": [
+      "double", "address"
+    ],
+    "ritual_ZN28QOpcUaNodeCreationAttributes26setMinimumSamplingIntervalEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK28QOpcUaNodeCreationAttributes26hasMinimumSamplingIntervalEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK28QOpcUaNodeCreationAttributes9symmetricEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN28QOpcUaNodeCreationAttributes12setSymmetricEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK28QOpcUaNodeCreationAttributes12hasSymmetricEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK28QOpcUaNodeCreationAttributes15userAccessLevelEv": [
+      "int", "address"
+    ],
+    "ritual_ZN28QOpcUaNodeCreationAttributes18setUserAccessLevelE6QFlagsIN6QOpcUa14AccessLevelBitEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK28QOpcUaNodeCreationAttributes18hasUserAccessLevelEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK28QOpcUaNodeCreationAttributes14userExecutableEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN28QOpcUaNodeCreationAttributes17setUserExecutableEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK28QOpcUaNodeCreationAttributes17hasUserExecutableEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK28QOpcUaNodeCreationAttributes13userWriteMaskEv": [
+      "int", "address"
+    ],
+    "ritual_ZN28QOpcUaNodeCreationAttributes16setUserWriteMaskE6QFlagsIN6QOpcUa12WriteMaskBitEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK28QOpcUaNodeCreationAttributes16hasUserWriteMaskEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK28QOpcUaNodeCreationAttributes9valueRankEv": [
+      "int", "address"
+    ],
+    "ritual_ZN28QOpcUaNodeCreationAttributes12setValueRankEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK28QOpcUaNodeCreationAttributes12hasValueRankEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK28QOpcUaNodeCreationAttributes9writeMaskEv": [
+      "int", "address"
+    ],
+    "ritual_ZN28QOpcUaNodeCreationAttributes12setWriteMaskE6QFlagsIN6QOpcUa12WriteMaskBitEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK28QOpcUaNodeCreationAttributes12hasWriteMaskEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK28QOpcUaNodeCreationAttributes5valueEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QOpcUaNodeCreationAttributes8setValueERK8QVariantN6QOpcUa5TypesE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZNK28QOpcUaNodeCreationAttributes8hasValueEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK28QOpcUaNodeCreationAttributes9valueTypeEv": [
+      "int", "address"
+    ]
+  }
+}

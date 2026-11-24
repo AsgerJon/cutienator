@@ -1,0 +1,41 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtOpcUa/qopcuaextensionobject.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN21QOpcUaExtensionObjectC1Ev": ["address"],
+    "ritual_ZN21QOpcUaExtensionObjectC1ERKS_": ["address", "address"],
+    "ritual_ZN21QOpcUaExtensionObjectC1ERK7QStringNS_8EncodingE": [
+      "address", "text", "int"
+    ],
+    "ritual_ZN21QOpcUaExtensionObjectD1Ev": ["nothing", "address"],
+    "ritual_ZNK21QOpcUaExtensionObjecteqERKS_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK21QOpcUaExtensionObjectcv8QVariantEv": ["address", "address"],
+    "ritual_ZNK21QOpcUaExtensionObject14encodingTypeIdEv": [
+      "text", "address"
+    ],
+    "ritual_ZN21QOpcUaExtensionObject17setEncodingTypeIdERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK21QOpcUaExtensionObject11encodedBodyEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QOpcUaExtensionObject14setEncodedBodyERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QOpcUaExtensionObject20setBinaryEncodedBodyERK10QByteArrayRK7QString": [
+      "nothing", "address", "address", "text"
+    ],
+    "ritual_ZN21QOpcUaExtensionObject17setXmlEncodedBodyERK10QByteArrayRK7QString": [
+      "nothing", "address", "address", "text"
+    ],
+    "ritual_ZNK21QOpcUaExtensionObject8encodingEv": ["int", "address"],
+    "ritual_ZN21QOpcUaExtensionObject11setEncodingENS_8EncodingE": [
+      "nothing", "address", "int"
+    ]
+  }
+}

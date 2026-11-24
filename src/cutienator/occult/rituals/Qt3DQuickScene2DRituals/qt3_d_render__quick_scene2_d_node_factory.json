@@ -4,6 +4,11 @@
     "ckScene2D/6.12.0/Qt3DQuickScene2D/private/qt3dquickscene2dnodefact",
     "ory_p.h, Qt 6.12.0. Changes made here are lost."
   ],
+  "parts first": [
+    "Qt3DQuickScene2D", "Qt3DCore", "Qt3DQuick", "Qt3DRender", "QtCore",
+    "QtGui", "QtQml", "QtConcurrent", "QtNetwork", "QtQuick", "QtOpenGL",
+    "QtQmlIntegration"
+  ],
   "rows": {
     "ritual_ZN10Qt3DRender23QuickScene2DNodeFactoryD1Ev": [
       "nothing", "address"

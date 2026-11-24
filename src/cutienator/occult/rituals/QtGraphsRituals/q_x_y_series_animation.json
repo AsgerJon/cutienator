@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGraphs/6.12.0/QtGraphs/private/qxyseriesanimation_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "parts first": [
+    "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
+  ],
+  "rows": {
+    "ritual_ZNK18QXYSeriesAnimation10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QXYSeriesAnimation13updateCurrentEN16QGraphTransition14TransitionTypeEi7QPointF": [
+      "nothing", "address", "int", "int", "address"
+    ],
+    "ritual_take_QXYSeriesAnimation": ["bool", "address", "chars", "address"]
+  }
+}

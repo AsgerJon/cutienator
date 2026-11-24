@@ -1,0 +1,35 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGraphs/6.12.0/QtGraphs/private/qabstractaxis_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "parts first": [
+    "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
+  ],
+  "rows": {
+    "ritual_ZN20QAbstractAxisPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN20QAbstractAxisPrivate6setMinERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QAbstractAxisPrivate6setMaxERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QAbstractAxisPrivate8setRangeERK8QVariantS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN20QAbstractAxisPrivate8setRangeEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN20QAbstractAxisPrivate3minEv": ["double", "address"],
+    "ritual_ZN20QAbstractAxisPrivate3maxEv": ["double", "address"],
+    "ritual_ZN20QAbstractAxisPrivate18handleRangeChangedEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN20QAbstractAxisPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK20QAbstractAxisPrivate6q_funcEv": ["address", "address"],
+    "ritual_take_QAbstractAxisPrivate": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

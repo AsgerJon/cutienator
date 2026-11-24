@@ -1,0 +1,59 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCoap/qcoapmessage.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN12QCoapMessageC1Ev": ["address"],
+    "ritual_ZN12QCoapMessageC1ERKS_": ["address", "address"],
+    "ritual_ZN12QCoapMessageD1Ev": ["nothing", "address"],
+    "ritual_ZNK12QCoapMessage7versionEv": ["unsigned char", "address"],
+    "ritual_ZNK12QCoapMessage4typeEv": ["unsigned char", "address"],
+    "ritual_ZNK12QCoapMessage5tokenEv": ["address", "address"],
+    "ritual_ZNK12QCoapMessage11tokenLengthEv": ["unsigned char", "address"],
+    "ritual_ZNK12QCoapMessage9messageIdEv": ["unsigned short", "address"],
+    "ritual_ZNK12QCoapMessage7payloadEv": ["address", "address"],
+    "ritual_ZN12QCoapMessage10setVersionEh": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZN12QCoapMessage8setTokenERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QCoapMessage12setMessageIdEt": [
+      "nothing", "address", "unsigned short"
+    ],
+    "ritual_ZN12QCoapMessage10setPayloadERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QCoapMessage10setOptionsERK5QListI11QCoapOptionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12QCoapMessage8optionAtEi": ["address", "address", "int"],
+    "ritual_ZNK12QCoapMessage6optionEN11QCoapOption10OptionNameE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK12QCoapMessage9hasOptionEN11QCoapOption10OptionNameE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK12QCoapMessage7optionsEv": ["address", "address"],
+    "ritual_ZNK12QCoapMessage7optionsEN11QCoapOption10OptionNameE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK12QCoapMessage11optionCountEv": ["int", "address"],
+    "ritual_ZN12QCoapMessage9addOptionEN11QCoapOption10OptionNameERK10QByteArray": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN12QCoapMessage9addOptionERK11QCoapOption": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QCoapMessage12removeOptionERK11QCoapOption": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QCoapMessage12removeOptionEN11QCoapOption10OptionNameE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN12QCoapMessage12clearOptionsEv": ["nothing", "address"],
+    "ritual_ZN12QCoapMessage6d_funcEv": ["address", "address"],
+    "ritual_ZNK12QCoapMessage6d_funcEv": ["address", "address"]
+  }
+}
