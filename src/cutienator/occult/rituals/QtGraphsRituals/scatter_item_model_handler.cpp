@@ -13,9 +13,9 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "abstractitemmodelhandler_p.h"
-#include "qscatter3dseries_p.h"
-#include "scatteritemmodelhandler_p.h"
+#include <QtGraphs/private/abstractitemmodelhandler_p.h>
+#include <QtGraphs/private/qscatter3dseries_p.h>
+#include <QtGraphs/private/scatteritemmodelhandler_p.h>
 #include <QtGui/qquaternion.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

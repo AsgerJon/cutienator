@@ -13,7 +13,7 @@
 #include <QtQuick/6.12.0/QtQuick/private/qsgtransform_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquickshapesoftwarerenderer_p.h"
+#include <QtQuickShapes/private/qquickshapesoftwarerenderer_p.h>
 #include <private/qquickpath_p_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

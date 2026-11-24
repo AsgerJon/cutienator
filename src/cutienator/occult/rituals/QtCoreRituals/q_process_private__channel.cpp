@@ -4,6 +4,7 @@
 #include <QtCore/qglobal.h>
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #if QT_CONFIG(processenvironment)
+#if QT_CONFIG(processenvironment)
 #if QT_CONFIG(process)
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtCore/QtCore>
@@ -11,14 +12,14 @@
 #include <QtCore/6.12.0/QtCore/private/qprocess_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <qdebug.h>
-#include <qdir.h>
-#include <qscopedvaluerollback.h>
-#include "qprocess.h"
-#include "qprocess_p.h"
-#include <qbytearray.h>
-#include <qdeadlinetimer.h>
-#include <qcoreapplication.h>
+#include <QtCore/qdebug.h>
+#include <QtCore/qdir.h>
+#include <QtCore/qscopedvaluerollback.h>
+#include <QtCore/qprocess.h>
+#include <QtCore/private/qprocess_p.h>
+#include <QtCore/qbytearray.h>
+#include <QtCore/qdeadlinetimer.h>
+#include <QtCore/qcoreapplication.h>
 #if __has_include(<paths.h>)
 #include <paths.h>
 #endif
@@ -93,4 +94,5 @@ void ritual_ZN15QProcessPrivate7ChannelD1Ev(QProcessPrivate::Channel *self) {
 }
 
 #endif  // QT_CONFIG(process)
+#endif  // QT_CONFIG(processenvironment)
 #endif  // QT_CONFIG(processenvironment)

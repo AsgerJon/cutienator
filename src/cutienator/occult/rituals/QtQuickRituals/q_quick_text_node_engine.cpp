@@ -16,7 +16,7 @@
 #include <QtGui/qglyphrun.h>
 #include <QtGui/qcolor.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquicktextnodeengine_p.h"
+#include <QtQuick/private/qquicktextnodeengine_p.h>
 #include <QtCore/qpoint.h>
 #include <QtGui/qabstracttextdocumentlayout.h>
 #include <QtGui/qrawfont.h>
@@ -26,15 +26,15 @@
 #include <QtGui/qtexttable.h>
 #include <QtGui/qtextlist.h>
 #include <QtGui/qimageiohandler.h>
-#include <private/qquicktext_p.h>
-#include <private/qtextdocumentlayout_p.h>
-#include <private/qtextimagehandler_p.h>
-#include <private/qrawfont_p.h>
-#include <private/qglyphrun_p.h>
-#include <private/qquickitem_p.h>
-#include <private/qsgdistancefieldglyphnode_p.h>
+#include <QtQuick/private/qquicktext_p.h>
+#include <QtGui/private/qtextdocumentlayout_p.h>
+#include <QtGui/private/qtextimagehandler_p.h>
+#include <QtGui/private/qrawfont_p.h>
+#include <QtGui/private/qglyphrun_p.h>
+#include <QtQuick/private/qquickitem_p.h>
+#include <QtQuick/private/qsgdistancefieldglyphnode_p.h>
 #include <QtGui/private/qguiapplication_p.h>
-#include <qpa/qplatformtheme.h>
+#include <QtGui/qpa/qplatformtheme.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

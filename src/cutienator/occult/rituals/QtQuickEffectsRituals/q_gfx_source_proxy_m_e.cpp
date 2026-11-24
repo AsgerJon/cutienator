@@ -16,10 +16,10 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qgfxsourceproxy_p.h"
-#include <private/qquickshadereffectsource_p.h>
-#include <private/qquickitem_p.h>
-#include <private/qquickimage_p.h>
+#include <QtQuickEffects/private/qgfxsourceproxy_p.h>
+#include <QtQuick/private/qquickshadereffectsource_p.h>
+#include <QtQuick/private/qquickitem_p.h>
+#include <QtQuick/private/qquickimage_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

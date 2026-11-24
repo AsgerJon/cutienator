@@ -8,20 +8,20 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qrect.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <qpa/qplatformwindow.h>
-#include "private/qguiapplication_p.h"
-#include "private/qevent_p.h"
-#include "private/qeventpoint_p.h"
-#include "private/qpointingdevice_p.h"
-#include "private/qscreen_p.h"
-#include <QAbstractEventDispatcher>
-#include <qpa/qplatformintegration.h>
-#include <qdebug.h>
-#include "qhighdpiscaling_p.h"
+#include <QtGui/qpa/qplatformwindow.h>
+#include <QtGui/private/qguiapplication_p.h>
+#include <QtGui/private/qevent_p.h>
+#include <QtGui/private/qeventpoint_p.h>
+#include <QtGui/private/qpointingdevice_p.h>
+#include <QtGui/private/qscreen_p.h>
+#include <QtCore/QAbstractEventDispatcher>
+#include <QtGui/qpa/qplatformintegration.h>
+#include <QtCore/qdebug.h>
+#include <QtGui/private/qhighdpiscaling_p.h>
 #include <QtCore/qscopedvaluerollback.h>
 #include <QtCore/private/qlocking_p.h>
 #if QT_CONFIG(draganddrop)
-#include <qpa/qplatformdrag.h>
+#include <QtGui/qpa/qplatformdrag.h>
 #endif
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

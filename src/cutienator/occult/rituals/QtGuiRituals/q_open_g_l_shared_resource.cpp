@@ -3,6 +3,7 @@
 //  here are lost.
 #include <QtGui/qtguiglobal.h>
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
+#if QT_CONFIG(opengl)
 #if !defined(QT_NO_OPENGL)
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
 #include <QtGui/QtGui>
@@ -150,3 +151,4 @@ void ritual_list_drop_QOpenGLSharedResource_ptr(
 }
 
 #endif  // !defined(QT_NO_OPENGL)
+#endif  // QT_CONFIG(opengl)

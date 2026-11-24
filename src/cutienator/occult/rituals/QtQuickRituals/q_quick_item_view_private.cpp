@@ -1,8 +1,11 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtQuick/6.12.0/QtQuick/private/qquickitemview_p_p.h, Qt 6.12.0. Changes
 //  made here are lost.
+#include <QtQml/6.12.0/QtQml/private/qtqmlglobal_p.h>
+#include <QtGui/qtguiglobal.h>
 #include <QtQuick/qtquickglobal.h>
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
+#if QT_CONFIG(quick_itemview)
 #if QT_CONFIG(quick_itemview)
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #include <QtQuick/QtQuick>
@@ -20,9 +23,9 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquickitemview_p_p.h"
+#include <QtQuick/private/qquickitemview_p_p.h>
 #include <QtQml/qqmlcomponent.h>
-#include "qquickitemviewfxitem_p_p.h"
+#include <QtQuick/private/qquickitemviewfxitem_p_p.h>
 #include <QtQuick/private/qquicktransition_p.h>
 #include <QtQml/QQmlInfo>
 #include "qplatformdefs.h"
@@ -3024,4 +3027,5 @@ void ritual_own_ZN21QQuickItemViewPrivate14updateSectionsEv(
   static_cast<OwnQQuickItemViewPrivate *>(self)->OwnQQuickItemViewPrivate::updateSections();
 }
 
+#endif  // QT_CONFIG(quick_itemview)
 #endif  // QT_CONFIG(quick_itemview)

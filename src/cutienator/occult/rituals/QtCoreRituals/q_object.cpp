@@ -11,6 +11,9 @@
 #include <QtCore/qvariant.h>
 #include <QtCore/qbytearray.h>
 #include <QtCore/qlist.h>
+#include <QtCore/qmap.h>
+#include <QtCore/qhash.h>
+#include <iterator>
 #include <cstring>
 
 //  Only a class built on QObject may call these functions of it.
@@ -707,6 +710,127 @@ QObject *ritual_list_at_QObject_ptr(
 //  QList<QObject *>::~QList()
 extern "C" Q_DECL_EXPORT
 void ritual_list_drop_QObject_ptr(QList<QObject *> *self) {
+  delete self;
+}
+
+//  QHash<int, QObject *>: QHash<int, QObject *>()
+extern "C" Q_DECL_EXPORT
+QHash<int, QObject *> *ritual_map_make_QHash_int_QObject_ptr() {
+  return new QHash<int, QObject *>();
+}
+
+//  QHash<int, QObject *>: insert(const Key &key, const T &value)
+extern "C" Q_DECL_EXPORT
+void ritual_map_put_QHash_int_QObject_ptr(
+    QHash<int, QObject *> *self,
+    int key,
+    QObject *value) {
+  self->insert(key, value);
+}
+
+//  QHash<int, QObject *>: size() const
+extern "C" Q_DECL_EXPORT
+long long ritual_map_size_QHash_int_QObject_ptr(
+    const QHash<int, QObject *> *self) {
+  return self->size();
+}
+
+//  QHash<int, QObject *>: the key at a place
+extern "C" Q_DECL_EXPORT
+int ritual_map_key_QHash_int_QObject_ptr(
+    const QHash<int, QObject *> *self,
+    long long index) {
+  return *std::next(self->keyBegin(), index);
+}
+
+//  QHash<int, QObject *>: the value at a place
+extern "C" Q_DECL_EXPORT
+QObject *ritual_map_value_QHash_int_QObject_ptr(
+    const QHash<int, QObject *> *self,
+    long long index) {
+  return *std::next(self->constBegin(), index);
+}
+
+//  QHash<int, QObject *>: contains(const Key &key) const
+extern "C" Q_DECL_EXPORT
+bool ritual_map_has_QHash_int_QObject_ptr(
+    const QHash<int, QObject *> *self,
+    int key) {
+  return self->contains(key);
+}
+
+//  QHash<int, QObject *>: value(const Key &key) const
+extern "C" Q_DECL_EXPORT
+QObject *ritual_map_get_QHash_int_QObject_ptr(
+    const QHash<int, QObject *> *self,
+    int key) {
+  return self->value(key);
+}
+
+//  QHash<int, QObject *>: ~QHash()
+extern "C" Q_DECL_EXPORT
+void ritual_map_drop_QHash_int_QObject_ptr(QHash<int, QObject *> *self) {
+  delete self;
+}
+
+//  QHash<QString, QObject *>: QHash<QString, QObject *>()
+extern "C" Q_DECL_EXPORT
+QHash<QString, QObject *> *ritual_map_make_QHash_QString_QObject_ptr() {
+  return new QHash<QString, QObject *>();
+}
+
+//  QHash<QString, QObject *>: insert(const Key &key, const T &value)
+extern "C" Q_DECL_EXPORT
+void ritual_map_put_QHash_QString_QObject_ptr(
+    QHash<QString, QObject *> *self,
+    const QString *key,
+    QObject *value) {
+  self->insert(*key, value);
+}
+
+//  QHash<QString, QObject *>: size() const
+extern "C" Q_DECL_EXPORT
+long long ritual_map_size_QHash_QString_QObject_ptr(
+    const QHash<QString, QObject *> *self) {
+  return self->size();
+}
+
+//  QHash<QString, QObject *>: the key at a place
+extern "C" Q_DECL_EXPORT
+QString *ritual_map_key_QHash_QString_QObject_ptr(
+    const QHash<QString, QObject *> *self,
+    long long index) {
+  return new QString(*std::next(self->keyBegin(), index));
+}
+
+//  QHash<QString, QObject *>: the value at a place
+extern "C" Q_DECL_EXPORT
+QObject *ritual_map_value_QHash_QString_QObject_ptr(
+    const QHash<QString, QObject *> *self,
+    long long index) {
+  return *std::next(self->constBegin(), index);
+}
+
+//  QHash<QString, QObject *>: contains(const Key &key) const
+extern "C" Q_DECL_EXPORT
+bool ritual_map_has_QHash_QString_QObject_ptr(
+    const QHash<QString, QObject *> *self,
+    const QString *key) {
+  return self->contains(*key);
+}
+
+//  QHash<QString, QObject *>: value(const Key &key) const
+extern "C" Q_DECL_EXPORT
+QObject *ritual_map_get_QHash_QString_QObject_ptr(
+    const QHash<QString, QObject *> *self,
+    const QString *key) {
+  return self->value(*key);
+}
+
+//  QHash<QString, QObject *>: ~QHash()
+extern "C" Q_DECL_EXPORT
+void ritual_map_drop_QHash_QString_QObject_ptr(
+    QHash<QString, QObject *> *self) {
   delete self;
 }
 

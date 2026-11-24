@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtMultimedia/6.12.0/QtMultimedia/private/qautoresetevent_linux_p.h, Qt
 //  6.12.0. Changes made here are lost.
+#include <QtMultimedia/qtmultimediaglobal.h>
+#include <QtMultimedia/6.12.0/QtMultimedia/private/qtmultimediaglobal_p.h>
+#if defined(Q_OS_LINUX) || defined(Q_OS_ANDROID) || defined(Q_OS_HARMONY)
 #include <QtMultimedia/6.12.0/QtMultimedia/private/qtmultimediaglobal_p.h>
 #include <QtMultimedia/QtMultimedia>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -31,3 +34,5 @@ bool ritual_ZNK9QtPrivate22QAutoResetEventEventFD7isValidEv(
     const QtPrivate::QAutoResetEventEventFD *self) {
   return self->isValid();
 }
+
+#endif  // defined(Q_OS_LINUX) || defined(Q_OS_ANDROID) || defined(Q_OS_HARMONY)

@@ -7,15 +7,15 @@
 #include <QtQuickShapes/6.12.0/QtQuickShapes/private/qquickshape_p_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquickshape_p.h"
-#include "qquickshape_p_p.h"
-#include "qquickshapegenericrenderer_p.h"
-#include "qquickshapesoftwarerenderer_p.h"
-#include "qquickshapecurverenderer_p.h"
+#include <QtQuickShapes/private/qquickshape_p.h>
+#include <QtQuickShapes/private/qquickshape_p_p.h>
+#include <QtQuickShapes/private/qquickshapegenericrenderer_p.h>
+#include <QtQuickShapes/private/qquickshapesoftwarerenderer_p.h>
+#include <QtQuickShapes/private/qquickshapecurverenderer_p.h>
 #include <private/qsgplaintexture_p.h>
 #include <QtGui/private/qdrawhelper_p.h>
 #include <QOpenGLFunctions>
-#include <QLoggingCategory>
+#include <QtCore/QLoggingCategory>
 #include <rhi/qrhi.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

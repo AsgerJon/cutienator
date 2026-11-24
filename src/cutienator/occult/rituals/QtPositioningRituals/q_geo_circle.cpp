@@ -6,13 +6,13 @@
 #include <QtPositioning/qgeoshape.h>
 #include <QtCore/qstring.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qgeocircle.h"
-#include "qgeocircle_p.h"
-#include "qgeocoordinate.h"
-#include "qnumeric.h"
-#include "qlocationutils_p.h"
-#include "qdoublevector2d_p.h"
-#include "qdoublevector3d_p.h"
+#include <QtPositioning/qgeocircle.h>
+#include <QtPositioning/private/qgeocircle_p.h>
+#include <QtPositioning/qgeocoordinate.h>
+#include <QtCore/qnumeric.h>
+#include <QtPositioning/private/qlocationutils_p.h>
+#include <QtPositioning/private/qdoublevector2d_p.h>
+#include <QtPositioning/private/qdoublevector3d_p.h>
 #include <cmath>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

@@ -2,6 +2,7 @@
 //  QtCore/qanimationgroup.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qglobal.h>
 #if QT_CONFIG(animation)
+#if QT_CONFIG(animation)
 #include <QtCore/qanimationgroup.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
@@ -405,4 +406,5 @@ bool ritual_own_ZN15QAnimationGroup5eventEP6QEvent(
       event);
 }
 
+#endif  // QT_CONFIG(animation)
 #endif  // QT_CONFIG(animation)

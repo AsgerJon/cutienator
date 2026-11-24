@@ -4,6 +4,7 @@
 #include <QtCore/qglobal.h>
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #if QT_CONFIG(datetimeparser)
+#if QT_CONFIG(datetimeparser)
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtCore/QtCore>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -567,4 +568,5 @@ QLocale *ritual_own_ZNK15QDateTimeParser6localeEv(
       static_cast<const OwnQDateTimeParser *>(self)->OwnQDateTimeParser::locale());
 }
 
+#endif  // QT_CONFIG(datetimeparser)
 #endif  // QT_CONFIG(datetimeparser)

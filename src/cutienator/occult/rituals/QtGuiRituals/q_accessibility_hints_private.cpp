@@ -8,8 +8,8 @@
 #include <QtGui/6.12.0/QtGui/private/qaccessibilityhints_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qaccessibilityhints.h"
-#include "qaccessibilityhints_p.h"
+#include <QtGui/qaccessibilityhints.h>
+#include <QtGui/private/qaccessibilityhints_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

@@ -3,6 +3,7 @@
 //  Changes made here are lost.
 #include <QtQmlModels/qtqmlmodelsglobal.h>
 #include <QtQmlModels/6.12.0/QtQmlModels/private/qtqmlmodelsglobal_p.h>
+#if QT_CONFIG(qml_delegate_model)
 #if QT_CONFIG(qml_object_model)
 #include <QtQmlModels/6.12.0/QtQmlModels/private/qtqmlmodelsglobal_p.h>
 #include <QtQmlModels/QtQmlModels>
@@ -111,3 +112,4 @@ void ritual_ZN23QQmlInstantiatorPrivate15disconnectModelEP16QQmlInstantiatorP24Q
 }
 
 #endif  // QT_CONFIG(qml_object_model)
+#endif  // QT_CONFIG(qml_delegate_model)

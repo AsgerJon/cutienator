@@ -83,6 +83,20 @@
     "ritual_list_add_QJSValue": ["nothing", "address", "address"],
     "ritual_list_size_QJSValue": ["long long", "address"],
     "ritual_list_at_QJSValue": ["address", "address", "long long"],
-    "ritual_list_drop_QJSValue": ["nothing", "address"]
+    "ritual_list_drop_QJSValue": ["nothing", "address"],
+    "ritual_map_make_QHash_QString_QJSValue": ["address"],
+    "ritual_map_put_QHash_QString_QJSValue": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_map_size_QHash_QString_QJSValue": ["long long", "address"],
+    "ritual_map_key_QHash_QString_QJSValue": [
+      "text", "address", "long long"
+    ],
+    "ritual_map_value_QHash_QString_QJSValue": [
+      "address", "address", "long long"
+    ],
+    "ritual_map_has_QHash_QString_QJSValue": ["bool", "address", "text"],
+    "ritual_map_get_QHash_QString_QJSValue": ["address", "address", "text"],
+    "ritual_map_drop_QHash_QString_QJSValue": ["nothing", "address"]
   }
 }

@@ -7,11 +7,11 @@
 #include <QtGui/6.12.0/QtGui/private/qbackingstoredefaultcompositor_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qbackingstoredefaultcompositor_p.h"
+#include <QtGui/private/qbackingstoredefaultcompositor_p.h>
 #include <QtGui/qtransform.h>
 #include <QtGui/private/qmath_p.h>
 #include <QtGui/private/qwindow_p.h>
-#include <qpa/qplatformgraphicsbuffer.h>
+#include <QtGui/qpa/qplatformgraphicsbuffer.h>
 #include <QtCore/qfile.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

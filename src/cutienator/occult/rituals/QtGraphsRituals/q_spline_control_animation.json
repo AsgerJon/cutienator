@@ -1,0 +1,36 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGraphs/6.12.0/QtGraphs/private/qsplinecontrolanimation_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "parts first": [
+    "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
+  ],
+  "rows": {
+    "ritual_ZNK23QSplineControlAnimation10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QSplineControlAnimation13animationTypeEv": [
+      "int", "address"
+    ],
+    "ritual_ZN23QSplineControlAnimation17setAnimatingValueERK8QVariantS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK23QSplineControlAnimation12interpolatedERK8QVariantS2_d": [
+      "address", "address", "address", "address", "double"
+    ],
+    "ritual_take_QSplineControlAnimation": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN23QSplineControlAnimation13animationTypeEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZN23QSplineControlAnimation17setAnimatingValueERK8QVariantS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZNK23QSplineControlAnimation12interpolatedERK8QVariantS2_d": [
+      "address", "address", "address", "address", "double"
+    ]
+  }
+}

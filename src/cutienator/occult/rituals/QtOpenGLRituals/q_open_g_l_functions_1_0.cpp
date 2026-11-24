@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtOpenGL/qopenglfunctions_1_0.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtOpenGL/qtopenglglobal.h>
+#if !QT_CONFIG(opengles2)
 #if !defined(QT_NO_OPENGL) && !QT_CONFIG(opengles2)
 #include <QtOpenGL/QtOpenGL>
 #include <QtOpenGL/qopenglfunctions_1_0.h>
@@ -1704,3 +1706,4 @@ bool ritual_own_ZN20QOpenGLFunctions_1_025initializeOpenGLFunctionsEv(
 }
 
 #endif  // !defined(QT_NO_OPENGL) && !QT_CONFIG(opengles2)
+#endif  // !QT_CONFIG(opengles2)

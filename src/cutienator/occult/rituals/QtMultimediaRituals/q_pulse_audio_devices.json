@@ -6,8 +6,20 @@
   ],
   "rows": {
     "ritual_ZN18QPulseAudioDevicesD1Ev": ["nothing", "address"],
+    "ritual_ZN18QPulseAudioDevices17createAudioSourceERK12QAudioDeviceRK12QAudioFormatP7QObject": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN18QPulseAudioDevices15createAudioSinkERK12QAudioDeviceRK12QAudioFormatP7QObject": [
+      "address", "address", "address", "address", "address"
+    ],
     "ritual_ZNK18QPulseAudioDevices11backendNameEv": ["address", "address"],
     "ritual_ZNK18QPulseAudioDevices14hasCallbackApiEv": ["bool", "address"],
+    "ritual_ZNK18QPulseAudioDevices15findAudioInputsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18QPulseAudioDevices16findAudioOutputsEv": [
+      "address", "address"
+    ],
     "ritual_take_QPulseAudioDevices": [
       "bool", "address", "chars", "address"
     ],

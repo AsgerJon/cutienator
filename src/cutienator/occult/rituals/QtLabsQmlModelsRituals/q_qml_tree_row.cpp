@@ -17,7 +17,7 @@
 #include <QtCore/qhash.h>
 #include <iterator>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qqmltreerow_p.h"
+#include <QtLabsQmlModels/private/qqmltreerow_p.h>
 #include <QtCore/qjsonobject.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

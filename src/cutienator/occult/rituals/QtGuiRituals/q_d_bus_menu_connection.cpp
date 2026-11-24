@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGui/6.12.0/QtGui/private/qdbusmenuconnection_p.h, Qt 6.12.0. Changes
 //  made here are lost.
+#include <QtGui/qtguiglobal.h>
+#include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
+#if 1 && defined(Q_OS_UNIX) && (QT_CONFIG(xcb) || !defined(Q_OS_MACOS)) && (QT_CONFIG(xcb) || !(defined(Q_OS_IOS) || defined(Q_OS_TVOS) || defined(Q_OS_VISIONOS)))
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
 #include <QtGui/QtGui>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -16,14 +19,14 @@
 #include <QDBusInterface>
 #include <QDBusServiceWatcher>
 #include <QDBusConnectionInterface>
-#include <QDebug>
-#include <QCoreApplication>
+#include <QtCore/QDebug>
+#include <QtCore/QCoreApplication>
 #ifndef QT_NO_SYSTEMTRAYICON
-#include <private/qdbustrayicon_p.h>
+#include <QtGui/private/qdbustrayicon_p.h>
 #endif
-#include <private/qdbusmenuconnection_p.h>
-#include <private/qdbusmenuadaptor_p.h>
-#include <private/qdbusplatformmenu_p.h>
+#include <QtGui/private/qdbusmenuconnection_p.h>
+#include <QtGui/private/qdbusmenuadaptor_p.h>
+#include <QtGui/private/qdbusplatformmenu_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -265,3 +268,5 @@ bool ritual_take_QDBusMenuConnection(
     void *call) {
   return static_cast<CuteQDBusMenuConnection *>(self)->take(key, call);
 }
+
+#endif  // 1 && defined(Q_OS_UNIX) && (QT_CONFIG(xcb) || !defined(Q_OS_MACOS)) && (QT_CONFIG(xcb) || !(defined(Q_OS_IOS) || defined(Q_OS_TVOS) || defined(Q_OS_VISIONOS)))

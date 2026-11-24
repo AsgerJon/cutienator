@@ -4,6 +4,7 @@
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #if QT_CONFIG(combobox)
+#if QT_CONFIG(combobox)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/qcombobox.h>
 #include <QtWidgets/QtWidgets>
@@ -23,70 +24,70 @@
 #include <QtGui/qimage.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qstyle.h"
-#include "qapplication.h"
-#include "qpainter.h"
-#include "qwidget.h"
-#include "qbitmap.h"
-#include "qpixmapcache.h"
-#include "qset.h"
-#include "qstyleoption.h"
-#include "private/qstyle_p.h"
-#include "private/qstylehelper_p.h"
-#include "private/qguiapplication_p.h"
-#include <qpa/qplatformtheme.h>
+#include <QtWidgets/qstyle.h>
+#include <QtWidgets/qapplication.h>
+#include <QtGui/qpainter.h>
+#include <QtWidgets/qwidget.h>
+#include <QtGui/qbitmap.h>
+#include <QtGui/qpixmapcache.h>
+#include <QtCore/qset.h>
+#include <QtWidgets/qstyleoption.h>
+#include <QtWidgets/private/qstyle_p.h>
+#include <QtWidgets/private/qstylehelper_p.h>
+#include <QtGui/private/qguiapplication_p.h>
+#include <QtGui/qpa/qplatformtheme.h>
 #ifndef QT_NO_DEBUG
-#include "qdebug.h"
+#include <QtCore/qdebug.h>
 #endif
 #include <QtCore/q20utility.h>
 #include <limits.h>
 #include <algorithm>
-#include "qcombobox_p.h"
-#include <qstylepainter.h>
-#include <qpa/qplatformtheme.h>
-#include <qpa/qplatformmenu.h>
-#include <qpa/qplatformwindow.h>
-#include <qpa/qplatformwindow_p.h>
-#include <qlineedit.h>
-#include <qapplication.h>
-#include <qlistview.h>
+#include <QtWidgets/private/qcombobox_p.h>
+#include <QtWidgets/qstylepainter.h>
+#include <QtGui/qpa/qplatformtheme.h>
+#include <QtGui/qpa/qplatformmenu.h>
+#include <QtGui/qpa/qplatformwindow.h>
+#include <QtGui/qpa/qplatformwindow_p.h>
+#include <QtWidgets/qlineedit.h>
+#include <QtWidgets/qapplication.h>
+#include <QtWidgets/qlistview.h>
 #if QT_CONFIG(tableview)
-#include <qtableview.h>
+#include <QtWidgets/qtableview.h>
 #endif
-#include <qabstractitemdelegate.h>
-#include <qmap.h>
+#include <QtWidgets/qabstractitemdelegate.h>
+#include <QtCore/qmap.h>
 #if QT_CONFIG(menu)
-#include <qmenu.h>
+#include <QtWidgets/qmenu.h>
 #endif
-#include <qevent.h>
-#include <qlayout.h>
-#include <qscrollbar.h>
+#include <QtGui/qevent.h>
+#include <QtWidgets/qlayout.h>
+#include <QtWidgets/qscrollbar.h>
 #if QT_CONFIG(treeview)
-#include <qtreeview.h>
+#include <QtWidgets/qtreeview.h>
 #endif
-#include <qheaderview.h>
-#include <qmath.h>
-#include <qmetaobject.h>
+#include <QtWidgets/qheaderview.h>
+#include <QtCore/qmath.h>
+#include <QtCore/qmetaobject.h>
 #if QT_CONFIG(proxymodel)
-#include <qabstractproxymodel.h>
+#include <QtCore/qabstractproxymodel.h>
 #endif
-#include <qstylehints.h>
-#include <private/qguiapplication_p.h>
-#include <private/qhighdpiscaling_p.h>
-#include <private/qapplication_p.h>
-#include <private/qabstractitemmodel_p.h>
-#include <private/qabstractscrollarea_p.h>
-#include <private/qlineedit_p.h>
+#include <QtGui/qstylehints.h>
+#include <QtGui/private/qguiapplication_p.h>
+#include <QtGui/private/qhighdpiscaling_p.h>
+#include <QtWidgets/private/qapplication_p.h>
+#include <QtCore/private/qabstractitemmodel_p.h>
+#include <QtWidgets/private/qabstractscrollarea_p.h>
+#include <QtWidgets/private/qlineedit_p.h>
 #if QT_CONFIG(completer)
-#include <private/qcompleter_p.h>
+#include <QtWidgets/private/qcompleter_p.h>
 #endif
-#include <qdebug.h>
+#include <QtCore/qdebug.h>
 #if QT_CONFIG(effects)
-# include <private/qeffects_p.h>
+# include <QtWidgets/private/qeffects_p.h>
 #endif
-#include <private/qstyle_p.h>
+#include <QtWidgets/private/qstyle_p.h>
 #if QT_CONFIG(accessibility)
-#include "qaccessible.h"
+#include <QtGui/qaccessible.h>
 #endif
 #include <QtWidgets/qstyleoption.h>
 #include <QtGui/qstandarditemmodel.h>
@@ -122,6 +123,7 @@ inline QComboBoxPrivate::QComboBoxPrivate()
 }
 
 //  from src/widgets/widgets/qcombobox.cpp, line 215, as _ZN16QComboBoxPrivateD1Ev
+#if defined(Q_OS_LINUX)
 inline QComboBoxPrivate::~QComboBoxPrivate()
 {
     disconnectModel();
@@ -129,8 +131,10 @@ inline QComboBoxPrivate::~QComboBoxPrivate()
     cleanupNativePopup();
 #endif
 }
+#endif  // defined(Q_OS_LINUX)
 
 //  from src/widgets/widgets/qcombobox.cpp, line 1292, as _ZN16QComboBoxPrivate4initEv
+#if defined(Q_OS_LINUX)
 inline void QComboBoxPrivate::init()
 {
     Q_Q(QComboBox);
@@ -154,6 +158,7 @@ inline void QComboBoxPrivate::init()
     else
         q->setAttribute(Qt::WA_InputMethodEnabled);
 }
+#endif  // defined(Q_OS_LINUX)
 
 //  from src/widgets/widgets/qcombobox.cpp, line 1530, as _ZN16QComboBoxPrivate22updateLineEditGeometryEv
 inline void QComboBoxPrivate::updateLineEditGeometry()
@@ -598,6 +603,7 @@ inline void QComboBoxPrivate::updateViewContainerPaletteAndOpacity()
 }
 
 //  from src/widgets/widgets/qcombobox.cpp, line 1470, as _ZN16QComboBoxPrivate17updateFocusPolicyEv
+#if defined(Q_OS_LINUX)
 inline void QComboBoxPrivate::updateFocusPolicy()
 {
 #ifdef Q_OS_MACOS
@@ -610,6 +616,7 @@ inline void QComboBoxPrivate::updateFocusPolicy()
         q->setFocusPolicy(Qt::TabFocus);
 #endif
 }
+#endif  // defined(Q_OS_LINUX)
 
 //  from src/widgets/widgets/qcombobox.cpp, line 3189, as _ZN16QComboBoxPrivate11doHidePopupEv
 inline void QComboBoxPrivate::doHidePopup()
@@ -964,11 +971,13 @@ void ritual_ZN16QComboBoxPrivateD1Ev(QComboBoxPrivate *self) {
   delete self;
 }
 
+#if defined(Q_OS_LINUX)
 //  void QComboBoxPrivate::init()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QComboBoxPrivate4initEv(QComboBoxPrivate *self) {
   self->init();
 }
+#endif  // defined(Q_OS_LINUX)
 
 //  void QComboBoxPrivate::updateLineEditGeometry()
 extern "C" Q_DECL_EXPORT
@@ -1163,12 +1172,14 @@ void ritual_ZN16QComboBoxPrivate36updateViewContainerPaletteAndOpacityEv(
   self->updateViewContainerPaletteAndOpacity();
 }
 
+#if defined(Q_OS_LINUX)
 //  void QComboBoxPrivate::updateFocusPolicy()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QComboBoxPrivate17updateFocusPolicyEv(
     QComboBoxPrivate *self) {
   self->updateFocusPolicy();
 }
+#endif  // defined(Q_OS_LINUX)
 
 //  void QComboBoxPrivate::doHidePopup()
 extern "C" Q_DECL_EXPORT
@@ -1200,4 +1211,5 @@ bool ritual_take_QComboBoxPrivate(
   return static_cast<CuteQComboBoxPrivate *>(self)->take(key, call);
 }
 
+#endif  // QT_CONFIG(combobox)
 #endif  // QT_CONFIG(combobox)

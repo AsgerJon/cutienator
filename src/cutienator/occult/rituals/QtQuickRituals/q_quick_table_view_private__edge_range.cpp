@@ -1,14 +1,17 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtQuick/6.12.0/QtQuick/private/qquicktableview_p_p.h, Qt 6.12.0. Changes
 //  made here are lost.
+#include <QtQuick/qtquickglobal.h>
+#include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
+#if QT_CONFIG(quick_tableview)
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #include <QtQuick/QtQuick>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuick/6.12.0/QtQuick/private/qquicktableview_p_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquicktableview_p.h"
-#include "qquicktableview_p_p.h"
+#include <QtQuick/private/qquicktableview_p.h>
+#include <QtQuick/private/qquicktableview_p_p.h>
 #include <QtCore/qdir.h>
 #include <QtCore/qmimedata.h>
 #include <QtCore/qtimer.h>
@@ -71,3 +74,5 @@ void ritual_ZN22QQuickTableViewPrivate9EdgeRangeD1Ev(
     QQuickTableViewPrivate::EdgeRange *self) {
   delete self;
 }
+
+#endif  // QT_CONFIG(quick_tableview)

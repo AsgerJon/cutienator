@@ -4,6 +4,7 @@
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #if QT_CONFIG(fontdialog)
+#if QT_CONFIG(fontdialog)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/qfontdialog.h>
 #include <QtWidgets/QtWidgets>
@@ -20,27 +21,27 @@
 #include <QtGui/qimage.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qwindowdefs.h"
-#include "qfontdialog.h"
-#include "qfontdialog_p.h"
-#include <qapplication.h>
-#include <qcheckbox.h>
-#include <qcombobox.h>
-#include <qevent.h>
-#include <qgroupbox.h>
-#include <qlabel.h>
-#include <qlayout.h>
-#include <qlineedit.h>
-#include <qpushbutton.h>
-#include <qstyle.h>
-#include <qdialogbuttonbox.h>
-#include <qheaderview.h>
-#include <qlistview.h>
-#include <qstringlistmodel.h>
-#include <qvalidator.h>
-#include <private/qfontdatabase_p.h>
-#include <private/qdialog_p.h>
-#include <private/qfont_p.h>
+#include <QtGui/qwindowdefs.h>
+#include <QtWidgets/qfontdialog.h>
+#include <QtWidgets/private/qfontdialog_p.h>
+#include <QtWidgets/qapplication.h>
+#include <QtWidgets/qcheckbox.h>
+#include <QtWidgets/qcombobox.h>
+#include <QtGui/qevent.h>
+#include <QtWidgets/qgroupbox.h>
+#include <QtWidgets/qlabel.h>
+#include <QtWidgets/qlayout.h>
+#include <QtWidgets/qlineedit.h>
+#include <QtWidgets/qpushbutton.h>
+#include <QtWidgets/qstyle.h>
+#include <QtWidgets/qdialogbuttonbox.h>
+#include <QtWidgets/qheaderview.h>
+#include <QtWidgets/qlistview.h>
+#include <QtCore/qstringlistmodel.h>
+#include <QtGui/qvalidator.h>
+#include <QtGui/private/qfontdatabase_p.h>
+#include <QtWidgets/private/qdialog_p.h>
+#include <QtGui/private/qfont_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -745,4 +746,5 @@ void ritual_own_ZN18QFontDialogPrivate17helperPrepareShowEP21QPlatformDialogHelp
   self->QFontDialogPrivate::helperPrepareShow(a0);
 }
 
+#endif  // QT_CONFIG(fontdialog)
 #endif  // QT_CONFIG(fontdialog)

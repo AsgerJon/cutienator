@@ -8,11 +8,11 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquickstate_p_p.h"
-#include "qquickstate_p.h"
-#include "qquickstategroup_p.h"
-#include "qquickstatechangescript_p.h"
-#include <private/qqmlglobal_p.h>
+#include <QtQuick/private/qquickstate_p_p.h>
+#include <QtQuick/private/qquickstate_p.h>
+#include <QtQuick/private/qquickstategroup_p.h>
+#include <QtQuick/private/qquickstatechangescript_p.h>
+#include <QtQml/private/qqmlglobal_p.h>
 #include <QtCore/qdebug.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

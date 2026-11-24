@@ -4,6 +4,7 @@
 #include <QtQuick/qtquickglobal.h>
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #if QT_CONFIG(quick_canvas)
+#if QT_CONFIG(quick_canvas)
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #include <QtQuick/QtQuick>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -22,4 +23,5 @@ void ritual_ZN15QQuickContext2D5StateD1Ev(QQuickContext2D::State *self) {
   delete self;
 }
 
+#endif  // QT_CONFIG(quick_canvas)
 #endif  // QT_CONFIG(quick_canvas)

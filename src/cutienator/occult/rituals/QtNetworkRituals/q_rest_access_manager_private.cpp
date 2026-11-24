@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtNetwork/6.12.0/QtNetwork/private/qrestaccessmanager_p.h, Qt 6.12.0.
 //  Changes made here are lost.
+#include <QtNetwork/qtnetworkglobal.h>
+#include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
+#if QT_CONFIG(http)
 #include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
 #include <QtNetwork/qrestaccessmanager.h>
 #include <QtNetwork/QtNetwork>
@@ -8,9 +11,9 @@
 #include <QtNetwork/6.12.0/QtNetwork/private/qrestaccessmanager_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qrestaccessmanager.h"
-#include "qrestaccessmanager_p.h"
-#include "qrestreply.h"
+#include <QtNetwork/qrestaccessmanager.h>
+#include <QtNetwork/private/qrestaccessmanager_p.h>
+#include <QtNetwork/qrestreply.h>
 #include <QtNetwork/qhttpmultipart.h>
 #include <QtNetwork/qnetworkaccessmanager.h>
 #include <QtNetwork/qnetworkreply.h>
@@ -57,3 +60,5 @@ const QRestAccessManager *ritual_ZNK25QRestAccessManagerPrivate6q_funcEv(
     const QRestAccessManagerPrivate *self) {
   return self->q_func();
 }
+
+#endif  // QT_CONFIG(http)

@@ -1,8 +1,10 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/6.12.0/QtWidgets/private/qcolorwell_p.h, Qt 6.12.0. Changes
 //  made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
+#if QT_CONFIG(colordialog)
 #if QT_CONFIG(colordialog)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/QtWidgets>
@@ -15,48 +17,48 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qcolordialog.h"
+#include <QtWidgets/qcolordialog.h>
 #if QT_CONFIG(accessibility)
-#include "qaccessible.h"
+#include <QtGui/qaccessible.h>
 #endif
-#include "qapplication.h"
-#include "qdrawutil.h"
-#include "qevent.h"
-#include "qimage.h"
+#include <QtWidgets/qapplication.h>
+#include <QtWidgets/qdrawutil.h>
+#include <QtGui/qevent.h>
+#include <QtGui/qimage.h>
 #if QT_CONFIG(draganddrop)
-#include <qdrag.h>
+#include <QtGui/qdrag.h>
 #endif
-#include "qlabel.h"
-#include "qlayout.h"
-#include "qlineedit.h"
+#include <QtWidgets/qlabel.h>
+#include <QtWidgets/qlayout.h>
+#include <QtWidgets/qlineedit.h>
 #if QT_CONFIG(menu)
-#include "qmenu.h"
+#include <QtWidgets/qmenu.h>
 #endif
-#include "qpainter.h"
-#include "qpixmap.h"
-#include "qpushbutton.h"
+#include <QtGui/qpainter.h>
+#include <QtGui/qpixmap.h>
+#include <QtWidgets/qpushbutton.h>
 #if QT_CONFIG(regularexpression)
-#include <qregularexpression.h>
+#include <QtCore/qregularexpression.h>
 #endif
 #if QT_CONFIG(settings)
-#include "qsettings.h"
+#include <QtCore/qsettings.h>
 #endif
-#include "qsharedpointer.h"
-#include "qstyle.h"
-#include "qstyleoption.h"
-#include "qvalidator.h"
-#include "qmimedata.h"
-#include "qspinbox.h"
-#include "qdialogbuttonbox.h"
-#include "qscreen.h"
-#include "qcursor.h"
-#include "qtimer.h"
-#include "qwindow.h"
-#include "private/qdialog_p.h"
-#include "private/qcolorwell_p.h"
-#include <qpa/qplatformintegration.h>
-#include <qpa/qplatformservices.h>
-#include <private/qguiapplication_p.h>
+#include <QtCore/qsharedpointer.h>
+#include <QtWidgets/qstyle.h>
+#include <QtWidgets/qstyleoption.h>
+#include <QtGui/qvalidator.h>
+#include <QtCore/qmimedata.h>
+#include <QtWidgets/qspinbox.h>
+#include <QtWidgets/qdialogbuttonbox.h>
+#include <QtGui/qscreen.h>
+#include <QtGui/qcursor.h>
+#include <QtCore/qtimer.h>
+#include <QtGui/qwindow.h>
+#include <QtWidgets/private/qdialog_p.h>
+#include <QtWidgets/private/qcolorwell_p.h>
+#include <QtGui/qpa/qplatformintegration.h>
+#include <QtGui/qpa/qplatformservices.h>
+#include <QtGui/private/qguiapplication_p.h>
 #include <QtCore/qpointer.h>
 #include <algorithm>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -1579,4 +1581,5 @@ void ritual_own_ZN10QWellArray10paintEventEP11QPaintEvent(
   static_cast<OwnQWellArray *>(self)->OwnQWellArray::paintEvent(a0);
 }
 
+#endif  // QT_CONFIG(colordialog)
 #endif  // QT_CONFIG(colordialog)

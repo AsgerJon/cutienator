@@ -1,8 +1,10 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/6.12.0/QtWidgets/private/itemviews_p.h, Qt 6.12.0. Changes made
 //  here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
+#if QT_CONFIG(accessibility) && QT_CONFIG(itemviews)
 #if QT_CONFIG(itemviews)
 #if QT_CONFIG(accessibility)
 #if QT_CONFIG(listview)
@@ -19,19 +21,19 @@
 #include <QtCore/qlist.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "itemviews_p.h"
-#include <qheaderview.h>
+#include <QtWidgets/private/itemviews_p.h>
+#include <QtWidgets/qheaderview.h>
 #if QT_CONFIG(tableview)
-#include <qtableview.h>
+#include <QtWidgets/qtableview.h>
 #endif
 #if QT_CONFIG(listview)
-#include <qlistview.h>
+#include <QtWidgets/qlistview.h>
 #endif
 #if QT_CONFIG(treeview)
-#include <qtreeview.h>
-#include <private/qtreeview_p.h>
+#include <QtWidgets/qtreeview.h>
+#include <QtWidgets/private/qtreeview_p.h>
 #endif
-#include <private/qwidget_p.h>
+#include <QtWidgets/private/qwidget_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -2057,3 +2059,4 @@ int ritual_own_ZNK15QAccessibleList17selectedCellCountEv(
 #endif  // QT_CONFIG(listview)
 #endif  // QT_CONFIG(accessibility)
 #endif  // QT_CONFIG(itemviews)
+#endif  // QT_CONFIG(accessibility) && QT_CONFIG(itemviews)

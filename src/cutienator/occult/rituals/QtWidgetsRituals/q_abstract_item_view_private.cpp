@@ -1,8 +1,11 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/6.12.0/QtWidgets/private/qabstractitemview_p.h, Qt 6.12.0.
 //  Changes made here are lost.
+#include <QtCore/qglobal.h>
+#include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
+#if QT_CONFIG(itemviews)
 #if QT_CONFIG(itemviews)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/qabstractitemview.h>
@@ -25,64 +28,64 @@
 #include <QtCore/qlist.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qabstractitemview.h"
-#include <qpointer.h>
-#include <qapplication.h>
-#include <qclipboard.h>
-#include <qpainter.h>
-#include <qstyle.h>
+#include <QtWidgets/qabstractitemview.h>
+#include <QtCore/qpointer.h>
+#include <QtWidgets/qapplication.h>
+#include <QtGui/qclipboard.h>
+#include <QtGui/qpainter.h>
+#include <QtWidgets/qstyle.h>
 #if QT_CONFIG(draganddrop)
-#include <qdrag.h>
+#include <QtGui/qdrag.h>
 #endif
-#include <qevent.h>
-#include <qscrollbar.h>
+#include <QtGui/qevent.h>
+#include <QtWidgets/qscrollbar.h>
 #if QT_CONFIG(tooltip)
-#include <qtooltip.h>
+#include <QtWidgets/qtooltip.h>
 #endif
-#include <qdatetime.h>
+#include <QtCore/qdatetime.h>
 #if QT_CONFIG(lineedit)
-#include <qlineedit.h>
+#include <QtWidgets/qlineedit.h>
 #endif
 #if QT_CONFIG(spinbox)
-#include <qspinbox.h>
+#include <QtWidgets/qspinbox.h>
 #endif
-#include <qheaderview.h>
-#include <qstyleditemdelegate.h>
-#include <private/qabstractitemview_p.h>
-#include <private/qabstractitemmodel_p.h>
-#include <private/qapplication_p.h>
-#include <private/qguiapplication_p.h>
-#include <private/qscrollbar_p.h>
+#include <QtWidgets/qheaderview.h>
+#include <QtWidgets/qstyleditemdelegate.h>
+#include <QtWidgets/private/qabstractitemview_p.h>
+#include <QtCore/private/qabstractitemmodel_p.h>
+#include <QtWidgets/private/qapplication_p.h>
+#include <QtGui/private/qguiapplication_p.h>
+#include <QtWidgets/private/qscrollbar_p.h>
 #if QT_CONFIG(accessibility)
-#include <qaccessible.h>
+#include <QtGui/qaccessible.h>
 #endif
 #if QT_CONFIG(gestures) && QT_CONFIG(scroller)
-#  include <qscroller.h>
+#  include <QtWidgets/qscroller.h>
 #endif
 #include <algorithm>
-#include "qabstractscrollarea.h"
+#include <QtWidgets/qabstractscrollarea.h>
 #if QT_CONFIG(scrollarea)
-#include "qscrollbar.h"
-#include "qapplication.h"
-#include "qstyle.h"
-#include "qstyleoption.h"
-#include "qevent.h"
-#include "qdebug.h"
-#include "qboxlayout.h"
-#include "qpainter.h"
-#include "qmargins.h"
+#include <QtWidgets/qscrollbar.h>
+#include <QtWidgets/qapplication.h>
+#include <QtWidgets/qstyle.h>
+#include <QtWidgets/qstyleoption.h>
+#include <QtGui/qevent.h>
+#include <QtCore/qdebug.h>
+#include <QtWidgets/qboxlayout.h>
+#include <QtGui/qpainter.h>
+#include <QtCore/qmargins.h>
 #if QT_CONFIG(itemviews)
-#include "qheaderview.h"
+#include <QtWidgets/qheaderview.h>
 #endif
-#include <QDebug>
-#include "qabstractscrollarea_p.h"
-#include "qscrollbar_p.h"
-#include <qwidget.h>
-#include <private/qguiapplication_p.h>
-#include <qpa/qplatformtheme.h>
-#include <private/qapplication_p.h>
+#include <QtCore/QDebug>
+#include <QtWidgets/private/qabstractscrollarea_p.h>
+#include <QtWidgets/private/qscrollbar_p.h>
+#include <QtWidgets/qwidget.h>
+#include <QtGui/private/qguiapplication_p.h>
+#include <QtGui/qpa/qplatformtheme.h>
+#include <QtWidgets/private/qapplication_p.h>
 #ifdef Q_OS_WIN
-#  include <qt_windows.h>
+#  include <QtCore/qt_windows.h>
 #endif
 #endif
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -2730,4 +2733,5 @@ QRect *ritual_own_ZNK24QAbstractItemViewPrivate10visualRectERK11QModelIndex(
   return new QRect(self->QAbstractItemViewPrivate::visualRect(*index));
 }
 
+#endif  // QT_CONFIG(itemviews)
 #endif  // QT_CONFIG(itemviews)

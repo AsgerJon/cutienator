@@ -4,6 +4,7 @@
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #if QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/qgraphicsproxywidget.h>
 #include <QtWidgets/QtWidgets>
@@ -13,24 +14,24 @@
 #include <QtCore/qpoint.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qglobal.h"
+#include <QtCore/qglobal.h>
 #include <QtCore/qdebug.h>
 #include <QtCore/qnumeric.h>
-#include "qgraphicswidget_p.h"
-#include "qgraphicslayoutitem_p.h"
-#include "qgraphicslayout.h"
-#include "qgraphicsscene_p.h"
+#include <QtWidgets/private/qgraphicswidget_p.h>
+#include <QtWidgets/private/qgraphicslayoutitem_p.h>
+#include <QtWidgets/qgraphicslayout.h>
+#include <QtWidgets/private/qgraphicsscene_p.h>
 #include <QtWidgets/qapplication.h>
 #include <QtWidgets/qgraphicsscene.h>
 #include <QtWidgets/qstyleoption.h>
 #include <QtWidgets/QStyleOptionTitleBar>
 #include <QtWidgets/QGraphicsSceneMouseEvent>
-#include "qglobal.h"
-#include "qgraphicslayout.h"
-#include "qgraphicsproxywidget.h"
-#include "private/qgraphicsproxywidget_p.h"
-#include "private/qwidget_p.h"
-#include "private/qapplication_p.h"
+#include <QtCore/qglobal.h>
+#include <QtWidgets/qgraphicslayout.h>
+#include <QtWidgets/qgraphicsproxywidget.h>
+#include <QtWidgets/private/qgraphicsproxywidget_p.h>
+#include <QtWidgets/private/qwidget_p.h>
+#include <QtWidgets/private/qapplication_p.h>
 #include <QtCore/qdebug.h>
 #include <QtGui/qevent.h>
 #include <QtWidgets/qgraphicsscene.h>
@@ -1047,4 +1048,5 @@ bool ritual_own_ZNK27QGraphicsProxyWidgetPrivate13isProxyWidgetEv(
   return self->QGraphicsProxyWidgetPrivate::isProxyWidget();
 }
 
+#endif  // QT_CONFIG(graphicsview)
 #endif  // QT_CONFIG(graphicsview)

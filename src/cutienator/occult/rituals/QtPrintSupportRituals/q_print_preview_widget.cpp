@@ -1,7 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtPrintSupport/qprintpreviewwidget.h, Qt 6.12.0. Changes made here are
 //  lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtPrintSupport/qtprintsupportglobal.h>
+#if QT_CONFIG(printpreviewwidget)
 #if QT_CONFIG(printpreviewwidget)
 #include <QtPrintSupport/qprintpreviewwidget.h>
 #include <QtCore/qstring.h>
@@ -1087,4 +1089,5 @@ void ritual_own_ZN19QPrintPreviewWidget10setVisibleEb(
   self->QPrintPreviewWidget::setVisible(visible);
 }
 
+#endif  // QT_CONFIG(printpreviewwidget)
 #endif  // QT_CONFIG(printpreviewwidget)

@@ -4,6 +4,7 @@
 #include <QtNetwork/qtnetworkglobal.h>
 #include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
 #if QT_CONFIG(http)
+#if QT_CONFIG(http)
 #include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
 #include <QtNetwork/QtNetwork>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -12,18 +13,18 @@
 #include <QtCore/qbytearrayview.h>
 #include <QtCore/qbytearray.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qhttpnetworkheader_p.h"
-#include "qhttpnetworkrequest_p.h"
-#include "private/qnoncontiguousbytedevice_p.h"
+#include <QtNetwork/private/qhttpnetworkheader_p.h>
+#include <QtNetwork/private/qhttpnetworkrequest_p.h>
+#include <QtCore/private/qnoncontiguousbytedevice_p.h>
 #include <QtCore/private/qtools_p.h>
-#include "qhttpnetworkreply_p.h"
-#include "qhttpnetworkconnection_p.h"
+#include <QtNetwork/private/qhttpnetworkreply_p.h>
+#include <QtNetwork/private/qhttpnetworkconnection_p.h>
 #ifndef QT_NO_SSL
 #    include <QtNetwork/qsslkey.h>
 #    include <QtNetwork/qsslcipher.h>
 #    include <QtNetwork/qsslconfiguration.h>
 #endif
-#include <private/qdecompresshelper_p.h>
+#include <QtNetwork/private/qdecompresshelper_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -678,4 +679,5 @@ QHttpNetworkHeaderPrivate *ritual_cast_QHttpNetworkReplyPrivate_QHttpNetworkHead
   return static_cast<QHttpNetworkHeaderPrivate *>(self);
 }
 
+#endif  // QT_CONFIG(http)
 #endif  // QT_CONFIG(http)

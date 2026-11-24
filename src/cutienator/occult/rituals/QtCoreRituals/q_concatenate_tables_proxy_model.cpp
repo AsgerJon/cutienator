@@ -2,6 +2,7 @@
 //  QtCore/qconcatenatetablesproxymodel.h, Qt 6.12.0. Changes made here are
 //  lost.
 #include <QtCore/qglobal.h>
+#if QT_CONFIG(concatenatetablesproxymodel) && QT_CONFIG(proxymodel)
 #if QT_CONFIG(concatenatetablesproxymodel)
 #include <QtCore/qconcatenatetablesproxymodel.h>
 #include <QtCore/qstring.h>
@@ -1382,3 +1383,4 @@ QSize *ritual_own_ZNK28QConcatenateTablesProxyModel4spanERK11QModelIndex(
 }
 
 #endif  // QT_CONFIG(concatenatetablesproxymodel)
+#endif  // QT_CONFIG(concatenatetablesproxymodel) && QT_CONFIG(proxymodel)

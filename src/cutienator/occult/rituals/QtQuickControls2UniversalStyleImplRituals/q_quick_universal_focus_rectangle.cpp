@@ -16,7 +16,7 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquickuniversalfocusrectangle_p.h"
+#include <QtQuickControls2UniversalStyleImpl/private/qquickuniversalfocusrectangle_p.h>
 #include <QtGui/qpixmap.h>
 #include <QtGui/qpainter.h>
 #include <QtGui/qpixmapcache.h>

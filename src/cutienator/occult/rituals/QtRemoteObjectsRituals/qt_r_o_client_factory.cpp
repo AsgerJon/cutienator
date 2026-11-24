@@ -5,9 +5,9 @@
 #include <QtRemoteObjects/qconnectionfactories.h>
 #include <QtCore/qurl.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qconnection_tcpip_backend_p.h"
+#include <QtRemoteObjects/private/qconnection_tcpip_backend_p.h>
 #include <QtNetwork/qhostinfo.h>
-#include "qconnection_local_backend_p.h"
+#include <QtRemoteObjects/private/qconnection_local_backend_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

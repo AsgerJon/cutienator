@@ -10,7 +10,7 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qnetworkaccesscache_p.h"
+#include <QtNetwork/private/qnetworkaccesscache_p.h>
 #include "QtCore/qpointer.h"
 #include "QtCore/qdeadlinetimer.h"
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER

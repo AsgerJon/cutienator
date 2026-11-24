@@ -9,8 +9,8 @@
 #include <QtNetwork/qnetworkdatagram.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qcoapqudpconnection_p.h"
-#include <private/qcoapnamespace_p.h>
+#include <QtCoap/private/qcoapqudpconnection_p.h>
+#include <QtCoap/private/qcoapnamespace_p.h>
 #include <QtCore/qloggingcategory.h>
 #include <QtNetwork/qnetworkdatagram.h>
 #include <QtNetwork/private/qabstractsocket_p.h>

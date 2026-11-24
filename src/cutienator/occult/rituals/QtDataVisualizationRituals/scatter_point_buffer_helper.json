@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtDataV",
+    "isualization/6.12.0/QtDataVisualization/private/scatterpointbuffer",
+    "helper_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN24ScatterPointBufferHelperD1Ev": ["nothing", "address"],
+    "ritual_ZN24ScatterPointBufferHelper8popPointEv": ["nothing", "address"],
+    "ritual_ZN24ScatterPointBufferHelper9setScaleYEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN24ScatterPointBufferHelper9updateUVsEP24ScatterSeriesRenderCache": [
+      "nothing", "address", "address"
+    ]
+  }
+}

@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qfontcombobox.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(fontcombobox)
 #if QT_CONFIG(fontcombobox)
 #include <QtWidgets/qfontcombobox.h>
 #include <QtCore/qstring.h>
@@ -1207,4 +1209,5 @@ bool ritual_own_ZN13QFontComboBox5eventEP6QEvent(
   return static_cast<OwnQFontComboBox *>(self)->OwnQFontComboBox::event(e);
 }
 
+#endif  // QT_CONFIG(fontcombobox)
 #endif  // QT_CONFIG(fontcombobox)

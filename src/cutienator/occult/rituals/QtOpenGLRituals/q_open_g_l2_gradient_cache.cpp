@@ -9,14 +9,14 @@
 #include <QtGui/qbrush.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qopenglgradientcache_p.h"
-#include <private/qdrawhelper_p.h>
-#include <private/qopenglcontext_p.h>
-#include <private/qrgba64_p.h>
+#include <QtOpenGL/private/qopenglgradientcache_p.h>
+#include <QtGui/private/qdrawhelper_p.h>
+#include <QtGui/private/qopenglcontext_p.h>
+#include <QtGui/private/qrgba64_p.h>
 #include <QtCore/qmutex.h>
 #include <QtCore/qrandom.h>
-#include "qopenglfunctions.h"
-#include <private/qopenglextensions_p.h>
+#include <QtGui/qopenglfunctions.h>
+#include <QtGui/private/qopenglextensions_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

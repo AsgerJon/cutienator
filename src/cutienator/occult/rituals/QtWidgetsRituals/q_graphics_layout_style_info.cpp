@@ -4,6 +4,7 @@
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #if QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/QtWidgets>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -11,21 +12,21 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qgraphicslayoutstyleinfo_p.h"
-#include "qgraphicslayout_p.h"
-#include "qgraphicswidget.h"
+#include <QtWidgets/private/qgraphicslayoutstyleinfo_p.h>
+#include <QtWidgets/private/qgraphicslayout_p.h>
+#include <QtWidgets/qgraphicswidget.h>
 #include <QtWidgets/qstyle.h>
 #include <QtWidgets/qwidget.h>
 #include <QtWidgets/qapplication.h>
-#include "qglobal.h"
-#include "qgraphicslayout.h"
-#include "qgraphicsscene.h"
-#include "qgraphicslayoutitem.h"
-#include "qgraphicslayoutitem_p.h"
-#include "qwidget.h"
-#include "qgraphicswidget.h"
-#include "qgraphicsitem_p.h"
-#include <QtDebug>
+#include <QtCore/qglobal.h>
+#include <QtWidgets/qgraphicslayout.h>
+#include <QtWidgets/qgraphicsscene.h>
+#include <QtWidgets/qgraphicslayoutitem.h>
+#include <QtWidgets/private/qgraphicslayoutitem_p.h>
+#include <QtWidgets/qwidget.h>
+#include <QtWidgets/qgraphicswidget.h>
+#include <QtWidgets/private/qgraphicsitem_p.h>
+#include <QtCore/QtDebug>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -337,4 +338,5 @@ void ritual_own_ZN24QGraphicsLayoutStyleInfo10invalidateEv(
   self->QGraphicsLayoutStyleInfo::invalidate();
 }
 
+#endif  // QT_CONFIG(graphicsview)
 #endif  // QT_CONFIG(graphicsview)

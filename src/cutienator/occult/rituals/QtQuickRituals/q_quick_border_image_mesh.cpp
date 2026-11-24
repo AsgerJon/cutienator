@@ -4,6 +4,7 @@
 #include <QtQuick/qtquickglobal.h>
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #if QT_CONFIG(quick_shadereffect)
+#if QT_CONFIG(quick_shadereffect)
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #include <QtQuick/QtQuick>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -14,8 +15,8 @@
 #include <QtCore/qsize.h>
 #include <QtCore/qlist.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquickborderimage_p.h"
-#include "qquickborderimage_p_p.h"
+#include <QtQuick/private/qquickborderimage_p.h>
+#include <QtQuick/private/qquickborderimage_p_p.h>
 #include <QtQml/qqmlinfo.h>
 #include <QtQml/qqmlfile.h>
 #include <QtQml/qqmlengine.h>
@@ -25,13 +26,13 @@
 #include <QtCore/qfile.h>
 #include <QtCore/qmath.h>
 #include <QtGui/qguiapplication.h>
-#include <private/qqmlglobal_p.h>
-#include <private/qsgadaptationlayer_p.h>
-#include "qquickshadereffectmesh_p.h"
+#include <QtQml/private/qqmlglobal_p.h>
+#include <QtQuick/private/qsgadaptationlayer_p.h>
+#include <QtQuick/private/qquickshadereffectmesh_p.h>
 #include <QtQuick/qsggeometry.h>
-#include "qquickshadereffect_p.h"
-#include "qquickscalegrid_p_p.h"
-#include "qquickborderimage_p_p.h"
+#include <QtQuick/private/qquickshadereffect_p.h>
+#include <QtQuick/private/qquickscalegrid_p_p.h>
+#include <QtQuick/private/qquickborderimage_p_p.h>
 #include <QtQuick/private/qsgbasicinternalimagenode_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
@@ -241,4 +242,5 @@ QSGGeometry *ritual_own_ZN21QQuickBorderImageMesh14updateGeometryEP11QSGGeometry
       *rect);
 }
 
+#endif  // QT_CONFIG(quick_shadereffect)
 #endif  // QT_CONFIG(quick_shadereffect)

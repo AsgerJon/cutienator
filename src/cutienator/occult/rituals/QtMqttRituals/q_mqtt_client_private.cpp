@@ -9,20 +9,20 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qmqttconnection_p.h"
-#include "qmqttconnectionproperties_p.h"
-#include "qmqttcontrolpacket_p.h"
-#include "qmqttmessage_p.h"
-#include "qmqttpublishproperties_p.h"
-#include "qmqttsubscription_p.h"
-#include "qmqttclient_p.h"
+#include <QtMqtt/private/qmqttconnection_p.h>
+#include <QtMqtt/private/qmqttconnectionproperties_p.h>
+#include <QtMqtt/private/qmqttcontrolpacket_p.h>
+#include <QtMqtt/private/qmqttmessage_p.h>
+#include <QtMqtt/private/qmqttpublishproperties_p.h>
+#include <QtMqtt/private/qmqttsubscription_p.h>
+#include <QtMqtt/private/qmqttclient_p.h>
 #include <QtCore/QLoggingCategory>
 #include <QtNetwork/QSslSocket>
 #include <QtNetwork/QTcpSocket>
 #include <limits>
 #include <cstdint>
-#include "qmqttclient.h"
-#include "qmqttclient_p.h"
+#include <QtMqtt/qmqttclient.h>
+#include <QtMqtt/private/qmqttclient_p.h>
 #ifdef QT_MQTT_WITH_WEBSOCKETS
 #endif
 #include <QtCore/QLoggingCategory>

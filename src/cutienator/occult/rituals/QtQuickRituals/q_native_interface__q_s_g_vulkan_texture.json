@@ -7,15 +7,6 @@
   "rows": {
     "ritual_ZN16QNativeInterface16QSGVulkanTextureD1Ev": [
       "nothing", "address"
-    ],
-    "ritual_ZNK16QNativeInterface16QSGVulkanTexture11nativeImageEv": [
-      "unsigned long long", "address"
-    ],
-    "ritual_ZNK16QNativeInterface16QSGVulkanTexture17nativeImageLayoutEv": [
-      "int", "address"
-    ],
-    "ritual_take_QNativeInterface_QSGVulkanTexture": [
-      "bool", "address", "chars", "address"
     ]
   }
 }

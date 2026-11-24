@@ -2,6 +2,7 @@
 //  QtWidgets/qgraphicswidget.h, Qt 6.12.0. Changes made here are lost.
 #include <QtWidgets/qtwidgetsglobal.h>
 #if QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 #include <QtWidgets/qgraphicswidget.h>
 #include <QtCore/qstring.h>
 #include <QtGui/qfont.h>
@@ -2472,4 +2473,5 @@ void ritual_own_ZN15QGraphicsWidget19ungrabKeyboardEventEP6QEvent(
       event);
 }
 
+#endif  // QT_CONFIG(graphicsview)
 #endif  // QT_CONFIG(graphicsview)

@@ -8,9 +8,9 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qplacesearchresult.h"
-#include "qplacesearchresult_p.h"
-#include "qplaceresult.h"
+#include <QtLocation/qplacesearchresult.h>
+#include <QtLocation/private/qplacesearchresult_p.h>
+#include <QtLocation/qplaceresult.h>
 #include <QtCore/qnumeric.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

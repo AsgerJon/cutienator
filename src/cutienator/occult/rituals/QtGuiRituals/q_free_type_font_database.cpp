@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGui/6.12.0/QtGui/private/qfreetypefontdatabase_p.h, Qt 6.12.0. Changes
 //  made here are lost.
+#include <QtGui/qtguiglobal.h>
+#include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
+#if QT_CONFIG(freetype)
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
 #include <QtGui/QtGui>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -368,3 +371,5 @@ bool ritual_own_ZNK21QFreeTypeFontDatabase19supportsColrv0FontsEv(
     const QFreeTypeFontDatabase *self) {
   return self->QFreeTypeFontDatabase::supportsColrv0Fonts();
 }
+
+#endif  // QT_CONFIG(freetype)

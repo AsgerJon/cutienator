@@ -10,10 +10,10 @@
 #include <QtCore/6.12.0/QtCore/private/qsharedmemory_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qsharedmemory.h"
-#include "qsharedmemory_p.h"
-#include "qtipccommon_p.h"
-#include <qfile.h>
+#include <QtCore/qsharedmemory.h>
+#include <QtCore/private/qsharedmemory_p.h>
+#include <QtCore/private/qtipccommon_p.h>
+#include <QtCore/qfile.h>
 #include <errno.h>
 #if QT_CONFIG(sharedmemory)
 #if QT_CONFIG(posix_shm)
@@ -22,7 +22,7 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <unistd.h>
-#include "private/qcore_unix_p.h"
+#include <QtCore/private/qcore_unix_p.h>
 #endif
 #endif
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER

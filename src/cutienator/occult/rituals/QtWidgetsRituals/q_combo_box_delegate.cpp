@@ -4,6 +4,7 @@
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #if QT_CONFIG(combobox)
+#if QT_CONFIG(combobox)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/QtWidgets>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -18,52 +19,52 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qcombobox_p.h"
-#include <qstylepainter.h>
-#include <qpa/qplatformtheme.h>
-#include <qpa/qplatformmenu.h>
-#include <qpa/qplatformwindow.h>
-#include <qpa/qplatformwindow_p.h>
-#include <qlineedit.h>
-#include <qapplication.h>
-#include <qlistview.h>
+#include <QtWidgets/private/qcombobox_p.h>
+#include <QtWidgets/qstylepainter.h>
+#include <QtGui/qpa/qplatformtheme.h>
+#include <QtGui/qpa/qplatformmenu.h>
+#include <QtGui/qpa/qplatformwindow.h>
+#include <QtGui/qpa/qplatformwindow_p.h>
+#include <QtWidgets/qlineedit.h>
+#include <QtWidgets/qapplication.h>
+#include <QtWidgets/qlistview.h>
 #if QT_CONFIG(tableview)
-#include <qtableview.h>
+#include <QtWidgets/qtableview.h>
 #endif
-#include <qabstractitemdelegate.h>
-#include <qmap.h>
+#include <QtWidgets/qabstractitemdelegate.h>
+#include <QtCore/qmap.h>
 #if QT_CONFIG(menu)
-#include <qmenu.h>
+#include <QtWidgets/qmenu.h>
 #endif
-#include <qevent.h>
-#include <qlayout.h>
-#include <qscrollbar.h>
+#include <QtGui/qevent.h>
+#include <QtWidgets/qlayout.h>
+#include <QtWidgets/qscrollbar.h>
 #if QT_CONFIG(treeview)
-#include <qtreeview.h>
+#include <QtWidgets/qtreeview.h>
 #endif
-#include <qheaderview.h>
-#include <qmath.h>
-#include <qmetaobject.h>
+#include <QtWidgets/qheaderview.h>
+#include <QtCore/qmath.h>
+#include <QtCore/qmetaobject.h>
 #if QT_CONFIG(proxymodel)
-#include <qabstractproxymodel.h>
+#include <QtCore/qabstractproxymodel.h>
 #endif
-#include <qstylehints.h>
-#include <private/qguiapplication_p.h>
-#include <private/qhighdpiscaling_p.h>
-#include <private/qapplication_p.h>
-#include <private/qabstractitemmodel_p.h>
-#include <private/qabstractscrollarea_p.h>
-#include <private/qlineedit_p.h>
+#include <QtGui/qstylehints.h>
+#include <QtGui/private/qguiapplication_p.h>
+#include <QtGui/private/qhighdpiscaling_p.h>
+#include <QtWidgets/private/qapplication_p.h>
+#include <QtCore/private/qabstractitemmodel_p.h>
+#include <QtWidgets/private/qabstractscrollarea_p.h>
+#include <QtWidgets/private/qlineedit_p.h>
 #if QT_CONFIG(completer)
-#include <private/qcompleter_p.h>
+#include <QtWidgets/private/qcompleter_p.h>
 #endif
-#include <qdebug.h>
+#include <QtCore/qdebug.h>
 #if QT_CONFIG(effects)
-# include <private/qeffects_p.h>
+# include <QtWidgets/private/qeffects_p.h>
 #endif
-#include <private/qstyle_p.h>
+#include <QtWidgets/private/qstyle_p.h>
 #if QT_CONFIG(accessibility)
-#include "qaccessible.h"
+#include <QtGui/qaccessible.h>
 #endif
 #include <QtWidgets/qstyleoption.h>
 #include <QtGui/qstandarditemmodel.h>
@@ -621,4 +622,5 @@ bool ritual_take_QComboBoxDelegate(
   return static_cast<CuteQComboBoxDelegate *>(self)->take(key, call);
 }
 
+#endif  // QT_CONFIG(combobox)
 #endif  // QT_CONFIG(combobox)

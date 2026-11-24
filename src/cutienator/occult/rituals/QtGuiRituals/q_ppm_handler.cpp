@@ -11,17 +11,17 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qvariant.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "private/qppmhandler_p.h"
+#include <QtGui/private/qppmhandler_p.h>
 #ifndef QT_NO_IMAGEFORMAT_PPM
-#include <qdebug.h>
-#include <qimage.h>
-#include <qlist.h>
-#include <qloggingcategory.h>
-#include <qrgba64.h>
-#include <qvariant.h>
-#include <private/qlocale_p.h>
-#include <private/qtools_p.h>
-#include <private/qimage_p.h>
+#include <QtCore/qdebug.h>
+#include <QtGui/qimage.h>
+#include <QtCore/qlist.h>
+#include <QtCore/qloggingcategory.h>
+#include <QtGui/qrgba64.h>
+#include <QtCore/qvariant.h>
+#include <QtCore/private/qlocale_p.h>
+#include <QtCore/private/qtools_p.h>
+#include <QtGui/private/qimage_p.h>
 #endif
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

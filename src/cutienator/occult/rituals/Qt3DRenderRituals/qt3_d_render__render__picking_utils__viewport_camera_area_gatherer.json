@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DRender/6.12.0/Qt3DRender/private/pickboundingvolumeutils_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN10Qt3DRender6Render12PickingUtils26ViewportCameraAreaGathererC1ERKN8Qt3DCore7QNodeIdE": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render12PickingUtils26ViewportCameraAreaGathererD1Ev": [
+      "nothing", "address"
+    ]
+  }
+}

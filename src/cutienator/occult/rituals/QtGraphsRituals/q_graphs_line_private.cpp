@@ -7,16 +7,16 @@
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphstheme_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qgraphstheme.h"
-#include "commonutils_p.h"
-#include <QGuiApplication>
-#include <QLinearGradient>
-#include <QQmlListProperty>
-#include <QStyleHints>
-#include <private/qgraphsglobal_p.h>
-#include <private/qgraphstheme_p.h>
-#include <private/qquickgraphscolor_p.h>
-#include <private/qquickrectangle_p.h>
+#include <QtGraphs/qgraphstheme.h>
+#include <QtGraphs/private/commonutils_p.h>
+#include <QtGui/QGuiApplication>
+#include <QtGui/QLinearGradient>
+#include <QtQml/QQmlListProperty>
+#include <QtGui/QStyleHints>
+#include <QtGraphs/private/qgraphsglobal_p.h>
+#include <QtGraphs/private/qgraphstheme_p.h>
+#include <QtGraphs/private/qquickgraphscolor_p.h>
+#include <QtQuick/private/qquickrectangle_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

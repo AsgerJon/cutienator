@@ -10,23 +10,23 @@
 #include <QtCore/6.12.0/QtCore/private/qfilesystemwatcher_win_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qfilesystemwatcher.h"
-#include "qfilesystemwatcher_win_p.h"
-#include <qdebug.h>
-#include <qfileinfo.h>
-#include <qstringlist.h>
-#include <qset.h>
-#include <qscopeguard.h>
-#include <qdatetime.h>
-#include <qdir.h>
-#include <qtextstream.h>
-#include <private/qlocking_p.h>
-#include <qt_windows.h>
-#  include <qabstractnativeeventfilter.h>
-#  include <qcoreapplication.h>
-#  include <qdir.h>
-#  include <private/qeventdispatcher_win_p.h>
-#  include <private/qthread_p.h>
+#include <QtCore/qfilesystemwatcher.h>
+#include <QtCore/private/qfilesystemwatcher_win_p.h>
+#include <QtCore/qdebug.h>
+#include <QtCore/qfileinfo.h>
+#include <QtCore/qstringlist.h>
+#include <QtCore/qset.h>
+#include <QtCore/qscopeguard.h>
+#include <QtCore/qdatetime.h>
+#include <QtCore/qdir.h>
+#include <QtCore/qtextstream.h>
+#include <QtCore/private/qlocking_p.h>
+#include <QtCore/qt_windows.h>
+#  include <QtCore/qabstractnativeeventfilter.h>
+#  include <QtCore/qcoreapplication.h>
+#  include <QtCore/qdir.h>
+#  include <QtCore/private/qeventdispatcher_win_p.h>
+#  include <QtCore/private/qthread_p.h>
 #  include <dbt.h>
 #  include <algorithm>
 #  include <vector>

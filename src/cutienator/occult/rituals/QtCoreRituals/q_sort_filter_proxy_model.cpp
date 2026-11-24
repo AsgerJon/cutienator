@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/qsortfilterproxymodel.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qglobal.h>
+#if QT_CONFIG(proxymodel) && QT_CONFIG(sortfilterproxymodel)
 #if QT_CONFIG(sortfilterproxymodel)
 #include <QtCore/qsortfilterproxymodel.h>
 #include <QtCore/qstring.h>
@@ -2255,3 +2256,4 @@ int ritual_own_ZNK21QSortFilterProxyModel20supportedDropActionsEv(
 }
 
 #endif  // QT_CONFIG(sortfilterproxymodel)
+#endif  // QT_CONFIG(proxymodel) && QT_CONFIG(sortfilterproxymodel)

@@ -8,54 +8,54 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qlocale.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qglobal.h"
+#include <QtCore/qglobal.h>
 #if defined(Q_OS_MACOS)
-#   include "private/qcore_mac_p.h"
+#   include <QtCore/private/qcore_mac_p.h>
 #   include <CoreFoundation/CoreFoundation.h>
 #endif
 #include "qplatformdefs.h"
-#include "qcalendar.h"
-#include "qdatastream.h"
-#include "qdebug.h"
-#include "private/qduplicatetracker_p.h"
-#include "qhashfunctions.h"
-#include "qstring.h"
-#include "qstringiterator_p.h"
-#include "qlocale.h"
-#include "qlocale_p.h"
-#include "qlocale_tools_p.h"
-#include <private/qtools_p.h>
+#include <QtCore/qcalendar.h>
+#include <QtCore/qdatastream.h>
+#include <QtCore/qdebug.h>
+#include <QtCore/private/qduplicatetracker_p.h>
+#include <QtCore/qhashfunctions.h>
+#include <QtCore/qstring.h>
+#include <QtCore/private/qstringiterator_p.h>
+#include <QtCore/qlocale.h>
+#include <QtCore/private/qlocale_p.h>
+#include <QtCore/private/qlocale_tools_p.h>
+#include <QtCore/private/qtools_p.h>
 #if QT_CONFIG(datetimeparser)
-#include "private/qdatetimeparser_p.h"
+#include <QtCore/private/qdatetimeparser_p.h>
 #endif
-#include "qnamespace.h"
-#include "qdatetime.h"
-#include "qstringlist.h"
-#include "qvariant.h"
-#include "qvarlengtharray.h"
-#include "qstringbuilder.h"
+#include <QtCore/qnamespace.h>
+#include <QtCore/qdatetime.h>
+#include <QtCore/qstringlist.h>
+#include <QtCore/qvariant.h>
+#include <QtCore/qvarlengtharray.h>
+#include <QtCore/qstringbuilder.h>
 #if QT_CONFIG(timezone)
-#   include "qtimezone.h"
+#   include <QtCore/qtimezone.h>
 #endif
-#include "private/qnumeric_p.h"
-#include "private/qtools_p.h"
+#include <QtCore/private/qnumeric_p.h>
+#include <QtCore/private/qtools_p.h>
 #include <cmath>
 #ifndef QT_NO_SYSTEMLOCALE
-#   include "qmutex.h"
+#   include <QtCore/qmutex.h>
 #endif
 #ifdef Q_OS_WIN
-#   include <qt_windows.h>
+#   include <QtCore/qt_windows.h>
 #   include <time.h>
 #endif
-#include "private/qcalendarbackend_p.h"
-#include "private/qgregoriancalendar_p.h"
+#include <QtCore/private/qcalendarbackend_p.h>
+#include <QtCore/private/qgregoriancalendar_p.h>
 #if QT_CONFIG(timezone) && QT_CONFIG(timezone_locale) && !QT_CONFIG(icu)
-#   include "private/qtimezonelocale_p.h"
+#   include <QtCore/private/qtimezonelocale_p.h>
 #endif
 #if QT_CONFIG(datestring)
-#   include "private/qttemporalpattern_p.h"
+#   include <QtCore/private/qttemporalpattern_p.h>
 #endif
-#include <q20iterator.h>
+#include <QtCore/q20iterator.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

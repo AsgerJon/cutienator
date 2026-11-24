@@ -5,7 +5,6 @@
     "lost."
   ],
   "rows": {
-    "ritual_ZNK20QAssociativeIterator3keyEv": ["address", "address"],
-    "ritual_ZN20QAssociativeIteratorD1Ev": ["nothing", "address"]
+    "ritual_ZNK20QAssociativeIterator3keyEv": ["address", "address"]
   }
 }

@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtQuick/6.12.0/QtQuick/private/qquickmousearea_p_p.h, Qt 6.12.0. Changes
 //  made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #include <QtQuick/QtQuick>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -10,14 +11,14 @@
 #include <QtCore/qpoint.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquickmousearea_p.h"
-#include "qquickmousearea_p_p.h"
-#include "qquickwindow.h"
+#include <QtQuick/private/qquickmousearea_p.h>
+#include <QtQuick/private/qquickmousearea_p_p.h>
+#include <QtQuick/qquickwindow.h>
 #if QT_CONFIG(quick_draganddrop)
-#include "qquickdrag_p.h"
+#include <QtQuick/private/qquickdrag_p.h>
 #endif
-#include <private/qqmldata_p.h>
-#include <private/qsgadaptationlayer_p.h>
+#include <QtQml/private/qqmldata_p.h>
+#include <QtQuick/private/qsgadaptationlayer_p.h>
 #include <QtGui/private/qguiapplication_p.h>
 #include <QtGui/qevent.h>
 #include <QtGui/qstylehints.h>

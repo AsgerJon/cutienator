@@ -4,6 +4,7 @@
 #include <QtGui/qtguiglobal.h>
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
 #if QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
 #include <QtGui/QtGui>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -15,7 +16,7 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qshapedpixmapdndwindow_p.h"
+#include <QtGui/private/qshapedpixmapdndwindow_p.h>
 #include <QtGui/QPainter>
 #include <QtGui/QCursor>
 #include <QtGui/QGuiApplication>
@@ -801,4 +802,5 @@ void ritual_own_ZN19QShapedPixmapWindow10paintEventEP11QPaintEvent(
       a0);
 }
 
+#endif  // QT_CONFIG(draganddrop)
 #endif  // QT_CONFIG(draganddrop)

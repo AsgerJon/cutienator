@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtNetwork/6.12.0/QtNetwork/private/qsslserver_p.h, Qt 6.12.0. Changes
 //  made here are lost.
+#include <QtNetwork/qtnetworkglobal.h>
+#include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
+#if QT_CONFIG(ssl)
 #include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
 #include <QtNetwork/qsslserver.h>
 #include <QtNetwork/QtNetwork>
@@ -233,3 +236,5 @@ int ritual_own_ZNK17QSslServerPrivate23totalPendingConnectionsEv(
     const QSslServerPrivate *self) {
   return self->QSslServerPrivate::totalPendingConnections();
 }
+
+#endif  // QT_CONFIG(ssl)

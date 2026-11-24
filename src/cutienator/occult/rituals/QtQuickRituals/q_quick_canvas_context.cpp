@@ -4,6 +4,7 @@
 #include <QtQuick/qtquickglobal.h>
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #if QT_CONFIG(quick_canvas)
+#if QT_CONFIG(quick_canvas)
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #include <QtQuick/QtQuick>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -21,7 +22,7 @@
 #include <iterator>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <private/qquickcanvascontext_p.h>
+#include <QtQuick/private/qquickcanvascontext_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -483,4 +484,5 @@ void ritual_own_ZN19QQuickCanvasContext5flushEv(QQuickCanvasContext *self) {
   self->QQuickCanvasContext::flush();
 }
 
+#endif  // QT_CONFIG(quick_canvas)
 #endif  // QT_CONFIG(quick_canvas)

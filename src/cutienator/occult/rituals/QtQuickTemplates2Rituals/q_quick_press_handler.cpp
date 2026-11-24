@@ -7,7 +7,7 @@
 #include <QtQuickTemplates2/6.12.0/QtQuickTemplates2/private/qquickpresshandler_p_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquickpresshandler_p_p.h"
+#include <QtQuickTemplates2/private/qquickpresshandler_p_p.h>
 #include <QtCore/private/qobject_p.h>
 #include <QtGui/qguiapplication.h>
 #include <QtGui/qstylehints.h>

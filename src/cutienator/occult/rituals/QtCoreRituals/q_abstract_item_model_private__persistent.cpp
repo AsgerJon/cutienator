@@ -4,6 +4,7 @@
 #include <QtCore/qglobal.h>
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #if QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtCore/QtCore>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -11,23 +12,23 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qabstractitemmodel.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qabstractitemmodel.h"
-#include <private/qabstractitemmodel_p.h>
-#include <qcollator.h>
-#include <qdatastream.h>
-#include <qstringlist.h>
-#include <qsize.h>
-#include <qmimedata.h>
-#include <qdebug.h>
-#include <qlist.h>
+#include <QtCore/qabstractitemmodel.h>
+#include <QtCore/private/qabstractitemmodel_p.h>
+#include <QtCore/qcollator.h>
+#include <QtCore/qdatastream.h>
+#include <QtCore/qstringlist.h>
+#include <QtCore/qsize.h>
+#include <QtCore/qmimedata.h>
+#include <QtCore/qdebug.h>
+#include <QtCore/qlist.h>
 #if QT_CONFIG(regularexpression)
-#  include <qregularexpression.h>
+#  include <QtCore/qregularexpression.h>
 #endif
-#include <qstack.h>
-#include <qmap.h>
-#include <qbitarray.h>
-#include <qdatetime.h>
-#include <qloggingcategory.h>
+#include <QtCore/qstack.h>
+#include <QtCore/qmap.h>
+#include <QtCore/qbitarray.h>
+#include <QtCore/qdatetime.h>
+#include <QtCore/qloggingcategory.h>
 #include <functional>
 #include <limits.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -76,4 +77,5 @@ void ritual_ZN25QAbstractItemModelPrivate10PersistentD1Ev(
   delete self;
 }
 
+#endif  // QT_CONFIG(itemmodel)
 #endif  // QT_CONFIG(itemmodel)

@@ -2,6 +2,7 @@
 //  QtNetwork/qnetworkdiskcache.h, Qt 6.12.0. Changes made here are lost.
 #include <QtNetwork/qtnetworkglobal.h>
 #if QT_CONFIG(networkdiskcache)
+#if QT_CONFIG(networkdiskcache)
 #include <QtNetwork/qnetworkdiskcache.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qurl.h>
@@ -612,4 +613,5 @@ qint64 ritual_own_ZN17QNetworkDiskCache6expireEv(QNetworkDiskCache *self) {
   return static_cast<OwnQNetworkDiskCache *>(self)->OwnQNetworkDiskCache::expire();
 }
 
+#endif  // QT_CONFIG(networkdiskcache)
 #endif  // QT_CONFIG(networkdiskcache)

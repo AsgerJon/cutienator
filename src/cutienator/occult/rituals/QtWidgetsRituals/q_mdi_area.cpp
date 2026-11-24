@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qmdiarea.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(mdiarea)
 #if QT_CONFIG(mdiarea)
 #include <QtWidgets/qmdiarea.h>
 #include <QtCore/qstring.h>
@@ -1565,4 +1567,5 @@ void ritual_own_ZN8QMdiArea16scrollContentsByEii(
   static_cast<OwnQMdiArea *>(self)->OwnQMdiArea::scrollContentsBy(dx, dy);
 }
 
+#endif  // QT_CONFIG(mdiarea)
 #endif  // QT_CONFIG(mdiarea)

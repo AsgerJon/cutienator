@@ -9,15 +9,15 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtMultimedia/qcameradevice.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qcamera_p.h"
-#include <qcameradevice.h>
-#include <private/qplatformcamera_p.h>
-#include <private/qplatformimagecapture_p.h>
-#include <private/qplatformmediaintegration_p.h>
-#include <private/qplatformmediacapture_p.h>
-#include <qmediadevices.h>
-#include <qmediacapturesession.h>
-#include <QDebug>
+#include <QtMultimedia/private/qcamera_p.h>
+#include <QtMultimedia/qcameradevice.h>
+#include <QtMultimedia/private/qplatformcamera_p.h>
+#include <QtMultimedia/private/qplatformimagecapture_p.h>
+#include <QtMultimedia/private/qplatformmediaintegration_p.h>
+#include <QtMultimedia/private/qplatformmediacapture_p.h>
+#include <QtMultimedia/qmediadevices.h>
+#include <QtMultimedia/qmediacapturesession.h>
+#include <QtCore/QDebug>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

@@ -11,7 +11,7 @@
 #include <QtQml/qqmlproperty.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qqmlvaluetypeproxybinding_p.h"
+#include <QtQml/private/qqmlvaluetypeproxybinding_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

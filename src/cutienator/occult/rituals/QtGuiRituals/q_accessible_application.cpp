@@ -2,6 +2,7 @@
 //  QtGui/qaccessibleobject.h, Qt 6.12.0. Changes made here are lost.
 #include <QtGui/qtguiglobal.h>
 #if QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
 #include <QtGui/qaccessibleobject.h>
 #include <QtCore/qstring.h>
 #include <QtGui/qaccessible.h>
@@ -530,4 +531,5 @@ QAccessible::State *ritual_own_ZNK22QAccessibleApplication5stateEv(
   return new QAccessible::State(self->QAccessibleApplication::state());
 }
 
+#endif  // QT_CONFIG(accessibility)
 #endif  // QT_CONFIG(accessibility)

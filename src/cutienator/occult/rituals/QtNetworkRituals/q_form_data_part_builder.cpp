@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtNetwork/qformdatabuilder.h, Qt 6.12.0. Changes made here are lost.
 #include <QtNetwork/qtnetworkglobal.h>
+#if (defined(Q_OS_WASM)) || (QT_CONFIG(http))
 #if QT_CONFIG(http)
 #include <QtNetwork/qformdatabuilder.h>
 #include <QtCore/qbytearrayview.h>
@@ -76,3 +77,4 @@ void ritual_ZN20QFormDataPartBuilderD1Ev(QFormDataPartBuilder *self) {
 }
 
 #endif  // QT_CONFIG(http)
+#endif  // (defined(Q_OS_WASM)) || (QT_CONFIG(http))

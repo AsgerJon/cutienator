@@ -10,20 +10,20 @@
 #include <QtCore/qbytearray.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qserialport.h"
-#include "qserialportinfo.h"
-#include "qserialportinfo_p.h"
-#include "qserialport_p.h"
+#include <QtSerialPort/qserialport.h>
+#include <QtSerialPort/qserialportinfo.h>
+#include <QtSerialPort/private/qserialportinfo_p.h>
+#include <QtSerialPort/private/qserialport_p.h>
 #include <QtCore/qdebug.h>
-#include "qserialport_p.h"
-#include "qserialportinfo_p.h"
+#include <QtSerialPort/private/qserialport_p.h>
+#include <QtSerialPort/private/qserialportinfo_p.h>
 #include <QtCore/qdeadlinetimer.h>
 #include <QtCore/qelapsedtimer.h>
 #include <QtCore/qloggingcategory.h>
 #include <QtCore/qmap.h>
 #include <QtCore/qsocketnotifier.h>
 #include <QtCore/qstandardpaths.h>
-#include <private/qcore_unix_p.h>
+#include <QtCore/private/qcore_unix_p.h>
 #include <errno.h>
 #include <fcntl.h>
 #include <sys/ioctl.h>
@@ -93,6 +93,7 @@ inline qint64 QSerialPortPrivate::readFromPort(char *data, qint64 maxSize)
 }
 
 //  from ../qtserialport/src/serialport/qserialport.cpp, line 54, as _ZN18QSerialPortPrivateC1Ev
+#if defined(Q_OS_LINUX)
 inline QSerialPortPrivate::QSerialPortPrivate()
 #if defined(Q_OS_WIN32)
     : readChunkBuffer(QSERIALPORT_BUFFERSIZE, 0)
@@ -101,6 +102,7 @@ inline QSerialPortPrivate::QSerialPortPrivate()
     writeBufferChunkSize = QSERIALPORT_BUFFERSIZE;
     readBufferChunkSize = QSERIALPORT_BUFFERSIZE;
 }
+#endif  // defined(Q_OS_LINUX)
 
 //  from ../qtserialport/src/serialport/qserialport.cpp, line 63, as _ZN18QSerialPortPrivate8setErrorERK20QSerialPortErrorInfo
 inline void QSerialPortPrivate::setError(const QSerialPortErrorInfo &errorInfo)

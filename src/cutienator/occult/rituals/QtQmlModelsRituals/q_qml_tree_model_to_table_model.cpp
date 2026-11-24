@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtQmlModels/6.12.0/QtQmlModels/private/qqmltreemodeltotablemodel_p_p.h,
 //  Qt 6.12.0. Changes made here are lost.
+#include <QtQmlModels/qtqmlmodelsglobal.h>
+#include <QtQmlModels/6.12.0/QtQmlModels/private/qtqmlmodelsglobal_p.h>
+#if QT_CONFIG(qml_table_model)
 #include <QtQmlModels/6.12.0/QtQmlModels/private/qtqmlmodelsglobal_p.h>
 #include <QtQmlModels/QtQmlModels>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -656,3 +659,5 @@ int ritual_own_ZNK25QQmlTreeModelToTableModel5flagsERK11QModelIndex(
       self->QQmlTreeModelToTableModel::flags(
           *index).toInt());
 }
+
+#endif  // QT_CONFIG(qml_table_model)

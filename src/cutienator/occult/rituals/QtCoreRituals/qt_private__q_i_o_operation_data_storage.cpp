@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/6.12.0/QtCore/private/qiooperation_p_p.h, Qt 6.12.0. Changes made
 //  here are lost.
+#include <QtCore/qglobal.h>
+#include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
+#if QT_CONFIG(async_io)
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtCore/QtCore>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -64,3 +67,5 @@ void ritual_ZN9QtPrivate23QIOOperationDataStorageD1Ev(
     QtPrivate::QIOOperationDataStorage *self) {
   delete self;
 }
+
+#endif  // QT_CONFIG(async_io)

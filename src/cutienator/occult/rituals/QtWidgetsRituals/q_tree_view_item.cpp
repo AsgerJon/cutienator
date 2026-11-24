@@ -4,6 +4,7 @@
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #if QT_CONFIG(treeview)
+#if QT_CONFIG(treeview)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/QtWidgets>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -22,4 +23,5 @@ void ritual_ZN13QTreeViewItemD1Ev(QTreeViewItem *self) {
   delete self;
 }
 
+#endif  // QT_CONFIG(treeview)
 #endif  // QT_CONFIG(treeview)

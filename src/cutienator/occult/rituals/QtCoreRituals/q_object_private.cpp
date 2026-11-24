@@ -13,34 +13,34 @@
 #include <QtCore/qlist.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qtconfigmacros.h>
-#include "qobject.h"
-#include "qobject_p.h"
-#include "qobject_p_p.h"
-#include "qmetaobject_p.h"
+#include <QtCore/qobject.h>
+#include <QtCore/private/qobject_p.h>
+#include <QtCore/private/qobject_p_p.h>
+#include <QtCore/private/qmetaobject_p.h>
 #include <QtCore/private/qtclasshelper_p.h>
 #include <QtCore/qspan.h>
-#include "qabstracteventdispatcher.h"
-#include "qabstracteventdispatcher_p.h"
-#include "qcoreapplication.h"
-#include "qcoreapplication_p.h"
-#include "qcoreevent_p.h"
-#include "qloggingcategory.h"
-#include "qvariant.h"
-#include "qmetaobject.h"
+#include <QtCore/qabstracteventdispatcher.h>
+#include <QtCore/private/qabstracteventdispatcher_p.h>
+#include <QtCore/qcoreapplication.h>
+#include <QtCore/private/qcoreapplication_p.h>
+#include <QtCore/private/qcoreevent_p.h>
+#include <QtCore/qloggingcategory.h>
+#include <QtCore/qvariant.h>
+#include <QtCore/qmetaobject.h>
 #if QT_CONFIG(regularexpression)
-#  include <qregularexpression.h>
+#  include <QtCore/qregularexpression.h>
 #endif
-#include <qthread.h>
-#include <private/qthread_p.h>
-#include <qdebug.h>
-#include <qvarlengtharray.h>
-#include <qscopeguard.h>
-#include <qset.h>
+#include <QtCore/qthread.h>
+#include <QtCore/private/qthread_p.h>
+#include <QtCore/qdebug.h>
+#include <QtCore/qvarlengtharray.h>
+#include <QtCore/qscopeguard.h>
+#include <QtCore/qset.h>
 #if QT_CONFIG(thread)
-#include <private/qlatch_p.h>
+#include <QtCore/private/qlatch_p.h>
 #endif
-#include <private/qorderedmutexlocker_p.h>
-#include <private/qhooks_p.h>
+#include <QtCore/private/qorderedmutexlocker_p.h>
+#include <QtCore/private/qhooks_p.h>
 #include <new>
 #include <mutex>
 #include <memory>

@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qcalendarwidget.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(calendarwidget)
 #if QT_CONFIG(calendarwidget)
 #include <QtWidgets/qcalendarwidget.h>
 #include <QtCore/qstring.h>
@@ -1435,4 +1437,5 @@ void ritual_own_ZNK15QCalendarWidget9paintCellEP8QPainterRK5QRect5QDate(
       *date);
 }
 
+#endif  // QT_CONFIG(calendarwidget)
 #endif  // QT_CONFIG(calendarwidget)

@@ -9,12 +9,12 @@
 #include <QtNetwork/qhstspolicy.h>
 #include <QtCore/qlist.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qhsts_p.h"
-#include "qhttpheaders.h"
+#include <QtNetwork/private/qhsts_p.h>
+#include <QtNetwork/qhttpheaders.h>
 #include "QtCore/private/qipaddress_p.h"
 #include "QtCore/qlist.h"
 #if QT_CONFIG(settings)
-#include "qhstsstore_p.h"
+#include <QtNetwork/private/qhstsstore_p.h>
 #endif
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

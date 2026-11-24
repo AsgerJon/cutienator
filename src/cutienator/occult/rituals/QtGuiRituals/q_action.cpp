@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGui/qaction.h, Qt 6.12.0. Changes made here are lost.
+#include <QtCore/qglobal.h>
 #include <QtGui/qtguiglobal.h>
+#if QT_CONFIG(action)
 #if QT_CONFIG(action)
 #include <QtGui/qaction.h>
 #include <QtCore/qstring.h>
@@ -681,4 +683,5 @@ void ritual_list_drop_QAction_ptr(QList<QAction *> *self) {
   delete self;
 }
 
+#endif  // QT_CONFIG(action)
 #endif  // QT_CONFIG(action)

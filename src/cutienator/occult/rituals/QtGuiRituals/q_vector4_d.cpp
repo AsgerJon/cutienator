@@ -6,6 +6,7 @@
 #include <QtCore/qpoint.h>
 #include <QtCore/qvariant.h>
 #include <QtGui/qmatrix4x4.h>
+#include <QtCore/qlist.h>
 
 //  QVector4D::QVector4D()
 extern "C" Q_DECL_EXPORT
@@ -332,6 +333,40 @@ QVector4D *ritual_ZmlRK9QVector4DRK10QMatrix4x4(
 //  QVector4D::~QVector4D()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN9QVector4DD1Ev(QVector4D *self) {
+  delete self;
+}
+
+//  QList<QVector4D>::QList()
+extern "C" Q_DECL_EXPORT
+QList<QVector4D> *ritual_list_make_QVector4D() {
+  return new QList<QVector4D>();
+}
+
+//  void QList<QVector4D>::append(const QVector4D &value)
+extern "C" Q_DECL_EXPORT
+void ritual_list_add_QVector4D(
+    QList<QVector4D> *self,
+    const QVector4D *element) {
+  self->append(*element);
+}
+
+//  qsizetype QList<QVector4D>::size() const
+extern "C" Q_DECL_EXPORT
+long long ritual_list_size_QVector4D(const QList<QVector4D> *self) {
+  return self->size();
+}
+
+//  const QVector4D &QList<QVector4D>::at(qsizetype i) const
+extern "C" Q_DECL_EXPORT
+QVector4D *ritual_list_at_QVector4D(
+    const QList<QVector4D> *self,
+    long long index) {
+  return new QVector4D(self->at(index));
+}
+
+//  QList<QVector4D>::~QList()
+extern "C" Q_DECL_EXPORT
+void ritual_list_drop_QVector4D(QList<QVector4D> *self) {
   delete self;
 }
 

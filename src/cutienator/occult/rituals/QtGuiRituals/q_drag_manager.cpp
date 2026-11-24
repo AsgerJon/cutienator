@@ -4,6 +4,7 @@
 #include <QtGui/qtguiglobal.h>
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
 #if QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
 #include <QtGui/QtGui>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -254,4 +255,5 @@ bool ritual_take_QDragManager(
   return static_cast<CuteQDragManager *>(self)->take(key, call);
 }
 
+#endif  // QT_CONFIG(draganddrop)
 #endif  // QT_CONFIG(draganddrop)

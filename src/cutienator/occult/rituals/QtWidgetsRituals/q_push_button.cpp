@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qpushbutton.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(pushbutton)
 #if QT_CONFIG(pushbutton)
 #include <QtWidgets/qpushbutton.h>
 #include <QtCore/qstring.h>
@@ -1317,4 +1319,5 @@ bool ritual_own_ZNK11QPushButton9hitButtonERK6QPoint(
       *pos);
 }
 
+#endif  // QT_CONFIG(pushbutton)
 #endif  // QT_CONFIG(pushbutton)

@@ -17,30 +17,30 @@
 #include <QtCore/qbytearray.h>
 #include <QtCore/qlist.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qwebsocketprotocol_p.h"
+#include <QtWebSockets/private/qwebsocketprotocol_p.h>
 #include <QtCore/QString>
 #include <QtCore/QSet>
 #include <QtCore/QtEndian>
-#include "qwebsocketdataprocessor_p.h"
-#include "qwebsocketprotocol.h"
-#include "qwebsocketprotocol_p.h"
-#include "qwebsocketframe_p.h"
+#include <QtWebSockets/private/qwebsocketdataprocessor_p.h>
+#include <QtWebSockets/qwebsocketprotocol.h>
+#include <QtWebSockets/private/qwebsocketprotocol_p.h>
+#include <QtWebSockets/private/qwebsocketframe_p.h>
 #include <QtCore/QtEndian>
 #include <QtCore/QDebug>
 #include <QtCore/QIODevice>
 #include <QtCore/QStringDecoder>
 #include <limits.h>
-#include "qwebsocketframe_p.h"
-#include "qwebsocketprotocol_p.h"
+#include <QtWebSockets/private/qwebsocketframe_p.h>
+#include <QtWebSockets/private/qwebsocketprotocol_p.h>
 #include <QtCore/QtEndian>
 #include <QtCore/QDebug>
 #include <QtCore/QIODevice>
-#include "qwebsocket.h"
-#include "qwebsocket_p.h"
-#include "qwebsocketprotocol_p.h"
-#include "qwebsockethandshakerequest_p.h"
-#include "qwebsockethandshakeresponse_p.h"
-#include "qdefaultmaskgenerator_p.h"
+#include <QtWebSockets/qwebsocket.h>
+#include <QtWebSockets/private/qwebsocket_p.h>
+#include <QtWebSockets/private/qwebsocketprotocol_p.h>
+#include <QtWebSockets/private/qwebsockethandshakerequest_p.h>
+#include <QtWebSockets/private/qwebsockethandshakeresponse_p.h>
+#include <QtWebSockets/private/qdefaultmaskgenerator_p.h>
 #include <QtCore/QUrl>
 #include <QtNetwork/QAuthenticator>
 #include <QtNetwork/QTcpSocket>
@@ -310,6 +310,7 @@ inline void QWebSocketFrame::readFrame(QIODevice *pIoDevice)
 }
 
 //  from ../qtwebsockets/src/websockets/qwebsocket_p.cpp, line 179, as _ZN17QWebSocketPrivateD1Ev
+#if defined(Q_OS_LINUX)
 inline QWebSocketPrivate::~QWebSocketPrivate()
 {
 #ifdef Q_OS_WASM
@@ -323,6 +324,7 @@ inline QWebSocketPrivate::~QWebSocketPrivate()
     }
 #endif
 }
+#endif  // defined(Q_OS_LINUX)
 
 //  from ../qtwebsockets/src/websockets/qwebsocket_p.cpp, line 208, as _ZN17QWebSocketPrivate5abortEv
 inline void QWebSocketPrivate::abort()

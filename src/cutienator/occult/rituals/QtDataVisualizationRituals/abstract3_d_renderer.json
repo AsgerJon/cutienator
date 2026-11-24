@@ -1,0 +1,300 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtDataV",
+    "isualization/6.12.0/QtDataVisualization/private/abstract3drenderer",
+    "_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18Abstract3DRenderer10metaObjectEv": ["address", "address"],
+    "ritual_ZN18Abstract3DRendererD1Ev": ["nothing", "address"],
+    "ritual_ZN18Abstract3DRenderer10updateDataEv": ["nothing", "address"],
+    "ritual_ZN18Abstract3DRenderer12updateSeriesERK5QListIP17QAbstract3DSeriesE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18Abstract3DRenderer16updateCustomDataERK5QListIP13QCustom3DItemE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18Abstract3DRenderer17updateCustomItemsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18Abstract3DRenderer25updateCustomItemPositionsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18Abstract3DRenderer14createNewCacheEP17QAbstract3DSeries": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18Abstract3DRenderer10cleanCacheEP17SeriesRenderCache": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18Abstract3DRenderer6renderEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN18Abstract3DRenderer11updateThemeEP8Q3DTheme": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18Abstract3DRenderer19updateSelectionModeE6QFlagsIN16QAbstract3DGraph13SelectionFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18Abstract3DRenderer22updateOptimizationHintE6QFlagsIN16QAbstract3DGraph16OptimizationHintEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18Abstract3DRenderer11updateSceneEP8Q3DScene": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18Abstract3DRenderer14updateTexturesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18Abstract3DRenderer19initSelectionBufferEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18Abstract3DRenderer20updateSelectionStateENS_14SelectionStateE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18Abstract3DRenderer17updateDepthBufferEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18Abstract3DRenderer19updateShadowQualityEN16QAbstract3DGraph13ShadowQualityE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18Abstract3DRenderer11initShadersERK7QStringS2_": [
+      "nothing", "address", "text", "text"
+    ],
+    "ritual_ZN18Abstract3DRenderer19initGradientShadersERK7QStringS2_": [
+      "nothing", "address", "text", "text"
+    ],
+    "ritual_ZN18Abstract3DRenderer29initStaticSelectedItemShadersERK7QStringS2_S2_S2_": [
+      "nothing", "address", "text", "text", "text", "text"
+    ],
+    "ritual_ZN18Abstract3DRenderer21initBackgroundShadersERK7QStringS2_": [
+      "nothing", "address", "text", "text"
+    ],
+    "ritual_ZN18Abstract3DRenderer21initCustomItemShadersERK7QStringS2_": [
+      "nothing", "address", "text", "text"
+    ],
+    "ritual_ZN18Abstract3DRenderer24initVolumeTextureShadersERK7QStringS2_S2_S2_S2_S2_": [
+      "nothing", "address", "text", "text", "text", "text", "text", "text"
+    ],
+    "ritual_ZN18Abstract3DRenderer16initLabelShadersERK7QStringS2_": [
+      "nothing", "address", "text", "text"
+    ],
+    "ritual_ZN18Abstract3DRenderer25initCursorPositionShadersERK7QStringS2_": [
+      "nothing", "address", "text", "text"
+    ],
+    "ritual_ZN18Abstract3DRenderer24initCursorPositionBufferEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18Abstract3DRenderer14updateAxisTypeEN15QAbstract3DAxis15AxisOrientationENS0_8AxisTypeE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN18Abstract3DRenderer15updateAxisTitleEN15QAbstract3DAxis15AxisOrientationERK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZN18Abstract3DRenderer16updateAxisLabelsEN15QAbstract3DAxis15AxisOrientationERK5QListI7QStringE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN18Abstract3DRenderer15updateAxisRangeEN15QAbstract3DAxis15AxisOrientationEff": [
+      "nothing", "address", "int", "float", "float"
+    ],
+    "ritual_ZN18Abstract3DRenderer22updateAxisSegmentCountEN15QAbstract3DAxis15AxisOrientationEi": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN18Abstract3DRenderer25updateAxisSubSegmentCountEN15QAbstract3DAxis15AxisOrientationEi": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN18Abstract3DRenderer21updateAxisLabelFormatEN15QAbstract3DAxis15AxisOrientationERK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZN18Abstract3DRenderer18updateAxisReversedEN15QAbstract3DAxis15AxisOrientationEb": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZN18Abstract3DRenderer19updateAxisFormatterEN15QAbstract3DAxis15AxisOrientationEP21QValue3DAxisFormatter": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN18Abstract3DRenderer27updateAxisLabelAutoRotationEN15QAbstract3DAxis15AxisOrientationEf": [
+      "nothing", "address", "int", "float"
+    ],
+    "ritual_ZN18Abstract3DRenderer25updateAxisTitleVisibilityEN15QAbstract3DAxis15AxisOrientationEb": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZN18Abstract3DRenderer20updateAxisTitleFixedEN15QAbstract3DAxis15AxisOrientationEb": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZN18Abstract3DRenderer18modifiedSeriesListERK5QListIP17QAbstract3DSeriesE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18Abstract3DRenderer13addCustomItemEP13QCustom3DItem": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18Abstract3DRenderer16updateCustomItemEP16CustomRenderItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18Abstract3DRenderer17updateAspectRatioEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN18Abstract3DRenderer27updateHorizontalAspectRatioEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN18Abstract3DRenderer11updatePolarEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN18Abstract3DRenderer23updateRadialLabelOffsetEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN18Abstract3DRenderer12updateMarginEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN18Abstract3DRenderer28convertPositionToTranslationERK9QVector3Db": [
+      "address", "address", "address", "bool"
+    ],
+    "ritual_ZNK18Abstract3DRenderer20isClickQueryResolvedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN18Abstract3DRenderer23clearClickQueryResolvedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK18Abstract3DRenderer16cachedClickQueryEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18Abstract3DRenderer13clickedSeriesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18Abstract3DRenderer11clickedTypeEv": ["int", "address"],
+    "ritual_ZNK18Abstract3DRenderer28isGraphPositionQueryResolvedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN18Abstract3DRenderer31clearGraphPositionQueryResolvedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK18Abstract3DRenderer20queriedGraphPositionEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18Abstract3DRenderer24cachedGraphPositionQueryEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18Abstract3DRenderer17setSelectionLabelERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN18Abstract3DRenderer21indexToSelectionColorEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN18Abstract3DRenderer14contextCleanupEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18Abstract3DRenderer16initializeOpenGLEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18Abstract3DRenderer13reInitShadersEv": ["nothing", "address"],
+    "ritual_ZN18Abstract3DRenderer25handleShadowQualityChangeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18Abstract3DRenderer12handleResizeEv": ["nothing", "address"],
+    "ritual_ZN18Abstract3DRenderer18lowerShadowQualityEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18Abstract3DRenderer18calculateZoomLevelEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18Abstract3DRenderer30calculatePolarBackgroundMarginEv": [
+      "float", "address"
+    ],
+    "ritual_ZN18Abstract3DRenderer34recalculateCustomItemScalingAndPosEP16CustomRenderItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_cast_Abstract3DRenderer_QOpenGLFunctions": [
+      "address", "address"
+    ],
+    "ritual_take_Abstract3DRenderer": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN18Abstract3DRenderer17updateCustomItemsEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN18Abstract3DRenderer25updateCustomItemPositionsEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN18Abstract3DRenderer10cleanCacheEP17SeriesRenderCache": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN18Abstract3DRenderer6renderEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_own_ZN18Abstract3DRenderer19updateSelectionModeE6QFlagsIN16QAbstract3DGraph13SelectionFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN18Abstract3DRenderer22updateOptimizationHintE6QFlagsIN16QAbstract3DGraph16OptimizationHintEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN18Abstract3DRenderer19initGradientShadersERK7QStringS2_": [
+      "nothing", "address", "text", "text"
+    ],
+    "ritual_own_ZN18Abstract3DRenderer29initStaticSelectedItemShadersERK7QStringS2_S2_S2_": [
+      "nothing", "address", "text", "text", "text", "text"
+    ],
+    "ritual_own_ZN18Abstract3DRenderer21initCustomItemShadersERK7QStringS2_": [
+      "nothing", "address", "text", "text"
+    ],
+    "ritual_own_ZN18Abstract3DRenderer24initVolumeTextureShadersERK7QStringS2_S2_S2_S2_S2_": [
+      "nothing", "address", "text", "text", "text", "text", "text", "text"
+    ],
+    "ritual_own_ZN18Abstract3DRenderer16initLabelShadersERK7QStringS2_": [
+      "nothing", "address", "text", "text"
+    ],
+    "ritual_own_ZN18Abstract3DRenderer25initCursorPositionShadersERK7QStringS2_": [
+      "nothing", "address", "text", "text"
+    ],
+    "ritual_own_ZN18Abstract3DRenderer24initCursorPositionBufferEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN18Abstract3DRenderer14updateAxisTypeEN15QAbstract3DAxis15AxisOrientationENS0_8AxisTypeE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZN18Abstract3DRenderer15updateAxisRangeEN15QAbstract3DAxis15AxisOrientationEff": [
+      "nothing", "address", "int", "float", "float"
+    ],
+    "ritual_own_ZN18Abstract3DRenderer22updateAxisSegmentCountEN15QAbstract3DAxis15AxisOrientationEi": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZN18Abstract3DRenderer25updateAxisSubSegmentCountEN15QAbstract3DAxis15AxisOrientationEi": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZN18Abstract3DRenderer21updateAxisLabelFormatEN15QAbstract3DAxis15AxisOrientationERK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_own_ZN18Abstract3DRenderer18updateAxisReversedEN15QAbstract3DAxis15AxisOrientationEb": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_own_ZN18Abstract3DRenderer19updateAxisFormatterEN15QAbstract3DAxis15AxisOrientationEP21QValue3DAxisFormatter": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZN18Abstract3DRenderer27updateAxisLabelAutoRotationEN15QAbstract3DAxis15AxisOrientationEf": [
+      "nothing", "address", "int", "float"
+    ],
+    "ritual_own_ZN18Abstract3DRenderer25updateAxisTitleVisibilityEN15QAbstract3DAxis15AxisOrientationEb": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_own_ZN18Abstract3DRenderer20updateAxisTitleFixedEN15QAbstract3DAxis15AxisOrientationEb": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_own_ZN18Abstract3DRenderer17updateAspectRatioEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_own_ZN18Abstract3DRenderer27updateHorizontalAspectRatioEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_own_ZN18Abstract3DRenderer11updatePolarEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_own_ZN18Abstract3DRenderer23updateRadialLabelOffsetEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_own_ZN18Abstract3DRenderer12updateMarginEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_own_ZN18Abstract3DRenderer14contextCleanupEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN18Abstract3DRenderer12handleResizeEv": [
+      "nothing", "address"
+    ]
+  }
+}

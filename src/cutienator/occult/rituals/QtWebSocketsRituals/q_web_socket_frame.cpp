@@ -9,12 +9,12 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qbytearray.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qwebsocketprotocol_p.h"
+#include <QtWebSockets/private/qwebsocketprotocol_p.h>
 #include <QtCore/QString>
 #include <QtCore/QSet>
 #include <QtCore/QtEndian>
-#include "qwebsocketframe_p.h"
-#include "qwebsocketprotocol_p.h"
+#include <QtWebSockets/private/qwebsocketframe_p.h>
+#include <QtWebSockets/private/qwebsocketprotocol_p.h>
 #include <QtCore/QtEndian>
 #include <QtCore/QDebug>
 #include <QtCore/QIODevice>

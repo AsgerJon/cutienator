@@ -2,6 +2,7 @@
 //  QtCore/qlibrary.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qglobal.h>
 #if QT_CONFIG(library)
+#if QT_CONFIG(library)
 #include <QtCore/qlibrary.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
@@ -309,4 +310,5 @@ bool ritual_take_QLibrary(QLibrary *self, const char *key, void *call) {
   return static_cast<CuteQLibrary *>(self)->take(key, call);
 }
 
+#endif  // QT_CONFIG(library)
 #endif  // QT_CONFIG(library)

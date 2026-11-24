@@ -4,6 +4,7 @@
 #include <QtCore/qglobal.h>
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #if QT_CONFIG(datestring)
+#if QT_CONFIG(datestring)
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtCore/QtCore>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -40,4 +41,5 @@ void ritual_ZN17QtTemporalPattern13TemporalFieldD1Ev(
   delete self;
 }
 
+#endif  // QT_CONFIG(datestring)
 #endif  // QT_CONFIG(datestring)

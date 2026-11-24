@@ -8,7 +8,7 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qsize.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qcareaallocator_p.h"
+#include <QtCanvasPainter/private/qcareaallocator_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

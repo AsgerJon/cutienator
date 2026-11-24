@@ -2,6 +2,7 @@
 //  QtGui/qmovie.h, Qt 6.12.0. Changes made here are lost.
 #include <QtGui/qtguiglobal.h>
 #if QT_CONFIG(movie)
+#if QT_CONFIG(movie)
 #include <QtGui/qmovie.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qbytearray.h>
@@ -431,4 +432,5 @@ bool ritual_take_QMovie(QMovie *self, const char *key, void *call) {
   return static_cast<CuteQMovie *>(self)->take(key, call);
 }
 
+#endif  // QT_CONFIG(movie)
 #endif  // QT_CONFIG(movie)

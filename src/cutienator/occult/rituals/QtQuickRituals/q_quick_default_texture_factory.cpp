@@ -39,7 +39,7 @@
 #include <QtNetwork/qnetworkreply.h>
 #include <QtNetwork/qsslerror.h>
 #endif
-#include <private/qdebug_p.h>
+#include <QtCore/private/qdebug_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

@@ -11,18 +11,18 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qstandardgestures_p.h"
-#include "qgesture.h"
-#include "qgesture_p.h"
-#include "qevent.h"
-#include "qwidget.h"
+#include <QtWidgets/private/qstandardgestures_p.h>
+#include <QtWidgets/qgesture.h>
+#include <QtWidgets/private/qgesture_p.h>
+#include <QtGui/qevent.h>
+#include <QtWidgets/qwidget.h>
 #if QT_CONFIG(scrollarea)
-#include "qabstractscrollarea.h"
+#include <QtWidgets/qabstractscrollarea.h>
 #endif
 #if QT_CONFIG(graphicsview)
-#include <qgraphicssceneevent.h>
+#include <QtWidgets/qgraphicssceneevent.h>
 #endif
-#include "qdebug.h"
+#include <QtCore/qdebug.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

@@ -7,8 +7,8 @@
 #include <QtQuick3DXr/6.12.0/QtQuick3DXr/private/qquick3dxrvirtualmouse_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquick3dxrvirtualmouse_p.h"
-#include "qquick3dxrview_p.h"
+#include <QtQuick3DXr/private/qquick3dxrvirtualmouse_p.h>
+#include <QtQuick3DXr/private/qquick3dxrview_p.h>
 #include <QtQuick3D/private/qquick3dnode_p.h>
 #include <QtGui/QMouseEvent>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER

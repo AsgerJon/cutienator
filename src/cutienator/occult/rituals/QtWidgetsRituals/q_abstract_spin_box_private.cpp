@@ -4,6 +4,7 @@
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #if QT_CONFIG(spinbox)
+#if QT_CONFIG(spinbox)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/qabstractspinbox.h>
 #include <QtWidgets/QtWidgets>
@@ -23,27 +24,27 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <qplatformdefs.h>
 #ifdef Q_OS_WASM
-# include <private/qstdweb_p.h>
+# include <QtCore/private/qstdweb_p.h>
 #endif
-#include <private/qabstractspinbox_p.h>
-#include <private/qapplication_p.h>
+#include <QtWidgets/private/qabstractspinbox_p.h>
+#include <QtWidgets/private/qapplication_p.h>
 #if QT_CONFIG(datetimeparser)
-#include <private/qdatetimeparser_p.h>
+#include <QtCore/private/qdatetimeparser_p.h>
 #endif
-#include <private/qlineedit_p.h>
-#include <qabstractspinbox.h>
-#include <qapplication.h>
-#include <qstylehints.h>
-#include <qclipboard.h>
-#include <qdatetime.h>
-#include <qevent.h>
-#include <qloggingcategory.h>
+#include <QtWidgets/private/qlineedit_p.h>
+#include <QtWidgets/qabstractspinbox.h>
+#include <QtWidgets/qapplication.h>
+#include <QtGui/qstylehints.h>
+#include <QtGui/qclipboard.h>
+#include <QtCore/qdatetime.h>
+#include <QtGui/qevent.h>
+#include <QtCore/qloggingcategory.h>
 #if QT_CONFIG(menu)
-#include <qmenu.h>
+#include <QtWidgets/qmenu.h>
 #endif
-#include <qstylepainter.h>
+#include <QtWidgets/qstylepainter.h>
 #if QT_CONFIG(accessibility)
-# include <qaccessible.h>
+# include <QtGui/qaccessible.h>
 #endif
 #include <QtCore/qpointer.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -1406,4 +1407,5 @@ QVariant *ritual_own_ZNK23QAbstractSpinBoxPrivate28calculateAdaptiveDecimalStepE
           steps));
 }
 
+#endif  // QT_CONFIG(spinbox)
 #endif  // QT_CONFIG(spinbox)

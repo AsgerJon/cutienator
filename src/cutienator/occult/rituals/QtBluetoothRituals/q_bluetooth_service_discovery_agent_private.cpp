@@ -10,11 +10,11 @@
 #include <QtBluetooth/qbluetoothdeviceinfo.h>
 #include <QtBluetooth/qbluetoothserviceinfo.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qbluetoothhostinfo.h"
-#include "qbluetoothlocaldevice.h"
-#include "qbluetoothservicediscoveryagent.h"
-#include "qbluetoothservicediscoveryagent_p.h"
-#include "qbluetoothdevicediscoveryagent.h"
+#include <QtBluetooth/qbluetoothhostinfo.h>
+#include <QtBluetooth/qbluetoothlocaldevice.h>
+#include <QtBluetooth/qbluetoothservicediscoveryagent.h>
+#include <QtBluetooth/private/qbluetoothservicediscoveryagent_p.h>
+#include <QtBluetooth/qbluetoothdevicediscoveryagent.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

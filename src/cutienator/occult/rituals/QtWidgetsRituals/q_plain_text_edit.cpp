@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qplaintextedit.h, Qt 6.12.0. Changes made here are lost.
+#include <QtCore/qglobal.h>
+#include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(textedit)
 #if QT_CONFIG(textedit)
 #include <QtWidgets/qplaintextedit.h>
 #include <QtCore/qstring.h>
@@ -2368,4 +2371,5 @@ void ritual_own_ZN14QPlainTextEdit15doSetTextCursorERK11QTextCursor(
       *cursor);
 }
 
+#endif  // QT_CONFIG(textedit)
 #endif  // QT_CONFIG(textedit)

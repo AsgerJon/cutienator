@@ -3,6 +3,7 @@
 //  here are lost.
 #include <QtGui/qtguiglobal.h>
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
+#if QT_CONFIG(opengl)
 #if !defined(QT_NO_OPENGL)
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
 #include <QtGui/qopenglcontext.h>
@@ -71,3 +72,4 @@ void ritual_ZN26QOpenGLContextGroupPrivate22deletePendingResourcesEP14QOpenGLCon
 }
 
 #endif  // !defined(QT_NO_OPENGL)
+#endif  // QT_CONFIG(opengl)

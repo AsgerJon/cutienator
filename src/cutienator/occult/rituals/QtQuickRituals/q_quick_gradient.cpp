@@ -8,6 +8,7 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  A QQuickGradient that Python can take functions over in. Every QQuickGradient
@@ -247,4 +248,39 @@ bool ritual_take_QQuickGradient(
     const char *key,
     void *call) {
   return static_cast<CuteQQuickGradient *>(self)->take(key, call);
+}
+
+//  QList<QQuickGradient *>::QList()
+extern "C" Q_DECL_EXPORT
+QList<QQuickGradient *> *ritual_list_make_QQuickGradient_ptr() {
+  return new QList<QQuickGradient *>();
+}
+
+//  void QList<QQuickGradient *>::append(const QQuickGradient * &value)
+extern "C" Q_DECL_EXPORT
+void ritual_list_add_QQuickGradient_ptr(
+    QList<QQuickGradient *> *self,
+    QQuickGradient *element) {
+  self->append(element);
+}
+
+//  qsizetype QList<QQuickGradient *>::size() const
+extern "C" Q_DECL_EXPORT
+long long ritual_list_size_QQuickGradient_ptr(
+    const QList<QQuickGradient *> *self) {
+  return self->size();
+}
+
+//  const QQuickGradient * &QList<QQuickGradient *>::at(qsizetype i) const
+extern "C" Q_DECL_EXPORT
+QQuickGradient *ritual_list_at_QQuickGradient_ptr(
+    const QList<QQuickGradient *> *self,
+    long long index) {
+  return self->at(index);
+}
+
+//  QList<QQuickGradient *>::~QList()
+extern "C" Q_DECL_EXPORT
+void ritual_list_drop_QQuickGradient_ptr(QList<QQuickGradient *> *self) {
+  delete self;
 }

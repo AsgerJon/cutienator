@@ -8,7 +8,7 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qbytearray.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qssgvertexpipelineimpl_p.h"
+#include <QtQuick3DRuntimeRender/private/qssgvertexpipelineimpl_p.h>
 #include <QtCore/qregularexpression.h>
 #include <QtQuick3DRuntimeRender/private/qssgrenderer_p.h>
 #include <QtQuick3DRuntimeRender/private/qssgrenderlight_p.h>

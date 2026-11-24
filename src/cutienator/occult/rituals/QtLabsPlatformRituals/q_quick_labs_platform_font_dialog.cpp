@@ -11,12 +11,12 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/qfont.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquicklabsplatformdialog_p.h"
+#include <QtLabsPlatform/private/qquicklabsplatformdialog_p.h>
 #include <QtCore/qloggingcategory.h>
 #include <QtGui/private/qguiapplication_p.h>
 #include <QtQuick/qquickitem.h>
 #include <QtQuick/qquickwindow.h>
-#include "qquicklabsplatformfontdialog_p.h"
+#include <QtLabsPlatform/private/qquicklabsplatformfontdialog_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

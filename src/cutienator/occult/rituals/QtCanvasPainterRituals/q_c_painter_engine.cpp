@@ -21,34 +21,34 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstringview.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qcpainterengine_p.h"
-#include "qcpainterrhirenderer_p.h"
-#include "qcanvascustombrush.h"
-#include "qcanvascustombrush_p.h"
+#include <QtCanvasPainter/private/qcpainterengine_p.h>
+#include <QtCanvasPainter/private/qcpainterrhirenderer_p.h>
+#include <QtCanvasPainter/qcanvascustombrush.h>
+#include <QtCanvasPainter/private/qcanvascustombrush_p.h>
 #ifndef QCPAINTER_DISABLE_TEXT_SUPPORT
-#include "qctextlayout_p.h"
+#include <QtCanvasPainter/private/qctextlayout_p.h>
 #include <QtGui/private/qdistancefield_p.h>
 #endif
-#include <qdebug.h>
+#include <QtCore/qdebug.h>
 #include <float.h>
 #include <QtGui/private/qvectorpath_p.h>
-#include "qctextlayout_p.h"
-#include <QTransform>
+#include <QtCanvasPainter/private/qctextlayout_p.h>
+#include <QtGui/QTransform>
 #ifndef QCPAINTER_DISABLE_TEXT_SUPPORT
-#include "qcdistancefieldglyphcache_p.h"
-#include <private/qrawfont_p.h>
+#include <QtCanvasPainter/private/qcdistancefieldglyphcache_p.h>
+#include <QtGui/private/qrawfont_p.h>
 #endif
-#include "qcpainterengine_p.h"
-#include "qcpainterrhirenderer_p.h"
-#include "qcanvaspainter_p.h"
-#include "qcanvascustombrush.h"
+#include <QtCanvasPainter/private/qcpainterengine_p.h>
+#include <QtCanvasPainter/private/qcpainterrhirenderer_p.h>
+#include <QtCanvasPainter/private/qcanvaspainter_p.h>
+#include <QtCanvasPainter/qcanvascustombrush.h>
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <QFile>
+#include <QtCore/QFile>
 #include <QtGui/private/qvectorpath_p.h>
-#include <rhi/qrhi.h>
+#include <QtGui/rhi/qrhi.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

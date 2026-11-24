@@ -4,6 +4,7 @@
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #if QT_CONFIG(listview)
+#if QT_CONFIG(listview)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/QtWidgets>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -93,4 +94,5 @@ void ritual_ZN13QListViewItemD1Ev(QListViewItem *self) {
   delete self;
 }
 
+#endif  // QT_CONFIG(listview)
 #endif  // QT_CONFIG(listview)

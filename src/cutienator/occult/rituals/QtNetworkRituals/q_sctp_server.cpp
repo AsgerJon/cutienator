@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtNetwork/qsctpserver.h, Qt 6.12.0. Changes made here are lost.
 #include <QtNetwork/qtnetworkglobal.h>
+#if QT_CONFIG(sctp)
 #if !defined(QT_NO_SCTP) || defined(Q_QDOC)
 #include <QtNetwork/qsctpserver.h>
 #include <QtCore/qstring.h>
@@ -324,3 +325,4 @@ void ritual_own_ZN11QSctpServer18incomingConnectionEx(
 }
 
 #endif  // !defined(QT_NO_SCTP) || defined(Q_QDOC)
+#endif  // QT_CONFIG(sctp)

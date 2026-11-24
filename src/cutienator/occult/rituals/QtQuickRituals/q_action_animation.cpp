@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtQuick/6.12.0/QtQuick/private/qquickanimation_p_p.h, Qt 6.12.0. Changes
 //  made here are lost.
+#include <QtQml/6.12.0/QtQml/private/qtqmlglobal_p.h>
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #include <QtQuick/QtQuick>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -9,26 +10,26 @@
 #include <QtCore/qdebug.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquickanimation_p.h"
-#include "qquickanimation_p_p.h"
-#include "qquickanimatorjob_p.h"
-#include <private/qquickstatechangescript_p.h>
-#include <private/qqmlcontext_p.h>
-#include <qqmlpropertyvaluesource.h>
-#include <qqml.h>
-#include <qqmlinfo.h>
-#include <qqmlexpression.h>
-#include <private/qqmlstringconverters_p.h>
-#include <private/qqmlglobal_p.h>
-#include <private/qqmlmetatype_p.h>
-#include <private/qqmlvaluetype_p.h>
-#include <private/qqmlproperty_p.h>
-#include <private/qqmlengine_p.h>
-#include <qvariant.h>
-#include <qcolor.h>
-#include <qfile.h>
-#include "private/qparallelanimationgroupjob_p.h"
-#include "private/qsequentialanimationgroupjob_p.h"
+#include <QtQuick/private/qquickanimation_p.h>
+#include <QtQuick/private/qquickanimation_p_p.h>
+#include <QtQuick/private/qquickanimatorjob_p.h>
+#include <QtQuick/private/qquickstatechangescript_p.h>
+#include <QtQml/private/qqmlcontext_p.h>
+#include <QtQml/qqmlpropertyvaluesource.h>
+#include <QtQml/qqml.h>
+#include <QtQml/qqmlinfo.h>
+#include <QtQml/qqmlexpression.h>
+#include <QtQml/private/qqmlstringconverters_p.h>
+#include <QtQml/private/qqmlglobal_p.h>
+#include <QtQml/private/qqmlmetatype_p.h>
+#include <QtQml/private/qqmlvaluetype_p.h>
+#include <QtQml/private/qqmlproperty_p.h>
+#include <QtQml/private/qqmlengine_p.h>
+#include <QtCore/qvariant.h>
+#include <QtGui/qcolor.h>
+#include <QtCore/qfile.h>
+#include <QtQml/private/qparallelanimationgroupjob_p.h>
+#include <QtQml/private/qsequentialanimationgroupjob_p.h>
 #include <QtCore/qset.h>
 #include <QtCore/qrect.h>
 #include <QtCore/qpoint.h>

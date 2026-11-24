@@ -1,6 +1,10 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtQuick/6.12.0/QtQuick/private/qquickshortcut_p.h, Qt 6.12.0. Changes
 //  made here are lost.
+#include <QtCore/qglobal.h>
+#include <QtQuick/qtquickglobal.h>
+#include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
+#if QT_CONFIG(shortcut)
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #include <QtQuick/QtQuick>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -391,3 +395,5 @@ bool ritual_own_ZN14QQuickShortcut5eventEP6QEvent(
   return static_cast<OwnQQuickShortcut *>(self)->OwnQQuickShortcut::event(
       event);
 }
+
+#endif  // QT_CONFIG(shortcut)

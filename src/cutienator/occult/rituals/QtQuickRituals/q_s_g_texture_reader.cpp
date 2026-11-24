@@ -10,9 +10,9 @@
 #include <QtCore/qbytearray.h>
 #include <QtCore/qlist.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qsgtexturereader_p.h"
-#include <private/qtexturefilereader_p.h>
-#include <private/qsgcompressedtexture_p.h>
+#include <QtQuick/private/qsgtexturereader_p.h>
+#include <QtGui/private/qtexturefilereader_p.h>
+#include <QtQuick/private/qsgcompressedtexture_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

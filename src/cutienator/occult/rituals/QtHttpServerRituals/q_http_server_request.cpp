@@ -1,5 +1,6 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtHttpServer/qhttpserverrequest.h, Qt 6.12.0. Changes made here are lost.
+#include <QtNetwork/qtnetworkglobal.h>
 #include <QtHttpServer/qhttpserverrequest.h>
 #include <QtCore/qbytearray.h>
 #include <QtCore/qurl.h>

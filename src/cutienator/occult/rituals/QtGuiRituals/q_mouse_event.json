@@ -32,6 +32,11 @@
     "ritual_ZNK11QMouseEvent6sourceEv": ["int", "address"],
     "ritual_ZNK11QMouseEvent5flagsEv": ["int", "address"],
     "ritual_take_QMouseEvent": ["bool", "address", "chars", "address"],
-    "ritual_own_ZNK11QMouseEvent5cloneEv": ["address", "address"]
+    "ritual_own_ZNK11QMouseEvent5cloneEv": ["address", "address"],
+    "ritual_list_make_QMouseEvent_ptr": ["address"],
+    "ritual_list_add_QMouseEvent_ptr": ["nothing", "address", "address"],
+    "ritual_list_size_QMouseEvent_ptr": ["long long", "address"],
+    "ritual_list_at_QMouseEvent_ptr": ["address", "address", "long long"],
+    "ritual_list_drop_QMouseEvent_ptr": ["nothing", "address"]
   }
 }

@@ -7,20 +7,20 @@
 #include <QtGui/6.12.0/QtGui/private/qtextdocument_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <private/qtools_p.h>
-#include <qdebug.h>
-#include <qscopedvaluerollback.h>
-#include "qtextdocument_p.h"
-#include "qtextdocument.h"
-#include <qtextformat.h>
-#include "qtextformat_p.h"
-#include "qtextobject_p.h"
-#include "qtextcursor.h"
-#include "qtextimagehandler_p.h"
-#include "qtextcursor_p.h"
-#include "qtextdocumentlayout_p.h"
-#include "qtexttable.h"
-#include "qtextengine_p.h"
+#include <QtCore/private/qtools_p.h>
+#include <QtCore/qdebug.h>
+#include <QtCore/qscopedvaluerollback.h>
+#include <QtGui/private/qtextdocument_p.h>
+#include <QtGui/qtextdocument.h>
+#include <QtGui/qtextformat.h>
+#include <QtGui/private/qtextformat_p.h>
+#include <QtGui/private/qtextobject_p.h>
+#include <QtGui/qtextcursor.h>
+#include <QtGui/private/qtextimagehandler_p.h>
+#include <QtGui/private/qtextcursor_p.h>
+#include <QtGui/private/qtextdocumentlayout_p.h>
+#include <QtGui/qtexttable.h>
+#include <QtGui/private/qtextengine_p.h>
 #include <QtCore/q20utility.h>
 #include <stdlib.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER

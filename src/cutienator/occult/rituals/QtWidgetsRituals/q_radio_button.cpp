@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qradiobutton.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(radiobutton)
 #if QT_CONFIG(radiobutton)
 #include <QtWidgets/qradiobutton.h>
 #include <QtCore/qstring.h>
@@ -1183,4 +1185,5 @@ void ritual_own_ZNK12QRadioButton15initStyleOptionEP18QStyleOptionButton(
       button);
 }
 
+#endif  // QT_CONFIG(radiobutton)
 #endif  // QT_CONFIG(radiobutton)

@@ -2,6 +2,7 @@
 //  QtCore/qtimeline.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qglobal.h>
 #if QT_CONFIG(easingcurve)
+#if QT_CONFIG(easingcurve)
 #include <QtCore/qtimeline.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qeasingcurve.h>
@@ -440,4 +441,5 @@ void ritual_own_ZN9QTimeLine10timerEventEP11QTimerEvent(
   static_cast<OwnQTimeLine *>(self)->OwnQTimeLine::timerEvent(event);
 }
 
+#endif  // QT_CONFIG(easingcurve)
 #endif  // QT_CONFIG(easingcurve)

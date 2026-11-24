@@ -1,8 +1,11 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/6.12.0/QtWidgets/private/qwidgettextcontrol_p.h, Qt 6.12.0.
 //  Changes made here are lost.
+#include <QtCore/qglobal.h>
+#include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
+#if QT_CONFIG(widgettextcontrol)
 #if QT_CONFIG(widgettextcontrol)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/QtWidgets>
@@ -1302,4 +1305,5 @@ bool ritual_own_ZN18QWidgetTextControl5eventEP6QEvent(
       e);
 }
 
+#endif  // QT_CONFIG(widgettextcontrol)
 #endif  // QT_CONFIG(widgettextcontrol)

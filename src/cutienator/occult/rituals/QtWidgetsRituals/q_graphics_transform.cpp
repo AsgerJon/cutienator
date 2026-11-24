@@ -2,6 +2,7 @@
 //  QtWidgets/qgraphicstransform.h, Qt 6.12.0. Changes made here are lost.
 #include <QtWidgets/qtwidgetsglobal.h>
 #if QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 #include <QtWidgets/qgraphicstransform.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
@@ -294,4 +295,5 @@ void ritual_list_drop_QGraphicsTransform_ptr(
   delete self;
 }
 
+#endif  // QT_CONFIG(graphicsview)
 #endif  // QT_CONFIG(graphicsview)

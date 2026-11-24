@@ -4,14 +4,15 @@
 #include <QtNetwork/qtnetworkglobal.h>
 #include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
 #if QT_CONFIG(http)
+#if QT_CONFIG(http)
 #include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
 #include <QtNetwork/QtNetwork>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtNetwork/6.12.0/QtNetwork/private/http2streams_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qhttpnetworkrequest_p.h"
-#include "private/qnoncontiguousbytedevice_p.h"
+#include <QtNetwork/private/qhttpnetworkrequest_p.h>
+#include <QtCore/private/qnoncontiguousbytedevice_p.h>
 #include <QtCore/private/qtools_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
@@ -28,4 +29,5 @@ inline QHttpNetworkRequest::~QHttpNetworkRequest()
 }
 //  -----------------------------------------------------------------------
 
+#endif  // QT_CONFIG(http)
 #endif  // QT_CONFIG(http)

@@ -3,6 +3,7 @@
 //  here are lost.
 #include <QtGui/qtguiglobal.h>
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
+#if QT_CONFIG(systemtrayicon) && 1 && defined(Q_OS_UNIX) && (QT_CONFIG(xcb) || !defined(Q_OS_MACOS)) && (QT_CONFIG(xcb) || !(defined(Q_OS_IOS) || defined(Q_OS_TVOS) || defined(Q_OS_VISIONOS)))
 #if QT_CONFIG(systemtrayicon)
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
 #include <QtGui/QtGui>
@@ -15,35 +16,35 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qdbusplatformmenu_p.h"
-#include <QDateTime>
-#include <QDebug>
-#include <QWindow>
-#include "qdbustrayicon_p.h"
+#include <QtGui/private/qdbusplatformmenu_p.h>
+#include <QtCore/QDateTime>
+#include <QtCore/QDebug>
+#include <QtGui/QWindow>
+#include <QtGui/private/qdbustrayicon_p.h>
 #ifndef QT_NO_SYSTEMTRAYICON
-#include <QString>
-#include <QDebug>
-#include <QRect>
-#include <QLoggingCategory>
-#include <QStandardPaths>
-#include <QFileInfo>
-#include <QDir>
-#include <QMetaObject>
-#include <QMetaEnum>
+#include <QtCore/QString>
+#include <QtCore/QDebug>
+#include <QtCore/QRect>
+#include <QtCore/QLoggingCategory>
+#include <QtCore/QStandardPaths>
+#include <QtCore/QFileInfo>
+#include <QtCore/QDir>
+#include <QtCore/QMetaObject>
+#include <QtCore/QMetaEnum>
 #include <QDBusConnectionInterface>
 #include <QDBusArgument>
 #include <QDBusMetaType>
 #include <QDBusServiceWatcher>
-#include <qpa/qplatformmenu.h>
-#include <qpa/qplatformintegration.h>
-#include <qpa/qplatformservices.h>
-#include <private/qdbusmenuconnection_p.h>
-#include <private/qstatusnotifieritemadaptor_p.h>
-#include <private/qdbusmenuadaptor_p.h>
-#include <private/qdbusplatformmenu_p.h>
-#include <private/qxdgnotificationproxy_p.h>
-#include <private/qlockfile_p.h>
-#include <private/qguiapplication_p.h>
+#include <QtGui/qpa/qplatformmenu.h>
+#include <QtGui/qpa/qplatformintegration.h>
+#include <QtGui/qpa/qplatformservices.h>
+#include <QtGui/private/qdbusmenuconnection_p.h>
+#include <QtGui/private/qstatusnotifieritemadaptor_p.h>
+#include <QtGui/private/qdbusmenuadaptor_p.h>
+#include <QtGui/private/qdbusplatformmenu_p.h>
+#include <QtGui/private/qxdgnotificationproxy_p.h>
+#include <QtCore/private/qlockfile_p.h>
+#include <QtGui/private/qguiapplication_p.h>
 #endif
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
@@ -793,3 +794,4 @@ QRect *ritual_own_ZNK13QDBusTrayIcon8geometryEv(const QDBusTrayIcon *self) {
 }
 
 #endif  // QT_CONFIG(systemtrayicon)
+#endif  // QT_CONFIG(systemtrayicon) && 1 && defined(Q_OS_UNIX) && (QT_CONFIG(xcb) || !defined(Q_OS_MACOS)) && (QT_CONFIG(xcb) || !(defined(Q_OS_IOS) || defined(Q_OS_TVOS) || defined(Q_OS_VISIONOS)))

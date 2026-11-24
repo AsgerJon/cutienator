@@ -11,27 +11,28 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/qpen.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qpdf_p.h"
+#include <QtGui/private/qpdf_p.h>
 #ifndef QT_NO_PDF
 #include "qplatformdefs.h"
-#include <private/qcmyk_p.h>
-#include <private/qfont_p.h>
-#include <private/qmath_p.h>
-#include <private/qpainter_p.h>
-#include <qbuffer.h>
-#include <qcryptographichash.h>
-#include <qdatetime.h>
-#include <qdebug.h>
-#include <qfile.h>
-#include <qimagewriter.h>
-#include <qnumeric.h>
-#include <qtemporaryfile.h>
-#include <qtimezone.h>
-#include <quuid.h>
-#include <qxmlstream.h>
+#include <QtGui/private/qcmyk_p.h>
+#include <QtGui/private/qfont_p.h>
+#include <QtGui/private/qmath_p.h>
+#include <QtGui/private/qpainter_p.h>
+#include <QtCore/qbuffer.h>
+#include <QtCore/qcryptographichash.h>
+#include <QtCore/qdatetime.h>
+#include <QtCore/qdebug.h>
+#include <QtCore/qfile.h>
+#include <QtGui/qimagewriter.h>
+#include <QtCore/qnumeric.h>
+#include <QtCore/qtemporaryfile.h>
+#include <QtCore/qtimezone.h>
+#include <QtCore/quuid.h>
+#include <QtCore/qxmlstream.h>
 #include <cstdio>
 #include <map>
 #ifndef QT_NO_COMPRESS
+#include <zlib.h>
 #endif
 #endif
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER

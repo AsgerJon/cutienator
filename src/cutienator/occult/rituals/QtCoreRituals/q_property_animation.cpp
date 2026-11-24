@@ -2,6 +2,7 @@
 //  QtCore/qpropertyanimation.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qglobal.h>
 #if QT_CONFIG(animation)
+#if QT_CONFIG(animation)
 #include <QtCore/qpropertyanimation.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qbytearray.h>
@@ -480,4 +481,5 @@ void ritual_own_ZN18QPropertyAnimation11updateStateEN18QAbstractAnimation5StateE
       oldState);
 }
 
+#endif  // QT_CONFIG(animation)
 #endif  // QT_CONFIG(animation)

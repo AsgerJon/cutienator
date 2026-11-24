@@ -9,8 +9,8 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qdefaultmaskgenerator_p.h"
-#include <QRandomGenerator>
+#include <QtWebSockets/private/qdefaultmaskgenerator_p.h>
+#include <QtCore/QRandomGenerator>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

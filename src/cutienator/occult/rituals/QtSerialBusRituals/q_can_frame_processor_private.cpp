@@ -8,13 +8,13 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qcanbusframe.h"
-#include "qcanframeprocessor.h"
-#include "qcanframeprocessor_p.h"
-#include "qcanmessagedescription.h"
-#include "qcanmessagedescription_p.h"
-#include "qcansignaldescription.h"
-#include "qcansignaldescription_p.h"
+#include <QtSerialBus/qcanbusframe.h>
+#include <QtSerialBus/qcanframeprocessor.h>
+#include <QtSerialBus/private/qcanframeprocessor_p.h>
+#include <QtSerialBus/qcanmessagedescription.h>
+#include <QtSerialBus/private/qcanmessagedescription_p.h>
+#include <QtSerialBus/qcansignaldescription.h>
+#include <QtSerialBus/private/qcansignaldescription_p.h>
 #include <QtCore/QHash>
 #include <QtCore/QMap>
 #include <QtCore/QVariant>

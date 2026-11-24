@@ -1,6 +1,10 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtSvg/6.12.0/QtSvg/private/qsvgstyleselector_p.h, Qt 6.12.0. Changes made
 //  here are lost.
+#include <QtGui/qtguiglobal.h>
+#include <QtSvg/qtsvgglobal.h>
+#include <QtSvg/6.12.0/QtSvg/private/qtsvgglobal_p.h>
+#if QT_CONFIG(cssparser)
 #include <QtSvg/6.12.0/QtSvg/private/qtsvgglobal_p.h>
 #include <QtSvg/QtSvg>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -14,7 +18,7 @@
 #include <QtCore/qlist.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qsvgstyleselector_p.h"
+#include <QtSvg/private/qsvgstyleselector_p.h>
 #include <QtSvg/private/qsvgnode_p.h>
 #include <QtSvg/private/qsvgstructure_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -564,3 +568,5 @@ void ritual_own_ZNK17QSvgStyleSelector8freeNodeEN4QCss13StyleSelector7NodePtrE(
     const QCss::StyleSelector::NodePtr *node) {
   self->QSvgStyleSelector::freeNode(*node);
 }
+
+#endif  // QT_CONFIG(cssparser)

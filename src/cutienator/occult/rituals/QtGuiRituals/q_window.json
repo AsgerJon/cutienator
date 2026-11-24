@@ -155,6 +155,10 @@
     ],
     "ritual_ZN7QWindow11unsetCursorEv": ["nothing", "address"],
     "ritual_ZN7QWindow9fromWinIdEy": ["address", "unsigned long long"],
+    "ritual_ZN7QWindow17setVulkanInstanceEP15QVulkanInstance": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK7QWindow14vulkanInstanceEv": ["address", "address"],
     "ritual_ZN7QWindow15requestActivateEv": ["nothing", "address"],
     "ritual_ZN7QWindow10setVisibleEb": ["nothing", "address", "bool"],
     "ritual_ZN7QWindow4showEv": ["nothing", "address"],

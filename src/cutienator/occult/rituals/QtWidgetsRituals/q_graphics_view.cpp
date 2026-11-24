@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qgraphicsview.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(graphicsview)
 #if QT_CONFIG(graphicsview)
 #include <QtWidgets/qgraphicsview.h>
 #include <QtCore/qstring.h>
@@ -2426,4 +2428,5 @@ void ritual_list_drop_QGraphicsView_ptr(QList<QGraphicsView *> *self) {
   delete self;
 }
 
+#endif  // QT_CONFIG(graphicsview)
 #endif  // QT_CONFIG(graphicsview)

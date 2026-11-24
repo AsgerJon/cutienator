@@ -13,19 +13,19 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qsvggraphics_p.h"
-#include "qsvgstructure_p.h"
-#include "qsvgfont_p.h"
-#include <qabstracttextdocumentlayout.h>
-#include <qdebug.h>
-#include <qloggingcategory.h>
-#include <qpainter.h>
-#include <qscopedvaluerollback.h>
-#include <qtextcursor.h>
-#include <qtextdocument.h>
-#include <private/qfixed_p.h>
-#include <QElapsedTimer>
-#include <QLoggingCategory>
+#include <QtSvg/private/qsvggraphics_p.h>
+#include <QtSvg/private/qsvgstructure_p.h>
+#include <QtSvg/private/qsvgfont_p.h>
+#include <QtGui/qabstracttextdocumentlayout.h>
+#include <QtCore/qdebug.h>
+#include <QtCore/qloggingcategory.h>
+#include <QtGui/qpainter.h>
+#include <QtCore/qscopedvaluerollback.h>
+#include <QtGui/qtextcursor.h>
+#include <QtGui/qtextdocument.h>
+#include <QtGui/private/qfixed_p.h>
+#include <QtCore/QElapsedTimer>
+#include <QtCore/QLoggingCategory>
 #include <math.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

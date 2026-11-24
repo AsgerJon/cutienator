@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtQuick/6.12.0/QtQuick/private/qquickanimatorjob_p.h, Qt 6.12.0. Changes
 //  made here are lost.
+#include <QtQml/6.12.0/QtQml/private/qtqmlglobal_p.h>
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #include <QtQuick/QtQuick>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -9,17 +10,17 @@
 #include <QtCore/qdebug.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquickanimatorcontroller_p.h"
-#include "qquickanimatorjob_p.h"
-#include "qquickanimator_p.h"
-#include "qquickanimator_p_p.h"
-#include <private/qquickitem_p.h>
+#include <QtQuick/private/qquickanimatorcontroller_p.h>
+#include <QtQuick/private/qquickanimatorjob_p.h>
+#include <QtQuick/private/qquickanimator_p.h>
+#include <QtQuick/private/qquickanimator_p_p.h>
+#include <QtQuick/private/qquickitem_p.h>
 #if QT_CONFIG(quick_shadereffect)
-#include <private/qquickshadereffect_p.h>
+#include <QtQuick/private/qquickshadereffect_p.h>
 #endif
-#include <private/qanimationgroupjob_p.h>
-#include <qcoreapplication.h>
-#include <qdebug.h>
+#include <QtQml/private/qanimationgroupjob_p.h>
+#include <QtCore/qcoreapplication.h>
+#include <QtCore/qdebug.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

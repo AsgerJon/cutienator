@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtBluetooth/6.12.0/QtBluetooth/private/bluezperipheralapplication_p.h, Qt
 //  6.12.0. Changes made here are lost.
+#include <QtBluetooth/qtbluetoothglobal.h>
+#include <QtBluetooth/6.12.0/QtBluetooth/private/qtbluetoothglobal_p.h>
+#if QT_CONFIG(bluez)
 #include <QtBluetooth/6.12.0/QtBluetooth/private/qtbluetoothglobal_p.h>
 #include <QtBluetooth/QtBluetooth>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -9,10 +12,10 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "bluezperipheralapplication_p.h"
-#include "bluezperipheralobjects_p.h"
-#include "objectmanageradaptor_p.h"
-#include "gattmanager1_p.h"
+#include <QtBluetooth/private/bluezperipheralapplication_p.h>
+#include <QtBluetooth/private/bluezperipheralobjects_p.h>
+#include <QtBluetooth/private/objectmanageradaptor_p.h>
+#include <QtBluetooth/private/gattmanager1_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -232,3 +235,5 @@ bool ritual_take_QtBluezPeripheralApplication(
     void *call) {
   return static_cast<CuteQtBluezPeripheralApplication *>(self)->take(key, call);
 }
+
+#endif  // QT_CONFIG(bluez)

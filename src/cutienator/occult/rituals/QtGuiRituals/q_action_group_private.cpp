@@ -4,6 +4,7 @@
 #include <QtGui/qtguiglobal.h>
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
 #if QT_CONFIG(action)
+#if QT_CONFIG(action)
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
 #include <QtGui/qactiongroup.h>
 #include <QtGui/QtGui>
@@ -101,4 +102,5 @@ void ritual_own_ZN19QActionGroupPrivate10emitSignalENS_6SignalEP7QAction(
   self->QActionGroupPrivate::emitSignal(a0, a1);
 }
 
+#endif  // QT_CONFIG(action)
 #endif  // QT_CONFIG(action)

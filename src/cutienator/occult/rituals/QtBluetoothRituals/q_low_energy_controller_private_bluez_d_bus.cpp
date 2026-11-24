@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of QtBluetooth/6.
 //  12.0/QtBluetooth/private/qlowenergycontroller_bluezdbus_p.h, Qt 6.12.0.
 //  Changes made here are lost.
+#include <QtBluetooth/qtbluetoothglobal.h>
+#include <QtBluetooth/6.12.0/QtBluetooth/private/qtbluetoothglobal_p.h>
+#if (QT_CONFIG(bluez)) && (QT_CONFIG(bluez_le))
 #include <QtBluetooth/6.12.0/QtBluetooth/private/qtbluetoothglobal_p.h>
 #include <QtBluetooth/QtBluetooth>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -9,13 +12,13 @@
 #include <QtBluetooth/qbluetoothaddress.h>
 #include <QtCore/qstring.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qlowenergycontrollerbase_p.h"
+#include <QtBluetooth/private/qlowenergycontrollerbase_p.h>
 #include <QtCore/QLoggingCategory>
 #include <QtBluetooth/QBluetoothLocalDevice>
 #include <QtBluetooth/QLowEnergyCharacteristicData>
 #include <QtBluetooth/QLowEnergyDescriptorData>
 #include <QtBluetooth/QLowEnergyServiceData>
-#include "qlowenergycontroller_bluezdbus_p.h"
+#include <QtBluetooth/private/qlowenergycontroller_bluezdbus_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -114,3 +117,5 @@ void ritual_ZN36QLowEnergyControllerPrivateBluezDBus35handlePeripheralRemoteDevi
     quint16 mtu) {
   self->handlePeripheralRemoteDeviceChanged(*address, *name, mtu);
 }
+
+#endif  // (QT_CONFIG(bluez)) && (QT_CONFIG(bluez_le))

@@ -12,11 +12,11 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qabstract3dseries_p.h"
-#include "qabstractdataproxy_p.h"
-#include "qbar3dseries_p.h"
-#include "qbardataproxy_p.h"
-#include "qgraphs3dlogging_p.h"
+#include <QtGraphs/private/qabstract3dseries_p.h>
+#include <QtGraphs/private/qabstractdataproxy_p.h>
+#include <QtGraphs/private/qbar3dseries_p.h>
+#include <QtGraphs/private/qbardataproxy_p.h>
+#include <QtGraphs/private/qgraphs3dlogging_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

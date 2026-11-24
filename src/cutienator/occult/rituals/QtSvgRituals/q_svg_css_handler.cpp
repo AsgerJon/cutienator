@@ -1,6 +1,10 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtSvg/6.12.0/QtSvg/private/qsvgcsshandler_p.h, Qt 6.12.0. Changes made
 //  here are lost.
+#include <QtGui/qtguiglobal.h>
+#include <QtSvg/qtsvgglobal.h>
+#include <QtSvg/6.12.0/QtSvg/private/qtsvgglobal_p.h>
+#if QT_CONFIG(cssparser)
 #include <QtSvg/6.12.0/QtSvg/private/qtsvgglobal_p.h>
 #include <QtSvg/QtSvg>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -55,3 +59,5 @@ QString *ritual_ZN14QSvgCssHandler17parseDecltoStringERKN4QCss11DeclarationE(
     const QCss::Declaration *decl) {
   return new QString(QSvgCssHandler::parseDecltoString(*decl));
 }
+
+#endif  // QT_CONFIG(cssparser)

@@ -7,11 +7,11 @@
 #include <QtQuick/6.12.0/QtQuick/private/qquicktextutil_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquicktextutil_p.h"
+#include <QtQuick/private/qquicktextutil_p.h>
 #include <QtQml/qqmlinfo.h>
 #include <QtQml/qqmlcomponent.h>
-#include <private/qqmlglobal_p.h>
-#include <private/qquickitem_p.h>
+#include <QtQml/private/qqmlglobal_p.h>
+#include <QtQuick/private/qquickitem_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

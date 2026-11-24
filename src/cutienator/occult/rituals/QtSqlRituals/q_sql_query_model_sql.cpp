@@ -4,6 +4,7 @@
 #include <QtSql/qtsqlglobal.h>
 #include <QtSql/6.12.0/QtSql/private/qtsqlglobal_p.h>
 #if QT_CONFIG(sqlmodel)
+#if QT_CONFIG(sqlmodel)
 #include <QtSql/6.12.0/QtSql/private/qtsqlglobal_p.h>
 #include <QtSql/QtSql>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -204,4 +205,5 @@ void ritual_ZN17QSqlQueryModelSqlD1Ev(QSqlQueryModelSql *self) {
   delete self;
 }
 
+#endif  // QT_CONFIG(sqlmodel)
 #endif  // QT_CONFIG(sqlmodel)

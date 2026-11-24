@@ -7,13 +7,13 @@
 #include <QtQml/6.12.0/QtQml/private/qqmltypeloaderthread_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <private/qqmltypeloadernetworkreplyproxy_p.h>
-#include <private/qqmltypeloader_p.h>
-#include <private/qqmlengine_p.h>
-#include <private/qqmlextensionplugin_p.h>
-#include <private/qqmltypeloaderthread_p.h>
+#include <QtQml/private/qqmltypeloadernetworkreplyproxy_p.h>
+#include <QtQml/private/qqmltypeloader_p.h>
+#include <QtQml/private/qqmlengine_p.h>
+#include <QtQml/private/qqmlextensionplugin_p.h>
+#include <QtQml/private/qqmltypeloaderthread_p.h>
 #if QT_CONFIG(qml_network)
-#include <private/qqmltypeloadernetworkreplyproxy_p.h>
+#include <QtQml/private/qqmltypeloadernetworkreplyproxy_p.h>
 #endif
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

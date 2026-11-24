@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGui/6.12.0/QtGui/private/qdesktopunixservices_p.h, Qt 6.12.0. Changes
 //  made here are lost.
+#include <QtGui/qtguiglobal.h>
+#include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
+#if defined(Q_OS_UNIX) && (QT_CONFIG(xcb) || !(defined(Q_OS_IOS) || defined(Q_OS_TVOS) || defined(Q_OS_VISIONOS)))
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
 #include <QtGui/QtGui>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -11,10 +14,10 @@
 #include <QtCore/qstring.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qdesktopunixservices_p.h"
+#include <QtGui/private/qdesktopunixservices_p.h>
 #include <QtGui/private/qtguiglobal_p.h>
-#include "qguiapplication.h"
-#include "qwindow.h"
+#include <QtGui/qguiapplication.h>
+#include <QtGui/qwindow.h>
 #include <QtGui/qpa/qplatformwindow_p.h>
 #include <QtGui/qpa/qplatformwindow.h>
 #include <QtGui/qpa/qplatformnativeinterface.h>
@@ -392,3 +395,5 @@ void ritual_own_ZN20QDesktopUnixServices27unregisterDBusMenuForWindowEP7QWindow(
     QWindow *window) {
   self->QDesktopUnixServices::unregisterDBusMenuForWindow(window);
 }
+
+#endif  // defined(Q_OS_UNIX) && (QT_CONFIG(xcb) || !(defined(Q_OS_IOS) || defined(Q_OS_TVOS) || defined(Q_OS_VISIONOS)))

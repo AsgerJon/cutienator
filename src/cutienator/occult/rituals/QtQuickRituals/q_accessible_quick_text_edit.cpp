@@ -1,8 +1,10 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtQuick/6.12.0/QtQuick/private/qaccessiblequicktextedit_p.h, Qt 6.12.0.
 //  Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtQuick/qtquickglobal.h>
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
+#if QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #include <QtQuick/QtQuick>
@@ -135,4 +137,5 @@ void ritual_own_ZN24QAccessibleQuickTextEdit11replaceTextEiiRK7QString(
   self->QAccessibleQuickTextEdit::replaceText(startOffset, endOffset, *text);
 }
 
+#endif  // QT_CONFIG(accessibility)
 #endif  // QT_CONFIG(accessibility)

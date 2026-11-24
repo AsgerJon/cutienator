@@ -9,25 +9,25 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquick3dxrmanager_p.h"
+#include <QtQuick3DXr/private/qquick3dxrmanager_p.h>
 #include <QtCore/QCoreApplication>
 #include <QtCore/QDebug>
 #include <QtCore/qjsonobject.h>
 #include <QtCore/qjsonarray.h>
-#include <rhi/qrhi.h>
+#include <QtGui/rhi/qrhi.h>
 #include <QtQuick/private/qquickwindow_p.h>
 #include <QtQuick/QQuickRenderControl>
 #include <QtQuick/QQuickRenderTarget>
 #include <QtQuick/QQuickItem>
 #include <QtQuick3D/private/qquick3dnode_p.h>
 #include <QtQuick3D/private/qquick3dviewport_p.h>
-#include "qquick3dxranimationdriver_p.h"
+#include <QtQuick3DXr/private/qquick3dxranimationdriver_p.h>
 #if defined(Q_OS_VISIONOS)
 # include <QtQuick3DXr/private/qquick3dxrmanager_visionos_p.h>
 #else
 #endif
-#include "qquick3dxrorigin_p.h"
-#include "qquick3dxrinputmanager_p.h"
+#include <QtQuick3DXr/private/qquick3dxrorigin_p.h>
+#include <QtQuick3DXr/private/qquick3dxrinputmanager_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

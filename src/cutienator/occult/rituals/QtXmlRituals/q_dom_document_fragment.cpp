@@ -2,6 +2,7 @@
 //  Qt 6.12.0. Changes made here are lost.
 #include <QtXml/qtxmlglobal.h>
 #if QT_CONFIG(dom)
+#if QT_CONFIG(dom)
 #include <QtXml/qdom.h>
 
 //  QDomDocumentFragment::QDomDocumentFragment()
@@ -39,4 +40,5 @@ void ritual_ZN20QDomDocumentFragmentD1Ev(QDomDocumentFragment *self) {
   delete self;
 }
 
+#endif  // QT_CONFIG(dom)
 #endif  // QT_CONFIG(dom)

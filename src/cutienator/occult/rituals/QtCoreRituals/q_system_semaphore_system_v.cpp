@@ -10,11 +10,11 @@
 #include <QtCore/6.12.0/QtCore/private/qsystemsemaphore_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qsystemsemaphore.h"
-#include "qsystemsemaphore_p.h"
-#include <qdebug.h>
-#include <qfile.h>
-#include <qcoreapplication.h>
+#include <QtCore/qsystemsemaphore.h>
+#include <QtCore/private/qsystemsemaphore_p.h>
+#include <QtCore/qdebug.h>
+#include <QtCore/qfile.h>
+#include <QtCore/qcoreapplication.h>
 #if QT_CONFIG(sysv_sem)
 #include <sys/types.h>
 #include <sys/ipc.h>
@@ -22,9 +22,9 @@
 #include <fcntl.h>
 #include <errno.h>
 #if defined(Q_OS_DARWIN)
-#include "private/qcore_mac_p.h"
+#include <QtCore/private/qcore_mac_p.h>
 #endif
-#include "private/qcore_unix_p.h"
+#include <QtCore/private/qcore_unix_p.h>
 #endif
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
@@ -37,6 +37,7 @@
 
 //  from src/corelib/ipc/qsystemsemaphore_systemv.cpp, line 37, as _ZN23QSystemSemaphoreSystemV19runtimeSupportCheckEv
 #if QT_CONFIG(sysv_sem)
+#if defined(Q_OS_LINUX)
 inline bool QSystemSemaphoreSystemV::runtimeSupportCheck()
 {
 #if defined(Q_OS_DARWIN)
@@ -49,6 +50,7 @@ inline bool QSystemSemaphoreSystemV::runtimeSupportCheck()
     }();
     return result;
 }
+#endif  // defined(Q_OS_LINUX)
 #endif  // QT_CONFIG(sysv_sem)
 //  -----------------------------------------------------------------------
 
@@ -60,11 +62,13 @@ bool ritual_ZN23QSystemSemaphoreSystemV8supportsEN13QNativeIpcKey4TypeE(
 }
 
 #if QT_CONFIG(sysv_sem)
+#if defined(Q_OS_LINUX)
 //  bool QSystemSemaphoreSystemV::runtimeSupportCheck()
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN23QSystemSemaphoreSystemV19runtimeSupportCheckEv() {
   return QSystemSemaphoreSystemV::runtimeSupportCheck();
 }
+#endif  // defined(Q_OS_LINUX)
 #endif  // QT_CONFIG(sysv_sem)
 
 //  QSystemSemaphoreSystemV::~QSystemSemaphoreSystemV()

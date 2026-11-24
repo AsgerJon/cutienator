@@ -4,6 +4,7 @@
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #if QT_CONFIG(menu)
+#if QT_CONFIG(menu)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/qmenu.h>
 #include <QtWidgets/QtWidgets>
@@ -20,89 +21,89 @@
 #include <QtGui/qimage.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qmenu.h"
+#include <QtWidgets/qmenu.h>
 #include <QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/private/qwidgetwindow_p.h>
-#include "qactiongroup.h"
-#include "qdebug.h"
-#include "qstyle.h"
-#include "qevent.h"
-#include "qtimer.h"
-#include "qlayout.h"
-#include "qstylepainter.h"
-#include <qpa/qplatformtheme.h>
-#include "qapplication.h"
+#include <QtWidgets/qactiongroup.h>
+#include <QtCore/qdebug.h>
+#include <QtWidgets/qstyle.h>
+#include <QtGui/qevent.h>
+#include <QtCore/qtimer.h>
+#include <QtWidgets/qlayout.h>
+#include <QtWidgets/qstylepainter.h>
+#include <QtGui/qpa/qplatformtheme.h>
+#include <QtWidgets/qapplication.h>
 #if QT_CONFIG(accessibility)
-# include "qaccessible.h"
+# include <QtGui/qaccessible.h>
 #endif
 #if QT_CONFIG(effects)
-# include <private/qeffects_p.h>
+# include <QtWidgets/private/qeffects_p.h>
 #endif
 #if QT_CONFIG(whatsthis)
-# include <qwhatsthis.h>
+# include <QtWidgets/qwhatsthis.h>
 #endif
-#include "qmenu_p.h"
+#include <QtWidgets/private/qmenu_p.h>
 #if QT_CONFIG(menubar)
-#include "qmenubar_p.h"
+#include <QtWidgets/private/qmenubar_p.h>
 #endif
-#include "qwidgetaction.h"
-#include "qpushbutton.h"
+#include <QtWidgets/qwidgetaction.h>
+#include <QtWidgets/qpushbutton.h>
 #if QT_CONFIG(tooltip)
-#include "qtooltip.h"
+#include <QtWidgets/qtooltip.h>
 #endif
-#include <qwindow.h>
-#include <private/qpushbutton_p.h>
-#include <private/qaction_p.h>
-#include <private/qguiapplication_p.h>
-#include <qpa/qplatformtheme.h>
-#include <qpa/qplatformwindow.h>
-#include <qpa/qplatformwindow_p.h>
-#include <private/qstyle_p.h>
-#include "qstyle.h"
-#include "qapplication.h"
-#include "qpainter.h"
-#include "qwidget.h"
-#include "qbitmap.h"
-#include "qpixmapcache.h"
-#include "qset.h"
-#include "qstyleoption.h"
-#include "private/qstyle_p.h"
-#include "private/qstylehelper_p.h"
-#include "private/qguiapplication_p.h"
-#include <qpa/qplatformtheme.h>
+#include <QtGui/qwindow.h>
+#include <QtWidgets/private/qpushbutton_p.h>
+#include <QtGui/private/qaction_p.h>
+#include <QtGui/private/qguiapplication_p.h>
+#include <QtGui/qpa/qplatformtheme.h>
+#include <QtGui/qpa/qplatformwindow.h>
+#include <QtGui/qpa/qplatformwindow_p.h>
+#include <QtWidgets/private/qstyle_p.h>
+#include <QtWidgets/qstyle.h>
+#include <QtWidgets/qapplication.h>
+#include <QtGui/qpainter.h>
+#include <QtWidgets/qwidget.h>
+#include <QtGui/qbitmap.h>
+#include <QtGui/qpixmapcache.h>
+#include <QtCore/qset.h>
+#include <QtWidgets/qstyleoption.h>
+#include <QtWidgets/private/qstyle_p.h>
+#include <QtWidgets/private/qstylehelper_p.h>
+#include <QtGui/private/qguiapplication_p.h>
+#include <QtGui/qpa/qplatformtheme.h>
 #ifndef QT_NO_DEBUG
-#include "qdebug.h"
+#include <QtCore/qdebug.h>
 #endif
 #include <QtCore/q20utility.h>
 #include <limits.h>
 #include <algorithm>
-#include <qmenubar.h>
-#include <qstyle.h>
-#include <qlayout.h>
-#include <qapplication.h>
+#include <QtWidgets/qmenubar.h>
+#include <QtWidgets/qstyle.h>
+#include <QtWidgets/qlayout.h>
+#include <QtWidgets/qapplication.h>
 #if QT_CONFIG(accessibility)
-# include <qaccessible.h>
+# include <QtGui/qaccessible.h>
 #endif
-#include <qpainter.h>
-#include <qstylepainter.h>
-#include <qevent.h>
+#include <QtGui/qpainter.h>
+#include <QtWidgets/qstylepainter.h>
+#include <QtGui/qevent.h>
 #if QT_CONFIG(mainwindow)
-#include <qmainwindow.h>
+#include <QtWidgets/qmainwindow.h>
 #endif
 #if QT_CONFIG(toolbutton)
-#include <qtoolbutton.h>
+#include <QtWidgets/qtoolbutton.h>
 #endif
 #if QT_CONFIG(whatsthis)
-#include <qwhatsthis.h>
+#include <QtWidgets/qwhatsthis.h>
 #endif
-#include <qpa/qplatformtheme.h>
-#include "private/qguiapplication_p.h"
-#include "qpa/qplatformintegration.h"
-#include "qmenu_p.h"
-#include "qmenubar_p.h"
-#include <private/qscreen_p.h>
-#include <private/qstyle_p.h>
-#include "qdebug.h"
+#include <QtGui/qpa/qplatformtheme.h>
+#include <QtGui/private/qguiapplication_p.h>
+#include <QtGui/qpa/qplatformintegration.h>
+#include <QtWidgets/private/qmenu_p.h>
+#include <QtWidgets/private/qmenubar_p.h>
+#include <QtGui/private/qscreen_p.h>
+#include <QtWidgets/private/qstyle_p.h>
+#include <QtCore/qdebug.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -788,6 +789,7 @@ inline void QMenuPrivate::_q_actionHovered()
 }
 
 //  from src/widgets/widgets/qmenu.cpp, line 1558, as _ZN12QMenuPrivate26_q_platformMenuAboutToShowEv
+#if defined(Q_OS_LINUX)
 inline void QMenuPrivate::_q_platformMenuAboutToShow()
 {
     Q_Q(QMenu);
@@ -808,6 +810,7 @@ inline void QMenuPrivate::_q_platformMenuAboutToShow()
     }
 #endif
 }
+#endif  // defined(Q_OS_LINUX)
 
 //  from src/widgets/widgets/qmenu.cpp, line 1579, as _ZNK12QMenuPrivate13hasMouseMovedERK7QPointF
 inline bool QMenuPrivate::hasMouseMoved(const QPointF &globalPos) const
@@ -1373,12 +1376,14 @@ void ritual_ZN12QMenuPrivate16_q_actionHoveredEv(QMenuPrivate *self) {
   self->_q_actionHovered();
 }
 
+#if defined(Q_OS_LINUX)
 //  void QMenuPrivate::_q_platformMenuAboutToShow()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN12QMenuPrivate26_q_platformMenuAboutToShowEv(
     QMenuPrivate *self) {
   self->_q_platformMenuAboutToShow();
 }
+#endif  // defined(Q_OS_LINUX)
 
 //  bool QMenuPrivate::hasMouseMoved(const QPointF &globalPos) const
 extern "C" Q_DECL_EXPORT
@@ -1438,4 +1443,5 @@ bool ritual_take_QMenuPrivate(
   return static_cast<CuteQMenuPrivate *>(self)->take(key, call);
 }
 
+#endif  // QT_CONFIG(menu)
 #endif  // QT_CONFIG(menu)

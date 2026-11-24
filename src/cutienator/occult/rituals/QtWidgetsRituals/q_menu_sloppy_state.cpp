@@ -4,6 +4,7 @@
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #if QT_CONFIG(menu)
+#if QT_CONFIG(menu)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/QtWidgets>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -12,44 +13,44 @@
 #include <QtCore/qpoint.h>
 #include <QtCore/qrect.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qmenu.h"
+#include <QtWidgets/qmenu.h>
 #include <QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/private/qwidgetwindow_p.h>
-#include "qactiongroup.h"
-#include "qdebug.h"
-#include "qstyle.h"
-#include "qevent.h"
-#include "qtimer.h"
-#include "qlayout.h"
-#include "qstylepainter.h"
-#include <qpa/qplatformtheme.h>
-#include "qapplication.h"
+#include <QtWidgets/qactiongroup.h>
+#include <QtCore/qdebug.h>
+#include <QtWidgets/qstyle.h>
+#include <QtGui/qevent.h>
+#include <QtCore/qtimer.h>
+#include <QtWidgets/qlayout.h>
+#include <QtWidgets/qstylepainter.h>
+#include <QtGui/qpa/qplatformtheme.h>
+#include <QtWidgets/qapplication.h>
 #if QT_CONFIG(accessibility)
-# include "qaccessible.h"
+# include <QtGui/qaccessible.h>
 #endif
 #if QT_CONFIG(effects)
-# include <private/qeffects_p.h>
+# include <QtWidgets/private/qeffects_p.h>
 #endif
 #if QT_CONFIG(whatsthis)
-# include <qwhatsthis.h>
+# include <QtWidgets/qwhatsthis.h>
 #endif
-#include "qmenu_p.h"
+#include <QtWidgets/private/qmenu_p.h>
 #if QT_CONFIG(menubar)
-#include "qmenubar_p.h"
+#include <QtWidgets/private/qmenubar_p.h>
 #endif
-#include "qwidgetaction.h"
-#include "qpushbutton.h"
+#include <QtWidgets/qwidgetaction.h>
+#include <QtWidgets/qpushbutton.h>
 #if QT_CONFIG(tooltip)
-#include "qtooltip.h"
+#include <QtWidgets/qtooltip.h>
 #endif
-#include <qwindow.h>
-#include <private/qpushbutton_p.h>
-#include <private/qaction_p.h>
-#include <private/qguiapplication_p.h>
-#include <qpa/qplatformtheme.h>
-#include <qpa/qplatformwindow.h>
-#include <qpa/qplatformwindow_p.h>
-#include <private/qstyle_p.h>
+#include <QtGui/qwindow.h>
+#include <QtWidgets/private/qpushbutton_p.h>
+#include <QtGui/private/qaction_p.h>
+#include <QtGui/private/qguiapplication_p.h>
+#include <QtGui/qpa/qplatformtheme.h>
+#include <QtGui/qpa/qplatformwindow.h>
+#include <QtGui/qpa/qplatformwindow_p.h>
+#include <QtWidgets/private/qstyle_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -366,4 +367,5 @@ QMenu *ritual_ZNK16QMenuSloppyState7subMenuEv(const QMenuSloppyState *self) {
   return self->subMenu();
 }
 
+#endif  // QT_CONFIG(menu)
 #endif  // QT_CONFIG(menu)

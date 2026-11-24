@@ -2,6 +2,7 @@
 //  QtWidgets/qstyleditemdelegate.h, Qt 6.12.0. Changes made here are lost.
 #include <QtWidgets/qtwidgetsglobal.h>
 #if QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
 #include <QtWidgets/qstyleditemdelegate.h>
 #include <QtCore/qstring.h>
 #include <QtWidgets/qstyleoption.h>
@@ -758,4 +759,5 @@ bool ritual_own_ZN19QStyledItemDelegate11editorEventEP6QEventP18QAbstractItemMod
       *index);
 }
 
+#endif  // QT_CONFIG(itemviews)
 #endif  // QT_CONFIG(itemviews)

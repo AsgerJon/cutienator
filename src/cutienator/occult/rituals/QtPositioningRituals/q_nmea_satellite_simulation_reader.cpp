@@ -7,17 +7,17 @@
 #include <QtPositioning/6.12.0/QtPositioning/private/qnmeasatelliteinfosource_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qnmeasatelliteinfosource.h"
-#include "private/qnmeasatelliteinfosource_p.h"
+#include <QtPositioning/qnmeasatelliteinfosource.h>
+#include <QtPositioning/private/qnmeasatelliteinfosource_p.h>
 #include <QtPositioning/private/qgeosatelliteinfo_p.h>
 #include <QtPositioning/private/qgeosatelliteinfosource_p.h>
 #include <QtPositioning/private/qlocationutils_p.h>
-#include <QIODevice>
-#include <QBasicTimer>
-#include <QTimerEvent>
-#include <QTimer>
+#include <QtCore/QIODevice>
+#include <QtCore/QBasicTimer>
+#include <QtCore/QTimerEvent>
+#include <QtCore/QTimer>
 #include <array>
-#include <QDebug>
+#include <QtCore/QDebug>
 #include <QtCore/QtNumeric>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

@@ -4,6 +4,7 @@
 #include <QtQuick/qtquickglobal.h>
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #if QT_CONFIG(quick_listview)
+#if QT_CONFIG(quick_listview)
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #include <QtQuick/QtQuick>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -102,4 +103,5 @@ void ritual_ZN17QQuickViewSection19setLabelPositioningEi(
   self->setLabelPositioning(pos);
 }
 
+#endif  // QT_CONFIG(quick_listview)
 #endif  // QT_CONFIG(quick_listview)

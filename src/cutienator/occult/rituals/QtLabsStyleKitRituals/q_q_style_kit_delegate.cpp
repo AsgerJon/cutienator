@@ -7,8 +7,8 @@
 #include <QtLabsStyleKit/6.12.0/QtLabsStyleKit/private/qqstylekitdelegate_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qqstylekitdelegate_p.h"
-#include "qqstylekitcontrolproperties_p.h"
+#include <QtLabsStyleKit/private/qqstylekitdelegate_p.h>
+#include <QtLabsStyleKit/private/qqstylekitcontrolproperties_p.h>
 #include <QtQuick/private/qquickrectangle_p.h>
 #include <QtQuick/private/qquickimplicitsizeitem_p_p.h>
 #include <QtQuickControls2Impl/private/qquickcolorimage_p.h>

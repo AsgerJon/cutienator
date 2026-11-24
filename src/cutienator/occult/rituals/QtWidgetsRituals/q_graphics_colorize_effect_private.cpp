@@ -4,6 +4,7 @@
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #if QT_CONFIG(graphicseffect)
+#if QT_CONFIG(graphicseffect)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/qgraphicseffect.h>
 #include <QtWidgets/QtWidgets>
@@ -39,4 +40,5 @@ void ritual_ZN30QGraphicsColorizeEffectPrivateD1Ev(
   delete self;
 }
 
+#endif  // QT_CONFIG(graphicseffect)
 #endif  // QT_CONFIG(graphicseffect)

@@ -3,6 +3,7 @@
 //  made here are lost.
 #include <QtNetwork/qtnetworkglobal.h>
 #include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
+#if (defined(Q_OS_WASM)) || (QT_CONFIG(http))
 #if QT_CONFIG(http)
 #include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
 #include <QtNetwork/QtNetwork>
@@ -11,16 +12,16 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qbytearray.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qnetworkrequest.h"
-#include "qnetworkrequest_p.h"
+#include <QtNetwork/qnetworkrequest.h>
+#include <QtNetwork/private/qnetworkrequest_p.h>
 #include "qplatformdefs.h"
-#include "qnetworkcookie.h"
-#include "qsslconfiguration.h"
-#include "qhttpheadershelper_p.h"
+#include <QtNetwork/qnetworkcookie.h>
+#include <QtNetwork/qsslconfiguration.h>
+#include <QtNetwork/private/qhttpheadershelper_p.h>
 #if QT_CONFIG(http)
-#include "qhttp1configuration.h"
-#include "qhttp2configuration.h"
-#include "private/http2protocol_p.h"
+#include <QtNetwork/qhttp1configuration.h>
+#include <QtNetwork/qhttp2configuration.h>
+#include <QtNetwork/private/http2protocol_p.h>
 #endif
 #include "QtCore/qdatetime.h"
 #include "QtCore/qlocale.h"
@@ -32,9 +33,9 @@
 # include <stdio.h>
 #endif
 #include <algorithm>
-#include <q20algorithm.h>
-#include "qhttpmultipart.h"
-#include "qhttpmultipart_p.h"
+#include <QtCore/q20algorithm.h>
+#include <QtNetwork/qhttpmultipart.h>
+#include <QtNetwork/private/qhttpmultipart_p.h>
 #include "QtCore/qdatetime.h" // for initializing the random number generator with QTime
 #include <QtCore/qdebug.h>
 #include "QtCore/qmutex.h"
@@ -186,3 +187,4 @@ QNetworkHeadersPrivate *ritual_cast_QHttpPartPrivate_QNetworkHeadersPrivate(
 }
 
 #endif  // QT_CONFIG(http)
+#endif  // (defined(Q_OS_WASM)) || (QT_CONFIG(http))

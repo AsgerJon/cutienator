@@ -2,6 +2,7 @@
 //  QtGui/qstandarditemmodel.h, Qt 6.12.0. Changes made here are lost.
 #include <QtGui/qtguiglobal.h>
 #if QT_CONFIG(standarditemmodel)
+#if QT_CONFIG(standarditemmodel)
 #include <QtGui/qstandarditemmodel.h>
 #include <QtCore/qstring.h>
 #include <QtGui/qicon.h>
@@ -889,4 +890,5 @@ void ritual_list_drop_QStandardItem_ptr(QList<QStandardItem *> *self) {
   delete self;
 }
 
+#endif  // QT_CONFIG(standarditemmodel)
 #endif  // QT_CONFIG(standarditemmodel)

@@ -8,13 +8,13 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qpoint.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qpathclipper_p.h"
-#include <private/qbezier_p.h>
-#include <private/qdatabuffer_p.h>
-#include <private/qnumeric_p.h>
-#include <qmath.h>
+#include <QtGui/private/qpathclipper_p.h>
+#include <QtGui/private/qbezier_p.h>
+#include <QtGui/private/qdatabuffer_p.h>
+#include <QtCore/private/qnumeric_p.h>
+#include <QtCore/qmath.h>
 #include <algorithm>
-#include <qdebug.h>
+#include <QtCore/qdebug.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

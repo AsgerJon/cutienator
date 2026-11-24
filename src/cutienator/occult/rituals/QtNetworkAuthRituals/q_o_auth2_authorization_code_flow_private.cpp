@@ -9,9 +9,9 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qbytearray.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <qabstractoauth.h>
-#include <qabstractoauthreplyhandler.h>
-#include <private/qabstractoauth_p.h>
+#include <QtNetworkAuth/qabstractoauth.h>
+#include <QtNetworkAuth/qabstractoauthreplyhandler.h>
+#include <QtNetworkAuth/private/qabstractoauth_p.h>
 #include <QtCore/qurl.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qurlquery.h>
@@ -22,16 +22,16 @@
 #include <QtNetwork/qnetworkreply.h>
 #include <QtCore/qrandom.h>
 #include <QtCore/private/qlocking_p.h>
-#include <qoauth2authorizationcodeflow.h>
-#include <private/qoauth2authorizationcodeflow_p.h>
-#include <qmap.h>
-#include <qurl.h>
-#include <qvariant.h>
-#include <qurlquery.h>
-#include <qjsonobject.h>
-#include <qjsondocument.h>
-#include <qauthenticator.h>
-#include <qoauthhttpserverreplyhandler.h>
+#include <QtNetworkAuth/qoauth2authorizationcodeflow.h>
+#include <QtNetworkAuth/private/qoauth2authorizationcodeflow_p.h>
+#include <QtCore/qmap.h>
+#include <QtCore/qurl.h>
+#include <QtCore/qvariant.h>
+#include <QtCore/qurlquery.h>
+#include <QtCore/qjsonobject.h>
+#include <QtCore/qjsondocument.h>
+#include <QtNetwork/qauthenticator.h>
+#include <QtNetworkAuth/qoauthhttpserverreplyhandler.h>
 #include <QtCore/qcryptographichash.h>
 #include <functional>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER

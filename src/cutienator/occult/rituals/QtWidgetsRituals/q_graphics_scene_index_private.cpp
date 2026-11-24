@@ -4,6 +4,7 @@
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #if QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/QtWidgets>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -11,13 +12,13 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/qpainterpath.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qdebug.h"
-#include "qgraphicsscene.h"
-#include "qgraphicsitem_p.h"
-#include "qgraphicsscene_p.h"
-#include "qgraphicswidget.h"
-#include "qgraphicssceneindex_p.h"
-#include "qgraphicsscenebsptreeindex_p.h"
+#include <QtCore/qdebug.h>
+#include <QtWidgets/qgraphicsscene.h>
+#include <QtWidgets/private/qgraphicsitem_p.h>
+#include <QtWidgets/private/qgraphicsscene_p.h>
+#include <QtWidgets/qgraphicswidget.h>
+#include <QtWidgets/private/qgraphicssceneindex_p.h>
+#include <QtWidgets/private/qgraphicsscenebsptreeindex_p.h>
 #include <QtGui/qpainterpath.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
@@ -119,4 +120,5 @@ bool ritual_ZN26QGraphicsSceneIndexPrivate20itemCollidesWithPathEPK13QGraphicsIt
   return QGraphicsSceneIndexPrivate::itemCollidesWithPath(item, *path, mode);
 }
 
+#endif  // QT_CONFIG(graphicsview)
 #endif  // QT_CONFIG(graphicsview)

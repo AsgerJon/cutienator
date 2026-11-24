@@ -7,12 +7,12 @@
 #include <QtGui/6.12.0/QtGui/private/qrasterizer_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qrasterizer_p.h"
-#include <QPoint>
-#include <QRect>
-#include <private/qmath_p.h>
-#include <private/qdatabuffer_p.h>
-#include <private/qdrawhelper_p.h>
+#include <QtGui/private/qrasterizer_p.h>
+#include <QtCore/QPoint>
+#include <QtCore/QRect>
+#include <QtGui/private/qmath_p.h>
+#include <QtGui/private/qdatabuffer_p.h>
+#include <QtGui/private/qdrawhelper_p.h>
 #include <QtGui/qpainterpath.h>
 #include <algorithm>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER

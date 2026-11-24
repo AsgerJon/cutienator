@@ -1,8 +1,10 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtSql/6.12.0/QtSql/private/qsqlquerymodel_p.h, Qt 6.12.0. Changes made
 //  here are lost.
+#include <QtCore/qglobal.h>
 #include <QtSql/qtsqlglobal.h>
 #include <QtSql/6.12.0/QtSql/private/qtsqlglobal_p.h>
+#if QT_CONFIG(sqlmodel)
 #if QT_CONFIG(sqlmodel)
 #include <QtSql/6.12.0/QtSql/private/qtsqlglobal_p.h>
 #include <QtSql/qsqlquerymodel.h>
@@ -12,11 +14,11 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qsqlquerymodel.h"
-#include "qsqlquerymodel_p.h"
-#include <qdebug.h>
-#include <qsqldriver.h>
-#include <qsqlfield.h>
+#include <QtSql/qsqlquerymodel.h>
+#include <QtSql/private/qsqlquerymodel_p.h>
+#include <QtCore/qdebug.h>
+#include <QtSql/qsqldriver.h>
+#include <QtSql/qsqlfield.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -178,4 +180,5 @@ bool ritual_take_QSqlQueryModelPrivate(
   return static_cast<CuteQSqlQueryModelPrivate *>(self)->take(key, call);
 }
 
+#endif  // QT_CONFIG(sqlmodel)
 #endif  // QT_CONFIG(sqlmodel)

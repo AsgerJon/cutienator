@@ -12,10 +12,4 @@ QVariant *ritual_ZNK20QAssociativeIterator3keyEv(
   return new QVariant(self->key());
 }
 
-//  QAssociativeIterator::~QAssociativeIterator()
-extern "C" Q_DECL_EXPORT
-void ritual_ZN20QAssociativeIteratorD1Ev(QAssociativeIterator *self) {
-  delete self;
-}
-
 #endif  // QT_DEPRECATED_SINCE(6, 15)

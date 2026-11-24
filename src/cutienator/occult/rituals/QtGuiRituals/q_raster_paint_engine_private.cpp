@@ -12,41 +12,41 @@
 #include <QtGui/qtransform.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qrasterizer_p.h"
-#include <QPoint>
-#include <QRect>
-#include <private/qmath_p.h>
-#include <private/qdatabuffer_p.h>
-#include <private/qdrawhelper_p.h>
+#include <QtGui/private/qrasterizer_p.h>
+#include <QtCore/QPoint>
+#include <QtCore/QRect>
+#include <QtGui/private/qmath_p.h>
+#include <QtGui/private/qdatabuffer_p.h>
+#include <QtGui/private/qdrawhelper_p.h>
 #include <QtGui/qpainterpath.h>
 #include <algorithm>
 #include <QtCore/qglobal.h>
 #include <QtCore/qmutex.h>
-#include <private/qrasterdefs_p.h>
-#include <private/qgrayraster_p.h>
-#include <qpainterpath.h>
-#include <qdebug.h>
-#include <qbitmap.h>
-#include "qmath_p.h"
-#include <qrandom.h>
-#include <private/qtextengine_p.h>
-#include <private/qfontengine_p.h>
-#include <private/qpixmap_raster_p.h>
-#include <private/qimage_p.h>
-#include <private/qstatictext_p.h>
-#include <private/qcosmeticstroker_p.h>
-#include <private/qdrawhelper_p.h>
-#include <private/qmemrotate_p.h>
-#include <private/qpixellayout_p.h>
-#include <private/qrgba64_p.h>
-#include "qpaintengine_raster_p.h"
-#include "qoutlinemapper_p.h"
+#include <QtGui/private/qrasterdefs_p.h>
+#include <QtGui/private/qgrayraster_p.h>
+#include <QtGui/qpainterpath.h>
+#include <QtCore/qdebug.h>
+#include <QtGui/qbitmap.h>
+#include <QtGui/private/qmath_p.h>
+#include <QtCore/qrandom.h>
+#include <QtGui/private/qtextengine_p.h>
+#include <QtGui/private/qfontengine_p.h>
+#include <QtGui/private/qpixmap_raster_p.h>
+#include <QtGui/private/qimage_p.h>
+#include <QtGui/private/qstatictext_p.h>
+#include <QtGui/private/qcosmeticstroker_p.h>
+#include <QtGui/private/qdrawhelper_p.h>
+#include <QtGui/private/qmemrotate_p.h>
+#include <QtGui/private/qpixellayout_p.h>
+#include <QtGui/private/qrgba64_p.h>
+#include <QtGui/private/qpaintengine_raster_p.h>
+#include <QtGui/private/qoutlinemapper_p.h>
 #include <limits.h>
 #include <algorithm>
 #ifdef Q_OS_WIN
-#  include <qvarlengtharray.h>
-#  include <private/qfontengine_p.h>
-#  include <qt_windows.h>
+#  include <QtCore/qvarlengtharray.h>
+#  include <QtGui/private/qfontengine_p.h>
+#  include <QtCore/qt_windows.h>
 #ifdef Q_OS_WIN64
 #    include <malloc.h>
 #  endif

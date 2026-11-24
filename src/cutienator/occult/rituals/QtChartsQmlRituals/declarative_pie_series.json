@@ -1,0 +1,34 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtChartsQml/6.12.0/QtChartsQml/private/declarativepieseries_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK20DeclarativePieSeries10metaObjectEv": ["address", "address"],
+    "ritual_ZN20DeclarativePieSeries2atEi": ["address", "address", "int"],
+    "ritual_ZN20DeclarativePieSeries4findE7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN20DeclarativePieSeries6appendE7QStringd": [
+      "address", "address", "text", "double"
+    ],
+    "ritual_ZN20DeclarativePieSeries6removeEP9QPieSlice": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN20DeclarativePieSeries5clearEv": ["nothing", "address"],
+    "ritual_ZN20DeclarativePieSeries10classBeginEv": ["nothing", "address"],
+    "ritual_ZN20DeclarativePieSeries17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_cast_DeclarativePieSeries_QQmlParserStatus": [
+      "address", "address"
+    ],
+    "ritual_own_ZN20DeclarativePieSeries10classBeginEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN20DeclarativePieSeries17componentCompleteEv": [
+      "nothing", "address"
+    ]
+  }
+}

@@ -10,6 +10,7 @@
       "nothing", "int", "bool"
     ],
     "ritual_ZN22QVulkanDefaultInstance11hasInstanceEv": ["bool"],
+    "ritual_ZN22QVulkanDefaultInstance8instanceEv": ["address"],
     "ritual_ZN22QVulkanDefaultInstance7cleanupEv": ["nothing"],
     "ritual_ZN22QVulkanDefaultInstanceD1Ev": ["nothing", "address"]
   }

@@ -13,8 +13,8 @@
 #include <QtHttpServer/6.12.0/QtHttpServer/private/qhttpserverhttp2protocolhandler_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qhttpserverstream_p.h"
-#include <private/qhttpserverresponder_p.h>
+#include <QtHttpServer/private/qhttpserverstream_p.h>
+#include <QtHttpServer/private/qhttpserverresponder_p.h>
 #include <QtNetwork/qtcpsocket.h>
 #if QT_CONFIG(ssl)
 #include <QtNetwork/qsslsocket.h>
@@ -22,17 +22,17 @@
 #if QT_CONFIG(localserver)
 #include <QtNetwork/qlocalsocket.h>
 #endif
-#include "qhttpserverliterals_p.h"
+#include <QtHttpServer/private/qhttpserverliterals_p.h>
 #include <QtCore/qbytearray.h>
-#include "qhttpserverhttp2protocolhandler_p.h"
+#include <QtHttpServer/private/qhttpserverhttp2protocolhandler_p.h>
 #include <QtCore/qloggingcategory.h>
 #include <QtHttpServer/qabstracthttpserver.h>
 #include <QtHttpServer/qhttpserverresponse.h>
 #include <QtNetwork/private/qhttp2connection_p.h>
 #include <QtNetwork/qtcpsocket.h>
-#include <private/qhttpserverrequest_p.h>
-#include <private/qhttpserverliterals_p.h>
-#include <private/qhttpserverresponder_p.h>
+#include <QtHttpServer/private/qhttpserverrequest_p.h>
+#include <QtHttpServer/private/qhttpserverliterals_p.h>
+#include <QtHttpServer/private/qhttpserverresponder_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

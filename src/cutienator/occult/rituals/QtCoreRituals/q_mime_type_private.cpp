@@ -4,6 +4,7 @@
 #include <QtCore/qglobal.h>
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #if QT_CONFIG(mimetype)
+#if QT_CONFIG(mimetype)
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtCore/QtCore>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -30,4 +31,5 @@ void ritual_ZN16QMimeTypePrivateD1Ev(QMimeTypePrivate *self) {
   delete self;
 }
 
+#endif  // QT_CONFIG(mimetype)
 #endif  // QT_CONFIG(mimetype)

@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/qrangemodel_impl.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qglobal.h>
+#if QT_CONFIG(rangemodel)
 #if !defined(Q_QDOC)
 #include <QtCore/qrangemodel.h>
 #include <QtCore/qmetaobject.h>
@@ -199,3 +200,4 @@ bool ritual_take_QRangeModelDetails_AutoConnectContext(
 }
 
 #endif  // !defined(Q_QDOC)
+#endif  // QT_CONFIG(rangemodel)

@@ -10,16 +10,16 @@
 #include <QtGui/6.12.0/QtGui/private/qiconloader_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qiconengine.h"
-#include "qiconengine_p.h"
-#include "qpainter.h"
+#include <QtGui/qiconengine.h>
+#include <QtGui/private/qiconengine_p.h>
+#include <QtGui/qpainter.h>
 #ifndef QT_NO_ICON
-#include <private/qiconloader_p.h>
-#include <private/qguiapplication_p.h>
-#include <private/qicon_p.h>
+#include <QtGui/private/qiconloader_p.h>
+#include <QtGui/private/qguiapplication_p.h>
+#include <QtGui/private/qicon_p.h>
 #include <QtGui/QIconEnginePlugin>
 #include <QtGui/QPixmapCache>
-#include <qpa/qplatformtheme.h>
+#include <QtGui/qpa/qplatformtheme.h>
 #include <QtGui/qfontdatabase.h>
 #include <QtGui/QPalette>
 #include <QtCore/qmath.h>
@@ -30,9 +30,9 @@
 #include <QtCore/QSettings>
 #endif
 #include <QtGui/QPainter>
-#include <private/qhexstring_p.h>
-#include <private/qfactoryloader_p.h>
-#include <private/qfonticonengine_p.h>
+#include <QtGui/private/qhexstring_p.h>
+#include <QtCore/private/qfactoryloader_p.h>
+#include <QtGui/private/qfonticonengine_p.h>
 #endif
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

@@ -4,6 +4,7 @@
 #include <QtCore/qglobal.h>
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #if QT_CONFIG(future)
+#if QT_CONFIG(future)
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtCore/QtCore>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -128,4 +129,5 @@ QFutureCallOutEvent *ritual_own_ZNK19QFutureCallOutEvent5cloneEv(
   return self->QFutureCallOutEvent::clone();
 }
 
+#endif  // QT_CONFIG(future)
 #endif  // QT_CONFIG(future)

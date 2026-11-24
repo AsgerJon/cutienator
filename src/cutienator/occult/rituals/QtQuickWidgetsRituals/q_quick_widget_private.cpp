@@ -27,22 +27,22 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquickwidget.h"
-#include "qquickwidget_p.h"
-#include "qaccessiblequickwidgetfactory_p.h"
+#include <QtQuickWidgets/qquickwidget.h>
+#include <QtQuickWidgets/private/qquickwidget_p.h>
+#include <QtQuickWidgets/private/qaccessiblequickwidgetfactory_p.h>
 #include <QtWidgets/private/qwidgetrepaintmanager_p.h>
-#include "private/qquickwindow_p.h"
-#include "private/qquickitem_p.h"
-#include "private/qquickitemchangelistener_p.h"
-#include "private/qquickrendercontrol_p.h"
-#include "private/qsgrhisupport_p.h"
-#include "private/qsgsoftwarerenderer_p.h"
-#include <private/qqmldebugconnector_p.h>
-#include <private/qquickprofiler_p.h>
-#include <private/qqmldebugserviceinterfaces_p.h>
+#include <QtQuick/private/qquickwindow_p.h>
+#include <QtQuick/private/qquickitem_p.h>
+#include <QtQuick/private/qquickitemchangelistener_p.h>
+#include <QtQuick/private/qquickrendercontrol_p.h>
+#include <QtQuick/private/qsgrhisupport_p.h>
+#include <QtQuick/private/qsgsoftwarerenderer_p.h>
+#include <QtQml/private/qqmldebugconnector_p.h>
+#include <QtQuick/private/qquickprofiler_p.h>
+#include <QtQml/private/qqmldebugserviceinterfaces_p.h>
 #include <QtQml/qqmlengine.h>
 #include <QtQml/qqmlcomponent.h>
-#include <private/qqmlengine_p.h>
+#include <QtQml/private/qqmlengine_p.h>
 #include <QtCore/qbasictimer.h>
 #include <QtGui/QOffscreenSurface>
 #include <QtGui/private/qguiapplication_p.h>
@@ -58,7 +58,7 @@
 #endif
 #include <QtQuick/qquickgraphicsdevice.h>
 #include <QtQuick/qquickrendertarget.h>
-#include "private/qwidget_p.h"
+#include <QtWidgets/private/qwidget_p.h>
 #if QT_CONFIG(graphicsview)
 #include <QtWidgets/qgraphicsscene.h>
 #include <QtWidgets/qgraphicsview.h>
@@ -253,6 +253,7 @@ inline bool QQuickWidgetPrivate::setRootObject(QObject *obj)
 }
 
 //  from ../qtdeclarative/src/quickwidgets/qquickwidget.cpp, line 1097, as _ZN19QQuickWidgetPrivate28handleContextCreationFailureERK14QSurfaceFormat
+#if defined(Q_OS_LINUX)
 inline void QQuickWidgetPrivate::handleContextCreationFailure(const QSurfaceFormat &)
 {
     Q_Q(QQuickWidget);
@@ -273,6 +274,7 @@ inline void QQuickWidgetPrivate::handleContextCreationFailure(const QSurfaceForm
     if (!signalConnected)
         qFatal("%s", qPrintable(untranslatedMessage));
 }
+#endif  // defined(Q_OS_LINUX)
 
 //  from ../qtdeclarative/src/quickwidgets/qquickwidget.cpp, line 1457, as _ZNK19QQuickWidgetPrivate7textureEv
 inline QWidgetPrivate::TextureData QQuickWidgetPrivate::texture() const
@@ -795,6 +797,7 @@ bool ritual_ZN19QQuickWidgetPrivate13setRootObjectEP7QObject(
   return self->setRootObject(a0);
 }
 
+#if defined(Q_OS_LINUX)
 //  void QQuickWidgetPrivate::handleContextCreationFailure(const
 //      QSurfaceFormat &format)
 extern "C" Q_DECL_EXPORT
@@ -803,6 +806,7 @@ void ritual_ZN19QQuickWidgetPrivate28handleContextCreationFailureERK14QSurfaceFo
     const QSurfaceFormat *format) {
   self->handleContextCreationFailure(*format);
 }
+#endif  // defined(Q_OS_LINUX)
 
 //  TextureData QQuickWidgetPrivate::texture() const
 extern "C" Q_DECL_EXPORT

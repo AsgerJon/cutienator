@@ -10,11 +10,11 @@
 #include <QtCoap/qcoapoption.h>
 #include <QtNetwork/qhostaddress.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qcoapinternalmessage_p.h"
-#include "qcoaprequest_p.h"
+#include <QtCoap/private/qcoapinternalmessage_p.h>
+#include <QtCoap/private/qcoaprequest_p.h>
 #include <QtCoap/qcoaprequest.h>
 #include <QtCore/qloggingcategory.h>
-#include "qcoapinternalreply_p.h"
+#include <QtCoap/private/qcoapinternalreply_p.h>
 #include <QtCore/qendian.h>
 #include <QtCore/qmath.h>
 #include <memory>

@@ -4,6 +4,7 @@
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #if QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/qgraphicsanchorlayout.h>
 #include <QtWidgets/QtWidgets>
@@ -11,7 +12,7 @@
 #include <QtWidgets/6.12.0/QtWidgets/private/qgraphicsanchorlayout_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qgraphicsanchorlayout_p.h"
+#include <QtWidgets/private/qgraphicsanchorlayout_p.h>
 #include <QtWidgets/qwidget.h>
 #include <QtWidgets/qapplication.h>
 #include <QtCore/qstack.h>
@@ -352,4 +353,5 @@ QGraphicsAnchorPrivate *ritual_ZN22QGraphicsAnchorPrivate3getEP15QGraphicsAnchor
   return QGraphicsAnchorPrivate::get(q);
 }
 
+#endif  // QT_CONFIG(graphicsview)
 #endif  // QT_CONFIG(graphicsview)

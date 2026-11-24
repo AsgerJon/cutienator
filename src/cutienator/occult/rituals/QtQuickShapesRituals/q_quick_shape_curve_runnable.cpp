@@ -9,8 +9,8 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquickshapecurverenderer_p.h"
-#include "qquickshapecurverenderer_p_p.h"
+#include <QtQuickShapes/private/qquickshapecurverenderer_p.h>
+#include <QtQuickShapes/private/qquickshapecurverenderer_p_p.h>
 #if QT_CONFIG(thread)
 #include <QtCore/qthreadpool.h>
 #endif

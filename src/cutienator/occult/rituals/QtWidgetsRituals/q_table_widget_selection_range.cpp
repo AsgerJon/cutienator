@@ -2,6 +2,7 @@
 //  QtWidgets/qtablewidget.h, Qt 6.12.0. Changes made here are lost.
 #include <QtWidgets/qtwidgetsglobal.h>
 #if QT_CONFIG(tablewidget)
+#if QT_CONFIG(tablewidget)
 #include <QtWidgets/qtablewidget.h>
 #include <QtCore/qlist.h>
 
@@ -127,4 +128,5 @@ void ritual_list_drop_QTableWidgetSelectionRange(
   delete self;
 }
 
+#endif  // QT_CONFIG(tablewidget)
 #endif  // QT_CONFIG(tablewidget)

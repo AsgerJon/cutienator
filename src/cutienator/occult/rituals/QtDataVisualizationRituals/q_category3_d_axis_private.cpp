@@ -11,9 +11,9 @@
 #include <QtCore/qlist.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qabstract3daxis_p.h"
-#include "qcategory3daxis_p.h"
-#include "bars3dcontroller_p.h"
+#include <QtDataVisualization/private/qabstract3daxis_p.h>
+#include <QtDataVisualization/private/qcategory3daxis_p.h>
+#include <QtDataVisualization/private/bars3dcontroller_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

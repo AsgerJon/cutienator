@@ -8,17 +8,17 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquicktimeline_p_p.h"
-#include <QDebug>
-#include <QMutex>
-#include <QThread>
-#include <QWaitCondition>
-#include <QEvent>
-#include <QCoreApplication>
-#include <QEasingCurve>
-#include <QTime>
+#include <QtQuick/private/qquicktimeline_p_p.h>
+#include <QtCore/QDebug>
+#include <QtCore/QMutex>
+#include <QtCore/QThread>
+#include <QtCore/QWaitCondition>
+#include <QtCore/QEvent>
+#include <QtCore/QCoreApplication>
+#include <QtCore/QEasingCurve>
+#include <QtCore/QTime>
 #include <QtCore/private/qnumeric_p.h>
-#include <QHash>
+#include <QtCore/QHash>
 #include <algorithm>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

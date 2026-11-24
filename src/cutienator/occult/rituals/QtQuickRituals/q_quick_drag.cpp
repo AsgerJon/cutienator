@@ -4,6 +4,7 @@
 #include <QtQuick/qtquickglobal.h>
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #if QT_CONFIG(quick_draganddrop)
+#if QT_CONFIG(quick_draganddrop)
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #include <QtQuick/QtQuick>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -370,4 +371,5 @@ bool ritual_take_QQuickDrag(QQuickDrag *self, const char *key, void *call) {
   return static_cast<CuteQQuickDrag *>(self)->take(key, call);
 }
 
+#endif  // QT_CONFIG(quick_draganddrop)
 #endif  // QT_CONFIG(quick_draganddrop)

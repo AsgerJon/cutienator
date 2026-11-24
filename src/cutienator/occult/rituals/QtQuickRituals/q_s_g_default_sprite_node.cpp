@@ -4,6 +4,7 @@
 #include <QtQuick/qtquickglobal.h>
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #if QT_CONFIG(quick_sprite)
+#if QT_CONFIG(quick_sprite)
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #include <QtQuick/QtQuick>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -11,7 +12,7 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qsize.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qsgdefaultspritenode_p.h"
+#include <QtQuick/private/qsgdefaultspritenode_p.h>
 #include <QtQuick/QSGMaterial>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
@@ -63,4 +64,5 @@ void ritual_own_ZN20QSGDefaultSpriteNode7setSizeERK6QSizeF(
   self->QSGDefaultSpriteNode::setSize(*size);
 }
 
+#endif  // QT_CONFIG(quick_sprite)
 #endif  // QT_CONFIG(quick_sprite)

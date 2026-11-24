@@ -2,6 +2,7 @@
 //  Qt 6.12.0. Changes made here are lost.
 #include <QtGui/qtguiglobal.h>
 #if QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
 #include <QtGui/qdrag.h>
 #include <QtCore/qstring.h>
 #include <QtGui/qpixmap.h>
@@ -323,4 +324,5 @@ bool ritual_take_QDrag(QDrag *self, const char *key, void *call) {
   return static_cast<CuteQDrag *>(self)->take(key, call);
 }
 
+#endif  // QT_CONFIG(draganddrop)
 #endif  // QT_CONFIG(draganddrop)

@@ -14,7 +14,7 @@
 #include <QtCore/qlist.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qnearfieldtarget_p.h"
+#include <QtNfc/private/qnearfieldtarget_p.h>
 #include <QtCore/QCoreApplication>
 #include <QtCore/QElapsedTimer>
 #include <QtCore/QPointer>

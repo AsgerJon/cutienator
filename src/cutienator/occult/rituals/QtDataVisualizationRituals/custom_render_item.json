@@ -1,0 +1,165 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtDataV",
+    "isualization/6.12.0/QtDataVisualization/private/customrenderitem_p",
+    ".h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN16CustomRenderItemD1Ev": ["nothing", "address"],
+    "ritual_ZN16CustomRenderItem10setTextureEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZNK16CustomRenderItem4meshEv": ["address", "address"],
+    "ritual_ZN16CustomRenderItem10setScalingERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16CustomRenderItem7scalingEv": ["address", "address"],
+    "ritual_ZN16CustomRenderItem14setOrigScalingERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16CustomRenderItem11origScalingEv": ["address", "address"],
+    "ritual_ZN16CustomRenderItem11setPositionERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16CustomRenderItem8positionEv": ["address", "address"],
+    "ritual_ZN16CustomRenderItem15setOrigPositionERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16CustomRenderItem12origPositionEv": ["address", "address"],
+    "ritual_ZN16CustomRenderItem19setPositionAbsoluteEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK16CustomRenderItem18isPositionAbsoluteEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN16CustomRenderItem18setScalingAbsoluteEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK16CustomRenderItem17isScalingAbsoluteEv": ["bool", "address"],
+    "ritual_ZN16CustomRenderItem14setBlendNeededEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK16CustomRenderItem13isBlendNeededEv": ["bool", "address"],
+    "ritual_ZN16CustomRenderItem10setVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK16CustomRenderItem9isVisibleEv": ["bool", "address"],
+    "ritual_ZN16CustomRenderItem14setItemPointerEP13QCustom3DItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16CustomRenderItem11itemPointerEv": ["address", "address"],
+    "ritual_ZN16CustomRenderItem8setValidEb": ["nothing", "address", "bool"],
+    "ritual_ZNK16CustomRenderItem7isValidEv": ["bool", "address"],
+    "ritual_ZN16CustomRenderItem8setIndexEi": ["nothing", "address", "int"],
+    "ritual_ZNK16CustomRenderItem5indexEv": ["int", "address"],
+    "ritual_ZN16CustomRenderItem16setShadowCastingEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK16CustomRenderItem15isShadowCastingEv": ["bool", "address"],
+    "ritual_ZN16CustomRenderItem15setFacingCameraEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK16CustomRenderItem14isFacingCameraEv": ["bool", "address"],
+    "ritual_ZN16CustomRenderItem11setRendererEP18Abstract3DRenderer": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16CustomRenderItem12setLabelItemEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK16CustomRenderItem7isLabelEv": ["bool", "address"],
+    "ritual_ZN16CustomRenderItem15setTextureWidthEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK16CustomRenderItem12textureWidthEv": ["int", "address"],
+    "ritual_ZN16CustomRenderItem16setTextureHeightEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK16CustomRenderItem13textureHeightEv": ["int", "address"],
+    "ritual_ZN16CustomRenderItem15setTextureDepthEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK16CustomRenderItem12textureDepthEv": ["int", "address"],
+    "ritual_ZNK16CustomRenderItem11textureSizeEv": ["int", "address"],
+    "ritual_ZN16CustomRenderItem13setColorTableERK5QListI9QVector4DE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16CustomRenderItem10colorTableEv": ["address", "address"],
+    "ritual_ZN16CustomRenderItem9setVolumeEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK16CustomRenderItem8isVolumeEv": ["bool", "address"],
+    "ritual_ZN16CustomRenderItem16setTextureFormatEN6QImage6FormatE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK16CustomRenderItem13textureFormatEv": ["int", "address"],
+    "ritual_ZN16CustomRenderItem14setSliceIndexXEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16CustomRenderItem14setSliceIndexYEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16CustomRenderItem14setSliceIndexZEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK16CustomRenderItem14sliceFractionsEv": ["address", "address"],
+    "ritual_ZNK16CustomRenderItem11sliceIndexXEv": ["int", "address"],
+    "ritual_ZNK16CustomRenderItem11sliceIndexYEv": ["int", "address"],
+    "ritual_ZNK16CustomRenderItem11sliceIndexZEv": ["int", "address"],
+    "ritual_ZN16CustomRenderItem18setAlphaMultiplierEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK16CustomRenderItem15alphaMultiplierEv": ["float", "address"],
+    "ritual_ZN16CustomRenderItem18setPreserveOpacityEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK16CustomRenderItem15preserveOpacityEv": ["bool", "address"],
+    "ritual_ZN16CustomRenderItem19setUseHighDefShaderEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK16CustomRenderItem16useHighDefShaderEv": ["bool", "address"],
+    "ritual_ZN16CustomRenderItem12setMinBoundsERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16CustomRenderItem9minBoundsEv": ["address", "address"],
+    "ritual_ZN16CustomRenderItem12setMaxBoundsERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16CustomRenderItem9maxBoundsEv": ["address", "address"],
+    "ritual_ZNK16CustomRenderItem15minBoundsNormalEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK16CustomRenderItem15maxBoundsNormalEv": [
+      "address", "address"
+    ],
+    "ritual_ZN16CustomRenderItem13setDrawSlicesEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK16CustomRenderItem10drawSlicesEv": ["bool", "address"],
+    "ritual_ZN16CustomRenderItem18setDrawSliceFramesEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK16CustomRenderItem15drawSliceFramesEv": ["bool", "address"],
+    "ritual_ZN16CustomRenderItem18setSliceFrameColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16CustomRenderItem15sliceFrameColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZN16CustomRenderItem19setSliceFrameWidthsERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16CustomRenderItem16sliceFrameWidthsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN16CustomRenderItem17setSliceFrameGapsERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16CustomRenderItem14sliceFrameGapsEv": ["address", "address"],
+    "ritual_ZN16CustomRenderItem24setSliceFrameThicknessesERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16CustomRenderItem21sliceFrameThicknessesEv": [
+      "address", "address"
+    ]
+  }
+}

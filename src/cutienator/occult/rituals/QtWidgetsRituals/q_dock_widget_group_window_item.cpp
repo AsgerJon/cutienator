@@ -4,6 +4,7 @@
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #if QT_CONFIG(mainwindow)
+#if QT_CONFIG(mainwindow)
 #if QT_CONFIG(dockwidget)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/QtWidgets>
@@ -84,4 +85,5 @@ QWidget *ritual_own_ZNK26QDockWidgetGroupWindowItem6widgetEv(
 }
 
 #endif  // QT_CONFIG(dockwidget)
+#endif  // QT_CONFIG(mainwindow)
 #endif  // QT_CONFIG(mainwindow)

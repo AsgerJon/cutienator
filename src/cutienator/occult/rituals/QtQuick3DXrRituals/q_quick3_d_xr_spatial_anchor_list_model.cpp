@@ -16,8 +16,8 @@
 #include <QtCore/qhash.h>
 #include <iterator>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquick3dxrspatialanchorlistmodel_p.h"
-#include "qquick3dxrspatialanchor_p.h"
+#include <QtQuick3DXr/private/qquick3dxrspatialanchorlistmodel_p.h>
+#include <QtQuick3DXr/private/qquick3dxrspatialanchor_p.h>
 #if defined(Q_OS_VISIONOS)
 #include "visionos/qquick3dxranchormanager_visionos_p.h"
 #else

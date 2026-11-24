@@ -2,6 +2,7 @@
 //  QtWidgets/qgraphicstransform.h, Qt 6.12.0. Changes made here are lost.
 #include <QtWidgets/qtwidgetsglobal.h>
 #if QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 #include <QtWidgets/qgraphicstransform.h>
 #include <QtCore/qstring.h>
 #include <QtGui/qvectornd.h>
@@ -304,4 +305,5 @@ void ritual_own_ZNK17QGraphicsRotation7applyToEP10QMatrix4x4(
   self->QGraphicsRotation::applyTo(matrix);
 }
 
+#endif  // QT_CONFIG(graphicsview)
 #endif  // QT_CONFIG(graphicsview)

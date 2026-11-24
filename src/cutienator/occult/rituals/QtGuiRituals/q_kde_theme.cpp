@@ -1,6 +1,10 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGui/6.12.0/QtGui/private/qkdetheme_p.h, Qt 6.12.0. Changes made here
 //  are lost.
+#include <QtCore/qglobal.h>
+#include <QtGui/qtguiglobal.h>
+#include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
+#if defined(Q_OS_UNIX) && QT_CONFIG(settings) && QT_CONFIG(dbus) && (QT_CONFIG(xcb) || QT_CONFIG(wayland))
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
 #include <QtGui/QtGui>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -538,3 +542,5 @@ QPlatformSystemTrayIcon *ritual_own_ZNK9QKdeTheme28createPlatformSystemTrayIconE
   return self->QKdeTheme::createPlatformSystemTrayIcon();
 }
 #endif  // QT_CONFIG(dbus) && QT_CONFIG(systemtrayicon)
+
+#endif  // defined(Q_OS_UNIX) && QT_CONFIG(settings) && QT_CONFIG(dbus) && (QT_CONFIG(xcb) || QT_CONFIG(wayland))

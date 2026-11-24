@@ -7,15 +7,15 @@
 #include <QtQuick3DXr/6.12.0/QtQuick3DXr/private/qquick3dxrhandmodel_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquick3dxrhandinput_p.h"
-#include "qquick3dxrinputmanager_p.h"
+#include <QtQuick3DXr/private/qquick3dxrhandinput_p.h>
+#include <QtQuick3DXr/private/qquick3dxrinputmanager_p.h>
 #if defined(Q_OS_VISIONOS)
 #include "visionos/qquick3dxrinputmanager_visionos_p.h"
 #else
 #endif
-#include "qquick3dxrhandinput_p.h"
-#include "qquick3dxrinputmanager_p.h"
-#include "qquick3dxrhandmodel_p.h"
+#include <QtQuick3DXr/private/qquick3dxrhandinput_p.h>
+#include <QtQuick3DXr/private/qquick3dxrinputmanager_p.h>
+#include <QtQuick3DXr/private/qquick3dxrhandmodel_p.h>
 #if defined(Q_OS_VISIONOS)
 # include "visionos/qquick3dxrinputmanager_visionos_p.h"
 #else

@@ -16,7 +16,7 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquickfusionknob_p.h"
+#include <QtQuickControls2FusionStyleImpl/private/qquickfusionknob_p.h>
 #include <QtCore/qmath.h>
 #include <QtGui/qpainter.h>
 #include <QtQuick/private/qquickpalette_p.h>

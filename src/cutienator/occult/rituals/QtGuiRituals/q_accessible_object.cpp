@@ -2,6 +2,7 @@
 //  QtGui/qaccessibleobject.h, Qt 6.12.0. Changes made here are lost.
 #include <QtGui/qtguiglobal.h>
 #if QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
 #include <QtGui/qaccessibleobject.h>
 #include <QtCore/qrect.h>
 #include <QtCore/qstring.h>
@@ -472,4 +473,5 @@ QAccessibleInterface *ritual_own_ZNK17QAccessibleObject7childAtEii(
   return self->QAccessibleObject::childAt(x, y);
 }
 
+#endif  // QT_CONFIG(accessibility)
 #endif  // QT_CONFIG(accessibility)

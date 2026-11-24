@@ -9,9 +9,9 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquicktextdocument.h"
-#include "qquicktextdocument_p.h"
-#include "qquicktextedit_p.h"
+#include <QtQuick/qquicktextdocument.h>
+#include <QtQuick/private/qquicktextdocument_p.h>
+#include <QtQuick/private/qquicktextedit_p.h>
 #include <QtQml/qqmlcontext.h>
 #include <QtQml/qqmlfile.h>
 #include <QtQml/qqmlinfo.h>

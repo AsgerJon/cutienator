@@ -4,6 +4,7 @@
 #include <QtQmlModels/qtqmlmodelsglobal.h>
 #include <QtQmlModels/6.12.0/QtQmlModels/private/qtqmlmodelsglobal_p.h>
 #if QT_CONFIG(qml_list_model)
+#if QT_CONFIG(qml_list_model)
 #include <QtQmlModels/6.12.0/QtQmlModels/private/qtqmlmodelsglobal_p.h>
 #include <QtQmlModels/QtQmlModels>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -17,4 +18,5 @@ const QMetaObject *ritual_ZNK15QQmlListElement10metaObjectEv(
   return self->metaObject();
 }
 
+#endif  // QT_CONFIG(qml_list_model)
 #endif  // QT_CONFIG(qml_list_model)

@@ -7,8 +7,8 @@
 #include <QtDataVisualization/6.12.0/QtDataVisualization/private/q3dobject_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "q3dobject_p.h"
-#include "q3dscene_p.h"
+#include <QtDataVisualization/private/q3dobject_p.h>
+#include <QtDataVisualization/private/q3dscene_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

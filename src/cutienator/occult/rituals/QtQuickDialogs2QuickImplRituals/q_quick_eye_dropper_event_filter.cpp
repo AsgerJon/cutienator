@@ -7,13 +7,13 @@
 #include <QtQuickDialogs2QuickImpl/6.12.0/QtQuickDialogs2QuickImpl/private/qquickcolordialogimpl_p_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquickcolordialogimpl_p.h"
-#include "qquickcolordialogimpl_p_p.h"
-#include "qquickcolordialogutils_p.h"
+#include <QtQuickDialogs2QuickImpl/private/qquickcolordialogimpl_p.h>
+#include <QtQuickDialogs2QuickImpl/private/qquickcolordialogimpl_p_p.h>
+#include <QtQuickDialogs2QuickImpl/private/qquickcolordialogutils_p.h>
 #include <QtQuickTemplates2/private/qquickslider_p.h>
-#include <qpa/qplatformintegration.h>
-#include <qpa/qplatformservices.h>
-#include <private/qguiapplication_p.h>
+#include <QtGui/qpa/qplatformintegration.h>
+#include <QtGui/qpa/qplatformservices.h>
+#include <QtGui/private/qguiapplication_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

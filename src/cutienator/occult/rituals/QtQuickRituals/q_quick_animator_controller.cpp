@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtQuick/6.12.0/QtQuick/private/qquickanimatorcontroller_p.h, Qt 6.12.0.
 //  Changes made here are lost.
+#include <QtQml/6.12.0/QtQml/private/qtqmlglobal_p.h>
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #include <QtQuick/QtQuick>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -9,10 +10,10 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquickanimatorcontroller_p.h"
-#include <private/qquickitem_p.h>
-#include <private/qsgrenderloop_p.h>
-#include <private/qanimationgroupjob_p.h>
+#include <QtQuick/private/qquickanimatorcontroller_p.h>
+#include <QtQuick/private/qquickitem_p.h>
+#include <QtQuick/private/qsgrenderloop_p.h>
+#include <QtQml/private/qanimationgroupjob_p.h>
 #include <QtGui/qscreen.h>
 #include <QtCore/qcoreapplication.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER

@@ -3,6 +3,7 @@
 //  here are lost.
 #include <QtGui/qtguiglobal.h>
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
+#if QT_CONFIG(textodfwriter)
 #if !defined(QT_NO_TEXTODFWRITER)
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
 #include <QtGui/QtGui>
@@ -11,21 +12,21 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/qtextformat.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <qglobal.h>
+#include <QtCore/qglobal.h>
 #ifndef QT_NO_TEXTODFWRITER
-#include "qtextodfwriter_p.h"
-#include <QImageReader>
-#include <QImageWriter>
-#include <QTextListFormat>
-#include <QTextList>
-#include <QBuffer>
-#include <QUrl>
+#include <QtGui/private/qtextodfwriter_p.h>
+#include <QtGui/QImageReader>
+#include <QtGui/QImageWriter>
+#include <QtGui/QTextListFormat>
+#include <QtGui/QTextList>
+#include <QtCore/QBuffer>
+#include <QtCore/QUrl>
 #include <QtCore/QXmlStreamWriter>
-#include "qtextdocument_p.h"
-#include "qtexttable.h"
-#include "qtextcursor.h"
-#include "qtextimagehandler_p.h"
-#include <QDebug>
+#include <QtGui/private/qtextdocument_p.h>
+#include <QtGui/qtexttable.h>
+#include <QtGui/qtextcursor.h>
+#include <QtGui/private/qtextimagehandler_p.h>
+#include <QtCore/QDebug>
 #include <QtCore/private/qzipwriter_p.h>
 #endif
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -115,3 +116,4 @@ void ritual_ZN14QTextOdfWriterD1Ev(QTextOdfWriter *self) {
 }
 
 #endif  // !defined(QT_NO_TEXTODFWRITER)
+#endif  // QT_CONFIG(textodfwriter)

@@ -9,13 +9,13 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "scatteritemmodelhandler_p.h"
+#include <QtDataVisualization/private/scatteritemmodelhandler_p.h>
 #include <QtGui/qquaternion.h>
-#include "qscatterdataproxy_p.h"
-#include "qscatter3dseries_p.h"
-#include "qabstract3daxis_p.h"
-#include "qitemmodelscatterdataproxy_p.h"
-#include "scatteritemmodelhandler_p.h"
+#include <QtDataVisualization/private/qscatterdataproxy_p.h>
+#include <QtDataVisualization/private/qscatter3dseries_p.h>
+#include <QtDataVisualization/private/qabstract3daxis_p.h>
+#include <QtDataVisualization/private/qitemmodelscatterdataproxy_p.h>
+#include <QtDataVisualization/private/scatteritemmodelhandler_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qmainwindow.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(mainwindow)
 #if QT_CONFIG(mainwindow)
 #include <QtWidgets/qmainwindow.h>
 #include <QtCore/qstring.h>
@@ -1469,4 +1471,5 @@ bool ritual_own_ZN11QMainWindow5eventEP6QEvent(
   return static_cast<OwnQMainWindow *>(self)->OwnQMainWindow::event(event);
 }
 
+#endif  // QT_CONFIG(mainwindow)
 #endif  // QT_CONFIG(mainwindow)

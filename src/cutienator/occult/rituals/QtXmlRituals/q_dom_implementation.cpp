@@ -2,6 +2,7 @@
 //  Qt 6.12.0. Changes made here are lost.
 #include <QtXml/qtxmlglobal.h>
 #if QT_CONFIG(dom)
+#if QT_CONFIG(dom)
 #include <QtXml/qdom.h>
 #include <QtCore/qstring.h>
 
@@ -105,4 +106,5 @@ QDomImplementation *ritual_ZN18QDomImplementationC1EP25QDomImplementationPrivate
   return new QDomImplementation(a0);
 }
 
+#endif  // QT_CONFIG(dom)
 #endif  // QT_CONFIG(dom)

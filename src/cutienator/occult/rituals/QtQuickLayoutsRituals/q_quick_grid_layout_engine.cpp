@@ -8,8 +8,8 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include "qquickitem.h"
-#include "qquickgridlayoutengine_p.h"
-#include "qquicklayout_p.h"
+#include <QtQuickLayouts/private/qquickgridlayoutengine_p.h>
+#include <QtQuickLayouts/private/qquicklayout_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

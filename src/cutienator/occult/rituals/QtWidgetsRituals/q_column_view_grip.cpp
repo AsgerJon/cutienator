@@ -1,8 +1,10 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/6.12.0/QtWidgets/private/qcolumnviewgrip_p.h, Qt 6.12.0.
 //  Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
+#if QT_CONFIG(columnview)
 #if QT_CONFIG(columnview)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/QtWidgets>
@@ -14,12 +16,12 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qcolumnviewgrip_p.h"
-#include <qstyleoption.h>
-#include <qpainter.h>
-#include <qbrush.h>
-#include <qevent.h>
-#include <qdebug.h>
+#include <QtWidgets/private/qcolumnviewgrip_p.h>
+#include <QtWidgets/qstyleoption.h>
+#include <QtGui/qpainter.h>
+#include <QtGui/qbrush.h>
+#include <QtGui/qevent.h>
+#include <QtCore/qdebug.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -1063,4 +1065,5 @@ void ritual_own_ZN15QColumnViewGrip15mousePressEventEP11QMouseEvent(
       event);
 }
 
+#endif  // QT_CONFIG(columnview)
 #endif  // QT_CONFIG(columnview)

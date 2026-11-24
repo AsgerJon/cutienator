@@ -7,14 +7,14 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qlist.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qgeorectangle.h"
-#include "qgeorectangle_p.h"
-#include "qwebmercator_p.h"
-#include "qdoublevector2d_p.h"
-#include "qgeocoordinate.h"
-#include "qnumeric.h"
-#include "qlocationutils_p.h"
-#include <QList>
+#include <QtPositioning/qgeorectangle.h>
+#include <QtPositioning/private/qgeorectangle_p.h>
+#include <QtPositioning/private/qwebmercator_p.h>
+#include <QtPositioning/private/qdoublevector2d_p.h>
+#include <QtPositioning/qgeocoordinate.h>
+#include <QtCore/qnumeric.h>
+#include <QtPositioning/private/qlocationutils_p.h>
+#include <QtCore/QList>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -281,4 +281,38 @@ extern "C" Q_DECL_EXPORT
 const QGeoRectanglePrivate *ritual_ZNK13QGeoRectangle6d_funcEv(
     const QGeoRectangle *self) {
   return self->d_func();
+}
+
+//  QList<QGeoRectangle>::QList()
+extern "C" Q_DECL_EXPORT
+QList<QGeoRectangle> *ritual_list_make_QGeoRectangle() {
+  return new QList<QGeoRectangle>();
+}
+
+//  void QList<QGeoRectangle>::append(const QGeoRectangle &value)
+extern "C" Q_DECL_EXPORT
+void ritual_list_add_QGeoRectangle(
+    QList<QGeoRectangle> *self,
+    const QGeoRectangle *element) {
+  self->append(*element);
+}
+
+//  qsizetype QList<QGeoRectangle>::size() const
+extern "C" Q_DECL_EXPORT
+long long ritual_list_size_QGeoRectangle(const QList<QGeoRectangle> *self) {
+  return self->size();
+}
+
+//  const QGeoRectangle &QList<QGeoRectangle>::at(qsizetype i) const
+extern "C" Q_DECL_EXPORT
+QGeoRectangle *ritual_list_at_QGeoRectangle(
+    const QList<QGeoRectangle> *self,
+    long long index) {
+  return new QGeoRectangle(self->at(index));
+}
+
+//  QList<QGeoRectangle>::~QList()
+extern "C" Q_DECL_EXPORT
+void ritual_list_drop_QGeoRectangle(QList<QGeoRectangle> *self) {
+  delete self;
 }

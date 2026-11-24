@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtSvgWidgets/qgraphicssvgitem.h, Qt 6.12.0. Changes made here are lost.
+#include <QtWidgets/qtwidgetsglobal.h>
 #include <QtSvgWidgets/qtsvgwidgetsglobal.h>
+#if QT_CONFIG(graphicsview)
 #if !defined(QT_NO_GRAPHICSVIEW)
 #include <QtSvgWidgets/qgraphicssvgitem.h>
 #include <QtCore/qstring.h>
@@ -1106,3 +1108,4 @@ int ritual_own_ZNK16QGraphicsSvgItem4typeEv(const QGraphicsSvgItem *self) {
 }
 
 #endif  // !defined(QT_NO_GRAPHICSVIEW)
+#endif  // QT_CONFIG(graphicsview)

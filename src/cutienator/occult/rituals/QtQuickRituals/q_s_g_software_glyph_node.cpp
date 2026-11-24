@@ -10,7 +10,7 @@
 #include <QtGui/qglyphrun.h>
 #include <QtGui/qcolor.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qsgsoftwareglyphnode_p.h"
+#include <QtQuick/private/qsgsoftwareglyphnode_p.h>
 #include <QtGui/private/qrawfont_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

@@ -7,8 +7,8 @@
 #include <QtCoap/6.12.0/QtCoap/private/qcoapinternalmessage_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qcoapinternalmessage_p.h"
-#include "qcoaprequest_p.h"
+#include <QtCoap/private/qcoapinternalmessage_p.h>
+#include <QtCoap/private/qcoaprequest_p.h>
 #include <QtCoap/qcoaprequest.h>
 #include <QtCore/qloggingcategory.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER

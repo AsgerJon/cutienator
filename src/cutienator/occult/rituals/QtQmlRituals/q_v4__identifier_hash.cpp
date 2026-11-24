@@ -7,11 +7,11 @@
 #include <QtQml/6.12.0/QtQml/private/qv4identifierhash_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <private/qv4identifierhash_p.h>
-#include <private/qv4identifiertable_p.h>
-#include <private/qv4string_p.h>
-#include <private/qv4identifierhashdata_p.h>
-#include <private/qprimefornumbits_p.h>
+#include <QtQml/private/qv4identifierhash_p.h>
+#include <QtQml/private/qv4identifiertable_p.h>
+#include <QtQml/private/qv4string_p.h>
+#include <QtQml/private/qv4identifierhashdata_p.h>
+#include <QtQml/private/qprimefornumbits_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

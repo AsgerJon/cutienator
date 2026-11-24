@@ -187,6 +187,11 @@
     "ritual_ZNK12QPainterPath23computeControlPointRectEv": [
       "nothing", "address"
     ],
-    "ritual_ZNK12QPainterPath6d_funcEv": ["address", "address"]
+    "ritual_ZNK12QPainterPath6d_funcEv": ["address", "address"],
+    "ritual_list_make_QPainterPath": ["address"],
+    "ritual_list_add_QPainterPath": ["nothing", "address", "address"],
+    "ritual_list_size_QPainterPath": ["long long", "address"],
+    "ritual_list_at_QPainterPath": ["address", "address", "long long"],
+    "ritual_list_drop_QPainterPath": ["nothing", "address"]
   }
 }

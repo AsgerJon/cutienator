@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qwhatsthis.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(whatsthis)
 #if QT_CONFIG(whatsthis)
 #include <QtWidgets/qwhatsthis.h>
 #include <QtCore/qpoint.h>
@@ -54,4 +56,5 @@ void ritual_ZN10QWhatsThisD1Ev(QWhatsThis *self) {
   delete self;
 }
 
+#endif  // QT_CONFIG(whatsthis)
 #endif  // QT_CONFIG(whatsthis)

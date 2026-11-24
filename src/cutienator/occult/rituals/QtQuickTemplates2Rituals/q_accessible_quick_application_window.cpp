@@ -12,7 +12,7 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qvariant.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qaccessiblequickapplicationwindow_p.h"
+#include <QtQuickTemplates2/private/qaccessiblequickapplicationwindow_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

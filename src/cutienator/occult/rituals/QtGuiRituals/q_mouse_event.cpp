@@ -2,6 +2,7 @@
 //  QtGui/qevent.h, Qt 6.12.0. Changes made here are lost.
 #include <QtGui/qevent.h>
 #include <QtCore/qpoint.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  A QMouseEvent that Python can take functions over in. Every QMouseEvent
@@ -330,4 +331,39 @@ bool ritual_take_QMouseEvent(
 extern "C" Q_DECL_EXPORT
 QMouseEvent *ritual_own_ZNK11QMouseEvent5cloneEv(const QMouseEvent *self) {
   return self->QMouseEvent::clone();
+}
+
+//  QList<QMouseEvent *>::QList()
+extern "C" Q_DECL_EXPORT
+QList<QMouseEvent *> *ritual_list_make_QMouseEvent_ptr() {
+  return new QList<QMouseEvent *>();
+}
+
+//  void QList<QMouseEvent *>::append(const QMouseEvent * &value)
+extern "C" Q_DECL_EXPORT
+void ritual_list_add_QMouseEvent_ptr(
+    QList<QMouseEvent *> *self,
+    QMouseEvent *element) {
+  self->append(element);
+}
+
+//  qsizetype QList<QMouseEvent *>::size() const
+extern "C" Q_DECL_EXPORT
+long long ritual_list_size_QMouseEvent_ptr(
+    const QList<QMouseEvent *> *self) {
+  return self->size();
+}
+
+//  const QMouseEvent * &QList<QMouseEvent *>::at(qsizetype i) const
+extern "C" Q_DECL_EXPORT
+QMouseEvent *ritual_list_at_QMouseEvent_ptr(
+    const QList<QMouseEvent *> *self,
+    long long index) {
+  return self->at(index);
+}
+
+//  QList<QMouseEvent *>::~QList()
+extern "C" Q_DECL_EXPORT
+void ritual_list_drop_QMouseEvent_ptr(QList<QMouseEvent *> *self) {
+  delete self;
 }

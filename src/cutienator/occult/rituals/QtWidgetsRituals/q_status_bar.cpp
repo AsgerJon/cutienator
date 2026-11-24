@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qstatusbar.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(statusbar)
 #if QT_CONFIG(statusbar)
 #include <QtWidgets/qstatusbar.h>
 #include <QtCore/qstring.h>
@@ -1068,4 +1070,5 @@ bool ritual_own_ZN10QStatusBar5eventEP6QEvent(QStatusBar *self, QEvent *a0) {
   return static_cast<OwnQStatusBar *>(self)->OwnQStatusBar::event(a0);
 }
 
+#endif  // QT_CONFIG(statusbar)
 #endif  // QT_CONFIG(statusbar)

@@ -14,7 +14,7 @@
 #include <QtCore/qlist.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qeuckrcodec_p.h"
+#include <QtCore5Compat/private/qeuckrcodec_p.h>
 #include <algorithm>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

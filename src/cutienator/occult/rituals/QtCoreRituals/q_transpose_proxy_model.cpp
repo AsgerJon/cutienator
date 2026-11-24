@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/qtransposeproxymodel.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qglobal.h>
+#if QT_CONFIG(proxymodel) && QT_CONFIG(transposeproxymodel)
 #if QT_CONFIG(transposeproxymodel)
 #include <QtCore/qtransposeproxymodel.h>
 #include <QtCore/qstring.h>
@@ -1698,3 +1699,4 @@ void ritual_own_ZN20QTransposeProxyModel4sortEiN2Qt9SortOrderE(
 }
 
 #endif  // QT_CONFIG(transposeproxymodel)
+#endif  // QT_CONFIG(proxymodel) && QT_CONFIG(transposeproxymodel)

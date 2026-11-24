@@ -9,9 +9,9 @@
 #include <QtScxml/qscxmlexecutablecontent.h>
 #include <QtCore/qstring.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qscxmlglobals_p.h"
-#include "qscxmlinvokableservice_p.h"
-#include "qscxmlstatemachine_p.h"
+#include <QtScxml/private/qscxmlglobals_p.h>
+#include <QtScxml/private/qscxmlinvokableservice_p.h>
+#include <QtScxml/private/qscxmlstatemachine_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

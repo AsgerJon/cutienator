@@ -10,8 +10,8 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "abstractitemmodelhandler_p.h"
-#include "scatteritemmodelhandler_p.h"
+#include <QtDataVisualization/private/abstractitemmodelhandler_p.h>
+#include <QtDataVisualization/private/scatteritemmodelhandler_p.h>
 #include <QtGui/qquaternion.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

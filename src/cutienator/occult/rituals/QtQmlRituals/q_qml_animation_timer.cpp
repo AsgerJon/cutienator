@@ -1,8 +1,10 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtQml/6.12.0/QtQml/private/qabstractanimationjob_p.h, Qt 6.12.0. Changes
 //  made here are lost.
+#include <QtCore/qglobal.h>
 #include <QtQml/qtqmlglobal.h>
 #include <QtQml/6.12.0/QtQml/private/qtqmlglobal_p.h>
+#if QT_CONFIG(qml_animation)
 #if QT_CONFIG(qml_animation)
 #include <QtQml/6.12.0/QtQml/private/qtqmlglobal_p.h>
 #include <QtQml/QtQml>
@@ -454,4 +456,5 @@ qsizetype ritual_own_ZNK18QQmlAnimationTimer21runningAnimationCountEv(
 }
 #endif  // defined(QT_QAbstractAnimationTimer_runningAnimationCount_IS_CONST)
 
+#endif  // QT_CONFIG(qml_animation)
 #endif  // QT_CONFIG(qml_animation)

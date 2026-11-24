@@ -4,6 +4,7 @@
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #if QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/QtWidgets>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -12,9 +13,9 @@
 #include <QtCore/qrect.h>
 #include <QtCore/qstring.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qgraphicsscene_bsp_p.h"
+#include <QtWidgets/private/qgraphicsscene_bsp_p.h>
 #include <QtCore/qstring.h>
-#include <private/qgraphicsitem_p.h>
+#include <QtWidgets/private/qgraphicsitem_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -238,4 +239,5 @@ QRectF *ritual_ZNK21QGraphicsSceneBspTree12rectForIndexEi(
   return new QRectF(self->rectForIndex(index));
 }
 
+#endif  // QT_CONFIG(graphicsview)
 #endif  // QT_CONFIG(graphicsview)

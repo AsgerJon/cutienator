@@ -8,8 +8,8 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquick3dtexturedata.h"
-#include "qquick3dtexturedata_p.h"
+#include <QtQuick3D/qquick3dtexturedata.h>
+#include <QtQuick3D/private/qquick3dtexturedata_p.h>
 #include <QtQuick3DUtils/private/qssgutils_p.h>
 #include <QtQuick3DRuntimeRender/private/qssgrendertexturedata_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER

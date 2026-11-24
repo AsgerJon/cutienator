@@ -12,9 +12,9 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qcategory3daxis_p.h"
-#include "qquickgraphsitem_p.h"
-#include "qgraphs3dlogging_p.h"
+#include <QtGraphs/private/qcategory3daxis_p.h>
+#include <QtGraphs/private/qquickgraphsitem_p.h>
+#include <QtGraphs/private/qgraphs3dlogging_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

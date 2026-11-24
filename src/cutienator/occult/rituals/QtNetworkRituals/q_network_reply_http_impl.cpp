@@ -4,6 +4,7 @@
 #include <QtNetwork/qtnetworkglobal.h>
 #include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
 #if QT_CONFIG(http)
+#if QT_CONFIG(http)
 #include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
 #include <QtNetwork/QtNetwork>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -15,26 +16,26 @@
 #include <QtCore/qlist.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qnetworkreplyhttpimpl_p.h"
-#include "qnetworkaccessmanager_p.h"
-#include "qnetworkaccesscache_p.h"
-#include "qabstractnetworkcache.h"
-#include "qnetworkrequest.h"
-#include "qnetworkreply.h"
-#include "qnetworkrequest_p.h"
-#include "qnetworkcookie.h"
-#include "qnetworkcookie_p.h"
+#include <QtNetwork/private/qnetworkreplyhttpimpl_p.h>
+#include <QtNetwork/private/qnetworkaccessmanager_p.h>
+#include <QtNetwork/private/qnetworkaccesscache_p.h>
+#include <QtNetwork/qabstractnetworkcache.h>
+#include <QtNetwork/qnetworkrequest.h>
+#include <QtNetwork/qnetworkreply.h>
+#include <QtNetwork/private/qnetworkrequest_p.h>
+#include <QtNetwork/qnetworkcookie.h>
+#include <QtNetwork/private/qnetworkcookie_p.h>
 #include "QtCore/qdatetime.h"
 #include "QtCore/qelapsedtimer.h"
 #include "QtNetwork/qsslconfiguration.h"
-#include "qhttpthreaddelegate_p.h"
-#include "qhsts_p.h"
-#include "qthread.h"
+#include <QtNetwork/private/qhttpthreaddelegate_p.h>
+#include <QtNetwork/private/qhsts_p.h>
+#include <QtCore/qthread.h>
 #include "QtCore/qcoreapplication.h"
 #include <QtCore/private/qthread_p.h>
 #include <QtCore/private/qtools_p.h>
-#include "qnetworkcookiejar.h"
-#include "qnetworkreplyimpl_p.h"
+#include <QtNetwork/qnetworkcookiejar.h>
+#include <QtNetwork/private/qnetworkreplyimpl_p.h>
 #include <string.h>             // for strchr
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
@@ -872,4 +873,5 @@ void ritual_own_ZN21QNetworkReplyHttpImpl33setSslConfigurationImplementationERK1
 }
 #endif  // !defined(QT_NO_SSL)
 
+#endif  // QT_CONFIG(http)
 #endif  // QT_CONFIG(http)

@@ -1,0 +1,43 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qbasicvulkanplatforminstance_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN28QBasicPlatformVulkanInstanceD1Ev": ["nothing", "address"],
+    "ritual_ZNK28QBasicPlatformVulkanInstance19supportedApiVersionEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QBasicPlatformVulkanInstance7isValidEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK28QBasicPlatformVulkanInstance13enabledLayersEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QBasicPlatformVulkanInstance17enabledExtensionsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QBasicPlatformVulkanInstance17loadVulkanLibraryERK7QStringi": [
+      "nothing", "address", "text", "int"
+    ],
+    "ritual_ZN28QBasicPlatformVulkanInstance4initEP8QLibrary": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QBasicPlatformVulkanInstance12initInstanceEP15QVulkanInstanceRK5QListI10QByteArrayE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN28QBasicPlatformVulkanInstance16setupDebugOutputEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QBasicPlatformVulkanInstance": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK28QBasicPlatformVulkanInstance19supportedApiVersionEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK28QBasicPlatformVulkanInstance7isValidEv": [
+      "bool", "address"
+    ]
+  }
+}

@@ -2,6 +2,7 @@
 //  QtCore/qregularexpression.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qglobal.h>
 #if QT_CONFIG(regularexpression)
+#if QT_CONFIG(regularexpression)
 #include <QtCore/qregularexpression.h>
 
 //  QtPrivate::QRegularExpressionMatchIteratorRangeBasedForIteratorSentinel::
@@ -12,4 +13,5 @@ void ritual_ZN9QtPrivate60QRegularExpressionMatchIteratorRangeBasedForIteratorSe
   delete self;
 }
 
+#endif  // QT_CONFIG(regularexpression)
 #endif  // QT_CONFIG(regularexpression)

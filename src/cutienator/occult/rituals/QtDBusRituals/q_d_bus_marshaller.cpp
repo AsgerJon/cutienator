@@ -12,10 +12,10 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qvariant.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qdbusargument_p.h"
-#include "qdbusconnection.h"
-#include "qdbusmetatype_p.h"
-#include "qdbusutil_p.h"
+#include <QtDBus/private/qdbusargument_p.h>
+#include <QtDBus/qdbusconnection.h>
+#include <QtDBus/private/qdbusmetatype_p.h>
+#include <QtDBus/private/qdbusutil_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

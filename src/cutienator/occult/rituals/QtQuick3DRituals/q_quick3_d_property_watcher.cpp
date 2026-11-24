@@ -7,16 +7,16 @@
 #include <QtQuick3D/6.12.0/QtQuick3D/private/qquick3dshaderutils_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquick3dshaderutils_p.h"
+#include <QtQuick3D/private/qquick3dshaderutils_p.h>
 #include <QtCore/qfile.h>
 #include <QtQml/qqmlcontext.h>
 #include <QtQml/qqmlfile.h>
-#include "qquick3dviewport_p.h"
-#include "qquick3dcustommaterial_p.h"
-#include "qquick3deffect_p.h"
-#include "qquick3dtextureproviderextension.h"
-#include <ssg/qssgrenderextensions.h>
-#include <ssg/qquick3dextensionhelpers.h>
+#include <QtQuick3D/private/qquick3dviewport_p.h>
+#include <QtQuick3D/private/qquick3dcustommaterial_p.h>
+#include <QtQuick3D/private/qquick3deffect_p.h>
+#include <QtQuick3D/qquick3dtextureproviderextension.h>
+#include <QtQuick3DRuntimeRender/ssg/qssgrenderextensions.h>
+#include <QtQuick3D/ssg/qquick3dextensionhelpers.h>
 #include <QtQuick3DRuntimeRender/private/qssgrenderimage_p.h>
 #include <QtCore/QLoggingCategory>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER

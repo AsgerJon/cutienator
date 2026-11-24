@@ -3,6 +3,7 @@
 //  are lost.
 #include <QtCore/qglobal.h>
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
+#if QT_CONFIG(xmlstream)
 #if QT_CONFIG(xmlstreamreader)
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtCore/QtCore>
@@ -18,3 +19,4 @@ void ritual_ZN23QXmlStreamReaderPrivate12DtdAttributeD1Ev(
 }
 
 #endif  // QT_CONFIG(xmlstreamreader)
+#endif  // QT_CONFIG(xmlstream)

@@ -7,21 +7,21 @@
 #include <QtLabsStyleKit/6.12.0/QtLabsStyleKit/private/qqstylekitcontrolproperties_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qqstylekitcontrol_p.h"
-#include "qqstylekitstyle_p.h"
-#include "qqstylekittheme_p.h"
-#include "qqstylekitcontrolproperties_p.h"
-#include "qqstylekitpropertyresolver_p.h"
-#include "qqstylekitpropertyresolver_p.h"
-#include "qqstylekitcontrol_p.h"
-#include "qqstylekitcontrols_p.h"
-#include "qqstylekitvariation_p.h"
-#include "qqstylekitstyle_p.h"
-#include "qqstylekittheme_p.h"
-#include "qqstylekitdebug_p.h"
+#include <QtLabsStyleKit/private/qqstylekitcontrol_p.h>
+#include <QtLabsStyleKit/private/qqstylekitstyle_p.h>
+#include <QtLabsStyleKit/private/qqstylekittheme_p.h>
+#include <QtLabsStyleKit/private/qqstylekitcontrolproperties_p.h>
+#include <QtLabsStyleKit/private/qqstylekitpropertyresolver_p.h>
+#include <QtLabsStyleKit/private/qqstylekitpropertyresolver_p.h>
+#include <QtLabsStyleKit/private/qqstylekitcontrol_p.h>
+#include <QtLabsStyleKit/private/qqstylekitcontrols_p.h>
+#include <QtLabsStyleKit/private/qqstylekitvariation_p.h>
+#include <QtLabsStyleKit/private/qqstylekitstyle_p.h>
+#include <QtLabsStyleKit/private/qqstylekittheme_p.h>
+#include <QtLabsStyleKit/private/qqstylekitdebug_p.h>
 #include <QtQuickTemplates2/private/qquickcontrol_p.h>
 #include <QtCore/QScopedValueRollback>
-#include "qqstylekitglobal_p.h"
+#include <QtLabsStyleKit/private/qqstylekitglobal_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

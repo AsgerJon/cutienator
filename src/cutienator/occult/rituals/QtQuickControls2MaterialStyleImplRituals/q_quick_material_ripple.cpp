@@ -11,7 +11,7 @@
 #include <QtQuick/QtQuick>
 #include <QtQuick/qquickitem.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquickmaterialripple_p.h"
+#include <QtQuickControls2MaterialStyleImpl/private/qquickmaterialripple_p.h>
 #include <QtCore/qmath.h>
 #include <QtQuick/private/qquickitem_p.h>
 #include <QtQuick/private/qsgadaptationlayer_p.h>

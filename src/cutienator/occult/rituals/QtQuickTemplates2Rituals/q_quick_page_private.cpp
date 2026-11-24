@@ -18,12 +18,12 @@
 #include <QtGui/qpalette.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquickpage_p.h"
-#include "qquickpage_p_p.h"
-#include "qquicktoolbar_p.h"
+#include <QtQuickTemplates2/private/qquickpage_p.h>
+#include <QtQuickTemplates2/private/qquickpage_p_p.h>
+#include <QtQuickTemplates2/private/qquicktoolbar_p.h>
 #if QT_CONFIG(quicktemplates2_container)
-#include "qquicktabbar_p.h"
-#include "qquickdialogbuttonbox_p.h"
+#include <QtQuickTemplates2/private/qquicktabbar_p.h>
+#include <QtQuickTemplates2/private/qquickdialogbuttonbox_p.h>
 #endif
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

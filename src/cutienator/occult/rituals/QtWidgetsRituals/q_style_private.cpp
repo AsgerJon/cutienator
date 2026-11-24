@@ -8,20 +8,20 @@
 #include <QtWidgets/6.12.0/QtWidgets/private/qstyle_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qstyle.h"
-#include "qapplication.h"
-#include "qpainter.h"
-#include "qwidget.h"
-#include "qbitmap.h"
-#include "qpixmapcache.h"
-#include "qset.h"
-#include "qstyleoption.h"
-#include "private/qstyle_p.h"
-#include "private/qstylehelper_p.h"
-#include "private/qguiapplication_p.h"
-#include <qpa/qplatformtheme.h>
+#include <QtWidgets/qstyle.h>
+#include <QtWidgets/qapplication.h>
+#include <QtGui/qpainter.h>
+#include <QtWidgets/qwidget.h>
+#include <QtGui/qbitmap.h>
+#include <QtGui/qpixmapcache.h>
+#include <QtCore/qset.h>
+#include <QtWidgets/qstyleoption.h>
+#include <QtWidgets/private/qstyle_p.h>
+#include <QtWidgets/private/qstylehelper_p.h>
+#include <QtGui/private/qguiapplication_p.h>
+#include <QtGui/qpa/qplatformtheme.h>
 #ifndef QT_NO_DEBUG
-#include "qdebug.h"
+#include <QtCore/qdebug.h>
 #endif
 #include <QtCore/q20utility.h>
 #include <limits.h>

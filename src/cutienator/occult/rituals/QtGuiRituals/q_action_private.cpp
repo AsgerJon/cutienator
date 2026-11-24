@@ -4,6 +4,7 @@
 #include <QtGui/qtguiglobal.h>
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
 #if QT_CONFIG(action)
+#if QT_CONFIG(action)
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
 #include <QtGui/qaction.h>
 #include <QtGui/QtGui>
@@ -203,4 +204,5 @@ void ritual_own_ZN14QActionPrivate7setMenuEP7QObject(
   self->QActionPrivate::setMenu(menu);
 }
 
+#endif  // QT_CONFIG(action)
 #endif  // QT_CONFIG(action)

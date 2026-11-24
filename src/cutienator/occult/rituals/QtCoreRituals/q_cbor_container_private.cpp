@@ -13,24 +13,24 @@
 #include <QtCore/qanystringview.h>
 #include <QtCore/qcborvalue.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qcborvalue.h"
-#include "qcborvalue_p.h"
-#include "qdatastream.h"
-#include "qcborarray.h"
-#include "qcbormap.h"
+#include <QtCore/qcborvalue.h>
+#include <QtCore/private/qcborvalue_p.h>
+#include <QtCore/qdatastream.h>
+#include <QtCore/qcborarray.h>
+#include <QtCore/qcbormap.h>
 #if QT_CONFIG(cborstreamreader)
-#include "qcborstreamreader.h"
+#include <QtCore/qcborstreamreader.h>
 #endif
 #if QT_CONFIG(cborstreamwriter)
-#include "qcborstreamwriter.h"
+#include <QtCore/qcborstreamwriter.h>
 #endif
 #include <QtCore/qdebug.h>
-#include <qendian.h>
-#include <qlocale.h>
-#include <qdatetime.h>
-#include <qtimezone.h>
-#include <private/qnumeric_p.h>
-#include <private/qsimd_p.h>
+#include <QtCore/qendian.h>
+#include <QtCore/qlocale.h>
+#include <QtCore/qdatetime.h>
+#include <QtCore/qtimezone.h>
+#include <QtCore/private/qnumeric_p.h>
+#include <QtCore/private/qsimd_p.h>
 #include <new>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

@@ -14,8 +14,8 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "commonutils_p.h"
-#include "qquickgraphstexturedata_p.h"
+#include <QtGraphs/private/commonutils_p.h>
+#include <QtGraphs/private/qquickgraphstexturedata_p.h>
 #include <QtGraphs/private/qgraphsglobal_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

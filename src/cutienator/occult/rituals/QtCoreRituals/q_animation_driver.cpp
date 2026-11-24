@@ -2,6 +2,7 @@
 //  QtCore/qabstractanimation.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qglobal.h>
 #if QT_CONFIG(animation)
+#if QT_CONFIG(animation)
 #include <QtCore/qabstractanimation.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
@@ -395,4 +396,5 @@ void ritual_own_ZN16QAnimationDriver4stopEv(QAnimationDriver *self) {
   static_cast<OwnQAnimationDriver *>(self)->OwnQAnimationDriver::stop();
 }
 
+#endif  // QT_CONFIG(animation)
 #endif  // QT_CONFIG(animation)

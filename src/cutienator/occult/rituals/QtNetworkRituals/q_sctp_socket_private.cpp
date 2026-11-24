@@ -3,6 +3,7 @@
 //  made here are lost.
 #include <QtNetwork/qtnetworkglobal.h>
 #include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
+#if QT_CONFIG(sctp)
 #if !defined(QT_NO_SCTP)
 #include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
 #include <QtNetwork/qsctpsocket.h>
@@ -15,16 +16,16 @@
 #include <QtCore/qbytearray.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qsctpsocket.h"
-#include "qsctpsocket_p.h"
-#include "qabstractsocketengine_p.h"
+#include <QtNetwork/qsctpsocket.h>
+#include <QtNetwork/private/qsctpsocket_p.h>
+#include <QtNetwork/private/qabstractsocketengine_p.h>
 #ifdef QSCTPSOCKET_DEBUG
-#include <qdebug.h>
+#include <QtCore/qdebug.h>
 #endif
-#include "qabstractsocketengine_p.h"
-#include "qnativesocketengine_p.h"
-#include "qmutex.h"
-#include "qnetworkproxy.h"
+#include <QtNetwork/private/qabstractsocketengine_p.h>
+#include <QtNetwork/private/qnativesocketengine_p.h>
+#include <QtCore/qmutex.h>
+#include <QtNetwork/qnetworkproxy.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -570,3 +571,4 @@ void ritual_own_ZN18QSctpSocketPrivate22configureCreatedSocketEv(
 }
 
 #endif  // !defined(QT_NO_SCTP)
+#endif  // QT_CONFIG(sctp)

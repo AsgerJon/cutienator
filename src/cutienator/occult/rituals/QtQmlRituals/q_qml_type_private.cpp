@@ -13,30 +13,30 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <private/qqmlcomponentandaliasresolver_p.h>
-#include <private/qqmlengine_p.h>
-#include <private/qqmlirbuilder_p.h>
-#include <private/qqmlirloader_p.h>
-#include <private/qqmlpropertycachecreator_p.h>
-#include <private/qqmlpropertyvalidator_p.h>
-#include <private/qqmlscriptblob_p.h>
-#include <private/qqmlscriptdata_p.h>
-#include <private/qqmltypecompiler_p.h>
-#include <private/qqmltypedata_p.h>
-#include <private/qqmltypeloaderqmldircontent_p.h>
+#include <QtQml/private/qqmlcomponentandaliasresolver_p.h>
+#include <QtQml/private/qqmlengine_p.h>
+#include <QtQml/private/qqmlirbuilder_p.h>
+#include <QtQml/private/qqmlirloader_p.h>
+#include <QtQml/private/qqmlpropertycachecreator_p.h>
+#include <QtQml/private/qqmlpropertyvalidator_p.h>
+#include <QtQml/private/qqmlscriptblob_p.h>
+#include <QtQml/private/qqmlscriptdata_p.h>
+#include <QtQml/private/qqmltypecompiler_p.h>
+#include <QtQml/private/qqmltypedata_p.h>
+#include <QtQml/private/qqmltypeloaderqmldircontent_p.h>
 #include <QtCore/qloggingcategory.h>
 #include <QtCore/qcryptographichash.h>
 #include <memory>
-#include "qqmltype_p_p.h"
+#include <QtQml/private/qqmltype_p_p.h>
 #include <QtQml/qjsvalue.h>
 #include <QtQml/qqmlengine.h>
 #include <QtQml/qqmlcontext.h>
 #include <QtQml/qqmlcomponent.h>
-#include <private/qqmlcustomparser_p.h>
-#include <private/qqmldata_p.h>
-#include <private/qqmlmetatypedata_p.h>
-#include <private/qqmlpropertycache_p.h>
-#include <private/qqmltypedata_p.h>
+#include <QtQml/private/qqmlcustomparser_p.h>
+#include <QtQml/private/qqmldata_p.h>
+#include <QtQml/private/qqmlmetatypedata_p.h>
+#include <QtQml/private/qqmlpropertycache_p.h>
+#include <QtQml/private/qqmltypedata_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

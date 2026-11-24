@@ -4,6 +4,7 @@
 #include <QtCore5Compat/qcore5global.h>
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #if QT_CONFIG(textcodec)
+#if QT_CONFIG(textcodec)
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtCore5Compat/QtCore5Compat>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -13,8 +14,8 @@
 #include <QtCore/qlist.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qlatincodec_p.h"
-#include "qlist.h"
+#include <QtCore5Compat/private/qlatincodec_p.h>
+#include <QtCore/qlist.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -158,4 +159,5 @@ int ritual_own_ZNK12QLatin1Codec7mibEnumEv(const QLatin1Codec *self) {
   return self->QLatin1Codec::mibEnum();
 }
 
+#endif  // QT_CONFIG(textcodec)
 #endif  // QT_CONFIG(textcodec)

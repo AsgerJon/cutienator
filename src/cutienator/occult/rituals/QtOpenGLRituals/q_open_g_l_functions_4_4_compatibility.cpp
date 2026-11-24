@@ -1,7 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtOpenGL/qopenglfunctions_4_4_compatibility.h, Qt 6.12.0. Changes made
 //  here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtOpenGL/qtopenglglobal.h>
+#if !QT_CONFIG(opengles2)
 #if !defined(QT_NO_OPENGL) && !QT_CONFIG(opengles2)
 #include <QtOpenGL/QtOpenGL>
 #include <QtOpenGL/qopenglfunctions_4_4_compatibility.h>
@@ -4641,3 +4643,4 @@ bool ritual_own_ZN34QOpenGLFunctions_4_4_Compatibility25initializeOpenGLFunction
 }
 
 #endif  // !defined(QT_NO_OPENGL) && !QT_CONFIG(opengles2)
+#endif  // !QT_CONFIG(opengles2)

@@ -3,6 +3,7 @@
 //  Changes made here are lost.
 #include <QtCore/qglobal.h>
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
+#if QT_CONFIG(async_io)
 #if QT_CONFIG(future) && QT_CONFIG(thread)
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtCore/QtCore>
@@ -19,3 +20,4 @@ void ritual_ZN39QRandomAccessAsyncFileThreadPoolBackend15OperationResultD1Ev(
 }
 
 #endif  // QT_CONFIG(future) && QT_CONFIG(thread)
+#endif  // QT_CONFIG(async_io)

@@ -4,6 +4,7 @@
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #if QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/qabstractitemdelegate.h>
 #include <QtWidgets/QtWidgets>
@@ -14,37 +15,37 @@
 #include <QtCore/qlocale.h>
 #include <QtCore/qstring.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qabstractitemdelegate.h"
-#include <qabstractitemmodel.h>
-#include <qabstractitemview.h>
-#include <qfontmetrics.h>
+#include <QtWidgets/qabstractitemdelegate.h>
+#include <QtCore/qabstractitemmodel.h>
+#include <QtWidgets/qabstractitemview.h>
+#include <QtGui/qfontmetrics.h>
 #if QT_CONFIG(whatsthis)
-#include <qwhatsthis.h>
+#include <QtWidgets/qwhatsthis.h>
 #endif
 #if QT_CONFIG(tooltip)
-#include <qtooltip.h>
+#include <QtWidgets/qtooltip.h>
 #endif
-#include <qevent.h>
-#include <qstring.h>
-#include <qdebug.h>
+#include <QtGui/qevent.h>
+#include <QtCore/qstring.h>
+#include <QtCore/qdebug.h>
 #if QT_CONFIG(lineedit)
-#include <qlineedit.h>
+#include <QtWidgets/qlineedit.h>
 #endif
 #if QT_CONFIG(textedit)
-#include <qtextedit.h>
-#include <qplaintextedit.h>
+#include <QtWidgets/qtextedit.h>
+#include <QtWidgets/qplaintextedit.h>
 #endif
-#include <qapplication.h>
-#include <qvalidator.h>
-#include <qjsonvalue.h>
-#include <private/qtextengine_p.h>
-#include <private/qabstractitemdelegate_p.h>
-#include <qpa/qplatformintegration.h>
+#include <QtWidgets/qapplication.h>
+#include <QtGui/qvalidator.h>
+#include <QtCore/qjsonvalue.h>
+#include <QtGui/private/qtextengine_p.h>
+#include <QtWidgets/private/qabstractitemdelegate_p.h>
+#include <QtGui/qpa/qplatformintegration.h>
 #if QT_CONFIG(draganddrop)
-#include <qpa/qplatformdrag.h>
-#include <private/qdnd_p.h>
+#include <QtGui/qpa/qplatformdrag.h>
+#include <QtGui/private/qdnd_p.h>
 #endif
-#include <private/qguiapplication_p.h>
+#include <QtGui/private/qguiapplication_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -201,4 +202,5 @@ void ritual_ZN28QAbstractItemDelegatePrivate27_q_commitDataAndCloseEditorEP7QWid
   self->_q_commitDataAndCloseEditor(editor);
 }
 
+#endif  // QT_CONFIG(itemviews)
 #endif  // QT_CONFIG(itemviews)

@@ -4,6 +4,7 @@
 #include <QtQuick/qtquickglobal.h>
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #if QT_CONFIG(quick_draganddrop)
+#if QT_CONFIG(quick_draganddrop)
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #include <QtQuick/QtQuick>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -12,10 +13,10 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquickdroparea_p.h"
-#include "qquickdrag_p.h"
-#include "qquickitem_p.h"
-#include <private/qv4arraybuffer_p.h>
+#include <QtQuick/private/qquickdroparea_p.h>
+#include <QtQuick/private/qquickdrag_p.h>
+#include <QtQuick/private/qquickitem_p.h>
+#include <QtQml/private/qv4arraybuffer_p.h>
 #include <QtCore/qpointer.h>
 #include <QtCore/qregularexpression.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -230,4 +231,5 @@ bool ritual_take_QQuickDropAreaDrag(
   return static_cast<CuteQQuickDropAreaDrag *>(self)->take(key, call);
 }
 
+#endif  // QT_CONFIG(quick_draganddrop)
 #endif  // QT_CONFIG(quick_draganddrop)

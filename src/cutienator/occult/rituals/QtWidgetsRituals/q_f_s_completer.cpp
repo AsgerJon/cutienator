@@ -4,6 +4,7 @@
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #if QT_CONFIG(fscompleter)
+#if QT_CONFIG(fscompleter)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/QtWidgets>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -268,4 +269,5 @@ QString *ritual_own_ZNK12QFSCompleter13pathFromIndexERK11QModelIndex(
   return new QString(self->QFSCompleter::pathFromIndex(*index));
 }
 
+#endif  // QT_CONFIG(fscompleter)
 #endif  // QT_CONFIG(fscompleter)

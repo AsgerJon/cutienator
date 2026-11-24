@@ -11,19 +11,19 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qvariant.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "private/qxpmhandler_p.h"
+#include <QtGui/private/qxpmhandler_p.h>
 #ifndef QT_NO_IMAGEFORMAT_XPM
-#include <qbytearraymatcher.h>
-#include <qdebug.h>
-#include <qimage.h>
-#include <qloggingcategory.h>
-#include <qmap.h>
-#include <qtextstream.h>
-#include <qvariant.h>
-#include <private/qcolor_p.h>
-#include <private/qduplicatetracker_p.h> // for easier std::pmr detection
-#include <private/qtools_p.h>
-#include <private/qimage_p.h>
+#include <QtCore/qbytearraymatcher.h>
+#include <QtCore/qdebug.h>
+#include <QtGui/qimage.h>
+#include <QtCore/qloggingcategory.h>
+#include <QtCore/qmap.h>
+#include <QtCore/qtextstream.h>
+#include <QtCore/qvariant.h>
+#include <QtGui/private/qcolor_p.h>
+#include <QtCore/private/qduplicatetracker_p.h> // for easier std::pmr detection
+#include <QtCore/private/qtools_p.h>
+#include <QtGui/private/qimage_p.h>
 #include <algorithm>
 #include <array>
 #endif

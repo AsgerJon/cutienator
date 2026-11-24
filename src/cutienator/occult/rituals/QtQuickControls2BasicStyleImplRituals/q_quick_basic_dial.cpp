@@ -8,7 +8,7 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/qcolor.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquickbasicdial_p.h"
+#include <QtQuickControls2BasicStyleImpl/private/qquickbasicdial_p.h>
 #include <QtCore/qmath.h>
 #include <QtGui/qpainter.h>
 #include <QtGui/qpainterpath.h>

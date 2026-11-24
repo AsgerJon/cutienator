@@ -2,6 +2,7 @@
 //  QtCore/qregularexpression.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qglobal.h>
 #if QT_CONFIG(regularexpression)
+#if QT_CONFIG(regularexpression)
 #include <QtCore/qregularexpression.h>
 
 //  QRegularExpressionMatchIterator::QRegularExpressionMatchIterator()
@@ -77,4 +78,5 @@ int ritual_ZNK31QRegularExpressionMatchIterator12matchOptionsEv(
   return static_cast<int>(self->matchOptions().toInt());
 }
 
+#endif  // QT_CONFIG(regularexpression)
 #endif  // QT_CONFIG(regularexpression)

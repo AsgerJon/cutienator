@@ -4,6 +4,7 @@
 #include <QtGui/qtguiglobal.h>
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
 #if QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
 #include <QtGui/QtGui>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -500,4 +501,5 @@ void ritual_own_ZN11QSimpleDrag4dropERK6QPoint6QFlagsIN2Qt11MouseButtonEES3_INS4
       QFlags<Qt::KeyboardModifier>::fromInt(mods));
 }
 
+#endif  // QT_CONFIG(draganddrop)
 #endif  // QT_CONFIG(draganddrop)

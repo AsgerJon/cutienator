@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qlistwidget.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(listwidget)
 #if QT_CONFIG(listwidget)
 #include <QtWidgets/qlistwidget.h>
 #include <QtCore/qstring.h>
@@ -487,4 +489,5 @@ void ritual_list_drop_QListWidgetItem_ptr(QList<QListWidgetItem *> *self) {
   delete self;
 }
 
+#endif  // QT_CONFIG(listwidget)
 #endif  // QT_CONFIG(listwidget)

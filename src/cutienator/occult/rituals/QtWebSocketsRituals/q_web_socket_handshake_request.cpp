@@ -12,9 +12,9 @@
 #include <QtCore/qurl.h>
 #include <QtCore/qlist.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qwebsockethandshakerequest_p.h"
-#include "qwebsocketprotocol.h"
-#include "qwebsocketprotocol_p.h"
+#include <QtWebSockets/private/qwebsockethandshakerequest_p.h>
+#include <QtWebSockets/qwebsocketprotocol.h>
+#include <QtWebSockets/private/qwebsocketprotocol_p.h>
 #include <QtCore/QString>
 #include <QtCore/QMap>
 #include <QtCore/QTextStream>

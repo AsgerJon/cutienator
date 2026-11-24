@@ -1,8 +1,10 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/6.12.0/QtWidgets/private/qtoolbarseparator_p.h, Qt 6.12.0.
 //  Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
+#if QT_CONFIG(toolbar)
 #if QT_CONFIG(toolbar)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/QtWidgets>
@@ -14,11 +16,11 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qtoolbarseparator_p.h"
-#include <qstyle.h>
-#include <qstyleoption.h>
-#include <qtoolbar.h>
-#include <qpainter.h>
+#include <QtWidgets/private/qtoolbarseparator_p.h>
+#include <QtWidgets/qstyle.h>
+#include <QtWidgets/qstyleoption.h>
+#include <QtWidgets/qtoolbar.h>
+#include <QtGui/qpainter.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -945,4 +947,5 @@ bool ritual_take_QToolBarSeparator(
   return static_cast<CuteQToolBarSeparator *>(self)->take(key, call);
 }
 
+#endif  // QT_CONFIG(toolbar)
 #endif  // QT_CONFIG(toolbar)

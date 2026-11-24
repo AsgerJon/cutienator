@@ -7,14 +7,14 @@
 #include <QtQuick/6.12.0/QtQuick/private/qquickstyledtext_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <QStack>
-#include <QList>
-#include <QPainter>
-#include <QTextLayout>
-#include <QDebug>
-#include <qmath.h>
-#include "qquickstyledtext_p.h"
-#include <QQmlContext>
+#include <QtCore/QStack>
+#include <QtCore/QList>
+#include <QtGui/QPainter>
+#include <QtGui/QTextLayout>
+#include <QtCore/QDebug>
+#include <QtCore/qmath.h>
+#include <QtQuick/private/qquickstyledtext_p.h>
+#include <QtQml/QQmlContext>
 #include <QtGui/private/qtexthtmlparser_p.h>
 #include <QtGui/private/qoutlinemapper_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER

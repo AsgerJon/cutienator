@@ -16,8 +16,8 @@
 #include <QtCore/qsize.h>
 #include <QtCore/qmargins.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qstylekitstyle.h"
-#include "qstylekitstyle_p.h"
+#include <QtLabsStyleKit/qstylekitstyle.h>
+#include <QtLabsStyleKit/private/qstylekitstyle_p.h>
 #include <QtWidgets/qstyleoption.h>
 #include <QtWidgets/qstyle.h>
 #include <QtWidgets/qapplication.h>

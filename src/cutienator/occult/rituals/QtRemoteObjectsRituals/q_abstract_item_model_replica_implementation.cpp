@@ -10,9 +10,9 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qremoteobjectabstractitemmodelreplica.h"
-#include "qremoteobjectabstractitemmodelreplica_p.h"
-#include "qremoteobjectnode.h"
+#include <QtRemoteObjects/qremoteobjectabstractitemmodelreplica.h>
+#include <QtRemoteObjects/private/qremoteobjectabstractitemmodelreplica_p.h>
+#include <QtRemoteObjects/qremoteobjectnode.h>
 #include <QtCore/qdebug.h>
 #include <QtCore/qrect.h>
 #include <QtCore/qpoint.h>

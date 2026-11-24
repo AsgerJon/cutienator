@@ -4,6 +4,7 @@
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #if QT_CONFIG(style_fusion)
+#if QT_CONFIG(style_fusion)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/QtWidgets>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -13,59 +14,59 @@
 #include <QtGui/qpalette.h>
 #include <QtGui/qcolor.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qfusionstyle_p.h"
-#include "qfusionstyle_p_p.h"
+#include <QtWidgets/private/qfusionstyle_p.h>
+#include <QtWidgets/private/qfusionstyle_p_p.h>
 #if QT_CONFIG(style_fusion) || defined(QT_PLUGIN)
-#include "qcommonstyle_p.h"
+#include <QtWidgets/private/qcommonstyle_p.h>
 #if QT_CONFIG(combobox)
-#include <qcombobox.h>
+#include <QtWidgets/qcombobox.h>
 #endif
 #if QT_CONFIG(pushbutton)
-#include <qpushbutton.h>
+#include <QtWidgets/qpushbutton.h>
 #endif
 #if QT_CONFIG(abstractbutton)
-#include <qabstractbutton.h>
+#include <QtWidgets/qabstractbutton.h>
 #endif
-#include <qpainter.h>
-#include <qpainterpath.h>
-#include <qpainterstateguard.h>
-#include <qdir.h>
-#include <qstyleoption.h>
-#include <qapplication.h>
+#include <QtGui/qpainter.h>
+#include <QtGui/qpainterpath.h>
+#include <QtGui/qpainterstateguard.h>
+#include <QtCore/qdir.h>
+#include <QtWidgets/qstyleoption.h>
+#include <QtWidgets/qapplication.h>
 #if QT_CONFIG(mainwindow)
-#include <qmainwindow.h>
+#include <QtWidgets/qmainwindow.h>
 #endif
-#include <qfont.h>
+#include <QtGui/qfont.h>
 #if QT_CONFIG(groupbox)
-#include <qgroupbox.h>
+#include <QtWidgets/qgroupbox.h>
 #endif
-#include <qpixmapcache.h>
+#include <QtGui/qpixmapcache.h>
 #if QT_CONFIG(scrollbar)
-#include <qscrollbar.h>
+#include <QtWidgets/qscrollbar.h>
 #endif
 #if QT_CONFIG(spinbox)
-#include <qspinbox.h>
+#include <QtWidgets/qspinbox.h>
 #endif
 #if QT_CONFIG(abstractslider)
-#include <qabstractslider.h>
+#include <QtWidgets/qabstractslider.h>
 #endif
 #if QT_CONFIG(slider)
-#include <qslider.h>
+#include <QtWidgets/qslider.h>
 #endif
 #if QT_CONFIG(splitter)
-#include <qsplitter.h>
+#include <QtWidgets/qsplitter.h>
 #endif
 #if QT_CONFIG(progressbar)
-#include <qprogressbar.h>
+#include <QtWidgets/qprogressbar.h>
 #endif
 #if QT_CONFIG(wizard)
-#include <qwizard.h>
+#include <QtWidgets/qwizard.h>
 #endif
-#include <qdrawutil.h>
-#include <private/qstylehelper_p.h>
-#include <private/qdrawhelper_p.h>
-#include <private/qapplication_p.h>
-#include <private/qwidget_p.h>
+#include <QtWidgets/qdrawutil.h>
+#include <QtWidgets/private/qstylehelper_p.h>
+#include <QtGui/private/qdrawhelper_p.h>
+#include <QtWidgets/private/qapplication_p.h>
+#include <QtWidgets/private/qwidget_p.h>
 #include <QtGui/qstylehints.h>
 #include <QtCore/qoperatingsystemversion.h>
 #endif
@@ -177,4 +178,5 @@ bool ritual_ZNK19QFusionStylePrivate14isHighContrastEv(
   return self->isHighContrast();
 }
 
+#endif  // QT_CONFIG(style_fusion)
 #endif  // QT_CONFIG(style_fusion)

@@ -13,8 +13,8 @@
 #include <QtGui/qpalette.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquickmessagedialogimpl_p.h"
-#include "qquickmessagedialogimpl_p_p.h"
+#include <QtQuickDialogs2QuickImpl/private/qquickmessagedialogimpl_p.h>
+#include <QtQuickDialogs2QuickImpl/private/qquickmessagedialogimpl_p_p.h>
 #include <QtQuickTemplates2/private/qquickdialogbuttonbox_p_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

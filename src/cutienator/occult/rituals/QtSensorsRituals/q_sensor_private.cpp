@@ -9,13 +9,13 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qbytearray.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qsensor.h"
-#include "qsensor_p.h"
-#include "qsensorbackend.h"
-#include "qsensormanager.h"
-#include <QDebug>
-#include <QMetaProperty>
-#include <QTimer>
+#include <QtSensors/qsensor.h>
+#include <QtSensors/private/qsensor_p.h>
+#include <QtSensors/qsensorbackend.h>
+#include <QtSensors/qsensormanager.h>
+#include <QtCore/QDebug>
+#include <QtCore/QMetaProperty>
+#include <QtCore/QTimer>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

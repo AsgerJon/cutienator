@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qcolordialog.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(colordialog)
 #if QT_CONFIG(colordialog)
 #include <QtWidgets/qcolordialog.h>
 #include <QtCore/qstring.h>
@@ -1233,4 +1235,5 @@ void ritual_own_ZN12QColorDialog4doneEi(QColorDialog *self, int result) {
   static_cast<OwnQColorDialog *>(self)->OwnQColorDialog::done(result);
 }
 
+#endif  // QT_CONFIG(colordialog)
 #endif  // QT_CONFIG(colordialog)

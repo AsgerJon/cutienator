@@ -8,9 +8,9 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/qrawfont.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qcdistancefieldglyphcache_p.h"
-#include "qcanvaspainter_p.h"
-#include <private/qrawfont_p.h>
+#include <QtCanvasPainter/private/qcdistancefieldglyphcache_p.h>
+#include <QtCanvasPainter/private/qcanvaspainter_p.h>
+#include <QtGui/private/qrawfont_p.h>
 #include <cmath>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

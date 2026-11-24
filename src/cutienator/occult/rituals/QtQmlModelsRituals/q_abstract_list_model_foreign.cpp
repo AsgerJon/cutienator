@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtQmlModels/6.12.0/QtQmlModels/private/qqmlmodelsmodule_p.h, Qt 6.12.0.
 //  Changes made here are lost.
+#include <QtCore/qglobal.h>
 #include <QtQmlModels/qtqmlmodelsglobal.h>
 #include <QtQmlModels/6.12.0/QtQmlModels/private/qtqmlmodelsglobal_p.h>
 #if QT_CONFIG(itemmodel)

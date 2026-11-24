@@ -4,6 +4,7 @@
 #include <QtCore/qglobal.h>
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #if QT_CONFIG(islamiccivilcalendar)
+#if QT_CONFIG(islamiccivilcalendar)
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtCore/QtCore>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -561,4 +562,5 @@ QCalendar::YearMonthDay *ritual_own_ZNK21QIslamicCivilCalendar15julianDayToDateE
           jd));
 }
 
+#endif  // QT_CONFIG(islamiccivilcalendar)
 #endif  // QT_CONFIG(islamiccivilcalendar)

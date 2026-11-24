@@ -1,8 +1,10 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/6.12.0/QtWidgets/private/qwidgetaction_p.h, Qt 6.12.0. Changes
 //  made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
+#if QT_CONFIG(action)
 #if QT_CONFIG(action)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/qwidgetaction.h>
@@ -141,4 +143,5 @@ bool ritual_take_QWidgetActionPrivate(
   return static_cast<CuteQWidgetActionPrivate *>(self)->take(key, call);
 }
 
+#endif  // QT_CONFIG(action)
 #endif  // QT_CONFIG(action)

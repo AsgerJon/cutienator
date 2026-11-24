@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qdatetimeedit.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(datetimeedit)
 #if QT_CONFIG(datetimeedit)
 #include <QtWidgets/qdatetimeedit.h>
 #include <QtCore/qstring.h>
@@ -1818,4 +1820,5 @@ void ritual_own_ZNK13QDateTimeEdit15initStyleOptionEP19QStyleOptionSpinBox(
       option);
 }
 
+#endif  // QT_CONFIG(datetimeedit)
 #endif  // QT_CONFIG(datetimeedit)

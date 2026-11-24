@@ -22,22 +22,22 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "axisticker_p.h"
-#include "axisgrid_p.h"
-#include "axisline_p.h"
-#include "qabstractaxis.h"
+#include <QtGraphs/private/axisticker_p.h>
+#include <QtGraphs/private/axisgrid_p.h>
+#include <QtGraphs/private/axisline_p.h>
+#include <QtGraphs/qabstractaxis.h>
 #if QT_CONFIG(graphs_2d_bar)
 #include <QtGraphs/QBarCategoryAxis>
 #endif
 #include <QtGraphs/QGraphsTheme>
-#include <private/axisrenderer_p.h>
-#include <private/qabstractaxis_p.h>
-#include <private/qdatetimeaxis_p.h>
-#include <private/qgraphsview_p.h>
-#include <private/qvalueaxis_p.h>
-#include <private/qlogvalueaxis_p.h>
+#include <QtGraphs/private/axisrenderer_p.h>
+#include <QtGraphs/private/qabstractaxis_p.h>
+#include <QtGraphs/private/qdatetimeaxis_p.h>
+#include <QtGraphs/private/qgraphsview_p.h>
+#include <QtGraphs/private/qvalueaxis_p.h>
+#include <QtGraphs/private/qlogvalueaxis_p.h>
 #include <QtQuick/private/qquickdraghandler_p.h>
-#include <qfontmetrics.h>
+#include <QtGui/qfontmetrics.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

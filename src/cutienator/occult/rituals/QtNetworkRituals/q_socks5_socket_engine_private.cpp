@@ -4,34 +4,35 @@
 #include <QtNetwork/qtnetworkglobal.h>
 #include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
 #if QT_CONFIG(socks5)
+#if QT_CONFIG(socks5)
 #include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
 #include <QtNetwork/QtNetwork>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtNetwork/6.12.0/QtNetwork/private/qsocks5socketengine_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qabstractsocketengine_p.h"
-#include "qnativesocketengine_p.h"
-#include "qmutex.h"
-#include "qnetworkproxy.h"
-#include "qsocks5socketengine_p.h"
-#include "qtcpsocket.h"
-#include "qudpsocket.h"
-#include "qtcpserver.h"
-#include "qdebug.h"
-#include "qhash.h"
-#include "qqueue.h"
-#include "qdeadlinetimer.h"
-#include "qelapsedtimer.h"
-#include "qmutex.h"
-#include "qthread.h"
-#include "qcoreapplication.h"
-#include "qurl.h"
-#include "qauthenticator.h"
-#include "private/qiodevice_p.h"
-#include "private/qringbuffer_p.h"
-#include <qendian.h>
-#include <qnetworkinterface.h>
+#include <QtNetwork/private/qabstractsocketengine_p.h>
+#include <QtNetwork/private/qnativesocketengine_p.h>
+#include <QtCore/qmutex.h>
+#include <QtNetwork/qnetworkproxy.h>
+#include <QtNetwork/private/qsocks5socketengine_p.h>
+#include <QtNetwork/qtcpsocket.h>
+#include <QtNetwork/qudpsocket.h>
+#include <QtNetwork/qtcpserver.h>
+#include <QtCore/qdebug.h>
+#include <QtCore/qhash.h>
+#include <QtCore/qqueue.h>
+#include <QtCore/qdeadlinetimer.h>
+#include <QtCore/qelapsedtimer.h>
+#include <QtCore/qmutex.h>
+#include <QtCore/qthread.h>
+#include <QtCore/qcoreapplication.h>
+#include <QtCore/qurl.h>
+#include <QtNetwork/qauthenticator.h>
+#include <QtCore/private/qiodevice_p.h>
+#include <QtCore/private/qringbuffer_p.h>
+#include <QtCore/qendian.h>
+#include <QtNetwork/qnetworkinterface.h>
 #include <QtCore/qbasictimer.h>
 #include <QtCore/qpointer.h>
 #include <memory>
@@ -115,4 +116,5 @@ void ritual_ZN26QSocks5SocketEnginePrivateD1Ev(
   delete self;
 }
 
+#endif  // QT_CONFIG(socks5)
 #endif  // QT_CONFIG(socks5)

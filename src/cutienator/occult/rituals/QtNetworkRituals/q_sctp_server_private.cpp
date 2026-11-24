@@ -3,6 +3,7 @@
 //  made here are lost.
 #include <QtNetwork/qtnetworkglobal.h>
 #include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
+#if QT_CONFIG(sctp)
 #if !defined(QT_NO_SCTP)
 #include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
 #include <QtNetwork/qsctpserver.h>
@@ -13,12 +14,12 @@
 #include <QtNetwork/qnetworkproxy.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qsctpserver.h"
-#include "qsctpserver_p.h"
-#include "qsctpsocket.h"
-#include "qabstractsocketengine_p.h"
+#include <QtNetwork/qsctpserver.h>
+#include <QtNetwork/private/qsctpserver_p.h>
+#include <QtNetwork/qsctpsocket.h>
+#include <QtNetwork/private/qabstractsocketengine_p.h>
 #ifdef QSCTPSERVER_DEBUG
-#include <qdebug.h>
+#include <QtCore/qdebug.h>
 #endif
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
@@ -245,3 +246,4 @@ void ritual_own_ZN18QSctpServerPrivate22configureCreatedSocketEv(
 }
 
 #endif  // !defined(QT_NO_SCTP)
+#endif  // QT_CONFIG(sctp)

@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/6.12.0/QtCore/private/qiooperation_p_p.h, Qt 6.12.0. Changes made
 //  here are lost.
+#include <QtCore/qglobal.h>
+#include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
+#if QT_CONFIG(async_io)
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtCore/QtCore>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -8,8 +11,8 @@
 #include <QtCore/6.12.0/QtCore/private/qiooperation_p_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qiooperation_p.h"
-#include "qiooperation_p_p.h"
+#include <QtCore/private/qiooperation_p.h>
+#include <QtCore/private/qiooperation_p_p.h>
 #include <QtCore/private/qobject_p.h>
 #include <QtCore/private/qrandomaccessasyncfile_p_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -122,3 +125,5 @@ void ritual_ZN19QIOOperationPrivate8setErrorEN12QIOOperation5ErrorE(
     QIOOperation::Error err) {
   self->setError(err);
 }
+
+#endif  // QT_CONFIG(async_io)

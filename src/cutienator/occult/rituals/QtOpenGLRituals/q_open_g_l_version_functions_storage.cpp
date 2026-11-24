@@ -7,10 +7,10 @@
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtOpenGL/qopenglversionfunctions.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qopenglversionfunctions.h"
-#include "qopenglversionfunctions_p.h"
-#include "qopenglcontext.h"
-#include "qdebug.h"
+#include <QtOpenGL/qopenglversionfunctions.h>
+#include <QtOpenGL/private/qopenglversionfunctions_p.h>
+#include <QtGui/qopenglcontext.h>
+#include <QtCore/qdebug.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

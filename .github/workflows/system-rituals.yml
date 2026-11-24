@@ -1,0 +1,78 @@
+# System rituals: writes, on each system, the rituals of the classes of
+# that system alone. Manual trigger only.
+# On an Apple silicon Mac and an Intel Mac it reads, from Qt's source,
+# the header files the reader refused on Linux
+# ('bin/dev_tooling/refused_on_linux.txt'), as those pulling in Apple's
+# frameworks, and writes and tests the rituals of their classes with
+# 'bin/system_rituals.py'. Windows comes once the tooling compiles as
+# MinGW there.
+# Each machine hands over the ritual files and rows files of the classes
+# that passed, with its report, as an artifact of the run, to download
+# from the page of the run and take into the package. It releases
+# nothing and changes nothing on 'main'.
+on:
+  workflow_dispatch:
+
+jobs:
+  rituals:
+    strategy:
+      # One system failing must not keep the others from reporting.
+      fail-fast: false
+      matrix:
+        include:
+          - { name: 'mac', os: macos-latest }
+          - { name: 'intel-mac', os: macos-26-intel }
+    runs-on: ${{ matrix.os }}
+    # Reading the parts of Qt takes long on a machine of few cores.
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v7
+      # Every part of Qt 6.12.0, so each ritual file can be tested
+      # against the Qt that has its part.
+      - name: Install Qt 6.12.0
+        uses: jurplel/install-qt-action@v4.5.0
+        with:
+          version: '6.12.0'
+          modules: 'all'
+          install-deps: false
+          aqtsource: 'git+https://github.com/miurahr/aqtinstall.git@5a49f2b391ae8ee1d3c0dd87f8b33c1d49a4deb7'
+      - name: Set up Python 3.14
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.14'
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      # Qt's source, which the reader reads: every folder of it, as the
+      # parts of one need those of others.
+      # The same file gcloud's reading was made from: its MD5 is the one
+      # Qt gives, as 'tmp/scratch/qt_source/fetch.log' noted it.
+      - name: Fetch Qt's source
+        run: |
+          curl -fL -o qt-source.tar.xz \
+            https://download.qt.io/official_releases/qt/6.12/6.12.0/single/qt-everywhere-src-6.12.0.tar.xz
+          python -c "import hashlib, sys; got = hashlib.md5(open('qt-source.tar.xz', 'rb').read()).hexdigest(); print(got); sys.exit(got != 'ac677cc64158740f257fd37a5b4c5ffb')"
+          tar -xf qt-source.tar.xz
+          test -d qt-everywhere-src-6.12.0/qtbase
+      - name: Check the Qt and the compiler
+        run: |
+          qmake6 -query QT_VERSION | grep -Fx '6.12.0'
+          clang++ --version
+          echo "Qt is at $QT_ROOT_DIR"
+      # The report is written whatever is found; the step fails only
+      # when a part could not be read at all.
+      - name: Write the rituals of this system
+        env:
+          PYTHONPATH: ${{ github.workspace }}/bin:${{ github.workspace }}/src
+        run: |
+          python -B bin/system_rituals.py \
+            qt-everywhere-src-6.12.0/qtbase work "$QT_ROOT_DIR" out
+      # Also when the step above failed.
+      - name: Hand over the ritual files
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v7
+        with:
+          name: system-rituals-${{ matrix.name }}
+          path: out/
+          if-no-files-found: warn

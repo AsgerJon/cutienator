@@ -7,16 +7,16 @@
 #include <QtMultimedia/6.12.0/QtMultimedia/private/qvideowindow_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qvideowindow_p.h"
-#include <QPlatformSurfaceEvent>
-#include <qfile.h>
-#include <qpainter.h>
-#include <private/qguiapplication_p.h>
-#include <private/qmemoryvideobuffer_p.h>
-#include <private/qhwvideobuffer_p.h>
-#include <private/qmultimediautils_p.h>
-#include <private/qvideoframe_p.h>
-#include <qpa/qplatformintegration.h>
+#include <QtMultimedia/private/qvideowindow_p.h>
+#include <QtGui/QPlatformSurfaceEvent>
+#include <QtCore/qfile.h>
+#include <QtGui/qpainter.h>
+#include <QtGui/private/qguiapplication_p.h>
+#include <QtMultimedia/private/qmemoryvideobuffer_p.h>
+#include <QtMultimedia/private/qhwvideobuffer_p.h>
+#include <QtMultimedia/private/qmultimediautils_p.h>
+#include <QtMultimedia/private/qvideoframe_p.h>
+#include <QtGui/qpa/qplatformintegration.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

@@ -14,8 +14,8 @@
 #include <QtCore/qlist.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qsjiscodec_p.h"
-#include "qlist.h"
+#include <QtCore5Compat/private/qsjiscodec_p.h>
+#include <QtCore/qlist.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

@@ -3,6 +3,7 @@
 //  are lost.
 #include <QtGui/qtguiglobal.h>
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
+#if QT_CONFIG(undocommand)
 #if QT_CONFIG(undostack)
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
 #include <QtGui/QtGui>
@@ -36,3 +37,4 @@ void ritual_ZN17QUndoStackPrivate11ActionStateD1Ev(
 }
 
 #endif  // QT_CONFIG(undostack)
+#endif  // QT_CONFIG(undocommand)

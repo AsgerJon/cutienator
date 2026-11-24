@@ -12,10 +12,10 @@
 #include <QtCore/qrect.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquickiconlabel_p.h"
-#include "qquickiconlabel_p_p.h"
-#include "qquickiconimage_p.h"
-#include "qquickmnemoniclabel_p.h"
+#include <QtQuickControls2Impl/private/qquickiconlabel_p.h>
+#include <QtQuickControls2Impl/private/qquickiconlabel_p_p.h>
+#include <QtQuickControls2Impl/private/qquickiconimage_p.h>
+#include <QtQuickControls2Impl/private/qquickmnemoniclabel_p.h>
 #include <QtGui/private/qguiapplication_p.h>
 #include <QtQuick/private/qquickitem_p.h>
 #include <QtQuick/private/qquicktext_p.h>

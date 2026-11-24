@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qmdisubwindow.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(mdiarea)
 #if QT_CONFIG(mdiarea)
 #include <QtWidgets/qmdisubwindow.h>
 #include <QtCore/qstring.h>
@@ -1590,4 +1592,5 @@ void ritual_list_drop_QMdiSubWindow_ptr(QList<QMdiSubWindow *> *self) {
   delete self;
 }
 
+#endif  // QT_CONFIG(mdiarea)
 #endif  // QT_CONFIG(mdiarea)

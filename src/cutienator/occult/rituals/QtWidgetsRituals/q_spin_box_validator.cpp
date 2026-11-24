@@ -4,10 +4,12 @@
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #if QT_CONFIG(spinbox)
+#if QT_CONFIG(spinbox)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/QtWidgets>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/6.12.0/QtWidgets/private/qabstractspinbox_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
+#endif  // QT_CONFIG(spinbox)
 #endif  // QT_CONFIG(spinbox)

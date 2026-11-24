@@ -10,7 +10,7 @@
 #include <QtMultimedia/6.12.0/QtMultimedia/private/qwasmaudiodevice_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qwasmaudiodevice_p.h"
+#include <QtMultimedia/private/qwasmaudiodevice_p.h>
 #include <emscripten.h>
 #include <emscripten/val.h>
 #include <emscripten/bind.h>

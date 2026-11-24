@@ -11,8 +11,8 @@
 #include <QtCore/qurl.h>
 #include <QtCore/qlist.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <private/qqmltypeloaderqmldircontent_p.h>
-#include <private/qqmlsourcecoordinate_p.h>
+#include <QtQml/private/qqmltypeloaderqmldircontent_p.h>
+#include <QtQml/private/qqmlsourcecoordinate_p.h>
 #include <QtQml/qqmlerror.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

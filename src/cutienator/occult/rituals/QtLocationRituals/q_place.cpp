@@ -17,13 +17,13 @@
 #include <QtCore/qhash.h>
 #include <iterator>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qplace.h"
-#include "qplace_p.h"
+#include <QtLocation/qplace.h>
+#include <QtLocation/private/qplace_p.h>
 #include <QtPositioning/QGeoLocation>
 #ifdef QPLACE_DEBUG
-#include <QDebug>
+#include <QtCore/QDebug>
 #endif
-#include <QStringList>
+#include <QtCore/QStringList>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

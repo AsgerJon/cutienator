@@ -7,9 +7,9 @@
 #include <QtCanvasPainter/6.12.0/QtCanvasPainter/private/qcanvasimage_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qcanvasimage.h"
-#include "qcanvasimage_p.h"
-#include "qvariant.h"
+#include <QtCanvasPainter/qcanvasimage.h>
+#include <QtCanvasPainter/private/qcanvasimage_p.h>
+#include <QtCore/qvariant.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

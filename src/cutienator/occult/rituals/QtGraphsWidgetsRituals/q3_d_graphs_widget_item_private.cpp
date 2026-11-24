@@ -9,9 +9,9 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGraphsWidgets/q3dgraphswidgetitem.h>
-#include <private/q3dgraphswidgetitem_p.h>
-#include <private/q3dscene_p.h>
-#include <private/qquickgraphsitem_p.h>
+#include <QtGraphsWidgets/private/q3dgraphswidgetitem_p.h>
+#include <QtGraphs/private/q3dscene_p.h>
+#include <QtGraphs/private/qquickgraphsitem_p.h>
 #ifdef Q_OS_DARWIN
 #include <QtQuick3D/qquick3d.h>
 #endif
@@ -25,6 +25,7 @@
 //  'inline' put before it where Qt did not write it.
 
 //  from ../qtgraphs/src/graphs3d/widget/q3dgraphswidgetitem.cpp, line 1481, as _ZN26Q3DGraphsWidgetItemPrivate11createGraphEv
+#if defined(Q_OS_LINUX)
 inline void Q3DGraphsWidgetItemPrivate::createGraph()
 {
     Q_Q(Q3DGraphsWidgetItem);
@@ -250,6 +251,7 @@ inline void Q3DGraphsWidgetItemPrivate::createGraph()
 
     m_widget->installEventFilter(q);
 }
+#endif  // defined(Q_OS_LINUX)
 
 //  from ../qtgraphs/src/graphs3d/widget/q3dgraphswidgetitem.cpp, line 1464, as _ZN26Q3DGraphsWidgetItemPrivate7onWheelEP16QQuickWheelEvent
 inline void Q3DGraphsWidgetItemPrivate::onWheel(QQuickWheelEvent *event)
@@ -276,12 +278,14 @@ Q3DGraphsWidgetItemPrivate *ritual_ZN26Q3DGraphsWidgetItemPrivateC1Ev() {
   return new Q3DGraphsWidgetItemPrivate();
 }
 
+#if defined(Q_OS_LINUX)
 //  void Q3DGraphsWidgetItemPrivate::createGraph()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN26Q3DGraphsWidgetItemPrivate11createGraphEv(
     Q3DGraphsWidgetItemPrivate *self) {
   self->createGraph();
 }
+#endif  // defined(Q_OS_LINUX)
 
 //  void Q3DGraphsWidgetItemPrivate::onWheel(QQuickWheelEvent *event)
 extern "C" Q_DECL_EXPORT

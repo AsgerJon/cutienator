@@ -6,7 +6,7 @@
 #include <QtCore/qstringview.h>
 #include <QtCore/qstring.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qlatin1stringmatcher.h"
+#include <QtCore/qlatin1stringmatcher.h>
 #include <limits.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

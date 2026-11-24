@@ -19,60 +19,60 @@
 #include <QtGui/qimage.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qframe.h"
-#include "qbitmap.h"
-#include "qdrawutil.h"
-#include "qevent.h"
-#include "qpainter.h"
-#include "qstyle.h"
-#include "qstyleoption.h"
-#include "qstylepainter.h"
-#include "qapplication.h"
-#include "qframe_p.h"
-#include "qabstractscrollarea.h"
+#include <QtWidgets/qframe.h>
+#include <QtGui/qbitmap.h>
+#include <QtWidgets/qdrawutil.h>
+#include <QtGui/qevent.h>
+#include <QtGui/qpainter.h>
+#include <QtWidgets/qstyle.h>
+#include <QtWidgets/qstyleoption.h>
+#include <QtWidgets/qstylepainter.h>
+#include <QtWidgets/qapplication.h>
+#include <QtWidgets/private/qframe_p.h>
+#include <QtWidgets/qabstractscrollarea.h>
 #if QT_CONFIG(scrollarea)
-#include "qscrollbar.h"
-#include "qapplication.h"
-#include "qstyle.h"
-#include "qstyleoption.h"
-#include "qevent.h"
-#include "qdebug.h"
-#include "qboxlayout.h"
-#include "qpainter.h"
-#include "qmargins.h"
+#include <QtWidgets/qscrollbar.h>
+#include <QtWidgets/qapplication.h>
+#include <QtWidgets/qstyle.h>
+#include <QtWidgets/qstyleoption.h>
+#include <QtGui/qevent.h>
+#include <QtCore/qdebug.h>
+#include <QtWidgets/qboxlayout.h>
+#include <QtGui/qpainter.h>
+#include <QtCore/qmargins.h>
 #if QT_CONFIG(itemviews)
-#include "qheaderview.h"
+#include <QtWidgets/qheaderview.h>
 #endif
-#include <QDebug>
-#include "qabstractscrollarea_p.h"
-#include "qscrollbar_p.h"
-#include <qwidget.h>
-#include <private/qguiapplication_p.h>
-#include <qpa/qplatformtheme.h>
-#include <private/qapplication_p.h>
+#include <QtCore/QDebug>
+#include <QtWidgets/private/qabstractscrollarea_p.h>
+#include <QtWidgets/private/qscrollbar_p.h>
+#include <QtWidgets/qwidget.h>
+#include <QtGui/private/qguiapplication_p.h>
+#include <QtGui/qpa/qplatformtheme.h>
+#include <QtWidgets/private/qapplication_p.h>
 #ifdef Q_OS_WIN
-#  include <qt_windows.h>
+#  include <QtCore/qt_windows.h>
 #endif
 #endif
-#include "qapplication.h"
-#include "qcursor.h"
-#include "qevent.h"
-#include "qpainter.h"
-#include "qscrollbar.h"
-#include "qstyle.h"
-#include "qstyleoption.h"
-#include "qstylepainter.h"
+#include <QtWidgets/qapplication.h>
+#include <QtGui/qcursor.h>
+#include <QtGui/qevent.h>
+#include <QtGui/qpainter.h>
+#include <QtWidgets/qscrollbar.h>
+#include <QtWidgets/qstyle.h>
+#include <QtWidgets/qstyleoption.h>
+#include <QtWidgets/qstylepainter.h>
 #include <QtCore/qelapsedtimer.h>
 #include <QtCore/qpointer.h>
 #if QT_CONFIG(accessibility)
-#include "qaccessible.h"
+#include <QtGui/qaccessible.h>
 #endif
 #if QT_CONFIG(menu)
-#include "qmenu.h"
-#include "private/qmenu_p.h"
+#include <QtWidgets/qmenu.h>
+#include <QtWidgets/private/qmenu_p.h>
 #endif
 #include <limits.h>
-#include "qscrollbar_p.h"
+#include <QtWidgets/private/qscrollbar_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

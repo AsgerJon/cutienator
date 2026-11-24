@@ -3,6 +3,7 @@
 //  are lost.
 #include <QtNetwork/qtnetworkglobal.h>
 #if QT_CONFIG(ssl)
+#if QT_CONFIG(ssl)
 #include <QtNetwork/qsslpresharedkeyauthenticator.h>
 #include <QtCore/qbytearray.h>
 
@@ -107,4 +108,5 @@ bool ritual_ZneRK29QSslPreSharedKeyAuthenticatorS1_(
   return operator!=(*lhs, *rhs);
 }
 
+#endif  // QT_CONFIG(ssl)
 #endif  // QT_CONFIG(ssl)

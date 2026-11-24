@@ -9,13 +9,13 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquick3dscenemanager_p.h"
-#include "qquick3dobject_p.h"
-#include "qquick3dviewport_p.h"
-#include "qquick3dmodel_p.h"
+#include <QtQuick3D/private/qquick3dscenemanager_p.h>
+#include <QtQuick3D/private/qquick3dobject_p.h>
+#include <QtQuick3D/private/qquick3dviewport_p.h>
+#include <QtQuick3D/private/qquick3dmodel_p.h>
 #include <QtQuick/QQuickWindow>
 #include <QtQuick3DRuntimeRender/private/qssgrenderlayer_p.h>
-#include <ssg/qssgrendercontextcore.h>
+#include <QtQuick3DRuntimeRender/ssg/qssgrendercontextcore.h>
 #include <QtQuick3DRuntimeRender/private/qssgrendermodel_p.h>
 #include <QtQuick3DRuntimeRender/private/qssgrenderer_p.h>
 #include <QtQuick3DRuntimeRender/private/qssgrenderimage_p.h>
@@ -24,7 +24,7 @@
 #include <QtQuick3DRuntimeRender/ssg/qssgrenderextensions.h>
 #include <QtQuick3DRuntimeRender/private/qssgrenderuserpass_p.h>
 #include <QtQuick3DUtils/private/qssgassert_p.h>
-#include "qquick3drenderextensions.h"
+#include <QtQuick3D/qquick3drenderextensions.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

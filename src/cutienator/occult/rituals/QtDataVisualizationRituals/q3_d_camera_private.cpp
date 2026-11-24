@@ -11,8 +11,8 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "q3dcamera_p.h"
-#include "utils_p.h"
+#include <QtDataVisualization/private/q3dcamera_p.h>
+#include <QtDataVisualization/private/utils_p.h>
 #include <QtCore/qmath.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

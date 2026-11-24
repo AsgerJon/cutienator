@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtSql/qsqlrelationaltablemodel.h, Qt 6.12.0. Changes made here are lost.
+#include <QtCore/qglobal.h>
 #include <QtSql/qtsqlglobal.h>
+#if QT_CONFIG(sqlmodel)
 #if QT_CONFIG(sqlmodel)
 #include <QtSql/qsqlrelationaltablemodel.h>
 #include <QtCore/qstring.h>
@@ -1718,4 +1720,5 @@ QString *ritual_own_ZNK24QSqlRelationalTableModel13orderByClauseEv(
       static_cast<const OwnQSqlRelationalTableModel *>(self)->OwnQSqlRelationalTableModel::orderByClause());
 }
 
+#endif  // QT_CONFIG(sqlmodel)
 #endif  // QT_CONFIG(sqlmodel)

@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSerialBus/6.12.0/QtSerialBus/private/qmodbusrtuserialclient_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK5Timer10metaObjectEv": ["address", "address"],
+    "ritual_ZN5Timer5startEi": ["int", "address", "int"],
+    "ritual_ZN5Timer4stopEv": ["nothing", "address"],
+    "ritual_ZNK5Timer8isActiveEv": ["bool", "address"],
+    "ritual_ZN5Timer10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ]
+  }
+}

@@ -4,6 +4,7 @@
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #if QT_CONFIG(graphicseffect)
+#if QT_CONFIG(graphicseffect)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/qgraphicseffect.h>
 #include <QtWidgets/QtWidgets>
@@ -11,15 +12,15 @@
 #include <QtWidgets/6.12.0/QtWidgets/private/qgraphicseffect_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qgraphicseffect_p.h"
-#include "private/qgraphicsitem_p.h"
+#include <QtWidgets/private/qgraphicseffect_p.h>
+#include <QtWidgets/private/qgraphicsitem_p.h>
 #include <QtWidgets/qgraphicsitem.h>
 #include <QtGui/qimage.h>
 #include <QtGui/qpainter.h>
 #include <QtGui/qpaintengine.h>
 #include <QtCore/qrect.h>
 #include <QtCore/qdebug.h>
-#include <private/qdrawhelper_p.h>
+#include <QtGui/private/qdrawhelper_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -78,4 +79,5 @@ void ritual_ZN22QGraphicsEffectPrivate23setGraphicsEffectSourceEP21QGraphicsEffe
   self->setGraphicsEffectSource(newSource);
 }
 
+#endif  // QT_CONFIG(graphicseffect)
 #endif  // QT_CONFIG(graphicseffect)

@@ -2,6 +2,7 @@
 //  QtCore/qabstractitemmodel.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qglobal.h>
 #if QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qabstractitemmodel.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qvariant.h>
@@ -1104,4 +1105,5 @@ bool ritual_own_ZNK19QAbstractTableModel11hasChildrenERK11QModelIndex(
   return self->QAbstractTableModel::hasChildren(*parent);
 }
 
+#endif  // QT_CONFIG(itemmodel)
 #endif  // QT_CONFIG(itemmodel)

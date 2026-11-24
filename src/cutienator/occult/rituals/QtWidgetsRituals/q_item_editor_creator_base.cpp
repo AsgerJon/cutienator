@@ -2,6 +2,7 @@
 //  QtWidgets/qitemeditorfactory.h, Qt 6.12.0. Changes made here are lost.
 #include <QtWidgets/qtwidgetsglobal.h>
 #if QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
 #include <QtWidgets/qitemeditorfactory.h>
 #include <QtCore/qbytearray.h>
 #include <cstring>
@@ -94,4 +95,5 @@ bool ritual_take_QItemEditorCreatorBase(
   return static_cast<CuteQItemEditorCreatorBase *>(self)->take(key, call);
 }
 
+#endif  // QT_CONFIG(itemviews)
 #endif  // QT_CONFIG(itemviews)

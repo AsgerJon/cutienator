@@ -4,6 +4,7 @@
 #include <QtQml/qtqmlglobal.h>
 #include <QtQml/6.12.0/QtQml/private/qtqmlglobal_p.h>
 #if QT_CONFIG(qml_debug)
+#if QT_CONFIG(qml_debug)
 #include <QtQml/6.12.0/QtQml/private/qtqmlglobal_p.h>
 #include <QtQml/QtQml>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -16,4 +17,5 @@ void ritual_ZN23QQmlProfilerDefinitionsD1Ev(QQmlProfilerDefinitions *self) {
   delete self;
 }
 
+#endif  // QT_CONFIG(qml_debug)
 #endif  // QT_CONFIG(qml_debug)

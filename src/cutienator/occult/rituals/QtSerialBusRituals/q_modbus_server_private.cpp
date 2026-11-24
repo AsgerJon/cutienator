@@ -10,10 +10,10 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qmodbusdeviceidentification.h"
-#include "qmodbusserver.h"
-#include "qmodbusserver_p.h"
-#include "qmodbus_symbols_p.h"
+#include <QtSerialBus/qmodbusdeviceidentification.h>
+#include <QtSerialBus/qmodbusserver.h>
+#include <QtSerialBus/private/qmodbusserver_p.h>
+#include <QtSerialBus/private/qmodbus_symbols_p.h>
 #include <QtCore/qbitarray.h>
 #include <QtCore/qdebug.h>
 #include <QtCore/qlist.h>

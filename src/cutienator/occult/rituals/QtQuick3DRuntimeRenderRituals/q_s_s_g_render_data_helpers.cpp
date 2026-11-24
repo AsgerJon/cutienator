@@ -7,14 +7,14 @@
 #include <QtQuick3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssgrenderdata_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qssgrenderdata_p.h"
+#include <QtQuick3DRuntimeRender/private/qssgrenderdata_p.h>
 #if QT_CONFIG(thread)
 #include <QtCore/qthreadpool.h>
 #endif
 #include <QtCore/qtenvironmentvariables.h>
 #include <QtQuick/private/qsgcontext_p.h>
 #include <QtQuick/private/qsgrenderer_p.h>
-#include "qssgrenderer_p.h"
+#include <QtQuick3DRuntimeRender/private/qssgrenderer_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

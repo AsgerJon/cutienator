@@ -16,29 +16,29 @@
 #include <QtCore/qlist.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "abstract3drenderer_p.h"
-#include "texturehelper_p.h"
-#include "q3dcamera_p.h"
-#include "q3dtheme_p.h"
-#include "qvalue3daxisformatter_p.h"
-#include "shaderhelper_p.h"
-#include "qcustom3ditem_p.h"
-#include "qcustom3dlabel_p.h"
-#include "qcustom3dvolume_p.h"
-#include "scatter3drenderer_p.h"
+#include <QtDataVisualization/private/abstract3drenderer_p.h>
+#include <QtDataVisualization/private/texturehelper_p.h>
+#include <QtDataVisualization/private/q3dcamera_p.h>
+#include <QtDataVisualization/private/q3dtheme_p.h>
+#include <QtDataVisualization/private/qvalue3daxisformatter_p.h>
+#include <QtDataVisualization/private/shaderhelper_p.h>
+#include <QtDataVisualization/private/qcustom3ditem_p.h>
+#include <QtDataVisualization/private/qcustom3dlabel_p.h>
+#include <QtDataVisualization/private/qcustom3dvolume_p.h>
+#include <QtDataVisualization/private/scatter3drenderer_p.h>
 #include <QtCore/qmath.h>
 #include <QtGui/QOffscreenSurface>
 #include <QtCore/QThread>
-#include "shaderhelper_p.h"
+#include <QtDataVisualization/private/shaderhelper_p.h>
 #include <QtOpenGL/QOpenGLShader>
-#include "texturehelper_p.h"
-#include "utils_p.h"
+#include <QtDataVisualization/private/texturehelper_p.h>
+#include <QtDataVisualization/private/utils_p.h>
 #include <QtGui/QImage>
 #include <QtGui/QPainter>
 #include <QtCore/QTime>
-#include "axisrendercache_p.h"
+#include <QtDataVisualization/private/axisrendercache_p.h>
 #include <QtGui/QFontMetrics>
-#include "customrenderitem_p.h"
+#include <QtDataVisualization/private/customrenderitem_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

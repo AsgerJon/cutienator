@@ -4,6 +4,7 @@
 #include <QtNetwork/qtnetworkglobal.h>
 #include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
 #if QT_CONFIG(localserver)
+#if QT_CONFIG(localserver)
 #include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
 #include <QtNetwork/qlocalserver.h>
 #include <QtNetwork/QtNetwork>
@@ -31,4 +32,5 @@ QLocalServerPrivate *ritual_ZN19QLocalServerPrivateC1Ev() {
   return new QLocalServerPrivate();
 }
 
+#endif  // QT_CONFIG(localserver)
 #endif  // QT_CONFIG(localserver)

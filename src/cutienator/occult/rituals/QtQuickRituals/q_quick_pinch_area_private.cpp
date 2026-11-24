@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtQuick/6.12.0/QtQuick/private/qquickpincharea_p_p.h, Qt 6.12.0. Changes
 //  made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #include <QtQuick/QtQuick>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -9,16 +10,16 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquickpincharea_p_p.h"
-#include "qquickwindow.h"
+#include <QtQuick/private/qquickpincharea_p_p.h>
+#include <QtQuick/qquickwindow.h>
 #include <QtCore/qmath.h>
 #include <QtGui/qevent.h>
 #include <QtGui/qguiapplication.h>
 #include <QtGui/qstylehints.h>
-#include <qpa/qplatformintegration.h>
-#include <qpa/qplatformnativeinterface.h>
-#include <private/qguiapplication_p.h>
-#include <QVariant>
+#include <QtGui/qpa/qplatformintegration.h>
+#include <QtGui/qpa/qplatformnativeinterface.h>
+#include <QtGui/private/qguiapplication_p.h>
+#include <QtCore/QVariant>
 #include <float.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

@@ -10,10 +10,10 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qqstylekit_p.h"
-#include "qqstylekitstyle_p.h"
-#include "qqstylekittheme_p.h"
-#include "qqstylekitreader_p.h"
+#include <QtLabsStyleKit/private/qqstylekit_p.h>
+#include <QtLabsStyleKit/private/qqstylekitstyle_p.h>
+#include <QtLabsStyleKit/private/qqstylekittheme_p.h>
+#include <QtLabsStyleKit/private/qqstylekitreader_p.h>
 #include <QtGui/QStyleHints>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

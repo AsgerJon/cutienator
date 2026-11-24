@@ -4,6 +4,7 @@
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #if QT_CONFIG(toolbar)
+#if QT_CONFIG(toolbar)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/QtWidgets>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -12,15 +13,15 @@
 #include <QtCore/qsize.h>
 #include <QtCore/qpoint.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <QWidgetItem>
-#include <QToolBar>
-#include <QStyleOption>
-#include <QApplication>
-#include <qdebug.h>
-#include "qtoolbararealayout_p.h"
-#include "qmainwindowlayout_p.h"
-#include "qtoolbarlayout_p.h"
-#include "qtoolbar_p.h"
+#include <QtWidgets/QWidgetItem>
+#include <QtWidgets/QToolBar>
+#include <QtWidgets/QStyleOption>
+#include <QtWidgets/QApplication>
+#include <QtCore/qdebug.h>
+#include <QtWidgets/private/qtoolbararealayout_p.h>
+#include <QtWidgets/private/qmainwindowlayout_p.h>
+#include <QtWidgets/private/qtoolbarlayout_p.h>
+#include <QtWidgets/private/qtoolbar_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -457,4 +458,5 @@ void ritual_ZN22QToolBarAreaLayoutInfoD1Ev(QToolBarAreaLayoutInfo *self) {
   delete self;
 }
 
+#endif  // QT_CONFIG(toolbar)
 #endif  // QT_CONFIG(toolbar)

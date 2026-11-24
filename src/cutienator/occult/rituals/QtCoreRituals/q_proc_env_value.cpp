@@ -4,6 +4,7 @@
 #include <QtCore/qglobal.h>
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #if QT_CONFIG(processenvironment)
+#if QT_CONFIG(processenvironment)
 #if !(defined(Q_OS_WIN))
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtCore/QtCore>
@@ -59,4 +60,5 @@ void ritual_ZN13QProcEnvValueD1Ev(QProcEnvValue *self) {
 }
 
 #endif  // !(defined(Q_OS_WIN))
+#endif  // QT_CONFIG(processenvironment)
 #endif  // QT_CONFIG(processenvironment)

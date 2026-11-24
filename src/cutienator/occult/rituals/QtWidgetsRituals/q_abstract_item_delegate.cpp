@@ -2,6 +2,7 @@
 //  QtWidgets/qabstractitemdelegate.h, Qt 6.12.0. Changes made here are lost.
 #include <QtWidgets/qtwidgetsglobal.h>
 #if QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
 #include <QtWidgets/qabstractitemdelegate.h>
 #include <QtCore/qstring.h>
 #include <QtWidgets/qstyleoption.h>
@@ -653,4 +654,5 @@ bool ritual_own_ZN21QAbstractItemDelegate9helpEventEP10QHelpEventP17QAbstractIte
       *index);
 }
 
+#endif  // QT_CONFIG(itemviews)
 #endif  // QT_CONFIG(itemviews)

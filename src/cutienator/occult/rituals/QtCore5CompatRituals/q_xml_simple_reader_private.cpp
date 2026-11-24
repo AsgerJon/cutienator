@@ -9,20 +9,20 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qxml.h"
-#include "qxml_p.h"
+#include <QtCore5Compat/qxml.h>
+#include <QtCore5Compat/private/qxml_p.h>
 #if QT_CONFIG(textcodec)
-#include "qtextcodec.h"
+#include <QtCore5Compat/qtextcodec.h>
 #endif
-#include "qbuffer.h"
+#include <QtCore/qbuffer.h>
 #if QT_CONFIG(regularexpression)
-#include "qregularexpression.h"
+#include <QtCore/qregularexpression.h>
 #endif
-#include "qmap.h"
-#include "qhash.h"
-#include "qstack.h"
+#include <QtCore/qmap.h>
+#include <QtCore/qhash.h>
+#include <QtCore/qstack.h>
 #include <QtCore/qvarlengtharray.h>
-#include <qdebug.h>
+#include <QtCore/qdebug.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

@@ -1,6 +1,10 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtQmlModels/6.12.0/QtQmlModels/private/qqmlfiltercompositor_p.h, Qt
 //  6.12.0. Changes made here are lost.
+#include <QtCore/qglobal.h>
+#include <QtQmlModels/qtqmlmodelsglobal.h>
+#include <QtQmlModels/6.12.0/QtQmlModels/private/qtqmlmodelsglobal_p.h>
+#if QT_CONFIG(qml_sfpm_model) && QT_CONFIG(proxymodel)
 #include <QtQmlModels/6.12.0/QtQmlModels/private/qtqmlmodelsglobal_p.h>
 #include <QtQmlModels/QtQmlModels>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -175,3 +179,5 @@ void ritual_own_ZN20QQmlFilterCompositor12refreshCacheEv(
     QQmlFilterCompositor *self) {
   static_cast<OwnQQmlFilterCompositor *>(self)->OwnQQmlFilterCompositor::refreshCache();
 }
+
+#endif  // QT_CONFIG(qml_sfpm_model) && QT_CONFIG(proxymodel)

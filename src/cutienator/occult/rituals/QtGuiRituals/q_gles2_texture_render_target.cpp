@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGui/6.12.0/QtGui/private/qrhigles2_p.h, Qt 6.12.0. Changes made here
 //  are lost.
+#include <QtGui/qtguiglobal.h>
+#include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
+#if QT_CONFIG(opengl)
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
 #include <QtGui/QtGui>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -9,33 +12,34 @@
 #include <QtCore/qsize.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qrhigles2_p.h"
-#include <QOffscreenSurface>
-#include <QOpenGLContext>
+#include <QtGui/private/qrhigles2_p.h>
+#include <QtGui/QOffscreenSurface>
+#include <QtGui/QOpenGLContext>
 #include <QtCore/qmap.h>
 #include <QtGui/private/qguiapplication_p.h>
 #include <QtGui/private/qopenglextensions_p.h>
 #include <QtGui/private/qopenglprogrambinarycache_p.h>
 #include <QtGui/private/qwindow_p.h>
-#include <qpa/qplatformopenglcontext.h>
-#include <qmath.h>
+#include <QtGui/qpa/qplatformopenglcontext.h>
+#include <QtCore/qmath.h>
 #include <limits>
-#include "qrhi_p.h"
-#include <qmath.h>
-#include <QLoggingCategory>
-#include "private/qloggingregistry_p.h"
-#include "qrhinull_p.h"
+#include <QtGui/private/qrhi_p.h>
+#include <QtCore/qmath.h>
+#include <QtCore/QLoggingCategory>
+#include <QtCore/private/qloggingregistry_p.h>
+#include <QtGui/private/qrhinull_p.h>
 #ifndef QT_NO_OPENGL
-#include "qrhigles2_p.h"
+#include <QtGui/private/qrhigles2_p.h>
 #endif
 #if QT_CONFIG(vulkan)
+#include <QtGui/private/qrhivulkan_p.h>
 #endif
 #ifdef Q_OS_WIN
-#include "qrhid3d11_p.h"
-#include "qrhid3d12_p.h"
+#include <QtGui/private/qrhid3d11_p.h>
+#include <QtGui/private/qrhid3d12_p.h>
 #endif
 #if QT_CONFIG(metal)
-#include "qrhimetal_p.h"
+#include <QtGui/private/qrhimetal_p.h>
 #endif
 #include <limits>
 #include <memory>
@@ -608,3 +612,5 @@ int ritual_own_ZNK25QGles2TextureRenderTarget11sampleCountEv(
     const QGles2TextureRenderTarget *self) {
   return self->QGles2TextureRenderTarget::sampleCount();
 }
+
+#endif  // QT_CONFIG(opengl)

@@ -19,6 +19,7 @@ the plan of its ritual file, and verifies that file.
 #  Copyright (c) 2026 Asger Jon Vistisen
 from __future__ import annotations
 
+from ._machine import Machine
 from ._header_file import HeaderFile
 from ._header_folder import HeaderFolder
 from ._header_reader import HeaderReader

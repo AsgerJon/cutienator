@@ -9,23 +9,23 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtNetwork/qhostaddress.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qabstractsocketengine_p.h"
-#include "qnativesocketengine_p.h"
-#include "qmutex.h"
-#include "qnetworkproxy.h"
-#include "qnativesocketengine_p_p.h"
-#include <qabstracteventdispatcher.h>
-#include <qsocketnotifier.h>
-#include <qnetworkinterface.h>
-#include <private/qthread_p.h>
-#include <private/qobject_p.h>
+#include <QtNetwork/private/qabstractsocketengine_p.h>
+#include <QtNetwork/private/qnativesocketengine_p.h>
+#include <QtCore/qmutex.h>
+#include <QtNetwork/qnetworkproxy.h>
+#include <QtNetwork/private/qnativesocketengine_p_p.h>
+#include <QtCore/qabstracteventdispatcher.h>
+#include <QtCore/qsocketnotifier.h>
+#include <QtNetwork/qnetworkinterface.h>
+#include <QtCore/private/qthread_p.h>
+#include <QtCore/private/qobject_p.h>
 #if !defined(QT_NO_NETWORKPROXY)
-# include "qnetworkproxy.h"
-# include "qabstractsocket.h"
-# include "qtcpserver.h"
+# include <QtNetwork/qnetworkproxy.h>
+# include <QtNetwork/qabstractsocket.h>
+# include <QtNetwork/qtcpserver.h>
 #endif
 #if !defined(QT_NO_SCTP)
-# include "qsctpserver.h"
+# include <QtNetwork/qsctpserver.h>
 #endif
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
@@ -53,6 +53,7 @@ inline QAbstractSocketEnginePrivate::QAbstractSocketEnginePrivate()
 }
 
 //  from src/network/socket/qnativesocketengine.cpp, line 164, as _ZN26QNativeSocketEnginePrivateC1Ev
+#if defined(Q_OS_LINUX)
 inline QNativeSocketEnginePrivate::QNativeSocketEnginePrivate() :
     socketDescriptor(-1),
     readNotifier(nullptr),
@@ -63,6 +64,7 @@ inline QNativeSocketEnginePrivate::QNativeSocketEnginePrivate() :
     QSysInfo::machineHostName();        // this initializes ws2_32.dll
 #endif
 }
+#endif  // defined(Q_OS_LINUX)
 
 //  from src/network/socket/qnativesocketengine.cpp, line 178, as _ZN26QNativeSocketEnginePrivateD1Ev
 inline QNativeSocketEnginePrivate::~QNativeSocketEnginePrivate()

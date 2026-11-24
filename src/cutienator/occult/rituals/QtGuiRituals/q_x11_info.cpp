@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGui/6.12.0/QtGui/private/qtx11extras_p.h, Qt 6.12.0. Changes made here
 //  are lost.
+#include <QtGui/qtguiglobal.h>
+#include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
+#if defined(Q_OS_UNIX) && (QT_CONFIG(xcb))
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
 #include <QtGui/QtGui>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -110,3 +113,5 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN8QX11InfoD1Ev(QX11Info *self) {
   delete self;
 }
+
+#endif  // defined(Q_OS_UNIX) && (QT_CONFIG(xcb))

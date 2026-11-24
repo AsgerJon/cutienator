@@ -13,10 +13,10 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qlatin1stringview.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qsharedmemory.h"
-#include "qsharedmemory_p.h"
-#include "qtipccommon_p.h"
-#include <qfile.h>
+#include <QtCore/qsharedmemory.h>
+#include <QtCore/private/qsharedmemory_p.h>
+#include <QtCore/private/qtipccommon_p.h>
+#include <QtCore/qfile.h>
 #include <errno.h>
 #if QT_CONFIG(sharedmemory)
 #if QT_CONFIG(posix_shm)
@@ -25,17 +25,17 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <unistd.h>
-#include "private/qcore_unix_p.h"
+#include <QtCore/private/qcore_unix_p.h>
 #endif
 #endif
-#include "qsharedmemory.h"
-#include "qsharedmemory_p.h"
-#include "qtipccommon_p.h"
-#include "qsystemsemaphore.h"
-#include <q20memory.h>
-#include <qdebug.h>
+#include <QtCore/qsharedmemory.h>
+#include <QtCore/private/qsharedmemory_p.h>
+#include <QtCore/private/qtipccommon_p.h>
+#include <QtCore/qsystemsemaphore.h>
+#include <QtCore/q20memory.h>
+#include <QtCore/qdebug.h>
 #ifdef Q_OS_WIN
-#  include <qt_windows.h>
+#  include <QtCore/qt_windows.h>
 #endif
 #include <errno.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER

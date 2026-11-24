@@ -1,8 +1,10 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtQuick/6.12.0/QtQuick/private/qquickpositioners_p.h, Qt 6.12.0. Changes
 //  made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtQuick/qtquickglobal.h>
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
+#if QT_CONFIG(quick_positioners)
 #if QT_CONFIG(quick_positioners)
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #include <QtQuick/QtQuick>
@@ -1188,4 +1190,5 @@ void ritual_own_ZN20QQuickBasePositioner12updatePolishEv(
   static_cast<OwnQQuickBasePositioner *>(self)->OwnQQuickBasePositioner::updatePolish();
 }
 
+#endif  // QT_CONFIG(quick_positioners)
 #endif  // QT_CONFIG(quick_positioners)

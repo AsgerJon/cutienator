@@ -10,7 +10,7 @@
 #include <QtQuick3D/qquick3dobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquick3daudiolistener_p.h"
+#include <QtQuick3DSpatialAudio/private/qquick3daudiolistener_p.h>
 #include <QtQuick3DSpatialAudio/private/qquick3dspatialsound_p.h>
 #include <QtQuick3DSpatialAudio/private/qquick3daudioengine_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER

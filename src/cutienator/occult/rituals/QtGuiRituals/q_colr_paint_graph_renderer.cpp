@@ -10,7 +10,7 @@
 #include <QtGui/qtransform.h>
 #include <QtGui/qpainterpath.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qcolrpaintgraphrenderer_p.h"
+#include <QtGui/private/qcolrpaintgraphrenderer_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

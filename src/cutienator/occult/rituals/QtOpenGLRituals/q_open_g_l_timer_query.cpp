@@ -1,5 +1,6 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtOpenGL/qopengltimerquery.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtOpenGL/qtopenglglobal.h>
 #if !defined(QT_NO_OPENGL) && !QT_CONFIG(opengles2)
 #include <QtOpenGL/qopengltimerquery.h>

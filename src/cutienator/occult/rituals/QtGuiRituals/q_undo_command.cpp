@@ -2,6 +2,7 @@
 //  QtGui/qundostack.h, Qt 6.12.0. Changes made here are lost.
 #include <QtGui/qtguiglobal.h>
 #if QT_CONFIG(undocommand)
+#if QT_CONFIG(undocommand)
 #include <QtGui/qundostack.h>
 #include <QtCore/qstring.h>
 #include <cstring>
@@ -237,4 +238,5 @@ bool ritual_own_ZN12QUndoCommand9mergeWithEPKS_(
   return self->QUndoCommand::mergeWith(other);
 }
 
+#endif  // QT_CONFIG(undocommand)
 #endif  // QT_CONFIG(undocommand)

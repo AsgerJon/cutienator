@@ -8,6 +8,8 @@
     "ritual_ZN8Qt3DCore10QAttribute2trEPKcS2_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN8Qt3DCore10QAttribute6d_funcEv": ["address", "address"],
+    "ritual_ZNK8Qt3DCore10QAttribute6d_funcEv": ["address", "address"],
     "ritual_take_Qt3DCore_QAttribute": [
       "bool", "address", "chars", "address"
     ]

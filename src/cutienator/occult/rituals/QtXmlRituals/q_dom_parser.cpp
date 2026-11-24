@@ -4,6 +4,7 @@
 #include <QtXml/qtxmlglobal.h>
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #if QT_CONFIG(dom)
+#if QT_CONFIG(dom)
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtXml/QtXml>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -14,34 +15,34 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtXml/qtxmlglobal.h>
 #if QT_CONFIG(dom)
-#include "qdomhelpers_p.h"
-#include "qdom_p.h"
+#include <QtXml/private/qdomhelpers_p.h>
+#include <QtXml/private/qdom_p.h>
 #include <QtCore/qshareddata.h>
-#include "qxmlstream.h"
-#include "private/qxmlstream_p.h"
+#include <QtCore/qxmlstream.h>
+#include <QtCore/private/qxmlstream_p.h>
 #include <memory>
 #include <stack>
 #endif
 #include <qplatformdefs.h>
-#include <qdom.h>
-#include "private/qxmlutils_p.h"
+#include <QtXml/qdom.h>
+#include <QtCore/private/qxmlutils_p.h>
 #if QT_CONFIG(dom)
-#include "qdom_p.h"
-#include "qdomhelpers_p.h"
-#include <qatomic.h>
-#include <qbuffer.h>
-#include <qiodevice.h>
+#include <QtXml/private/qdom_p.h>
+#include <QtXml/private/qdomhelpers_p.h>
+#include <QtCore/qatomic.h>
+#include <QtCore/qbuffer.h>
+#include <QtCore/qiodevice.h>
 #if QT_CONFIG(regularexpression)
-#include <qregularexpression.h>
+#include <QtCore/qregularexpression.h>
 #endif
-#include <qtextstream.h>
-#include <qvariant.h>
-#include <qshareddata.h>
-#include <qdebug.h>
-#include <qxmlstream.h>
-#include <private/qduplicatetracker_p.h>
-#include <private/qstringiterator_p.h>
-#include <qvarlengtharray.h>
+#include <QtCore/qtextstream.h>
+#include <QtCore/qvariant.h>
+#include <QtCore/qshareddata.h>
+#include <QtCore/qdebug.h>
+#include <QtCore/qxmlstream.h>
+#include <QtCore/private/qduplicatetracker_p.h>
+#include <QtCore/private/qstringiterator_p.h>
+#include <QtCore/qvarlengtharray.h>
 #include <stdio.h>
 #include <limits>
 #include <memory>
@@ -258,4 +259,5 @@ QDomDocument::ParseResult *ritual_ZNK10QDomParser6resultEv(
   return new QDomDocument::ParseResult(self->result());
 }
 
+#endif  // QT_CONFIG(dom)
 #endif  // QT_CONFIG(dom)

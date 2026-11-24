@@ -11,16 +11,16 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtDBus/qdbusmessage.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qdbusmessage.h"
-#include "qdbusmessage_p.h"
-#include <qdebug.h>
-#include <qstringlist.h>
-#include "qdbus_symbols_p.h"
-#include "qdbusargument_p.h"
-#include "qdbuserror.h"
-#include "qdbusmetatype.h"
-#include "qdbusconnection_p.h"
-#include "qdbusutil_p.h"
+#include <QtDBus/qdbusmessage.h>
+#include <QtDBus/private/qdbusmessage_p.h>
+#include <QtCore/qdebug.h>
+#include <QtCore/qstringlist.h>
+#include <QtDBus/private/qdbus_symbols_p.h>
+#include <QtDBus/private/qdbusargument_p.h>
+#include <QtDBus/qdbuserror.h>
+#include <QtDBus/qdbusmetatype.h>
+#include <QtDBus/private/qdbusconnection_p.h>
+#include <QtDBus/private/qdbusutil_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

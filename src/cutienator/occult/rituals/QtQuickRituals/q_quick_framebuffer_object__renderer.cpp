@@ -1,5 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtQuick/qquickframebufferobject.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
+#include <QtQuick/qtquickglobal.h>
+#if QT_CONFIG(opengl) || QT_CONFIG(opengles2) || QT_CONFIG(opengles3)
 #include <QtQuick/qquickframebufferobject.h>
 #include <QtCore/qsize.h>
 #include <cstring>
@@ -162,3 +165,5 @@ void ritual_own_ZN23QQuickFramebufferObject8Renderer11synchronizeEPS_(
   static_cast<OwnQQuickFramebufferObject_Renderer *>(self)->OwnQQuickFramebufferObject_Renderer::synchronize(
       a0);
 }
+
+#endif  // QT_CONFIG(opengl) || QT_CONFIG(opengles2) || QT_CONFIG(opengles3)

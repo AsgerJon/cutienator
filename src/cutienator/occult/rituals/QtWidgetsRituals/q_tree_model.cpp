@@ -1,8 +1,10 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/6.12.0/QtWidgets/private/qtreewidget_p.h, Qt 6.12.0. Changes
 //  made here are lost.
+#include <QtCore/qglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
+#if QT_CONFIG(treewidget)
 #if QT_CONFIG(treewidget)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/QtWidgets>
@@ -20,20 +22,20 @@
 #include <iterator>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qtreewidget.h"
-#include <qheaderview.h>
-#include <qpainter.h>
-#include <qstack.h>
-#include <qdebug.h>
-#include <private/qtreewidget_p.h>
-#include <private/qwidgetitemdata_p.h>
-#include <private/qtreewidgetitemiterator_p.h>
+#include <QtWidgets/qtreewidget.h>
+#include <QtWidgets/qheaderview.h>
+#include <QtGui/qpainter.h>
+#include <QtCore/qstack.h>
+#include <QtCore/qdebug.h>
+#include <QtWidgets/private/qtreewidget_p.h>
+#include <QtWidgets/private/qwidgetitemdata_p.h>
+#include <QtWidgets/private/qtreewidgetitemiterator_p.h>
 #include <QtCore/private/qduplicatetracker_p.h>
 #include <algorithm>
-#include <private/qtreewidgetitemiterator_p.h>
-#include "qtreewidget.h"
-#include "qtreewidget_p.h"
-#include "qwidgetitemdata_p.h"
+#include <QtWidgets/private/qtreewidgetitemiterator_p.h>
+#include <QtWidgets/qtreewidget.h>
+#include <QtWidgets/private/qtreewidget_p.h>
+#include <QtWidgets/private/qwidgetitemdata_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -2115,4 +2117,5 @@ void ritual_own_ZN10QTreeModel10timerEventEP11QTimerEvent(
   static_cast<OwnQTreeModel *>(self)->OwnQTreeModel::timerEvent(a0);
 }
 
+#endif  // QT_CONFIG(treewidget)
 #endif  // QT_CONFIG(treewidget)

@@ -4,6 +4,7 @@
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #if QT_CONFIG(toolbar)
+#if QT_CONFIG(toolbar)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/QtWidgets>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -14,26 +15,26 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <qapplication.h>
-#include <qaction.h>
-#include <qwidgetaction.h>
-#include <qtoolbar.h>
-#include <qstyleoption.h>
+#include <QtWidgets/qapplication.h>
+#include <QtWidgets/qaction.h>
+#include <QtWidgets/qwidgetaction.h>
+#include <QtWidgets/qtoolbar.h>
+#include <QtWidgets/qstyleoption.h>
 #if QT_CONFIG(toolbutton)
-#include <qtoolbutton.h>
+#include <QtWidgets/qtoolbutton.h>
 #endif
-#include <qmenu.h>
-#include <qdebug.h>
-#include <qmath.h>
+#include <QtWidgets/qmenu.h>
+#include <QtCore/qdebug.h>
+#include <QtCore/qmath.h>
 #ifdef Q_OS_MACOS
-#include <qpa/qplatformnativeinterface.h>
+#include <QtGui/qpa/qplatformnativeinterface.h>
 #endif
-#include "qmainwindowlayout_p.h"
+#include <QtWidgets/private/qmainwindowlayout_p.h>
 #if QT_CONFIG(toolbutton)
-#include "qtoolbarextension_p.h"
+#include <QtWidgets/private/qtoolbarextension_p.h>
 #endif
-#include "qtoolbarlayout_p.h"
-#include "qtoolbarseparator_p.h"
+#include <QtWidgets/private/qtoolbarlayout_p.h>
+#include <QtWidgets/private/qtoolbarseparator_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -361,6 +362,7 @@ inline bool QToolBarLayout::hasExpandFlag() const
 }
 
 //  from src/widgets/widgets/qtoolbarlayout.cpp, line 314, as _ZN14QToolBarLayout22updateMacBorderMetricsEv
+#if defined(Q_OS_LINUX)
 inline void QToolBarLayout::updateMacBorderMetrics()
 {
 #ifdef Q_OS_MACOS
@@ -386,6 +388,7 @@ inline void QToolBarLayout::updateMacBorderMetrics()
         mainWindowLayout->registerUnifiedToolBarArea(tb, 0, 0);
 #endif
 }
+#endif  // defined(Q_OS_LINUX)
 
 //  from src/widgets/widgets/qtoolbarlayout.cpp, line 222, as _ZNK14QToolBarLayout15updateGeomArrayEv
 inline void QToolBarLayout::updateGeomArray() const
@@ -1223,12 +1226,14 @@ bool ritual_ZNK14QToolBarLayout13hasExpandFlagEv(
   return self->hasExpandFlag();
 }
 
+#if defined(Q_OS_LINUX)
 //  void QToolBarLayout::updateMacBorderMetrics()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14QToolBarLayout22updateMacBorderMetricsEv(
     QToolBarLayout *self) {
   self->updateMacBorderMetrics();
 }
+#endif  // defined(Q_OS_LINUX)
 
 //  void QToolBarLayout::updateGeomArray() const
 extern "C" Q_DECL_EXPORT
@@ -1311,4 +1316,5 @@ QSize *ritual_own_ZNK14QToolBarLayout8sizeHintEv(
   return new QSize(self->QToolBarLayout::sizeHint());
 }
 
+#endif  // QT_CONFIG(toolbar)
 #endif  // QT_CONFIG(toolbar)

@@ -13,14 +13,14 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qwaylandquickitem.h"
-#include "qwaylandquickitem_p.h"
-#include "qwaylandquicksurface.h"
-#include "qwaylandinputmethodcontrol.h"
-#include "qwaylandtextinput.h"
-#include "qwaylandtextinputv3.h"
-#include "qwaylandqttextinputmethod.h"
-#include "qwaylandquickoutput.h"
+#include <QtWaylandCompositor/qwaylandquickitem.h>
+#include <QtWaylandCompositor/private/qwaylandquickitem_p.h>
+#include <QtWaylandCompositor/qwaylandquicksurface.h>
+#include <QtWaylandCompositor/qwaylandinputmethodcontrol.h>
+#include <QtWaylandCompositor/qwaylandtextinput.h>
+#include <QtWaylandCompositor/qwaylandtextinputv3.h>
+#include <QtWaylandCompositor/qwaylandqttextinputmethod.h>
+#include <QtWaylandCompositor/qwaylandquickoutput.h>
 #include <QtWaylandCompositor/qwaylandcompositor.h>
 #include <QtWaylandCompositor/qwaylandseat.h>
 #include <QtWaylandCompositor/qwaylandbufferref.h>
@@ -42,7 +42,7 @@
 #include <QtCore/QMutexLocker>
 #include <QtCore/QMutex>
 #include <wayland-server-core.h>
-#include <QThread>
+#include <QtCore/QThread>
 #if QT_CONFIG(opengl)
 #include <QtGui/private/qshaderdescription_p.h>
 #endif

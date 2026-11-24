@@ -1,8 +1,10 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/6.12.0/QtWidgets/private/qaccessiblemenu_p.h, Qt 6.12.0.
 //  Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
+#if QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
 #if QT_CONFIG(menu)
 #if QT_CONFIG(menubar)
@@ -18,15 +20,15 @@
 #include <QtGui/qcolor.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qaccessiblemenu_p.h"
+#include <QtWidgets/private/qaccessiblemenu_p.h>
 #if QT_CONFIG(menu)
-#include <qmenu.h>
+#include <QtWidgets/qmenu.h>
 #endif
 #if QT_CONFIG(menubar)
-#include <qmenubar.h>
+#include <QtWidgets/qmenubar.h>
 #endif
-#include <qstyle.h>
-#include <private/qwidget_p.h>
+#include <QtWidgets/qstyle.h>
+#include <QtWidgets/private/qwidget_p.h>
 #if QT_CONFIG(accessibility)
 #include <QtGui/private/qaccessiblehelper_p.h>
 #endif
@@ -655,4 +657,5 @@ int ritual_own_ZNK18QAccessibleMenuBar12indexOfChildEPK20QAccessibleInterface(
 
 #endif  // QT_CONFIG(menubar)
 #endif  // QT_CONFIG(menu)
+#endif  // QT_CONFIG(accessibility)
 #endif  // QT_CONFIG(accessibility)

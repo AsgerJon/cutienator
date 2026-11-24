@@ -15,8 +15,8 @@
 #include <QtCore/QAbstractItemModel>
 #include <QtGraphs/QBarModelMapper>
 #include <QtGraphs/QBarSeries>
-#include <private/qabstractitemmodel_p.h>
-#include <private/qbarmodelmapper_p.h>
+#include <QtCore/private/qabstractitemmodel_p.h>
+#include <QtGraphs/private/qbarmodelmapper_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qlistview.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(listview)
 #if QT_CONFIG(listview)
 #include <QtWidgets/qlistview.h>
 #include <QtCore/qstring.h>
@@ -2923,4 +2925,5 @@ QSize *ritual_own_ZNK9QListView16viewportSizeHintEv(const QListView *self) {
       static_cast<const OwnQListView *>(self)->OwnQListView::viewportSizeHint());
 }
 
+#endif  // QT_CONFIG(listview)
 #endif  // QT_CONFIG(listview)

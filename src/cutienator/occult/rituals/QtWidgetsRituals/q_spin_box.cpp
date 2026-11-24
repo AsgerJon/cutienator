@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qspinbox.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(spinbox)
 #if QT_CONFIG(spinbox)
 #include <QtWidgets/qspinbox.h>
 #include <QtCore/qstring.h>
@@ -1313,4 +1315,5 @@ QString *ritual_own_ZNK8QSpinBox13textFromValueEi(
           val));
 }
 
+#endif  // QT_CONFIG(spinbox)
 #endif  // QT_CONFIG(spinbox)

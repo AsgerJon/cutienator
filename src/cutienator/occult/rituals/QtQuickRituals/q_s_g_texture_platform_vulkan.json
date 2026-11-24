@@ -7,21 +7,6 @@
   "rows": {
     "ritual_ZN24QSGTexturePlatformVulkanC1EP10QSGTexture": [
       "address", "address"
-    ],
-    "ritual_ZNK24QSGTexturePlatformVulkan11nativeImageEv": [
-      "unsigned long long", "address"
-    ],
-    "ritual_ZNK24QSGTexturePlatformVulkan17nativeImageLayoutEv": [
-      "int", "address"
-    ],
-    "ritual_take_QSGTexturePlatformVulkan": [
-      "bool", "address", "chars", "address"
-    ],
-    "ritual_own_ZNK24QSGTexturePlatformVulkan11nativeImageEv": [
-      "unsigned long long", "address"
-    ],
-    "ritual_own_ZNK24QSGTexturePlatformVulkan17nativeImageLayoutEv": [
-      "int", "address"
     ]
   }
 }

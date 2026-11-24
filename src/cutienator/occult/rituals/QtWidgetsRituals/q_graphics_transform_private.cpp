@@ -4,6 +4,7 @@
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #if QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/qgraphicstransform.h>
 #include <QtWidgets/QtWidgets>
@@ -11,10 +12,10 @@
 #include <QtWidgets/6.12.0/QtWidgets/private/qgraphicstransform_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qgraphicstransform.h"
-#include "qgraphicsitem_p.h"
-#include "qgraphicstransform_p.h"
-#include <QDebug>
+#include <QtWidgets/qgraphicstransform.h>
+#include <QtWidgets/private/qgraphicsitem_p.h>
+#include <QtWidgets/private/qgraphicstransform_p.h>
+#include <QtCore/QDebug>
 #include <QtCore/qmath.h>
 #include <QtCore/qnumeric.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -101,4 +102,5 @@ void ritual_ZN25QGraphicsTransformPrivate10updateItemEP13QGraphicsItem(
   QGraphicsTransformPrivate::updateItem(item);
 }
 
+#endif  // QT_CONFIG(graphicsview)
 #endif  // QT_CONFIG(graphicsview)

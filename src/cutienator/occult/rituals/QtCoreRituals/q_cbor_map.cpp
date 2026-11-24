@@ -586,3 +586,37 @@ bool ritual_ZgeRK18QCborValueConstRefRK8QCborMap(
     const QCborMap *rhs) {
   return operator>=(*lhs, *rhs);
 }
+
+//  QList<QCborMap>::QList()
+extern "C" Q_DECL_EXPORT
+QList<QCborMap> *ritual_list_make_QCborMap() {
+  return new QList<QCborMap>();
+}
+
+//  void QList<QCborMap>::append(const QCborMap &value)
+extern "C" Q_DECL_EXPORT
+void ritual_list_add_QCborMap(
+    QList<QCborMap> *self,
+    const QCborMap *element) {
+  self->append(*element);
+}
+
+//  qsizetype QList<QCborMap>::size() const
+extern "C" Q_DECL_EXPORT
+long long ritual_list_size_QCborMap(const QList<QCborMap> *self) {
+  return self->size();
+}
+
+//  const QCborMap &QList<QCborMap>::at(qsizetype i) const
+extern "C" Q_DECL_EXPORT
+QCborMap *ritual_list_at_QCborMap(
+    const QList<QCborMap> *self,
+    long long index) {
+  return new QCborMap(self->at(index));
+}
+
+//  QList<QCborMap>::~QList()
+extern "C" Q_DECL_EXPORT
+void ritual_list_drop_QCborMap(QList<QCborMap> *self) {
+  delete self;
+}

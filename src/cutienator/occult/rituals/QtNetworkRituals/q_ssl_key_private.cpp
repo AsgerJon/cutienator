@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtNetwork/6.12.0/QtNetwork/private/qsslkey_p.h, Qt 6.12.0. Changes made
 //  here are lost.
+#include <QtNetwork/qtnetworkglobal.h>
+#include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
+#if QT_CONFIG(ssl)
 #include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
 #include <QtNetwork/QtNetwork>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -8,12 +11,12 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qbytearray.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qssl_p.h"
-#include "qsslkey.h"
-#include "qsslkey_p.h"
-#include "qsslsocket.h"
-#include "qsslsocket_p.h"
-#include "qtlsbackend_p.h"
+#include <QtNetwork/private/qssl_p.h>
+#include <QtNetwork/qsslkey.h>
+#include <QtNetwork/private/qsslkey_p.h>
+#include <QtNetwork/qsslsocket.h>
+#include <QtNetwork/private/qsslsocket_p.h>
+#include <QtNetwork/private/qtlsbackend_p.h>
 #include <QtCore/qatomic.h>
 #include <QtCore/qbytearray.h>
 #include <QtCore/qiodevice.h>
@@ -64,3 +67,5 @@ QByteArray *ritual_ZN14QSslKeyPrivate7encryptEN11QTlsPrivate6CipherERK10QByteArr
     const QByteArray *iv) {
   return new QByteArray(QSslKeyPrivate::encrypt(cipher, *data, *key, *iv));
 }
+
+#endif  // QT_CONFIG(ssl)

@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/6.12.0/QtWidgets/private/qapplication_p.h, Qt 6.12.0. Changes
 //  made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/qapplication.h>
 #include <QtWidgets/QtWidgets>
@@ -16,74 +17,74 @@
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include "qplatformdefs.h"
-#include "qabstracteventdispatcher.h"
-#include "qapplication.h"
-#include "qclipboard.h"
-#include "qcursor.h"
-#include "qdir.h"
-#include "qevent.h"
-#include "qfile.h"
-#include "qfileinfo.h"
+#include <QtCore/qabstracteventdispatcher.h>
+#include <QtWidgets/qapplication.h>
+#include <QtGui/qclipboard.h>
+#include <QtGui/qcursor.h>
+#include <QtCore/qdir.h>
+#include <QtGui/qevent.h>
+#include <QtCore/qfile.h>
+#include <QtCore/qfileinfo.h>
 #if QT_CONFIG(graphicsview)
-#include "qgraphicsscene.h"
+#include <QtWidgets/qgraphicsscene.h>
 #include <QtWidgets/qgraphicsproxywidget.h>
 #endif
-#include "qhash.h"
-#include "qset.h"
-#include "qlayout.h"
-#include "qpixmapcache.h"
-#include "qstyle.h"
-#include "qstyleoption.h"
-#include "qstylefactory.h"
+#include <QtCore/qhash.h>
+#include <QtCore/qset.h>
+#include <QtWidgets/qlayout.h>
+#include <QtGui/qpixmapcache.h>
+#include <QtWidgets/qstyle.h>
+#include <QtWidgets/qstyleoption.h>
+#include <QtWidgets/qstylefactory.h>
 #if QT_CONFIG(tooltip)
-#include "qtooltip.h"
+#include <QtWidgets/qtooltip.h>
 #endif
-#include "qtranslator.h"
-#include "qvariant.h"
-#include "qwidget.h"
+#include <QtCore/qtranslator.h>
+#include <QtCore/qvariant.h>
+#include <QtWidgets/qwidget.h>
 #if QT_CONFIG(draganddrop)
-#include <private/qdnd_p.h>
+#include <QtGui/private/qdnd_p.h>
 #endif
-#include "private/qguiapplication_p.h"
-#include "qdebug.h"
+#include <QtGui/private/qguiapplication_p.h>
+#include <QtCore/qdebug.h>
 #if QT_CONFIG(style_stylesheet)
-#include "private/qstylesheetstyle_p.h"
+#include <QtWidgets/private/qstylesheetstyle_p.h>
 #endif
-#include "private/qstyle_p.h"
+#include <QtWidgets/private/qstyle_p.h>
 #if QT_CONFIG(messagebox)
-#include "qmessagebox.h"
+#include <QtWidgets/qmessagebox.h>
 #endif
-#include "qwidgetwindow_p.h"
+#include <QtWidgets/private/qwidgetwindow_p.h>
 #include <QtGui/qstylehints.h>
 #include <QtGui/qinputmethod.h>
 #include <QtGui/private/qwindow_p.h>
 #include <QtGui/qpointingdevice.h>
 #include <QtGui/private/qpointingdevice_p.h>
-#include <qpa/qplatformtheme.h>
+#include <QtGui/qpa/qplatformtheme.h>
 #if QT_CONFIG(whatsthis)
 #include <QtWidgets/QWhatsThis>
 #endif
 #if QT_CONFIG(accessibility)
 #include <QtGui/qaccessible_base.h>
-#include "private/qaccessiblewidgetfactory_p.h"
+#include <QtWidgets/private/qaccessiblewidgetfactory_p.h>
 #endif
-#include "private/qkeymapper_p.h"
-#include <qthread.h>
-#include <private/qthread_p.h>
+#include <QtGui/private/qkeymapper_p.h>
+#include <QtCore/qthread.h>
+#include <QtCore/private/qthread_p.h>
 #include <QtGui/private/qevent_p.h>
 #include <QtGui/private/qeventpoint_p.h>
-#include <private/qfont_p.h>
+#include <QtGui/private/qfont_p.h>
 #if QT_CONFIG(action)
-#include <private/qaction_p.h>
+#include <QtGui/private/qaction_p.h>
 #endif
 #include <stdlib.h>
-#include "qapplication_p.h"
-#include "qwidget_p.h"
-#include "qgesture.h"
-#include "private/qgesturemanager_p.h"
-#include <qpa/qplatformfontdatabase.h>
-#include "qdatetime.h"
-#include <qpa/qplatformwindow.h>
+#include <QtWidgets/private/qapplication_p.h>
+#include <QtWidgets/private/qwidget_p.h>
+#include <QtWidgets/qgesture.h>
+#include <QtWidgets/private/qgesturemanager_p.h>
+#include <QtGui/qpa/qplatformfontdatabase.h>
+#include <QtCore/qdatetime.h>
+#include <QtGui/qpa/qplatformwindow.h>
 #ifdef Q_OS_MACOS
 #include <QtCore/private/qcore_mac_p.h>
 #endif

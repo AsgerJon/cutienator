@@ -19,25 +19,26 @@
 #include <QtCore/qlist.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qrhinull_p.h"
-#include <qmath.h>
-#include <QPainter>
-#include "qrhi_p.h"
-#include <qmath.h>
-#include <QLoggingCategory>
-#include "private/qloggingregistry_p.h"
-#include "qrhinull_p.h"
+#include <QtGui/private/qrhinull_p.h>
+#include <QtCore/qmath.h>
+#include <QtGui/QPainter>
+#include <QtGui/private/qrhi_p.h>
+#include <QtCore/qmath.h>
+#include <QtCore/QLoggingCategory>
+#include <QtCore/private/qloggingregistry_p.h>
+#include <QtGui/private/qrhinull_p.h>
 #ifndef QT_NO_OPENGL
-#include "qrhigles2_p.h"
+#include <QtGui/private/qrhigles2_p.h>
 #endif
 #if QT_CONFIG(vulkan)
+#include <QtGui/private/qrhivulkan_p.h>
 #endif
 #ifdef Q_OS_WIN
-#include "qrhid3d11_p.h"
-#include "qrhid3d12_p.h"
+#include <QtGui/private/qrhid3d11_p.h>
+#include <QtGui/private/qrhid3d12_p.h>
 #endif
 #if QT_CONFIG(metal)
-#include "qrhimetal_p.h"
+#include <QtGui/private/qrhimetal_p.h>
 #endif
 #include <limits>
 #include <memory>

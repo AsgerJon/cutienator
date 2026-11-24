@@ -4,6 +4,7 @@
 #include <QtCore/qglobal.h>
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #if QT_CONFIG(future)
+#if QT_CONFIG(future)
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtCore/qfuturewatcher.h>
 #include <QtCore/QtCore>
@@ -12,8 +13,8 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qfuturewatcher.h"
-#include "qfuturewatcher_p.h"
+#include <QtCore/qfuturewatcher.h>
+#include <QtCore/private/qfuturewatcher_p.h>
 #include <QtCore/qcoreevent.h>
 #include <QtCore/qcoreapplication.h>
 #include <QtCore/qmetaobject.h>
@@ -194,4 +195,5 @@ void ritual_own_ZN25QFutureWatcherBasePrivate28callOutInterfaceDisconnectedEv(
   self->QFutureWatcherBasePrivate::callOutInterfaceDisconnected();
 }
 
+#endif  // QT_CONFIG(future)
 #endif  // QT_CONFIG(future)

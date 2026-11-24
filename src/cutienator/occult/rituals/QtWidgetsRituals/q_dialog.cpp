@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qdialog.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(dialog)
 #if QT_CONFIG(dialog)
 #include <QtWidgets/qdialog.h>
 #include <QtCore/qstring.h>
@@ -1304,4 +1306,5 @@ bool ritual_own_ZN7QDialog11eventFilterEP7QObjectP6QEvent(
   return static_cast<OwnQDialog *>(self)->OwnQDialog::eventFilter(a0, a1);
 }
 
+#endif  // QT_CONFIG(dialog)
 #endif  // QT_CONFIG(dialog)

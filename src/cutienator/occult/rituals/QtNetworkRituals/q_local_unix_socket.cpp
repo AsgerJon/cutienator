@@ -4,6 +4,7 @@
 #include <QtNetwork/qtnetworkglobal.h>
 #include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
 #if QT_CONFIG(localserver)
+#if QT_CONFIG(localserver)
 #if !defined(Q_OS_WIN) || defined(QT_LOCALSOCKET_TCP)
 #include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
 #include <QtNetwork/QtNetwork>
@@ -650,4 +651,5 @@ bool ritual_take_QLocalUnixSocket(
 }
 
 #endif  // !defined(Q_OS_WIN) || defined(QT_LOCALSOCKET_TCP)
+#endif  // QT_CONFIG(localserver)
 #endif  // QT_CONFIG(localserver)

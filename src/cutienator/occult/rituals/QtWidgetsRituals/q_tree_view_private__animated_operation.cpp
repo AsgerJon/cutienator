@@ -1,8 +1,10 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/6.12.0/QtWidgets/private/qtreeview_p.h, Qt 6.12.0. Changes made
 //  here are lost.
+#include <QtCore/qglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
+#if QT_CONFIG(treeview)
 #if QT_CONFIG(treeview)
 #if QT_CONFIG(animation)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
@@ -411,4 +413,5 @@ void ritual_own_ZN16QTreeViewPrivate17AnimatedOperation11updateStateEN18QAbstrac
 }
 
 #endif  // QT_CONFIG(animation)
+#endif  // QT_CONFIG(treeview)
 #endif  // QT_CONFIG(treeview)

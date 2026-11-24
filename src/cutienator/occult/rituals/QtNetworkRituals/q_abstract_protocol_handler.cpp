@@ -4,6 +4,7 @@
 #include <QtNetwork/qtnetworkglobal.h>
 #include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
 #if QT_CONFIG(http)
+#if QT_CONFIG(http)
 #include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
 #include <QtNetwork/QtNetwork>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -11,8 +12,8 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <private/qabstractprotocolhandler_p.h>
-#include <private/qhttpnetworkconnectionchannel_p.h>
+#include <QtNetwork/private/qabstractprotocolhandler_p.h>
+#include <QtNetwork/private/qhttpnetworkconnectionchannel_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -191,4 +192,5 @@ bool ritual_own_ZN24QAbstractProtocolHandler14tryRemoveReplyEP17QHttpNetworkRepl
   return self->QAbstractProtocolHandler::tryRemoveReply(reply);
 }
 
+#endif  // QT_CONFIG(http)
 #endif  // QT_CONFIG(http)

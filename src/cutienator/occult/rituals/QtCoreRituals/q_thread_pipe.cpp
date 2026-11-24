@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/6.12.0/QtCore/private/qeventdispatcher_unix_p.h, Qt 6.12.0.
 //  Changes made here are lost.
+#include <QtCore/qglobal.h>
+#include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
+#if defined(Q_OS_UNIX) && !defined(Q_OS_WASM)
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtCore/QtCore>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -8,14 +11,14 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include "qplatformdefs.h"
-#include "qcoreapplication.h"
-#include "qhash.h"
-#include "qsocketnotifier.h"
-#include "qthread.h"
-#include "qeventdispatcher_unix_p.h"
-#include <private/qthread_p.h>
-#include <private/qcoreapplication_p.h>
-#include <private/qcore_unix_p.h>
+#include <QtCore/qcoreapplication.h>
+#include <QtCore/qhash.h>
+#include <QtCore/qsocketnotifier.h>
+#include <QtCore/qthread.h>
+#include <QtCore/private/qeventdispatcher_unix_p.h>
+#include <QtCore/private/qthread_p.h>
+#include <QtCore/private/qcoreapplication_p.h>
+#include <QtCore/private/qcore_unix_p.h>
 #include <cstdio>
 #include <errno.h>
 #include <stdio.h>
@@ -27,10 +30,10 @@
 #if defined(Q_OS_VXWORKS)
 #  include <taskLib.h>
 #if QT_CONFIG(vxpipedrv)
-#  include "qbytearray.h"
-#  include "qdatetime.h"
-#  include "qdir.h" // to get application name
-#  include "qrandom.h"
+#  include <QtCore/qbytearray.h>
+#  include <QtCore/qdatetime.h>
+#  include <QtCore/qdir.h> // to get application name
+#  include <QtCore/qrandom.h>
 #  include <pipeDrv.h>
 #  include <selectLib.h>
 #  include <rtpLib.h>
@@ -76,3 +79,5 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN11QThreadPipe6wakeUpEv(QThreadPipe *self) {
   self->wakeUp();
 }
+
+#endif  // defined(Q_OS_UNIX) && !defined(Q_OS_WASM)

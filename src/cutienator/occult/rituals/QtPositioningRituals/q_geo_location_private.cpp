@@ -7,8 +7,8 @@
 #include <QtPositioning/6.12.0/QtPositioning/private/qgeolocation_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qgeolocation.h"
-#include "qgeolocation_p.h"
+#include <QtPositioning/qgeolocation.h>
+#include <QtPositioning/private/qgeolocation_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

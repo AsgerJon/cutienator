@@ -7,15 +7,15 @@
 #include <QtQuick/6.12.0/QtQuick/private/qquicktext_p_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquicktext_p.h"
-#include "qquicktext_p_p.h"
-#include <private/qqmldebugserviceinterfaces_p.h>
-#include <private/qqmldebugconnector_p.h>
+#include <QtQuick/private/qquicktext_p.h>
+#include <QtQuick/private/qquicktext_p_p.h>
+#include <QtQml/private/qqmldebugserviceinterfaces_p.h>
+#include <QtQml/private/qqmldebugconnector_p.h>
 #include <QtQuick/private/qsgcontext_p.h>
-#include <private/qqmlglobal_p.h>
-#include <private/qsgadaptationlayer_p.h>
-#include "qsginternaltextnode_p.h"
-#include "qquicktextutil_p.h"
+#include <QtQml/private/qqmlglobal_p.h>
+#include <QtQuick/private/qsgadaptationlayer_p.h>
+#include <QtQuick/private/qsginternaltextnode_p.h>
+#include <QtQuick/private/qquicktextutil_p.h>
 #include <QtQuick/private/qsgtexture_p.h>
 #include <QtQml/qqmlinfo.h>
 #include <QtGui/qevent.h>
@@ -26,10 +26,10 @@
 #include <QtGui/qtextcursor.h>
 #include <QtGui/qguiapplication.h>
 #include <QtGui/qinputmethod.h>
-#include <private/qtextengine_p.h>
-#include <private/qquickstyledtext_p.h>
+#include <QtGui/private/qtextengine_p.h>
+#include <QtQuick/private/qquickstyledtext_p.h>
 #include <QtQuick/private/qquickpixmap_p.h>
-#include <qmath.h>
+#include <QtCore/qmath.h>
 #include <limits.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

@@ -2,6 +2,7 @@
 //  QtCore/qresultstore.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qglobal.h>
 #if QT_CONFIG(future)
+#if QT_CONFIG(future)
 #include <QtCore/qresultstore.h>
 
 //  QtPrivate::ResultStoreBase::~ResultStoreBase()
@@ -19,4 +20,5 @@ int ritual_ZN9QtPrivate15ResultStoreBase17addCanceledResultEi(
   return self->addCanceledResult(index);
 }
 
+#endif  // QT_CONFIG(future)
 #endif  // QT_CONFIG(future)

@@ -11,8 +11,8 @@
 #include <QtPositioning/6.12.0/QtPositioning/private/qdoublevector2d_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qgeoprojection_p.h"
-#include <QSize>
+#include <QtLocation/private/qgeoprojection_p.h>
+#include <QtCore/QSize>
 #include <QtGui/QMatrix4x4>
 #include <QtPositioning/QGeoPolygon>
 #include <QtPositioning/QGeoRectangle>

@@ -1,6 +1,10 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtSvg/6.12.0/QtSvg/private/qsvgcsseasing_p.h, Qt 6.12.0. Changes made
 //  here are lost.
+#include <QtGui/qtguiglobal.h>
+#include <QtSvg/qtsvgglobal.h>
+#include <QtSvg/6.12.0/QtSvg/private/qtsvgglobal_p.h>
+#if QT_CONFIG(cssparser)
 #include <QtSvg/6.12.0/QtSvg/private/qtsvgglobal_p.h>
 #include <QtSvg/QtSvg>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -91,3 +95,5 @@ qreal ritual_own_ZNK18QSvgCssStepsEasing8progressEd(
     qreal t) {
   return self->QSvgCssStepsEasing::progress(t);
 }
+
+#endif  // QT_CONFIG(cssparser)

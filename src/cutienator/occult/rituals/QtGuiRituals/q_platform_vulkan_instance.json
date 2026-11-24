@@ -1,0 +1,50 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/qpa/qplatformvulkaninstance.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN23QPlatformVulkanInstanceD1Ev": ["nothing", "address"],
+    "ritual_ZNK23QPlatformVulkanInstance19supportedApiVersionEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QPlatformVulkanInstance21createOrAdoptInstanceEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK23QPlatformVulkanInstance7isValidEv": ["bool", "address"],
+    "ritual_ZNK23QPlatformVulkanInstance13enabledLayersEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK23QPlatformVulkanInstance17enabledExtensionsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QPlatformVulkanInstance22presentAboutToBeQueuedEP7QWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QPlatformVulkanInstance13presentQueuedEP7QWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QPlatformVulkanInstance10beginFrameEP7QWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QPlatformVulkanInstance8endFrameEP7QWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QPlatformVulkanInstance": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN23QPlatformVulkanInstance22presentAboutToBeQueuedEP7QWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN23QPlatformVulkanInstance13presentQueuedEP7QWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN23QPlatformVulkanInstance10beginFrameEP7QWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN23QPlatformVulkanInstance8endFrameEP7QWindow": [
+      "nothing", "address", "address"
+    ]
+  }
+}

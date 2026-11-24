@@ -12,15 +12,15 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qdbusabstractadaptor.h"
-#include "qdbusabstractadaptor_p.h"
+#include <QtDBus/qdbusabstractadaptor.h>
+#include <QtDBus/private/qdbusabstractadaptor_p.h>
 #include <QtCore/qcoreapplication.h>
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qset.h>
 #include <QtCore/qthread.h>
-#include "qdbusconnection.h"
-#include "qdbusconnection_p.h"  // for qDBusParametersForMethod
-#include "qdbusmetatype_p.h"
+#include <QtDBus/qdbusconnection.h>
+#include <QtDBus/private/qdbusconnection_p.h>  // for qDBusParametersForMethod
+#include <QtDBus/private/qdbusmetatype_p.h>
 #include <algorithm>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

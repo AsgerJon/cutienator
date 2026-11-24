@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qinputdialog.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(inputdialog)
 #if QT_CONFIG(inputdialog)
 #include <QtWidgets/qinputdialog.h>
 #include <QtCore/qstring.h>
@@ -1540,4 +1542,5 @@ void ritual_own_ZN12QInputDialog4doneEi(QInputDialog *self, int result) {
   self->QInputDialog::done(result);
 }
 
+#endif  // QT_CONFIG(inputdialog)
 #endif  // QT_CONFIG(inputdialog)

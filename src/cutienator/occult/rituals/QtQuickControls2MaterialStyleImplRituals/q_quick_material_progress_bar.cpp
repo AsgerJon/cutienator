@@ -10,7 +10,7 @@
 #include <QtQuick/QtQuick>
 #include <QtQuick/qquickitem.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquickmaterialprogressbar_p.h"
+#include <QtQuickControls2MaterialStyleImpl/private/qquickmaterialprogressbar_p.h>
 #include <QtCore/qmath.h>
 #include <QtCore/qeasingcurve.h>
 #include <QtQuick/private/qquickitem_p.h>

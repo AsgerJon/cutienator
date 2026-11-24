@@ -4,6 +4,7 @@
 #include <QtCore/qglobal.h>
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #if QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtCore/QtCore>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -80,4 +81,5 @@ void ritual_ZN9QtPrivate18QModelIndexWrapperD1Ev(
   delete self;
 }
 
+#endif  // QT_CONFIG(itemmodel)
 #endif  // QT_CONFIG(itemmodel)

@@ -4,6 +4,7 @@
 #include <QtQuick/qtquickglobal.h>
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #if QT_CONFIG(quick_shadereffect)
+#if QT_CONFIG(quick_shadereffect)
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #include <QtQuick/QtQuick>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -109,4 +110,5 @@ QString *ritual_own_ZNK14QQuickGridMesh3logEv(const QQuickGridMesh *self) {
   return new QString(self->QQuickGridMesh::log());
 }
 
+#endif  // QT_CONFIG(quick_shadereffect)
 #endif  // QT_CONFIG(quick_shadereffect)

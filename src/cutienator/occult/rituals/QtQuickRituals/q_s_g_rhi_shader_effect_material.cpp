@@ -8,18 +8,18 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qsgrhishadereffectnode_p.h"
-#include "qsgdefaultrendercontext_p.h"
-#include "qsgrhisupport_p.h"
-#include <qsgmaterialshader.h>
-#include <qsgtextureprovider.h>
-#include <private/qsgplaintexture_p.h>
-#include <rhi/qshaderdescription.h>
-#include <QQmlFile>
+#include <QtQuick/private/qsgrhishadereffectnode_p.h>
+#include <QtQuick/private/qsgdefaultrendercontext_p.h>
+#include <QtQuick/private/qsgrhisupport_p.h>
+#include <QtQuick/qsgmaterialshader.h>
+#include <QtQuick/qsgtextureprovider.h>
+#include <QtQuick/private/qsgplaintexture_p.h>
+#include <QtGui/rhi/qshaderdescription.h>
+#include <QtQml/QQmlFile>
 #include <QtGui/qquaternion.h>
-#include <QFile>
-#include <QFileSelector>
-#include <QMutexLocker>
+#include <QtCore/QFile>
+#include <QtCore/QFileSelector>
+#include <QtCore/QMutexLocker>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

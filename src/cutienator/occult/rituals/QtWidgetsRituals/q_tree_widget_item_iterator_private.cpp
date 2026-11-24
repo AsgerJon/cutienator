@@ -4,6 +4,7 @@
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #if QT_CONFIG(treewidget)
+#if QT_CONFIG(treewidget)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/qtreewidgetitemiterator.h>
 #include <QtWidgets/QtWidgets>
@@ -11,10 +12,10 @@
 #include <QtWidgets/6.12.0/QtWidgets/private/qtreewidgetitemiterator_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <private/qtreewidgetitemiterator_p.h>
-#include "qtreewidget.h"
-#include "qtreewidget_p.h"
-#include "qwidgetitemdata_p.h"
+#include <QtWidgets/private/qtreewidgetitemiterator_p.h>
+#include <QtWidgets/qtreewidget.h>
+#include <QtWidgets/private/qtreewidget_p.h>
+#include <QtWidgets/private/qwidgetitemdata_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -222,4 +223,5 @@ QTreeWidgetItem *ritual_ZN30QTreeWidgetItemIteratorPrivate8previousEPK15QTreeWid
   return self->previous(current);
 }
 
+#endif  // QT_CONFIG(treewidget)
 #endif  // QT_CONFIG(treewidget)

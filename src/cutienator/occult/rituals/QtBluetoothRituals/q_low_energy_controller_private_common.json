@@ -1,0 +1,37 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtBluet",
+    "ooth/6.12.0/QtBluetooth/private/qlowenergycontroller_dummy_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN33QLowEnergyControllerPrivateCommon4initEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN33QLowEnergyControllerPrivateCommon15connectToDeviceEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN33QLowEnergyControllerPrivateCommon20disconnectFromDeviceEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN33QLowEnergyControllerPrivateCommon16discoverServicesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN33QLowEnergyControllerPrivateCommon22discoverServiceDetailsERK14QBluetoothUuidN17QLowEnergyService13DiscoveryModeE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN33QLowEnergyControllerPrivateCommon16startAdvertisingERK31QLowEnergyAdvertisingParametersRK25QLowEnergyAdvertisingDataS5_": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN33QLowEnergyControllerPrivateCommon15stopAdvertisingEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN33QLowEnergyControllerPrivateCommon23requestConnectionUpdateERK30QLowEnergyConnectionParameters": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN33QLowEnergyControllerPrivateCommon25addToGenericAttributeListERK21QLowEnergyServiceDatat": [
+      "nothing", "address", "address", "unsigned short"
+    ],
+    "ritual_ZNK33QLowEnergyControllerPrivateCommon3mtuEv": ["int", "address"]
+  }
+}

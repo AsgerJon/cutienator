@@ -12,18 +12,4 @@ QVariant *ritual_ZNK24QSequentialConstIteratordeEv(
   return new QVariant(self->operator*());
 }
 
-//  QVariantConstPointer QSequentialConstIterator::operator->() const
-extern "C" Q_DECL_EXPORT
-QVariantConstPointer *ritual_ZNK24QSequentialConstIteratorptEv(
-    const QSequentialConstIterator *self) {
-  return new QVariantConstPointer(self->operator->());
-}
-
-//  QSequentialConstIterator::~QSequentialConstIterator()
-extern "C" Q_DECL_EXPORT
-void ritual_ZN24QSequentialConstIteratorD1Ev(
-    QSequentialConstIterator *self) {
-  delete self;
-}
-
 #endif  // QT_DEPRECATED_SINCE(6, 15)

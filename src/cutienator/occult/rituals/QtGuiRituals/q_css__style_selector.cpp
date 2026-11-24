@@ -3,6 +3,7 @@
 //  are lost.
 #include <QtGui/qtguiglobal.h>
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
+#if QT_CONFIG(cssparser)
 #if !defined(QT_NO_CSSPARSER)
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
 #include <QtGui/QtGui>
@@ -325,3 +326,4 @@ bool ritual_own_ZNK4QCss13StyleSelector14nodeNameEqualsENS0_7NodePtrERK7QString(
 }
 
 #endif  // !defined(QT_NO_CSSPARSER)
+#endif  // QT_CONFIG(cssparser)

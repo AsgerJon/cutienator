@@ -13,13 +13,13 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qsgsoftwarepixmaprenderer_p.h"
-#include "qsgsoftwarecontext_p.h"
+#include <QtQuick/private/qsgsoftwarepixmaprenderer_p.h>
+#include <QtQuick/private/qsgsoftwarecontext_p.h>
 #include <QtQuick/QSGSimpleRectNode>
-#include <QElapsedTimer>
-#include "qsgsoftwarelayer_p.h"
-#include "qsgsoftwarecontext_p.h"
-#include "qsgsoftwarepixmaprenderer_p.h"
+#include <QtCore/QElapsedTimer>
+#include <QtQuick/private/qsgsoftwarelayer_p.h>
+#include <QtQuick/private/qsgsoftwarecontext_p.h>
+#include <QtQuick/private/qsgsoftwarepixmaprenderer_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

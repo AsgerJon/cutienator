@@ -11,7 +11,7 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qlist.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qmediaplayer_p.h"
+#include <QtMultimedia/private/qmediaplayer_p.h>
 #include <QtMultimedia/qaudiooutput.h>
 #include <QtMultimedia/qvideosink.h>
 #include <QtMultimedia/private/qaudiobufferoutput_p.h>

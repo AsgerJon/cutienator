@@ -2,6 +2,7 @@
 //  QtCore/qcommandlineoption.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qglobal.h>
 #if QT_CONFIG(commandlineparser)
+#if QT_CONFIG(commandlineparser)
 #include <QtCore/qcommandlineoption.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qlist.h>
@@ -175,4 +176,5 @@ void ritual_list_drop_QCommandLineOption(QList<QCommandLineOption> *self) {
   delete self;
 }
 
+#endif  // QT_CONFIG(commandlineparser)
 #endif  // QT_CONFIG(commandlineparser)

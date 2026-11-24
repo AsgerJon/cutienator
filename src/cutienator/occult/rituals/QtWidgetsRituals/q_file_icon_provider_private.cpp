@@ -10,20 +10,20 @@
 #include <QtGui/qicon.h>
 #include <QtCore/qfileinfo.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qfileiconprovider.h"
-#include "qfileiconprovider_p.h"
-#include <qapplication.h>
-#include <qdir.h>
-#include <qpixmapcache.h>
-#include <private/qfunctions_p.h>
-#include <private/qguiapplication_p.h>
-#include <private/qicon_p.h>
-#include <private/qfilesystementry_p.h>
-#include <qpa/qplatformintegration.h>
-#include <qpa/qplatformservices.h>
-#include <qpa/qplatformtheme.h>
+#include <QtWidgets/qfileiconprovider.h>
+#include <QtWidgets/private/qfileiconprovider_p.h>
+#include <QtWidgets/qapplication.h>
+#include <QtCore/qdir.h>
+#include <QtGui/qpixmapcache.h>
+#include <QtCore/private/qfunctions_p.h>
+#include <QtGui/private/qguiapplication_p.h>
+#include <QtGui/private/qicon_p.h>
+#include <QtCore/private/qfilesystementry_p.h>
+#include <QtGui/qpa/qplatformintegration.h>
+#include <QtGui/qpa/qplatformservices.h>
+#include <QtGui/qpa/qplatformtheme.h>
 #if defined(Q_OS_WIN)
-#  include <qt_windows.h>
+#  include <QtCore/qt_windows.h>
 #  include <commctrl.h>
 #  include <objbase.h>
 #endif

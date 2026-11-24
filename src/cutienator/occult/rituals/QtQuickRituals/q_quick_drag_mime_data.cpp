@@ -4,6 +4,7 @@
 #include <QtQuick/qtquickglobal.h>
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #if QT_CONFIG(quick_draganddrop)
+#if QT_CONFIG(quick_draganddrop)
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #include <QtQuick/QtQuick>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -33,4 +34,5 @@ QObject *ritual_ZNK18QQuickDragMimeData6sourceEv(
   return self->source();
 }
 
+#endif  // QT_CONFIG(quick_draganddrop)
 #endif  // QT_CONFIG(quick_draganddrop)

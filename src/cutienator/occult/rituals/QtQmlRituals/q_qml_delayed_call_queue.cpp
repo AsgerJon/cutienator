@@ -9,14 +9,14 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qqmldelayedcallqueue_p.h"
-#include <private/qqmlengine_p.h>
-#include <private/qqmljavascriptexpression_p.h>
-#include <private/qv4value_p.h>
-#include <private/qv4jscall_p.h>
-#include <private/qv4qobjectwrapper_p.h>
-#include <private/qv4qmlcontext_p.h>
-#include <QQmlError>
+#include <QtQml/private/qqmldelayedcallqueue_p.h>
+#include <QtQml/private/qqmlengine_p.h>
+#include <QtQml/private/qqmljavascriptexpression_p.h>
+#include <QtQml/private/qv4value_p.h>
+#include <QtQml/private/qv4jscall_p.h>
+#include <QtQml/private/qv4qobjectwrapper_p.h>
+#include <QtQml/private/qv4qmlcontext_p.h>
+#include <QtQml/QQmlError>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

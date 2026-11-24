@@ -4,6 +4,7 @@
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #if QT_CONFIG(scrollbar)
+#if QT_CONFIG(scrollbar)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/qscrollbar.h>
 #include <QtWidgets/QtWidgets>
@@ -19,25 +20,25 @@
 #include <QtGui/qimage.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qapplication.h"
-#include "qcursor.h"
-#include "qevent.h"
-#include "qpainter.h"
-#include "qscrollbar.h"
-#include "qstyle.h"
-#include "qstyleoption.h"
-#include "qstylepainter.h"
+#include <QtWidgets/qapplication.h>
+#include <QtGui/qcursor.h>
+#include <QtGui/qevent.h>
+#include <QtGui/qpainter.h>
+#include <QtWidgets/qscrollbar.h>
+#include <QtWidgets/qstyle.h>
+#include <QtWidgets/qstyleoption.h>
+#include <QtWidgets/qstylepainter.h>
 #include <QtCore/qelapsedtimer.h>
 #include <QtCore/qpointer.h>
 #if QT_CONFIG(accessibility)
-#include "qaccessible.h"
+#include <QtGui/qaccessible.h>
 #endif
 #if QT_CONFIG(menu)
-#include "qmenu.h"
-#include "private/qmenu_p.h"
+#include <QtWidgets/qmenu.h>
+#include <QtWidgets/private/qmenu_p.h>
 #endif
 #include <limits.h>
-#include "qscrollbar_p.h"
+#include <QtWidgets/private/qscrollbar_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -592,4 +593,5 @@ bool ritual_take_QScrollBarPrivate(
   return static_cast<CuteQScrollBarPrivate *>(self)->take(key, call);
 }
 
+#endif  // QT_CONFIG(scrollbar)
 #endif  // QT_CONFIG(scrollbar)

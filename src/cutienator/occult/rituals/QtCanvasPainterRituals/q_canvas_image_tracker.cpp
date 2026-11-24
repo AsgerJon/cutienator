@@ -8,14 +8,14 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCanvasPainter/qcanvasimage.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qcanvaspainter.h"
-#include "qcanvaspainter_p.h"
-#include <rhi/qrhi.h>
-#include "qcanvasbrush.h"
-#include "qcanvascustombrush.h"
-#include "qcanvasimage_p.h"
-#include "qcanvasboxshadow.h"
-#include <QLoggingCategory>
+#include <QtCanvasPainter/qcanvaspainter.h>
+#include <QtCanvasPainter/private/qcanvaspainter_p.h>
+#include <QtGui/rhi/qrhi.h>
+#include <QtCanvasPainter/qcanvasbrush.h>
+#include <QtCanvasPainter/qcanvascustombrush.h>
+#include <QtCanvasPainter/private/qcanvasimage_p.h>
+#include <QtCanvasPainter/qcanvasboxshadow.h>
+#include <QtCore/QLoggingCategory>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

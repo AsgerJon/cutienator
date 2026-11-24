@@ -2,6 +2,7 @@
 //  QtCore/qxmlstream.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qglobal.h>
 #if QT_CONFIG(xmlstream)
+#if QT_CONFIG(xmlstream)
 #if QT_CONFIG(xmlstreamreader)
 #include <QtCore/qxmlstream.h>
 #include <QtCore/qanystringview.h>
@@ -460,4 +461,5 @@ const QXmlStreamReaderPrivate *ritual_ZNK16QXmlStreamReader6d_funcEv(
 }
 
 #endif  // QT_CONFIG(xmlstreamreader)
+#endif  // QT_CONFIG(xmlstream)
 #endif  // QT_CONFIG(xmlstream)

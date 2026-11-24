@@ -7,7 +7,7 @@
 #include <QtQuick3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssglightmapper_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qssglightmapper_p.h"
+#include <QtQuick3DRuntimeRender/private/qssglightmapper_p.h>
 #include <QtQuick3DRuntimeRender/private/qssgrenderer_p.h>
 #include <QtQuick3DRuntimeRender/private/qssgrhiquadrenderer_p.h>
 #include <QtQuick3DRuntimeRender/private/qssglayerrenderdata_p.h>
@@ -16,18 +16,18 @@
 #include <QtCore/qfuture.h>
 #include <QtCore/qfileinfo.h>
 #include <QtConcurrent/qtconcurrentrun.h>
-#include <QRandomGenerator>
-#include <qsimd.h>
+#include <QtCore/QRandomGenerator>
+#include <QtCore/qsimd.h>
 #include <embree3/rtcore.h>
 #include <QtQuick3DRuntimeRender/private/qssglightmapio_p.h>
-#include <QDir>
-#include <QBuffer>
-#include <QWaitCondition>
-#include <QMutex>
-#include <QTemporaryFile>
+#include <QtCore/QDir>
+#include <QtCore/QBuffer>
+#include <QtCore/QWaitCondition>
+#include <QtCore/QMutex>
+#include <QtCore/QTemporaryFile>
 #if QT_CONFIG(opengl)
-#include <QOffscreenSurface>
-#include <QOpenGLContext>
+#include <QtGui/QOffscreenSurface>
+#include <QtGui/QOpenGLContext>
 #endif
 #endif
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER

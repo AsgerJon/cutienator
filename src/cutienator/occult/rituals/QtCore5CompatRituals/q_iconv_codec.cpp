@@ -3,6 +3,7 @@
 //  Changes made here are lost.
 #include <QtCore5Compat/qcore5global.h>
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
+#if QT_CONFIG(iconv) && QT_CONFIG(textcodec) && !QT_CONFIG(icu)
 #if QT_CONFIG(iconv)
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtCore5Compat/QtCore5Compat>
@@ -13,10 +14,10 @@
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/private/qglobal_p.h>
-#include "qiconvcodec_p.h"
-#include "qtextcodec_p.h"
-#include <qdebug.h>
-#include <qthreadstorage.h>
+#include <QtCore5Compat/private/qiconvcodec_p.h>
+#include <QtCore5Compat/private/qtextcodec_p.h>
+#include <QtCore/qdebug.h>
+#include <QtCore/qthreadstorage.h>
 #include <errno.h>
 #include <locale.h>
 #include <stdio.h>
@@ -33,6 +34,12 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from ../qt5compat/src/core5/codecs/qiconvcodec.cpp, line 42, as _ZN11QIconvCodecC1Ev
+inline QIconvCodec::QIconvCodec()
+    : utf16Codec(0)
+{
+}
 
 //  from ../qt5compat/src/core5/codecs/qiconvcodec.cpp, line 59, as _ZN11QIconvCodecD1Ev
 inline QIconvCodec::~QIconvCodec()
@@ -134,6 +141,12 @@ public:
 #endif  // QT_CONFIG(textcodec)
 };
 
+//  QIconvCodec::QIconvCodec()
+extern "C" Q_DECL_EXPORT
+QIconvCodec *ritual_ZN11QIconvCodecC1Ev() {
+  return new CuteQIconvCodec();
+}
+
 //  QIconvCodec::~QIconvCodec()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QIconvCodecD1Ev(QIconvCodec *self) {
@@ -181,3 +194,4 @@ int ritual_own_ZNK11QIconvCodec7mibEnumEv(const QIconvCodec *self) {
 }
 
 #endif  // QT_CONFIG(iconv)
+#endif  // QT_CONFIG(iconv) && QT_CONFIG(textcodec) && !QT_CONFIG(icu)

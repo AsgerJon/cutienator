@@ -16,7 +16,7 @@
 #include <QtCore/qhash.h>
 #include <iterator>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquickweeknumbermodel_p.h"
+#include <QtQuickTemplates2/private/qquickweeknumbermodel_p.h>
 #include <QtCore/private/qabstractitemmodel_p.h>
 #include <QtCore/qdatetime.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER

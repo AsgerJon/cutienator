@@ -37,6 +37,29 @@
     "ritual_ZgtRK14QVersionNumberS1_": ["bool", "address", "address"],
     "ritual_ZleRK14QVersionNumberS1_": ["bool", "address", "address"],
     "ritual_ZgeRK14QVersionNumberS1_": ["bool", "address", "address"],
-    "ritual_ZN14QVersionNumberD1Ev": ["nothing", "address"]
+    "ritual_ZN14QVersionNumberD1Ev": ["nothing", "address"],
+    "ritual_list_make_QVersionNumber": ["address"],
+    "ritual_list_add_QVersionNumber": ["nothing", "address", "address"],
+    "ritual_list_size_QVersionNumber": ["long long", "address"],
+    "ritual_list_at_QVersionNumber": ["address", "address", "long long"],
+    "ritual_list_drop_QVersionNumber": ["nothing", "address"],
+    "ritual_map_make_QMap_QString_QVersionNumber": ["address"],
+    "ritual_map_put_QMap_QString_QVersionNumber": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_map_size_QMap_QString_QVersionNumber": ["long long", "address"],
+    "ritual_map_key_QMap_QString_QVersionNumber": [
+      "text", "address", "long long"
+    ],
+    "ritual_map_value_QMap_QString_QVersionNumber": [
+      "address", "address", "long long"
+    ],
+    "ritual_map_has_QMap_QString_QVersionNumber": [
+      "bool", "address", "text"
+    ],
+    "ritual_map_get_QMap_QString_QVersionNumber": [
+      "address", "address", "text"
+    ],
+    "ritual_map_drop_QMap_QString_QVersionNumber": ["nothing", "address"]
   }
 }

@@ -537,3 +537,64 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN11QJsonObject8removeAtEx(QJsonObject *self, qsizetype i) {
   self->removeAt(i);
 }
+
+//  QMap<QString, QJsonObject>: QMap<QString, QJsonObject>()
+extern "C" Q_DECL_EXPORT
+QMap<QString, QJsonObject> *ritual_map_make_QMap_QString_QJsonObject() {
+  return new QMap<QString, QJsonObject>();
+}
+
+//  QMap<QString, QJsonObject>: insert(const Key &key, const T &value)
+extern "C" Q_DECL_EXPORT
+void ritual_map_put_QMap_QString_QJsonObject(
+    QMap<QString, QJsonObject> *self,
+    const QString *key,
+    const QJsonObject *value) {
+  self->insert(*key, *value);
+}
+
+//  QMap<QString, QJsonObject>: size() const
+extern "C" Q_DECL_EXPORT
+long long ritual_map_size_QMap_QString_QJsonObject(
+    const QMap<QString, QJsonObject> *self) {
+  return self->size();
+}
+
+//  QMap<QString, QJsonObject>: the key at a place
+extern "C" Q_DECL_EXPORT
+QString *ritual_map_key_QMap_QString_QJsonObject(
+    const QMap<QString, QJsonObject> *self,
+    long long index) {
+  return new QString(*std::next(self->keyBegin(), index));
+}
+
+//  QMap<QString, QJsonObject>: the value at a place
+extern "C" Q_DECL_EXPORT
+QJsonObject *ritual_map_value_QMap_QString_QJsonObject(
+    const QMap<QString, QJsonObject> *self,
+    long long index) {
+  return new QJsonObject(*std::next(self->constBegin(), index));
+}
+
+//  QMap<QString, QJsonObject>: contains(const Key &key) const
+extern "C" Q_DECL_EXPORT
+bool ritual_map_has_QMap_QString_QJsonObject(
+    const QMap<QString, QJsonObject> *self,
+    const QString *key) {
+  return self->contains(*key);
+}
+
+//  QMap<QString, QJsonObject>: value(const Key &key) const
+extern "C" Q_DECL_EXPORT
+QJsonObject *ritual_map_get_QMap_QString_QJsonObject(
+    const QMap<QString, QJsonObject> *self,
+    const QString *key) {
+  return new QJsonObject(self->value(*key));
+}
+
+//  QMap<QString, QJsonObject>: ~QMap()
+extern "C" Q_DECL_EXPORT
+void ritual_map_drop_QMap_QString_QJsonObject(
+    QMap<QString, QJsonObject> *self) {
+  delete self;
+}

@@ -1,0 +1,20 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3D/6.12.0/QtQuick3D/private/qquick3dscenerenderer_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN23SGFramebufferObjectNodeD1Ev": ["nothing", "address"],
+    "ritual_ZN23SGFramebufferObjectNode14scheduleRenderEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK23SGFramebufferObjectNode7textureEv": ["address", "address"],
+    "ritual_ZN23SGFramebufferObjectNode18handleScreenChangeEv": [
+      "nothing", "address"
+    ],
+    "ritual_cast_SGFramebufferObjectNode_QSGSimpleTextureNode": [
+      "address", "address"
+    ]
+  }
+}

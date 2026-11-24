@@ -13,13 +13,13 @@
 #include <QtGui/qpainterpath.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <qtprintsupportglobal.h>
+#include <QtPrintSupport/qtprintsupportglobal.h>
 #ifndef QT_NO_PRINTER
-#include <qdebug.h>
-#include "private/qpaintengine_alpha_p.h"
-#include "private/qpainter_p.h"
-#include "private/qpicture_p.h"
-#include "private/qfont_p.h"
+#include <QtCore/qdebug.h>
+#include <QtPrintSupport/private/qpaintengine_alpha_p.h>
+#include <QtGui/private/qpainter_p.h>
+#include <QtGui/private/qpicture_p.h>
+#include <QtGui/private/qfont_p.h>
 #include "QtGui/qpicture.h"
 #endif
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER

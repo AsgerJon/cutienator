@@ -4,6 +4,7 @@
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #if QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
 #if QT_CONFIG(lineedit)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/QtWidgets>
@@ -12,29 +13,29 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <qplatformdefs.h>
-#include "qitemeditorfactory.h"
-#include "qitemeditorfactory_p.h"
+#include <QtWidgets/qitemeditorfactory.h>
+#include <QtWidgets/private/qitemeditorfactory_p.h>
 #if QT_CONFIG(combobox)
-#include <qcombobox.h>
+#include <QtWidgets/qcombobox.h>
 #endif
 #if QT_CONFIG(datetimeedit)
-#include <qdatetimeedit.h>
+#include <QtWidgets/qdatetimeedit.h>
 #endif
 #if QT_CONFIG(label)
-#include <qlabel.h>
+#include <QtWidgets/qlabel.h>
 #endif
 #if QT_CONFIG(lineedit)
-#include <qlineedit.h>
+#include <QtWidgets/qlineedit.h>
 #endif
 #if QT_CONFIG(spinbox)
-#include <qspinbox.h>
+#include <QtWidgets/qspinbox.h>
 #endif
-#include <qstyle.h>
-#include <qstyleoption.h>
+#include <QtWidgets/qstyle.h>
+#include <QtWidgets/qstyleoption.h>
 #include <limits.h>
 #include <float.h>
-#include <qapplication.h>
-#include <qdebug.h>
+#include <QtWidgets/qapplication.h>
+#include <QtCore/qdebug.h>
 #include <vector>
 #include <algorithm>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -163,4 +164,5 @@ void ritual_own_ZN18QExpandingLineEdit11changeEventEP6QEvent(
 #endif  // QT_CONFIG(lineedit)
 
 #endif  // QT_CONFIG(lineedit)
+#endif  // QT_CONFIG(itemviews)
 #endif  // QT_CONFIG(itemviews)

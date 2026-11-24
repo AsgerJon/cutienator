@@ -10,11 +10,11 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qabstractdataproxy_p.h"
-#include "qabstract3dseries_p.h"
-#include "qsurfacedataproxy_p.h"
-#include "qsurface3dseries_p.h"
-#include "qabstract3daxis_p.h"
+#include <QtDataVisualization/private/qabstractdataproxy_p.h>
+#include <QtDataVisualization/private/qabstract3dseries_p.h>
+#include <QtDataVisualization/private/qsurfacedataproxy_p.h>
+#include <QtDataVisualization/private/qsurface3dseries_p.h>
+#include <QtDataVisualization/private/qabstract3daxis_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

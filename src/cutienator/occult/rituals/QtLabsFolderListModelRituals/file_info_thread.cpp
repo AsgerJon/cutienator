@@ -14,7 +14,7 @@
 #include <QtCore/qlist.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "fileinfothread_p.h"
+#include <QtLabsFolderListModel/private/fileinfothread_p.h>
 #include <qdiriterator.h>
 #include <qpointer.h>
 #include <qtimer.h>

@@ -1,8 +1,10 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtPrintSupport/6.12.0/QtPrintSupport/private/qpagesetupdialog_p.h, Qt
 //  6.12.0. Changes made here are lost.
+#include <QtWidgets/qtwidgetsglobal.h>
 #include <QtPrintSupport/qtprintsupportglobal.h>
 #include <QtPrintSupport/6.12.0/QtPrintSupport/private/qtprintsupportglobal_p.h>
+#if QT_CONFIG(printdialog)
 #if QT_CONFIG(printdialog)
 #include <QtPrintSupport/6.12.0/QtPrintSupport/private/qtprintsupportglobal_p.h>
 #include <QtPrintSupport/qpagesetupdialog.h>
@@ -21,8 +23,8 @@
 #include <QtGui/qimage.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qpagesetupdialog.h"
-#include <private/qpagesetupdialog_p.h>
+#include <QtPrintSupport/qpagesetupdialog.h>
+#include <QtPrintSupport/private/qpagesetupdialog_p.h>
 #include <QtPrintSupport/qprinter.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
@@ -522,4 +524,5 @@ bool ritual_take_QPageSetupDialogPrivate(
   return static_cast<CuteQPageSetupDialogPrivate *>(self)->take(key, call);
 }
 
+#endif  // QT_CONFIG(printdialog)
 #endif  // QT_CONFIG(printdialog)

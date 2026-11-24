@@ -9,8 +9,8 @@
 #include <QtCore/qrect.h>
 #include <QtGui/qcolor.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qsgdefaultrectanglenode_p.h"
-#include "qsgflatcolormaterial.h"
+#include <QtQuick/private/qsgdefaultrectanglenode_p.h>
+#include <QtQuick/qsgflatcolormaterial.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

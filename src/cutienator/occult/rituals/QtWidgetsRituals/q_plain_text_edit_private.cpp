@@ -4,6 +4,7 @@
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #if QT_CONFIG(textedit)
+#if QT_CONFIG(textedit)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/qplaintextedit.h>
 #include <QtWidgets/QtWidgets>
@@ -19,58 +20,58 @@
 #include <QtGui/qimage.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qabstractscrollarea.h"
+#include <QtWidgets/qabstractscrollarea.h>
 #if QT_CONFIG(scrollarea)
-#include "qscrollbar.h"
-#include "qapplication.h"
-#include "qstyle.h"
-#include "qstyleoption.h"
-#include "qevent.h"
-#include "qdebug.h"
-#include "qboxlayout.h"
-#include "qpainter.h"
-#include "qmargins.h"
+#include <QtWidgets/qscrollbar.h>
+#include <QtWidgets/qapplication.h>
+#include <QtWidgets/qstyle.h>
+#include <QtWidgets/qstyleoption.h>
+#include <QtGui/qevent.h>
+#include <QtCore/qdebug.h>
+#include <QtWidgets/qboxlayout.h>
+#include <QtGui/qpainter.h>
+#include <QtCore/qmargins.h>
 #if QT_CONFIG(itemviews)
-#include "qheaderview.h"
+#include <QtWidgets/qheaderview.h>
 #endif
-#include <QDebug>
-#include "qabstractscrollarea_p.h"
-#include "qscrollbar_p.h"
-#include <qwidget.h>
-#include <private/qguiapplication_p.h>
-#include <qpa/qplatformtheme.h>
-#include <private/qapplication_p.h>
+#include <QtCore/QDebug>
+#include <QtWidgets/private/qabstractscrollarea_p.h>
+#include <QtWidgets/private/qscrollbar_p.h>
+#include <QtWidgets/qwidget.h>
+#include <QtGui/private/qguiapplication_p.h>
+#include <QtGui/qpa/qplatformtheme.h>
+#include <QtWidgets/private/qapplication_p.h>
 #ifdef Q_OS_WIN
-#  include <qt_windows.h>
+#  include <QtCore/qt_windows.h>
 #endif
 #endif
-#include "qplaintextedit_p.h"
-#include <qfont.h>
-#include <qpainter.h>
-#include <qevent.h>
-#include <qdebug.h>
+#include <QtWidgets/private/qplaintextedit_p.h>
+#include <QtGui/qfont.h>
+#include <QtGui/qpainter.h>
+#include <QtGui/qevent.h>
+#include <QtCore/qdebug.h>
 #if QT_CONFIG(draganddrop)
-#include <qdrag.h>
+#include <QtGui/qdrag.h>
 #endif
-#include <qclipboard.h>
-#include <qmath.h>
+#include <QtGui/qclipboard.h>
+#include <QtCore/qmath.h>
 #if QT_CONFIG(menu)
-#include <qmenu.h>
+#include <QtWidgets/qmenu.h>
 #endif
-#include <qstyle.h>
-#include "private/qapplication_p.h"
-#include "private/qtextdocumentlayout_p.h"
-#include "private/qabstracttextdocumentlayout_p.h"
-#include "qtextdocument.h"
-#include "private/qtextdocument_p.h"
-#include "qtextlist.h"
-#include "qaccessible.h"
-#include <qtextformat.h>
-#include <qdatetime.h>
-#include <qapplication.h>
+#include <QtWidgets/qstyle.h>
+#include <QtWidgets/private/qapplication_p.h>
+#include <QtGui/private/qtextdocumentlayout_p.h>
+#include <QtGui/private/qabstracttextdocumentlayout_p.h>
+#include <QtGui/qtextdocument.h>
+#include <QtGui/private/qtextdocument_p.h>
+#include <QtGui/qtextlist.h>
+#include <QtGui/qaccessible.h>
+#include <QtGui/qtextformat.h>
+#include <QtCore/qdatetime.h>
+#include <QtWidgets/qapplication.h>
 #include <limits.h>
-#include <qtexttable.h>
-#include <qvariant.h>
+#include <QtGui/qtexttable.h>
+#include <QtCore/qvariant.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -673,4 +674,5 @@ bool ritual_take_QPlainTextEditPrivate(
   return static_cast<CuteQPlainTextEditPrivate *>(self)->take(key, call);
 }
 
+#endif  // QT_CONFIG(textedit)
 #endif  // QT_CONFIG(textedit)

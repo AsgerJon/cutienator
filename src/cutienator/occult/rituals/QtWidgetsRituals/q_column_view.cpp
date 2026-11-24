@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qcolumnview.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(columnview)
 #if QT_CONFIG(columnview)
 #include <QtWidgets/qcolumnview.h>
 #include <QtCore/qstring.h>
@@ -2492,4 +2494,5 @@ QAbstractItemView *ritual_own_ZN11QColumnView12createColumnERK11QModelIndex(
       *rootIndex);
 }
 
+#endif  // QT_CONFIG(columnview)
 #endif  // QT_CONFIG(columnview)

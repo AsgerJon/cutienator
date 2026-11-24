@@ -4,6 +4,7 @@
 #include <QtNetwork/qtnetworkglobal.h>
 #include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
 #if QT_CONFIG(dnslookup)
+#if QT_CONFIG(dnslookup)
 #include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
 #include <QtNetwork/QtNetwork>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -17,4 +18,5 @@ void ritual_ZN31QDnsTlsAssociationRecordPrivateD1Ev(
   delete self;
 }
 
+#endif  // QT_CONFIG(dnslookup)
 #endif  // QT_CONFIG(dnslookup)

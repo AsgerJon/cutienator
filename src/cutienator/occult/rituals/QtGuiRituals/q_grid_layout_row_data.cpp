@@ -7,10 +7,10 @@
 #include <QtGui/6.12.0/QtGui/private/qgridlayoutengine_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qglobal.h"
-#include "qgridlayoutengine_p.h"
-#include "qvarlengtharray.h"
-#include <QtDebug>
+#include <QtCore/qglobal.h>
+#include <QtGui/private/qgridlayoutengine_p.h>
+#include <QtCore/qvarlengtharray.h>
+#include <QtCore/QtDebug>
 #include <QtCore/qmath.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

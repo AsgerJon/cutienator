@@ -4,6 +4,7 @@
 #include <QtCore/qglobal.h>
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #if QT_CONFIG(mimetype)
+#if QT_CONFIG(mimetype)
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtCore/QtCore>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -11,12 +12,12 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qmimeglobpattern_p.h"
+#include <QtCore/private/qmimeglobpattern_p.h>
 #if QT_CONFIG(regularexpression)
-#include <QRegularExpression>
+#include <QtCore/QRegularExpression>
 #endif
-#include <QStringList>
-#include <QDebug>
+#include <QtCore/QStringList>
+#include <QtCore/QDebug>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -82,4 +83,5 @@ void ritual_ZN20QMimeGlobMatchResultD1Ev(QMimeGlobMatchResult *self) {
   delete self;
 }
 
+#endif  // QT_CONFIG(mimetype)
 #endif  // QT_CONFIG(mimetype)

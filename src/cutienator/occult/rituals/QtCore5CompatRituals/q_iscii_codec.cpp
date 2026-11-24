@@ -3,6 +3,7 @@
 //  Changes made here are lost.
 #include <QtCore5Compat/qcore5global.h>
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
+#if QT_CONFIG(codecs) && QT_CONFIG(textcodec)
 #if QT_CONFIG(codecs)
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtCore5Compat/QtCore5Compat>
@@ -12,9 +13,9 @@
 #include <QtCore/qbytearray.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qisciicodec_p.h"
-#include "qtextcodec_p.h"
-#include "qlist.h"
+#include <QtCore5Compat/private/qisciicodec_p.h>
+#include <QtCore5Compat/private/qtextcodec_p.h>
+#include <QtCore/qlist.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -135,3 +136,4 @@ int ritual_own_ZNK11QIsciiCodec7mibEnumEv(const QIsciiCodec *self) {
 }
 
 #endif  // QT_CONFIG(codecs)
+#endif  // QT_CONFIG(codecs) && QT_CONFIG(textcodec)

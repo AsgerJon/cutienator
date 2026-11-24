@@ -12,7 +12,7 @@
 #include <QtQuick3D/qquick3dobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquick3dquadtextureprovider_p.h"
+#include <QtQuick3DHelpers/private/qquick3dquadtextureprovider_p.h>
 #include <QtQuick3DRuntimeRender/private/qssgshadermaterialadapter_p.h>
 #include <ssg/qssgrenderextensions.h>
 #include <ssg/qssgrenderhelpers.h>

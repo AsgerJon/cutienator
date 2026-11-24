@@ -1,0 +1,36 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qrhivulkan_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN12QVkSwapChainD1Ev": ["nothing", "address"],
+    "ritual_ZN12QVkSwapChain7destroyEv": ["nothing", "address"],
+    "ritual_ZN12QVkSwapChain25currentFrameCommandBufferEv": [
+      "address", "address"
+    ],
+    "ritual_ZN12QVkSwapChain24currentFrameRenderTargetEv": [
+      "address", "address"
+    ],
+    "ritual_ZN12QVkSwapChain24currentFrameRenderTargetEN13QRhiSwapChain18StereoTargetBufferE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN12QVkSwapChain16surfacePixelSizeEv": ["address", "address"],
+    "ritual_ZN12QVkSwapChain7hdrInfoEv": ["address", "address"],
+    "ritual_ZN12QVkSwapChain33newCompatibleRenderPassDescriptorEv": [
+      "address", "address"
+    ],
+    "ritual_take_QVkSwapChain": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN12QVkSwapChain25currentFrameCommandBufferEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN12QVkSwapChain24currentFrameRenderTargetEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN12QVkSwapChain24currentFrameRenderTargetEN13QRhiSwapChain18StereoTargetBufferE": [
+      "address", "address", "int"
+    ],
+    "ritual_own_ZN12QVkSwapChain7hdrInfoEv": ["address", "address"]
+  }
+}

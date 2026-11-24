@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/6.12.0/QtCore/private/qsettings_p.h, Qt 6.12.0. Changes made here
 //  are lost.
+#include <QtCore/qglobal.h>
+#include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
+#if QT_CONFIG(settings)
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtCore/QtCore>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -11,27 +14,27 @@
 #include <QtCore/qlist.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qsettings.h"
-#include "qsettings_p.h"
-#include "qcache.h"
-#include "qcoreapplication.h"
-#include "qdatastream.h"
-#include "qdir.h"
-#include "qfile.h"
-#include "qfileinfo.h"
-#include "qlibraryinfo.h"
-#include "private/qlocking_p.h"
-#include "qmutex.h"
-#include "qpoint.h"
-#include "qrect.h"
-#include "qsize.h"
-#include "qstandardpaths.h"
-#include "private/qstringconverter_p.h"
-#include "qtemporaryfile.h"
-#include "private/qtools_p.h"
+#include <QtCore/qsettings.h>
+#include <QtCore/private/qsettings_p.h>
+#include <QtCore/qcache.h>
+#include <QtCore/qcoreapplication.h>
+#include <QtCore/qdatastream.h>
+#include <QtCore/qdir.h>
+#include <QtCore/qfile.h>
+#include <QtCore/qfileinfo.h>
+#include <QtCore/qlibraryinfo.h>
+#include <QtCore/private/qlocking_p.h>
+#include <QtCore/qmutex.h>
+#include <QtCore/qpoint.h>
+#include <QtCore/qrect.h>
+#include <QtCore/qsize.h>
+#include <QtCore/qstandardpaths.h>
+#include <QtCore/private/qstringconverter_p.h>
+#include <QtCore/qtemporaryfile.h>
+#include <QtCore/private/qtools_p.h>
 #ifndef QT_BOOTSTRAPPED
-#include "qsavefile.h"
-#include "qlockfile.h"
+#include <QtCore/qsavefile.h>
+#include <QtCore/qlockfile.h>
 #endif
 #ifdef Q_OS_VXWORKS
 #  include <ioLib.h>
@@ -39,7 +42,7 @@
 #include <algorithm>
 #include <stdlib.h>
 #ifdef Q_OS_WIN
-#  include <qt_windows.h>
+#  include <QtCore/qt_windows.h>
 #  include <shlobj.h>
 #endif
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -81,6 +84,7 @@ inline QSettingsPrivate::~QSettingsPrivate()
 }
 
 //  from src/corelib/io/qsettings.cpp, line 906, as _ZN24QConfFileSettingsPrivate10initAccessEv
+#if defined(Q_OS_LINUX)
 inline void QConfFileSettingsPrivate::initAccess()
 {
     if (!confFiles.isEmpty()) {
@@ -96,6 +100,7 @@ inline void QConfFileSettingsPrivate::initAccess()
 
     sync();       // loads the files the first time
 }
+#endif  // defined(Q_OS_LINUX)
 
 //  from src/corelib/io/qsettings.cpp, line 1694, as _ZN24QConfFileSettingsPrivate14readIniSectionERK12QSettingsKey14QByteArrayViewP4QMapIS0_8QVariantE
 inline bool QConfFileSettingsPrivate::readIniSection(const QSettingsKey &section, QByteArrayView data,
@@ -411,6 +416,7 @@ inline void QConfFileSettingsPrivate::flush()
 }
 
 //  from src/corelib/io/qsettings.cpp, line 1314, as _ZNK24QConfFileSettingsPrivate10isWritableEv
+#if defined(Q_OS_LINUX)
 inline bool QConfFileSettingsPrivate::isWritable() const
 {
 #if defined(Q_OS_WASM)
@@ -425,6 +431,7 @@ inline bool QConfFileSettingsPrivate::isWritable() const
 
     return confFiles.at(0)->isWritable();
 }
+#endif  // defined(Q_OS_LINUX)
 
 //  from src/corelib/io/qsettings.cpp, line 1305, as _ZNK24QConfFileSettingsPrivate8fileNameEv
 inline QString QConfFileSettingsPrivate::fileName() const
@@ -687,12 +694,14 @@ void ritual_own_ZN24QConfFileSettingsPrivate5flushEv(
   self->QConfFileSettingsPrivate::flush();
 }
 
+#if defined(Q_OS_LINUX)
 //  bool QConfFileSettingsPrivate::isWritable() const
 extern "C" Q_DECL_EXPORT
 bool ritual_own_ZNK24QConfFileSettingsPrivate10isWritableEv(
     const QConfFileSettingsPrivate *self) {
   return self->QConfFileSettingsPrivate::isWritable();
 }
+#endif  // defined(Q_OS_LINUX)
 
 //  QString QConfFileSettingsPrivate::fileName() const
 extern "C" Q_DECL_EXPORT
@@ -701,9 +710,13 @@ QString *ritual_own_ZNK24QConfFileSettingsPrivate8fileNameEv(
   return new QString(self->QConfFileSettingsPrivate::fileName());
 }
 
+#if defined(Q_OS_LINUX)
 //  void QConfFileSettingsPrivate::initAccess()
 extern "C" Q_DECL_EXPORT
 void ritual_own_ZN24QConfFileSettingsPrivate10initAccessEv(
     QConfFileSettingsPrivate *self) {
   self->QConfFileSettingsPrivate::initAccess();
 }
+#endif  // defined(Q_OS_LINUX)
+
+#endif  // QT_CONFIG(settings)

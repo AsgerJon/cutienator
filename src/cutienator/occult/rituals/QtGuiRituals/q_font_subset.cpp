@@ -7,11 +7,11 @@
 #include <QtGui/6.12.0/QtGui/private/qfontsubset_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qfontsubset_p.h"
-#include <qdebug.h>
-#include <qendian.h>
-#include <qpainterpath.h>
-#include "private/qpdf_p.h"
+#include <QtGui/private/qfontsubset_p.h>
+#include <QtCore/qdebug.h>
+#include <QtCore/qendian.h>
+#include <QtGui/qpainterpath.h>
+#include <QtGui/private/qpdf_p.h>
 #include <algorithm>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

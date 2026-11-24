@@ -7,9 +7,9 @@
 #include <QtQml/6.12.0/QtQml/private/qqmlpropertycachecreator_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qqmlpropertycachecreator_p.h"
-#include <private/qqmlengine_p.h>
-#include <private/qqmlpropertyresolver_p.h>
+#include <QtQml/private/qqmlpropertycachecreator_p.h>
+#include <QtQml/private/qqmlengine_p.h>
+#include <QtQml/private/qqmlpropertyresolver_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

@@ -11,7 +11,9 @@ from typing import TYPE_CHECKING
 
 from worktoy.waitaminute import MissingVariable, TypeException
 
-from . import HeaderFolder, HeaderReader, RitualGenerator
+from cutienator.occult import System
+
+from . import HeaderFolder, HeaderReader, Machine, RitualGenerator
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Any, Dict, List, Optional, Sequence, Set, Tuple
@@ -38,9 +40,9 @@ class RitualTester:
 
   - A fault is one thing found wrong, said in a sentence.
   - The target file is the shared object the ritual file is compiled
-    into, beside the ritual file, as 'libq_object.so'.
-  - The offer file is one line beside the ritual file, written by
-    'test', telling 'clang++' that the target file may offer rituals to
+    into, beside the ritual file, as 'libq_object.so' on Linux. It is
+    built as 'Rituals.build' builds a part, with what cutienator's
+    'System' tells 'clang++' on the system: so it offers rituals to
     others and nothing else.
 
   You provide
@@ -126,11 +128,6 @@ class RitualTester:
       'CXXConversionDecl', 'FunctionTemplateDecl',
   )
 
-  #  What the offer file says, in the words of the program that puts the
-  #  target file together: offer the names beginning with 'ritual' to
-  #  others, and keep every other name inside.
-  __offer_text__ = '{ global: ritual*; local: *; };\n'
-
   #  Fallback Variables
 
   #  The folder of the installed Qt every ritual file is compiled
@@ -138,9 +135,6 @@ class RitualTester:
   #  whether it holds. Kept for every 'RitualTester'.
   __installed_folder__ = None  # type: Optional[str]
   __held_conditions__ = dict()  # type: Dict[str, bool]
-  #  What Qt keeps of the system and the compiler it is built for, in
-  #  the folder 'mkspecs' of an installed Qt. The tests run on Linux.
-  __spec_name__ = 'linux-g++'
 
   #  Private Variables
   __ritual_generator__ = None  # type: Optional[RitualGenerator]
@@ -208,15 +202,19 @@ class RitualTester:
   def getIncludeFolders(self) -> Tuple[str, ...]:
     """
     Gives the folders the compiler looks in for header files, all in
-    the installed Qt: its 'include'; for each part, the four folders a
-    header file Qt calls private pulls others in from, as
-    'include/QtCore', 'include/QtCore/6.12.0', its 'QtCore' and the
-    'private' in that; and 'mkspecs/linux-g++', where Qt keeps
-    'qplatformdefs.h'.
+    the installed Qt: its 'include'; for each part, its folder there,
+    as 'include/QtCore', and the folders its headers Qt calls private
+    pull others in from, where cutienator's 'System' says the system
+    keeps them: on Linux 'include/QtCore/6.12.0', its 'QtCore' and the
+    'private' in that, on macOS the same inside 'QtCore.framework'; and
+    the folder 'mkspecs' of the system, where Qt keeps
+    'qplatformdefs.h', as 'mkspecs/linux-g++'.
     """
     folder = self.getInstalledFolder()
     include = os.path.join(folder, 'include')
+    library = os.path.join(folder, 'lib')
     version = HeaderReader.getQtVersion()
+    system = System.getHere()
     found = [include]
     #  The parts in the order of the alphabet, as the generator reads
     #  them; for a part of 'HeaderReader.getOwnOrderParts' first the
@@ -229,18 +227,28 @@ class RitualTester:
     order = ()  # type: Sequence[str]
     if generator.getPartName() in HeaderReader.getOwnOrderParts():
       order = HeaderReader.getNeededParts(generator.getPartName())
-    names = sorted(os.listdir(include))
-    names = [
+    names = set()  # type: Set[str]
+    if os.path.isdir(include):
+      names.update(os.listdir(include))
+    if os.path.isdir(library):
+      #  On macOS each part of Qt is a framework, with its headers.
+      names.update(
+          name[:-len('.framework')] for name in os.listdir(library)
+          if name.endswith('.framework'))
+    ordered = [
         *(name for name in order if name in names),
-        *(name for name in names if name not in order)]
-    for name in names:
-      versioned = os.path.join(include, name, version)
-      if os.path.isdir(os.path.join(versioned, name)):
-        found.append(os.path.join(include, name))
-        found.append(versioned)
-        found.append(os.path.join(versioned, name))
-        found.append(os.path.join(versioned, name, 'private'))
-    found.append(os.path.join(folder, 'mkspecs', self.__spec_name__))
+        *(name for name in sorted(names) if name not in order)]
+    for name in ordered:
+      #  The folder of each part, as a build of a module that uses it
+      #  has, so that '#include "qqmlintegration.h"' finds that of
+      #  QtQmlIntegration, a part with no private headers.
+      candidates = [os.path.join(include, name)]
+      candidates.extend(
+          system.getPrivateFolders(include, library, version, name))
+      for candidate in candidates:
+        if os.path.isdir(candidate) and candidate not in found:
+          found.append(candidate)
+    found.append(os.path.join(folder, 'mkspecs', Machine.getSpecName()))
     return (*found,)
 
   def _findHeld(self, conditions: Set[str]) -> Dict[str, bool]:
@@ -332,29 +340,15 @@ class RitualTester:
 
   def getTargetFile(self) -> str:
     """
-    Gives the full path of the target file: 'lib', the name of the
-    ritual file without its ending, and '.so', beside the ritual file.
+    Gives the full path of the target file: the shared object of the
+    name 'Machine.getLibraryName' gives, beside the ritual file, as
+    'libq_object.so' on Linux.
 
     Found for you. Having the path does not mean the file is there;
     'test' makes it.
     """
     generator = self.getRitualGenerator()
-    name = 'lib%s.so' % generator.getFileStem()
-    return os.path.join(generator.getWorkFolder(), name)
-
-  def getOfferFile(self) -> str:
-    """
-    Gives the full path of the offer file: the name of the ritual file
-    without its ending, and '.offers', beside the ritual file.
-
-    Found for you. The offer file is one line telling 'clang++' which names
-    the target file may offer to others: those beginning with 'ritual',
-    and no other. Code of Qt's own that the compiler copies into the
-    target file while compiling a ritual then stays inside it, unseen.
-    Having the path does not mean the file is there; 'test' writes it.
-    """
-    generator = self.getRitualGenerator()
-    name = '%s.offers' % generator.getFileStem()
+    name = Machine.getLibraryName(generator.getFileStem())
     return os.path.join(generator.getWorkFolder(), name)
 
   def getCommand(self) -> Tuple[str, ...]:
@@ -367,7 +361,9 @@ class RitualTester:
     give a class other functions for another compiler or another
     standard, as Qt's 'qfloat16.h' does, and a ritual written from what
     one of them read would then not compile with the other. Header
-    files and shared objects are those of the installed Qt.
+    files and shared objects are those of the installed Qt, and what
+    the system adds is what cutienator's 'System' tells 'Build' there,
+    so the target file is built as 'Rituals.build' builds a part.
 
     Returns
     -------
@@ -376,22 +372,17 @@ class RitualTester:
       One argument per entry: 'clang++', then
       '-std=c++17', the standard the headers were read by;
       '-shared', to make a shared object and not a program;
-      '-fPIC', so the code can sit at any address;
       '-O2', so the compiler tidies the result;
       '-fno-access-control', so the compiler lets a ritual call a
       function C++ marks 'private' or 'protected';
-      '-fvisibility-inlines-hidden', so Qt's inline code leaves no
-      names of its own in the target file;
-      '-Wl,--version-script=' with the path of the offer file, so the
-      target file offers nothing but rituals;
-      '-Wl,--no-undefined', so a ritual calling a function that no Qt
-      shared object offers stops the build, and not the first program
-      that opens the target file;
+      what 'System.getCompilerFlags' and 'System.getLinkerFlags' give,
+      as on Linux '-fPIC', the two '-fvisibility' flags, so the target
+      file offers nothing but rituals, and '-Wl,--no-undefined', so a
+      ritual calling a function that no Qt shared object offers stops
+      the build;
       '-I' with each folder of 'getIncludeFolders';
       the path of the ritual file;
       '-o' with the path of the target file;
-      '-Wl,-rpath,' with the folder of the installed Qt's shared
-      objects, so the target file finds them there;
       the installed Qt's shared object of each part of the tree, in
       the order the part of the class sees them, its own first: a name
       two parts offer, as a function of QtGraphs' 'QBarSeries' and of
@@ -401,18 +392,17 @@ class RitualTester:
     tree = generator.getDependencyTree()
     partNames = tree.getPartOrder(generator.getPartName())
     library = os.path.join(self.getInstalledFolder(), 'lib')
+    system = System.getHere()
     return (
-        'clang++', '-std=c++17', '-shared', '-fPIC', '-O2',
-        '-fno-access-control', '-fvisibility-inlines-hidden',
-        '-Wl,--version-script=%s' % self.getOfferFile(),
-        '-Wl,--no-undefined',
+        'clang++', '-std=c++17', '-shared', '-O2', '-fno-access-control',
+        *system.getCompilerFlags(library),
+        *system.getLinkerFlags(library),
         *('-I%s' % folder for folder in self.getIncludeFolders()),
         generator.getRitualFile(),
         '-o', self.getTargetFile(),
-        '-Wl,-rpath,%s' % library,
         *(path for path in (
-            os.path.join(library, 'lib%s.so.6' % partName.replace(
-                'Qt', 'Qt6', 1)) for partName in partNames)
+            os.path.join(library, system.getQtFileName(partName))
+            for partName in partNames)
           #  A part that is header files alone, as QtQmlIntegration,
           #  has no shared object.
           if os.path.isfile(path)),
@@ -495,8 +485,6 @@ class RitualTester:
       if twice:
         info = '%s Answered more than once: %s.' % (info, '; '.join(twice))
       faults.append(' '.join(info.split()))
-    with open(self.getOfferFile(), 'w') as file:
-      file.write(self.__offer_text__)
     returnCode, _, complained = self._run(*self.getCommand())
     self.__compiler_said__ = complained.strip()
     if returnCode:
@@ -702,18 +690,7 @@ class RitualTester:
     RuntimeError
       'nm' could not read the target file; its message is included.
     """
-    targetFile = self.getTargetFile()
-    command = ('nm', '-D', '--defined-only', targetFile)
-    returnCode, printed, complained = self._run(*command)
-    if returnCode:
-      infoSpec = """The program 'nm' could not read '%s': %s"""
-      raise RuntimeError(infoSpec % (targetFile, complained.strip()))
-    offered = set()  # type: Set[str]
-    for line in printed.splitlines():
-      words = line.split()
-      if len(words) >= 3 and words[-2] in ('T', 't', 'W', 'w'):
-        offered.add(words[-1].partition('@')[0])
-    return offered
+    return Machine.listOffered(self.getTargetFile())
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  OPTIONAL METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #

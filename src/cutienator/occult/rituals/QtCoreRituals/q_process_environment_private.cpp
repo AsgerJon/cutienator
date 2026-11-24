@@ -4,6 +4,7 @@
 #include <QtCore/qglobal.h>
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #if QT_CONFIG(processenvironment)
+#if QT_CONFIG(processenvironment)
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtCore/QtCore>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -14,14 +15,14 @@
 #include <QtCore/qprocess.h>
 #include <QtCore/qlist.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <qdebug.h>
-#include <qdir.h>
-#include <qscopedvaluerollback.h>
-#include "qprocess.h"
-#include "qprocess_p.h"
-#include <qbytearray.h>
-#include <qdeadlinetimer.h>
-#include <qcoreapplication.h>
+#include <QtCore/qdebug.h>
+#include <QtCore/qdir.h>
+#include <QtCore/qscopedvaluerollback.h>
+#include <QtCore/qprocess.h>
+#include <QtCore/private/qprocess_p.h>
+#include <QtCore/qbytearray.h>
+#include <QtCore/qdeadlinetimer.h>
+#include <QtCore/qcoreapplication.h>
 #if __has_include(<paths.h>)
 #include <paths.h>
 #endif
@@ -76,6 +77,7 @@ inline QStringList QProcessEnvironmentPrivate::keys() const
 }
 
 //  from src/corelib/io/qprocess.cpp, line 107, as _ZN26QProcessEnvironmentPrivate6insertERKS_
+#if defined(Q_OS_LINUX)
 inline void QProcessEnvironmentPrivate::insert(const QProcessEnvironmentPrivate &other)
 {
     auto it = other.vars.constBegin();
@@ -90,6 +92,7 @@ inline void QProcessEnvironmentPrivate::insert(const QProcessEnvironmentPrivate 
         nameMap.insert(nit.key(), nit.value());
 #endif
 }
+#endif  // defined(Q_OS_LINUX)
 //  -----------------------------------------------------------------------
 
 #if !(defined(Q_OS_WIN))
@@ -176,6 +179,7 @@ QList<QString> *ritual_ZNK26QProcessEnvironmentPrivate4keysEv(
   return new QList<QString>(self->keys());
 }
 
+#if defined(Q_OS_LINUX)
 //  void QProcessEnvironmentPrivate::insert(const QProcessEnvironmentPrivate
 //      &other)
 extern "C" Q_DECL_EXPORT
@@ -184,6 +188,7 @@ void ritual_ZN26QProcessEnvironmentPrivate6insertERKS_(
     const QProcessEnvironmentPrivate *other) {
   self->insert(*other);
 }
+#endif  // defined(Q_OS_LINUX)
 
 //  QProcessEnvironmentPrivate::~QProcessEnvironmentPrivate()
 extern "C" Q_DECL_EXPORT
@@ -192,4 +197,5 @@ void ritual_ZN26QProcessEnvironmentPrivateD1Ev(
   delete self;
 }
 
+#endif  // QT_CONFIG(processenvironment)
 #endif  // QT_CONFIG(processenvironment)

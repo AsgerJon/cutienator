@@ -9,11 +9,11 @@
 #include <QtCore/qrect.h>
 #include <QtGui/qcolor.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qsgsoftwarepublicnodes_p.h"
-#include "qsgsoftwarelayer_p.h"
-#include "qsgsoftwarepixmaptexture_p.h"
-#include "qsgsoftwareinternalimagenode_p.h"
-#include <private/qsgplaintexture_p.h>
+#include <QtQuick/private/qsgsoftwarepublicnodes_p.h>
+#include <QtQuick/private/qsgsoftwarelayer_p.h>
+#include <QtQuick/private/qsgsoftwarepixmaptexture_p.h>
+#include <QtQuick/private/qsgsoftwareinternalimagenode_p.h>
+#include <QtQuick/private/qsgplaintexture_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

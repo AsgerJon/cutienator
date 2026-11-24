@@ -11,11 +11,11 @@
 #include <QtCanvasPainter/qcanvasbrush.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qcanvascustombrush.h"
-#include "qcanvascustombrush_p.h"
-#include <QFile>
-#include <QDebug>
-#include <QDataStream>
+#include <QtCanvasPainter/qcanvascustombrush.h>
+#include <QtCanvasPainter/private/qcanvascustombrush_p.h>
+#include <QtCore/QFile>
+#include <QtCore/QDebug>
+#include <QtCore/QDataStream>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

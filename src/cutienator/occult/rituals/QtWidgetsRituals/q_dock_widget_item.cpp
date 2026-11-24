@@ -4,6 +4,7 @@
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #if QT_CONFIG(dockwidget)
+#if QT_CONFIG(dockwidget)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/QtWidgets>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -11,27 +12,27 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qsize.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qdockwidget.h"
-#include <qaction.h>
-#include <qapplication.h>
+#include <QtWidgets/qdockwidget.h>
+#include <QtWidgets/qaction.h>
+#include <QtWidgets/qapplication.h>
 #if QT_CONFIG(accessibility)
-#include <qaccessible.h>
+#include <QtGui/qaccessible.h>
 #endif
-#include <qdrawutil.h>
-#include <qevent.h>
-#include <qfontmetrics.h>
-#include <qproxystyle.h>
-#include <qwindow.h>
-#include <qscreen.h>
-#include <qmainwindow.h>
-#include <qstylepainter.h>
-#include <qtoolbutton.h>
-#include <qdebug.h>
-#include <private/qwidgetresizehandler_p.h>
-#include <qpa/qplatformtheme.h>
-#include <private/qhighdpiscaling_p.h>
-#include "qdockwidget_p.h"
-#include "qmainwindowlayout_p.h"
+#include <QtWidgets/qdrawutil.h>
+#include <QtGui/qevent.h>
+#include <QtGui/qfontmetrics.h>
+#include <QtWidgets/qproxystyle.h>
+#include <QtGui/qwindow.h>
+#include <QtGui/qscreen.h>
+#include <QtWidgets/qmainwindow.h>
+#include <QtWidgets/qstylepainter.h>
+#include <QtWidgets/qtoolbutton.h>
+#include <QtCore/qdebug.h>
+#include <QtWidgets/private/qwidgetresizehandler_p.h>
+#include <QtGui/qpa/qplatformtheme.h>
+#include <QtGui/private/qhighdpiscaling_p.h>
+#include <QtWidgets/private/qdockwidget_p.h>
+#include <QtWidgets/private/qmainwindowlayout_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -139,4 +140,5 @@ QSize *ritual_own_ZNK15QDockWidgetItem8sizeHintEv(
   return new QSize(self->QDockWidgetItem::sizeHint());
 }
 
+#endif  // QT_CONFIG(dockwidget)
 #endif  // QT_CONFIG(dockwidget)

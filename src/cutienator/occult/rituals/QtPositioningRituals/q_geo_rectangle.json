@@ -64,6 +64,11 @@
     "ritual_ZN13QGeoRectangleoRERKS_": ["nothing", "address", "address"],
     "ritual_ZNK13QGeoRectangle8toStringEv": ["text", "address"],
     "ritual_ZN13QGeoRectangle6d_funcEv": ["address", "address"],
-    "ritual_ZNK13QGeoRectangle6d_funcEv": ["address", "address"]
+    "ritual_ZNK13QGeoRectangle6d_funcEv": ["address", "address"],
+    "ritual_list_make_QGeoRectangle": ["address"],
+    "ritual_list_add_QGeoRectangle": ["nothing", "address", "address"],
+    "ritual_list_size_QGeoRectangle": ["long long", "address"],
+    "ritual_list_at_QGeoRectangle": ["address", "address", "long long"],
+    "ritual_list_drop_QGeoRectangle": ["nothing", "address"]
   }
 }

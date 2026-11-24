@@ -1,6 +1,10 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtQuick/6.12.0/QtQuick/private/qsgthreadedrenderloop_p.h, Qt 6.12.0.
 //  Changes made here are lost.
+#include <QtCore/qglobal.h>
+#include <QtQuick/qtquickglobal.h>
+#include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
+#if QT_CONFIG(thread)
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #include <QtQuick/QtQuick>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -18,20 +22,20 @@
 #include <QtGui/QGuiApplication>
 #include <QtGui/QScreen>
 #include <QtGui/QOffscreenSurface>
-#include <qpa/qwindowsysteminterface.h>
+#include <QtGui/qpa/qwindowsysteminterface.h>
 #include <QtQuick/QQuickWindow>
-#include <private/qquickwindow_p.h>
-#include <private/qquickitem_p.h>
+#include <QtQuick/private/qquickwindow_p.h>
+#include <QtQuick/private/qquickitem_p.h>
 #include <QtGui/qpa/qplatformwindow_p.h>
 #include <QtQuick/private/qsgrenderer_p.h>
-#include "qsgthreadedrenderloop_p.h"
-#include "qsgrhisupport_p.h"
-#include <private/qquickanimatorcontroller_p.h>
-#include <private/qquickprofiler_p.h>
-#include <private/qqmldebugserviceinterfaces_p.h>
-#include <private/qqmldebugconnector_p.h>
-#include <private/qsgrhishadereffectnode_p.h>
-#include <private/qsgdefaultrendercontext_p.h>
+#include <QtQuick/private/qsgthreadedrenderloop_p.h>
+#include <QtQuick/private/qsgrhisupport_p.h>
+#include <QtQuick/private/qquickanimatorcontroller_p.h>
+#include <QtQuick/private/qquickprofiler_p.h>
+#include <QtQml/private/qqmldebugserviceinterfaces_p.h>
+#include <QtQml/private/qqmldebugconnector_p.h>
+#include <QtQuick/private/qsgrhishadereffectnode_p.h>
+#include <QtQuick/private/qsgdefaultrendercontext_p.h>
 #ifdef Q_OS_DARWIN
 #include <QtCore/private/qcore_mac_p.h>
 #endif
@@ -838,3 +842,5 @@ bool ritual_own_ZNK21QSGThreadedRenderLoop20interleaveIncubationEv(
     const QSGThreadedRenderLoop *self) {
   return self->QSGThreadedRenderLoop::interleaveIncubation();
 }
+
+#endif  // QT_CONFIG(thread)

@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtNetwork/6.12.0/QtNetwork/private/qsslsocket_p.h, Qt 6.12.0. Changes
 //  made here are lost.
+#include <QtNetwork/qtnetworkglobal.h>
+#include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
+#if QT_CONFIG(ssl)
 #include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
 #include <QtNetwork/qsslsocket.h>
 #include <QtNetwork/QtNetwork>
@@ -801,3 +804,5 @@ extern "C" Q_DECL_EXPORT
 bool ritual_own_ZN17QSslSocketPrivate5flushEv(QSslSocketPrivate *self) {
   return self->QSslSocketPrivate::flush();
 }
+
+#endif  // QT_CONFIG(ssl)

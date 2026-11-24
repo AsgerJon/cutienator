@@ -8,7 +8,7 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qbytearray.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "private/qringbuffer_p.h"
+#include <QtCore/private/qringbuffer_p.h>
 #include <type_traits>
 #include <string.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER

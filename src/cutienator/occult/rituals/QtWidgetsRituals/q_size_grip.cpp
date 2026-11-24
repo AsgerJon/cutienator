@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qsizegrip.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(sizegrip)
 #if QT_CONFIG(sizegrip)
 #include <QtWidgets/qsizegrip.h>
 #include <QtCore/qstring.h>
@@ -1132,4 +1134,5 @@ bool ritual_own_ZN9QSizeGrip5eventEP6QEvent(QSizeGrip *self, QEvent *a0) {
   return static_cast<OwnQSizeGrip *>(self)->OwnQSizeGrip::event(a0);
 }
 
+#endif  // QT_CONFIG(sizegrip)
 #endif  // QT_CONFIG(sizegrip)

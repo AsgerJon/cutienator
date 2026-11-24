@@ -9,8 +9,8 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qhelpdbreader_p.h"
-#include "qhelp_global.h"
+#include <QtHelp/private/qhelpdbreader_p.h>
+#include <QtHelp/qhelp_global.h>
 #include <QtCore/qfile.h>
 #include <QtCore/qmap.h>
 #include <QtCore/qvariant.h>

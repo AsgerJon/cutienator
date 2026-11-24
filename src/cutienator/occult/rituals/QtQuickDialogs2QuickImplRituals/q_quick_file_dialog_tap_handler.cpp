@@ -14,8 +14,8 @@
 #include <QtCore/qurl.h>
 #include <QtGui/qeventpoint.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquickfiledialogdelegate_p.h"
-#include "qquickfiledialogdelegate_p_p.h"
+#include <QtQuickDialogs2QuickImpl/private/qquickfiledialogdelegate_p.h>
+#include <QtQuickDialogs2QuickImpl/private/qquickfiledialogdelegate_p_p.h>
 #include <QtCore/qfileinfo.h>
 #include <QtCore/qmimedata.h>
 #include <QtGui/qpa/qplatformtheme.h>
@@ -26,8 +26,8 @@
 #endif
 #include <QtQuick/private/qquicklistview_p.h>
 #include <QtQuick/private/qquickitemview_p_p.h>
-#include "qquicksidebar_p.h"
-#include "qquicksidebar_p_p.h"
+#include <QtQuickDialogs2QuickImpl/private/qquicksidebar_p.h>
+#include <QtQuickDialogs2QuickImpl/private/qquicksidebar_p_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

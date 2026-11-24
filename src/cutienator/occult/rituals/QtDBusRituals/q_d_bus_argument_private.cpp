@@ -11,21 +11,21 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtDBus/qdbusargument.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qdbusargument.h"
-#include "qdbusargument_p.h"
-#include <qatomic.h>
-#include <qbytearray.h>
-#include <qdatetime.h>
-#include <qline.h>
-#include <qlist.h>
-#include <qmap.h>
-#include <qstring.h>
-#include <qstringlist.h>
-#include <qrect.h>
-#include <qtimezone.h>
-#include <qvariant.h>
-#include "qdbusmetatype_p.h"
-#include "qdbusutil_p.h"
+#include <QtDBus/qdbusargument.h>
+#include <QtDBus/private/qdbusargument_p.h>
+#include <QtCore/qatomic.h>
+#include <QtCore/qbytearray.h>
+#include <QtCore/qdatetime.h>
+#include <QtCore/qline.h>
+#include <QtCore/qlist.h>
+#include <QtCore/qmap.h>
+#include <QtCore/qstring.h>
+#include <QtCore/qstringlist.h>
+#include <QtCore/qrect.h>
+#include <QtCore/qtimezone.h>
+#include <QtCore/qvariant.h>
+#include <QtDBus/private/qdbusmetatype_p.h>
+#include <QtDBus/private/qdbusutil_p.h>
 #ifndef QT_NO_DBUS
 #endif
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER

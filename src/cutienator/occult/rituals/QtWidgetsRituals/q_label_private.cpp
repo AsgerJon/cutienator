@@ -1,6 +1,10 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/6.12.0/QtWidgets/private/qlabel_p.h, Qt 6.12.0. Changes made
 //  here are lost.
+#include <QtGui/qtguiglobal.h>
+#include <QtWidgets/qtwidgetsglobal.h>
+#include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
+#if QT_CONFIG(label)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/qlabel.h>
 #include <QtWidgets/QtWidgets>
@@ -18,32 +22,32 @@
 #include <QtGui/qimage.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qframe.h"
-#include "qbitmap.h"
-#include "qdrawutil.h"
-#include "qevent.h"
-#include "qpainter.h"
-#include "qstyle.h"
-#include "qstyleoption.h"
-#include "qstylepainter.h"
-#include "qapplication.h"
-#include "qframe_p.h"
-#include "qpainter.h"
-#include "qevent.h"
-#include "qpixmapcache.h"
-#include "qstyle.h"
-#include "qstyleoption.h"
-#include "qlabel_p.h"
-#include "private/qhexstring_p.h"
-#include <qmath.h>
+#include <QtWidgets/qframe.h>
+#include <QtGui/qbitmap.h>
+#include <QtWidgets/qdrawutil.h>
+#include <QtGui/qevent.h>
+#include <QtGui/qpainter.h>
+#include <QtWidgets/qstyle.h>
+#include <QtWidgets/qstyleoption.h>
+#include <QtWidgets/qstylepainter.h>
+#include <QtWidgets/qapplication.h>
+#include <QtWidgets/private/qframe_p.h>
+#include <QtGui/qpainter.h>
+#include <QtGui/qevent.h>
+#include <QtGui/qpixmapcache.h>
+#include <QtWidgets/qstyle.h>
+#include <QtWidgets/qstyleoption.h>
+#include <QtWidgets/private/qlabel_p.h>
+#include <QtGui/private/qhexstring_p.h>
+#include <QtCore/qmath.h>
 #if QT_CONFIG(style_stylesheet)
-#include "private/qstylesheetstyle_p.h"
+#include <QtWidgets/private/qstylesheetstyle_p.h>
 #endif
 #if QT_CONFIG(abstractbutton)
-#include "qabstractbutton.h"
+#include <QtWidgets/qabstractbutton.h>
 #endif
 #if QT_CONFIG(accessibility)
-#include <qaccessible.h>
+#include <QtGui/qaccessible.h>
 #endif
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
@@ -712,3 +716,5 @@ bool ritual_take_QLabelPrivate(
     void *call) {
   return static_cast<CuteQLabelPrivate *>(self)->take(key, call);
 }
+
+#endif  // QT_CONFIG(label)

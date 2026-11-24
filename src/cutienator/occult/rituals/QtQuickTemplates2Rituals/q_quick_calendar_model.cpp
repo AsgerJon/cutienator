@@ -14,7 +14,7 @@
 #include <QtCore/qhash.h>
 #include <iterator>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquickcalendarmodel_p.h"
+#include <QtQuickTemplates2/private/qquickcalendarmodel_p.h>
 #include <QtCore/private/qabstractitemmodel_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

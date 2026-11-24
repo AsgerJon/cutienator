@@ -62,6 +62,15 @@
     ],
     "ritual_own_ZN18QAbstractAnimation15updateDirectionENS_9DirectionE": [
       "nothing", "address", "int"
-    ]
+    ],
+    "ritual_list_make_QAbstractAnimation_ptr": ["address"],
+    "ritual_list_add_QAbstractAnimation_ptr": [
+      "nothing", "address", "address"
+    ],
+    "ritual_list_size_QAbstractAnimation_ptr": ["long long", "address"],
+    "ritual_list_at_QAbstractAnimation_ptr": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_QAbstractAnimation_ptr": ["nothing", "address"]
   }
 }

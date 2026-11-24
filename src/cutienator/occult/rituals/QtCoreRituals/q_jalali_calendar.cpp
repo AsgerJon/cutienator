@@ -4,6 +4,7 @@
 #include <QtCore/qglobal.h>
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #if QT_CONFIG(jalalicalendar)
+#if QT_CONFIG(jalalicalendar)
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtCore/QtCore>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -622,4 +623,5 @@ const QCalendarLocale *ritual_own_ZNK15QJalaliCalendar20localeMonthIndexDataEv(
   return static_cast<const OwnQJalaliCalendar *>(self)->OwnQJalaliCalendar::localeMonthIndexData();
 }
 
+#endif  // QT_CONFIG(jalalicalendar)
 #endif  // QT_CONFIG(jalalicalendar)

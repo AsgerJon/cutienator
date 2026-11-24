@@ -10,13 +10,13 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qremoteobjectsourceio_p.h"
-#include "qremoteobjectpacket_p.h"
-#include "qremoteobjectsource_p.h"
-#include "qremoteobjectnode_p.h"
-#include "qremoteobjectpendingcall.h"
-#include "qtremoteobjectglobal.h"
-#include "qconnection_local_backend_p.h"
+#include <QtRemoteObjects/private/qremoteobjectsourceio_p.h>
+#include <QtRemoteObjects/private/qremoteobjectpacket_p.h>
+#include <QtRemoteObjects/private/qremoteobjectsource_p.h>
+#include <QtRemoteObjects/private/qremoteobjectnode_p.h>
+#include <QtRemoteObjects/qremoteobjectpendingcall.h>
+#include <QtRemoteObjects/qtremoteobjectglobal.h>
+#include <QtRemoteObjects/private/qconnection_local_backend_p.h>
 #include <QtCore/qstringlist.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

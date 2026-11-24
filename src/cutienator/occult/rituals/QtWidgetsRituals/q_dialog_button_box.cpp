@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qdialogbuttonbox.h, Qt 6.12.0. Changes made here are lost.
+#include <QtCore/qglobal.h>
+#include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(dialogbuttonbox)
 #if QT_CONFIG(dialogbuttonbox)
 #include <QtWidgets/qdialogbuttonbox.h>
 #include <QtCore/qstring.h>
@@ -1126,4 +1129,5 @@ bool ritual_own_ZN16QDialogButtonBox5eventEP6QEvent(
       event);
 }
 
+#endif  // QT_CONFIG(dialogbuttonbox)
 #endif  // QT_CONFIG(dialogbuttonbox)

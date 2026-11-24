@@ -7,8 +7,8 @@
 #include <QtQuick/6.12.0/QtQuick/private/qsgdefaultrendercontext_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qsgdefaultrendercontext_p.h"
-#include "qsgcurveglyphatlas_p.h"
+#include <QtQuick/private/qsgdefaultrendercontext_p.h>
+#include <QtQuick/private/qsgcurveglyphatlas_p.h>
 #include <QtGui/QGuiApplication>
 #include <QtQuick/private/qsgbatchrenderer_p.h>
 #include <QtQuick/private/qsgrenderer_p.h>

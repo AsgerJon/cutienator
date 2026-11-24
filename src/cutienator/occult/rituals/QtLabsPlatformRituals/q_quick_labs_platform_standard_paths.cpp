@@ -13,7 +13,7 @@
 #include <QtCore/qurl.h>
 #include <QtCore/qlist.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquicklabsplatformstandardpaths_p.h"
+#include <QtLabsPlatform/private/qquicklabsplatformstandardpaths_p.h>
 #if QT_DEPRECATED_SINCE(6, 4)
 #include <QtQml/qqmlengine.h>
 #endif

@@ -14,10 +14,10 @@
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include "qplatformdefs.h"
-#include "qfiledevice.h"
-#include "qfiledevice_p.h"
-#include "qfsfileengine_p.h"
-#include "qfilesystementry_p.h"
+#include <QtCore/qfiledevice.h>
+#include <QtCore/private/qfiledevice_p.h>
+#include <QtCore/private/qfsfileengine_p.h>
+#include <QtCore/private/qfilesystementry_p.h>
 #include <QtCore/qdir.h>
 #include <QtCore/private/qdir_p.h>
 #include <QtCore/qfile.h>
@@ -25,18 +25,18 @@
 #ifdef Q_OS_WIN
 #include <QtCore/qstringbuilder.h>
 #endif
-#include "qsavefile.h"
+#include <QtCore/qsavefile.h>
 #if QT_CONFIG(temporaryfile)
 #include "qplatformdefs.h"
-#include "private/qsavefile_p.h"
-#include "qfileinfo.h"
-#include "qabstractfileengine_p.h"
+#include <QtCore/private/qsavefile_p.h>
+#include <QtCore/qfileinfo.h>
+#include <QtCore/private/qabstractfileengine_p.h>
 #include <QtCore/qcoreapplication.h>
-#include "qdebug.h"
-#include "qtemporaryfile.h"
+#include <QtCore/qdebug.h>
+#include <QtCore/qtemporaryfile.h>
 #include <QtCore/qttranslation.h>
-#include "private/qiodevice_p.h"
-#include "private/qtemporaryfile_p.h"
+#include <QtCore/private/qiodevice_p.h>
+#include <QtCore/private/qtemporaryfile_p.h>
 #ifdef Q_OS_UNIX
 #include <errno.h>
 #endif
@@ -51,6 +51,7 @@
 //  'inline' put before it where Qt did not write it.
 
 //  from src/corelib/io/qfiledevice.cpp, line 507, as _ZN18QFileDevicePrivate13putCharHelperEc
+#if defined(Q_OS_LINUX)
 inline bool QFileDevicePrivate::putCharHelper(char c)
 {
 #ifdef QT_NO_QOBJECT
@@ -104,6 +105,7 @@ inline bool QFileDevicePrivate::putCharHelper(char c)
     return true;
 #endif
 }
+#endif  // defined(Q_OS_LINUX)
 
 //  from src/corelib/io/qfilesystementry.cpp, line 46, as _ZN16QFileSystemEntryC1Ev
 inline QFileSystemEntry::QFileSystemEntry()

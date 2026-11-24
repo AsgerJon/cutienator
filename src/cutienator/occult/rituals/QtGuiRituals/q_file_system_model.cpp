@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGui/qfilesystemmodel.h, Qt 6.12.0. Changes made here are lost.
+#include <QtCore/qglobal.h>
 #include <QtGui/qtguiglobal.h>
+#if QT_CONFIG(filesystemmodel)
 #if QT_CONFIG(filesystemmodel)
 #include <QtGui/qfilesystemmodel.h>
 #include <QtCore/qstring.h>
@@ -1701,4 +1703,5 @@ bool ritual_own_ZN16QFileSystemModel5eventEP6QEvent(
       event);
 }
 
+#endif  // QT_CONFIG(filesystemmodel)
 #endif  // QT_CONFIG(filesystemmodel)

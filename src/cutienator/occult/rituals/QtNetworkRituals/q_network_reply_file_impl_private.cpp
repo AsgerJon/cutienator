@@ -10,17 +10,17 @@
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtNetwork/private/qtnetworkglobal_p.h>
-#include "qnetworkreply.h"
-#include "qnetworkreply_p.h"
+#include <QtNetwork/qnetworkreply.h>
+#include <QtNetwork/private/qnetworkreply_p.h>
 #include <QtNetwork/qsslconfiguration.h>
-#include "qnetworkreplyfileimpl_p.h"
+#include <QtNetwork/private/qnetworkreplyfileimpl_p.h>
 #include "QtCore/qdatetime.h"
-#include "qnetworkaccessmanager_p.h"
+#include <QtNetwork/private/qnetworkaccessmanager_p.h>
 #include <QtCore/QCoreApplication>
 #include <QtCore/QFileInfo>
 #include <QtCore/QThread>
-#include "qnetworkfile_p.h"
-#include "qnetworkrequest.h"
+#include <QtNetwork/private/qnetworkfile_p.h>
+#include <QtNetwork/qnetworkrequest.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

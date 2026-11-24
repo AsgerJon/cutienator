@@ -4,16 +4,17 @@
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #if QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/QtWidgets>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/6.12.0/QtWidgets/private/qgraphicsgridlayoutengine_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qgraphicsgridlayoutengine_p.h"
-#include "qgraphicslayoutitem_p.h"
-#include "qgraphicslayout_p.h"
-#include "qgraphicswidget.h"
+#include <QtWidgets/private/qgraphicsgridlayoutengine_p.h>
+#include <QtWidgets/private/qgraphicslayoutitem_p.h>
+#include <QtWidgets/private/qgraphicslayout_p.h>
+#include <QtWidgets/qgraphicswidget.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -126,4 +127,5 @@ void ritual_ZN25QGraphicsGridLayoutEngineD1Ev(
   delete self;
 }
 
+#endif  // QT_CONFIG(graphicsview)
 #endif  // QT_CONFIG(graphicsview)

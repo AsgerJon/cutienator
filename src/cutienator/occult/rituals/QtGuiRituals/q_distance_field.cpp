@@ -11,6 +11,7 @@
 #include <QtCore/qsize.h>
 #include <QtCore/qrect.h>
 #include <QtGui/qimage.h>
+#include <QtCore/qlist.h>
 
 //  QDistanceField::QDistanceField()
 extern "C" Q_DECL_EXPORT
@@ -148,5 +149,40 @@ QDistanceField *ritual_ZN14QDistanceFieldC1EP18QDistanceFieldData(
 //  QDistanceField::~QDistanceField()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14QDistanceFieldD1Ev(QDistanceField *self) {
+  delete self;
+}
+
+//  QList<QDistanceField>::QList()
+extern "C" Q_DECL_EXPORT
+QList<QDistanceField> *ritual_list_make_QDistanceField() {
+  return new QList<QDistanceField>();
+}
+
+//  void QList<QDistanceField>::append(const QDistanceField &value)
+extern "C" Q_DECL_EXPORT
+void ritual_list_add_QDistanceField(
+    QList<QDistanceField> *self,
+    const QDistanceField *element) {
+  self->append(*element);
+}
+
+//  qsizetype QList<QDistanceField>::size() const
+extern "C" Q_DECL_EXPORT
+long long ritual_list_size_QDistanceField(
+    const QList<QDistanceField> *self) {
+  return self->size();
+}
+
+//  const QDistanceField &QList<QDistanceField>::at(qsizetype i) const
+extern "C" Q_DECL_EXPORT
+QDistanceField *ritual_list_at_QDistanceField(
+    const QList<QDistanceField> *self,
+    long long index) {
+  return new QDistanceField(self->at(index));
+}
+
+//  QList<QDistanceField>::~QList()
+extern "C" Q_DECL_EXPORT
+void ritual_list_drop_QDistanceField(QList<QDistanceField> *self) {
   delete self;
 }

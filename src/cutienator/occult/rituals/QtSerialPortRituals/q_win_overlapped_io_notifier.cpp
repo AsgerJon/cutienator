@@ -13,18 +13,18 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qwinoverlappedionotifier_p.h"
-#include <qdebug.h>
-#include <qatomic.h>
-#include <qelapsedtimer.h>
-#include <qmutex.h>
-#include <qpointer.h>
-#include <qqueue.h>
-#include <qset.h>
-#include <qthread.h>
-#include <qt_windows.h>
-#include <private/qobject_p.h>
-#include <private/qiodevice_p.h>
+#include <QtSerialPort/private/qwinoverlappedionotifier_p.h>
+#include <QtCore/qdebug.h>
+#include <QtCore/qatomic.h>
+#include <QtCore/qelapsedtimer.h>
+#include <QtCore/qmutex.h>
+#include <QtCore/qpointer.h>
+#include <QtCore/qqueue.h>
+#include <QtCore/qset.h>
+#include <QtCore/qthread.h>
+#include <QtCore/qt_windows.h>
+#include <QtCore/private/qobject_p.h>
+#include <QtCore/private/qiodevice_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

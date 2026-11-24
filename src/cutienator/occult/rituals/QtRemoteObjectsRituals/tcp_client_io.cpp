@@ -7,7 +7,7 @@
 #include <QtRemoteObjects/6.12.0/QtRemoteObjects/private/qconnection_tcpip_backend_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qconnection_tcpip_backend_p.h"
+#include <QtRemoteObjects/private/qconnection_tcpip_backend_p.h>
 #include <QtNetwork/qhostinfo.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

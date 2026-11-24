@@ -14,14 +14,14 @@
 #include <QtCore/qpoint.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qwaylandquickitem.h"
-#include "qwaylandquickitem_p.h"
-#include "qwaylandquicksurface.h"
-#include "qwaylandinputmethodcontrol.h"
-#include "qwaylandtextinput.h"
-#include "qwaylandtextinputv3.h"
-#include "qwaylandqttextinputmethod.h"
-#include "qwaylandquickoutput.h"
+#include <QtWaylandCompositor/qwaylandquickitem.h>
+#include <QtWaylandCompositor/private/qwaylandquickitem_p.h>
+#include <QtWaylandCompositor/qwaylandquicksurface.h>
+#include <QtWaylandCompositor/qwaylandinputmethodcontrol.h>
+#include <QtWaylandCompositor/qwaylandtextinput.h>
+#include <QtWaylandCompositor/qwaylandtextinputv3.h>
+#include <QtWaylandCompositor/qwaylandqttextinputmethod.h>
+#include <QtWaylandCompositor/qwaylandquickoutput.h>
 #include <QtWaylandCompositor/qwaylandcompositor.h>
 #include <QtWaylandCompositor/qwaylandseat.h>
 #include <QtWaylandCompositor/qwaylandbufferref.h>
@@ -43,7 +43,7 @@
 #include <QtCore/QMutexLocker>
 #include <QtCore/QMutex>
 #include <wayland-server-core.h>
-#include <QThread>
+#include <QtCore/QThread>
 #if QT_CONFIG(opengl)
 #include <QtGui/private/qshaderdescription_p.h>
 #endif
@@ -110,6 +110,7 @@ inline void QWaylandQuickItemPrivate::handleDragUpdate(QWaylandSeat *seat, const
 }
 
 //  from ../qtwayland/src/compositor/compositor_api/qwaylandquickitem.cpp, line 1760, as _ZNK24QWaylandQuickItemPrivate11scaleFactorEv
+#if defined(Q_OS_LINUX)
 inline qreal QWaylandQuickItemPrivate::scaleFactor() const
 {
     qreal f = view->output() ? view->output()->scaleFactor() : 1;
@@ -119,6 +120,7 @@ inline qreal QWaylandQuickItemPrivate::scaleFactor() const
 #endif
     return f;
 }
+#endif  // defined(Q_OS_LINUX)
 
 //  from ../qtwayland/src/compositor/compositor_api/qwaylandquickitem.cpp, line 1770, as _ZNK24QWaylandQuickItemPrivate11findSiblingEP15QWaylandSurface
 inline QWaylandQuickItem *QWaylandQuickItemPrivate::findSibling(QWaylandSurface *surface) const
@@ -613,12 +615,14 @@ bool ritual_ZNK24QWaylandQuickItemPrivate21shouldSendInputEventsEv(
   return self->shouldSendInputEvents();
 }
 
+#if defined(Q_OS_LINUX)
 //  qreal QWaylandQuickItemPrivate::scaleFactor() const
 extern "C" Q_DECL_EXPORT
 qreal ritual_ZNK24QWaylandQuickItemPrivate11scaleFactorEv(
     const QWaylandQuickItemPrivate *self) {
   return self->scaleFactor();
 }
+#endif  // defined(Q_OS_LINUX)
 
 //  QWaylandQuickItem *QWaylandQuickItemPrivate::findSibling(QWaylandSurface
 //      *surface) const

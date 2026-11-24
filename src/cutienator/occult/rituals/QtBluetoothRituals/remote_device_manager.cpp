@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtBluetooth/6.12.0/QtBluetooth/private/remotedevicemanager_p.h, Qt
 //  6.12.0. Changes made here are lost.
+#include <QtBluetooth/qtbluetoothglobal.h>
+#include <QtBluetooth/6.12.0/QtBluetooth/private/qtbluetoothglobal_p.h>
+#if QT_CONFIG(bluez)
 #include <QtBluetooth/6.12.0/QtBluetooth/private/qtbluetoothglobal_p.h>
 #include <QtBluetooth/QtBluetooth>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -20,3 +23,5 @@ bool ritual_ZNK19RemoteDeviceManager15isJobInProgressEv(
     const RemoteDeviceManager *self) {
   return self->isJobInProgress();
 }
+
+#endif  // QT_CONFIG(bluez)

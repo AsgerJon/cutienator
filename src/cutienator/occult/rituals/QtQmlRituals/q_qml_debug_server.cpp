@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtQml/6.12.0/QtQml/private/qqmldebugserver_p.h, Qt 6.12.0. Changes made
 //  here are lost.
+#include <QtQml/qtqmlglobal.h>
+#include <QtQml/6.12.0/QtQml/private/qtqmlglobal_p.h>
+#if QT_CONFIG(qml_debug)
 #include <QtQml/6.12.0/QtQml/private/qtqmlglobal_p.h>
 #include <QtQml/QtQml>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -385,3 +388,5 @@ bool ritual_take_QQmlDebugServer(
     void *call) {
   return static_cast<CuteQQmlDebugServer *>(self)->take(key, call);
 }
+
+#endif  // QT_CONFIG(qml_debug)

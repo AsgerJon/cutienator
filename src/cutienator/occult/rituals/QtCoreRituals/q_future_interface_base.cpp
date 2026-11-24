@@ -2,6 +2,7 @@
 //  QtCore/qfutureinterface.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qglobal.h>
 #if QT_CONFIG(future)
+#if QT_CONFIG(future)
 #include <QtCore/qfutureinterface.h>
 #include <QtCore/qexception.h>
 #include <QtCore/qstring.h>
@@ -511,4 +512,5 @@ void ritual_ZN20QFutureInterfaceBase11cancelChainENS_10CancelModeE(
   self->cancelChain(mode);
 }
 
+#endif  // QT_CONFIG(future)
 #endif  // QT_CONFIG(future)

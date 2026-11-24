@@ -22,14 +22,14 @@
 #include <QtGui/qpalette.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquickselectionrectangle_p.h"
-#include "qquickselectionrectangle_p_p.h"
+#include <QtQuickTemplates2/private/qquickselectionrectangle_p.h>
+#include <QtQuickTemplates2/private/qquickselectionrectangle_p_p.h>
 #include <QtQml/qqmlinfo.h>
 #include <QtQml/qqmlcomponent.h>
 #include <QtQuick/private/qquickdraghandler_p.h>
 #include <QtQuick/private/qquickhoverhandler_p.h>
 #include <QtQuick/private/qquicktableview_p_p.h>
-#include "qquickscrollview_p.h"
+#include <QtQuickTemplates2/private/qquickscrollview_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

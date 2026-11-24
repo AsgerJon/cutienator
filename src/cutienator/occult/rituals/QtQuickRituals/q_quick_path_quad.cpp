@@ -4,6 +4,7 @@
 #include <QtQuick/qtquickglobal.h>
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #if QT_CONFIG(quick_path)
+#if QT_CONFIG(quick_path)
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #include <QtQuick/QtQuick>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -103,4 +104,5 @@ bool ritual_ZN14QQuickPathQuad19hasRelativeControlYEv(QQuickPathQuad *self) {
   return self->hasRelativeControlY();
 }
 
+#endif  // QT_CONFIG(quick_path)
 #endif  // QT_CONFIG(quick_path)

@@ -4,6 +4,7 @@
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #if QT_CONFIG(toolbar)
+#if QT_CONFIG(toolbar)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/qtoolbar.h>
 #include <QtWidgets/QtWidgets>
@@ -19,50 +20,50 @@
 #include <QtGui/qimage.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <qapplication.h>
-#include <qaction.h>
-#include <qwidgetaction.h>
-#include <qtoolbar.h>
-#include <qstyleoption.h>
+#include <QtWidgets/qapplication.h>
+#include <QtWidgets/qaction.h>
+#include <QtWidgets/qwidgetaction.h>
+#include <QtWidgets/qtoolbar.h>
+#include <QtWidgets/qstyleoption.h>
 #if QT_CONFIG(toolbutton)
-#include <qtoolbutton.h>
+#include <QtWidgets/qtoolbutton.h>
 #endif
-#include <qmenu.h>
-#include <qdebug.h>
-#include <qmath.h>
+#include <QtWidgets/qmenu.h>
+#include <QtCore/qdebug.h>
+#include <QtCore/qmath.h>
 #ifdef Q_OS_MACOS
-#include <qpa/qplatformnativeinterface.h>
+#include <QtGui/qpa/qplatformnativeinterface.h>
 #endif
-#include "qmainwindowlayout_p.h"
+#include <QtWidgets/private/qmainwindowlayout_p.h>
 #if QT_CONFIG(toolbutton)
-#include "qtoolbarextension_p.h"
+#include <QtWidgets/private/qtoolbarextension_p.h>
 #endif
-#include "qtoolbarlayout_p.h"
-#include "qtoolbarseparator_p.h"
-#include "qtoolbar.h"
-#include <qapplication.h>
+#include <QtWidgets/private/qtoolbarlayout_p.h>
+#include <QtWidgets/private/qtoolbarseparator_p.h>
+#include <QtWidgets/qtoolbar.h>
+#include <QtWidgets/qapplication.h>
 #if QT_CONFIG(draganddrop)
-#include <qdrag.h>
+#include <QtGui/qdrag.h>
 #endif
-#include <qevent.h>
-#include <qlayout.h>
-#include <qmainwindow.h>
-#include <qmenu.h>
-#include <qmimedata.h>
-#include <qstylepainter.h>
-#include <qstyleoption.h>
-#include <qtoolbutton.h>
-#include <qwidgetaction.h>
-#include <private/qwidgetaction_p.h>
-#include <private/qmainwindowlayout_p.h>
-#include <private/qhighdpiscaling_p.h>
+#include <QtGui/qevent.h>
+#include <QtWidgets/qlayout.h>
+#include <QtWidgets/qmainwindow.h>
+#include <QtWidgets/qmenu.h>
+#include <QtCore/qmimedata.h>
+#include <QtWidgets/qstylepainter.h>
+#include <QtWidgets/qstyleoption.h>
+#include <QtWidgets/qtoolbutton.h>
+#include <QtWidgets/qwidgetaction.h>
+#include <QtWidgets/private/qwidgetaction_p.h>
+#include <QtWidgets/private/qmainwindowlayout_p.h>
+#include <QtGui/private/qhighdpiscaling_p.h>
 #ifdef Q_OS_MACOS
-#include <qpa/qplatformnativeinterface.h>
+#include <QtGui/qpa/qplatformnativeinterface.h>
 #endif
-#include "qtoolbar_p.h"
-#include "qtoolbarseparator_p.h"
-#include "qtoolbarlayout_p.h"
-#include  "qdebug.h"
+#include <QtWidgets/private/qtoolbar_p.h>
+#include <QtWidgets/private/qtoolbarseparator_p.h>
+#include <QtWidgets/private/qtoolbarlayout_p.h>
+#include  <QtCore/qdebug.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -535,4 +536,5 @@ bool ritual_take_QToolBarPrivate(
   return static_cast<CuteQToolBarPrivate *>(self)->take(key, call);
 }
 
+#endif  // QT_CONFIG(toolbar)
 #endif  // QT_CONFIG(toolbar)

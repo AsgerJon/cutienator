@@ -15,22 +15,44 @@
 #include <QtCore/qlist.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qrhi_p.h"
-#include <qmath.h>
-#include <QLoggingCategory>
-#include "private/qloggingregistry_p.h"
-#include "qrhinull_p.h"
+#include <QtGui/private/qrhivulkan_p.h>
+#include <QtGui/qpa/qplatformvulkaninstance.h>
+#include <QtCore/qmath.h>
+#include <QtGui/qwindow.h>
+#include <QtGui/private/qvulkandefaultinstance_p.h>
+#include <QtCore/q20memory.h>
+#include <optional>
+#include <QtGui/private/qrhinull_p.h>
+#include <QtCore/qmath.h>
+#include <QtGui/QPainter>
+#include <QtGui/private/qrhigles2_p.h>
+#include <QtGui/QOffscreenSurface>
+#include <QtGui/QOpenGLContext>
+#include <QtCore/qmap.h>
+#include <QtGui/private/qguiapplication_p.h>
+#include <QtGui/private/qopenglextensions_p.h>
+#include <QtGui/private/qopenglprogrambinarycache_p.h>
+#include <QtGui/private/qwindow_p.h>
+#include <QtGui/qpa/qplatformopenglcontext.h>
+#include <QtCore/qmath.h>
+#include <limits>
+#include <QtGui/private/qrhi_p.h>
+#include <QtCore/qmath.h>
+#include <QtCore/QLoggingCategory>
+#include <QtCore/private/qloggingregistry_p.h>
+#include <QtGui/private/qrhinull_p.h>
 #ifndef QT_NO_OPENGL
-#include "qrhigles2_p.h"
+#include <QtGui/private/qrhigles2_p.h>
 #endif
 #if QT_CONFIG(vulkan)
+#include <QtGui/private/qrhivulkan_p.h>
 #endif
 #ifdef Q_OS_WIN
-#include "qrhid3d11_p.h"
-#include "qrhid3d12_p.h"
+#include <QtGui/private/qrhid3d11_p.h>
+#include <QtGui/private/qrhid3d12_p.h>
 #endif
 #if QT_CONFIG(metal)
-#include "qrhimetal_p.h"
+#include <QtGui/private/qrhimetal_p.h>
 #endif
 #include <limits>
 #include <memory>
@@ -42,6 +64,65 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from src/gui/rhi/qrhivulkan.cpp, line 434, as _ZN10QRhiVulkanC1EP20QRhiVulkanInitParamsP23QRhiVulkanNativeHandles
+inline QRhiVulkan::QRhiVulkan(QRhiVulkanInitParams *params, QRhiVulkanNativeHandles *importParams)
+    : ofr(this)
+{
+    inst = params->inst;
+    if (!inst) {
+        // This builds on the fact that Qt Quick also uses QVulkanDefaultInstance. While
+        // this way we can support a null inst, it has consequences, so only do it with a
+        // warning. (e.g. if Qt Quick initializes afterwards, its attempt to set flags on
+        // QVulkanDefaultInstance will be futile)
+        qWarning("QRhi for Vulkan attempted to be initialized without a QVulkanInstance; using QVulkanDefaultInstance.");
+        inst = QVulkanDefaultInstance::instance();
+    }
+
+    maybeWindow = params->window; // may be null
+    requestedDeviceExtensions = params->deviceExtensions;
+
+    if (importParams) {
+        physDev = importParams->physDev;
+        dev = importParams->dev;
+        if (dev && physDev) {
+            importedDevice = true;
+            gfxQueueFamilyIdx = importParams->gfxQueueFamilyIdx;
+            gfxQueueIdx = importParams->gfxQueueIdx;
+            // gfxQueue is output only, no point in accepting it as input
+            if (importParams->vmemAllocator) {
+                importedAllocator = true;
+                allocator = importParams->vmemAllocator;
+            }
+        }
+    }
+}
+
+//  from src/gui/rhi/qrhinull.cpp, line 45, as _ZN8QRhiNullC1EP18QRhiNullInitParams
+inline QRhiNull::QRhiNull(QRhiNullInitParams *params)
+    : offscreenCommandBuffer(this)
+{
+    Q_UNUSED(params);
+}
+
+//  from src/gui/rhi/qrhigles2.cpp, line 656, as _ZN9QRhiGles2C1EP19QRhiGles2InitParamsP22QRhiGles2NativeHandles
+inline QRhiGles2::QRhiGles2(QRhiGles2InitParams *params, QRhiGles2NativeHandles *importDevice)
+    : ofr(this)
+{
+    requestedFormat = params->format;
+    fallbackSurface = params->fallbackSurface;
+    maybeWindow = params->window; // may be null
+    maybeShareContext = params->shareContext; // may be null
+
+    importedContext = importDevice != nullptr;
+    if (importedContext) {
+        ctx = importDevice->context;
+        if (!ctx) {
+            qWarning("No OpenGL context given, cannot import");
+            importedContext = false;
+        }
+    }
+}
 
 //  from src/gui/rhi/qrhi.cpp, line 9169, as _ZN18QRhiImplementation16prepareForCreateEP4QRhiNS0_14ImplementationE6QFlagsINS0_4FlagEEP11QRhiAdapter
 inline void QRhiImplementation::prepareForCreate(QRhi *rhi, QRhi::Implementation impl, QRhi::Flags flags, QRhiAdapter *adapter)

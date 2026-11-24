@@ -12,8 +12,8 @@
 #include <QtCore/qlatin1stringview.h>
 #include <QtCore/qstring.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qsystemsemaphore.h"
-#include "qsystemsemaphore_p.h"
+#include <QtCore/qsystemsemaphore.h>
+#include <QtCore/private/qsystemsemaphore_p.h>
 #if QT_CONFIG(systemsemaphore)
 #include <QtCore/q20memory.h>
 #include <errno.h>

@@ -1,8 +1,10 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/6.12.0/QtWidgets/private/qaction_widgets_p.h, Qt 6.12.0.
 //  Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
+#if QT_CONFIG(action)
 #if QT_CONFIG(action)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtGui/qaction.h>
@@ -191,4 +193,5 @@ void ritual_own_ZN22QtWidgetsActionPrivate7setMenuEP7QObject(
 }
 #endif  // QT_CONFIG(menu)
 
+#endif  // QT_CONFIG(action)
 #endif  // QT_CONFIG(action)

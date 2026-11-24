@@ -13,8 +13,8 @@
 #include <QtQml/qqmlproperty.h>
 #include <QtCore/qlist.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquickimageselector_p.h"
-#include <private/qqmlproperty_p.h>
+#include <QtQuickControls2Impl/private/qquickimageselector_p.h>
+#include <QtQml/private/qqmlproperty_p.h>
 #include <QtCore/qcache.h>
 #include <QtCore/qdir.h>
 #include <QtCore/qfileinfo.h>

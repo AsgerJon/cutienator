@@ -8,7 +8,7 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qfilesystementry_p.h"
+#include <QtCore/private/qfilesystementry_p.h>
 #include <QtCore/qdir.h>
 #include <QtCore/private/qdir_p.h>
 #include <QtCore/qfile.h>
@@ -34,6 +34,7 @@ inline QFileSystemEntry::QFileSystemEntry()
 }
 
 //  from src/corelib/io/qfilesystementry.cpp, line 137, as _ZNK16QFileSystemEntry8fileNameEv
+#if defined(Q_OS_LINUX)
 inline QString QFileSystemEntry::fileName() const
 {
     findLastSeparator();
@@ -43,8 +44,10 @@ inline QString QFileSystemEntry::fileName() const
 #endif
     return m_filePath.mid(m_lastSeparator + 1);
 }
+#endif  // defined(Q_OS_LINUX)
 
 //  from src/corelib/io/qfilesystementry.cpp, line 166, as _ZNK16QFileSystemEntry8baseNameEv
+#if defined(Q_OS_LINUX)
 inline QString QFileSystemEntry::baseName() const
 {
     findFileNameSeparators();
@@ -60,8 +63,10 @@ inline QString QFileSystemEntry::baseName() const
 #endif
     return m_filePath.mid(m_lastSeparator + 1, length);
 }
+#endif  // defined(Q_OS_LINUX)
 
 //  from src/corelib/io/qfilesystementry.cpp, line 182, as _ZNK16QFileSystemEntry16completeBaseNameEv
+#if defined(Q_OS_LINUX)
 inline QString QFileSystemEntry::completeBaseName() const
 {
     findFileNameSeparators();
@@ -77,6 +82,7 @@ inline QString QFileSystemEntry::completeBaseName() const
 #endif
     return m_filePath.mid(m_lastSeparator + 1, length);
 }
+#endif  // defined(Q_OS_LINUX)
 
 //  from src/corelib/io/qfilesystementry.cpp, line 198, as _ZNK16QFileSystemEntry6suffixEv
 inline QString QFileSystemEntry::suffix() const
@@ -107,6 +113,7 @@ inline QString QFileSystemEntry::filePath() const
 }
 
 //  from src/corelib/io/qfilesystementry.cpp, line 112, as _ZNK16QFileSystemEntry15resolveFilePathEv
+#if defined(Q_OS_LINUX)
 inline void QFileSystemEntry::resolveFilePath() const
 {
     if (m_filePath.isEmpty() && !m_nativeFilePath.isEmpty()) {
@@ -117,6 +124,7 @@ inline void QFileSystemEntry::resolveFilePath() const
 #endif
     }
 }
+#endif  // defined(Q_OS_LINUX)
 //  -----------------------------------------------------------------------
 
 //  QDirEntryInfo::QDirEntryInfo()
@@ -132,11 +140,13 @@ QDirEntryInfo *ritual_ZN13QDirEntryInfoC1EPK27QAbstractFileEngineIterator(
   return new QDirEntryInfo(iterator);
 }
 
+#if defined(Q_OS_LINUX)
 //  QString QDirEntryInfo::filePath()
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN13QDirEntryInfo8filePathEv(QDirEntryInfo *self) {
   return new QString(self->filePath());
 }
+#endif  // defined(Q_OS_LINUX)
 
 //  QDirEntryInfo::~QDirEntryInfo()
 extern "C" Q_DECL_EXPORT

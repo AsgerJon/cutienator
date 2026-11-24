@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/6.12.0/QtWidgets/private/qscroller_p.h, Qt 6.12.0. Changes made
 //  here are lost.
+#include <QtWidgets/qtwidgetsglobal.h>
+#include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
+#if QT_CONFIG(scroller)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/qscroller.h>
 #include <QtWidgets/QtWidgets>
@@ -11,30 +14,30 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qevent.h"
-#include "qwidget.h"
-#include "qscroller.h"
-#include "private/qflickgesture_p.h"
-#include "private/qscroller_p.h"
-#include "qscrollerproperties.h"
-#include "private/qscrollerproperties_p.h"
-#include "qnumeric.h"
+#include <QtGui/qevent.h>
+#include <QtWidgets/qwidget.h>
+#include <QtWidgets/qscroller.h>
+#include <QtWidgets/private/qflickgesture_p.h>
+#include <QtWidgets/private/qscroller_p.h>
+#include <QtWidgets/qscrollerproperties.h>
+#include <QtWidgets/private/qscrollerproperties_p.h>
+#include <QtCore/qnumeric.h>
 #include "math.h"
-#include <QTime>
-#include <QElapsedTimer>
-#include <QMap>
-#include <QApplication>
-#include <QAbstractScrollArea>
+#include <QtCore/QTime>
+#include <QtCore/QElapsedTimer>
+#include <QtCore/QMap>
+#include <QtWidgets/QApplication>
+#include <QtWidgets/QAbstractScrollArea>
 #if QT_CONFIG(graphicsview)
-#include <QGraphicsObject>
-#include <QGraphicsScene>
-#include <QGraphicsView>
+#include <QtWidgets/QGraphicsObject>
+#include <QtWidgets/QGraphicsScene>
+#include <QtWidgets/QGraphicsView>
 #endif
-#include <QVector2D>
+#include <QtGui/QVector2D>
 #include <QtCore/qmath.h>
 #include <QtGui/qevent.h>
-#include <qnumeric.h>
-#include <QtDebug>
+#include <QtCore/qnumeric.h>
+#include <QtCore/QtDebug>
 #include <QtCore/qloggingcategory.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
@@ -544,3 +547,5 @@ bool ritual_take_QScrollerPrivate(
     void *call) {
   return static_cast<CuteQScrollerPrivate *>(self)->take(key, call);
 }
+
+#endif  // QT_CONFIG(scroller)

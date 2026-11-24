@@ -10,11 +10,11 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qhelpcollectionhandler_p.h"
-#include "qhelp_global.h"
-#include "qhelpdbreader_p.h"
-#include "qhelpfilterdata.h"
-#include "qhelplink.h"
+#include <QtHelp/private/qhelpcollectionhandler_p.h>
+#include <QtHelp/qhelp_global.h>
+#include <QtHelp/private/qhelpdbreader_p.h>
+#include <QtHelp/qhelpfilterdata.h>
+#include <QtHelp/qhelplink.h>
 #include <QtCore/qdatastream.h>
 #include <QtCore/qdatetime.h>
 #include <QtCore/qdir.h>

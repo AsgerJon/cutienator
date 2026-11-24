@@ -1,8 +1,10 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtQuick/6.12.0/QtQuick/private/qquickrepeater_p_p.h, Qt 6.12.0. Changes
 //  made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtQuick/qtquickglobal.h>
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
+#if QT_CONFIG(quick_repeater)
 #if QT_CONFIG(quick_repeater)
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #include <QtQuick/QtQuick>
@@ -12,9 +14,9 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquickrepeater_p.h"
-#include "qquickrepeater_p_p.h"
-#include <private/qqmlglobal_p.h>
+#include <QtQuick/private/qquickrepeater_p.h>
+#include <QtQuick/private/qquickrepeater_p_p.h>
+#include <QtQml/private/qqmlglobal_p.h>
 #include <private/qqmlchangeset_p.h>
 #include <private/qqmldelegatemodel_p.h>
 #include <QtQml/QQmlInfo>
@@ -510,4 +512,5 @@ bool ritual_take_QQuickRepeaterPrivate(
   return static_cast<CuteQQuickRepeaterPrivate *>(self)->take(key, call);
 }
 
+#endif  // QT_CONFIG(quick_repeater)
 #endif  // QT_CONFIG(quick_repeater)

@@ -9,10 +9,10 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qnoncontiguousbytedevice_p.h"
-#include <qbuffer.h>
-#include <qdebug.h>
-#include <qfile.h>
+#include <QtCore/private/qnoncontiguousbytedevice_p.h>
+#include <QtCore/qbuffer.h>
+#include <QtCore/qdebug.h>
+#include <QtCore/qfile.h>
 #include <utility>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

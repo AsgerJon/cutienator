@@ -1,8 +1,10 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/6.12.0/QtWidgets/private/qtabbar_p.h, Qt 6.12.0. Changes made
 //  here are lost.
+#include <QtCore/qglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
+#if QT_CONFIG(tabbar)
 #if QT_CONFIG(tabbar)
 #if QT_CONFIG(animation)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
@@ -12,37 +14,37 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qvariant.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "private/qlayoutengine_p.h"
+#include <QtWidgets/private/qlayoutengine_p.h>
 #if QT_CONFIG(itemviews)
-#include "qabstractitemdelegate.h"
+#include <QtWidgets/qabstractitemdelegate.h>
 #endif
-#include "qapplication.h"
-#include "qevent.h"
-#include "qpainter.h"
-#include "qstyle.h"
-#include "qstyleoption.h"
-#include "qstylepainter.h"
+#include <QtWidgets/qapplication.h>
+#include <QtGui/qevent.h>
+#include <QtGui/qpainter.h>
+#include <QtWidgets/qstyle.h>
+#include <QtWidgets/qstyleoption.h>
+#include <QtWidgets/qstylepainter.h>
 #if QT_CONFIG(tabwidget)
-#include "qtabwidget.h"
+#include <QtWidgets/qtabwidget.h>
 #endif
 #if QT_CONFIG(tooltip)
-#include "qtooltip.h"
+#include <QtWidgets/qtooltip.h>
 #endif
 #if QT_CONFIG(whatsthis)
-#include "qwhatsthis.h"
+#include <QtWidgets/qwhatsthis.h>
 #endif
-#include "private/qtextengine_p.h"
+#include <QtGui/private/qtextengine_p.h>
 #if QT_CONFIG(accessibility)
-#include "qaccessible.h"
+#include <QtGui/qaccessible.h>
 #endif
 #ifdef Q_OS_MACOS
-#include <qpa/qplatformnativeinterface.h>
+#include <QtGui/qpa/qplatformnativeinterface.h>
 #endif
-#include "qmainwindow.h"
-#include "private/qmainwindowlayout_p.h"
-#include "qdebug.h"
-#include "private/qapplication_p.h"
-#include "private/qtabbar_p.h"
+#include <QtWidgets/qmainwindow.h>
+#include <QtWidgets/private/qmainwindowlayout_p.h>
+#include <QtCore/qdebug.h>
+#include <QtWidgets/private/qapplication_p.h>
+#include <QtWidgets/private/qtabbar_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -123,4 +125,5 @@ void ritual_own_ZN14QTabBarPrivate3Tab15TabBarAnimation11updateStateEN18QAbstrac
 #endif  // QT_CONFIG(animation)
 
 #endif  // QT_CONFIG(animation)
+#endif  // QT_CONFIG(tabbar)
 #endif  // QT_CONFIG(tabbar)

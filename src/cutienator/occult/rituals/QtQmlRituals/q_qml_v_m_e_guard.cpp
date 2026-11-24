@@ -7,14 +7,14 @@
 #include <QtQml/6.12.0/QtQml/private/qqmlvme_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qqmlvme_p.h"
-#include <private/qmetaobjectbuilder_p.h>
-#include "qqmlengine.h"
+#include <QtQml/private/qqmlvme_p.h>
+#include <QtCore/private/qmetaobjectbuilder_p.h>
+#include <QtQml/qqmlengine.h>
 #include <QtQml/private/qqmlcomponent_p.h>
-#include <QStack>
-#include <QPointF>
-#include <QSizeF>
-#include <QRectF>
+#include <QtCore/QStack>
+#include <QtCore/QPointF>
+#include <QtCore/QSizeF>
+#include <QtCore/QRectF>
 #include <QtCore/qdebug.h>
 #include <QtCore/qvarlengtharray.h>
 #include <QtCore/qcoreapplication.h>

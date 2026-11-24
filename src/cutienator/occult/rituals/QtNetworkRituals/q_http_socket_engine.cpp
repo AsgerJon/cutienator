@@ -4,6 +4,7 @@
 #include <QtNetwork/qtnetworkglobal.h>
 #include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
 #if QT_CONFIG(http)
+#if QT_CONFIG(http)
 #if !defined(QT_NO_NETWORKPROXY)
 #include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
 #include <QtNetwork/QtNetwork>
@@ -18,29 +19,29 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qabstractsocketengine_p.h"
-#include "qnativesocketengine_p.h"
-#include "qmutex.h"
-#include "qnetworkproxy.h"
-#include "qhttpnetworkreply_p.h"
-#include "qhttpnetworkconnection_p.h"
+#include <QtNetwork/private/qabstractsocketengine_p.h>
+#include <QtNetwork/private/qnativesocketengine_p.h>
+#include <QtCore/qmutex.h>
+#include <QtNetwork/qnetworkproxy.h>
+#include <QtNetwork/private/qhttpnetworkreply_p.h>
+#include <QtNetwork/private/qhttpnetworkconnection_p.h>
 #ifndef QT_NO_SSL
 #    include <QtNetwork/qsslkey.h>
 #    include <QtNetwork/qsslcipher.h>
 #    include <QtNetwork/qsslconfiguration.h>
 #endif
-#include <private/qdecompresshelper_p.h>
-#include "qhttpnetworkheader_p.h"
-#include "qhttpsocketengine_p.h"
-#include "qtcpsocket.h"
-#include "qhostaddress.h"
-#include "qurl.h"
-#include "private/qhttpnetworkreply_p.h"
-#include "private/qiodevice_p.h"
-#include "qdeadlinetimer.h"
-#include "qnetworkinterface.h"
+#include <QtNetwork/private/qdecompresshelper_p.h>
+#include <QtNetwork/private/qhttpnetworkheader_p.h>
+#include <QtNetwork/private/qhttpsocketengine_p.h>
+#include <QtNetwork/qtcpsocket.h>
+#include <QtNetwork/qhostaddress.h>
+#include <QtCore/qurl.h>
+#include <QtNetwork/private/qhttpnetworkreply_p.h>
+#include <QtCore/private/qiodevice_p.h>
+#include <QtCore/qdeadlinetimer.h>
+#include <QtNetwork/qnetworkinterface.h>
 #if !defined(QT_NO_NETWORKPROXY)
-#include <qdebug.h>
+#include <QtCore/qdebug.h>
 #endif
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
@@ -2353,4 +2354,5 @@ void ritual_own_ZN17QHttpSocketEngine31setExceptionNotificationEnabledEb(
 #endif  // !defined(QT_NO_NETWORKPROXY)
 
 #endif  // !defined(QT_NO_NETWORKPROXY)
+#endif  // QT_CONFIG(http)
 #endif  // QT_CONFIG(http)

@@ -9,15 +9,15 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qktxhandler_p.h"
-#include "qtexturefiledata_p.h"
-#include <QtEndian>
-#include <QSize>
-#include <QMap>
+#include <QtGui/private/qktxhandler_p.h>
+#include <QtGui/private/qtexturefiledata_p.h>
+#include <QtCore/QtEndian>
+#include <QtCore/QSize>
+#include <QtCore/QMap>
 #include <QtCore/qiodevice.h>
 #ifdef KTX_DEBUG
-#include <QDebug>
-#include <QMetaEnum>
+#include <QtCore/QDebug>
+#include <QtCore/QMetaEnum>
 #include <QOpenGLTexture>
 #endif
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER

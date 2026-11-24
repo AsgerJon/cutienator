@@ -4,6 +4,7 @@
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #if QT_CONFIG(tabbar)
+#if QT_CONFIG(tabbar)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/qtabbar.h>
 #include <QtWidgets/QtWidgets>
@@ -586,4 +587,5 @@ bool ritual_take_QTabBarPrivate(
   return static_cast<CuteQTabBarPrivate *>(self)->take(key, call);
 }
 
+#endif  // QT_CONFIG(tabbar)
 #endif  // QT_CONFIG(tabbar)

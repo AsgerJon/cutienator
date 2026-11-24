@@ -14,7 +14,7 @@
 #include <QtGui/qcolor.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquickshapegenericrenderer_p.h"
+#include <QtQuickShapes/private/qquickshapegenericrenderer_p.h>
 #include <QtGui/private/qtriangulator_p.h>
 #include <QtGui/private/qtriangulatingstroker_p.h>
 #include <rhi/qrhi.h>
@@ -23,7 +23,7 @@
 #include <private/qsgplaintexture_p.h>
 #include <QtQuick/private/qsggradientcache_p.h>
 #if QT_CONFIG(thread)
-#include <QThreadPool>
+#include <QtCore/QThreadPool>
 #endif
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

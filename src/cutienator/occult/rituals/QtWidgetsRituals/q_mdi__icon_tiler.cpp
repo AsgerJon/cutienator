@@ -4,6 +4,7 @@
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #if QT_CONFIG(mdiarea)
+#if QT_CONFIG(mdiarea)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/QtWidgets>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -30,4 +31,5 @@ QMdi::Rearranger::Type ritual_own_ZNK4QMdi9IconTiler4typeEv(
   return self->QMdi::IconTiler::type();
 }
 
+#endif  // QT_CONFIG(mdiarea)
 #endif  // QT_CONFIG(mdiarea)

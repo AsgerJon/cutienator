@@ -10,24 +10,24 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qnetworkreplyfileimpl_p.h"
+#include <QtNetwork/private/qnetworkreplyfileimpl_p.h>
 #include "QtCore/qdatetime.h"
-#include "qnetworkaccessmanager_p.h"
+#include <QtNetwork/private/qnetworkaccessmanager_p.h>
 #include <QtCore/QCoreApplication>
 #include <QtCore/QFileInfo>
 #include <QtCore/QThread>
-#include "qnetworkfile_p.h"
-#include "qnetworkrequest.h"
-#include "qnetworkrequest.h"
-#include "qnetworkrequest_p.h"
+#include <QtNetwork/private/qnetworkfile_p.h>
+#include <QtNetwork/qnetworkrequest.h>
+#include <QtNetwork/qnetworkrequest.h>
+#include <QtNetwork/private/qnetworkrequest_p.h>
 #include "qplatformdefs.h"
-#include "qnetworkcookie.h"
-#include "qsslconfiguration.h"
-#include "qhttpheadershelper_p.h"
+#include <QtNetwork/qnetworkcookie.h>
+#include <QtNetwork/qsslconfiguration.h>
+#include <QtNetwork/private/qhttpheadershelper_p.h>
 #if QT_CONFIG(http)
-#include "qhttp1configuration.h"
-#include "qhttp2configuration.h"
-#include "private/http2protocol_p.h"
+#include <QtNetwork/qhttp1configuration.h>
+#include <QtNetwork/qhttp2configuration.h>
+#include <QtNetwork/private/http2protocol_p.h>
 #endif
 #include "QtCore/qdatetime.h"
 #include "QtCore/qlocale.h"
@@ -39,7 +39,7 @@
 # include <stdio.h>
 #endif
 #include <algorithm>
-#include <q20algorithm.h>
+#include <QtCore/q20algorithm.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

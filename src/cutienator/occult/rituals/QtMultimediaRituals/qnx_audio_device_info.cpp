@@ -10,8 +10,9 @@
 #include <QtMultimedia/6.12.0/QtMultimedia/private/qqnxaudiodevice_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qqnxaudiodevice_p.h"
+#include <QtMultimedia/private/qqnxaudiodevice_p.h>
 #include <array>
+#include <sys/asoundlib.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

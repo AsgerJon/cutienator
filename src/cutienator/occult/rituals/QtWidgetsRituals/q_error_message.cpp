@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qerrormessage.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(errormessage)
 #if QT_CONFIG(errormessage)
 #include <QtWidgets/qerrormessage.h>
 #include <QtCore/qstring.h>
@@ -1121,4 +1123,5 @@ void ritual_own_ZN13QErrorMessage11changeEventEP6QEvent(
   static_cast<OwnQErrorMessage *>(self)->OwnQErrorMessage::changeEvent(e);
 }
 
+#endif  // QT_CONFIG(errormessage)
 #endif  // QT_CONFIG(errormessage)

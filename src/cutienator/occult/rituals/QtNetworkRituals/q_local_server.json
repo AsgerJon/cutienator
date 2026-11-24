@@ -54,6 +54,11 @@
     ],
     "ritual_own_ZN12QLocalServer18incomingConnectionEy": [
       "nothing", "address", "unsigned long long"
-    ]
+    ],
+    "ritual_list_make_QLocalServer_ptr": ["address"],
+    "ritual_list_add_QLocalServer_ptr": ["nothing", "address", "address"],
+    "ritual_list_size_QLocalServer_ptr": ["long long", "address"],
+    "ritual_list_at_QLocalServer_ptr": ["address", "address", "long long"],
+    "ritual_list_drop_QLocalServer_ptr": ["nothing", "address"]
   }
 }

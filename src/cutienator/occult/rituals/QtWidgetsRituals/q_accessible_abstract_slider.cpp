@@ -1,8 +1,10 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/6.12.0/QtWidgets/private/rangecontrols_p.h, Qt 6.12.0. Changes
 //  made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
+#if QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
 #if QT_CONFIG(slider)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
@@ -17,29 +19,29 @@
 #include <QtGui/qcolor.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "rangecontrols_p.h"
+#include <QtWidgets/private/rangecontrols_p.h>
 #if QT_CONFIG(slider)
-#include <qslider.h>
+#include <QtWidgets/qslider.h>
 #endif
 #if QT_CONFIG(dial)
-#include <qdial.h>
+#include <QtWidgets/qdial.h>
 #endif
 #if QT_CONFIG(spinbox)
-#include <qspinbox.h>
+#include <QtWidgets/qspinbox.h>
 #endif
 #if QT_CONFIG(scrollbar)
-#include <qscrollbar.h>
+#include <QtWidgets/qscrollbar.h>
 #endif
-#include <qstyle.h>
-#include <qstyleoption.h>
-#include <qdebug.h>
-#include <qglobal.h>
+#include <QtWidgets/qstyle.h>
+#include <QtWidgets/qstyleoption.h>
+#include <QtCore/qdebug.h>
+#include <QtCore/qglobal.h>
 #if QT_CONFIG(lineedit)
 #include <QtWidgets/qlineedit.h>
 #endif
-#include <qmath.h>
-#include <private/qmath_p.h>
-#include "simplewidgets_p.h" // let spinbox use line edit's interface
+#include <QtCore/qmath.h>
+#include <QtGui/private/qmath_p.h>
+#include <QtWidgets/private/simplewidgets_p.h> // let spinbox use line edit's interface
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -909,4 +911,5 @@ QVariant *ritual_own_ZNK25QAccessibleAbstractSlider15minimumStepSizeEv(
 #endif  // QT_CONFIG(accessibility)
 
 #endif  // QT_CONFIG(slider)
+#endif  // QT_CONFIG(accessibility)
 #endif  // QT_CONFIG(accessibility)

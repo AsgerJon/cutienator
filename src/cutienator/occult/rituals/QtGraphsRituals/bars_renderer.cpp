@@ -26,9 +26,9 @@
 #include <QtGraphs/qbarset.h>
 #include <QtQuick/private/qquickrectangle_p.h>
 #include <QtQuick/private/qquicktaphandler_p.h>
-#include <private/axisrenderer_p.h>
-#include <private/barsrenderer_p.h>
-#include <private/qgraphsview_p.h>
+#include <QtGraphs/private/axisrenderer_p.h>
+#include <QtGraphs/private/barsrenderer_p.h>
+#include <QtGraphs/private/qgraphsview_p.h>
 #include <utility>
 #if QT_CONFIG(graphs_2d_high_performance_backend)
 #include <QtCanvasPainter/QCanvasPainter>

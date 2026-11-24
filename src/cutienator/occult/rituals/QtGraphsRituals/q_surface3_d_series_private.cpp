@@ -14,15 +14,15 @@
 #include <QtGui/qcolor.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qabstract3dseries_p.h"
-#include "qabstractdataproxy_p.h"
-#include "qquickgraphsitem_p.h"
-#include "qgraphs3dlogging_p.h"
-#include "qcategory3daxis.h"
-#include "qquickgraphssurface_p.h"
-#include "qsurface3dseries_p.h"
-#include "qvalue3daxis.h"
-#include "qgraphs3dlogging_p.h"
+#include <QtGraphs/private/qabstract3dseries_p.h>
+#include <QtGraphs/private/qabstractdataproxy_p.h>
+#include <QtGraphs/private/qquickgraphsitem_p.h>
+#include <QtGraphs/private/qgraphs3dlogging_p.h>
+#include <QtGraphs/qcategory3daxis.h>
+#include <QtGraphs/private/qquickgraphssurface_p.h>
+#include <QtGraphs/private/qsurface3dseries_p.h>
+#include <QtGraphs/qvalue3daxis.h>
+#include <QtGraphs/private/qgraphs3dlogging_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

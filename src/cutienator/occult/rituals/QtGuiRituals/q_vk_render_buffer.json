@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qrhivulkan_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15QVkRenderBufferD1Ev": ["nothing", "address"],
+    "ritual_ZN15QVkRenderBuffer7destroyEv": ["nothing", "address"],
+    "ritual_ZN15QVkRenderBuffer6createEv": ["bool", "address"],
+    "ritual_ZNK15QVkRenderBuffer13backingFormatEv": ["int", "address"],
+    "ritual_take_QVkRenderBuffer": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN15QVkRenderBuffer7destroyEv": ["nothing", "address"],
+    "ritual_own_ZNK15QVkRenderBuffer13backingFormatEv": ["int", "address"]
+  }
+}

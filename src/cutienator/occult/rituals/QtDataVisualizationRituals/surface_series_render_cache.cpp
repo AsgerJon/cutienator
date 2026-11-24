@@ -10,21 +10,21 @@
 #include <QtGui/qmatrix4x4.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "surfaceobject_p.h"
-#include "surface3drenderer_p.h"
+#include <QtDataVisualization/private/surfaceobject_p.h>
+#include <QtDataVisualization/private/surface3drenderer_p.h>
 #include <QtGui/QVector2D>
-#include "texturehelper_p.h"
-#include "utils_p.h"
+#include <QtDataVisualization/private/texturehelper_p.h>
+#include <QtDataVisualization/private/utils_p.h>
 #include <QtGui/QImage>
 #include <QtGui/QPainter>
 #include <QtCore/QTime>
-#include "seriesrendercache_p.h"
-#include "abstract3drenderer_p.h"
-#include "texturehelper_p.h"
-#include "utils_p.h"
-#include "surfaceseriesrendercache_p.h"
-#include "surface3drenderer_p.h"
-#include "texturehelper_p.h"
+#include <QtDataVisualization/private/seriesrendercache_p.h>
+#include <QtDataVisualization/private/abstract3drenderer_p.h>
+#include <QtDataVisualization/private/texturehelper_p.h>
+#include <QtDataVisualization/private/utils_p.h>
+#include <QtDataVisualization/private/surfaceseriesrendercache_p.h>
+#include <QtDataVisualization/private/surface3drenderer_p.h>
+#include <QtDataVisualization/private/texturehelper_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

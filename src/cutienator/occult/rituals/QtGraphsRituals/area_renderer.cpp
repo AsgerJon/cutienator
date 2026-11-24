@@ -25,32 +25,32 @@
 #endif
 #include <QtQuick/private/qquicktaphandler_p.h>
 #include <QtQuickShapes/private/qquickshape_p.h>
-#include <private/arearenderer_p.h>
-#include <private/axisrenderer_p.h>
-#include <private/pointrenderer_p.h>
-#include <private/qgraphsview_p.h>
+#include <QtGraphs/private/arearenderer_p.h>
+#include <QtGraphs/private/axisrenderer_p.h>
+#include <QtGraphs/private/pointrenderer_p.h>
+#include <QtGraphs/private/qgraphsview_p.h>
 #if QT_CONFIG(graphs_2d_high_performance_backend)
 #include <QtCanvasPainter/QCanvasPainter>
 #include <QtCanvasPainter/QCanvasLinearGradient>
 #include <QtCanvasPainter/QCanvasConicalGradient>
 #include <QtCanvasPainter/QCanvasRadialGradient>
-#include <QLinearGradient>
-#include <QRadialGradient>
-#include <QConicalGradient>
+#include <QtGui/QLinearGradient>
+#include <QtGui/QRadialGradient>
+#include <QtGui/QConicalGradient>
 #endif
-#include "qabstractaxis.h"
+#include <QtGraphs/qabstractaxis.h>
 #if QT_CONFIG(graphs_2d_bar)
 #include <QtGraphs/QBarCategoryAxis>
 #endif
 #include <QtGraphs/QGraphsTheme>
-#include <private/axisrenderer_p.h>
-#include <private/qabstractaxis_p.h>
-#include <private/qdatetimeaxis_p.h>
-#include <private/qgraphsview_p.h>
-#include <private/qvalueaxis_p.h>
-#include <private/qlogvalueaxis_p.h>
+#include <QtGraphs/private/axisrenderer_p.h>
+#include <QtGraphs/private/qabstractaxis_p.h>
+#include <QtGraphs/private/qdatetimeaxis_p.h>
+#include <QtGraphs/private/qgraphsview_p.h>
+#include <QtGraphs/private/qvalueaxis_p.h>
+#include <QtGraphs/private/qlogvalueaxis_p.h>
 #include <QtQuick/private/qquickdraghandler_p.h>
-#include <qfontmetrics.h>
+#include <QtGui/qfontmetrics.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

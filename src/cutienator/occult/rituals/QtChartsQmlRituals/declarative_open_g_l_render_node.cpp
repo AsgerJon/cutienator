@@ -17,16 +17,16 @@
 #include <QtCore/qlist.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "declarativeopenglrendernode_p.h"
+#include <QtChartsQml/private/declarativeopenglrendernode_p.h>
 #include <QtGui/QOpenGLContext>
 #include <QtGui/QOpenGLFunctions>
 #include <QtOpenGL/QOpenGLFramebufferObjectFormat>
 #include <QtOpenGL/QOpenGLFramebufferObject>
 #include <QOpenGLShaderProgram>
 #include <QtOpenGL/QOpenGLBuffer>
-#include <QQuickOpenGLUtils>
+#include <QtQuick/QQuickOpenGLUtils>
 #ifdef QDEBUG_TRACE_GL_FPS
-#  include <QElapsedTimer>
+#  include <QtCore/QElapsedTimer>
 #endif
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

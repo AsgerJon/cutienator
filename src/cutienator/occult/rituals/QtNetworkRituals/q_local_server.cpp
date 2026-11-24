@@ -2,9 +2,11 @@
 //  QtNetwork/qlocalserver.h, Qt 6.12.0. Changes made here are lost.
 #include <QtNetwork/qtnetworkglobal.h>
 #if QT_CONFIG(localserver)
+#if QT_CONFIG(localserver)
 #include <QtNetwork/qlocalserver.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  Only a class built on QLocalServer may call these functions of it.
@@ -470,4 +472,40 @@ void ritual_own_ZN12QLocalServer18incomingConnectionEy(
       socketDescriptor);
 }
 
+//  QList<QLocalServer *>::QList()
+extern "C" Q_DECL_EXPORT
+QList<QLocalServer *> *ritual_list_make_QLocalServer_ptr() {
+  return new QList<QLocalServer *>();
+}
+
+//  void QList<QLocalServer *>::append(const QLocalServer * &value)
+extern "C" Q_DECL_EXPORT
+void ritual_list_add_QLocalServer_ptr(
+    QList<QLocalServer *> *self,
+    QLocalServer *element) {
+  self->append(element);
+}
+
+//  qsizetype QList<QLocalServer *>::size() const
+extern "C" Q_DECL_EXPORT
+long long ritual_list_size_QLocalServer_ptr(
+    const QList<QLocalServer *> *self) {
+  return self->size();
+}
+
+//  const QLocalServer * &QList<QLocalServer *>::at(qsizetype i) const
+extern "C" Q_DECL_EXPORT
+QLocalServer *ritual_list_at_QLocalServer_ptr(
+    const QList<QLocalServer *> *self,
+    long long index) {
+  return self->at(index);
+}
+
+//  QList<QLocalServer *>::~QList()
+extern "C" Q_DECL_EXPORT
+void ritual_list_drop_QLocalServer_ptr(QList<QLocalServer *> *self) {
+  delete self;
+}
+
+#endif  // QT_CONFIG(localserver)
 #endif  // QT_CONFIG(localserver)

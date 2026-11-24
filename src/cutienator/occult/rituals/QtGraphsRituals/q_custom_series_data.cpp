@@ -16,7 +16,7 @@
 #include <iterator>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/QDataStream>
-#include <private/qcustomseriesdata_p.h>
+#include <QtGraphs/private/qcustomseriesdata_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

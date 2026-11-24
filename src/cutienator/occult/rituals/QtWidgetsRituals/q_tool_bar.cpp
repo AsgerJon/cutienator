@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qtoolbar.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(toolbar)
 #if QT_CONFIG(toolbar)
 #include <QtWidgets/qtoolbar.h>
 #include <QtCore/qstring.h>
@@ -1240,4 +1242,5 @@ void ritual_list_drop_QToolBar_ptr(QList<QToolBar *> *self) {
   delete self;
 }
 
+#endif  // QT_CONFIG(toolbar)
 #endif  // QT_CONFIG(toolbar)

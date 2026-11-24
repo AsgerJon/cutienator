@@ -4,6 +4,7 @@
 #include <QtCore/qglobal.h>
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #if QT_CONFIG(thread)
+#if QT_CONFIG(thread)
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtCore/QtCore>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -12,11 +13,11 @@
 #include <QtCore/qdeadlinetimer.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include "qplatformdefs.h"
-#include "qreadwritelock.h"
-#include "qthread.h"
-#include "qreadwritelock_p.h"
-#include "private/qfreelist_p.h"
-#include "private/qlocking_p.h"
+#include <QtCore/qreadwritelock.h>
+#include <QtCore/qthread.h>
+#include <QtCore/private/qreadwritelock_p.h>
+#include <QtCore/private/qfreelist_p.h>
+#include <QtCore/private/qlocking_p.h>
 #include <algorithm>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
@@ -109,4 +110,5 @@ bool ritual_ZN21QReadWriteLockPrivate21recursiveLockForWriteE14QDeadlineTimer(
   return self->recursiveLockForWrite(*timeout);
 }
 
+#endif  // QT_CONFIG(thread)
 #endif  // QT_CONFIG(thread)

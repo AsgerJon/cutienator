@@ -4,6 +4,7 @@
 #include <QtCore/qglobal.h>
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #if QT_CONFIG(proxymodel)
+#if QT_CONFIG(proxymodel)
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtCore/qabstractproxymodel.h>
 #include <QtCore/QtCore>
@@ -249,4 +250,5 @@ void ritual_own_ZN26QAbstractProxyModelPrivate23_q_sourceModelDestroyedEv(
   self->QAbstractProxyModelPrivate::_q_sourceModelDestroyed();
 }
 
+#endif  // QT_CONFIG(proxymodel)
 #endif  // QT_CONFIG(proxymodel)

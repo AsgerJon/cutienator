@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGui/qshortcut.h, Qt 6.12.0. Changes made here are lost.
+#include <QtCore/qglobal.h>
 #include <QtGui/qtguiglobal.h>
+#if QT_CONFIG(shortcut)
 #if QT_CONFIG(shortcut)
 #include <QtGui/qshortcut.h>
 #include <QtCore/qstring.h>
@@ -369,4 +371,5 @@ bool ritual_own_ZN9QShortcut5eventEP6QEvent(QShortcut *self, QEvent *e) {
   return static_cast<OwnQShortcut *>(self)->OwnQShortcut::event(e);
 }
 
+#endif  // QT_CONFIG(shortcut)
 #endif  // QT_CONFIG(shortcut)

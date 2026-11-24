@@ -27,6 +27,11 @@
       "nothing", "address", "address"
     ],
     "ritual_ZNK12QGeoLocation7isEmptyEv": ["bool", "address"],
-    "ritual_ZN12QGeoLocation6equalsERKS_S1_": ["bool", "address", "address"]
+    "ritual_ZN12QGeoLocation6equalsERKS_S1_": ["bool", "address", "address"],
+    "ritual_list_make_QGeoLocation": ["address"],
+    "ritual_list_add_QGeoLocation": ["nothing", "address", "address"],
+    "ritual_list_size_QGeoLocation": ["long long", "address"],
+    "ritual_list_at_QGeoLocation": ["address", "address", "long long"],
+    "ritual_list_drop_QGeoLocation": ["nothing", "address"]
   }
 }

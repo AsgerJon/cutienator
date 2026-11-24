@@ -8,7 +8,7 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qcoaprequest_p.h"
+#include <QtCoap/private/qcoaprequest_p.h>
 #include <QtCore/qmath.h>
 #include <QtCore/qdatetime.h>
 #include <QtCore/qloggingcategory.h>

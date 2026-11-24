@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DQuick/6.12.0/Qt3DQuick/private/quick3dentityloader_p_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN8Qt3DCore5Quick26Quick3DEntityLoaderPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK8Qt3DCore5Quick26Quick3DEntityLoaderPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore5Quick26Quick3DEntityLoaderPrivate3getEPNS0_19Quick3DEntityLoaderE": [
+      "address", "address"
+    ],
+    "ritual_take_Qt3DCore_Quick_Quick3DEntityLoaderPrivate": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

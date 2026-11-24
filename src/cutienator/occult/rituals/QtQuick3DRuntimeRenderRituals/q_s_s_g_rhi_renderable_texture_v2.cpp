@@ -12,7 +12,7 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qbytearray.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qssgrhicontext_p.h"
+#include <QtQuick3DRuntimeRender/private/qssgrhicontext_p.h>
 #include <QtCore/qvariant.h>
 #include <QtGui/private/qrhi_p.h>
 #include <QtQuick3DUtils/private/qquick3dprofiler_p.h>

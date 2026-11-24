@@ -130,6 +130,34 @@
     "ritual_list_add_QObject_ptr": ["nothing", "address", "address"],
     "ritual_list_size_QObject_ptr": ["long long", "address"],
     "ritual_list_at_QObject_ptr": ["address", "address", "long long"],
-    "ritual_list_drop_QObject_ptr": ["nothing", "address"]
+    "ritual_list_drop_QObject_ptr": ["nothing", "address"],
+    "ritual_map_make_QHash_int_QObject_ptr": ["address"],
+    "ritual_map_put_QHash_int_QObject_ptr": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_map_size_QHash_int_QObject_ptr": ["long long", "address"],
+    "ritual_map_key_QHash_int_QObject_ptr": ["int", "address", "long long"],
+    "ritual_map_value_QHash_int_QObject_ptr": [
+      "address", "address", "long long"
+    ],
+    "ritual_map_has_QHash_int_QObject_ptr": ["bool", "address", "int"],
+    "ritual_map_get_QHash_int_QObject_ptr": ["address", "address", "int"],
+    "ritual_map_drop_QHash_int_QObject_ptr": ["nothing", "address"],
+    "ritual_map_make_QHash_QString_QObject_ptr": ["address"],
+    "ritual_map_put_QHash_QString_QObject_ptr": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_map_size_QHash_QString_QObject_ptr": ["long long", "address"],
+    "ritual_map_key_QHash_QString_QObject_ptr": [
+      "text", "address", "long long"
+    ],
+    "ritual_map_value_QHash_QString_QObject_ptr": [
+      "address", "address", "long long"
+    ],
+    "ritual_map_has_QHash_QString_QObject_ptr": ["bool", "address", "text"],
+    "ritual_map_get_QHash_QString_QObject_ptr": [
+      "address", "address", "text"
+    ],
+    "ritual_map_drop_QHash_QString_QObject_ptr": ["nothing", "address"]
   }
 }

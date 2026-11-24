@@ -15,7 +15,7 @@
 #include <QtCore/QAbstractItemModel>
 #include <QtGraphs/QXYModelMapper>
 #include <QtGraphs/QXYSeries>
-#include "qxymodelmapper_p.h"
+#include <QtGraphs/private/qxymodelmapper_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

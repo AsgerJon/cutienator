@@ -7,13 +7,13 @@
 #include <QtQuick/6.12.0/QtQuick/private/qquicktextedit_p_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquicktextedit_p.h"
-#include "qquicktextedit_p_p.h"
-#include "qquicktextcontrol_p.h"
-#include "qquicktextdocument_p.h"
-#include "qquickwindow.h"
-#include "qsginternaltextnode_p.h"
-#include "qquicktextnodeengine_p.h"
+#include <QtQuick/private/qquicktextedit_p.h>
+#include <QtQuick/private/qquicktextedit_p_p.h>
+#include <QtQuick/private/qquicktextcontrol_p.h>
+#include <QtQuick/private/qquicktextdocument_p.h>
+#include <QtQuick/qquickwindow.h>
+#include <QtQuick/private/qsginternaltextnode_p.h>
+#include <QtQuick/private/qquicktextnodeengine_p.h>
 #include <QtCore/qmath.h>
 #include <QtCore/qvarlengtharray.h>
 #include <QtGui/qguiapplication.h>
@@ -23,15 +23,15 @@
 #include <QtGui/qtexttable.h>
 #include <QtQml/qqmlinfo.h>
 #include <QtQuick/qsgsimplerectnode.h>
-#include <private/qqmlglobal_p.h>
-#include <private/qqmlproperty_p.h>
-#include <private/qtextengine_p.h>
-#include <private/qsgadaptationlayer_p.h>
+#include <QtQml/private/qqmlglobal_p.h>
+#include <QtQml/private/qqmlproperty_p.h>
+#include <QtGui/private/qtextengine_p.h>
+#include <QtQuick/private/qsgadaptationlayer_p.h>
 #include <QtQuick/private/qquickpixmapcache_p.h>
 #if QT_CONFIG(accessibility)
-#include <private/qquickaccessibleattached_p.h>
+#include <QtQuick/private/qquickaccessibleattached_p.h>
 #endif
-#include "qquicktextdocument.h"
+#include <QtQuick/qquicktextdocument.h>
 #include <algorithm>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

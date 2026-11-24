@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qprogressdialog.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(progressdialog)
 #if QT_CONFIG(progressdialog)
 #include <QtWidgets/qprogressdialog.h>
 #include <QtCore/qstring.h>
@@ -1345,4 +1347,5 @@ void ritual_own_ZN15QProgressDialog9showEventEP10QShowEvent(
       event);
 }
 
+#endif  // QT_CONFIG(progressdialog)
 #endif  // QT_CONFIG(progressdialog)

@@ -9,8 +9,8 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquicklayout_p.h"
-#include <QEvent>
+#include <QtQuickLayouts/private/qquicklayout_p.h>
+#include <QtCore/QEvent>
 #include <QtCore/qcoreapplication.h>
 #include <QtCore/private/qnumeric_p.h>
 #include <QtCore/qstack.h>

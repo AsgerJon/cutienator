@@ -4,6 +4,7 @@
 #include <QtQmlModels/qtqmlmodelsglobal.h>
 #include <QtQmlModels/6.12.0/QtQmlModels/private/qtqmlmodelsglobal_p.h>
 #if QT_CONFIG(qml_table_model)
+#if QT_CONFIG(qml_table_model)
 #include <QtQmlModels/6.12.0/QtQmlModels/private/qtqmlmodelsglobal_p.h>
 #include <QtQmlModels/QtQmlModels>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -11,8 +12,8 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qqmltableinstancemodel_p.h"
-#include "qqmlabstractdelegatecomponent_p.h"
+#include <QtQmlModels/private/qqmltableinstancemodel_p.h>
+#include <QtQmlModels/private/qqmlabstractdelegatecomponent_p.h>
 #include <QtCore/QTimer>
 #include <QtQml/private/qqmlincubator_p.h>
 #include <QtQmlModels/private/qqmlchangeset_p.h>
@@ -151,4 +152,5 @@ void ritual_own_ZN36QQmlTableInstanceModelIncubationTask13statusChangedEN13QQmlI
   self->QQmlTableInstanceModelIncubationTask::statusChanged(status);
 }
 
+#endif  // QT_CONFIG(qml_table_model)
 #endif  // QT_CONFIG(qml_table_model)

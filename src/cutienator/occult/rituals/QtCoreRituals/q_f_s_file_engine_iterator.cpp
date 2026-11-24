@@ -13,9 +13,9 @@
 #include <QtCore/qfileinfo.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qfsfileengine_iterator_p.h"
-#include "qfileinfo_p.h"
-#include "qvariant.h"
+#include <QtCore/private/qfsfileengine_iterator_p.h>
+#include <QtCore/private/qfileinfo_p.h>
+#include <QtCore/qvariant.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

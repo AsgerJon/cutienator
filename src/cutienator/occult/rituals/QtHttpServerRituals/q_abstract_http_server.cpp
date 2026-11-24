@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtHttpServer/qabstracthttpserver.h, Qt 6.12.0. Changes made here are
 //  lost.
+#include <QtNetwork/qtnetworkglobal.h>
 #include <QtHttpServer/qabstracthttpserver.h>
 #include <QtCore/qstring.h>
 #include <QtNetwork/qtcpserver.h>

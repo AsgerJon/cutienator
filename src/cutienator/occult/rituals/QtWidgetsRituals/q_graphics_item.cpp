@@ -2,6 +2,7 @@
 //  QtWidgets/qgraphicsitem.h, Qt 6.12.0. Changes made here are lost.
 #include <QtWidgets/qtwidgetsglobal.h>
 #if QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 #include <QtWidgets/qgraphicsitem.h>
 #include <QtCore/qsize.h>
 #include <QtCore/qstring.h>
@@ -2824,4 +2825,5 @@ void ritual_list_drop_QGraphicsItem_ptr(QList<QGraphicsItem *> *self) {
   delete self;
 }
 
+#endif  // QT_CONFIG(graphicsview)
 #endif  // QT_CONFIG(graphicsview)

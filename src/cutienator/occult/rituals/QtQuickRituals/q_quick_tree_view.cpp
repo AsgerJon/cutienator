@@ -1,6 +1,10 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtQuick/6.12.0/QtQuick/private/qquicktreeview_p.h, Qt 6.12.0. Changes
 //  made here are lost.
+#include <QtGui/qtguiglobal.h>
+#include <QtQuick/qtquickglobal.h>
+#include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
+#if QT_CONFIG(quick_treeview)
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #include <QtQuick/QtQuick>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -1267,3 +1271,5 @@ void ritual_own_ZN14QQuickTreeView13keyPressEventEP9QKeyEvent(
   static_cast<OwnQQuickTreeView *>(self)->OwnQQuickTreeView::keyPressEvent(
       event);
 }
+
+#endif  // QT_CONFIG(quick_treeview)

@@ -13,10 +13,10 @@
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qdebug.h>
-#include "qabstract3daxis_p.h"
-#include "qgraphs3dlogging_p.h"
-#include "qvalue3daxis_p.h"
-#include "qgraphs3dlogging_p.h"
+#include <QtGraphs/private/qabstract3daxis_p.h>
+#include <QtGraphs/private/qgraphs3dlogging_p.h>
+#include <QtGraphs/private/qvalue3daxis_p.h>
+#include <QtGraphs/private/qgraphs3dlogging_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

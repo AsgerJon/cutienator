@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtQuick/6.12.0/QtQuick/private/qquickloader_p_p.h, Qt 6.12.0. Changes
 //  made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #include <QtQuick/QtQuick>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -11,13 +12,13 @@
 #include <QtCore/qrect.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquickloader_p_p.h"
+#include <QtQuick/private/qquickloader_p_p.h>
 #include <QtQml/qqmlinfo.h>
 #include <QtQml/qqmlcomponent.h>
-#include <private/qqmlengine_p.h>
-#include <private/qqmlglobal_p.h>
-#include <private/qqmlcomponent_p.h>
-#include <private/qqmlincubator_p.h>
+#include <QtQml/private/qqmlengine_p.h>
+#include <QtQml/private/qqmlglobal_p.h>
+#include <QtQml/private/qqmlcomponent_p.h>
+#include <QtQml/private/qqmlincubator_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

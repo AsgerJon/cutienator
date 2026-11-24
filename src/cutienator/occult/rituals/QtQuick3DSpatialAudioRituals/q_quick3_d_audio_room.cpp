@@ -11,7 +11,7 @@
 #include <QtQuick3D/qquick3dobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquick3daudioroom_p.h"
+#include <QtQuick3DSpatialAudio/private/qquick3daudioroom_p.h>
 #include <QtQuick3DSpatialAudio/private/qquick3daudioengine_p.h>
 #include <QtSpatialAudio/qaudioroom.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER

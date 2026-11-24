@@ -2,6 +2,7 @@
 //  QtCore/qvariantanimation.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qglobal.h>
 #if QT_CONFIG(animation)
+#if QT_CONFIG(animation)
 #include <QtCore/qvariantanimation.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qvariant.h>
@@ -575,4 +576,5 @@ QVariant *ritual_own_ZNK17QVariantAnimation12interpolatedERK8QVariantS2_d(
           progress));
 }
 
+#endif  // QT_CONFIG(animation)
 #endif  // QT_CONFIG(animation)

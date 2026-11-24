@@ -2,6 +2,7 @@
 //  QtCore5Compat/qtextcodec.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore5Compat/qcore5global.h>
 #if QT_CONFIG(textcodec)
+#if QT_CONFIG(textcodec)
 #include <QtCore5Compat/qtextcodec.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qbytearray.h>
@@ -69,4 +70,5 @@ bool ritual_ZNK12QTextDecoder13needsMoreDataEv(const QTextDecoder *self) {
   return self->needsMoreData();
 }
 
+#endif  // QT_CONFIG(textcodec)
 #endif  // QT_CONFIG(textcodec)

@@ -2,6 +2,7 @@
 //  QtWidgets/qgraphicsgridlayout.h, Qt 6.12.0. Changes made here are lost.
 #include <QtWidgets/qtwidgetsglobal.h>
 #if QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 #include <QtWidgets/qgraphicsgridlayout.h>
 #include <QtCore/qrect.h>
 #include <QtCore/qsize.h>
@@ -692,4 +693,5 @@ QSizeF *ritual_own_ZNK19QGraphicsGridLayout8sizeHintEN2Qt8SizeHintERK6QSizeF(
   return new QSizeF(self->QGraphicsGridLayout::sizeHint(which, *constraint));
 }
 
+#endif  // QT_CONFIG(graphicsview)
 #endif  // QT_CONFIG(graphicsview)

@@ -17,6 +17,11 @@
       "address", "address", "address"
     ],
     "ritual_ZN15QDBusObjectPath7doCheckEv": ["nothing", "address"],
-    "ritual_ZN15QDBusObjectPathD1Ev": ["nothing", "address"]
+    "ritual_ZN15QDBusObjectPathD1Ev": ["nothing", "address"],
+    "ritual_list_make_QDBusObjectPath": ["address"],
+    "ritual_list_add_QDBusObjectPath": ["nothing", "address", "address"],
+    "ritual_list_size_QDBusObjectPath": ["long long", "address"],
+    "ritual_list_at_QDBusObjectPath": ["address", "address", "long long"],
+    "ritual_list_drop_QDBusObjectPath": ["nothing", "address"]
   }
 }

@@ -11,12 +11,12 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquick3dnode_p.h"
-#include "qquick3dnode_p_p.h"
+#include <QtQuick3D/private/qquick3dnode_p.h>
+#include <QtQuick3D/private/qquick3dnode_p_p.h>
 #include <QtQuick3DRuntimeRender/private/qssgrendernode_p.h>
 #include <QtQuick3DUtils/private/qssgutils_p.h>
 #include <QtQuick3D/private/qquick3dobject_p.h>
-#include <QtMath>
+#include <QtCore/QtMath>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

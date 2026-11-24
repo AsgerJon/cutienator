@@ -10,32 +10,35 @@
 #include <QtCore/qbytearray.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qresource.h"
-#include "qresource_p.h"
-#include "qresource_iterator_p.h"
-#include "qset.h"
-#include <private/qlocking_p.h>
-#include "qdebug.h"
-#include "qlocale.h"
-#include "qglobal.h"
-#include "qlist.h"
-#include "qdatetime.h"
-#include "qbytearray.h"
-#include "qstringlist.h"
-#include "qvarlengtharray.h"
-#include "qendian.h"
-#include <qshareddata.h>
+#include <QtCore/qresource.h>
+#include <QtCore/private/qresource_p.h>
+#include <QtCore/private/qresource_iterator_p.h>
+#include <QtCore/qset.h>
+#include <QtCore/private/qlocking_p.h>
+#include <QtCore/qdebug.h>
+#include <QtCore/qlocale.h>
+#include <QtCore/qglobal.h>
+#include <QtCore/qlist.h>
+#include <QtCore/qdatetime.h>
+#include <QtCore/qbytearray.h>
+#include <QtCore/qstringlist.h>
+#include <QtCore/qvarlengtharray.h>
+#include <QtCore/qendian.h>
+#include <QtCore/qshareddata.h>
 #include <qplatformdefs.h>
-#include <qendian.h>
-#include "private/qabstractfileengine_p.h"
-#include "private/qduplicatetracker_p.h"
-#include "private/qnumeric_p.h"
-#include "private/qsimd_p.h"
-#include "private/qtools_p.h"
-#include "private/qsystemerror_p.h"
+#include <QtCore/qendian.h>
+#include <QtCore/private/qabstractfileengine_p.h>
+#include <QtCore/private/qduplicatetracker_p.h>
+#include <QtCore/private/qnumeric_p.h>
+#include <QtCore/private/qsimd_p.h>
+#include <QtCore/private/qtools_p.h>
+#include <QtCore/private/qsystemerror_p.h>
 #ifndef QT_NO_COMPRESS
+#  include <zconf.h>
+#  include <zlib.h>
 #endif
 #if QT_CONFIG(zstd)
+#  include <zstd.h>
 #endif
 #if defined(Q_OS_UNIX) && !defined(Q_OS_INTEGRITY)
 #  include <sys/mman.h>
@@ -46,7 +49,7 @@
 #  endif
 #endif
 #ifdef Q_OS_WIN
-#  include <qt_windows.h>
+#  include <QtCore/qt_windows.h>
 #endif
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

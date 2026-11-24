@@ -10,24 +10,24 @@
 #include <QtCore/qrect.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "declarativeopenglrendernode_p.h"
+#include <QtChartsQml/private/declarativeopenglrendernode_p.h>
 #include <QtGui/QOpenGLContext>
 #include <QtGui/QOpenGLFunctions>
 #include <QtOpenGL/QOpenGLFramebufferObjectFormat>
 #include <QtOpenGL/QOpenGLFramebufferObject>
 #include <QOpenGLShaderProgram>
 #include <QtOpenGL/QOpenGLBuffer>
-#include <QQuickOpenGLUtils>
+#include <QtQuick/QQuickOpenGLUtils>
 #ifdef QDEBUG_TRACE_GL_FPS
-#  include <QElapsedTimer>
+#  include <QtCore/QElapsedTimer>
 #endif
-#include "declarativechartnode_p.h"
-#include "declarativeabstractrendernode_p.h"
+#include <QtChartsQml/private/declarativechartnode_p.h>
+#include <QtChartsQml/private/declarativeabstractrendernode_p.h>
 #include <QtQuick/QQuickWindow>
 #include <QtQuick/QSGImageNode>
 #include <QtQuick/QSGRendererInterface>
 #ifndef QT_NO_OPENGL
-# include "declarativeopenglrendernode_p.h"
+# include <QtChartsQml/private/declarativeopenglrendernode_p.h>
 #endif
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

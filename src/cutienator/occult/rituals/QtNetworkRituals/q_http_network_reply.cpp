@@ -4,6 +4,7 @@
 #include <QtNetwork/qtnetworkglobal.h>
 #include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
 #if QT_CONFIG(http)
+#if QT_CONFIG(http)
 #include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
 #include <QtNetwork/QtNetwork>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -901,4 +902,5 @@ void ritual_own_ZN17QHttpNetworkReply14setHeaderFieldERK10QByteArrayS2_(
   self->QHttpNetworkReply::setHeaderField(*name, *data);
 }
 
+#endif  // QT_CONFIG(http)
 #endif  // QT_CONFIG(http)

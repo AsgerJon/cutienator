@@ -12,7 +12,7 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qlist.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquicklabsplatformfiledialog_p.h"
+#include <QtLabsPlatform/private/qquicklabsplatformfiledialog_p.h>
 #if QT_DEPRECATED_SINCE(6, 9)
 #include <QtCore/qlist.h>
 #endif

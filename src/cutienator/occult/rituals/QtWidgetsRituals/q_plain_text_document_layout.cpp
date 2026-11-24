@@ -2,6 +2,7 @@
 //  QtWidgets/qplaintextedit.h, Qt 6.12.0. Changes made here are lost.
 #include <QtWidgets/qtwidgetsglobal.h>
 #if QT_CONFIG(textedit)
+#if QT_CONFIG(textedit)
 #include <QtWidgets/qplaintextedit.h>
 #include <QtCore/qstring.h>
 #include <QtGui/qabstracttextdocumentlayout.h>
@@ -643,4 +644,5 @@ void ritual_own_ZN24QPlainTextDocumentLayout15documentChangedEiii(
       charsAdded);
 }
 
+#endif  // QT_CONFIG(textedit)
 #endif  // QT_CONFIG(textedit)

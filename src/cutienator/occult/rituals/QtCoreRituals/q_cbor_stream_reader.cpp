@@ -2,6 +2,7 @@
 //  QtCore/qcborstreamreader.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qglobal.h>
 #if QT_CONFIG(cborstreamreader)
+#if QT_CONFIG(cborstreamreader)
 #include <QtCore/qcborstreamreader.h>
 #include <QtCore/qbytearray.h>
 #include <QtCore/qcborcommon.h>
@@ -412,4 +413,5 @@ qsizetype ritual_ZNK17QCborStreamReader23_currentStringChunkSizeEv(
   return self->_currentStringChunkSize();
 }
 
+#endif  // QT_CONFIG(cborstreamreader)
 #endif  // QT_CONFIG(cborstreamreader)

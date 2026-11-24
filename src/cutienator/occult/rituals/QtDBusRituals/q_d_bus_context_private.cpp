@@ -12,11 +12,11 @@
 #include <QtDBus/qdbusconnection.h>
 #include <QtDBus/qdbusmessage.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qdbusmessage.h"
-#include "qdbusconnection.h"
-#include "qdbusabstractadaptor.h"
-#include "qdbuscontext.h"
-#include "qdbuscontext_p.h"
+#include <QtDBus/qdbusmessage.h>
+#include <QtDBus/qdbusconnection.h>
+#include <QtDBus/qdbusabstractadaptor.h>
+#include <QtDBus/qdbuscontext.h>
+#include <QtDBus/private/qdbuscontext_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

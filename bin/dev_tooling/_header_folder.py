@@ -13,6 +13,8 @@ from typing import TYPE_CHECKING
 
 from worktoy.waitaminute import MissingVariable, TypeException
 
+from . import Machine
+
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Any, Dict, List, Optional, Set, Tuple
 
@@ -423,9 +425,6 @@ class HeaderFolder:
   __left_out_switches__ = (
       'static', 'opengles2', 'opengles3', 'opengles31', 'opengles32',
   )
-  #  What Qt keeps of the system and the compiler it is built for, as
-  #  'qplatformdefs.h'. The compiler here reads as Linux.
-  __spec_name__ = 'linux-g++'
   #  The file written last into the folder. It says what the folder
   #  was made from, and marks the folder as one made here.
   __stamp_name__ = 'made_by_header_folder.txt'
@@ -488,7 +487,22 @@ class HeaderFolder:
       OPENBSD='defined(Q_OS_OPENBSD)', SOLARIS='defined(Q_OS_SOLARIS)',
       CYGWIN='defined(Q_OS_CYGWIN)', OHOS='defined(Q_OS_HARMONY)',
       MSVC='defined(Q_CC_MSVC)', MINGW='defined(Q_CC_MINGW)',
+      TVOS='defined(Q_OS_TVOS)',
+      #  Qt 6 builds for no WinRT: its build never sets 'WINRT', and no
+      #  compiler of it defines 'Q_OS_WINRT'.
+      WINRT='defined(Q_OS_WINRT)',
+      #  'qtconfigmacros.h': 'QT_STATIC' is defined for a Qt built
+      #  static, and for no other.
+      QT_BUILD_SHARED_LIBS='!defined(QT_STATIC)',
   )
+  #  A processor a 'CMakeLists.txt' compares the one built for with, as
+  #  'TEST_architecture_arch STREQUAL "i386"', and what the compiler
+  #  knows it by; see '_translateCondition'.
+  __processor_words__ = {
+      'i386': 'defined(Q_PROCESSOR_X86_32)',
+      'x86_64': 'defined(Q_PROCESSOR_X86_64)',
+      'x86_64h': 'defined(Q_PROCESSOR_X86_64)',
+  }
   #  The words after which 'qt_internal_extend_target' lists other things
   #  than its condition.
   __list_words__ = re.compile(
@@ -638,12 +652,7 @@ class HeaderFolder:
       (TEST_architecture_arch STREQUAL "i386")', and for a file of no
       part.
     """
-    real = os.path.realpath(headerPath)
-    owner, length = None, 0  # type: Optional[str], int
-    for partName in self.getPartNames():
-      folder = os.path.realpath(self.getPartFolder(partName))
-      if real.startswith(folder + os.sep) and len(folder) > length:
-        owner, length = partName, len(folder)
+    owner = self.getPartOfPath(headerPath)
     if owner is None:
       return None
     kept = self.__install_conditions__
@@ -651,7 +660,20 @@ class HeaderFolder:
       kept = self.__install_conditions__ = dict()
     if owner not in kept:
       kept[owner] = self._readInstallConditions(owner)
-    return kept[owner].get(os.path.basename(real), '')
+    name = os.path.basename(os.path.realpath(headerPath))
+    return kept[owner].get(name, '')
+
+  def getPartOfPath(self, path: str) -> Optional[str]:
+    """Gives the part of Qt a file of the source lies in, as 'QtWidgets'
+    for 'qtbase/src/widgets/widgets/qmenu.cpp': the part with the
+    deepest folder holding it. None for a file of no part."""
+    real = os.path.realpath(path)
+    owner, length = None, 0  # type: Optional[str], int
+    for partName in self.getPartNames():
+      folder = os.path.realpath(self.getPartFolder(partName))
+      if real.startswith(folder + os.sep) and len(folder) > length:
+        owner, length = partName, len(folder)
+    return owner
 
   def getSwitchOwner(self, switchName: str) -> Optional[Tuple[str, bool]]:
     """
@@ -729,10 +751,11 @@ class HeaderFolder:
   def getSpecFolder(self) -> str:
     """Gives the folder of the source with what Qt keeps of the system
     and the compiler it is built for, among it 'qplatformdefs.h', which
-    some header files Qt calls private pull in. The compiler here reads
-    as Linux, so it is the one for Linux."""
+    some header files Qt calls private pull in: the one of the system
+    the tooling runs on, as 'mkspecs/linux-g++' on Linux; see
+    'Machine.getSpecName'."""
     return os.path.join(
-        self.getSourceFolder(), 'mkspecs', self.__spec_name__)
+        self.getSourceFolder(), 'mkspecs', Machine.getSpecName())
 
   def getLeftOutSwitches(self) -> Tuple[str, ...]:
     """Gives the switches the lists say are out, while every other
@@ -906,8 +929,12 @@ class HeaderFolder:
         conditions = [one for one, _ in opened]
         if word == 'qt_internal_extend_target':
           own = re.search(r'\bCONDITION\b(.*)', arguments, re.S)
+          asked = ''
           if own is not None:
             asked = self.__list_words__.split(own.group(1), 1)[0]
+          #  'CONDITION' with nothing after it, as QtWidgets has around
+          #  'qwizard.h', asks for nothing more.
+          if asked.strip():
             conditions.append(' '.join(asked.split()))
         joined = ' AND '.join('(%s)' % one for one in conditions)
         if len(conditions) == 1:
@@ -1176,7 +1203,10 @@ class HeaderFolder:
   def _translateCondition(self, condition: str) -> Optional[str]:
     """Writes a condition of a 'CMakeLists.txt' for the compiler, as
     'QT_CONFIG(textcodec) && defined(Q_OS_WIN)' for 'QT_FEATURE_textcodec
-    AND WIN32'; None when a word of it cannot be."""
+    AND WIN32', and 'defined(Q_PROCESSOR_X86_32)' for
+    'TEST_architecture_arch STREQUAL "i386"'; None when a word of it
+    cannot be, as 'OPENSSL_FOUND', which says what the machine that
+    built Qt had."""
     tokens = re.findall(r'\(|\)|"[^"]*"|[^\s()]+', condition)
     spoken, index = [], 0  # type: List[str], int
     while index < len(tokens):
@@ -1189,6 +1219,14 @@ class HeaderFolder:
         spoken.append('QT_CONFIG(%s)' % token[len('QT_FEATURE_'):])
       elif token in self.__system_words__:
         spoken.append(self.__system_words__[token])
+      elif token in ('TEST_architecture_arch', 'CMAKE_OSX_ARCHITECTURES') \
+          and index + 2 < len(tokens) \
+          and tokens[index + 1] in ('STREQUAL', 'MATCHES'):
+        processor = tokens[index + 2].strip('"')
+        if processor not in self.__processor_words__:
+          return None
+        spoken.append(self.__processor_words__[processor])
+        index += 2
       elif token == 'TARGET' and index + 1 < len(tokens):
         index += 1
         target = re.sub(r'Private$', '', tokens[index])

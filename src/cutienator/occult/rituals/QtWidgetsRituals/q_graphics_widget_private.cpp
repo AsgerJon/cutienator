@@ -4,6 +4,7 @@
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #if QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/qgraphicswidget.h>
 #include <QtWidgets/QtWidgets>
@@ -16,13 +17,13 @@
 #include <QtCore/qpoint.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qglobal.h"
+#include <QtCore/qglobal.h>
 #include <QtCore/qdebug.h>
 #include <QtCore/qnumeric.h>
-#include "qgraphicswidget_p.h"
-#include "qgraphicslayoutitem_p.h"
-#include "qgraphicslayout.h"
-#include "qgraphicsscene_p.h"
+#include <QtWidgets/private/qgraphicswidget_p.h>
+#include <QtWidgets/private/qgraphicslayoutitem_p.h>
+#include <QtWidgets/qgraphicslayout.h>
+#include <QtWidgets/private/qgraphicsscene_p.h>
 #include <QtWidgets/qapplication.h>
 #include <QtWidgets/qgraphicsscene.h>
 #include <QtWidgets/qstyleoption.h>
@@ -1314,4 +1315,5 @@ void ritual_own_ZN22QGraphicsWidgetPrivate11resetHeightEv(
   self->QGraphicsWidgetPrivate::resetHeight();
 }
 
+#endif  // QT_CONFIG(graphicsview)
 #endif  // QT_CONFIG(graphicsview)

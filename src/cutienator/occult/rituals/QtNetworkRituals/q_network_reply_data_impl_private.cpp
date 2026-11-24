@@ -10,11 +10,11 @@
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtNetwork/private/qtnetworkglobal_p.h>
-#include "qnetworkreply.h"
-#include "qnetworkreply_p.h"
+#include <QtNetwork/qnetworkreply.h>
+#include <QtNetwork/private/qnetworkreply_p.h>
 #include <QtNetwork/qsslconfiguration.h>
-#include "qnetworkreplydataimpl_p.h"
-#include "private/qdataurl_p.h"
+#include <QtNetwork/private/qnetworkreplydataimpl_p.h>
+#include <QtCore/private/qdataurl_p.h>
 #include <QtCore/QCoreApplication>
 #include <QtCore/QMetaObject>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER

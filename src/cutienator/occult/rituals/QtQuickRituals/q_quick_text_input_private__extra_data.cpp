@@ -7,24 +7,24 @@
 #include <QtQuick/6.12.0/QtQuick/private/qquicktextinput_p_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquicktextinput_p.h"
-#include "qquicktextinput_p_p.h"
-#include "qquickwindow.h"
-#include <private/qqmlglobal_p.h>
-#include <private/qv4scopedvalue_p.h>
+#include <QtQuick/private/qquicktextinput_p.h>
+#include <QtQuick/private/qquicktextinput_p_p.h>
+#include <QtQuick/qquickwindow.h>
+#include <QtQml/private/qqmlglobal_p.h>
+#include <QtQml/private/qv4scopedvalue_p.h>
 #include <QtCore/qcoreapplication.h>
 #include <QtCore/qmimedata.h>
 #include <QtQml/qqmlinfo.h>
 #include <QtGui/qevent.h>
-#include <QTextBoundaryFinder>
-#include "qsginternaltextnode_p.h"
+#include <QtCore/QTextBoundaryFinder>
+#include <QtQuick/private/qsginternaltextnode_p.h>
 #include <QtQuick/qsgsimplerectnode.h>
 #include <QtGui/qstylehints.h>
 #include <QtGui/qinputmethod.h>
 #include <QtCore/qmath.h>
 #if QT_CONFIG(accessibility)
-#include "qaccessible.h"
-#include "qquickaccessibleattached_p.h"
+#include <QtGui/qaccessible.h>
+#include <QtQuick/private/qquickaccessibleattached_p.h>
 #endif
 #include <QtGui/private/qtextengine_p.h>
 #include <QtGui/private/qinputcontrol_p.h>

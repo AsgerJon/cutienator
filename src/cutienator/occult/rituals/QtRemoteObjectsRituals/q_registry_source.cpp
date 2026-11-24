@@ -10,7 +10,7 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qremoteobjectregistrysource_p.h"
+#include <QtRemoteObjects/private/qremoteobjectregistrysource_p.h>
 #include <QtCore/qdatastream.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

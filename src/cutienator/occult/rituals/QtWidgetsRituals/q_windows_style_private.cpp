@@ -4,6 +4,7 @@
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #if QT_CONFIG(style_windows)
+#if QT_CONFIG(style_windows)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/QtWidgets>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -122,4 +123,5 @@ bool ritual_take_QWindowsStylePrivate(
   return static_cast<CuteQWindowsStylePrivate *>(self)->take(key, call);
 }
 
+#endif  // QT_CONFIG(style_windows)
 #endif  // QT_CONFIG(style_windows)

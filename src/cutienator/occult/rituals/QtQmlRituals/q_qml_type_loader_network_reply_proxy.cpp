@@ -4,14 +4,15 @@
 #include <QtQml/qtqmlglobal.h>
 #include <QtQml/6.12.0/QtQml/private/qtqmlglobal_p.h>
 #if QT_CONFIG(qml_network)
+#if QT_CONFIG(qml_network)
 #include <QtQml/6.12.0/QtQml/private/qtqmlglobal_p.h>
 #include <QtQml/QtQml>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/6.12.0/QtQml/private/qqmltypeloadernetworkreplyproxy_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <private/qqmltypeloadernetworkreplyproxy_p.h>
-#include <private/qqmltypeloader_p.h>
+#include <QtQml/private/qqmltypeloadernetworkreplyproxy_p.h>
+#include <QtQml/private/qqmltypeloader_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -80,4 +81,5 @@ void ritual_ZN31QQmlTypeLoaderNetworkReplyProxy14manualFinishedEP13QNetworkReply
   self->manualFinished(a0);
 }
 
+#endif  // QT_CONFIG(qml_network)
 #endif  // QT_CONFIG(qml_network)

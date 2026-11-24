@@ -9,10 +9,10 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquicklabsplatformmenu_p.h"
-#include "qquicklabsplatformmenubar_p.h"
-#include "qquicklabsplatformmenuitem_p.h"
-#include "qquicklabsplatformiconloader_p.h"
+#include <QtLabsPlatform/private/qquicklabsplatformmenu_p.h>
+#include <QtLabsPlatform/private/qquicklabsplatformmenubar_p.h>
+#include <QtLabsPlatform/private/qquicklabsplatformmenuitem_p.h>
+#include <QtLabsPlatform/private/qquicklabsplatformiconloader_p.h>
 #include <QtCore/qloggingcategory.h>
 #include <QtGui/qicon.h>
 #include <QtGui/qcursor.h>
@@ -26,10 +26,10 @@
 #include <QtQuick/qquickwindow.h>
 #include <QtQuick/qquickitem.h>
 #if QT_CONFIG(systemtrayicon)
-#include "qquicklabsplatformsystemtrayicon_p.h"
+#include <QtLabsPlatform/private/qquicklabsplatformsystemtrayicon_p.h>
 #endif
-#include "qquicklabsplatformmenubar_p.h"
-#include "qquicklabsplatformmenu_p.h"
+#include <QtLabsPlatform/private/qquicklabsplatformmenubar_p.h>
+#include <QtLabsPlatform/private/qquicklabsplatformmenu_p.h>
 #include <QtCore/qloggingcategory.h>
 #include <QtGui/qpa/qplatformmenu.h>
 #include <QtGui/qpa/qplatformtheme.h>

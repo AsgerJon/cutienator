@@ -10,18 +10,18 @@
 #include <QtWidgets/6.12.0/QtWidgets/private/qstandardgestures_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qstandardgestures_p.h"
-#include "qgesture.h"
-#include "qgesture_p.h"
-#include "qevent.h"
-#include "qwidget.h"
+#include <QtWidgets/private/qstandardgestures_p.h>
+#include <QtWidgets/qgesture.h>
+#include <QtWidgets/private/qgesture_p.h>
+#include <QtGui/qevent.h>
+#include <QtWidgets/qwidget.h>
 #if QT_CONFIG(scrollarea)
-#include "qabstractscrollarea.h"
+#include <QtWidgets/qabstractscrollarea.h>
 #endif
 #if QT_CONFIG(graphicsview)
-#include <qgraphicssceneevent.h>
+#include <QtWidgets/qgraphicssceneevent.h>
 #endif
-#include "qdebug.h"
+#include <QtCore/qdebug.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -33,6 +33,7 @@
 
 //  from src/widgets/kernel/qstandardgestures.cpp, line 29, as _ZN21QPanGestureRecognizer6createEP7QObject
 #if !defined(QT_NO_GESTURES)
+#if defined(Q_OS_LINUX)
 inline QGesture *QPanGestureRecognizer::create(QObject *target)
 {
     if (target && target->isWidgetType()) {
@@ -46,6 +47,7 @@ inline QGesture *QPanGestureRecognizer::create(QObject *target)
     }
     return new QPanGesture;
 }
+#endif  // defined(Q_OS_LINUX)
 #endif  // !defined(QT_NO_GESTURES)
 
 //  from src/widgets/kernel/qstandardgestures.cpp, line 101, as _ZN21QPanGestureRecognizer5resetEP8QGesture
@@ -86,6 +88,7 @@ void ritual_ZN21QPanGestureRecognizerD1Ev(QPanGestureRecognizer *self) {
 }
 
 #if !defined(QT_NO_GESTURES)
+#if defined(Q_OS_LINUX)
 //  QGesture *QPanGestureRecognizer::create(QObject *target)
 extern "C" Q_DECL_EXPORT
 QGesture *ritual_own_ZN21QPanGestureRecognizer6createEP7QObject(
@@ -93,6 +96,7 @@ QGesture *ritual_own_ZN21QPanGestureRecognizer6createEP7QObject(
     QObject *target) {
   return self->QPanGestureRecognizer::create(target);
 }
+#endif  // defined(Q_OS_LINUX)
 #endif  // !defined(QT_NO_GESTURES)
 
 #if !defined(QT_NO_GESTURES)

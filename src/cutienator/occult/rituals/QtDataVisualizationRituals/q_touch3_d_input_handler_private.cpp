@@ -9,7 +9,7 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qtouch3dinputhandler_p.h"
+#include <QtDataVisualization/private/qtouch3dinputhandler_p.h>
 #include <QtCore/QTimer>
 #include <QtCore/qmath.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER

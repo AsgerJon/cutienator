@@ -7,14 +7,14 @@
 #include <QtLocation/6.12.0/QtLocation/private/qgeomappingmanager_p_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qgeomappingmanager_p.h"
-#include "qgeomappingmanager_p_p.h"
-#include "qgeomappingmanagerengine_p.h"
-#include "qgeotiledmapreply_p.h"
-#include "qgeocameracapabilities_p.h"
-#include "qgeomap_p.h"
-#include <QTimer>
-#include <QLocale>
+#include <QtLocation/private/qgeomappingmanager_p.h>
+#include <QtLocation/private/qgeomappingmanager_p_p.h>
+#include <QtLocation/private/qgeomappingmanagerengine_p.h>
+#include <QtLocation/private/qgeotiledmapreply_p.h>
+#include <QtLocation/private/qgeocameracapabilities_p.h>
+#include <QtLocation/private/qgeomap_p.h>
+#include <QtCore/QTimer>
+#include <QtCore/QLocale>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

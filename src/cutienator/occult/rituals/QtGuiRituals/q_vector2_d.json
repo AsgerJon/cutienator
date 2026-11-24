@@ -49,6 +49,11 @@
     "ritual_ZNK9QVector2D7toPointEv": ["address", "address"],
     "ritual_ZNK9QVector2D8toPointFEv": ["address", "address"],
     "ritual_ZNK9QVector2Dcv8QVariantEv": ["address", "address"],
-    "ritual_ZN9QVector2DD1Ev": ["nothing", "address"]
+    "ritual_ZN9QVector2DD1Ev": ["nothing", "address"],
+    "ritual_list_make_QVector2D": ["address"],
+    "ritual_list_add_QVector2D": ["nothing", "address", "address"],
+    "ritual_list_size_QVector2D": ["long long", "address"],
+    "ritual_list_at_QVector2D": ["address", "address", "long long"],
+    "ritual_list_drop_QVector2D": ["nothing", "address"]
   }
 }

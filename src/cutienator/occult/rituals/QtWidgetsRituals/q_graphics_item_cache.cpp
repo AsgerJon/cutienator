@@ -4,20 +4,21 @@
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #if QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/QtWidgets>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/6.12.0/QtWidgets/private/qgraphicsitem_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qgraphicsitem.h"
-#include "qgraphicsscene.h"
-#include "qgraphicsscene_p.h"
-#include "qgraphicssceneevent.h"
-#include "qgraphicsview.h"
-#include "qgraphicswidget.h"
-#include "qgraphicsproxywidget.h"
-#include "qgraphicsscenebsptreeindex_p.h"
+#include <QtWidgets/qgraphicsitem.h>
+#include <QtWidgets/qgraphicsscene.h>
+#include <QtWidgets/private/qgraphicsscene_p.h>
+#include <QtWidgets/qgraphicssceneevent.h>
+#include <QtWidgets/qgraphicsview.h>
+#include <QtWidgets/qgraphicswidget.h>
+#include <QtWidgets/qgraphicsproxywidget.h>
+#include <QtWidgets/private/qgraphicsscenebsptreeindex_p.h>
 #include <QtCore/qbitarray.h>
 #include <QtCore/qpoint.h>
 #include <QtCore/qstack.h>
@@ -35,15 +36,15 @@
 #if QT_CONFIG(graphicseffect)
 #include <QtWidgets/qgraphicseffect.h>
 #endif
-#include <private/qgraphicsitem_p.h>
-#include <private/qgraphicswidget_p.h>
-#include <private/qwidgettextcontrol_p.h>
-#include <private/qtextdocumentlayout_p.h>
-#include <private/qtextengine_p.h>
-#include <private/qwidget_p.h>
-#include <private/qapplication_p.h>
-#include <private/qgesturemanager_p.h>
-#include <private/qdebug_p.h>
+#include <QtWidgets/private/qgraphicsitem_p.h>
+#include <QtWidgets/private/qgraphicswidget_p.h>
+#include <QtWidgets/private/qwidgettextcontrol_p.h>
+#include <QtGui/private/qtextdocumentlayout_p.h>
+#include <QtGui/private/qtextengine_p.h>
+#include <QtWidgets/private/qwidget_p.h>
+#include <QtWidgets/private/qapplication_p.h>
+#include <QtWidgets/private/qgesturemanager_p.h>
+#include <QtCore/private/qdebug_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -85,4 +86,5 @@ void ritual_ZN18QGraphicsItemCacheD1Ev(QGraphicsItemCache *self) {
   delete self;
 }
 
+#endif  // QT_CONFIG(graphicsview)
 #endif  // QT_CONFIG(graphicsview)

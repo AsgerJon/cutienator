@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/6.12.0/QtCore/private/qsettings_p.h, Qt 6.12.0. Changes made here
 //  are lost.
+#include <QtCore/qglobal.h>
+#include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
+#if QT_CONFIG(settings)
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtCore/qsettings.h>
 #include <QtCore/QtCore>
@@ -12,27 +15,27 @@
 #include <QtCore/qlist.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qsettings.h"
-#include "qsettings_p.h"
-#include "qcache.h"
-#include "qcoreapplication.h"
-#include "qdatastream.h"
-#include "qdir.h"
-#include "qfile.h"
-#include "qfileinfo.h"
-#include "qlibraryinfo.h"
-#include "private/qlocking_p.h"
-#include "qmutex.h"
-#include "qpoint.h"
-#include "qrect.h"
-#include "qsize.h"
-#include "qstandardpaths.h"
-#include "private/qstringconverter_p.h"
-#include "qtemporaryfile.h"
-#include "private/qtools_p.h"
+#include <QtCore/qsettings.h>
+#include <QtCore/private/qsettings_p.h>
+#include <QtCore/qcache.h>
+#include <QtCore/qcoreapplication.h>
+#include <QtCore/qdatastream.h>
+#include <QtCore/qdir.h>
+#include <QtCore/qfile.h>
+#include <QtCore/qfileinfo.h>
+#include <QtCore/qlibraryinfo.h>
+#include <QtCore/private/qlocking_p.h>
+#include <QtCore/qmutex.h>
+#include <QtCore/qpoint.h>
+#include <QtCore/qrect.h>
+#include <QtCore/qsize.h>
+#include <QtCore/qstandardpaths.h>
+#include <QtCore/private/qstringconverter_p.h>
+#include <QtCore/qtemporaryfile.h>
+#include <QtCore/private/qtools_p.h>
 #ifndef QT_BOOTSTRAPPED
-#include "qsavefile.h"
-#include "qlockfile.h"
+#include <QtCore/qsavefile.h>
+#include <QtCore/qlockfile.h>
 #endif
 #ifdef Q_OS_VXWORKS
 #  include <ioLib.h>
@@ -40,7 +43,7 @@
 #include <algorithm>
 #include <stdlib.h>
 #ifdef Q_OS_WIN
-#  include <qt_windows.h>
+#  include <QtCore/qt_windows.h>
 #  include <shlobj.h>
 #endif
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -364,3 +367,5 @@ bool ritual_take_QSettingsPrivate(
     void *call) {
   return static_cast<CuteQSettingsPrivate *>(self)->take(key, call);
 }
+
+#endif  // QT_CONFIG(settings)

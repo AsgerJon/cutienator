@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtQuick/6.12.0/QtQuick/private/qquicktextcontrol_p.h, Qt 6.12.0. Changes
 //  made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #include <QtQuick/QtQuick>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -16,38 +17,38 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquicktextcontrol_p.h"
-#include "qquicktextcontrol_p_p.h"
+#include <QtQuick/private/qquicktextcontrol_p.h>
+#include <QtQuick/private/qquicktextcontrol_p_p.h>
 #ifndef QT_NO_TEXTCONTROL
-#include <qcoreapplication.h>
-#include <qfont.h>
-#include <qfontmetrics.h>
-#include <qevent.h>
-#include <qdebug.h>
-#include <qclipboard.h>
-#include <qtimer.h>
-#include <qinputmethod.h>
-#include "private/qtextdocumentlayout_p.h"
-#include "private/qabstracttextdocumentlayout_p.h"
-#include "qtextdocument.h"
-#include "private/qtextdocument_p.h"
-#include "qtextlist.h"
-#include "qtextdocumentwriter.h"
-#include "private/qtextcursor_p.h"
+#include <QtCore/qcoreapplication.h>
+#include <QtGui/qfont.h>
+#include <QtGui/qfontmetrics.h>
+#include <QtGui/qevent.h>
+#include <QtCore/qdebug.h>
+#include <QtGui/qclipboard.h>
+#include <QtCore/qtimer.h>
+#include <QtGui/qinputmethod.h>
+#include <QtGui/private/qtextdocumentlayout_p.h>
+#include <QtGui/private/qabstracttextdocumentlayout_p.h>
+#include <QtGui/qtextdocument.h>
+#include <QtGui/private/qtextdocument_p.h>
+#include <QtGui/qtextlist.h>
+#include <QtGui/qtextdocumentwriter.h>
+#include <QtGui/private/qtextcursor_p.h>
 #include <QtCore/qloggingcategory.h>
-#include <qtextformat.h>
-#include <qtransform.h>
-#include <qdatetime.h>
-#include <qbuffer.h>
-#include <qguiapplication.h>
+#include <QtGui/qtextformat.h>
+#include <QtGui/qtransform.h>
+#include <QtCore/qdatetime.h>
+#include <QtCore/qbuffer.h>
+#include <QtGui/qguiapplication.h>
 #include <limits.h>
-#include <qtexttable.h>
-#include <qvariant.h>
-#include <qurl.h>
-#include <qstylehints.h>
-#include <qmetaobject.h>
-#include <private/qqmlglobal_p.h>
-#include <private/qquickdeliveryagent_p_p.h>
+#include <QtGui/qtexttable.h>
+#include <QtCore/qvariant.h>
+#include <QtCore/qurl.h>
+#include <QtGui/qstylehints.h>
+#include <QtCore/qmetaobject.h>
+#include <QtQml/private/qqmlglobal_p.h>
+#include <QtQuick/private/qquickdeliveryagent_p_p.h>
 #endif
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

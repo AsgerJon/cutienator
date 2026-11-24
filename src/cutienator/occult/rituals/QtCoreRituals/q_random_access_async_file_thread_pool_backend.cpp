@@ -3,6 +3,7 @@
 //  Changes made here are lost.
 #include <QtCore/qglobal.h>
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
+#if QT_CONFIG(async_io)
 #if QT_CONFIG(future) && QT_CONFIG(thread)
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtCore/QtCore>
@@ -13,13 +14,13 @@
 #include <QtCore/qbytearray.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qiooperation_p.h"
-#include "qiooperation_p_p.h"
+#include <QtCore/private/qiooperation_p.h>
+#include <QtCore/private/qiooperation_p_p.h>
 #include <QtCore/private/qobject_p.h>
 #include <QtCore/private/qrandomaccessasyncfile_p_p.h>
-#include "qrandomaccessasyncfile_p_p.h"
-#include "qiooperation_p.h"
-#include "qiooperation_p_p.h"
+#include <QtCore/private/qrandomaccessasyncfile_p_p.h>
+#include <QtCore/private/qiooperation_p.h>
+#include <QtCore/private/qiooperation_p_p.h>
 #include <QtCore/qfuture.h>
 #include <QtCore/qthread.h>
 #include <QtCore/qthreadpool.h>
@@ -549,3 +550,4 @@ qint64 ritual_own_ZNK39QRandomAccessAsyncFileThreadPoolBackend4sizeEv(
 #endif  // QT_CONFIG(thread)
 
 #endif  // QT_CONFIG(future) && QT_CONFIG(thread)
+#endif  // QT_CONFIG(async_io)

@@ -4,7 +4,7 @@
 #include <QtCoap/qcoaprequest.h>
 #include <QtCore/qurl.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qcoaprequest_p.h"
+#include <QtCoap/private/qcoaprequest_p.h>
 #include <QtCore/qmath.h>
 #include <QtCore/qdatetime.h>
 #include <QtCore/qloggingcategory.h>

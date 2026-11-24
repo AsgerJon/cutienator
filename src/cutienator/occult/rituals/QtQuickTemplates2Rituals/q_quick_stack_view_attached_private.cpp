@@ -9,19 +9,19 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquickstackview_p.h"
-#include "qquickstackview_p_p.h"
-#include "qquickstackelement_p_p.h"
+#include <QtQuickTemplates2/private/qquickstackview_p.h>
+#include <QtQuickTemplates2/private/qquickstackview_p_p.h>
+#include <QtQuickTemplates2/private/qquickstackelement_p_p.h>
 #if QT_CONFIG(quick_viewtransitions)
-#include "qquickstacktransition_p_p.h"
+#include <QtQuickTemplates2/private/qquickstacktransition_p_p.h>
 #endif
 #include <QtCore/qscopedvaluerollback.h>
 #include <QtQml/qjsvalue.h>
 #include <QtQml/qqmlengine.h>
 #include <QtQml/qqmlinfo.h>
 #include <QtQml/qqmlcomponent.h>
-#include <private/qv4qobjectwrapper_p.h>
-#include <private/qqmlengine_p.h>
+#include <QtQml/private/qv4qobjectwrapper_p.h>
+#include <QtQml/private/qqmlengine_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

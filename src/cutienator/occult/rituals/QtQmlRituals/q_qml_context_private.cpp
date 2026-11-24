@@ -9,17 +9,17 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qvariant.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qqmlcontext_p.h"
-#include "qqmlcomponentattached_p.h"
-#include "qqmlcomponent_p.h"
-#include "qqmlexpression_p.h"
-#include "qqmlengine_p.h"
-#include "qqmlengine.h"
-#include "qqmlinfo.h"
-#include "qqmlabstracturlinterceptor.h"
-#include <qjsengine.h>
+#include <QtQml/private/qqmlcontext_p.h>
+#include <QtQml/private/qqmlcomponentattached_p.h>
+#include <QtQml/private/qqmlcomponent_p.h>
+#include <QtQml/private/qqmlexpression_p.h>
+#include <QtQml/private/qqmlengine_p.h>
+#include <QtQml/qqmlengine.h>
+#include <QtQml/qqmlinfo.h>
+#include <QtQml/qqmlabstracturlinterceptor.h>
+#include <QtQml/qjsengine.h>
 #include <QtCore/qvarlengtharray.h>
-#include <private/qmetaobject_p.h>
+#include <QtCore/private/qmetaobject_p.h>
 #include <QtCore/qdebug.h>
 #include <QtCore/qqueue.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER

@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qlcdnumber.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(lcdnumber)
 #if QT_CONFIG(lcdnumber)
 #include <QtWidgets/qlcdnumber.h>
 #include <QtCore/qstring.h>
@@ -1099,4 +1101,5 @@ void ritual_own_ZN10QLCDNumber10paintEventEP11QPaintEvent(
   static_cast<OwnQLCDNumber *>(self)->OwnQLCDNumber::paintEvent(a0);
 }
 
+#endif  // QT_CONFIG(lcdnumber)
 #endif  // QT_CONFIG(lcdnumber)

@@ -9,8 +9,8 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qlist.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qqstylekitcustomtheme_p.h"
-#include "qqstylekittheme_p.h"
+#include <QtLabsStyleKit/private/qqstylekitcustomtheme_p.h>
+#include <QtLabsStyleKit/private/qqstylekittheme_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

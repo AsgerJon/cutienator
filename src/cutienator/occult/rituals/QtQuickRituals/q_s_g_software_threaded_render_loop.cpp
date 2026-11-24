@@ -1,6 +1,10 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtQuick/6.12.0/QtQuick/private/qsgsoftwarethreadedrenderloop_p.h, Qt
 //  6.12.0. Changes made here are lost.
+#include <QtCore/qglobal.h>
+#include <QtQuick/qtquickglobal.h>
+#include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
+#if QT_CONFIG(thread)
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #include <QtQuick/QtQuick>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -10,18 +14,18 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qsgsoftwarethreadedrenderloop_p.h"
-#include "qsgsoftwarecontext_p.h"
-#include "qsgsoftwarerenderer_p.h"
-#include <private/qsgrenderer_p.h>
-#include <private/qquickwindow_p.h>
-#include <private/qquickitem_p.h>
-#include <private/qquickprofiler_p.h>
-#include <private/qquickanimatorcontroller_p.h>
-#include <private/qquickprofiler_p.h>
-#include <private/qqmldebugserviceinterfaces_p.h>
-#include <private/qqmldebugconnector_p.h>
-#include <qpa/qplatformbackingstore.h>
+#include <QtQuick/private/qsgsoftwarethreadedrenderloop_p.h>
+#include <QtQuick/private/qsgsoftwarecontext_p.h>
+#include <QtQuick/private/qsgsoftwarerenderer_p.h>
+#include <QtQuick/private/qsgrenderer_p.h>
+#include <QtQuick/private/qquickwindow_p.h>
+#include <QtQuick/private/qquickitem_p.h>
+#include <QtQuick/private/qquickprofiler_p.h>
+#include <QtQuick/private/qquickanimatorcontroller_p.h>
+#include <QtQuick/private/qquickprofiler_p.h>
+#include <QtQml/private/qqmldebugserviceinterfaces_p.h>
+#include <QtQml/private/qqmldebugconnector_p.h>
+#include <QtGui/qpa/qplatformbackingstore.h>
 #include <QtCore/QQueue>
 #include <QtCore/QElapsedTimer>
 #include <QtCore/QThread>
@@ -696,3 +700,5 @@ bool ritual_own_ZN29QSGSoftwareThreadedRenderLoop5eventEP6QEvent(
     QEvent *e) {
   return self->QSGSoftwareThreadedRenderLoop::event(e);
 }
+
+#endif  // QT_CONFIG(thread)

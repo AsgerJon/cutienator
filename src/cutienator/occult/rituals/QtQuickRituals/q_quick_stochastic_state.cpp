@@ -4,6 +4,7 @@
 #include <QtQuick/qtquickglobal.h>
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #if QT_CONFIG(quick_sprite)
+#if QT_CONFIG(quick_sprite)
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #include <QtQuick/QtQuick>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -166,4 +167,5 @@ void ritual_list_drop_QQuickStochasticState_ptr(
   delete self;
 }
 
+#endif  // QT_CONFIG(quick_sprite)
 #endif  // QT_CONFIG(quick_sprite)

@@ -1,0 +1,54 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/qquickrendertarget.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN18QQuickRenderTargetC1Ev": ["address"],
+    "ritual_ZN18QQuickRenderTargetD1Ev": ["nothing", "address"],
+    "ritual_ZN18QQuickRenderTargetC1ERKS_": ["address", "address"],
+    "ritual_ZNK18QQuickRenderTarget6isNullEv": ["bool", "address"],
+    "ritual_ZNK18QQuickRenderTarget16devicePixelRatioEv": [
+      "double", "address"
+    ],
+    "ritual_ZN18QQuickRenderTarget19setDevicePixelRatioEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK18QQuickRenderTarget16mirrorVerticallyEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN18QQuickRenderTarget19setMirrorVerticallyEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK18QQuickRenderTarget12depthTextureEv": ["address", "address"],
+    "ritual_ZN18QQuickRenderTarget15setDepthTextureEP11QRhiTexture": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQuickRenderTarget17fromOpenGLTextureEjRK5QSizei": [
+      "address", "unsigned int", "address", "int"
+    ],
+    "ritual_ZN18QQuickRenderTarget17fromOpenGLTextureEjjRK5QSizei": [
+      "address", "unsigned int", "unsigned int", "address", "int"
+    ],
+    "ritual_ZN18QQuickRenderTarget17fromOpenGLTextureEjj5QSizeii6QFlagsINS_4FlagEE": [
+      "address", "unsigned int", "unsigned int", "address", "int", "int",
+      "int"
+    ],
+    "ritual_ZN18QQuickRenderTarget22fromOpenGLRenderBufferEjRK5QSizei": [
+      "address", "unsigned int", "address", "int"
+    ],
+    "ritual_ZN18QQuickRenderTarget19fromRhiRenderTargetEP16QRhiRenderTarget": [
+      "address", "address"
+    ],
+    "ritual_ZN18QQuickRenderTarget15fromPaintDeviceEP12QPaintDevice": [
+      "address", "address"
+    ],
+    "ritual_ZN18QQuickRenderTarget6detachEv": ["nothing", "address"],
+    "ritual_ZNK18QQuickRenderTarget7isEqualERKS_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZeqRK18QQuickRenderTargetS1_": ["bool", "address", "address"],
+    "ritual_ZneRK18QQuickRenderTargetS1_": ["bool", "address", "address"]
+  }
+}

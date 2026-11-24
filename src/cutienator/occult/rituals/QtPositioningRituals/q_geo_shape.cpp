@@ -7,12 +7,12 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qdebug.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qgeoshape.h"
-#include "qgeoshape_p.h"
-#include "qgeorectangle.h"
-#include "qgeocircle.h"
-#include "qgeopath.h"
-#include "qgeopolygon.h"
+#include <QtPositioning/qgeoshape.h>
+#include <QtPositioning/private/qgeoshape_p.h>
+#include <QtPositioning/qgeorectangle.h>
+#include <QtPositioning/qgeocircle.h>
+#include <QtPositioning/qgeopath.h>
+#include <QtPositioning/qgeopolygon.h>
 #ifndef QT_NO_DEBUG_STREAM
 #include <QtCore/QDebug>
 #endif

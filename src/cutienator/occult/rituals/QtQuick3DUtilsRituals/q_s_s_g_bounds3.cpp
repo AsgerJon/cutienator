@@ -9,8 +9,8 @@
 #include <QtGui/qvectornd.h>
 #include <QtGui/qmatrix4x4.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qssgbounds3_p.h"
-#include <private/qssgutils_p.h>
+#include <QtQuick3DUtils/private/qssgbounds3_p.h>
+#include <QtQuick3DUtils/private/qssgutils_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

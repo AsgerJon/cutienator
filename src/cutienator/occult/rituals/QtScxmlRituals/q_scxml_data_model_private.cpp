@@ -8,11 +8,11 @@
 #include <QtScxml/6.12.0/QtScxml/private/qscxmldatamodel_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qscxmldatamodel_p.h"
-#include "qscxmlnulldatamodel.h"
-#include "qscxmlstatemachine_p.h"
+#include <QtScxml/private/qscxmldatamodel_p.h>
+#include <QtScxml/qscxmlnulldatamodel.h>
+#include <QtScxml/private/qscxmlstatemachine_p.h>
 #include <QtCore/private/qfactoryloader_p.h>
-#include "qscxmldatamodelplugin_p.h"
+#include <QtScxml/private/qscxmldatamodelplugin_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

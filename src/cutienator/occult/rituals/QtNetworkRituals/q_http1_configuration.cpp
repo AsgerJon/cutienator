@@ -2,6 +2,7 @@
 //  QtNetwork/qhttp1configuration.h, Qt 6.12.0. Changes made here are lost.
 #include <QtNetwork/qtnetworkglobal.h>
 #if QT_CONFIG(http)
+#if QT_CONFIG(http)
 #include <QtNetwork/qhttp1configuration.h>
 
 //  QHttp1Configuration::QHttp1Configuration()
@@ -65,4 +66,5 @@ bool ritual_ZneRK19QHttp1ConfigurationS1_(
   return operator!=(*lhs, *rhs);
 }
 
+#endif  // QT_CONFIG(http)
 #endif  // QT_CONFIG(http)

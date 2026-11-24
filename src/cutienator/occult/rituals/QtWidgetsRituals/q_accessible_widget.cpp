@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qaccessiblewidget.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
 #include <QtWidgets/qaccessiblewidget.h>
 #include <QtCore/qstring.h>
@@ -740,4 +742,5 @@ void ritual_own_ZN17QAccessibleWidget8doActionERK7QString(
   self->QAccessibleWidget::doAction(*actionName);
 }
 
+#endif  // QT_CONFIG(accessibility)
 #endif  // QT_CONFIG(accessibility)

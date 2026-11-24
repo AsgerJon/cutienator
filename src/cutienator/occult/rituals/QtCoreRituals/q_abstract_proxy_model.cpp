@@ -2,6 +2,7 @@
 //  QtCore/qabstractproxymodel.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qglobal.h>
 #if QT_CONFIG(proxymodel)
+#if QT_CONFIG(proxymodel)
 #include <QtCore/qabstractproxymodel.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qabstractitemmodel.h>
@@ -1705,4 +1706,5 @@ int ritual_own_ZNK19QAbstractProxyModel20supportedDropActionsEv(
       self->QAbstractProxyModel::supportedDropActions().toInt());
 }
 
+#endif  // QT_CONFIG(proxymodel)
 #endif  // QT_CONFIG(proxymodel)

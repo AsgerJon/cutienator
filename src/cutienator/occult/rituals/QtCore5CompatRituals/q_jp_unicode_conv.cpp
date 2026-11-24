@@ -12,8 +12,8 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qjpunicode_p.h"
-#include "qbytearray.h"
+#include <QtCore5Compat/private/qjpunicode_p.h>
+#include <QtCore/qbytearray.h>
 #include <stdlib.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

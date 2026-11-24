@@ -4,6 +4,7 @@
 #include <QtQuick/qtquickglobal.h>
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #if QT_CONFIG(quick_path)
+#if QT_CONFIG(quick_path)
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #include <QtQuick/QtQuick>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -518,4 +519,5 @@ void ritual_own_ZN10QQuickPath10classBeginEv(QQuickPath *self) {
   static_cast<OwnQQuickPath *>(self)->OwnQQuickPath::classBegin();
 }
 
+#endif  // QT_CONFIG(quick_path)
 #endif  // QT_CONFIG(quick_path)

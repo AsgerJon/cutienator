@@ -1,8 +1,10 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtNetwork/6.12.0/QtNetwork/private/qhstsstore_p.h, Qt 6.12.0. Changes
 //  made here are lost.
+#include <QtCore/qglobal.h>
 #include <QtNetwork/qtnetworkglobal.h>
 #include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
+#if QT_CONFIG(settings)
 #if QT_CONFIG(settings)
 #include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
 #include <QtNetwork/QtNetwork>
@@ -12,15 +14,15 @@
 #include <QtNetwork/qhstspolicy.h>
 #include <QtCore/qstring.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qhstsstore_p.h"
-#include "qhstspolicy.h"
-#include "qstandardpaths.h"
-#include "qdatastream.h"
-#include "qbytearray.h"
-#include "qdatetime.h"
-#include "qvariant.h"
-#include "qstring.h"
-#include "qdir.h"
+#include <QtNetwork/private/qhstsstore_p.h>
+#include <QtNetwork/qhstspolicy.h>
+#include <QtCore/qstandardpaths.h>
+#include <QtCore/qdatastream.h>
+#include <QtCore/qbytearray.h>
+#include <QtCore/qdatetime.h>
+#include <QtCore/qvariant.h>
+#include <QtCore/qstring.h>
+#include <QtCore/qdir.h>
 #include <utility>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
@@ -114,4 +116,5 @@ void ritual_ZN10QHstsStore13endHstsGroupsEv(QHstsStore *self) {
   self->endHstsGroups();
 }
 
+#endif  // QT_CONFIG(settings)
 #endif  // QT_CONFIG(settings)

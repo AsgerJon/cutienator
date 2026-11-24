@@ -1,8 +1,10 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGui/6.12.0/QtGui/private/qstandarditemmodel_p.h, Qt 6.12.0. Changes
 //  made here are lost.
+#include <QtCore/qglobal.h>
 #include <QtGui/qtguiglobal.h>
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
+#if QT_CONFIG(standarditemmodel)
 #if QT_CONFIG(standarditemmodel)
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
 #include <QtGui/qstandarditemmodel.h>
@@ -13,7 +15,7 @@
 #include <QtCore/qabstractitemmodel.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qstandarditemmodel.h"
+#include <QtGui/qstandarditemmodel.h>
 #include <QtCore/qdatetime.h>
 #include <QtCore/qlist.h>
 #include <QtCore/qmap.h>
@@ -22,9 +24,9 @@
 #include <QtCore/qbitarray.h>
 #include <QtCore/qmimedata.h>
 #include <QtCore/qiodevice.h>
-#include <private/qduplicatetracker_p.h>
-#include <private/qstandarditemmodel_p.h>
-#include <qdebug.h>
+#include <QtCore/private/qduplicatetracker_p.h>
+#include <QtGui/private/qstandarditemmodel_p.h>
+#include <QtCore/qdebug.h>
 #include <algorithm>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
@@ -381,4 +383,5 @@ bool ritual_take_QStandardItemModelPrivate(
   return static_cast<CuteQStandardItemModelPrivate *>(self)->take(key, call);
 }
 
+#endif  // QT_CONFIG(standarditemmodel)
 #endif  // QT_CONFIG(standarditemmodel)

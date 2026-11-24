@@ -41,6 +41,11 @@
     "ritual_ZN14QDistanceFieldC1EP18QDistanceFieldData": [
       "address", "address"
     ],
-    "ritual_ZN14QDistanceFieldD1Ev": ["nothing", "address"]
+    "ritual_ZN14QDistanceFieldD1Ev": ["nothing", "address"],
+    "ritual_list_make_QDistanceField": ["address"],
+    "ritual_list_add_QDistanceField": ["nothing", "address", "address"],
+    "ritual_list_size_QDistanceField": ["long long", "address"],
+    "ritual_list_at_QDistanceField": ["address", "address", "long long"],
+    "ritual_list_drop_QDistanceField": ["nothing", "address"]
   }
 }

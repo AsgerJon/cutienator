@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtSql/qsqltablemodel.h, Qt 6.12.0. Changes made here are lost.
+#include <QtCore/qglobal.h>
 #include <QtSql/qtsqlglobal.h>
+#if QT_CONFIG(sqlmodel)
 #if QT_CONFIG(sqlmodel)
 #include <QtSql/qsqltablemodel.h>
 #include <QtCore/qstring.h>
@@ -1990,4 +1992,5 @@ QModelIndex *ritual_own_ZNK14QSqlTableModel12indexInQueryERK11QModelIndex(
           *item));
 }
 
+#endif  // QT_CONFIG(sqlmodel)
 #endif  // QT_CONFIG(sqlmodel)

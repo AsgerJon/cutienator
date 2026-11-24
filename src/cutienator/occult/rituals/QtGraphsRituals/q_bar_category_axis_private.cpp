@@ -15,7 +15,7 @@
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGraphs/QBarCategoryAxis>
-#include <private/qbarcategoryaxis_p.h>
+#include <QtGraphs/private/qbarcategoryaxis_p.h>
 #include <QtCore/QtMath>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

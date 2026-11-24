@@ -21,13 +21,13 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qgraphsinputhandler_p.h"
+#include <QtGraphs/private/qgraphsinputhandler_p.h>
 #include <QtQuick/private/qquickdraghandler_p.h>
 #include <QtQuick/private/qquickpinchhandler_p.h>
 #include <QtQuick/private/qquicktaphandler_p.h>
 #include <QtQuick/private/qquickwheelhandler_p.h>
-#include "qquickgraphsitem_p.h"
-#include "qgraphs3dlogging_p.h"
+#include <QtGraphs/private/qquickgraphsitem_p.h>
+#include <QtGraphs/private/qgraphs3dlogging_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -130,6 +130,7 @@ inline void QGraphsInputHandler::onTapped()
 }
 
 //  from ../qtgraphs/src/graphs3d/input/qgraphsinputhandler.cpp, line 255, as _ZN19QGraphsInputHandler20onTranslationChangedE9QVector2D
+#if defined(Q_OS_LINUX)
 inline void QGraphsInputHandler::onTranslationChanged(QVector2D delta)
 {
 
@@ -168,6 +169,7 @@ inline void QGraphsInputHandler::onTranslationChanged(QVector2D delta)
         item->setCameraYRotation(yRotation);
     }
 }
+#endif  // defined(Q_OS_LINUX)
 
 //  from ../qtgraphs/src/graphs3d/input/qgraphsinputhandler.cpp, line 294, as _ZN19QGraphsInputHandler13onGrabChangedEN15QPointingDevice14GrabTransitionE11QEventPoint
 inline void QGraphsInputHandler::onGrabChanged(QPointingDevice::GrabTransition transition,
@@ -1036,12 +1038,14 @@ void ritual_ZN19QGraphsInputHandler22unsetDefaultTapHandlerEv(
   self->unsetDefaultTapHandler();
 }
 
+#if defined(Q_OS_LINUX)
 //  void QGraphsInputHandler::unsetDefaultDragHandler()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QGraphsInputHandler23unsetDefaultDragHandlerEv(
     QGraphsInputHandler *self) {
   self->unsetDefaultDragHandler();
 }
+#endif  // defined(Q_OS_LINUX)
 
 //  void QGraphsInputHandler::setDragButton(Qt::MouseButtons button)
 extern "C" Q_DECL_EXPORT
@@ -1065,6 +1069,7 @@ void ritual_ZN19QGraphsInputHandler8onTappedEv(QGraphsInputHandler *self) {
   self->onTapped();
 }
 
+#if defined(Q_OS_LINUX)
 //  void QGraphsInputHandler::onTranslationChanged(QVector2D delta)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QGraphsInputHandler20onTranslationChangedE9QVector2D(
@@ -1072,6 +1077,7 @@ void ritual_ZN19QGraphsInputHandler20onTranslationChangedE9QVector2D(
     const QVector2D *delta) {
   self->onTranslationChanged(*delta);
 }
+#endif  // defined(Q_OS_LINUX)
 
 //  void QGraphsInputHandler::onGrabChanged(QPointingDevice::GrabTransition
 //      transition, QEventPoint point)

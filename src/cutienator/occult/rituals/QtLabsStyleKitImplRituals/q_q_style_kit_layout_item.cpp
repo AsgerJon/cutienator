@@ -8,7 +8,7 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qmargins.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qqstylekitlayout_p.h"
+#include <QtLabsStyleKitImpl/private/qqstylekitlayout_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

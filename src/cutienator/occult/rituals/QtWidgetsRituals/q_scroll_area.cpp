@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qscrollarea.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(scrollarea)
 #if QT_CONFIG(scrollarea)
 #include <QtWidgets/qscrollarea.h>
 #include <QtCore/qstring.h>
@@ -1303,4 +1305,5 @@ QSize *ritual_own_ZNK11QScrollArea16viewportSizeHintEv(
       static_cast<const OwnQScrollArea *>(self)->OwnQScrollArea::viewportSizeHint());
 }
 
+#endif  // QT_CONFIG(scrollarea)
 #endif  // QT_CONFIG(scrollarea)

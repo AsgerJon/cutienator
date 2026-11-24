@@ -2,6 +2,7 @@
 //  QtGui/qundostack.h, Qt 6.12.0. Changes made here are lost.
 #include <QtGui/qtguiglobal.h>
 #if QT_CONFIG(undocommand)
+#if QT_CONFIG(undocommand)
 #if QT_CONFIG(undostack)
 #include <QtGui/qundostack.h>
 #include <QtCore/qstring.h>
@@ -427,4 +428,5 @@ void ritual_list_drop_QUndoStack_ptr(QList<QUndoStack *> *self) {
 }
 
 #endif  // QT_CONFIG(undostack)
+#endif  // QT_CONFIG(undocommand)
 #endif  // QT_CONFIG(undocommand)

@@ -4,6 +4,7 @@
 #include <QtCore/qglobal.h>
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #if QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtCore/qitemselectionmodel.h>
 #include <QtCore/QtCore>
@@ -12,13 +13,13 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qabstractitemmodel.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qitemselectionmodel.h"
-#include "qitemselectionmodel_p.h"
-#include <private/qitemselectionmodel_p.h>
-#include <private/qabstractitemmodel_p.h>
-#include <private/qduplicatetracker_p.h>
-#include <private/qoffsetstringarray_p.h>
-#include <qdebug.h>
+#include <QtCore/qitemselectionmodel.h>
+#include <QtCore/private/qitemselectionmodel_p.h>
+#include <QtCore/private/qitemselectionmodel_p.h>
+#include <QtCore/private/qabstractitemmodel_p.h>
+#include <QtCore/private/qduplicatetracker_p.h>
+#include <QtCore/private/qoffsetstringarray_p.h>
+#include <QtCore/qdebug.h>
 #include <algorithm>
 #include <functional>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -362,4 +363,5 @@ void ritual_ZN26QItemSelectionModelPrivate12modelChangedEP18QAbstractItemModel(
   self->modelChanged(mod);
 }
 
+#endif  // QT_CONFIG(itemmodel)
 #endif  // QT_CONFIG(itemmodel)

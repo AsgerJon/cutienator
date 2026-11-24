@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/6.12.0/QtWidgets/private/qdialogbuttonbox_p.h, Qt 6.12.0.
 //  Changes made here are lost.
+#include <QtWidgets/qtwidgetsglobal.h>
+#include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
+#if QT_CONFIG(dialogbuttonbox)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/qdialogbuttonbox.h>
 #include <QtWidgets/QtWidgets>
@@ -23,13 +26,13 @@
 #include <QtWidgets/qlayout.h>
 #include <QtWidgets/qdialog.h>
 #include <QtWidgets/qapplication.h>
-#include <private/qwidget_p.h>
-#include <private/qguiapplication_p.h>
+#include <QtWidgets/private/qwidget_p.h>
+#include <QtGui/private/qguiapplication_p.h>
 #include <QtGui/qpa/qplatformdialoghelper.h>
 #include <QtGui/qpa/qplatformtheme.h>
 #include <QtGui/qaction.h>
-#include "qdialogbuttonbox.h"
-#include "qdialogbuttonbox_p.h"
+#include <QtWidgets/qdialogbuttonbox.h>
+#include <QtWidgets/private/qdialogbuttonbox_p.h>
 #include <QtCore/qpointer.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
@@ -1019,3 +1022,5 @@ bool ritual_take_QDialogButtonBoxPrivate(
     void *call) {
   return static_cast<CuteQDialogButtonBoxPrivate *>(self)->take(key, call);
 }
+
+#endif  // QT_CONFIG(dialogbuttonbox)

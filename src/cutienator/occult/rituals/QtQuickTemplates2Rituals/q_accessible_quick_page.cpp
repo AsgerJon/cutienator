@@ -14,10 +14,10 @@
 #include <QtQuick/qquickitem.h>
 #include <QtCore/qlist.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qaccessiblequickcontrol_p.h"
-#include "qquickcontrol_p.h"
-#include "qaccessiblequickpage_p.h"
-#include "qquickpage_p.h"
+#include <QtQuickTemplates2/private/qaccessiblequickcontrol_p.h>
+#include <QtQuickTemplates2/private/qquickcontrol_p.h>
+#include <QtQuickTemplates2/private/qaccessiblequickpage_p.h>
+#include <QtQuickTemplates2/private/qquickpage_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

@@ -4,6 +4,7 @@
 #include <QtNetwork/qtnetworkglobal.h>
 #include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
 #if QT_CONFIG(dnslookup)
+#if QT_CONFIG(dnslookup)
 #include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
 #include <QtNetwork/qdnslookup.h>
 #include <QtNetwork/QtNetwork>
@@ -63,4 +64,5 @@ const QDnsLookup *ritual_ZNK17QDnsLookupPrivate6q_funcEv(
   return self->q_func();
 }
 
+#endif  // QT_CONFIG(dnslookup)
 #endif  // QT_CONFIG(dnslookup)

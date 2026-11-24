@@ -4,6 +4,7 @@
 #include <QtCore/qglobal.h>
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #if QT_CONFIG(mimetype)
+#if QT_CONFIG(mimetype)
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtCore/QtCore>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -12,13 +13,13 @@
 #include <QtCore/qbytearray.h>
 #include <QtCore/qlist.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qmimemagicrule_p.h"
-#include "qmimetypeparser_p.h"
+#include <QtCore/private/qmimemagicrule_p.h>
+#include <QtCore/private/qmimetypeparser_p.h>
 #include <QtCore/QList>
 #include <QtCore/QDebug>
-#include <qendian.h>
-#include <private/qoffsetstringarray_p.h>
-#include <private/qtools_p.h>
+#include <QtCore/qendian.h>
+#include <QtCore/private/qoffsetstringarray_p.h>
+#include <QtCore/private/qtools_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -252,4 +253,5 @@ void ritual_list_drop_QMimeMagicRule(QList<QMimeMagicRule> *self) {
   delete self;
 }
 
+#endif  // QT_CONFIG(mimetype)
 #endif  // QT_CONFIG(mimetype)

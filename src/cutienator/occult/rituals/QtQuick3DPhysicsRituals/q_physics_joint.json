@@ -1,0 +1,45 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3DPhysics/6.12.0/QtQuick3DPhysics/private/qjoint_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK13QPhysicsJoint10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QPhysicsJoint2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN13QPhysicsJoint24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13QPhysicsJointD1Ev": ["nothing", "address"],
+    "ritual_ZNK13QPhysicsJoint5bodyAEv": ["address", "address"],
+    "ritual_ZN13QPhysicsJoint8setBodyAEP20QAbstractPhysicsBody": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QPhysicsJoint5bodyBEv": ["address", "address"],
+    "ritual_ZN13QPhysicsJoint8setBodyBEP20QAbstractPhysicsBody": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QPhysicsJoint9positionAEv": ["address", "address"],
+    "ritual_ZN13QPhysicsJoint12setPositionAERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QPhysicsJoint9positionBEv": ["address", "address"],
+    "ritual_ZN13QPhysicsJoint12setPositionBERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QPhysicsJoint12orientationAEv": ["address", "address"],
+    "ritual_ZN13QPhysicsJoint15setOrientationAERK11QQuaternion": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QPhysicsJoint12orientationBEv": ["address", "address"],
+    "ritual_ZN13QPhysicsJoint15setOrientationBERK11QQuaternion": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QPhysicsJoint18updatePhysXBackendEv": ["nothing", "address"],
+    "ritual_ZN13QPhysicsJoint18setJointPropertiesEv": ["nothing", "address"],
+    "ritual_ZN13QPhysicsJoint15onBodyDestroyedEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QPhysicsJoint": ["bool", "address", "chars", "address"]
+  }
+}

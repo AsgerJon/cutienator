@@ -12,14 +12,14 @@
 #include <QtCore/qbytearray.h>
 #include <QtCore/qlatin1stringview.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <qstringconverter.h>
-#include <private/qstringconverter_p.h>
-#include "qendian.h"
-#include "private/qsimd_p.h"
-#include "private/qstringiterator_p.h"
-#include "private/qtools_p.h"
-#include "qbytearraymatcher.h"
-#include "qcontainertools_impl.h"
+#include <QtCore/qstringconverter.h>
+#include <QtCore/private/qstringconverter_p.h>
+#include <QtCore/qendian.h>
+#include <QtCore/private/qsimd_p.h>
+#include <QtCore/private/qstringiterator_p.h>
+#include <QtCore/private/qtools_p.h>
+#include <QtCore/qbytearraymatcher.h>
+#include <QtCore/qcontainertools_impl.h>
 #include <QtCore/qbytearraylist.h>
 #if QT_CONFIG(icu)
 #include <unicode/ucnv.h>
@@ -28,10 +28,10 @@
 #include <unicode/ustring.h>
 #elif QT_CONFIG(winsdkicu)
 #include <icu.h>
-#include <private/qfunctions_win_p.h>
+#include <QtCore/private/qfunctions_win_p.h>
 #endif
 #ifdef Q_OS_WIN
-#include <qt_windows.h>
+#include <QtCore/qt_windows.h>
 #ifndef QT_BOOTSTRAPPED
 #include <QtCore/qvarlengtharray.h>
 #include <QtCore/private/wcharhelpers_win_p.h>

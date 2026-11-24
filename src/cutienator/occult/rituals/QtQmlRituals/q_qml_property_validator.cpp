@@ -18,14 +18,14 @@
 #include <QtQml/qqmlerror.h>
 #include <QtCore/qlist.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qqmlpropertyvalidator_p.h"
-#include <private/qqmlcustomparser_p.h>
-#include <private/qqmlglobal_p.h>
-#include <private/qqmlirbuilder_p.h>
-#include <private/qqmlpropertycachecreator_p.h>
-#include <private/qqmlpropertyresolver_p.h>
-#include <private/qqmlstringconverters_p.h>
-#include <private/qqmlsignalnames_p.h>
+#include <QtQml/private/qqmlpropertyvalidator_p.h>
+#include <QtQml/private/qqmlcustomparser_p.h>
+#include <QtQml/private/qqmlglobal_p.h>
+#include <QtQml/private/qqmlirbuilder_p.h>
+#include <QtQml/private/qqmlpropertycachecreator_p.h>
+#include <QtQml/private/qqmlpropertyresolver_p.h>
+#include <QtQml/private/qqmlstringconverters_p.h>
+#include <QtQml/private/qqmlsignalnames_p.h>
 #include <QtCore/qdatetime.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

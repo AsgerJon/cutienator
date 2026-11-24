@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtPrintSupport/qpagesetupdialog.h, Qt 6.12.0. Changes made here are lost.
+#include <QtWidgets/qtwidgetsglobal.h>
+#include <QtGui/qtguiglobal.h>
 #include <QtPrintSupport/qtprintsupportglobal.h>
+#if QT_CONFIG(printdialog)
 #if QT_CONFIG(printdialog)
 #include <QtPrintSupport/qpagesetupdialog.h>
 #include <QtCore/qstring.h>
@@ -1125,4 +1128,5 @@ void ritual_own_ZN16QPageSetupDialog4doneEi(
   self->QPageSetupDialog::done(result);
 }
 
+#endif  // QT_CONFIG(printdialog)
 #endif  // QT_CONFIG(printdialog)

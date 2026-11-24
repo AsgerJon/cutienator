@@ -8,14 +8,14 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qsgsoftwarerenderablenodeupdater_p.h"
-#include "qsgabstractsoftwarerenderer_p.h"
-#include "qsgsoftwareinternalimagenode_p.h"
-#include "qsgsoftwareinternalrectanglenode_p.h"
-#include "qsgsoftwareglyphnode_p.h"
-#include "qsgsoftwarepublicnodes_p.h"
-#include "qsgsoftwarepainternode_p.h"
-#include "qsgsoftwarepixmaptexture_p.h"
+#include <QtQuick/private/qsgsoftwarerenderablenodeupdater_p.h>
+#include <QtQuick/private/qsgabstractsoftwarerenderer_p.h>
+#include <QtQuick/private/qsgsoftwareinternalimagenode_p.h>
+#include <QtQuick/private/qsgsoftwareinternalrectanglenode_p.h>
+#include <QtQuick/private/qsgsoftwareglyphnode_p.h>
+#include <QtQuick/private/qsgsoftwarepublicnodes_p.h>
+#include <QtQuick/private/qsgsoftwarepainternode_p.h>
+#include <QtQuick/private/qsgsoftwarepixmaptexture_p.h>
 #include <QtQuick/qsgsimplerectnode.h>
 #include <QtQuick/qsgsimpletexturenode.h>
 #include <QtQuick/qsgrendernode.h>

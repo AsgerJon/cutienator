@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qlineedit.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(lineedit)
 #if QT_CONFIG(lineedit)
 #include <QtWidgets/qlineedit.h>
 #include <QtCore/qstring.h>
@@ -1899,4 +1901,5 @@ bool ritual_own_ZN9QLineEdit5eventEP6QEvent(QLineEdit *self, QEvent *a0) {
   return self->QLineEdit::event(a0);
 }
 
+#endif  // QT_CONFIG(lineedit)
 #endif  // QT_CONFIG(lineedit)

@@ -15,22 +15,22 @@
 #include <QtCore/qlatin1stringview.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <qdebug.h>
-#include <private/qfontengine_p.h>
-#include <private/qfontengineglyphcache_p.h>
-#include <private/qguiapplication_p.h>
-#include <qpa/qplatformfontdatabase.h>
-#include <qpa/qplatformintegration.h>
-#include "qbitmap.h"
-#include "qpainter.h"
-#include "qpainterpath.h"
-#include "qvarlengtharray.h"
-#include "qtextengine_p.h"
-#include <qmath.h>
-#include <qendian.h>
-#include <private/qstringiterator_p.h>
+#include <QtCore/qdebug.h>
+#include <QtGui/private/qfontengine_p.h>
+#include <QtGui/private/qfontengineglyphcache_p.h>
+#include <QtGui/private/qguiapplication_p.h>
+#include <QtGui/qpa/qplatformfontdatabase.h>
+#include <QtGui/qpa/qplatformintegration.h>
+#include <QtGui/qbitmap.h>
+#include <QtGui/qpainter.h>
+#include <QtGui/qpainterpath.h>
+#include <QtCore/qvarlengtharray.h>
+#include <QtGui/private/qtextengine_p.h>
+#include <QtCore/qmath.h>
+#include <QtCore/qendian.h>
+#include <QtCore/private/qstringiterator_p.h>
 #if QT_CONFIG(harfbuzz)
-#  include "qharfbuzzng_p.h"
+#  include <QtGui/private/qharfbuzzng_p.h>
 #endif
 #include <algorithm>
 #include <limits.h>

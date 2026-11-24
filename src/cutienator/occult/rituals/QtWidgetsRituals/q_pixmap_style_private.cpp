@@ -11,40 +11,40 @@
 #include <QtCore/qsize.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qpixmapstyle_p.h"
-#include "qpixmapstyle_p_p.h"
-#include <QDebug>
+#include <QtWidgets/private/qpixmapstyle_p.h>
+#include <QtWidgets/private/qpixmapstyle_p_p.h>
+#include <QtCore/QDebug>
 #if QT_CONFIG(textedit)
-#include <QTextEdit>
+#include <QtWidgets/QTextEdit>
 #endif
-#include <QStringBuilder>
-#include <QPainter>
-#include <QPixmapCache>
-#include <QStyleOption>
-#include <QString>
+#include <QtCore/QStringBuilder>
+#include <QtGui/QPainter>
+#include <QtGui/QPixmapCache>
+#include <QtWidgets/QStyleOption>
+#include <QtCore/QString>
 #if QT_CONFIG(progressbar)
-#include <QProgressBar>
+#include <QtWidgets/QProgressBar>
 #endif
 #if QT_CONFIG(slider)
-#include <QSlider>
+#include <QtWidgets/QSlider>
 #endif
-#include <QEvent>
+#include <QtCore/QEvent>
 #if QT_CONFIG(combobox)
-#include <QComboBox>
+#include <QtWidgets/QComboBox>
 #endif
 #if QT_CONFIG(itemviews)
-#include <QAbstractItemView>
-#include <QStyledItemDelegate>
+#include <QtWidgets/QAbstractItemView>
+#include <QtWidgets/QStyledItemDelegate>
 #endif
 #if QT_CONFIG(listview)
-#include <QListView>
+#include <QtWidgets/QListView>
 #endif
-#include <QAbstractScrollArea>
+#include <QtWidgets/QAbstractScrollArea>
 #if QT_CONFIG(scrollbar)
-#include <QScrollBar>
+#include <QtWidgets/QScrollBar>
 #endif
 #if QT_CONFIG(scroller)
-#include <qscroller.h>
+#include <QtWidgets/qscroller.h>
 #endif
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

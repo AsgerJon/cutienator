@@ -4,6 +4,7 @@
 #include <QtCore/qglobal.h>
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #if QT_CONFIG(hijricalendar)
+#if QT_CONFIG(hijricalendar)
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtCore/QtCore>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -579,4 +580,5 @@ const QCalendarLocale *ritual_own_ZNK14QHijriCalendar20localeMonthIndexDataEv(
   return static_cast<const OwnQHijriCalendar *>(self)->OwnQHijriCalendar::localeMonthIndexData();
 }
 
+#endif  // QT_CONFIG(hijricalendar)
 #endif  // QT_CONFIG(hijricalendar)

@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qtoolbutton.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(toolbutton)
 #if QT_CONFIG(toolbutton)
 #include <QtWidgets/qtoolbutton.h>
 #include <QtCore/qstring.h>
@@ -1431,4 +1433,5 @@ void ritual_own_ZNK11QToolButton15initStyleOptionEP22QStyleOptionToolButton(
       option);
 }
 
+#endif  // QT_CONFIG(toolbutton)
 #endif  // QT_CONFIG(toolbutton)

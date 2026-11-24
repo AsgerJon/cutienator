@@ -7,22 +7,22 @@
 #include <QtWebChannel/6.12.0/QtWebChannel/private/qmetaobjectpublisher_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qmetaobjectpublisher_p.h"
-#include "qwebchannel.h"
-#include "qwebchannel_p.h"
-#include "qwebchannelabstracttransport.h"
-#include <QEvent>
+#include <QtWebChannel/private/qmetaobjectpublisher_p.h>
+#include <QtWebChannel/qwebchannel.h>
+#include <QtWebChannel/private/qwebchannel_p.h>
+#include <QtWebChannel/qwebchannelabstracttransport.h>
+#include <QtCore/QEvent>
 #if QT_CONFIG(future)
-#include <QFuture>
+#include <QtCore/QFuture>
 #endif
-#include <QJsonDocument>
-#include <QDebug>
-#include <QJsonObject>
-#include <QJsonArray>
+#include <QtCore/QJsonDocument>
+#include <QtCore/QDebug>
+#include <QtCore/QJsonObject>
+#include <QtCore/QJsonArray>
 #ifndef QT_NO_JSVALUE
 #include <QJSValue>
 #endif
-#include <QUuid>
+#include <QtCore/QUuid>
 #include <QtCore/private/qmetaobject_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

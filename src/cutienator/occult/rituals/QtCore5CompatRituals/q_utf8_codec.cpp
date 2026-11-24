@@ -12,12 +12,12 @@
 #include <QtCore/qbytearray.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qutfcodec_p.h"
-#include "qlist.h"
-#include "qendian.h"
-#include "qchar.h"
-#include "private/qsimd_p.h"
-#include "private/qstringiterator_p.h"
+#include <QtCore5Compat/private/qutfcodec_p.h>
+#include <QtCore/qlist.h>
+#include <QtCore/qendian.h>
+#include <QtCore/qchar.h>
+#include <QtCore/private/qsimd_p.h>
+#include <QtCore/private/qstringiterator_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

@@ -4,6 +4,7 @@
 #include <QtQuick/qtquickglobal.h>
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #if QT_CONFIG(quick_pathview)
+#if QT_CONFIG(quick_pathview)
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #include <QtQuick/QtQuick>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -14,17 +15,17 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquickpathview_p.h"
-#include "qquickpathview_p_p.h"
-#include "qquickflickablebehavior_p.h" //Contains flicking behavior defines
-#include "qquicktext_p.h"
+#include <QtQuick/private/qquickpathview_p.h>
+#include <QtQuick/private/qquickpathview_p_p.h>
+#include <QtQuick/private/qquickflickablebehavior_p.h> //Contains flicking behavior defines
+#include <QtQuick/private/qquicktext_p.h>
 #include <QtQml/qqmlcomponent.h>
 #include <QtQuick/private/qquickpointerhandler_p.h>
 #include <QtQuick/private/qquickstate_p.h>
-#include <private/qqmlglobal_p.h>
-#include <private/qqmlopenmetaobject_p.h>
+#include <QtQml/private/qqmlglobal_p.h>
+#include <QtQml/private/qqmlopenmetaobject_p.h>
 #include <private/qqmlchangeset_p.h>
-#include <qpa/qplatformtheme.h>
+#include <QtGui/qpa/qplatformtheme.h>
 #include <QtQml/qqmlinfo.h>
 #include <QtGui/private/qeventpoint_p.h>
 #include <QtGui/qevent.h>
@@ -34,7 +35,7 @@
 #include <QtCore/qmath.h>
 #include <cmath>
 #if QT_CONFIG(quick_itemview)
-#include <private/qquickitemview_p.h>
+#include <QtQuick/private/qquickitemview_p.h>
 #endif
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
@@ -292,4 +293,5 @@ bool ritual_take_QQuickPathViewAttached(
   return static_cast<CuteQQuickPathViewAttached *>(self)->take(key, call);
 }
 
+#endif  // QT_CONFIG(quick_pathview)
 #endif  // QT_CONFIG(quick_pathview)

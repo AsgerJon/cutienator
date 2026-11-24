@@ -1,6 +1,10 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtQmlModels/6.12.0/QtQmlModels/private/qqmlmodelindexvaluetype_p.h, Qt
 //  6.12.0. Changes made here are lost.
+#include <QtQml/6.12.0/QtQml/private/qtqmlglobal_p.h>
+#include <QtQmlModels/qtqmlmodelsglobal.h>
+#include <QtQmlModels/6.12.0/QtQmlModels/private/qtqmlmodelsglobal_p.h>
+#if QT_CONFIG(qml_itemmodel)
 #include <QtQmlModels/6.12.0/QtQmlModels/private/qtqmlmodelsglobal_p.h>
 #include <QtQmlModels/QtQmlModels>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -10,7 +14,7 @@
 #include <QtCore/qvariant.h>
 #include <QtCore/qabstractitemmodel.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qqmlmodelindexvaluetype_p.h"
+#include <QtQmlModels/private/qqmlmodelindexvaluetype_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -123,3 +127,5 @@ void ritual_ZN33QQmlPersistentModelIndexValueTypeD1Ev(
     QQmlPersistentModelIndexValueType *self) {
   delete self;
 }
+
+#endif  // QT_CONFIG(qml_itemmodel)

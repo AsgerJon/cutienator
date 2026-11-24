@@ -4,6 +4,7 @@
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #if QT_CONFIG(dockwidget)
+#if QT_CONFIG(dockwidget)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/QtWidgets>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -861,4 +862,5 @@ void ritual_own_ZN17QDockWidgetLayout11setGeometryERK5QRect(
   self->QDockWidgetLayout::setGeometry(*r);
 }
 
+#endif  // QT_CONFIG(dockwidget)
 #endif  // QT_CONFIG(dockwidget)

@@ -4,6 +4,7 @@
 #include <QtQuick/qtquickglobal.h>
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #if QT_CONFIG(quick_sprite)
+#if QT_CONFIG(quick_sprite)
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #include <QtQuick/QtQuick>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -14,8 +15,8 @@
 #include <QtCore/qrect.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qsgsoftwarespritenode_p.h"
-#include "qsgsoftwarepixmaptexture_p.h"
+#include <QtQuick/private/qsgsoftwarespritenode_p.h>
+#include <QtQuick/private/qsgsoftwarepixmaptexture_p.h>
 #include <QtGui/QPainter>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
@@ -569,4 +570,5 @@ void ritual_own_ZN21QSGSoftwareSpriteNode6updateEv(
   self->QSGSoftwareSpriteNode::update();
 }
 
+#endif  // QT_CONFIG(quick_sprite)
 #endif  // QT_CONFIG(quick_sprite)

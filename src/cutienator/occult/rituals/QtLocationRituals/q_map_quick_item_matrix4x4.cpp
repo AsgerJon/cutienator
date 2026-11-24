@@ -10,7 +10,7 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qdeclarativegeomapquickitem_p.h"
+#include <QtLocation/private/qdeclarativegeomapquickitem_p.h>
 #include <QtCore/QScopedValueRollback>
 #include <QtQml/qqmlinfo.h>
 #include <QtQuick/QSGOpacityNode>
@@ -19,7 +19,7 @@
 #include <QtQuick/private/qquickmousearea_p.h>
 #include <QtLocation/private/qgeomap_p.h>
 #include <QtLocation/private/qgeoprojection_p.h>
-#include <QDebug>
+#include <QtCore/QDebug>
 #include <cmath>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

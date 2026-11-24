@@ -2,6 +2,7 @@
 //  QtNetwork/qlocalsocket.h, Qt 6.12.0. Changes made here are lost.
 #include <QtNetwork/qtnetworkglobal.h>
 #if QT_CONFIG(localserver)
+#if QT_CONFIG(localserver)
 #include <QtNetwork/qlocalsocket.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
@@ -792,4 +793,5 @@ qint64 ritual_own_ZN12QLocalSocket8skipDataEx(
       maxSize);
 }
 
+#endif  // QT_CONFIG(localserver)
 #endif  // QT_CONFIG(localserver)

@@ -1,0 +1,23 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qrhivulkan_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN16QVkCommandBufferC1EP18QRhiImplementation": [
+      "address", "address"
+    ],
+    "ritual_ZN16QVkCommandBufferD1Ev": ["nothing", "address"],
+    "ritual_ZN16QVkCommandBuffer7destroyEv": ["nothing", "address"],
+    "ritual_ZN16QVkCommandBuffer13nativeHandlesEv": ["address", "address"],
+    "ritual_ZN16QVkCommandBuffer10resetStateEv": ["nothing", "address"],
+    "ritual_ZN16QVkCommandBuffer17resetPerPassStateEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QVkCommandBuffer13resetCommandsEv": ["nothing", "address"],
+    "ritual_ZN16QVkCommandBuffer10resetPoolsEv": ["nothing", "address"],
+    "ritual_take_QVkCommandBuffer": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN16QVkCommandBuffer7destroyEv": ["nothing", "address"]
+  }
+}

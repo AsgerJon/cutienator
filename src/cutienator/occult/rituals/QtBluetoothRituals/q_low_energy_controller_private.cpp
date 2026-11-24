@@ -18,14 +18,14 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qlowenergycontrollerbase_p.h"
+#include <QtBluetooth/private/qlowenergycontrollerbase_p.h>
 #include <QtCore/QLoggingCategory>
 #include <QtBluetooth/QBluetoothLocalDevice>
 #include <QtBluetooth/QLowEnergyCharacteristicData>
 #include <QtBluetooth/QLowEnergyDescriptorData>
 #include <QtBluetooth/QLowEnergyServiceData>
-#include "qlowenergyserviceprivate_p.h"
-#include "qlowenergycontrollerbase_p.h"
+#include <QtBluetooth/private/qlowenergyserviceprivate_p.h>
+#include <QtBluetooth/private/qlowenergycontrollerbase_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -74,6 +74,7 @@ inline void QLowEnergyServicePrivate::setState(QLowEnergyService::ServiceState n
 }
 
 //  from ../qtconnectivity/src/bluetooth/qlowenergycontrollerbase.cpp, line 31, as _ZN27QLowEnergyControllerPrivate19isValidLocalAdapterEv
+#if defined(Q_OS_LINUX)
 inline bool QLowEnergyControllerPrivate::isValidLocalAdapter()
 {
 #if defined(QT_WINRT_BLUETOOTH) || defined(Q_OS_DARWIN)
@@ -94,6 +95,7 @@ inline bool QLowEnergyControllerPrivate::isValidLocalAdapter()
 
     return adapterFound;
 }
+#endif  // defined(Q_OS_LINUX)
 
 //  from ../qtconnectivity/src/bluetooth/qlowenergycontrollerbase.cpp, line 53, as _ZN27QLowEnergyControllerPrivate8setErrorEN20QLowEnergyController5ErrorE
 inline void QLowEnergyControllerPrivate::setError(
@@ -719,12 +721,14 @@ QLowEnergyService *ritual_ZN27QLowEnergyControllerPrivate16addServiceHelperERK21
   return self->addServiceHelper(*service);
 }
 
+#if defined(Q_OS_LINUX)
 //  bool QLowEnergyControllerPrivate::isValidLocalAdapter()
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN27QLowEnergyControllerPrivate19isValidLocalAdapterEv(
     QLowEnergyControllerPrivate *self) {
   return self->isValidLocalAdapter();
 }
+#endif  // defined(Q_OS_LINUX)
 
 //  void QLowEnergyControllerPrivate::setError(QLowEnergyController::Error
 //      newError)

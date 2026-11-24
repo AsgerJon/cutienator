@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qaccessiblewidget.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
 #include <QtWidgets/qaccessiblewidget.h>
 #include <QtCore/qstring.h>
@@ -540,4 +542,5 @@ QVariant *ritual_own_ZNK19QAccessibleWidgetV214attributeValueEN11QAccessible9Att
   return new QVariant(self->QAccessibleWidgetV2::attributeValue(key));
 }
 
+#endif  // QT_CONFIG(accessibility)
 #endif  // QT_CONFIG(accessibility)

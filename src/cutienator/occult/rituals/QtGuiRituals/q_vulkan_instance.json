@@ -1,0 +1,42 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qvulkaninstance.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15QVulkanInstanceC1Ev": ["address"],
+    "ritual_ZN15QVulkanInstanceD1Ev": ["nothing", "address"],
+    "ritual_ZNK15QVulkanInstance19supportedApiVersionEv": [
+      "address", "address"
+    ],
+    "ritual_ZN15QVulkanInstance8setFlagsE6QFlagsINS_4FlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN15QVulkanInstance9setLayersERK5QListI10QByteArrayE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QVulkanInstance13setExtensionsERK5QListI10QByteArrayE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QVulkanInstance13setApiVersionERK14QVersionNumber": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QVulkanInstance6createEv": ["bool", "address"],
+    "ritual_ZN15QVulkanInstance7destroyEv": ["nothing", "address"],
+    "ritual_ZNK15QVulkanInstance7isValidEv": ["bool", "address"],
+    "ritual_ZNK15QVulkanInstance5flagsEv": ["int", "address"],
+    "ritual_ZNK15QVulkanInstance6layersEv": ["address", "address"],
+    "ritual_ZNK15QVulkanInstance10extensionsEv": ["address", "address"],
+    "ritual_ZNK15QVulkanInstance10apiVersionEv": ["address", "address"],
+    "ritual_ZNK15QVulkanInstance6handleEv": ["address", "address"],
+    "ritual_ZN15QVulkanInstance22presentAboutToBeQueuedEP7QWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QVulkanInstance13presentQueuedEP7QWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QVulkanInstance23clearDebugOutputFiltersEv": [
+      "nothing", "address"
+    ]
+  }
+}

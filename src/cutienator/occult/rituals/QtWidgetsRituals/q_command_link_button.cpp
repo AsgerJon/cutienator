@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qcommandlinkbutton.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(commandlinkbutton)
 #if QT_CONFIG(commandlinkbutton)
 #include <QtWidgets/qcommandlinkbutton.h>
 #include <QtCore/qstring.h>
@@ -1210,4 +1212,5 @@ void ritual_own_ZN18QCommandLinkButton10paintEventEP11QPaintEvent(
       a0);
 }
 
+#endif  // QT_CONFIG(commandlinkbutton)
 #endif  // QT_CONFIG(commandlinkbutton)

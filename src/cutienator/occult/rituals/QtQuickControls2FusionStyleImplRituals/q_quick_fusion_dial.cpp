@@ -7,7 +7,7 @@
 #include <QtQuickControls2FusionStyleImpl/6.12.0/QtQuickControls2FusionStyleImpl/private/qquickfusiondial_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquickfusiondial_p.h"
+#include <QtQuickControls2FusionStyleImpl/private/qquickfusiondial_p.h>
 #include <QtGui/qpainter.h>
 #include <QtGui/private/qmath_p.h>
 #include <QtQuick/private/qquickpalette_p.h>

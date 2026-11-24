@@ -4,6 +4,7 @@
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #if QT_CONFIG(abstractslider)
+#if QT_CONFIG(abstractslider)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/qabstractslider.h>
 #include <QtWidgets/QtWidgets>
@@ -18,16 +19,16 @@
 #include <QtGui/qimage.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <qapplication.h>
-#include "qabstractslider.h"
-#include "qevent.h"
-#include "qabstractslider_p.h"
-#include "qdebug.h"
+#include <QtWidgets/qapplication.h>
+#include <QtWidgets/qabstractslider.h>
+#include <QtGui/qevent.h>
+#include <QtWidgets/private/qabstractslider_p.h>
+#include <QtCore/qdebug.h>
 #if QT_CONFIG(accessibility)
-#include "qaccessible.h"
+#include <QtGui/qaccessible.h>
 #endif
 #include <limits.h>
-#include <private/qapplication_p.h>
+#include <QtWidgets/private/qapplication_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -559,4 +560,5 @@ int ritual_own_ZNK22QAbstractSliderPrivate5boundEi(
   return self->QAbstractSliderPrivate::bound(val);
 }
 
+#endif  // QT_CONFIG(abstractslider)
 #endif  // QT_CONFIG(abstractslider)

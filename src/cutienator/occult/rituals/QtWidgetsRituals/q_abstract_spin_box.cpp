@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qabstractspinbox.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(spinbox)
 #if QT_CONFIG(spinbox)
 #include <QtWidgets/qabstractspinbox.h>
 #include <QtCore/qstring.h>
@@ -1740,4 +1742,5 @@ int ritual_own_ZNK16QAbstractSpinBox11stepEnabledEv(
       static_cast<const OwnQAbstractSpinBox *>(self)->OwnQAbstractSpinBox::stepEnabled().toInt());
 }
 
+#endif  // QT_CONFIG(spinbox)
 #endif  // QT_CONFIG(spinbox)

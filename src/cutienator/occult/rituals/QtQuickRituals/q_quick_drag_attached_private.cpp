@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtQuick/6.12.0/QtQuick/private/qquickdrag_p_p.h, Qt 6.12.0. Changes made
 //  here are lost.
+#include <QtQuick/qtquickglobal.h>
+#include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
+#if QT_CONFIG(quick_draganddrop)
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #include <QtQuick/QtQuick>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -11,15 +14,15 @@
 #include <QtCore/qrect.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquickdrag_p.h"
-#include "qquickdrag_p_p.h"
-#include <private/qguiapplication_p.h>
-#include <qpa/qplatformintegration.h>
-#include <private/qquickitem_p.h>
+#include <QtQuick/private/qquickdrag_p.h>
+#include <QtQuick/private/qquickdrag_p_p.h>
+#include <QtGui/private/qguiapplication_p.h>
+#include <QtGui/qpa/qplatformintegration.h>
+#include <QtQuick/private/qquickitem_p.h>
 #include <QtQuick/private/qquickevents_p_p.h>
-#include <private/qquickitemchangelistener_p.h>
-#include <private/qquickpixmap_p.h>
-#include <private/qv4scopedvalue_p.h>
+#include <QtQuick/private/qquickitemchangelistener_p.h>
+#include <QtQuick/private/qquickpixmap_p.h>
+#include <QtQml/private/qv4scopedvalue_p.h>
 #include <QtCore/qbuffer.h>
 #include <QtCore/qmimedata.h>
 #include <QtCore/qstringconverter.h>
@@ -31,7 +34,7 @@
 #ifdef Q_OS_ANDROID
 #include <QtQuick/QQuickItemGrabResult>
 #endif
-#include <qpa/qplatformdrag.h>
+#include <QtGui/qpa/qplatformdrag.h>
 #include <QtGui/qdrag.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
@@ -346,3 +349,5 @@ void ritual_own_ZN25QQuickDragAttachedPrivate17itemParentChangedEP10QQuickItemS1
     QQuickItem *parent) {
   self->QQuickDragAttachedPrivate::itemParentChanged(a0, parent);
 }
+
+#endif  // QT_CONFIG(quick_draganddrop)

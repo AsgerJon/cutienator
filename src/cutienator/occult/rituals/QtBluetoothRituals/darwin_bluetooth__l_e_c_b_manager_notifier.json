@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtBluetooth/6.12.0/QtBluetooth/private/btnotifier_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK15DarwinBluetooth19LECBManagerNotifier10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_take_DarwinBluetooth_LECBManagerNotifier": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

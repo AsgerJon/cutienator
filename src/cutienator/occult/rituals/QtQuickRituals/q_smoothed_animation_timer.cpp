@@ -9,14 +9,14 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquicksmoothedanimation_p.h"
-#include "qquicksmoothedanimation_p_p.h"
-#include "qquickanimation_p_p.h"
-#include "private/qcontinuinganimationgroupjob_p.h"
-#include <qmath.h>
-#include <qqmlproperty.h>
-#include <private/qqmlproperty_p.h>
-#include <private/qqmlglobal_p.h>
+#include <QtQuick/private/qquicksmoothedanimation_p.h>
+#include <QtQuick/private/qquicksmoothedanimation_p_p.h>
+#include <QtQuick/private/qquickanimation_p_p.h>
+#include <QtQml/private/qcontinuinganimationgroupjob_p.h>
+#include <QtCore/qmath.h>
+#include <QtQml/qqmlproperty.h>
+#include <QtQml/private/qqmlproperty_p.h>
+#include <QtQml/private/qqmlglobal_p.h>
 #include <QtCore/qdebug.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

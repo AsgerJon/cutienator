@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/6.12.0/QtWidgets/private/qabstractbutton_p.h, Qt 6.12.0.
 //  Changes made here are lost.
+#include <QtWidgets/qtwidgetsglobal.h>
+#include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
+#if QT_CONFIG(abstractbutton)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/qabstractbutton.h>
 #include <QtWidgets/QtWidgets>
@@ -16,24 +19,24 @@
 #include <QtCore/qlist.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "private/qabstractbutton_p.h"
+#include <QtWidgets/private/qabstractbutton_p.h>
 #if QT_CONFIG(itemviews)
-#include "qabstractitemview.h"
+#include <QtWidgets/qabstractitemview.h>
 #endif
 #if QT_CONFIG(buttongroup)
-#include "qbuttongroup.h"
-#include "private/qbuttongroup_p.h"
+#include <QtWidgets/qbuttongroup.h>
+#include <QtWidgets/private/qbuttongroup_p.h>
 #endif
-#include "private/qapplication_p.h"
-#include "qabstractbutton_p.h"
-#include "qevent.h"
-#include "qpainter.h"
-#include "qapplication.h"
-#include "qstyle.h"
+#include <QtWidgets/private/qapplication_p.h>
+#include <QtWidgets/private/qabstractbutton_p.h>
+#include <QtGui/qevent.h>
+#include <QtGui/qpainter.h>
+#include <QtWidgets/qapplication.h>
+#include <QtWidgets/qstyle.h>
 #if QT_CONFIG(accessibility)
-#include "qaccessible.h"
+#include <QtGui/qaccessible.h>
 #endif
-#include <qpa/qplatformtheme.h>
+#include <QtGui/qpa/qplatformtheme.h>
 #include <QtCore/qpointer.h>
 #include <algorithm>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -697,3 +700,5 @@ int ritual_own_ZNK22QAbstractButtonPrivate16styleButtonStateE6QFlagsIN6QStyle9St
       self->QAbstractButtonPrivate::styleButtonState(
           QFlags<QStyle::StateFlag>::fromInt(state)).toInt());
 }
+
+#endif  // QT_CONFIG(abstractbutton)

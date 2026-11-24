@@ -11,8 +11,8 @@
 #include <QtCore/qbytearray.h>
 #include <QtCore/qstring.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qhttpserverrequest_p.h"
-#include "qhttpserverparser_p.h"
+#include <QtHttpServer/private/qhttpserverrequest_p.h>
+#include <QtHttpServer/private/qhttpserverparser_p.h>
 #include <QtCore/qloggingcategory.h>
 #include <QtNetwork/qhttpheaders.h>
 #if QT_CONFIG(http)

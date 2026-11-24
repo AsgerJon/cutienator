@@ -4,6 +4,7 @@
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #if QT_CONFIG(splitter)
+#if QT_CONFIG(splitter)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/qsplitter.h>
 #include <QtWidgets/QtWidgets>
@@ -20,34 +21,34 @@
 #include <QtGui/qimage.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qframe.h"
-#include "qbitmap.h"
-#include "qdrawutil.h"
-#include "qevent.h"
-#include "qpainter.h"
-#include "qstyle.h"
-#include "qstyleoption.h"
-#include "qstylepainter.h"
-#include "qapplication.h"
-#include "qframe_p.h"
-#include "qsplitter.h"
-#include "qapplication.h"
-#include "qcursor.h"
-#include "qdrawutil.h"
-#include "qevent.h"
-#include "qlayout.h"
-#include "qlist.h"
-#include "qpainter.h"
+#include <QtWidgets/qframe.h>
+#include <QtGui/qbitmap.h>
+#include <QtWidgets/qdrawutil.h>
+#include <QtGui/qevent.h>
+#include <QtGui/qpainter.h>
+#include <QtWidgets/qstyle.h>
+#include <QtWidgets/qstyleoption.h>
+#include <QtWidgets/qstylepainter.h>
+#include <QtWidgets/qapplication.h>
+#include <QtWidgets/private/qframe_p.h>
+#include <QtWidgets/qsplitter.h>
+#include <QtWidgets/qapplication.h>
+#include <QtGui/qcursor.h>
+#include <QtWidgets/qdrawutil.h>
+#include <QtGui/qevent.h>
+#include <QtWidgets/qlayout.h>
+#include <QtCore/qlist.h>
+#include <QtGui/qpainter.h>
 #if QT_CONFIG(rubberband)
-#include "qrubberband.h"
+#include <QtWidgets/qrubberband.h>
 #endif
-#include "qstyle.h"
-#include "qstyleoption.h"
-#include "qtextstream.h"
-#include "qvarlengtharray.h"
-#include "private/qlayoutengine_p.h"
-#include "private/qsplitter_p.h"
-#include "qdebug.h"
+#include <QtWidgets/qstyle.h>
+#include <QtWidgets/qstyleoption.h>
+#include <QtCore/qtextstream.h>
+#include <QtCore/qvarlengtharray.h>
+#include <QtWidgets/private/qlayoutengine_p.h>
+#include <QtWidgets/private/qsplitter_p.h>
+#include <QtCore/qdebug.h>
 #include <ctype.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
@@ -1041,4 +1042,5 @@ bool ritual_take_QSplitterPrivate(
   return static_cast<CuteQSplitterPrivate *>(self)->take(key, call);
 }
 
+#endif  // QT_CONFIG(splitter)
 #endif  // QT_CONFIG(splitter)

@@ -18,9 +18,9 @@
 #include <QtGui/qcolor.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qaccessiblequickpopupitem_p.h"
-#include "qquickpopup_p.h"
-#include "qquickpopupitem_p_p.h"
+#include <QtQuickTemplates2/private/qaccessiblequickpopupitem_p.h>
+#include <QtQuickTemplates2/private/qquickpopup_p.h>
+#include <QtQuickTemplates2/private/qquickpopupitem_p_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

@@ -10,7 +10,7 @@
 #include <QtQuick/QtQuick>
 #include <QtQuick/qquickitem.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquickfusionbusyindicator_p.h"
+#include <QtQuickControls2FusionStyleImpl/private/qquickfusionbusyindicator_p.h>
 #include <QtGui/qpainter.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

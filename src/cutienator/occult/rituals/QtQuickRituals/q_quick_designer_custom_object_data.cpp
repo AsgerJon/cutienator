@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtQuick/6.12.0/QtQuick/private/qquickdesignercustomobjectdata_p.h, Qt
 //  6.12.0. Changes made here are lost.
+#include <QtQuick/qtquickglobal.h>
+#include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
+#if QT_CONFIG(quick_designer)
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #include <QtQuick/QtQuick>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -13,13 +16,13 @@
 #include <QtQml/6.12.0/QtQml/private/qqmlanybinding_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquickdesignersupportmetainfo_p.h"
-#include "qquickdesignersupportproperties_p.h"
-#include "qquickdesignercustomobjectdata_p.h"
-#include <QGlobalStatic>
-#include <QQmlContext>
-#include <QQmlEngine>
-#include <private/qqmlanybinding_p.h>
+#include <QtQuick/private/qquickdesignersupportmetainfo_p.h>
+#include <QtQuick/private/qquickdesignersupportproperties_p.h>
+#include <QtQuick/private/qquickdesignercustomobjectdata_p.h>
+#include <QtCore/QGlobalStatic>
+#include <QtQml/QQmlContext>
+#include <QtQml/QQmlEngine>
+#include <QtQml/private/qqmlanybinding_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -236,3 +239,5 @@ void ritual_ZN30QQuickDesignerCustomObjectDataD1Ev(
     QQuickDesignerCustomObjectData *self) {
   delete self;
 }
+
+#endif  // QT_CONFIG(quick_designer)

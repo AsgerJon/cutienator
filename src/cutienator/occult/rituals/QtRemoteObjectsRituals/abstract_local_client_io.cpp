@@ -10,7 +10,7 @@
 #include <QtRemoteObjects/6.12.0/QtRemoteObjects/private/qconnection_local_backend_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qconnection_local_backend_p.h"
+#include <QtRemoteObjects/private/qconnection_local_backend_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -34,17 +34,6 @@ inline LocalClientIo::LocalClientIo(QObject *parent)
 inline LocalClientIo::~LocalClientIo()
 {
     close();
-}
-
-//  from ../qtremoteobjects/src/remoteobjects/qconnection_local_backend.cpp, line 85, as _ZN13LocalClientIo14onStateChangedEN12QLocalSocket16LocalSocketStateE
-inline void LocalClientIo::onStateChanged(QLocalSocket::LocalSocketState state)
-{
-    if (state == QLocalSocket::ClosingState && !isClosing()) {
-        m_socket->abort();
-        emit shouldReconnect(this);
-    }
-    if (state == QLocalSocket::ConnectedState)
-        initializeDataStream();
 }
 //  -----------------------------------------------------------------------
 

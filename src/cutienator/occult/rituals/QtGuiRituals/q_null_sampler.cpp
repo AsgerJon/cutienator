@@ -8,9 +8,9 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qrhinull_p.h"
-#include <qmath.h>
-#include <QPainter>
+#include <QtGui/private/qrhinull_p.h>
+#include <QtCore/qmath.h>
+#include <QtGui/QPainter>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

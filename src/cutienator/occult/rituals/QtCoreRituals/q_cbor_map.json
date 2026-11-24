@@ -144,6 +144,11 @@
     ],
     "ritual_ZgeRK18QCborValueConstRefRK8QCborMap": [
       "bool", "address", "address"
-    ]
+    ],
+    "ritual_list_make_QCborMap": ["address"],
+    "ritual_list_add_QCborMap": ["nothing", "address", "address"],
+    "ritual_list_size_QCborMap": ["long long", "address"],
+    "ritual_list_at_QCborMap": ["address", "address", "long long"],
+    "ritual_list_drop_QCborMap": ["nothing", "address"]
   }
 }

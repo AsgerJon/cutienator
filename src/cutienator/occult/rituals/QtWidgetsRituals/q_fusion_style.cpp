@@ -4,6 +4,7 @@
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #if QT_CONFIG(style_fusion)
+#if QT_CONFIG(style_fusion)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/QtWidgets>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -1283,4 +1284,5 @@ void ritual_own_ZN12QFusionStyle8unpolishEP12QApplication(
   self->QFusionStyle::unpolish(app);
 }
 
+#endif  // QT_CONFIG(style_fusion)
 #endif  // QT_CONFIG(style_fusion)

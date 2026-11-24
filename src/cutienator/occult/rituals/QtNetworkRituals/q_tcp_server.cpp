@@ -5,6 +5,7 @@
 #include <QtNetwork/qhostaddress.h>
 #include <QtNetwork/qnetworkproxy.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  Only a class built on QTcpServer may call these functions of it.
@@ -455,4 +456,38 @@ void ritual_own_ZN10QTcpServer18incomingConnectionEx(
     qintptr handle) {
   static_cast<OwnQTcpServer *>(self)->OwnQTcpServer::incomingConnection(
       handle);
+}
+
+//  QList<QTcpServer *>::QList()
+extern "C" Q_DECL_EXPORT
+QList<QTcpServer *> *ritual_list_make_QTcpServer_ptr() {
+  return new QList<QTcpServer *>();
+}
+
+//  void QList<QTcpServer *>::append(const QTcpServer * &value)
+extern "C" Q_DECL_EXPORT
+void ritual_list_add_QTcpServer_ptr(
+    QList<QTcpServer *> *self,
+    QTcpServer *element) {
+  self->append(element);
+}
+
+//  qsizetype QList<QTcpServer *>::size() const
+extern "C" Q_DECL_EXPORT
+long long ritual_list_size_QTcpServer_ptr(const QList<QTcpServer *> *self) {
+  return self->size();
+}
+
+//  const QTcpServer * &QList<QTcpServer *>::at(qsizetype i) const
+extern "C" Q_DECL_EXPORT
+QTcpServer *ritual_list_at_QTcpServer_ptr(
+    const QList<QTcpServer *> *self,
+    long long index) {
+  return self->at(index);
+}
+
+//  QList<QTcpServer *>::~QList()
+extern "C" Q_DECL_EXPORT
+void ritual_list_drop_QTcpServer_ptr(QList<QTcpServer *> *self) {
+  delete self;
 }

@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qheaderview.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(itemviews)
 #if QT_CONFIG(itemviews)
 #include <QtWidgets/qheaderview.h>
 #include <QtCore/qstring.h>
@@ -3177,4 +3179,5 @@ void ritual_own_ZNK11QHeaderView15initStyleOptionEP17QStyleOptionFrame(
   self->QHeaderView::initStyleOption(option);
 }
 
+#endif  // QT_CONFIG(itemviews)
 #endif  // QT_CONFIG(itemviews)

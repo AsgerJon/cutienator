@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qkeysequenceedit.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(keysequenceedit)
 #if QT_CONFIG(keysequenceedit)
 #include <QtWidgets/qkeysequenceedit.h>
 #include <QtCore/qstring.h>
@@ -1104,4 +1106,5 @@ void ritual_own_ZN16QKeySequenceEdit13focusOutEventEP11QFocusEvent(
       a0);
 }
 
+#endif  // QT_CONFIG(keysequenceedit)
 #endif  // QT_CONFIG(keysequenceedit)

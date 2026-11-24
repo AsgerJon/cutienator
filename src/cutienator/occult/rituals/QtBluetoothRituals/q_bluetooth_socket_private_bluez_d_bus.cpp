@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtBluetooth/6.12.0/QtBluetooth/private/qbluetoothsocket_bluezdbus_p.h, Qt
 //  6.12.0. Changes made here are lost.
+#include <QtBluetooth/qtbluetoothglobal.h>
+#include <QtBluetooth/6.12.0/QtBluetooth/private/qtbluetoothglobal_p.h>
+#if QT_CONFIG(bluez)
 #include <QtBluetooth/6.12.0/QtBluetooth/private/qtbluetoothglobal_p.h>
 #include <QtBluetooth/QtBluetooth>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -8,9 +11,9 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtBluetooth/qbluetoothaddress.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qbluetoothsocketbase_p.h"
-#include "qbluetoothsocket.h"
-#include "qbluetoothsocket_bluezdbus_p.h"
+#include <QtBluetooth/private/qbluetoothsocketbase_p.h>
+#include <QtBluetooth/qbluetoothsocket.h>
+#include <QtBluetooth/private/qbluetoothsocket_bluezdbus_p.h>
 #include <QtBluetooth/qbluetoothdeviceinfo.h>
 #include <QtBluetooth/qbluetoothserviceinfo.h>
 #include <QtCore/qloggingcategory.h>
@@ -195,3 +198,5 @@ qint64 ritual_ZNK32QBluetoothSocketPrivateBluezDBus12bytesToWriteEv(
     const QBluetoothSocketPrivateBluezDBus *self) {
   return self->bytesToWrite();
 }
+
+#endif  // QT_CONFIG(bluez)

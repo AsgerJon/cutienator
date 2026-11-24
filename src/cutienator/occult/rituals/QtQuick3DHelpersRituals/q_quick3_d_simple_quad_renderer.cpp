@@ -8,7 +8,7 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuick3D/qquick3dobject.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquick3dsimplequadrenderpass_p.h"
+#include <QtQuick3DHelpers/private/qquick3dsimplequadrenderpass_p.h>
 #include <QtQuick3D/private/qquick3dobject_p.h>
 #include <QtQuick3DRuntimeRender/private/qssglayerrenderdata_p.h>
 #include <QtQuick3DRuntimeRender/private/qssgrenderer_p.h>
@@ -19,7 +19,7 @@
 #include <QtQuick3DRuntimeRender/private/qssgrenderbuffermanager_p.h>
 #include <ssg/qssgrendercontextcore.h>
 #include <ssg/qssgrenderextensions.h>
-#include <rhi/qrhi.h>
+#include <QtGui/rhi/qrhi.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

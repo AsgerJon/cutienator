@@ -2,6 +2,7 @@
 //  QtWidgets/qgraphicslayout.h, Qt 6.12.0. Changes made here are lost.
 #include <QtWidgets/qtwidgetsglobal.h>
 #if QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 #include <QtWidgets/qgraphicslayout.h>
 #include <QtCore/qrect.h>
 #include <QtCore/qsize.h>
@@ -371,4 +372,5 @@ void ritual_own_ZN15QGraphicsLayout11widgetEventEP6QEvent(
   self->QGraphicsLayout::widgetEvent(e);
 }
 
+#endif  // QT_CONFIG(graphicsview)
 #endif  // QT_CONFIG(graphicsview)

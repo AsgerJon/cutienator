@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qstackedwidget.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(stackedwidget)
 #if QT_CONFIG(stackedwidget)
 #include <QtWidgets/qstackedwidget.h>
 #include <QtCore/qstring.h>
@@ -1006,4 +1008,5 @@ bool ritual_own_ZN14QStackedWidget5eventEP6QEvent(
   return static_cast<OwnQStackedWidget *>(self)->OwnQStackedWidget::event(e);
 }
 
+#endif  // QT_CONFIG(stackedwidget)
 #endif  // QT_CONFIG(stackedwidget)

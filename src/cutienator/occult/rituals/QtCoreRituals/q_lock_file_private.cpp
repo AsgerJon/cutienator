@@ -8,8 +8,8 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qlockfile.h"
-#include "qlockfile_p.h"
+#include <QtCore/qlockfile.h>
+#include <QtCore/private/qlockfile_p.h>
 #include <QtCore/qthread.h>
 #include <QtCore/qcoreapplication.h>
 #include <QtCore/qdeadlinetimer.h>
@@ -18,7 +18,7 @@
 #include <qplatformdefs.h>
 #ifdef Q_OS_WIN
 #include <io.h>
-#include <qt_windows.h>
+#include <QtCore/qt_windows.h>
 #endif
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

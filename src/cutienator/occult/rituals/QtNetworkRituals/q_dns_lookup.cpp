@@ -2,6 +2,7 @@
 //  QtNetwork/qdnslookup.h, Qt 6.12.0. Changes made here are lost.
 #include <QtNetwork/qtnetworkglobal.h>
 #if QT_CONFIG(dnslookup)
+#if QT_CONFIG(dnslookup)
 #include <QtNetwork/qdnslookup.h>
 #include <QtCore/qstring.h>
 #include <QtNetwork/qhostaddress.h>
@@ -494,4 +495,5 @@ bool ritual_take_QDnsLookup(QDnsLookup *self, const char *key, void *call) {
   return static_cast<CuteQDnsLookup *>(self)->take(key, call);
 }
 
+#endif  // QT_CONFIG(dnslookup)
 #endif  // QT_CONFIG(dnslookup)

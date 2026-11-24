@@ -2,6 +2,7 @@
 //  QtCore/qpermissions.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qglobal.h>
 #if QT_CONFIG(permissions)
+#if QT_CONFIG(permissions)
 #include <QtCore/qpermissions.h>
 #include <QtCore/qmetatype.h>
 #include <QtCore/qdebug.h>
@@ -41,4 +42,5 @@ void ritual_ZN11QPermissionD1Ev(QPermission *self) {
   delete self;
 }
 
+#endif  // QT_CONFIG(permissions)
 #endif  // QT_CONFIG(permissions)

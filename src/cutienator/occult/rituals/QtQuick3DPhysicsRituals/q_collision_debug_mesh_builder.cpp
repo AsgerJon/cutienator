@@ -9,7 +9,7 @@
 #include <QtGui/qvectornd.h>
 #include <QtCore/qbytearray.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qcollisiondebugmeshbuilder_p.h"
+#include <QtQuick3DPhysics/private/qcollisiondebugmeshbuilder_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

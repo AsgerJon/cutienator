@@ -11,12 +11,12 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qnetworkaccesscachebackend_p.h"
-#include "qabstractnetworkcache.h"
-#include "qfileinfo.h"
-#include "qdir.h"
-#include "qcoreapplication.h"
-#include "qhash.h"
+#include <QtNetwork/private/qnetworkaccesscachebackend_p.h>
+#include <QtNetwork/qabstractnetworkcache.h>
+#include <QtCore/qfileinfo.h>
+#include <QtCore/qdir.h>
+#include <QtCore/qcoreapplication.h>
+#include <QtCore/qhash.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

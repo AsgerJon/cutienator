@@ -1,0 +1,32 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGraphs/6.12.0/QtGraphs/private/qgraphpointanimation_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "parts first": [
+    "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
+  ],
+  "rows": {
+    "ritual_ZNK20QGraphPointAnimation10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QGraphPointAnimation13animationTypeEv": ["int", "address"],
+    "ritual_ZN20QGraphPointAnimation17setAnimatingValueERK8QVariantS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK20QGraphPointAnimation12interpolatedERK8QVariantS2_d": [
+      "address", "address", "address", "address", "double"
+    ],
+    "ritual_take_QGraphPointAnimation": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN20QGraphPointAnimation13animationTypeEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZN20QGraphPointAnimation17setAnimatingValueERK8QVariantS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZNK20QGraphPointAnimation12interpolatedERK8QVariantS2_d": [
+      "address", "address", "address", "address", "double"
+    ]
+  }
+}

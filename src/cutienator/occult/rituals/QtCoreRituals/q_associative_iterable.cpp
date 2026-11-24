@@ -60,10 +60,4 @@ bool ritual_ZNK20QAssociativeIterable22canRandomAccessIterateEv(
   return self->canRandomAccessIterate();
 }
 
-//  QAssociativeIterable::~QAssociativeIterable()
-extern "C" Q_DECL_EXPORT
-void ritual_ZN20QAssociativeIterableD1Ev(QAssociativeIterable *self) {
-  delete self;
-}
-
 #endif  // QT_DEPRECATED_SINCE(6, 15)

@@ -12,9 +12,9 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "baritemmodelhandler_p.h"
-#include "qitemmodelbardataproxy_p.h"
-#include "qgraphs3dlogging_p.h"
+#include <QtGraphs/private/baritemmodelhandler_p.h>
+#include <QtGraphs/private/qitemmodelbardataproxy_p.h>
+#include <QtGraphs/private/qgraphs3dlogging_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

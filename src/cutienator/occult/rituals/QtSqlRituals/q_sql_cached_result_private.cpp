@@ -9,8 +9,8 @@
 #include <QtCore/qstring.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "private/qsqlcachedresult_p.h"
-#include <qvariant.h>
+#include <QtSql/private/qsqlcachedresult_p.h>
+#include <QtCore/qvariant.h>
 #include <QtSql/private/qsqldriver_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

@@ -3,6 +3,7 @@
 //  lost.
 #include <QtCore/qglobal.h>
 #if QT_CONFIG(animation)
+#if QT_CONFIG(animation)
 #include <QtCore/qsequentialanimationgroup.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
@@ -454,4 +455,5 @@ void ritual_own_ZN25QSequentialAnimationGroup15updateDirectionEN18QAbstractAnima
       direction);
 }
 
+#endif  // QT_CONFIG(animation)
 #endif  // QT_CONFIG(animation)

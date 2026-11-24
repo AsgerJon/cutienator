@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtQuickWidgets/qquickwidget.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
+#include <QtQuick/qtquickglobal.h>
 #include <QtQuickWidgets/qquickwidget.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qurl.h>

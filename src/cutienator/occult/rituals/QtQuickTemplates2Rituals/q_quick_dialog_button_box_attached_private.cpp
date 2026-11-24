@@ -11,11 +11,11 @@
 #include <QtQuickTemplates2/6.12.0/QtQuickTemplates2/private/qquickdialogbuttonbox_p_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquickdialogbuttonbox_p.h"
-#include "qquickdialogbuttonbox_p_p.h"
-#include "qquickabstractbutton_p.h"
-#include "qquickbutton_p.h"
-#include "qquickdialog_p_p.h"
+#include <QtQuickTemplates2/private/qquickdialogbuttonbox_p.h>
+#include <QtQuickTemplates2/private/qquickdialogbuttonbox_p_p.h>
+#include <QtQuickTemplates2/private/qquickabstractbutton_p.h>
+#include <QtQuickTemplates2/private/qquickbutton_p.h>
+#include <QtQuickTemplates2/private/qquickdialog_p_p.h>
 #include <QtCore/qpointer.h>
 #include <QtGui/private/qguiapplication_p.h>
 #include <QtGui/qpa/qplatformtheme.h>

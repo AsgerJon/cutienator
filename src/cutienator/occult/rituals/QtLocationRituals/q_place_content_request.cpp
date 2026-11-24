@@ -5,9 +5,9 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qvariant.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qplacecontentrequest_p.h"
-#include "qplacecontentrequest.h"
-#include "qgeocoordinate.h"
+#include <QtLocation/private/qplacecontentrequest_p.h>
+#include <QtLocation/qplacecontentrequest.h>
+#include <QtPositioning/qgeocoordinate.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

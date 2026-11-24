@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qfontdialog.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(fontdialog)
 #if QT_CONFIG(fontdialog)
 #include <QtWidgets/qfontdialog.h>
 #include <QtCore/qstring.h>
@@ -1240,4 +1242,5 @@ bool ritual_own_ZN11QFontDialog11eventFilterEP7QObjectP6QEvent(
       event);
 }
 
+#endif  // QT_CONFIG(fontdialog)
 #endif  // QT_CONFIG(fontdialog)

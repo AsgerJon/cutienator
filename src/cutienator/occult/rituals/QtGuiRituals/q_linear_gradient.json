@@ -25,6 +25,11 @@
     ],
     "ritual_ZN15QLinearGradient12setFinalStopEdd": [
       "nothing", "address", "double", "double"
-    ]
+    ],
+    "ritual_list_make_QLinearGradient": ["address"],
+    "ritual_list_add_QLinearGradient": ["nothing", "address", "address"],
+    "ritual_list_size_QLinearGradient": ["long long", "address"],
+    "ritual_list_at_QLinearGradient": ["address", "address", "long long"],
+    "ritual_list_drop_QLinearGradient": ["nothing", "address"]
   }
 }

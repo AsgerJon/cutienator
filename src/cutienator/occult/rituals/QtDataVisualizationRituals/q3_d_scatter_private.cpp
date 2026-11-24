@@ -9,8 +9,8 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "q3dscatter.h"
-#include "q3dscatter_p.h"
+#include <QtDataVisualization/q3dscatter.h>
+#include <QtDataVisualization/private/q3dscatter_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

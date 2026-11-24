@@ -8,6 +8,9 @@
 #include <QtQml/qjsprimitivevalue.h>
 #include <QtCore/qdatetime.h>
 #include <QtCore/qlist.h>
+#include <QtCore/qmap.h>
+#include <QtCore/qhash.h>
+#include <iterator>
 
 //  QJSValue::QJSValue(SpecialValue value)
 extern "C" Q_DECL_EXPORT
@@ -385,5 +388,65 @@ QJSValue *ritual_list_at_QJSValue(
 //  QList<QJSValue>::~QList()
 extern "C" Q_DECL_EXPORT
 void ritual_list_drop_QJSValue(QList<QJSValue> *self) {
+  delete self;
+}
+
+//  QHash<QString, QJSValue>: QHash<QString, QJSValue>()
+extern "C" Q_DECL_EXPORT
+QHash<QString, QJSValue> *ritual_map_make_QHash_QString_QJSValue() {
+  return new QHash<QString, QJSValue>();
+}
+
+//  QHash<QString, QJSValue>: insert(const Key &key, const T &value)
+extern "C" Q_DECL_EXPORT
+void ritual_map_put_QHash_QString_QJSValue(
+    QHash<QString, QJSValue> *self,
+    const QString *key,
+    const QJSValue *value) {
+  self->insert(*key, *value);
+}
+
+//  QHash<QString, QJSValue>: size() const
+extern "C" Q_DECL_EXPORT
+long long ritual_map_size_QHash_QString_QJSValue(
+    const QHash<QString, QJSValue> *self) {
+  return self->size();
+}
+
+//  QHash<QString, QJSValue>: the key at a place
+extern "C" Q_DECL_EXPORT
+QString *ritual_map_key_QHash_QString_QJSValue(
+    const QHash<QString, QJSValue> *self,
+    long long index) {
+  return new QString(*std::next(self->keyBegin(), index));
+}
+
+//  QHash<QString, QJSValue>: the value at a place
+extern "C" Q_DECL_EXPORT
+QJSValue *ritual_map_value_QHash_QString_QJSValue(
+    const QHash<QString, QJSValue> *self,
+    long long index) {
+  return new QJSValue(*std::next(self->constBegin(), index));
+}
+
+//  QHash<QString, QJSValue>: contains(const Key &key) const
+extern "C" Q_DECL_EXPORT
+bool ritual_map_has_QHash_QString_QJSValue(
+    const QHash<QString, QJSValue> *self,
+    const QString *key) {
+  return self->contains(*key);
+}
+
+//  QHash<QString, QJSValue>: value(const Key &key) const
+extern "C" Q_DECL_EXPORT
+QJSValue *ritual_map_get_QHash_QString_QJSValue(
+    const QHash<QString, QJSValue> *self,
+    const QString *key) {
+  return new QJSValue(self->value(*key));
+}
+
+//  QHash<QString, QJSValue>: ~QHash()
+extern "C" Q_DECL_EXPORT
+void ritual_map_drop_QHash_QString_QJSValue(QHash<QString, QJSValue> *self) {
   delete self;
 }

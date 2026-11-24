@@ -7,8 +7,8 @@
 #include <QtLocation/6.12.0/QtLocation/private/qplacecategory_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qplacecategory.h"
-#include "qplacecategory_p.h"
+#include <QtLocation/qplacecategory.h>
+#include <QtLocation/private/qplacecategory_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

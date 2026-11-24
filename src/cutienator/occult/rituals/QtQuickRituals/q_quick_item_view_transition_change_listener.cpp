@@ -4,6 +4,7 @@
 #include <QtQuick/qtquickglobal.h>
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #if QT_CONFIG(quick_viewtransitions)
+#if QT_CONFIG(quick_viewtransitions)
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #include <QtQuick/QtQuick>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -74,4 +75,5 @@ bool ritual_take_QQuickItemViewTransitionChangeListener(
   return static_cast<CuteQQuickItemViewTransitionChangeListener *>(self)->take(key, call);
 }
 
+#endif  // QT_CONFIG(quick_viewtransitions)
 #endif  // QT_CONFIG(quick_viewtransitions)

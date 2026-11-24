@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtNetwork/qnetworkrequestfactory.h, Qt 6.12.0. Changes made here are
 //  lost.
+#include <QtNetwork/qtnetworkglobal.h>
+#if QT_CONFIG(http)
 #include <QtNetwork/qnetworkrequestfactory.h>
 #include <QtCore/qurl.h>
 #include <QtNetwork/qsslconfiguration.h>
@@ -290,3 +292,5 @@ QDebug *ritual_Zls6QDebugRK22QNetworkRequestFactory(
   return new QDebug(operator<<(*debug, *reply));
 }
 #endif  // !defined(QT_NO_DEBUG_STREAM)
+
+#endif  // QT_CONFIG(http)

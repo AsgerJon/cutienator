@@ -8,12 +8,12 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/qqmlproperty.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qqmlpropertytopropertybinding_p.h"
-#include <private/qqmlanybinding_p.h>
-#include <private/qqmlengine_p.h>
-#include <private/qqmlproperty_p.h>
-#include <private/qqmlvmemetaobject_p.h>
-#include <private/qv4alloca_p.h>
+#include <QtQml/private/qqmlpropertytopropertybinding_p.h>
+#include <QtQml/private/qqmlanybinding_p.h>
+#include <QtQml/private/qqmlengine_p.h>
+#include <QtQml/private/qqmlproperty_p.h>
+#include <QtQml/private/qqmlvmemetaobject_p.h>
+#include <QtQml/private/qv4alloca_p.h>
 #include <QtQml/qqmlinfo.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

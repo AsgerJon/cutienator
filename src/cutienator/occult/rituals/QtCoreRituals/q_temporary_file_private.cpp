@@ -14,23 +14,23 @@
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include "qplatformdefs.h"
-#include "qdebug.h"
-#include "qfile.h"
-#include "qfileinfo.h"
-#include "qfsfileengine_p.h"
-#include "qlist.h"
-#include "qsavefile.h"
-#include "qtemporaryfile.h"
-#include "private/qiodevice_p.h"
-#include "private/qfile_p.h"
-#include "private/qfilesystemengine_p.h"
-#include "private/qsavefile_p.h"
-#include "private/qsystemerror_p.h"
-#include "private/qtemporaryfile_p.h"
+#include <QtCore/qdebug.h>
+#include <QtCore/qfile.h>
+#include <QtCore/qfileinfo.h>
+#include <QtCore/private/qfsfileengine_p.h>
+#include <QtCore/qlist.h>
+#include <QtCore/qsavefile.h>
+#include <QtCore/qtemporaryfile.h>
+#include <QtCore/private/qiodevice_p.h>
+#include <QtCore/private/qfile_p.h>
+#include <QtCore/private/qfilesystemengine_p.h>
+#include <QtCore/private/qsavefile_p.h>
+#include <QtCore/private/qsystemerror_p.h>
+#include <QtCore/private/qtemporaryfile_p.h>
 #if defined(QT_BUILD_CORE_LIB)
-# include "qcoreapplication.h"
+# include <QtCore/qcoreapplication.h>
 #endif
-#include "qfilesystementry_p.h"
+#include <QtCore/private/qfilesystementry_p.h>
 #include <QtCore/qdir.h>
 #include <QtCore/private/qdir_p.h>
 #include <QtCore/qfile.h>
@@ -39,21 +39,21 @@
 #include <QtCore/qstringbuilder.h>
 #endif
 #include "qplatformdefs.h"
-#include "qfiledevice.h"
-#include "qfiledevice_p.h"
-#include "qfsfileengine_p.h"
-#include "qtemporaryfile.h"
+#include <QtCore/qfiledevice.h>
+#include <QtCore/private/qfiledevice_p.h>
+#include <QtCore/private/qfsfileengine_p.h>
+#include <QtCore/qtemporaryfile.h>
 #include "qplatformdefs.h"
-#include "qrandom.h"
-#include "private/qtemporaryfile_p.h"
-#include "private/qfile_p.h"
-#include "private/qsystemerror_p.h"
+#include <QtCore/qrandom.h>
+#include <QtCore/private/qtemporaryfile_p.h>
+#include <QtCore/private/qfile_p.h>
+#include <QtCore/private/qsystemerror_p.h>
 #if !defined(Q_OS_WIN)
-#include "private/qcore_unix_p.h"       // overrides QT_OPEN
+#include <QtCore/private/qcore_unix_p.h>       // overrides QT_OPEN
 #include <errno.h>
 #endif
 #if defined(QT_BUILD_CORE_LIB)
-#include "qcoreapplication.h"
+#include <QtCore/qcoreapplication.h>
 #else
 #endif
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -84,6 +84,7 @@ inline QFileSystemEntry::QFileSystemEntry()
 }
 
 //  from src/corelib/io/qfiledevice.cpp, line 507, as _ZN18QFileDevicePrivate13putCharHelperEc
+#if defined(Q_OS_LINUX)
 inline bool QFileDevicePrivate::putCharHelper(char c)
 {
 #ifdef QT_NO_QOBJECT
@@ -137,6 +138,7 @@ inline bool QFileDevicePrivate::putCharHelper(char c)
     return true;
 #endif
 }
+#endif  // defined(Q_OS_LINUX)
 
 //  from src/corelib/io/qfiledevice.cpp, line 42, as _ZN18QFileDevicePrivate14setPermissionsE6QFlagsIN11QFileDevice10PermissionEE
 inline bool QFileDevicePrivate::setPermissions(QFileDevice::Permissions perms)
@@ -168,6 +170,7 @@ inline QFileDevice::Permissions QFileDevicePrivate::permissions() const
 
 //  from src/corelib/io/qtemporaryfile.cpp, line 289, as _ZNK20QTemporaryFileEngine12isReallyOpenEv
 #if QT_CONFIG(temporaryfile)
+#if defined(Q_OS_LINUX)
 inline bool QTemporaryFileEngine::isReallyOpen() const
 {
     Q_D(const QFSFileEngine);
@@ -182,6 +185,7 @@ inline bool QTemporaryFileEngine::isReallyOpen() const
     return false;
 
 }
+#endif  // defined(Q_OS_LINUX)
 #endif  // QT_CONFIG(temporaryfile)
 
 //  from src/corelib/io/qtemporaryfile.cpp, line 516, as _ZN21QTemporaryFilePrivateD1Ev

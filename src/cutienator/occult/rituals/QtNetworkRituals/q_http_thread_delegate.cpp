@@ -4,6 +4,7 @@
 #include <QtNetwork/qtnetworkglobal.h>
 #include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
 #if QT_CONFIG(http)
+#if QT_CONFIG(http)
 #include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
 #include <QtNetwork/QtNetwork>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -13,19 +14,19 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qhttpnetworkrequest_p.h"
-#include "private/qnoncontiguousbytedevice_p.h"
+#include <QtNetwork/private/qhttpnetworkrequest_p.h>
+#include <QtCore/private/qnoncontiguousbytedevice_p.h>
 #include <QtCore/private/qtools_p.h>
-#include "qhttpthreaddelegate_p.h"
-#include <QThread>
-#include <QTimer>
-#include <QAuthenticator>
-#include <QEventLoop>
-#include <QCryptographicHash>
+#include <QtNetwork/private/qhttpthreaddelegate_p.h>
+#include <QtCore/QThread>
+#include <QtCore/QTimer>
+#include <QtNetwork/QAuthenticator>
+#include <QtCore/QEventLoop>
+#include <QtCore/QCryptographicHash>
 #include <QtCore/qscopedvaluerollback.h>
-#include "private/qhttpnetworkreply_p.h"
-#include "private/qnetworkaccesscache_p.h"
-#include "private/qnoncontiguousbytedevice_p.h"
+#include <QtNetwork/private/qhttpnetworkreply_p.h>
+#include <QtNetwork/private/qnetworkaccesscache_p.h>
+#include <QtCore/private/qnoncontiguousbytedevice_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -388,4 +389,5 @@ bool ritual_take_QHttpThreadDelegate(
   return static_cast<CuteQHttpThreadDelegate *>(self)->take(key, call);
 }
 
+#endif  // QT_CONFIG(http)
 #endif  // QT_CONFIG(http)

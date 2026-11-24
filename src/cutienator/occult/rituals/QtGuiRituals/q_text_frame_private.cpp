@@ -10,17 +10,17 @@
 #include <QtCore/qchar.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qtextobject.h"
-#include "qtextobject_p.h"
-#include "qtextcursor_p.h"
-#include "qtextdocument.h"
-#include "qtextformat_p.h"
-#include "qtextdocument_p.h"
-#include "qtextcursor.h"
-#include "qtextlist.h"
-#include "qabstracttextdocumentlayout.h"
-#include "qtextengine_p.h"
-#include "qdebug.h"
+#include <QtGui/qtextobject.h>
+#include <QtGui/private/qtextobject_p.h>
+#include <QtGui/private/qtextcursor_p.h>
+#include <QtGui/qtextdocument.h>
+#include <QtGui/private/qtextformat_p.h>
+#include <QtGui/private/qtextdocument_p.h>
+#include <QtGui/qtextcursor.h>
+#include <QtGui/qtextlist.h>
+#include <QtGui/qabstracttextdocumentlayout.h>
+#include <QtGui/private/qtextengine_p.h>
+#include <QtCore/qdebug.h>
 #include <algorithm>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

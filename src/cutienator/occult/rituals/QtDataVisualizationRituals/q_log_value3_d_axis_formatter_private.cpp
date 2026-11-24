@@ -9,10 +9,10 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qvalue3daxisformatter_p.h"
-#include "qvalue3daxis_p.h"
-#include "qlogvalue3daxisformatter_p.h"
-#include "qvalue3daxis_p.h"
+#include <QtDataVisualization/private/qvalue3daxisformatter_p.h>
+#include <QtDataVisualization/private/qvalue3daxis_p.h>
+#include <QtDataVisualization/private/qlogvalue3daxisformatter_p.h>
+#include <QtDataVisualization/private/qvalue3daxis_p.h>
 #include <QtCore/qmath.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

@@ -2,6 +2,7 @@
 //  QtCore/qresultstore.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qglobal.h>
 #if QT_CONFIG(future)
+#if QT_CONFIG(future)
 #include <QtCore/qresultstore.h>
 
 //  QtPrivate::ResultItem::ResultItem()
@@ -37,4 +38,5 @@ void ritual_ZN9QtPrivate10ResultItemD1Ev(QtPrivate::ResultItem *self) {
   delete self;
 }
 
+#endif  // QT_CONFIG(future)
 #endif  // QT_CONFIG(future)

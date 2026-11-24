@@ -4,6 +4,7 @@
 #include <QtCore/qglobal.h>
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #if QT_CONFIG(animation)
+#if QT_CONFIG(animation)
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtCore/qabstractanimation.h>
 #include <QtCore/QtCore>
@@ -86,4 +87,5 @@ const QAbstractAnimation *ritual_ZNK25QAbstractAnimationPrivate6q_funcEv(
   return self->q_func();
 }
 
+#endif  // QT_CONFIG(animation)
 #endif  // QT_CONFIG(animation)

@@ -10,26 +10,26 @@
 #include <QtPositioning/qgeorectangle.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qgeoshape.h"
-#include "qgeoshape_p.h"
-#include "qgeorectangle.h"
-#include "qgeocircle.h"
-#include "qgeopath.h"
-#include "qgeopolygon.h"
+#include <QtPositioning/qgeoshape.h>
+#include <QtPositioning/private/qgeoshape_p.h>
+#include <QtPositioning/qgeorectangle.h>
+#include <QtPositioning/qgeocircle.h>
+#include <QtPositioning/qgeopath.h>
+#include <QtPositioning/qgeopolygon.h>
 #ifndef QT_NO_DEBUG_STREAM
 #include <QtCore/QDebug>
 #endif
 #ifndef QT_NO_DATASTREAM
 #include <QtCore/QDataStream>
 #endif
-#include "qgeorectangle.h"
-#include "qgeorectangle_p.h"
-#include "qwebmercator_p.h"
-#include "qdoublevector2d_p.h"
-#include "qgeocoordinate.h"
-#include "qnumeric.h"
-#include "qlocationutils_p.h"
-#include <QList>
+#include <QtPositioning/qgeorectangle.h>
+#include <QtPositioning/private/qgeorectangle_p.h>
+#include <QtPositioning/private/qwebmercator_p.h>
+#include <QtPositioning/private/qdoublevector2d_p.h>
+#include <QtPositioning/qgeocoordinate.h>
+#include <QtCore/qnumeric.h>
+#include <QtPositioning/private/qlocationutils_p.h>
+#include <QtCore/QList>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

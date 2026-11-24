@@ -14,17 +14,17 @@
 #include <QtCore/qlist.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qdbusconnectionmanager_p.h"
-#include <qcoreapplication.h>
-#include <qthread.h>
-#include <qstringlist.h>
+#include <QtDBus/private/qdbusconnectionmanager_p.h>
+#include <QtCore/qcoreapplication.h>
+#include <QtCore/qthread.h>
+#include <QtCore/qstringlist.h>
 #include <QtCore/private/qlocking_p.h>
-#include "qdbuserror.h"
-#include "qdbuspendingcall_p.h"
-#include "qdbusmetatype_p.h"
+#include <QtDBus/qdbuserror.h>
+#include <QtDBus/private/qdbuspendingcall_p.h>
+#include <QtDBus/private/qdbusmetatype_p.h>
 #ifndef QT_NO_DBUS
 #ifdef Q_OS_WIN
-#  include <qt_windows.h>
+#  include <QtCore/qt_windows.h>
 #endif
 #endif
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER

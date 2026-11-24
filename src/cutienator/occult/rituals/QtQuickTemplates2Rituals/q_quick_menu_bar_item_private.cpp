@@ -21,10 +21,10 @@
 #include <QtCore/qrect.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquickmenubaritem_p.h"
-#include "qquickmenubaritem_p_p.h"
-#include "qquickmenubar_p.h"
-#include "qquickmenu_p.h"
+#include <QtQuickTemplates2/private/qquickmenubaritem_p.h>
+#include <QtQuickTemplates2/private/qquickmenubaritem_p_p.h>
+#include <QtQuickTemplates2/private/qquickmenubar_p.h>
+#include <QtQuickTemplates2/private/qquickmenu_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

@@ -4,22 +4,23 @@
 #include <QtNetwork/qtnetworkglobal.h>
 #include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
 #if QT_CONFIG(networkdiskcache)
+#if QT_CONFIG(networkdiskcache)
 #include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
 #include <QtNetwork/QtNetwork>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtNetwork/6.12.0/QtNetwork/private/qnetworkdiskcache_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qnetworkdiskcache.h"
-#include "qnetworkdiskcache_p.h"
-#include <qfile.h>
-#include <qdir.h>
-#include <qdatastream.h>
-#include <qdatetime.h>
-#include <qdirlisting.h>
-#include <qurl.h>
-#include <qcryptographichash.h>
-#include <qdebug.h>
+#include <QtNetwork/qnetworkdiskcache.h>
+#include <QtNetwork/private/qnetworkdiskcache_p.h>
+#include <QtCore/qfile.h>
+#include <QtCore/qdir.h>
+#include <QtCore/qdatastream.h>
+#include <QtCore/qdatetime.h>
+#include <QtCore/qdirlisting.h>
+#include <QtCore/qurl.h>
+#include <QtCore/qcryptographichash.h>
+#include <QtCore/qdebug.h>
 #include <QtCore/private/qtools_p.h>
 #include <memory>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -72,4 +73,5 @@ void ritual_ZNK10QCacheItem19writeCompressedDataEP11QFileDevice(
   self->writeCompressedData(device);
 }
 
+#endif  // QT_CONFIG(networkdiskcache)
 #endif  // QT_CONFIG(networkdiskcache)

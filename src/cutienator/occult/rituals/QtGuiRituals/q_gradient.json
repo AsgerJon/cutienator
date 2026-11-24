@@ -24,6 +24,11 @@
       "nothing", "address", "int"
     ],
     "ritual_ZNK9QGradienteqERKS_": ["bool", "address", "address"],
-    "ritual_ZNK9QGradientneERKS_": ["bool", "address", "address"]
+    "ritual_ZNK9QGradientneERKS_": ["bool", "address", "address"],
+    "ritual_list_make_QGradient": ["address"],
+    "ritual_list_add_QGradient": ["nothing", "address", "address"],
+    "ritual_list_size_QGradient": ["long long", "address"],
+    "ritual_list_at_QGradient": ["address", "address", "long long"],
+    "ritual_list_drop_QGradient": ["nothing", "address"]
   }
 }

@@ -12,7 +12,7 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qlatin1stringview.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qhashedstring_p.h"
+#include <QtQml/private/qhashedstring_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

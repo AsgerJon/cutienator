@@ -2,6 +2,7 @@
 //  QtCore/qexception.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qglobal.h>
 #if QT_CONFIG(future)
+#if QT_CONFIG(future)
 #if !defined(QT_NO_EXCEPTIONS) || defined(Q_QDOC)
 #include <QtCore/qexception.h>
 
@@ -34,4 +35,5 @@ QUnhandledException *ritual_ZNK19QUnhandledException5cloneEv(
 }
 
 #endif  // !defined(QT_NO_EXCEPTIONS) || defined(Q_QDOC)
+#endif  // QT_CONFIG(future)
 #endif  // QT_CONFIG(future)

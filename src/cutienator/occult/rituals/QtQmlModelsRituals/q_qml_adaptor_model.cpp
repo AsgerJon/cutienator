@@ -4,6 +4,7 @@
 #include <QtQmlModels/qtqmlmodelsglobal.h>
 #include <QtQmlModels/6.12.0/QtQmlModels/private/qtqmlmodelsglobal_p.h>
 #if QT_CONFIG(qml_delegate_model)
+#if QT_CONFIG(qml_delegate_model)
 #include <QtQmlModels/6.12.0/QtQmlModels/private/qtqmlmodelsglobal_p.h>
 #include <QtQmlModels/QtQmlModels>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -15,8 +16,8 @@
 #include <QtCore/qbytearray.h>
 #include <QtCore/qlist.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qqmllistaccessor_p.h"
-#include <private/qqmlmetatype_p.h>
+#include <QtQmlModels/private/qqmllistaccessor_p.h>
+#include <QtQml/private/qqmlmetatype_p.h>
 #include <QtCore/qdebug.h>
 #include <QtCore/qmetasequence.h>
 #include <QtCore/qstringlist.h>
@@ -209,4 +210,5 @@ void ritual_ZN16QQmlAdaptorModel19objectDestroyedImplEP13QQmlGuardImpl(
   QQmlAdaptorModel::objectDestroyedImpl(a0);
 }
 
+#endif  // QT_CONFIG(qml_delegate_model)
 #endif  // QT_CONFIG(qml_delegate_model)

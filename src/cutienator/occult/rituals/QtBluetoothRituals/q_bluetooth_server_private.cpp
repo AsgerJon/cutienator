@@ -8,9 +8,9 @@
 #include <QtBluetooth/6.12.0/QtBluetooth/private/qbluetoothserver_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qbluetoothsocket.h"
-#include "qbluetoothsocket_bluez_p.h"
-#include "qbluetoothdeviceinfo.h"
+#include <QtBluetooth/qbluetoothsocket.h>
+#include <QtBluetooth/private/qbluetoothsocket_bluez_p.h>
+#include <QtBluetooth/qbluetoothdeviceinfo.h>
 #include <QtBluetooth/QBluetoothLocalDevice>
 #include <qplatformdefs.h>
 #include <QtCore/private/qcore_unix_p.h>
@@ -19,12 +19,12 @@
 #include <unistd.h>
 #include <string.h>
 #include <QtCore/QSocketNotifier>
-#include "qbluetoothsocketbase_p.h"
-#include "qbluetoothserver.h"
-#include "qbluetoothserver_p.h"
-#include "qbluetoothsocket.h"
-#include "qbluetoothsocket_bluez_p.h"
-#include "qbluetoothlocaldevice.h"
+#include <QtBluetooth/private/qbluetoothsocketbase_p.h>
+#include <QtBluetooth/qbluetoothserver.h>
+#include <QtBluetooth/private/qbluetoothserver_p.h>
+#include <QtBluetooth/qbluetoothsocket.h>
+#include <QtBluetooth/private/qbluetoothsocket_bluez_p.h>
+#include <QtBluetooth/qbluetoothlocaldevice.h>
 #include <QtCore/QLoggingCategory>
 #include <QtCore/QSocketNotifier>
 #include <errno.h>

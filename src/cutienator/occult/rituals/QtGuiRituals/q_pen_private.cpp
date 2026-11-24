@@ -8,12 +8,12 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/qbrush.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qpen.h"
-#include "qpen_p.h"
-#include "qdatastream.h"
-#include "qvariant.h"
-#include "qbrush.h"
-#include <qdebug.h>
+#include <QtGui/qpen.h>
+#include <QtGui/private/qpen_p.h>
+#include <QtCore/qdatastream.h>
+#include <QtCore/qvariant.h>
+#include <QtGui/qbrush.h>
+#include <QtCore/qdebug.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

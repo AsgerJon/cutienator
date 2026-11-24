@@ -1,8 +1,10 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/6.12.0/QtWidgets/private/qlineedit_p.h, Qt 6.12.0. Changes made
 //  here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
+#if QT_CONFIG(lineedit)
 #if QT_CONFIG(lineedit)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/qlineedit.h>
@@ -20,32 +22,32 @@
 #include <QtGui/qimage.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qlineedit.h"
-#include "qlineedit_p.h"
-#include "qvariant.h"
+#include <QtWidgets/qlineedit.h>
+#include <QtWidgets/private/qlineedit_p.h>
+#include <QtCore/qvariant.h>
 #if QT_CONFIG(itemviews)
-#include "qabstractitemview.h"
+#include <QtWidgets/qabstractitemview.h>
 #endif
 #if QT_CONFIG(draganddrop)
-#include "qdrag.h"
+#include <QtGui/qdrag.h>
 #endif
 #if QT_CONFIG(action)
-#  include "qwidgetaction.h"
+#  include <QtWidgets/qwidgetaction.h>
 #endif
-#include "qclipboard.h"
+#include <QtGui/qclipboard.h>
 #if QT_CONFIG(accessibility)
-#include "qaccessible.h"
+#include <QtGui/qaccessible.h>
 #endif
 #ifndef QT_NO_IM
-#include "qinputmethod.h"
-#include "qlist.h"
+#include <QtGui/qinputmethod.h>
+#include <QtCore/qlist.h>
 #endif
-#include <qpainter.h>
+#include <QtGui/qpainter.h>
 #if QT_CONFIG(animation)
-#include <qpropertyanimation.h>
+#include <QtCore/qpropertyanimation.h>
 #endif
-#include <qstylehints.h>
-#include <qvalidator.h>
+#include <QtGui/qstylehints.h>
+#include <QtGui/qvalidator.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -768,4 +770,5 @@ bool ritual_take_QLineEditPrivate(
   return static_cast<CuteQLineEditPrivate *>(self)->take(key, call);
 }
 
+#endif  // QT_CONFIG(lineedit)
 #endif  // QT_CONFIG(lineedit)

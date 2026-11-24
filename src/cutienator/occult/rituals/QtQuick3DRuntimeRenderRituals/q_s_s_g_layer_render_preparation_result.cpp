@@ -9,7 +9,7 @@
 #include <QtCore/qsize.h>
 #include <QtCore/qrect.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qssglayerrenderdata_p.h"
+#include <QtQuick3DRuntimeRender/private/qssglayerrenderdata_p.h>
 #include <QtQuick3DRuntimeRender/private/qssgrenderer_p.h>
 #include <QtQuick3DRuntimeRender/private/qssgrenderlight_p.h>
 #include <QtQuick3DRuntimeRender/private/qssgrhicustommaterialsystem_p.h>
@@ -35,7 +35,7 @@
 #include <QtQuick/private/qsgrenderer_p.h>
 #include <QtCore/qspan.h>
 #include <array>
-#include "qssgrenderpass_p.h"
+#include <QtQuick3DRuntimeRender/private/qssgrenderpass_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

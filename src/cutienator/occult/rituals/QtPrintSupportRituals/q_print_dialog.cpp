@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtPrintSupport/qprintdialog.h, Qt 6.12.0. Changes made here are lost.
+#include <QtWidgets/qtwidgetsglobal.h>
+#include <QtGui/qtguiglobal.h>
 #include <QtPrintSupport/qtprintsupportglobal.h>
+#if QT_CONFIG(printdialog)
 #if QT_CONFIG(printdialog)
 #include <QtPrintSupport/qprintdialog.h>
 #include <QtCore/qstring.h>
@@ -1189,4 +1192,5 @@ void ritual_own_ZN12QPrintDialog10setVisibleEb(
 }
 #endif  // defined(Q_OS_UNIX) || defined(Q_OS_WIN)
 
+#endif  // QT_CONFIG(printdialog)
 #endif  // QT_CONFIG(printdialog)

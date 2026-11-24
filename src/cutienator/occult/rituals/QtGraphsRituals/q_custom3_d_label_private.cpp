@@ -12,10 +12,10 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qfileinfo.h>
-#include "qcustom3ditem_p.h"
-#include "qgraphs3dlogging_p.h"
-#include "qcustom3dlabel_p.h"
-#include "qgraphs3dlogging_p.h"
+#include <QtGraphs/private/qcustom3ditem_p.h>
+#include <QtGraphs/private/qgraphs3dlogging_p.h>
+#include <QtGraphs/private/qcustom3dlabel_p.h>
+#include <QtGraphs/private/qgraphs3dlogging_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

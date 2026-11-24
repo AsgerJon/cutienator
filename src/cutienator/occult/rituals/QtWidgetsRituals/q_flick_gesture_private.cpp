@@ -3,6 +3,7 @@
 //  made here are lost.
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
+#if QT_CONFIG(scroller)
 #if !defined(QT_NO_GESTURES)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/QtWidgets>
@@ -25,3 +26,4 @@ const QFlickGesture *ritual_ZNK20QFlickGesturePrivate6q_funcEv(
 }
 
 #endif  // !defined(QT_NO_GESTURES)
+#endif  // QT_CONFIG(scroller)

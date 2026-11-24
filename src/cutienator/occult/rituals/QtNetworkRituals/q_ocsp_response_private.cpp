@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtNetwork/6.12.0/QtNetwork/private/qocspresponse_p.h, Qt 6.12.0. Changes
 //  made here are lost.
+#include <QtNetwork/qtnetworkglobal.h>
+#include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
+#if QT_CONFIG(ssl)
 #include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
 #include <QtNetwork/QtNetwork>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -12,3 +15,5 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN20QOcspResponsePrivateD1Ev(QOcspResponsePrivate *self) {
   delete self;
 }
+
+#endif  // QT_CONFIG(ssl)

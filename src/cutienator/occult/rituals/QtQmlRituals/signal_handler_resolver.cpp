@@ -8,14 +8,14 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qqmltypecompiler_p.h"
-#include <private/qqmlobjectcreator_p.h>
-#include <private/qqmlcustomparser_p.h>
-#include <private/qqmlvmemetaobject_p.h>
-#include <private/qqmlcomponent_p.h>
-#include <private/qqmlpropertyresolver_p.h>
-#include <private/qqmlcomponentandaliasresolver_p.h>
-#include <private/qqmlsignalnames_p.h>
+#include <QtQml/private/qqmltypecompiler_p.h>
+#include <QtQml/private/qqmlobjectcreator_p.h>
+#include <QtQml/private/qqmlcustomparser_p.h>
+#include <QtQml/private/qqmlvmemetaobject_p.h>
+#include <QtQml/private/qqmlcomponent_p.h>
+#include <QtQml/private/qqmlpropertyresolver_p.h>
+#include <QtQml/private/qqmlcomponentandaliasresolver_p.h>
+#include <QtQml/private/qqmlsignalnames_p.h>
 #include <QtCore/qtyperevision.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

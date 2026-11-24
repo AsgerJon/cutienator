@@ -1,8 +1,10 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtQuick/6.12.0/QtQuick/private/qquickanimatedimage_p_p.h, Qt 6.12.0.
 //  Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtQuick/qtquickglobal.h>
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
+#if QT_CONFIG(quick_animatedimage)
 #if QT_CONFIG(quick_animatedimage)
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #include <QtQuick/QtQuick>
@@ -12,8 +14,8 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquickanimatedimage_p.h"
-#include "qquickanimatedimage_p_p.h"
+#include <QtQuick/private/qquickanimatedimage_p.h>
+#include <QtQuick/private/qquickanimatedimage_p_p.h>
 #include <QtGui/qguiapplication.h>
 #include <QtQml/qqmlinfo.h>
 #include <QtQml/qqmlfile.h>
@@ -508,4 +510,5 @@ bool ritual_take_QQuickAnimatedImagePrivate(
   return static_cast<CuteQQuickAnimatedImagePrivate *>(self)->take(key, call);
 }
 
+#endif  // QT_CONFIG(quick_animatedimage)
 #endif  // QT_CONFIG(quick_animatedimage)

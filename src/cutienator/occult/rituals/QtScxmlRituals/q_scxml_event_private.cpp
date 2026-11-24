@@ -8,11 +8,11 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qbytearray.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qscxmlexecutablecontent_p.h"
-#include "qscxmlevent_p.h"
-#include "qscxmlstatemachine_p.h"
-#include <qjsondocument.h>
-#include <qjsonobject.h>
+#include <QtScxml/private/qscxmlexecutablecontent_p.h>
+#include <QtScxml/private/qscxmlevent_p.h>
+#include <QtScxml/private/qscxmlstatemachine_p.h>
+#include <QtCore/qjsondocument.h>
+#include <QtCore/qjsonobject.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

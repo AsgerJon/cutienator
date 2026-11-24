@@ -12,23 +12,23 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qabstractsocketengine_p.h"
-#include "qnativesocketengine_p.h"
-#include "qmutex.h"
-#include "qnetworkproxy.h"
-#include "qnativesocketengine_p_p.h"
-#include <qabstracteventdispatcher.h>
-#include <qsocketnotifier.h>
-#include <qnetworkinterface.h>
-#include <private/qthread_p.h>
-#include <private/qobject_p.h>
+#include <QtNetwork/private/qabstractsocketengine_p.h>
+#include <QtNetwork/private/qnativesocketengine_p.h>
+#include <QtCore/qmutex.h>
+#include <QtNetwork/qnetworkproxy.h>
+#include <QtNetwork/private/qnativesocketengine_p_p.h>
+#include <QtCore/qabstracteventdispatcher.h>
+#include <QtCore/qsocketnotifier.h>
+#include <QtNetwork/qnetworkinterface.h>
+#include <QtCore/private/qthread_p.h>
+#include <QtCore/private/qobject_p.h>
 #if !defined(QT_NO_NETWORKPROXY)
-# include "qnetworkproxy.h"
-# include "qabstractsocket.h"
-# include "qtcpserver.h"
+# include <QtNetwork/qnetworkproxy.h>
+# include <QtNetwork/qabstractsocket.h>
+# include <QtNetwork/qtcpserver.h>
 #endif
 #if !defined(QT_NO_SCTP)
-# include "qsctpserver.h"
+# include <QtNetwork/qsctpserver.h>
 #endif
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
@@ -163,6 +163,7 @@ inline QNativeSocketEngine::~QNativeSocketEngine()
 }
 
 //  from src/network/socket/qnativesocketengine.cpp, line 414, as _ZN19QNativeSocketEngine10initializeEN15QAbstractSocket10SocketTypeENS0_20NetworkLayerProtocolE
+#if defined(Q_OS_LINUX)
 inline bool QNativeSocketEngine::initialize(QAbstractSocket::SocketType socketType, QAbstractSocket::NetworkLayerProtocol protocol)
 {
     Q_D(QNativeSocketEngine);
@@ -227,6 +228,7 @@ inline bool QNativeSocketEngine::initialize(QAbstractSocket::SocketType socketTy
 
     return true;
 }
+#endif  // defined(Q_OS_LINUX)
 
 //  from src/network/socket/qnativesocketengine.cpp, line 489, as _ZN19QNativeSocketEngine10initializeExN15QAbstractSocket11SocketStateE
 inline bool QNativeSocketEngine::initialize(qintptr socketDescriptor, QAbstractSocket::SocketState socketState)

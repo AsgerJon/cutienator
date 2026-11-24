@@ -310,6 +310,11 @@
     "ritual_ZN13QLatin1String14compare_helperEPK5QCharxS_N2Qt15CaseSensitivityE": [
       "int", "address", "long long", "address", "int"
     ],
-    "ritual_ZN13QLatin1StringD1Ev": ["nothing", "address"]
+    "ritual_ZN13QLatin1StringD1Ev": ["nothing", "address"],
+    "ritual_list_make_QLatin1String": ["address"],
+    "ritual_list_add_QLatin1String": ["nothing", "address", "address"],
+    "ritual_list_size_QLatin1String": ["long long", "address"],
+    "ritual_list_at_QLatin1String": ["address", "address", "long long"],
+    "ritual_list_drop_QLatin1String": ["nothing", "address"]
   }
 }

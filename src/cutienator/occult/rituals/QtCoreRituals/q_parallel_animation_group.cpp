@@ -2,6 +2,7 @@
 //  QtCore/qparallelanimationgroup.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qglobal.h>
 #if QT_CONFIG(animation)
+#if QT_CONFIG(animation)
 #include <QtCore/qparallelanimationgroup.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
@@ -426,4 +427,5 @@ void ritual_own_ZN23QParallelAnimationGroup15updateDirectionEN18QAbstractAnimati
       direction);
 }
 
+#endif  // QT_CONFIG(animation)
 #endif  // QT_CONFIG(animation)

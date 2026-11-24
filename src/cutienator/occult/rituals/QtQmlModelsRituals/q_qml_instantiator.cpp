@@ -4,6 +4,7 @@
 #include <QtQmlModels/qtqmlmodelsglobal.h>
 #include <QtQmlModels/6.12.0/QtQmlModels/private/qtqmlmodelsglobal_p.h>
 #if QT_CONFIG(qml_delegate_model)
+#if QT_CONFIG(qml_delegate_model)
 #include <QtQmlModels/6.12.0/QtQmlModels/private/qtqmlmodelsglobal_p.h>
 #include <QtQmlModels/QtQmlModels>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -406,4 +407,5 @@ void ritual_own_ZN16QQmlInstantiator17componentCompleteEv(
   self->QQmlInstantiator::componentComplete();
 }
 
+#endif  // QT_CONFIG(qml_delegate_model)
 #endif  // QT_CONFIG(qml_delegate_model)

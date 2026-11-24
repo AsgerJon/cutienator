@@ -12,11 +12,11 @@
 #include <QtCore/qvariant.h>
 #include <QtCore/qbytearray.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "private/qbmphandler_p.h"
+#include <QtGui/private/qbmphandler_p.h>
 #ifndef QT_NO_IMAGEFORMAT_BMP
-#include <qimage.h>
-#include <qlist.h>
-#include <qvariant.h>
+#include <QtGui/qimage.h>
+#include <QtCore/qlist.h>
+#include <QtCore/qvariant.h>
 #endif
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

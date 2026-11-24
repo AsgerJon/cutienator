@@ -1,0 +1,36 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtRemot",
+    "eObjects/6.12.0/QtRemoteObjects/private/qconnection_local_backend_",
+    "p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK15LocalServerImpl10metaObjectEv": ["address", "address"],
+    "ritual_ZN15LocalServerImplD1Ev": ["nothing", "address"],
+    "ritual_ZNK15LocalServerImpl21hasPendingConnectionsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN15LocalServerImpl22configureNewConnectionEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK15LocalServerImpl7addressEv": ["address", "address"],
+    "ritual_ZN15LocalServerImpl6listenERK4QUrl": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK15LocalServerImpl11serverErrorEv": ["int", "address"],
+    "ritual_ZN15LocalServerImpl5closeEv": ["nothing", "address"],
+    "ritual_ZN15LocalServerImpl16setSocketOptionsE6QFlagsIN12QLocalServer12SocketOptionEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_take_LocalServerImpl": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK15LocalServerImpl21hasPendingConnectionsEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZNK15LocalServerImpl7addressEv": ["address", "address"],
+    "ritual_own_ZN15LocalServerImpl6listenERK4QUrl": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZNK15LocalServerImpl11serverErrorEv": ["int", "address"],
+    "ritual_own_ZN15LocalServerImpl5closeEv": ["nothing", "address"]
+  }
+}

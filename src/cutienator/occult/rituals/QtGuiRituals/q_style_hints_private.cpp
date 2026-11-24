@@ -8,15 +8,15 @@
 #include <QtGui/6.12.0/QtGui/private/qstylehints_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qaccessibilityhints.h"
-#include "qaccessibilityhints_p.h"
-#include "qaccessibilityhints_p.h"
-#include <qstylehints.h>
-#include "qstylehints_p.h"
-#include <qpa/qplatformintegration.h>
-#include <qpa/qplatformtheme.h>
-#include <private/qguiapplication_p.h>
-#include <qdebug.h>
+#include <QtGui/qaccessibilityhints.h>
+#include <QtGui/private/qaccessibilityhints_p.h>
+#include <QtGui/private/qaccessibilityhints_p.h>
+#include <QtGui/qstylehints.h>
+#include <QtGui/private/qstylehints_p.h>
+#include <QtGui/qpa/qplatformintegration.h>
+#include <QtGui/qpa/qplatformtheme.h>
+#include <QtGui/private/qguiapplication_p.h>
+#include <QtCore/qdebug.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

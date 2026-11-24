@@ -1,8 +1,10 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtPrintSupport/6.12.0/QtPrintSupport/private/qabstractprintdialog_p.h, Qt
 //  6.12.0. Changes made here are lost.
+#include <QtWidgets/qtwidgetsglobal.h>
 #include <QtPrintSupport/qtprintsupportglobal.h>
 #include <QtPrintSupport/6.12.0/QtPrintSupport/private/qtprintsupportglobal_p.h>
+#if QT_CONFIG(printdialog)
 #if QT_CONFIG(printdialog)
 #include <QtPrintSupport/6.12.0/QtPrintSupport/private/qtprintsupportglobal_p.h>
 #include <QtPrintSupport/qabstractprintdialog.h>
@@ -23,11 +25,11 @@
 #include <QtCore/qlist.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qabstractprintdialog_p.h"
-#include "qcoreapplication.h"
-#include "qprintdialog.h"
-#include "qprinter.h"
-#include "private/qprinter_p.h"
+#include <QtPrintSupport/private/qabstractprintdialog_p.h>
+#include <QtCore/qcoreapplication.h>
+#include <QtPrintSupport/qprintdialog.h>
+#include <QtPrintSupport/qprinter.h>
+#include <QtPrintSupport/private/qprinter_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -525,4 +527,5 @@ bool ritual_take_QAbstractPrintDialogPrivate(
   return static_cast<CuteQAbstractPrintDialogPrivate *>(self)->take(key, call);
 }
 
+#endif  // QT_CONFIG(printdialog)
 #endif  // QT_CONFIG(printdialog)

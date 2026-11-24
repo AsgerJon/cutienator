@@ -2,6 +2,7 @@
 //  QtCore/qpermissions.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qglobal.h>
 #if QT_CONFIG(permissions)
+#if QT_CONFIG(permissions)
 #include <QtCore/qpermissions.h>
 
 //  QMicrophonePermission::QMicrophonePermission()
@@ -24,4 +25,5 @@ void ritual_ZN21QMicrophonePermissionD1Ev(QMicrophonePermission *self) {
   delete self;
 }
 
+#endif  // QT_CONFIG(permissions)
 #endif  // QT_CONFIG(permissions)

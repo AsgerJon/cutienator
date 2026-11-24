@@ -18,11 +18,11 @@
 #include <QtCore/qrect.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquickswipedelegate_p.h"
-#include "qquickswipedelegate_p_p.h"
-#include "qquickcontrol_p_p.h"
-#include "qquickitemdelegate_p_p.h"
-#include "qquickvelocitycalculator_p_p.h"
+#include <QtQuickTemplates2/private/qquickswipedelegate_p.h>
+#include <QtQuickTemplates2/private/qquickswipedelegate_p_p.h>
+#include <QtQuickTemplates2/private/qquickcontrol_p_p.h>
+#include <QtQuickTemplates2/private/qquickitemdelegate_p_p.h>
+#include <QtQuickTemplates2/private/qquickvelocitycalculator_p_p.h>
 #include <QtGui/qstylehints.h>
 #include <QtGui/private/qguiapplication_p.h>
 #include <QtGui/private/qeventpoint_p.h>

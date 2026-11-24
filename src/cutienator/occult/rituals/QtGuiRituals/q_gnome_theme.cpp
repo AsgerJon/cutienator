@@ -1,6 +1,10 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGui/6.12.0/QtGui/private/qgnometheme_p.h, Qt 6.12.0. Changes made here
 //  are lost.
+#include <QtCore/qglobal.h>
+#include <QtGui/qtguiglobal.h>
+#include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
+#if defined(Q_OS_UNIX) && (((QT_CONFIG(xcb) || !defined(Q_OS_MACOS)) && (QT_CONFIG(xcb) || !(defined(Q_OS_IOS) || defined(Q_OS_TVOS) || defined(Q_OS_VISIONOS)))) || QT_CONFIG(wayland))
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
 #include <QtGui/QtGui>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -769,3 +773,5 @@ QPlatformSystemTrayIcon *ritual_own_ZNK11QGnomeTheme28createPlatformSystemTrayIc
 }
 #endif  // QT_CONFIG(systemtrayicon)
 #endif  // QT_CONFIG(dbus)
+
+#endif  // defined(Q_OS_UNIX) && (((QT_CONFIG(xcb) || !defined(Q_OS_MACOS)) && (QT_CONFIG(xcb) || !(defined(Q_OS_IOS) || defined(Q_OS_TVOS) || defined(Q_OS_VISIONOS)))) || QT_CONFIG(wayland))

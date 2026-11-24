@@ -16,9 +16,9 @@
 #include <QtCore/qhash.h>
 #include <iterator>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <qabstractoauth.h>
-#include <qabstractoauthreplyhandler.h>
-#include <private/qabstractoauth_p.h>
+#include <QtNetworkAuth/qabstractoauth.h>
+#include <QtNetworkAuth/qabstractoauthreplyhandler.h>
+#include <QtNetworkAuth/private/qabstractoauth_p.h>
 #include <QtCore/qurl.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qurlquery.h>
@@ -29,8 +29,8 @@
 #include <QtNetwork/qnetworkreply.h>
 #include <QtCore/qrandom.h>
 #include <QtCore/private/qlocking_p.h>
-#include <qabstractoauth2.h>
-#include <private/qabstractoauth2_p.h>
+#include <QtNetworkAuth/qabstractoauth2.h>
+#include <QtNetworkAuth/private/qabstractoauth2_p.h>
 #include <QtCore/qurl.h>
 #include <QtCore/qurlquery.h>
 #include <QtCore/qbytearray.h>

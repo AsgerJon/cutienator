@@ -4,6 +4,7 @@
 #include <QtQml/qtqmlglobal.h>
 #include <QtQml/6.12.0/QtQml/private/qtqmlglobal_p.h>
 #if QT_CONFIG(qml_locale)
+#if QT_CONFIG(qml_locale)
 #include <QtQml/6.12.0/QtQml/private/qtqmlglobal_p.h>
 #include <QtQml/QtQml>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -13,16 +14,16 @@
 #include <QtCore/qdatetime.h>
 #include <QtCore/qlist.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qqmllocale_p.h"
-#include <private/qqmlcontext_p.h>
+#include <QtQml/private/qqmllocale_p.h>
+#include <QtQml/private/qqmlcontext_p.h>
 #include <QtCore/qnumeric.h>
 #include <QtCore/qdatetime.h>
 #include <QtCore/qtimezone.h>
-#include <private/qlocale_p.h>
-#include <private/qv4dateobject_p.h>
-#include <private/qv4numberobject_p.h>
-#include <private/qv4stringobject_p.h>
-#include <private/qqmlvaluetypewrapper_p.h>
+#include <QtCore/private/qlocale_p.h>
+#include <QtQml/private/qv4dateobject_p.h>
+#include <QtQml/private/qv4numberobject_p.h>
+#include <QtQml/private/qv4stringobject_p.h>
+#include <QtQml/private/qqmlvaluetypewrapper_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -415,4 +416,5 @@ void ritual_ZN19QQmlLocaleValueTypeD1Ev(QQmlLocaleValueType *self) {
   delete self;
 }
 
+#endif  // QT_CONFIG(qml_locale)
 #endif  // QT_CONFIG(qml_locale)

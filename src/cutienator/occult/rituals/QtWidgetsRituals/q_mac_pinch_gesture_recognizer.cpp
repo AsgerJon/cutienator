@@ -12,12 +12,12 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qmacgesturerecognizer_p.h"
-#include "qgesture.h"
-#include "qgesture_p.h"
-#include "qevent.h"
-#include "qwidget.h"
-#include "qdebug.h"
+#include <QtWidgets/private/qmacgesturerecognizer_p.h>
+#include <QtWidgets/qgesture.h>
+#include <QtWidgets/private/qgesture_p.h>
+#include <QtGui/qevent.h>
+#include <QtWidgets/qwidget.h>
+#include <QtCore/qdebug.h>
 #include <QtCore/qcoreapplication.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

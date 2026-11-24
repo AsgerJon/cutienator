@@ -4,6 +4,7 @@
 #include <QtNetwork/qtnetworkglobal.h>
 #include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
 #if QT_CONFIG(http)
+#if QT_CONFIG(http)
 #if !defined(QT_NO_NETWORKPROXY)
 #include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
 #include <QtNetwork/QtNetwork>
@@ -11,20 +12,20 @@
 #include <QtNetwork/6.12.0/QtNetwork/private/qhttpsocketengine_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qabstractsocketengine_p.h"
-#include "qnativesocketengine_p.h"
-#include "qmutex.h"
-#include "qnetworkproxy.h"
-#include "qhttpsocketengine_p.h"
-#include "qtcpsocket.h"
-#include "qhostaddress.h"
-#include "qurl.h"
-#include "private/qhttpnetworkreply_p.h"
-#include "private/qiodevice_p.h"
-#include "qdeadlinetimer.h"
-#include "qnetworkinterface.h"
+#include <QtNetwork/private/qabstractsocketengine_p.h>
+#include <QtNetwork/private/qnativesocketengine_p.h>
+#include <QtCore/qmutex.h>
+#include <QtNetwork/qnetworkproxy.h>
+#include <QtNetwork/private/qhttpsocketengine_p.h>
+#include <QtNetwork/qtcpsocket.h>
+#include <QtNetwork/qhostaddress.h>
+#include <QtCore/qurl.h>
+#include <QtNetwork/private/qhttpnetworkreply_p.h>
+#include <QtCore/private/qiodevice_p.h>
+#include <QtCore/qdeadlinetimer.h>
+#include <QtNetwork/qnetworkinterface.h>
 #if !defined(QT_NO_NETWORKPROXY)
-#include <qdebug.h>
+#include <QtCore/qdebug.h>
 #endif
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
@@ -105,4 +106,5 @@ void ritual_ZN24QHttpSocketEnginePrivateD1Ev(
 }
 
 #endif  // !defined(QT_NO_NETWORKPROXY)
+#endif  // QT_CONFIG(http)
 #endif  // QT_CONFIG(http)

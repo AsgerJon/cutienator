@@ -3,6 +3,7 @@
 //  are lost.
 #include <QtCore/qglobal.h>
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
+#if QT_CONFIG(settings)
 #if defined(QT_QSETTINGS_ALWAYS_CASE_SENSITIVE_AND_FORGET_ORIGINAL_KEY_ORDER)
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtCore/QtCore>
@@ -42,3 +43,4 @@ void ritual_ZN12QSettingsKeyD1Ev(QSettingsKey *self) {
 }
 
 #endif  // defined(QT_QSETTINGS_ALWAYS_CASE_SENSITIVE_AND_FORGET_ORIGINAL_KEY_ORDER)
+#endif  // QT_CONFIG(settings)

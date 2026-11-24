@@ -4,6 +4,7 @@
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #if QT_CONFIG(buttongroup)
+#if QT_CONFIG(buttongroup)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/qbuttongroup.h>
 #include <QtWidgets/QtWidgets>
@@ -11,8 +12,8 @@
 #include <QtWidgets/6.12.0/QtWidgets/private/qbuttongroup_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "private/qbuttongroup_p.h"
-#include "private/qabstractbutton_p.h"
+#include <QtWidgets/private/qbuttongroup_p.h>
+#include <QtWidgets/private/qabstractbutton_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -65,4 +66,5 @@ void ritual_ZN19QButtonGroupPrivate19detectCheckedButtonEv(
   self->detectCheckedButton();
 }
 
+#endif  // QT_CONFIG(buttongroup)
 #endif  // QT_CONFIG(buttongroup)

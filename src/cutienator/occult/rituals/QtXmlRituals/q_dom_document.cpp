@@ -2,6 +2,7 @@
 //  Qt 6.12.0. Changes made here are lost.
 #include <QtXml/qtxmlglobal.h>
 #if QT_CONFIG(dom)
+#if QT_CONFIG(dom)
 #include <QtXml/qdom.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qbytearray.h>
@@ -392,4 +393,5 @@ QDomDocument *ritual_ZN12QDomDocumentC1EP19QDomDocumentPrivate(
   return new QDomDocument(a0);
 }
 
+#endif  // QT_CONFIG(dom)
 #endif  // QT_CONFIG(dom)

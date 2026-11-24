@@ -1,8 +1,10 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/6.12.0/QtWidgets/private/itemviews_p.h, Qt 6.12.0. Changes made
 //  here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
+#if QT_CONFIG(accessibility) && QT_CONFIG(itemviews)
 #if QT_CONFIG(itemviews)
 #if QT_CONFIG(accessibility)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
@@ -212,3 +214,4 @@ QAccessibleInterface *ritual_own_ZNK28QAccessibleTableCornerButton5childEi(
 
 #endif  // QT_CONFIG(accessibility)
 #endif  // QT_CONFIG(itemviews)
+#endif  // QT_CONFIG(accessibility) && QT_CONFIG(itemviews)

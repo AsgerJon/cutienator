@@ -10,11 +10,11 @@
 #include <QtNetwork/6.12.0/QtNetwork/private/qnetworkinterface_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qnetworkinterface.h"
-#include "qnetworkinterface_p.h"
-#include "qdebug.h"
-#include "qendian.h"
-#include "private/qtools_p.h"
+#include <QtNetwork/qnetworkinterface.h>
+#include <QtNetwork/private/qnetworkinterface_p.h>
+#include <QtCore/qdebug.h>
+#include <QtCore/qendian.h>
+#include <QtCore/private/qtools_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

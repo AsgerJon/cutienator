@@ -10,10 +10,10 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qwebsockethandshakeresponse_p.h"
-#include "qwebsockethandshakerequest_p.h"
-#include "qwebsocketprotocol.h"
-#include "qwebsocketprotocol_p.h"
+#include <QtWebSockets/private/qwebsockethandshakeresponse_p.h>
+#include <QtWebSockets/private/qwebsockethandshakerequest_p.h>
+#include <QtWebSockets/qwebsocketprotocol.h>
+#include <QtWebSockets/private/qwebsocketprotocol_p.h>
 #include <QtCore/QString>
 #include <QtCore/QTextStream>
 #include <QtCore/QByteArray>

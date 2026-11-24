@@ -14,19 +14,17 @@
 #include <QtCore/qlist.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qbar3dseries_p.h"
-#include <QtGui/qquaternion.h>
+#include <QtGraphs/private/qabstract3dseries_p.h>
+#include <QtGraphs/private/qabstractdataproxy_p.h>
+#include <QtGraphs/private/qquickgraphsitem_p.h>
+#include <QtGraphs/private/qgraphs3dlogging_p.h>
 #include <QtCore/qmath.h>
-#include "qabstract3dseries_p.h"
-#include "qabstractdataproxy_p.h"
-#include "qgraphs3dlogging_p.h"
-#include <QtCore/qmath.h>
-#include "qabstract3daxis_p.h"
-#include "qbar3dseries_p.h"
-#include "qcategory3daxis_p.h"
-#include "qquickgraphsbars_p.h"
-#include "qvalue3daxis_p.h"
-#include "qgraphs3dlogging_p.h"
+#include <QtGraphs/private/qabstract3daxis_p.h>
+#include <QtGraphs/private/qbar3dseries_p.h>
+#include <QtGraphs/private/qcategory3daxis_p.h>
+#include <QtGraphs/private/qquickgraphsbars_p.h>
+#include <QtGraphs/private/qvalue3daxis_p.h>
+#include <QtGraphs/private/qgraphs3dlogging_p.h>
 #include <QtGui/qquaternion.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
@@ -36,11 +34,6 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
-
-//  from ../qtdatavis3d/src/datavisualization/data/qbar3dseries.cpp, line 320, as _ZN19QBar3DSeriesPrivateD2Ev
-inline QBar3DSeriesPrivate::~QBar3DSeriesPrivate()
-{
-}
 
 //  from ../qtgraphs/src/graphs3d/data/qabstract3dseries.cpp, line 902, as _ZN24QAbstract3DSeriesPrivate12setDataProxyEP18QAbstractDataProxy
 inline void QAbstract3DSeriesPrivate::setDataProxy(QAbstractDataProxy *proxy)
@@ -57,16 +50,6 @@ inline void QAbstract3DSeriesPrivate::setDataProxy(QAbstractDataProxy *proxy)
         connectGraphAndProxy(m_graph);
         m_graph->markDataDirty();
     }
-}
-
-//  from ../qtgraphs/src/graphs3d/data/qabstract3dseries.cpp, line 918, as _ZN24QAbstract3DSeriesPrivate8setGraphEP16QQuickGraphsItem
-inline void QAbstract3DSeriesPrivate::setGraph(QQuickGraphsItem *graph)
-{
-    Q_Q(QAbstract3DSeries);
-    m_graph = graph;
-    q->setParent(graph);
-    connectGraphAndProxy(graph);
-    markItemLabelDirty();
 }
 
 //  from ../qtgraphs/src/graphs3d/data/qbar3dseries.cpp, line 828, as _ZN19QBar3DSeriesPrivate12setDataProxyEP18QAbstractDataProxy

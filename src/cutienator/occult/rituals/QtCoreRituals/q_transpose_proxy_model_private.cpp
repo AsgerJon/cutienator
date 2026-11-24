@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/6.12.0/QtCore/private/qtransposeproxymodel_p.h, Qt 6.12.0. Changes
 //  made here are lost.
+#include <QtCore/qglobal.h>
+#include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
+#if QT_CONFIG(proxymodel) && QT_CONFIG(transposeproxymodel)
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtCore/qtransposeproxymodel.h>
 #include <QtCore/QtCore>
@@ -10,8 +13,8 @@
 #include <QtCore/qabstractitemmodel.h>
 #include <QtCore/qlist.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qtransposeproxymodel.h"
-#include <private/qtransposeproxymodel_p.h>
+#include <QtCore/qtransposeproxymodel.h>
+#include <QtCore/private/qtransposeproxymodel_p.h>
 #include <QtCore/qlist.h>
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qsize.h>
@@ -298,3 +301,5 @@ void ritual_ZN27QTransposeProxyModelPrivate20onRowsAboutToBeMovedERK11QModelInde
       *destinationParent,
       destinationRow);
 }
+
+#endif  // QT_CONFIG(proxymodel) && QT_CONFIG(transposeproxymodel)

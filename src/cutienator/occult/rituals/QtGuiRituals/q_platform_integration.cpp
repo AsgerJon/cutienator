@@ -63,10 +63,13 @@ typedef void (*CuteQPlatformIntegrationCall26)(const void *, const QIcon *, int 
 typedef void (*CuteQPlatformIntegrationCall27)(const void *, qint64, int *);
 typedef void (*CuteQPlatformIntegrationCall28)(const void *, int *);
 typedef void (*CuteQPlatformIntegrationCall29)(const void *, int *);
+#if QT_CONFIG(vulkan) || defined(Q_QDOC)
+typedef void * (*CuteQPlatformIntegrationCall30)(const void *, QVulkanInstance *, int *);
+#endif  // QT_CONFIG(vulkan) || defined(Q_QDOC)
 class CuteQPlatformIntegration : public QPlatformIntegration {
 public:
   using QPlatformIntegration::QPlatformIntegration;
-  void *taken[30] = {};
+  void *taken[31] = {};
 
   bool take(const char *key, void *call) {
     if (!std::strcmp(key, "_ZNK20QPlatformIntegration13hasCapabilityENS_10CapabilityE")) {
@@ -201,6 +204,12 @@ public:
       taken[29] = call;
       return true;
     }
+#if QT_CONFIG(vulkan) || defined(Q_QDOC)
+    if (!std::strcmp(key, "_ZNK20QPlatformIntegration28createPlatformVulkanInstanceEP15QVulkanInstance")) {
+      taken[30] = call;
+      return true;
+    }
+#endif  // QT_CONFIG(vulkan) || defined(Q_QDOC)
     return false;
   }
 
@@ -572,6 +581,22 @@ public:
     }
     QPlatformIntegration::quit();
   }
+
+#if QT_CONFIG(vulkan) || defined(Q_QDOC)
+  //  QPlatformVulkanInstance
+  //      *QPlatformIntegration::createPlatformVulkanInstance(QVulkanInstan
+  //      ce *instance) const
+  QPlatformVulkanInstance *createPlatformVulkanInstance(
+      QVulkanInstance *instance) const override {
+    if (taken[30]) {
+      int handled = 0;
+      CuteQPlatformIntegrationCall30 call = reinterpret_cast<CuteQPlatformIntegrationCall30>(taken[30]);
+      void * given = call(this, instance, &handled);
+      if (handled) return static_cast<QPlatformVulkanInstance *>(given);
+    }
+    return QPlatformIntegration::createPlatformVulkanInstance(instance);
+  }
+#endif  // QT_CONFIG(vulkan) || defined(Q_QDOC)
 };
 
 //  QPlatformIntegration::~QPlatformIntegration()
@@ -850,6 +875,18 @@ void ritual_ZNK20QPlatformIntegration4quitEv(
   self->quit();
 }
 
+#if QT_CONFIG(vulkan) || defined(Q_QDOC)
+//  QPlatformVulkanInstance
+//      *QPlatformIntegration::createPlatformVulkanInstance(QVulkanInstance
+//      *instance) const
+extern "C" Q_DECL_EXPORT
+QPlatformVulkanInstance *ritual_ZNK20QPlatformIntegration28createPlatformVulkanInstanceEP15QVulkanInstance(
+    const QPlatformIntegration *self,
+    QVulkanInstance *instance) {
+  return self->createPlatformVulkanInstance(instance);
+}
+#endif  // QT_CONFIG(vulkan) || defined(Q_QDOC)
+
 //  a Python function taken by a CuteQPlatformIntegration, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT
@@ -1088,3 +1125,15 @@ void ritual_own_ZNK20QPlatformIntegration4quitEv(
     const QPlatformIntegration *self) {
   self->QPlatformIntegration::quit();
 }
+
+#if QT_CONFIG(vulkan) || defined(Q_QDOC)
+//  QPlatformVulkanInstance
+//      *QPlatformIntegration::createPlatformVulkanInstance(QVulkanInstance
+//      *instance) const
+extern "C" Q_DECL_EXPORT
+QPlatformVulkanInstance *ritual_own_ZNK20QPlatformIntegration28createPlatformVulkanInstanceEP15QVulkanInstance(
+    const QPlatformIntegration *self,
+    QVulkanInstance *instance) {
+  return self->QPlatformIntegration::createPlatformVulkanInstance(instance);
+}
+#endif  // QT_CONFIG(vulkan) || defined(Q_QDOC)

@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtNetwork/qdtls.h, Qt 6.12.0. Changes made here are lost.
 #include <QtNetwork/qtnetworkglobal.h>
+#if QT_CONFIG(dtls) && QT_CONFIG(ssl)
 #if QT_CONFIG(dtls)
 #include <QtNetwork/qdtls.h>
 #include <QtCore/qstring.h>
@@ -443,3 +444,4 @@ bool ritual_take_QDtls(QDtls *self, const char *key, void *call) {
 }
 
 #endif  // QT_CONFIG(dtls)
+#endif  // QT_CONFIG(dtls) && QT_CONFIG(ssl)

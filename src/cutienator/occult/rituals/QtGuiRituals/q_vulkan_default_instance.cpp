@@ -4,6 +4,7 @@
 #include <QtGui/qtguiglobal.h>
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
 #if QT_CONFIG(vulkan)
+#if QT_CONFIG(vulkan)
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
 #include <QtGui/QtGui>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -30,6 +31,12 @@ bool ritual_ZN22QVulkanDefaultInstance11hasInstanceEv() {
   return QVulkanDefaultInstance::hasInstance();
 }
 
+//  QVulkanInstance *QVulkanDefaultInstance::instance()
+extern "C" Q_DECL_EXPORT
+QVulkanInstance *ritual_ZN22QVulkanDefaultInstance8instanceEv() {
+  return QVulkanDefaultInstance::instance();
+}
+
 //  void QVulkanDefaultInstance::cleanup()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN22QVulkanDefaultInstance7cleanupEv() {
@@ -42,4 +49,5 @@ void ritual_ZN22QVulkanDefaultInstanceD1Ev(QVulkanDefaultInstance *self) {
   delete self;
 }
 
+#endif  // QT_CONFIG(vulkan)
 #endif  // QT_CONFIG(vulkan)

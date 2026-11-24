@@ -4,6 +4,7 @@
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #if QT_CONFIG(columnview)
+#if QT_CONFIG(columnview)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/QtWidgets>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -18,16 +19,16 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <qglobal.h>
-#include "qcolumnview.h"
+#include <QtCore/qglobal.h>
+#include <QtWidgets/qcolumnview.h>
 #if QT_CONFIG(columnview)
-#include "qcolumnview_p.h"
-#include "qcolumnviewgrip_p.h"
-#include <qlistview.h>
-#include <qabstractitemdelegate.h>
-#include <qscrollbar.h>
-#include <qpainter.h>
-#include <qdebug.h>
+#include <QtWidgets/private/qcolumnview_p.h>
+#include <QtWidgets/private/qcolumnviewgrip_p.h>
+#include <QtWidgets/qlistview.h>
+#include <QtWidgets/qabstractitemdelegate.h>
+#include <QtWidgets/qscrollbar.h>
+#include <QtGui/qpainter.h>
+#include <QtCore/qdebug.h>
 #endif
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
@@ -593,4 +594,5 @@ void ritual_own_ZNK19QColumnViewDelegate5paintEP8QPainterRK20QStyleOptionViewIte
 }
 #endif  // QT_CONFIG(columnview)
 
+#endif  // QT_CONFIG(columnview)
 #endif  // QT_CONFIG(columnview)

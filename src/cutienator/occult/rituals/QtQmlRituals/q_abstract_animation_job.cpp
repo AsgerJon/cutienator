@@ -4,6 +4,7 @@
 #include <QtQml/qtqmlglobal.h>
 #include <QtQml/6.12.0/QtQml/private/qtqmlglobal_p.h>
 #if QT_CONFIG(qml_animation)
+#if QT_CONFIG(qml_animation)
 #include <QtQml/6.12.0/QtQml/private/qtqmlglobal_p.h>
 #include <QtQml/QtQml>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -592,4 +593,5 @@ void ritual_own_ZNK21QAbstractAnimationJob14debugAnimationE6QDebug(
       *d);
 }
 
+#endif  // QT_CONFIG(qml_animation)
 #endif  // QT_CONFIG(qml_animation)

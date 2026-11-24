@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGui/6.12.0/QtGui/private/qfontconfigdatabase_p.h, Qt 6.12.0. Changes
 //  made here are lost.
+#include <QtGui/qtguiglobal.h>
+#include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
+#if QT_CONFIG(fontconfig) && QT_CONFIG(freetype) && defined(Q_OS_UNIX) && !defined(Q_OS_DARWIN)
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
 #include <QtGui/QtGui>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -423,3 +426,5 @@ QFont *ritual_own_ZNK19QFontconfigDatabase11defaultFontEv(
     const QFontconfigDatabase *self) {
   return new QFont(self->QFontconfigDatabase::defaultFont());
 }
+
+#endif  // QT_CONFIG(fontconfig) && QT_CONFIG(freetype) && defined(Q_OS_UNIX) && !defined(Q_OS_DARWIN)

@@ -10,7 +10,7 @@
 #include <QtCore/6.12.0/QtCore/private/qfsfileengine_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qfilesystementry_p.h"
+#include <QtCore/private/qfilesystementry_p.h>
 #include <QtCore/qdir.h>
 #include <QtCore/private/qdir_p.h>
 #include <QtCore/qfile.h>
@@ -18,21 +18,21 @@
 #ifdef Q_OS_WIN
 #include <QtCore/qstringbuilder.h>
 #endif
-#include "qfsfileengine_p.h"
-#include "qfsfileengine_iterator_p.h"
-#include "qfilesystemengine_p.h"
-#include "qdatetime.h"
-#include "qset.h"
+#include <QtCore/private/qfsfileengine_p.h>
+#include <QtCore/private/qfsfileengine_iterator_p.h>
+#include <QtCore/private/qfilesystemengine_p.h>
+#include <QtCore/qdatetime.h>
+#include <QtCore/qset.h>
 #include <QtCore/qdebug.h>
 #ifndef QT_NO_FSFILEENGINE
 #include <errno.h>
 #if defined(Q_OS_UNIX)
-#include "private/qcore_unix_p.h"
+#include <QtCore/private/qcore_unix_p.h>
 #endif
 #include <stdio.h>
 #include <stdlib.h>
 #if defined(Q_OS_DARWIN)
-# include <private/qcore_mac_p.h>
+# include <QtCore/private/qcore_mac_p.h>
 #endif
 #endif
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -202,6 +202,7 @@ inline bool QFSFileEnginePrivate::seekFdFh(qint64 pos)
 
 //  from src/corelib/io/qfsfileengine.cpp, line 89, as _ZN20QFSFileEnginePrivate4initEv
 #if !defined(QT_NO_FSFILEENGINE)
+#if defined(Q_OS_LINUX)
 inline void QFSFileEnginePrivate::init()
 {
     is_sequential = 0;
@@ -221,6 +222,7 @@ inline void QFSFileEnginePrivate::init()
     cachedFd = -1;
 #endif
 }
+#endif  // defined(Q_OS_LINUX)
 #endif  // !defined(QT_NO_FSFILEENGINE)
 //  -----------------------------------------------------------------------
 
@@ -307,11 +309,13 @@ int ritual_ZN20QFSFileEnginePrivate19openModeToOpenFlagsE6QFlagsIN13QIODeviceBas
 #endif  // defined(Q_OS_UNIX)
 
 #if !defined(QT_NO_FSFILEENGINE)
+#if defined(Q_OS_LINUX)
 //  void QFSFileEnginePrivate::init()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QFSFileEnginePrivate4initEv(QFSFileEnginePrivate *self) {
   self->init();
 }
+#endif  // defined(Q_OS_LINUX)
 #endif  // !defined(QT_NO_FSFILEENGINE)
 
 //  QFSFileEnginePrivate::~QFSFileEnginePrivate()

@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtDataV",
+    "isualization/6.12.0/QtDataVisualization/private/abstractrenderitem",
+    "_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18AbstractRenderItemD1Ev": ["nothing", "address"],
+    "ritual_ZN18AbstractRenderItem14setTranslationERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18AbstractRenderItem11translationEv": ["address", "address"],
+    "ritual_ZNK18AbstractRenderItem8rotationEv": ["address", "address"],
+    "ritual_ZN18AbstractRenderItem11setRotationERK11QQuaternion": [
+      "nothing", "address", "address"
+    ]
+  }
+}

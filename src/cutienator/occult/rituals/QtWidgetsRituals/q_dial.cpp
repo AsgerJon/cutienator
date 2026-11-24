@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qdial.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(dial)
 #if QT_CONFIG(dial)
 #include <QtWidgets/qdial.h>
 #include <QtCore/qstring.h>
@@ -1166,4 +1168,5 @@ void ritual_own_ZNK5QDial15initStyleOptionEP18QStyleOptionSlider(
   static_cast<const OwnQDial *>(self)->OwnQDial::initStyleOption(option);
 }
 
+#endif  // QT_CONFIG(dial)
 #endif  // QT_CONFIG(dial)

@@ -12,15 +12,15 @@
 #include <QtCore/qlist.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qnetworkreplyimpl_p.h"
-#include "qnetworkaccessbackend_p.h"
-#include "qnetworkcookie.h"
-#include "qnetworkcookiejar.h"
-#include "qabstractnetworkcache.h"
+#include <QtNetwork/private/qnetworkreplyimpl_p.h>
+#include <QtNetwork/private/qnetworkaccessbackend_p.h>
+#include <QtNetwork/qnetworkcookie.h>
+#include <QtNetwork/qnetworkcookiejar.h>
+#include <QtNetwork/qabstractnetworkcache.h>
 #include "QtCore/qcoreapplication.h"
 #include "QtCore/qdatetime.h"
 #include "QtNetwork/qsslconfiguration.h"
-#include "qnetworkaccessmanager_p.h"
+#include <QtNetwork/private/qnetworkaccessmanager_p.h>
 #include <QtCore/QCoreApplication>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

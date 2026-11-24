@@ -7,8 +7,6 @@
   "rows": {
     "ritual_ZNK25QAssociativeConstIterator3keyEv": ["address", "address"],
     "ritual_ZNK25QAssociativeConstIterator5valueEv": ["address", "address"],
-    "ritual_ZNK25QAssociativeConstIteratordeEv": ["address", "address"],
-    "ritual_ZNK25QAssociativeConstIteratorptEv": ["address", "address"],
-    "ritual_ZN25QAssociativeConstIteratorD1Ev": ["nothing", "address"]
+    "ritual_ZNK25QAssociativeConstIteratordeEv": ["address", "address"]
   }
 }

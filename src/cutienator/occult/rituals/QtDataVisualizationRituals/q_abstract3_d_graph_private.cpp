@@ -9,13 +9,13 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qabstract3dgraph.h"
-#include "qabstract3dgraph_p.h"
-#include "abstract3dcontroller_p.h"
-#include "qabstract3dinputhandler_p.h"
-#include "q3dscene_p.h"
-#include "qutils.h"
-#include "utils_p.h"
+#include <QtDataVisualization/qabstract3dgraph.h>
+#include <QtDataVisualization/private/qabstract3dgraph_p.h>
+#include <QtDataVisualization/private/abstract3dcontroller_p.h>
+#include <QtDataVisualization/private/qabstract3dinputhandler_p.h>
+#include <QtDataVisualization/private/q3dscene_p.h>
+#include <QtDataVisualization/qutils.h>
+#include <QtDataVisualization/private/utils_p.h>
 #include <QtGui/QGuiApplication>
 #include <QtGui/QOpenGLContext>
 #include <QtOpenGL/QOpenGLPaintDevice>
@@ -23,7 +23,7 @@
 #include <QtOpenGL/QOpenGLFramebufferObject>
 #include <QtGui/QOffscreenSurface>
 #if defined(Q_OS_MACOS)
-#include <qpa/qplatformnativeinterface.h>
+#include <QtGui/qpa/qplatformnativeinterface.h>
 #endif
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

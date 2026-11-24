@@ -12,7 +12,7 @@
 #include <QtQml/6.12.0/QtQml/private/qqmldatablob_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <private/qqmldirdata_p.h>
+#include <QtQml/private/qqmldirdata_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

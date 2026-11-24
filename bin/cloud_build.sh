@@ -327,8 +327,10 @@ for one in \"\$@\"; do
   esac
 done
 if [ -n \"\$header\" ]; then
-  exec ccache \"\$HOME/$TOOLS/bin/clang++\" -Xclang -fno-pch-timestamp \\
-    \"\$@\"
+  #  A precompiled header is made without ccache: one ccache kept from a
+  #  common header of the same text names the time that one had, and
+  #  clang refuses it for the common header written since.
+  exec \"\$HOME/$TOOLS/bin/clang++\" -Xclang -fno-pch-timestamp \"\$@\"
 fi
 exec ccache \"\$HOME/$TOOLS/bin/clang++\" \"\$@\"
 EOF

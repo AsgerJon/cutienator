@@ -9,20 +9,20 @@
 #include <QtGui/qtextcursor.h>
 #include <QtGui/qtextformat.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qtextdocumentfragment.h"
-#include "qtextdocumentfragment_p.h"
-#include "qtextcursor_p.h"
-#include "qtextlist.h"
+#include <QtGui/qtextdocumentfragment.h>
+#include <QtGui/private/qtextdocumentfragment_p.h>
+#include <QtGui/private/qtextcursor_p.h>
+#include <QtGui/qtextlist.h>
 #if QT_CONFIG(textmarkdownreader)
-#include "qtextmarkdownimporter_p.h"
+#include <QtGui/private/qtextmarkdownimporter_p.h>
 #endif
 #if QT_CONFIG(textmarkdownwriter)
-#include "qtextmarkdownwriter_p.h"
+#include <QtGui/private/qtextmarkdownwriter_p.h>
 #endif
-#include <qdebug.h>
-#include <qbytearray.h>
-#include <qdatastream.h>
-#include <qdatetime.h>
+#include <QtCore/qdebug.h>
+#include <QtCore/qbytearray.h>
+#include <QtCore/qdatastream.h>
+#include <QtCore/qdatetime.h>
 #include <QtCore/private/qstringiterator_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
@@ -34,6 +34,7 @@
 //  'inline' put before it where Qt did not write it.
 
 //  from src/gui/text/qtextdocumentfragment.cpp, line 25, as _ZN15QTextCopyHelperC1ERK11QTextCursorS2_bRK15QTextCharFormat
+#if defined(Q_OS_LINUX)
 inline QTextCopyHelper::QTextCopyHelper(const QTextCursor &_source, const QTextCursor &_destination, bool forceCharFormat, const QTextCharFormat &fmt)
 #if defined(Q_CC_DIAB) // compiler bug
     : formatCollection(*_destination.d->priv->formatCollection()), originalText((const QString)_source.d->priv->buffer())
@@ -48,6 +49,7 @@ inline QTextCopyHelper::QTextCopyHelper(const QTextCursor &_source, const QTextC
     primaryCharFormatIndex = convertFormatIndex(fmt);
     cursor = _source;
 }
+#endif  // defined(Q_OS_LINUX)
 
 //  from src/gui/text/qtextdocumentfragment.cpp, line 127, as _ZN15QTextCopyHelper4copyEv
 inline void QTextCopyHelper::copy()

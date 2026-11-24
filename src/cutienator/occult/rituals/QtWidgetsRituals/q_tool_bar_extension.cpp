@@ -4,6 +4,7 @@
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #if QT_CONFIG(toolbutton)
+#if QT_CONFIG(toolbutton)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/QtWidgets>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -11,11 +12,11 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qsize.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qtoolbarextension_p.h"
-#include <qevent.h>
-#include <qstyle.h>
-#include <qstylepainter.h>
-#include <qstyleoption.h>
+#include <QtWidgets/private/qtoolbarextension_p.h>
+#include <QtGui/qevent.h>
+#include <QtWidgets/qstyle.h>
+#include <QtWidgets/qstylepainter.h>
+#include <QtWidgets/qstyleoption.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -140,4 +141,5 @@ bool ritual_own_ZN17QToolBarExtension5eventEP6QEvent(
       e);
 }
 
+#endif  // QT_CONFIG(toolbutton)
 #endif  // QT_CONFIG(toolbutton)

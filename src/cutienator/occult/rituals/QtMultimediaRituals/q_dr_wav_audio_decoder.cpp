@@ -10,7 +10,7 @@
 #include <QtMultimedia/qaudioformat.h>
 #include <QtMultimedia/qaudiobuffer.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qdrawavaudiodecoder_p.h"
+#include <QtMultimedia/private/qdrawavaudiodecoder_p.h>
 #include <QtMultimedia/qaudiodecoder.h>
 #include <QtMultimedia/qaudiobuffer.h>
 #include <QtCore/qdebug.h>

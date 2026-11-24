@@ -10,8 +10,8 @@
 #include <QtMultimedia/qaudiodevice.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qaudioengine.h"
-#include "qaudioengine_p.h"
+#include <QtSpatialAudio/qaudioengine.h>
+#include <QtSpatialAudio/private/qaudioengine_p.h>
 #include <QtMultimedia/private/qmultimedia_ranges_p.h>
 #include <QtSpatialAudio/private/qaudioengine_threaded_p.h>
 #include <QtSpatialAudio/private/qaudioengine_withplayer_p.h>
@@ -21,7 +21,7 @@
 #include <QtMultimedia/private/qaudiosystem_p.h>
 #include <QtMultimedia/private/qplatformaudiodevices_p.h>
 #include <QtMultimedia/private/qplatformmediaintegration_p.h>
-#include <q20vector.h>
+#include <QtCore/q20vector.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

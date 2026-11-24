@@ -4,6 +4,7 @@
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #if QT_CONFIG(filedialog)
+#if QT_CONFIG(filedialog)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/QtWidgets>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -18,18 +19,18 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qsidebar_p.h"
-#include <qaction.h>
-#include <qurl.h>
+#include <QtWidgets/private/qsidebar_p.h>
+#include <QtWidgets/qaction.h>
+#include <QtCore/qurl.h>
 #if QT_CONFIG(menu)
-#include <qmenu.h>
+#include <QtWidgets/qmenu.h>
 #endif
-#include <qmimedata.h>
-#include <qevent.h>
-#include <qdebug.h>
-#include <qfilesystemmodel.h>
-#include <qabstractfileiconprovider.h>
-#include <qfiledialog.h>
+#include <QtCore/qmimedata.h>
+#include <QtGui/qevent.h>
+#include <QtCore/qdebug.h>
+#include <QtWidgets/qfilesystemmodel.h>
+#include <QtGui/qabstractfileiconprovider.h>
+#include <QtWidgets/qfiledialog.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -557,4 +558,5 @@ void ritual_own_ZNK16QSideBarDelegate15initStyleOptionEP20QStyleOptionViewItemRK
   self->QSideBarDelegate::initStyleOption(option, *index);
 }
 
+#endif  // QT_CONFIG(filedialog)
 #endif  // QT_CONFIG(filedialog)

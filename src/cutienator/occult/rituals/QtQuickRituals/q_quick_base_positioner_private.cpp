@@ -1,8 +1,10 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtQuick/6.12.0/QtQuick/private/qquickpositioners_p_p.h, Qt 6.12.0.
 //  Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtQuick/qtquickglobal.h>
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
+#if QT_CONFIG(quick_positioners)
 #if QT_CONFIG(quick_positioners)
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #include <QtQuick/QtQuick>
@@ -14,8 +16,8 @@
 #include <QtCore/qrect.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquickpositioners_p.h"
-#include "qquickpositioners_p_p.h"
+#include <QtQuick/private/qquickpositioners_p.h>
+#include <QtQuick/private/qquickpositioners_p_p.h>
 #include <QtQml/qqml.h>
 #include <QtQml/qqmlinfo.h>
 #include <QtCore/qcoreapplication.h>
@@ -764,4 +766,5 @@ void ritual_own_ZN27QQuickBasePositionerPrivate30effectiveLayoutDirectionChangeE
   self->QQuickBasePositionerPrivate::effectiveLayoutDirectionChange();
 }
 
+#endif  // QT_CONFIG(quick_positioners)
 #endif  // QT_CONFIG(quick_positioners)

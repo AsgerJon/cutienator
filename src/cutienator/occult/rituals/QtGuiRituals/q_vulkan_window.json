@@ -1,0 +1,64 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qvulkanwindow.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK13QVulkanWindow10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QVulkanWindow2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN13QVulkanWindow6d_funcEv": ["address", "address"],
+    "ritual_ZNK13QVulkanWindow6d_funcEv": ["address", "address"],
+    "ritual_ZN13QVulkanWindowC1EP7QWindow": ["address", "address"],
+    "ritual_ZN13QVulkanWindowD1Ev": ["nothing", "address"],
+    "ritual_ZN13QVulkanWindow8setFlagsE6QFlagsINS_4FlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK13QVulkanWindow5flagsEv": ["int", "address"],
+    "ritual_ZN13QVulkanWindow22setPhysicalDeviceIndexEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN13QVulkanWindow19setDeviceExtensionsERK5QListI10QByteArrayE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QVulkanWindow14setSampleCountEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK13QVulkanWindow7isValidEv": ["bool", "address"],
+    "ritual_ZN13QVulkanWindow14createRendererEv": ["address", "address"],
+    "ritual_ZN13QVulkanWindow10frameReadyEv": ["nothing", "address"],
+    "ritual_ZNK13QVulkanWindow18swapChainImageSizeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK13QVulkanWindow12currentFrameEv": ["int", "address"],
+    "ritual_ZNK13QVulkanWindow20concurrentFrameCountEv": ["int", "address"],
+    "ritual_ZNK13QVulkanWindow19swapChainImageCountEv": ["int", "address"],
+    "ritual_ZNK13QVulkanWindow26currentSwapChainImageIndexEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK13QVulkanWindow12supportsGrabEv": ["bool", "address"],
+    "ritual_ZN13QVulkanWindow4grabEv": ["address", "address"],
+    "ritual_ZN13QVulkanWindow20clipCorrectionMatrixEv": [
+      "address", "address"
+    ],
+    "ritual_ZN13QVulkanWindow11exposeEventEP12QExposeEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QVulkanWindow11resizeEventEP12QResizeEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QVulkanWindow5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_take_QVulkanWindow": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN13QVulkanWindow14createRendererEv": ["address", "address"],
+    "ritual_own_ZN13QVulkanWindow11exposeEventEP12QExposeEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN13QVulkanWindow11resizeEventEP12QResizeEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN13QVulkanWindow5eventEP6QEvent": [
+      "bool", "address", "address"
+    ]
+  }
+}

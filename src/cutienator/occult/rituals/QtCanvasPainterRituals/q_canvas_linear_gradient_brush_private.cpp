@@ -9,18 +9,18 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qcanvasgradient.h"
-#include "qcanvasgradient_p.h"
-#include "qcanvaslineargradient.h"
-#include "qcanvasradialgradient.h"
-#include "qcanvasconicalgradient.h"
-#include "qcanvasboxgradient.h"
-#include "qcanvasimage.h"
-#include "qcanvaspainter.h"
-#include "qcanvaspainter_p.h"
-#include "qdatastream.h"
-#include "qvariant.h"
-#include <qdebug.h>
+#include <QtCanvasPainter/qcanvasgradient.h>
+#include <QtCanvasPainter/private/qcanvasgradient_p.h>
+#include <QtCanvasPainter/qcanvaslineargradient.h>
+#include <QtCanvasPainter/qcanvasradialgradient.h>
+#include <QtCanvasPainter/qcanvasconicalgradient.h>
+#include <QtCanvasPainter/qcanvasboxgradient.h>
+#include <QtCanvasPainter/qcanvasimage.h>
+#include <QtCanvasPainter/qcanvaspainter.h>
+#include <QtCanvasPainter/private/qcanvaspainter_p.h>
+#include <QtCore/qdatastream.h>
+#include <QtCore/qvariant.h>
+#include <QtCore/qdebug.h>
 #include <limits>
 #include <QtGui/private/qtguiglobal_p.h> // for qpixellayout_p.h's QT_CONFIG(raster_fp) check
 #include <QtGui/private/qpixellayout_p.h>

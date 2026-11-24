@@ -1,8 +1,10 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtQuick/6.12.0/QtQuick/private/qquicklistview_p.h, Qt 6.12.0. Changes
 //  made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtQuick/qtquickglobal.h>
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
+#if QT_CONFIG(quick_listview)
 #if QT_CONFIG(quick_listview)
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #include <QtQuick/QtQuick>
@@ -1432,4 +1434,5 @@ qreal ritual_own_ZNK14QQuickListView10maxXExtentEv(
   return static_cast<const OwnQQuickListView *>(self)->OwnQQuickListView::maxXExtent();
 }
 
+#endif  // QT_CONFIG(quick_listview)
 #endif  // QT_CONFIG(quick_listview)

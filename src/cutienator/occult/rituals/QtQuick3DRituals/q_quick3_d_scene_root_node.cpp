@@ -10,7 +10,7 @@
 #include <QtQuick3D/qquick3dobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquick3dscenerootnode_p.h"
+#include <QtQuick3D/private/qquick3dscenerootnode_p.h>
 #include <QtQuick3DRuntimeRender/private/qssgrendernode_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

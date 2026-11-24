@@ -13,7 +13,7 @@
 #include <QtQuick3DUtils/6.12.0/QtQuick3DUtils/private/qssgbounds3_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qssgrenderray_p.h"
+#include <QtQuick3DRuntimeRender/private/qssgrenderray_p.h>
 #include <QtQuick3DUtils/private/qssgplane_p.h>
 #include <QtQuick3DUtils/private/qssgutils_p.h>
 #include <QtQuick3DUtils/private/qssgmeshbvh_p.h>

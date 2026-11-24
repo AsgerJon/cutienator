@@ -1,8 +1,10 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGui/6.12.0/QtGui/private/qfilesystemmodel_p.h, Qt 6.12.0. Changes made
 //  here are lost.
+#include <QtCore/qglobal.h>
 #include <QtGui/qtguiglobal.h>
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
+#if QT_CONFIG(filesystemmodel)
 #if QT_CONFIG(filesystemmodel)
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
 #include <QtGui/qfilesystemmodel.h>
@@ -335,4 +337,5 @@ bool ritual_take_QFileSystemModelPrivate(
   return static_cast<CuteQFileSystemModelPrivate *>(self)->take(key, call);
 }
 
+#endif  // QT_CONFIG(filesystemmodel)
 #endif  // QT_CONFIG(filesystemmodel)

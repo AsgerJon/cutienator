@@ -2,6 +2,7 @@
 //  QtWidgets/qgraphicssceneevent.h, Qt 6.12.0. Changes made here are lost.
 #include <QtWidgets/qtwidgetsglobal.h>
 #if QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 #include <QtWidgets/qgraphicssceneevent.h>
 #include <QtCore/qpoint.h>
 #include <cstring>
@@ -104,4 +105,5 @@ bool ritual_take_QGraphicsSceneHelpEvent(
   return static_cast<CuteQGraphicsSceneHelpEvent *>(self)->take(key, call);
 }
 
+#endif  // QT_CONFIG(graphicsview)
 #endif  // QT_CONFIG(graphicsview)

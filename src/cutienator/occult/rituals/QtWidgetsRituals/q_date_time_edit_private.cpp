@@ -1,6 +1,10 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/6.12.0/QtWidgets/private/qdatetimeedit_p.h, Qt 6.12.0. Changes
 //  made here are lost.
+#include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
+#include <QtWidgets/qtwidgetsglobal.h>
+#include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
+#if QT_CONFIG(datetimeedit)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/qdatetimeedit.h>
 #include <QtWidgets/QtWidgets>
@@ -25,45 +29,45 @@
 #include <QtGui/qimage.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <private/qapplication_p.h>
-#include <private/qdatetimeedit_p.h>
-#include <qabstractspinbox.h>
-#include <qapplication.h>
-#include <qdatetimeedit.h>
-#include <qdebug.h>
-#include <qevent.h>
-#include <qlineedit.h>
-#include <private/qlineedit_p.h>
-#include <qlocale.h>
-#include <qpainter.h>
-#include <qlayout.h>
-#include <qset.h>
-#include <qstyle.h>
-#include <qstylepainter.h>
+#include <QtWidgets/private/qapplication_p.h>
+#include <QtWidgets/private/qdatetimeedit_p.h>
+#include <QtWidgets/qabstractspinbox.h>
+#include <QtWidgets/qapplication.h>
+#include <QtWidgets/qdatetimeedit.h>
+#include <QtCore/qdebug.h>
+#include <QtGui/qevent.h>
+#include <QtWidgets/qlineedit.h>
+#include <QtWidgets/private/qlineedit_p.h>
+#include <QtCore/qlocale.h>
+#include <QtGui/qpainter.h>
+#include <QtWidgets/qlayout.h>
+#include <QtCore/qset.h>
+#include <QtWidgets/qstyle.h>
+#include <QtWidgets/qstylepainter.h>
 #include <algorithm>
 #include <qplatformdefs.h>
 #ifdef Q_OS_WASM
-# include <private/qstdweb_p.h>
+# include <QtCore/private/qstdweb_p.h>
 #endif
-#include <private/qabstractspinbox_p.h>
-#include <private/qapplication_p.h>
+#include <QtWidgets/private/qabstractspinbox_p.h>
+#include <QtWidgets/private/qapplication_p.h>
 #if QT_CONFIG(datetimeparser)
-#include <private/qdatetimeparser_p.h>
+#include <QtCore/private/qdatetimeparser_p.h>
 #endif
-#include <private/qlineedit_p.h>
-#include <qabstractspinbox.h>
-#include <qapplication.h>
-#include <qstylehints.h>
-#include <qclipboard.h>
-#include <qdatetime.h>
-#include <qevent.h>
-#include <qloggingcategory.h>
+#include <QtWidgets/private/qlineedit_p.h>
+#include <QtWidgets/qabstractspinbox.h>
+#include <QtWidgets/qapplication.h>
+#include <QtGui/qstylehints.h>
+#include <QtGui/qclipboard.h>
+#include <QtCore/qdatetime.h>
+#include <QtGui/qevent.h>
+#include <QtCore/qloggingcategory.h>
 #if QT_CONFIG(menu)
-#include <qmenu.h>
+#include <QtWidgets/qmenu.h>
 #endif
-#include <qstylepainter.h>
+#include <QtWidgets/qstylepainter.h>
 #if QT_CONFIG(accessibility)
-# include <qaccessible.h>
+# include <QtGui/qaccessible.h>
 #endif
 #include <QtCore/qpointer.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -2180,3 +2184,5 @@ int ritual_own_ZNK20QDateTimeEditPrivate14cursorPositionEv(
     const QDateTimeEditPrivate *self) {
   return self->QDateTimeEditPrivate::cursorPosition();
 }
+
+#endif  // QT_CONFIG(datetimeedit)

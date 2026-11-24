@@ -7,7 +7,7 @@
 #include <QtBluetooth/6.12.0/QtBluetooth/private/lecmaccalculator_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "lecmaccalculator_p.h"
+#include <QtBluetooth/private/lecmaccalculator_p.h>
 #include <QtCore/qbytearray.h>
 #include <QtCore/qloggingcategory.h>
 #include <QtCore/private/qcore_unix_p.h>

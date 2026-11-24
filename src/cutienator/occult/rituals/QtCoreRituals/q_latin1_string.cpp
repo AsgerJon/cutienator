@@ -8,6 +8,7 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qchar.h>
 #include <QtCore/qstringview.h>
+#include <QtCore/qlist.h>
 
 //  QLatin1String::QLatin1String()
 extern "C" Q_DECL_EXPORT
@@ -1199,6 +1200,40 @@ int ritual_ZN13QLatin1String14compare_helperEPK5QCharxS_N2Qt15CaseSensitivityE(
 //  QLatin1String::~QLatin1String()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QLatin1StringD1Ev(QLatin1String *self) {
+  delete self;
+}
+
+//  QList<QLatin1String>::QList()
+extern "C" Q_DECL_EXPORT
+QList<QLatin1String> *ritual_list_make_QLatin1String() {
+  return new QList<QLatin1String>();
+}
+
+//  void QList<QLatin1String>::append(const QLatin1String &value)
+extern "C" Q_DECL_EXPORT
+void ritual_list_add_QLatin1String(
+    QList<QLatin1String> *self,
+    const QLatin1String *element) {
+  self->append(*element);
+}
+
+//  qsizetype QList<QLatin1String>::size() const
+extern "C" Q_DECL_EXPORT
+long long ritual_list_size_QLatin1String(const QList<QLatin1String> *self) {
+  return self->size();
+}
+
+//  const QLatin1String &QList<QLatin1String>::at(qsizetype i) const
+extern "C" Q_DECL_EXPORT
+QLatin1String *ritual_list_at_QLatin1String(
+    const QList<QLatin1String> *self,
+    long long index) {
+  return new QLatin1String(self->at(index));
+}
+
+//  QList<QLatin1String>::~QList()
+extern "C" Q_DECL_EXPORT
+void ritual_list_drop_QLatin1String(QList<QLatin1String> *self) {
   delete self;
 }
 

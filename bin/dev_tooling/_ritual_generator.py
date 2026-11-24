@@ -7,6 +7,7 @@ from __future__ import annotations
 import collections
 import json
 import os
+import platform
 import re
 import shutil
 import subprocess
@@ -19,7 +20,8 @@ from typing import TYPE_CHECKING
 
 from worktoy.waitaminute import MissingVariable, TypeException
 
-from . import DependencyTree, HeaderFolder, HeaderReader, SourceReader
+from . import (DependencyTree, HeaderFolder, HeaderReader, Machine,
+               SourceReader)
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Any, Dict, FrozenSet, List, Optional, Set, Tuple
@@ -331,6 +333,15 @@ class RitualGenerator:
   __never_written__ = ('qt_check_for_',)
   #  How 'c++filt' writes the name of what the compiler makes for a
   #  class as a whole, and of what it makes around one function.
+  #  An '#if' line of code taken from Qt's source that asks for a
+  #  system, or for a processor; see '_findCopiedConditions'.
+  __system_asked__ = re.compile(
+      r'^[ \t]*#[ \t]*(?:if|ifdef|ifndef|elif)\b[^\n]*'
+      r'\b(?:Q_OS_\w+|Q_CC_\w+|_WIN32|_WIN64|__APPLE__|__linux__|'
+      r'__ANDROID__|__EMSCRIPTEN__)\b', re.M)
+  __processor_asked__ = re.compile(
+      r'^[ \t]*#[ \t]*(?:if|ifdef|ifndef|elif)\b[^\n]*'
+      r'\bQ_PROCESSOR_\w+', re.M)
   __made_for_class__ = (
       'vtable for ', 'typeinfo name for ', 'typeinfo for ', 'VTT for ',
   )
@@ -1682,14 +1693,24 @@ class RitualGenerator:
     Gives the conditions the whole ritual file stands under, outermost
     first: the one under which Qt installs the header file of the
     class, as 'QT_CONFIG(metal)' for 'qrhimetal_p.h', when there is
-    one; then what each '#if' line around the class asks. Where one
-    does not hold, nothing of the file is compiled.
+    one, or, where that one asks what no compiler knows, whether the
+    header file is there, as '__has_include(<QtOpcUa/qopcuakeypair.h>)';
+    then what each '#if' line around the class asks. Where one does
+    not hold, nothing of the file is compiled.
     """
     tree = self.getDependencyTree()
     className = self.getClassName()
     conditions = self._findConditions(self._readRecord(className))
+    headerPath = tree.getHeaderPath(className, self.getPartName())
     installed = HeaderReader.getHeaderFolder().getInstallCondition(
-        tree.getHeaderPath(className, self.getPartName()))
+        headerPath)
+    if installed is None:
+      #  Qt installs the header file under a condition no compiler can
+      #  be asked, as 'OPENSSL_FOUND' or 'ANDROID_EMBEDDED': whether it
+      #  is installed is asked in its place, as the compiler can.
+      relative = os.path.relpath(
+          headerPath, self.getHeaderReader().getQtHeaderFolder())
+      installed = '__has_include(<%s>)' % relative
     if installed:
       return (installed, *conditions)
     return conditions
@@ -2554,11 +2575,23 @@ class RitualGenerator:
   def _isOfQt(self, symbol: str) -> bool:
     """Says whether a name the compiler made stands for something of
     Qt: a name of the C++ library or of the system does not. It is of
-    Qt when a name in it begins with 'Q' or 'q', or when Qt's header
-    files declare it, as the logging category 'lcImageIo' that Qt's
-    'qimage_p.h' declares; see '_getDeclaredSymbols'."""
+    Qt when a name in it begins with 'Q' or 'q'; when it is of a class
+    the tree knows, seen from the part, as the table of virtual
+    functions of QtDataVisualization's 'AbstractRenderItem',
+    '_ZTV18AbstractRenderItem', or a function of it; or when Qt's
+    header files declare it, as the logging category 'lcImageIo' that
+    Qt's 'qimage_p.h' declares; see '_getDeclaredSymbols'."""
     if re.search(r'\d+[Qq][A-Za-z_]', symbol):
       return True
+    #  The first name the compiler's own name holds: after '_Z', what
+    #  it made for a class ('TV', 'TI', 'TS', 'TT'), a scope ('N') and
+    #  what qualifies a function of it ('K', 'V', 'r', 'R', 'O').
+    first = re.match(r'_Z(?:T[VIST])?(?:N[KVrRO]*)?(\d+)', symbol)
+    if first is not None:
+      start, length = first.end(), int(first.group(1))
+      name = symbol[start:start + length]
+      if self.getDependencyTree().hasClass(name, self.getPartName()):
+        return True
     return self._plainSymbol(symbol) in self._getDeclaredSymbols()
 
   def _getProbeCommand(self, partName: str) -> Tuple[str, ...]:
@@ -2568,7 +2601,7 @@ class RitualGenerator:
     are those of the part of that name, or of the first part of the
     tree for ''; see '_getPrivateArguments'."""
     return (
-        'clang++', '-std=c++17', '-fPIC', '-O0', '-w',
+        'clang++', '-std=c++17', *Machine.getCompilerFlags(), '-O0', '-w',
         '-fno-access-control', '-ffunction-sections', '-ferror-limit=0',
         '-I%s' % HeaderReader.getQtHeaderFolder(),
         *self._getPrivateArguments(partName),
@@ -3133,7 +3166,7 @@ class RitualGenerator:
             changed = True
             continue
           said = subprocess.run(
-              ('c++filt', symbol), stdout=subprocess.PIPE,
+              (*Machine.getDemangler(), symbol), stdout=subprocess.PIPE,
               universal_newlines=True).stdout.strip()
           infoSpec = """leans on '%s', which Qt's source does not
           mark for use from outside Qt and has no code for that could
@@ -3171,10 +3204,57 @@ class RitualGenerator:
         plan['text'] = self._wrapInConditions(plan['bare'], conditions)
 
   def _findCopiedConditions(self, definition: Record) -> Tuple[str, ...]:
-    """Gives what the '#if' lines around a definition taken from Qt's
-    source ask, as 'SourceReader.getConditions' reads them."""
-    return SourceReader.getConditions(
+    """
+    Gives what the '#if' lines around a definition taken from Qt's
+    source ask, as 'SourceReader.getConditions' reads them; and, when
+    the code itself has '#if' lines that ask for a system or for a
+    processor, as '#ifdef Q_OS_MACOS' in
+    'QToolBarLayout::updateMacBorderMetrics()', the system and the
+    processor the generator checked it for, as 'defined(Q_OS_LINUX)'.
+    Elsewhere those lines let in code the compiler here never saw,
+    which may call what Qt's library there does not offer, as that one
+    calls 'qt_mainwindow_layout' on macOS.
+    """
+    found = SourceReader.getConditions(
         definition['path'], definition['line'])
+    text = definition['text']
+    if self.__system_asked__.search(text):
+      found = (*found, self._getCheckedSystem())
+    if self.__processor_asked__.search(text):
+      found = (*found, self._getCheckedProcessor())
+    return found
+
+  @staticmethod
+  def _getCheckedSystem() -> str:
+    """Gives what the compiler knows the system by that the generator
+    checks its code for, the one it runs on, as 'defined(Q_OS_LINUX)'.
+    """
+    systems = dict(
+        Linux='defined(Q_OS_LINUX)', Darwin='defined(Q_OS_DARWIN)',
+        Windows='defined(Q_OS_WIN)')
+    system = platform.system()
+    if system not in systems:
+      infoSpec = """The generator checks code for the system it runs on,
+      and knows no name of the compiler for '%s'."""
+      raise NotImplementedError(' '.join((infoSpec % system).split()))
+    return systems[system]
+
+  @staticmethod
+  def _getCheckedProcessor() -> str:
+    """Gives what the compiler knows the processor by that the
+    generator checks its code for, the one it runs on, as
+    'defined(Q_PROCESSOR_X86_64)'."""
+    processors = dict(
+        x86_64='defined(Q_PROCESSOR_X86_64)',
+        AMD64='defined(Q_PROCESSOR_X86_64)',
+        aarch64='defined(Q_PROCESSOR_ARM_64)',
+        arm64='defined(Q_PROCESSOR_ARM_64)')
+    processor = platform.machine()
+    if processor not in processors:
+      infoSpec = """The generator checks code for the processor it runs
+      on, and knows no name of the compiler for '%s'."""
+      raise NotImplementedError(' '.join((infoSpec % processor).split()))
+    return processors[processor]
 
   @staticmethod
   def _nameWritten(written: List[Record]) -> Set[str]:
@@ -3222,10 +3302,56 @@ class RitualGenerator:
       #  The lines of each file once, whole and in their order: an
       #  '#if' among them has its '#endif' among them.
       seen.add(definition['path'])
-      kept.extend(l for l in definition['includes'] if l not in lost)
+      #  Each as the part of the '.cpp' file sees it, and only once it
+      #  is spelled so can it be told whether the compiler refused it.
+      spelled = (
+          self._spellInclude(line, definition['path'])
+          for line in definition['includes'])
+      kept.extend(line for line in spelled if line not in lost)
     lines.append(marker)
     self.__source_text__ = '\n'.join(lines)
     self.__source_includes__ = (*kept,)
+
+  def _spellInclude(self, line: str, sourcePath: str) -> str:
+    """
+    Gives a line of a '.cpp' file of Qt's source that pulls a header
+    file in by a name no part is named in, as '#include
+    <private/qaction_p.h>' in QtWidgets' 'qmenu.cpp', with the part
+    named that has the file, as the part of the '.cpp' file sees it:
+    '#include <QtGui/private/qaction_p.h>'. Qt's own build looks in the
+    folders of the part itself and of the parts it needs, the nearest
+    first; a ritual file is compiled with the folders of every part,
+    where QtWidgets would find Qt3DInput's 'qaction_p.h' first. Any
+    other line comes back as it is: one naming its part already, one
+    of no header file of the parts it sees, and one that is no
+    '#include'.
+    """
+    match = re.match(
+        r'^(\s*#\s*include\s*)[<"]([^>"]+)[>"](.*)$', line)
+    if match is None:
+      return line
+    lead, name, rest = match.groups()
+    if re.match(r'^Qt\w*/', name):
+      return line
+    folder = HeaderReader.getHeaderFolder()
+    partName = folder.getPartOfPath(sourcePath)
+    if partName is None:
+      return line
+    made, version = folder.getFolder(), HeaderReader.getQtVersion()
+    for seen in HeaderReader.getNeededParts(partName):
+      inner = os.path.join(made, seen, version, seen)
+      if '/' in name:
+        #  As 'private/qaction_p.h' or 'qpa/qplatformwindow.h'.
+        candidates = [(os.path.join(inner, name), name)]
+      elif name.endswith('_p.h'):
+        candidates = [(
+            os.path.join(inner, 'private', name), 'private/%s' % name)]
+      else:
+        candidates = [(os.path.join(made, seen, name), name)]
+      for path, spelled in candidates:
+        if os.path.isfile(path):
+          return '%s<%s/%s>%s' % (lead, seen, spelled, rest)
+    return line
 
   def _findHelper(self, symbol: str) -> Optional[Record]:
     """
@@ -3235,7 +3361,7 @@ class RitualGenerator:
     """
     source = self.getDependencyTree().getSourceReader()
     said = subprocess.run(
-        ('c++filt', symbol), stdout=subprocess.PIPE,
+        (*Machine.getDemangler(), symbol), stdout=subprocess.PIPE,
         stderr=subprocess.PIPE, universal_newlines=True).stdout.strip()
     if '(' not in said or said == symbol:
       return None
@@ -3243,10 +3369,21 @@ class RitualGenerator:
     inside = said[said.index('(') + 1:said.rindex(')')]
     count = len(source._splitArguments(inside))
     const = said.rstrip().endswith('const')
-    #  The parts in the order the class sees them: two parts may each
-    #  have the code of a function by one name.
+    #  The code of a function of a class is in the source of the part
+    #  that has the class, as the part of the generator sees it: two
+    #  parts may each have a class by one name, as QtGraphs and
+    #  QtDataVisualization each a 'QBar3DSeriesPrivate', whose functions
+    #  the compiler names alike. Of a function of no class the tree
+    #  knows, the part and the parts it needs are looked in, the
+    #  nearest first.
     tree = self.getDependencyTree()
-    for partName in tree.getPartOrder(self.getPartName()):
+    seenFrom = self.getPartName()
+    owner = name.rpartition('::')[0]
+    if owner and tree.hasClass(owner, seenFrom):
+      partNames = (tree.getClassKey(owner, seenFrom)[0],)
+    else:
+      partNames = tree.getNeededParts(seenFrom)
+    for partName in partNames:
       found = [
           definition for definition
           in source.findDefinitions(partName, name)
@@ -3471,7 +3608,8 @@ class RitualGenerator:
     if not symbols:
       return dict()
     said = subprocess.run(
-        ('c++filt',), input='\n'.join(symbols), stdout=subprocess.PIPE,
+        Machine.getDemangler(), input='\n'.join(symbols),
+        stdout=subprocess.PIPE,
         stderr=subprocess.PIPE, universal_newlines=True).stdout
     return dict(zip(symbols, said.split('\n')))
 

@@ -4,6 +4,7 @@
 #include <QtCore/qglobal.h>
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #if QT_CONFIG(mimetype)
+#if QT_CONFIG(mimetype)
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtCore/QtCore>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -11,9 +12,9 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qmimetypeparser_p.h"
-#include "qmimetype_p.h"
-#include "qmimemagicrulematcher_p.h"
+#include <QtCore/private/qmimetypeparser_p.h>
+#include <QtCore/private/qmimetype_p.h>
+#include <QtCore/private/qmimemagicrulematcher_p.h>
 #include <QtCore/QCoreApplication>
 #include <QtCore/QDebug>
 #include <QtCore/QDir>
@@ -67,4 +68,5 @@ void ritual_ZN16QMimeTypeXMLDataD1Ev(QMimeTypeXMLData *self) {
   delete self;
 }
 
+#endif  // QT_CONFIG(mimetype)
 #endif  // QT_CONFIG(mimetype)

@@ -10,8 +10,8 @@
 #include <QtDBus/6.12.0/QtDBus/private/qdbusxmlparser_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qdbusxmlparser_p.h"
-#include "qdbusutil_p.h"
+#include <QtDBus/private/qdbusxmlparser_p.h>
+#include <QtDBus/private/qdbusutil_p.h>
 #include <QtCore/qmap.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qtextstream.h>

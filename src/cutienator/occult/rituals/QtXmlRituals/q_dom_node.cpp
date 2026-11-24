@@ -2,6 +2,7 @@
 //  Qt 6.12.0. Changes made here are lost.
 #include <QtXml/qtxmlglobal.h>
 #if QT_CONFIG(dom)
+#if QT_CONFIG(dom)
 #include <QtXml/qdom.h>
 #include <QtCore/qstring.h>
 
@@ -462,4 +463,5 @@ QDomNode *ritual_ZN8QDomNodeC1EP15QDomNodePrivate(QDomNodePrivate *a0) {
   return new QDomNode(a0);
 }
 
+#endif  // QT_CONFIG(dom)
 #endif  // QT_CONFIG(dom)

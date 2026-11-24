@@ -1,8 +1,10 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtQmlModels/6.12.0/QtQmlModels/private/qqmllistmodel_p.h, Qt 6.12.0.
 //  Changes made here are lost.
+#include <QtCore/qglobal.h>
 #include <QtQmlModels/qtqmlmodelsglobal.h>
 #include <QtQmlModels/6.12.0/QtQmlModels/private/qtqmlmodelsglobal_p.h>
+#if QT_CONFIG(qml_list_model)
 #if QT_CONFIG(qml_list_model)
 #include <QtQmlModels/6.12.0/QtQmlModels/private/qtqmlmodelsglobal_p.h>
 #include <QtQmlModels/QtQmlModels>
@@ -1282,4 +1284,5 @@ bool ritual_own_ZN13QQmlListModel7setDataERK11QModelIndexRK8QVarianti(
   return self->QQmlListModel::setData(*index, *value, role);
 }
 
+#endif  // QT_CONFIG(qml_list_model)
 #endif  // QT_CONFIG(qml_list_model)

@@ -3,6 +3,7 @@
 //  made here are lost.
 #include <QtGui/qtguiglobal.h>
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
+#if __has_include(<QtGui/6.12.0/QtGui/private/qspiapplicationadaptor_p.h>)
 #if QT_CONFIG(accessibility)
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
 #include <QtGui/QtGui>
@@ -14,10 +15,10 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qspiapplicationadaptor_p.h"
+#include <QtGui/private/qspiapplicationadaptor_p.h>
 #include <QtCore/qcoreapplication.h>
 #include <QtDBus/qdbuspendingreply.h>
-#include <qdebug.h>
+#include <QtCore/qdebug.h>
 #if QT_CONFIG(accessibility)
 #if __has_include(<xcb/xproto.h>)
 #include <xcb/xproto.h>
@@ -327,3 +328,4 @@ bool ritual_take_QSpiApplicationAdaptor(
 }
 
 #endif  // QT_CONFIG(accessibility)
+#endif  // __has_include(<QtGui/6.12.0/QtGui/private/qspiapplicationadaptor_p.h>)

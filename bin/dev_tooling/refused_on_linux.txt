@@ -1,0 +1,383 @@
+# The header files of Qt's source that the reader refused on Linux,
+# with what the compiler said first, one to a line:
+#   PART HEADER_FILE WHAT_IT_SAID
+# Written from the reading on gcloud (Linux) of 2026-11-24, step 3.
+# 'bin/system_rituals.py' reads these on another system, as macOS or
+# Windows, and writes rituals for the classes of those it can read
+# there: the classes of that system alone.
+QtCore qandroidextras_p.h needs jni.h
+QtCore qandroiditemmodelproxy_p.h In file included from <stdin>:1: In file included from QtCore/6.12.0/QtCore/priv
+QtCore qandroidmodelindexproxy_p.h use of undeclared identi
+QtCore qandroidtypeconverter_p.h use of undeclared identif
+QtCore qandroidtypes_p.h use of undeclared identifier 'Void'; did you mean 'void'?
+QtCore qcborcommon_p.h needs cbor.h
+QtCore qcfsocketnotifier_p.h needs CoreFoundation/CoreFoundation.h
+QtCore qcore_mac_p.h needs CoreFoundation/CoreFoundation.h
+QtCore qcore_ohos_p.h In file included from <stdin>:1: In file included from QtCore/6.12.0/QtCore/priv
+QtCore qdarwinpermissionplugin_p.h 'CoreFoundation/CoreF
+QtCore qeventdispatcher_cf_p.h 'CoreFoundation/C
+QtCore qeventdispatcher_wasm_p.h 'emscrip
+QtCore qeventdispatcher_win_p.h needs windows.h
+QtCore qfactorycacheregistration_p.h 'guiddef.h' file
+QtCore qfilesystemwatcher_fsevents_p.h needs dispatch/dispatch.h
+QtCore qfutex_freebsd_p.h needs sys/umtx.h
+QtCore qfutex_mac_p.h needs os/os_sync_wait_on_address.h
+QtCore qfutex_win_p.h needs windows.h
+QtCore qiosrunloopintegration_p.h needs UIKit/UIApplication.h
+QtCore qjnihelpers_p.h needs jni.h
+QtCore qnapi_p.h needs hilog/log.h
+QtCore qntdll_p.h needs windows.h
+QtCore qohoscommon_p.h needs hilog/log.h
+QtCore qohosjstools_p.h In file included from <stdin>:1: In file included from QtCore/6.12.0/QtCore/priv
+QtCore qohoslogger_p.h needs hilog/log.h
+QtCore qohospermissionshelper_p.h In file included from <stdin>:1: In file included from QtCore/6.12.0/QtCore/priv
+QtCore qoperatingsystemversion_win_p.h needs windows.h
+QtCore qstdweb_p.h 'emscripten/val.h' fil
+QtCore qstringconverter_base_deprecated.h QtCore/qstringconverter_base_deprecated.h:18:4: warning: "QStringConverterBase i
+QtCore qt_windows.h needs windows.h
+QtCore qt_winrtbase_p.h needs guiddef.h
+QtCore qtimezoneprivate_p.h no type named 'time_zone' in namespace 'std::chrono'
+QtCore quniquehandle_types_windows_p.h needs windows.h
+QtCore qwasmglobal_p.h needs emscripten/proxying.h
+QtCore qwasmlocalfileengine_p.h In file included from <stdin>:1: In file included from QtCore/6.12.0/QtCore/priv
+QtCore qwasmsocket_p.h In file included from <stdin>:1: In file included from QtCore/6.12.0/QtCore/priv
+QtCore qwasmsuspendresumecontrol_p.h needs emscripten/val.h
+QtCore qwindowspipereader_p.h needs windows.h
+QtCore qwindowspipewriter_p.h needs windows.h
+QtCore qwineventnotifier_p.h needs windows.h
+QtCore qwinregistry_p.h needs windows.h
+QtGui atspiadaptor_p.h needs atspi/atspi.h
+QtGui dbusconnection_p.h needs bus_interface_p.h
+QtGui qapplefileiconengine_p.h 'CoreFoundation/CoreFounda
+QtGui qappleiconengine_p.h 'CoreFoundation/CoreFoundation
+QtGui qapplekeymapper_p.h 'CoreFoundation/CoreFoundation.
+QtGui qcoregraphics_p.h 'CoreFoundation/CoreFoundation.h'
+QtGui qcoretextfontdatabase_p.h 'CoreFoundation/CoreFound
+QtGui qdxgihdrinfo_p.h needs dxgi1_6.h
+QtGui qdxgivsyncservice_p.h needs dxgi1_6.h
+QtGui qeglconvenience_p.h skipped: it pulls in '/home/builder/miniforge3/envs/cutienator_env/include/X11/X
+QtGui qeglpbuffer_p.h skipped: it pulls in '/home/builder/miniforge3/envs/cutienator_env/include/X11/X
+QtGui qeglplatformcontext_p.h skipped: it pulls in '/home/builder/miniforge3/envs/cutienator_env/include/X11/X
+QtGui qeglstreamconvenience_p.h skipped: it pulls in '/home/builder/miniforge3/envs/cutienator_env/include/X11/X
+QtGui qfontengine_coretext_p.h 'CoreFoundation/CoreFounda
+QtGui qfontengine_ft_p.h needs ft2build.h
+QtGui qfontenginemultifontconfig_p.h needs fontconfig/fontconfig.h
+QtGui qglxconvenience_p.h skipped: it pulls in '/home/builder/miniforge3/envs/cutienator_env/include/GL/gl
+QtGui qgraphicsframecapturerenderdoc_p_p.h needs renderdoc_app.h
+QtGui qlocalfileapi_p.h needs emscripten/val.h
+QtGui qmacmimeregistry_p.h needs CoreFoundation/CoreFoundation.h
+QtGui qmacstyle_p.h needs AppKit/NSApplication.h
+QtGui qmetallayer_p.h 'CoreFoundation/CoreFoundation.h' f
+QtGui qohosimageconversions_p.h In file included from <stdin>:1: In file included from QtGui/6.12.0/QtGui/privat
+QtGui qopengles2ext.h unknown type name 'khronos_int64_t'
+QtGui qpixmap_win_p.h needs windows.h
+QtGui qrhid3d11_p.h needs d3d11_1.h
+QtGui qrhid3d12_p.h needs d3d12.h
+QtGui qrhid3dhelpers_p.h needs dxgi1_6.h
+QtGui qspi_constant_mappings_p.h needs atspi/atspi-constants.h
+QtGui qspimatchrulematcher_p.h needs atspi/atspi-constants.h
+QtGui qt_egl_p.h skipped: it pulls in '/home/builder/miniforge3/envs/cutienator_env/include/X11/X
+QtGui qt_mips_asm_dsp_p.h cannot use dot operator on a type
+QtGui qvulkaninstance_p.h needs private/qvulkanfunctions_p.h
+QtGui qwasmlocalfileaccess_p.h In file included from <stdin>:1: In file included from QtGui/6.12.0/QtGui/privat
+QtGui qwindowsdirectwritefontdatabase_p.h In file included from <stdin>:1: In file included from QtGui/6.12.0/QtGui/privat
+QtGui qwindowsfontdatabase_ft_p.h needs windows.h
+QtGui qwindowsfontdatabase_p.h In file included from <stdin>:1: In file included from QtGui/6.12.0/QtGui/privat
+QtGui qwindowsfontdatabasebase_p.h needs windows.h
+QtGui qwindowsfontengine_p.h needs windows.h
+QtGui qwindowsfontenginedirectwrite_p.h needs dwrite_2.h
+QtGui qwindowsguieventdispatcher_p.h In file included from <stdin>:1: In file included from QtGui/6.12.0/QtGui/privat
+QtGui qwindowsnativeimage_p.h needs windows.h
+QtGui qwindowsthemecache_p.h needs windows.h
+QtGui qxkbcommon_p.h needs xkbcommon/xkbcommon.h
+QtWidgets qwizard_win_p.h needs windows.h
+QtNetwork qnetworkinterface_uikit_p.h expected ';' at end of declaration list
+QtNetwork qnetworkreplywasmimpl_p.h needs emscripten.h
+QtPrintSupport qcocoaprintdevice_p.h In file included from <stdin>:1: In file included from QtPrintSupport/6.12.0/QtP
+QtPrintSupport qcups_p.h 'cups/ppd.
+QtPrintSupport qcupsjobwidget_p.h In file included from <stdin>:1: In file included from QtPrintSupport/6.12.0/QtP
+QtPrintSupport qpagesetupdialog_unix_p.h needs kernel/qprint_p.h
+QtPrintSupport qpaintengine_mac_p.h unknown type name 'CGAffineTransform'
+QtPrintSupport qplatformprintdevice.h '
+QtPrintSupport qprint_p.h needs cups/ppd.h
+QtPrintSupport qprintdevice_p.h 'cu
+QtPrintSupport qprintengine_mac_p.h In file included from <stdin>:1: In file included from QtPrintSupport/6.12.0/QtP
+QtPrintSupport qprintengine_pdf_p.h In file included from <stdin>:1: In file included from QtPrintSupport/6.12.0/QtP
+QtPrintSupport qprintengine_win_p.h In file included from <stdin>:1: In file included from QtPrintSupport/6.12.0/QtP
+QtPrintSupport qprinterinfo_p.h In file included from <stdin>:1: In file included from QtPrintSupport/6.12.0/QtP
+QtPrintSupport qwindowsprintdevice_p.h In file included from <stdin>:1: In file included from QtPrintSupport/6.12.0/QtP
+QtBluetooth androidbroadcastreceiver_p.h needs jni.h
+QtBluetooth androidutils_p.h unknown type name 'QJniObject'
+QtBluetooth bluetoothmanagement_p.h '../qprivatelinearbuffer_p.h' file not found, did you mean 'qprivatelinearbuffer
+QtBluetooth btcentralmanager_p.h In file included from <stdin>:1: In file included from QtBluetooth/6.12.0/QtBlue
+QtBluetooth btconnectionmonitor_p.h 'CoreFoundation
+QtBluetooth btdeviceinquiry_p.h 'CoreFoundation/Cor
+QtBluetooth btdevicepair_p.h In file included from <stdin>:1: In file included from QtBluetooth/6.12.0/QtBlue
+QtBluetooth btgcdtimer_p.h In file included from <stdin>:1: In file included from QtBluetooth/6.12.0/QtBlue
+QtBluetooth btl2capchannel_p.h 'CoreFoundation/Core
+QtBluetooth btledeviceinquiry_p.h In file included from <stdin>:1: In file included from QtBluetooth/6.12.0/QtBlue
+QtBluetooth btperipheralmanager_p.h In file included from <stdin>:1: In file included from QtBluetooth/6.12.0/QtBlue
+QtBluetooth btrfcommchannel_p.h 'CoreFoundation/Cor
+QtBluetooth btsdpinquiry_p.h 'CoreFoundation/CoreFo
+QtBluetooth btservicerecord_p.h In file included from <stdin>:1: In file included from QtBluetooth/6.12.0/QtBlue
+QtBluetooth btsocketlistener_p.h 'CoreFoundation/Co
+QtBluetooth btutility_p.h 'CoreFoundation/CoreFound
+QtBluetooth devicediscoverybroadcastreceiver_p.h needs android/androidbroadcastreceiver_p.h
+QtBluetooth hcimanager_p.h needs bluez/bluez_data_p.h
+QtBluetooth inputstreamthread_p.h needs jni.h
+QtBluetooth jni_android_p.h a type specifier is required for all declarations
+QtBluetooth localdevicebroadcastreceiver_p.h needs android/androidbroadcastreceiver_p.h
+QtBluetooth lowenergynotificationhub_p.h needs android/jni_android_p.h
+QtBluetooth qbluetoothdevicediscoveryagent_p.h needs bluez/bluez5_helper_p.h
+QtBluetooth qbluetoothdevicewatcher_winrt_p.h In file included from <stdin>:1: In file included from QtBluetooth/6.12.0/QtBlue
+QtBluetooth qbluetoothlocaldevice_p.h needs bluez/bluez5_helper_p.h
+QtBluetooth qbluetoothsocket_android_p.h needs android/inputstreamthread_p.h
+QtBluetooth qbluetoothsocket_winrt_p.h no member named 'Sockets' in namespace 'ABI::Windows::Networking'
+QtBluetooth qbluetoothutils_winrt_p.h needs winrt/base.h
+QtBluetooth qleadvertiser_bluez_p.h needs bluez/bluez_data_p.h
+QtBluetooth qlowenergycontroller_android_p.h needs android/lowenergynotificationhub_p.h
+QtBluetooth qlowenergycontroller_bluez_p.h needs bluez/bluez_data_p.h
+QtBluetooth qlowenergycontroller_darwin_p.h needs darwin/btnotifier_p.h
+QtBluetooth qlowenergycontroller_winrt_p.h needs winrt/Windows.Foundation.h
+QtBluetooth serveracceptancethread_p.h unknown type name 'QJniObject'
+QtBluetooth servicediscoverybroadcastreceiver_p.h needs android/androidbroadcastreceiver_p.h
+QtNfc androidjninfc_p.h a type specifier is required for all declarations
+QtNfc androidmainnewintentlistener_p.h 'jni.h' file not
+QtNfc qiosnfcndefsessiondelegate_p.h 'CoreFoundation/Core
+QtNfc qiostagreaderdelegate_p.h needs CoreNFC/NFCReaderSession.h
+QtNfc qnearfieldmanager_android_p.h 'android
+QtNfc qnearfieldmanager_generic_p.h skipped: it pulls in 'qt_source/everywhere/qt-everywhere-src-6.12.0/qtconnectivi
+QtNfc qnearfieldmanager_ios_p.h 'CoreFoundation/CoreFound
+QtNfc qnearfieldmanager_neard_p.h needs neard/neard_helper_p.h
+QtNfc qnearfieldmanager_pcsc_p.h skipped: it pulls in 'qt_source/everywhere/qt-everywhere-src-6.12.0/qtconnectivi
+QtNfc qnearfieldtarget_android_p.h needs android/androidjninfc_p.h
+QtNfc qnearfieldtarget_ios_p.h redefinition of 'QNearFieldTargetPrivateImpl'
+QtNfc qnearfieldtarget_neard_p.h needs neard/neard_helper_p.h
+QtNfc qpcsc_p.h needs winscard.h
+QtNfc qpcsccard_p.h needs winscard.h
+QtNfc qpcscmanager_p.h needs winscard.h
+QtNfc qpcscslot_p.h needs winscard.h
+QtMultimedia qaaudiostream_p.h needs aaudio/AAudio.h
+QtMultimedia qalsaaudiosink_p.h needs alsa/asoundlib.h
+QtMultimedia qalsaaudiosource_p.h needs alsa/asoundlib.h
+QtMultimedia qandroidaudiojnitypes_p.h a type specifier is required for all declarations
+QtMultimedia qandroidaudiosink_p.h In file included from <stdin>:1: In file included from QtMultimedia/6.12.0/QtMul
+QtMultimedia qandroidaudiosource_p.h In file included from <stdin>:1: In file included from QtMultimedia/6.12.0/QtMul
+QtMultimedia qapple_utils_p.h 'CoreFoundation/Core
+QtMultimedia qautoresetevent_kqueue_p.h needs sys/event.h
+QtMultimedia qautoresetevent_win32_p.h unknown type name 'QWinEventNotifier'
+QtMultimedia qavaudiosessionmanager_p.h 'CoreFound
+QtMultimedia qavaudiosessionrecovery_p.h In file included from <stdin>:1: In file included from QtMultimedia/6.12.0/QtMul
+QtMultimedia qavfcamerabase_p.h needs AVFoundation/AVCaptureDevice.h
+QtMultimedia qavfcamerautility_p.h needs AVFoundation/AVCaptureDevice.h
+QtMultimedia qavfhelpers_p.h needs CoreMedia/CoreMedia.h
+QtMultimedia qavfvideodevices_p.h 'CoreFoundation/
+QtMultimedia qcomtaskresource_p.h needs objbase.h
+QtMultimedia qcoreaaudiosink_p.h needs AudioUnit/AudioUnit.h
+QtMultimedia qcoreaaudiosource_p.h In file included from <stdin>:1: In file included from QtMultimedia/6.12.0/QtMul
+QtMultimedia qcoreaudioutils_p.h needs AudioUnit/AudioUnit.h
+QtMultimedia qgstreamer_platformspecificinterface_p.h QtMultimedia/6.12.0/QtMultimedia/private/qgstreamer_platformspecificinterface_p.
+QtMultimedia qmacosaudiodatautils_p.h needs CoreAudio/AudioHardware.h
+QtMultimedia qohaudiostream_p.h needs ohaudio/native_audiocapturer.h
+QtMultimedia qohosaudiodevices_p.h needs ohaudio/native_audio_device_base.h
+QtMultimedia qohosaudiosink_p.h '
+QtMultimedia qohosaudiosource_p.h In file included from <stdin>:1: In file included from QtMultimedia/6.12.0/QtMul
+QtMultimedia qpipewire_async_support_p.h In file included from <stdin>:1: In file included from QtMultimedia/6.12.0/QtMul
+QtMultimedia qpipewire_audiocontextmanager_p.h In file included from <stdin>:1: In file included from QtMultimedia/6.12.0/QtMul
+QtMultimedia qpipewire_audiodevice_p.h In file included from <stdin>:1: In file included from QtMultimedia/6.12.0/QtMul
+QtMultimedia qpipewire_audiodevicemonitor_p.h In file included from <stdin>:1: In file included from QtMultimedia/6.12.0/QtMul
+QtMultimedia qpipewire_audiosink_p.h In file included from <stdin>:1: In file included from QtMultimedia/6.12.0/QtMul
+QtMultimedia qpipewire_audiosource_p.h In file included from <stdin>:1: In file included from QtMultimedia/6.12.0/QtMul
+QtMultimedia qpipewire_audiostream_p.h In file included from <stdin>:1: In file included from QtMultimedia/6.12.0/QtMul
+QtMultimedia qpipewire_instance_p.h In file included from <stdin>:1: In file included from QtMultimedia/6.12.0/QtMul
+QtMultimedia qpipewire_propertydict_p.h In file included from <stdin>:1: In file included from QtMultimedia/6.12.0/QtMul
+QtMultimedia qpipewire_registry_support_p.h needs pipewire/pipewire.h
+QtMultimedia qpipewire_screencapturehelper_p.h In file included from <stdin>:1: In file included from QtMultimedia/6.12.0/QtMul
+QtMultimedia qpipewire_spa_compat_p.h needs spa/pod/parser.h
+QtMultimedia qpipewire_spa_pod_parser_support_p.h In file included from <stdin>:1: In file included from QtMultimedia/6.12.0/QtMul
+QtMultimedia qpipewire_spa_pod_support_p.h In file included from <stdin>:1: In file included from QtMultimedia/6.12.0/QtMul
+QtMultimedia qpipewire_support_p.h needs pipewire/extensions/metadata.h
+QtMultimedia qpipewire_videoformat_support_p.h needs spa/param/video/raw.h
+QtMultimedia qpulseaudio_contextmanager_p.h needs pulse/pulseaudio.h
+QtMultimedia qpulseaudiosink_p.h '
+QtMultimedia qpulseaudiosource_p.h In file included from <stdin>:1: In file included from QtMultimedia/6.12.0/QtMul
+QtMultimedia qpulsehelpers_p.h needs pulse/pulseaudio.h
+QtMultimedia qqnxaudiosink_p.h 's
+QtMultimedia qqnxaudiosource_p.h 
+QtMultimedia qqnxaudioutils_p.h needs sys/asoundlib.h
+QtMultimedia qqnxsndaudiosink_p.h needs alsa/asoundlib.h
+QtMultimedia qqnxsndaudiosource_p.h needs alsa/asoundlib.h
+QtMultimedia qqnxsndhelpers_p.h needs alsa/asoundlib.h
+QtMultimedia qwasmjs_p.h needs emscripten.h
+QtMultimedia qwasmmediadevices_p.h 'emsc
+QtMultimedia qwasmwebaudiosink_p.h needs emscripten/val.h
+QtMultimedia qwasmwebaudiosource_p.h needs emscripten/val.h
+QtMultimedia qwindows_propertystore_p.h member 'ComPtr' cannot have template arguments
+QtMultimedia qwindows_scopedpropvariant_p.h needs propidl.h
+QtMultimedia qwindowsaudiodevice_p.h needs mmdeviceapi.h
+QtMultimedia qwindowsaudiodevices_p.h In file included from <stdin>:1: In file included from QtMultimedia/6.12.0/QtMul
+QtMultimedia qwindowsaudiosink_p.h In file included from <stdin>:1: In file included from QtMultimedia/6.12.0/QtMul
+QtMultimedia qwindowsaudiosource_p.h In file included from <stdin>:1: In file included from QtMultimedia/6.12.0/QtMul
+QtMultimedia qwindowsaudioutils_p.h In file included from <stdin>:1: In file included from QtMultimedia/6.12.0/QtMul
+QtMultimedia qwindowsmediafoundation_p.h needs mfapi.h
+QtMultimedia qwindowsmultimediautils_p.h needs guiddef.h
+QtMultimedia qwindowsresampler_p.h In file included from <stdin>:1: In file included from QtMultimedia/6.12.0/QtMul
+QtMultimedia qwindowsvideodevices_p.h In file included from <stdin>:1: In file included from QtMultimedia/6.12.0/QtMul
+QtMultimedia qwmf_support_p.h needs mfobjects.h
+QtQml qqmljskeywords_p.h 'private/qqmljsgrammar_p.h' file
+QtQml qqmljslexer_p.h needs private/qqmljsgrammar_p.h
+QtQml qv4assemblercommon_p.h needs wtf/Vector.h
+QtQml qv4regexp_p.h needs yarr/Yarr.h
+QtQuick qandroidquickviewembedding_p.h use
+QtQuick qandroidviewsignalmanager_p.h use of undeclared identifier 'jclass'; did you mean 'class'?
+QtQuick qsgcurveprocessor_p.h In file included from <stdin>:1: In file included from QtQuick/6.12.0/QtQuick/pr
+QtQuick qsgcurvestrokenode_p.h invalid operands
+QtQuick qsgcurvestrokenode_p_p.h invalid operands to binary expression ('const QStringView' and 'QStringView')
+QtLabsPlatform qwidgetplatform_p.h skipped: it pulls in 'qt_source/everywhere/qt-everywhere-src-6.12.0/qtdeclarativ
+QtLabsPlatform qwidgetplatformcolordialog_p.h skipped: it pulls in 'qt_source/everywhere/qt-everywhere-src-6.12.0/qtdeclarativ
+QtLabsPlatform qwidgetplatformfiledialog_p.h skipped: it pulls in 'qt_source/everywhere/qt-everywhere-src-6.12.0/qtdeclarativ
+QtLabsPlatform qwidgetplatformfontdialog_p.h skipped: it pulls in 'qt_source/everywhere/qt-everywhere-src-6.12.0/qtdeclarativ
+QtLabsPlatform qwidgetplatformmenu_p.h skipped: it pulls in 'qt_source/everywhere/qt-everywhere-src-6.12.0/qtdeclarativ
+QtLabsPlatform qwidgetplatformmenuitem_p.h skipped: it pulls in 'qt_source/everywhere/qt-everywhere-src-6.12.0/qtdeclarativ
+QtLabsPlatform qwidgetplatformmessagedialog_p.h skipped: it pulls in 'qt_source/everywhere/qt-everywhere-src-6.12.0/qtdeclarativ
+QtLabsPlatform qwidgetplatformsystemtrayicon_p.h skipped: it pulls in 'qt_source/everywhere/qt-everywhere-src-6.12.0/qtdeclarativ
+QtQuickVectorImage qquickanimatedproperty_p.h In file included from <stdin>:1: In file included from QtQuickVectorImage/6.12.0
+QtQuickVectorImage qquickcoloropacityanimation_p.h needs QtQuickVectorImageHelpers/qtquickvectorimagehelpersexports.h
+QtQuickVectorImage qquickgenerator_p.h In file included from <stdin>:1: In file included from QtQuickVectorImage/6.12.0
+QtQuickVectorImage qquickitemgenerator_p.h In file included from <stdin>:1: In file included from QtQuickVectorImage/6.12.0
+QtQuickVectorImage qquickitemspy_p.h needs QtQuickVectorImageHelpers/qtquickvectorimagehelpersexports.h
+QtQuickVectorImage qquicknodeinfo_p.h In file included from <stdin>:1: In file included from QtQuickVectorImage/6.12.0
+QtQuickVectorImage qquickqmlgenerator_p.h In file included from <stdin>:1: In file included from QtQuickVectorImage/6.12.0
+QtQuickVectorImage qquicktransformgroup_p.h needs QtQuickVectorImageHelpers/qtquickvectorimagehelpersexports.h
+QtQuickVectorImage qquickvectorimageglobal_p.h needs QtQuickVectorImageGenerator/qtquickvectorimagegeneratorexports.h
+QtQuickVectorImage qquickvectorimageincubator_p.h skipped: it pulls in 'QtQuickVectorImageGenerator/private/qquickitemgenerator_p.
+QtQuickVectorImage qquickvectorimageincubator_p_p.h skipped: it pulls in 'QtQuickVectorImageGenerator/private/qquickitemgenerator_p.
+QtQuickVectorImage qquickvectorimageplugin_p.h skipped: it pulls in 'QtQuickVectorImageGenerator/private/qquickitemgenerator_p.
+QtQuickVectorImage qsvgvisitorimpl_p.h In file included from <stdin>:1: In file included from QtQuickVectorImage/6.12.0
+QtStateMachine qabstractstate_p.h use of undeclared identifier 'QT_FEATURE_statemachine'
+QtStateMachine qabstracttransition_p.h use of undeclared identifier 'QT_FEATURE_statemachine'
+QtStateMachine qbasickeyeventtransition_p.h use of undeclared identifier 'QT_FEATURE_qeventtransition'
+QtStateMachine qbasicmouseeventtransition_p.h use of undeclared identifier 'QT_FEATURE_qeventtransition'
+QtStateMachine qeventtransition_p.h In file included from <stdin>:1: In file included from QtStateMachine/6.12.0/QtS
+QtStateMachine qfinalstate_p.h use
+QtStateMachine qhistorystate_p.h u
+QtStateMachine qsignaleventgenerator_p.h use of undeclared identifier 'QT_FEATURE_statemachine'
+QtStateMachine qsignaltransition_p.h In file included from <stdin>:1: In file included from QtStateMachine/6.12.0/QtS
+QtStateMachine qstate_p.h use of u
+QtStateMachine qstatemachine_p.h In file included from <stdin>:1: In file included from QtStateMachine/6.12.0/QtS
+QtHelp qfilternamedialog_p.h needs ui_qfilternamedialog.h
+QtDesigner plugindialog_p.h needs ui_plugindialog.h
+QtQuickLayouts qquickflexboxlayoutengine_p.h In file included from <stdin>:1: In file included from QtQuickLayouts/6.12.0/QtQ
+QtQuickLayouts qquickflexboxlayoutitem_p.h needs yoga/Yoga.h
+QtCanvasPainter qcanvasdebugcountervisualizer_p.h skipped: it pulls in 'engine/qcpainterengineutils_p.h', a header file of Qt not
+QtCanvasPainter qcanvasoffscreencanvas_p.h skipped: it pulls in 'engine/qcpainterrhirenderer_p.h', a header file of Qt not
+QtCanvasPainter qcanvaspainterfactory_p.h skipped: it pulls in 'engine/qcpainterrhirenderer_p.h', a header file of Qt not
+QtCanvasPainter qcanvaspainteritemrenderer_p.h skipped: it pulls in 'engine/qcpainterengineutils_p.h', a header file of Qt not
+QtCanvasPainter qcanvaspainterwidget_p.h skipped: it pulls in 'engine/qcpainterengineutils_p.h', a header file of Qt not
+QtCanvasPainter qcanvaspath_p.h skipped: it pulls in 'engine/qcpainterengineutils_p.h', a header file of Qt not
+QtCanvasPainter qcanvasrhipaintdriver_p.h skipped: it pulls in 'engine/qcpainterrhirenderer_p.h', a header file of Qt not
+QtCanvasPainter qtcanvaspainterglobal_p.h needs QtShaderTools/qtcanvaspainterexports.h
+QtQuickNativeStyle qquickmacstyle_mac_p_p.h 
+QtQuickNativeStyle qquickwindowsxpstyle_p_p.h 'windows.h' file not
+QtGraphs pierenderer_p.h skipped: it pulls in 'graphs2d/qabstractseries.h', a header file of Qt not cover
+QtGraphs qabstractseries_p.h skipped: it pulls in 'graphs2d/qabstractseries.h', a header file of Qt not cover
+QtGraphs qareaseries_p.h skipped: it pulls in 'graphs2d/qabstractseries.h', a header file of Qt not cover
+QtGraphs qbarseries_p.h skipped: it pulls in 'graphs2d/qabstractseries.h', a header file of Qt not cover
+QtGraphs qcpainteritem_p.h skipped: it pulls in 'graphs2d/qabstractseries.h', a header file of Qt not cover
+QtGraphs qcustomseries_p.h skipped: it pulls in 'graphs2d/qabstractseries.h', a header file of Qt not cover
+QtGraphs qlineseries_p.h skipped: it pulls in 'graphs2d/xychart/qxyseries.h', a header file of Qt not cov
+QtGraphs qlogvalue3daxisformatter_p.h skipped: it pulls in 'common/theme/qquickgraphscolor_p.h', a header file of Qt n
+QtGraphs qpieseries_p.h skipped: it pulls in 'graphs2d/qabstractseries.h', a header file of Qt not cover
+QtGraphs qquickgraphsbarsseries_p.h skipped: it pulls in 'theme/qquickgraphscolor_p.h', a header file of Qt not cove
+QtGraphs qquickgraphsscatterseries_p.h skipped: it pulls in 'theme/qquickgraphscolor_p.h', a header file of Qt not cove
+QtGraphs qquickgraphssplineseries_p.h skipped: it pulls in 'theme/qquickgraphscolor_p.h', a header file of Qt not cove
+QtGraphs qquickgraphssurfaceseries_p.h skipped: it pulls in 'theme/qquickgraphscolor_p.h', a header file of Qt not cove
+QtGraphs qscatterseries_p.h skipped: it pulls in 'graphs2d/xychart/qxyseries.h', a header file of Qt not cov
+QtGraphs qsplineseries_p.h skipped: it pulls in 'graphs2d/xychart/qxyseries.h', a header file of Qt not cov
+QtGraphs qvalue3daxisformatter_p.h skipped: it pulls in 'common/theme/qquickgraphscolor_p.h', a header file of Qt n
+QtGraphs qxyseries_p.h skipped: it pulls in 'graphs2d/xychart/qxyseries.h', a header file of Qt not cov
+QtGraphs utils_p.h skipped: it pulls in 'common/theme/qquickgraphscolor_p.h', a header file of Qt n
+QtLottie qlottievectorimagecontroller_p.h In file included from <stdin>:1: In file included from QtLottie/6.12.0/QtLottie/
+QtSpatialAudio qaudioroom_p.h needs resonance_audio.h
+QtQuick3DXr qabstractopenxrgraphics_p.h needs openxr/openxr.h
+QtQuick3DXr qopenxrgraphics_d3d11_p.h In file included from <stdin>:1: In file included from QtQuick3DXr/6.12.0/QtQuic
+QtQuick3DXr qopenxrgraphics_d3d12_p.h In file included from <stdin>:1: In file included from QtQuick3DXr/6.12.0/QtQuic
+QtQuick3DXr qopenxrgraphics_metal_p.h In file included from <stdin>:1: In file included from QtQuick3DXr/6.12.0/QtQuic
+QtQuick3DXr qopenxrgraphics_opengl_p.h In file included from <stdin>:1: In file included from QtQuick3DXr/6.12.0/QtQuic
+QtQuick3DXr qopenxrgraphics_opengles_p.h In file included from <stdin>:1: In file included from QtQuick3DXr/6.12.0/QtQuic
+QtQuick3DXr qopenxrgraphics_vulkan_p.h In file included from <stdin>:1: In file included from QtQuick3DXr/6.12.0/QtQuic
+QtQuick3DXr qopenxrhelpers_p.h needs openxr/openxr.h
+QtQuick3DXr qopenxrinputmanager_p.h needs openxr/openxr.h
+QtQuick3DXr qopenxrplatform_p.h needs openxr/openxr_platform.h
+QtQuick3DXr qquick3dxranchormanager_openxr_p.h needs openxr/openxr.h
+QtQuick3DXr qquick3dxrmanager_openxr_p.h In file included from <stdin>:1: In file included from QtQuick3DXr/6.12.0/QtQuic
+QtQuick3DXr qquick3dxrmanager_visionos_p.h needs CompositorServices/CompositorServices.h
+QtQuick3DPhysics qabstractphysxnode_p.h In file included from <stdin>:1: In file included from QtQuick3DPhysics/6.12.0/Q
+QtQuick3DPhysics qdistancejoint_p.h skipped: it pulls in 'joints/qjoint_p.h', a header file of Qt not covered yet, w
+QtQuick3DPhysics qfixedjoint_p.h skipped: it pulls in 'joints/qjoint_p.h', a header file of Qt not covered yet, w
+QtQuick3DPhysics qphysicsutils_p.h needs foundation/PxTransform.h
+QtQuick3DPhysics qphysxactorbody_p.h In file included from <stdin>:1: In file included from QtQuick3DPhysics/6.12.0/Q
+QtQuick3DPhysics qphysxcharactercontroller_p.h In file included from <stdin>:1: In file included from QtQuick3DPhysics/6.12.0/Q
+QtQuick3DPhysics qphysxdynamicbody_p.h skipped: it pulls in 'physxnode/qphysxrigidbody_p.h', a header file of Qt not co
+QtQuick3DPhysics qphysxrigidbody_p.h skipped: it pulls in 'physxnode/qphysxactorbody_p.h', a header file of Qt not co
+QtQuick3DPhysics qphysxstaticbody_p.h skipped: it pulls in 'physxnode/qphysxrigidbody_p.h', a header file of Qt not co
+QtQuick3DPhysics qphysxtriggerbody_p.h skipped: it pulls in 'physxnode/qphysxactorbody_p.h', a header file of Qt not co
+QtQuick3DPhysics qprismaticjoint_p.h skipped: it pulls in 'joints/qjoint_p.h', a header file of Qt not covered yet, w
+QtQuick3DPhysics qrevolutejoint_p.h skipped: it pulls in 'joints/qjoint_p.h', a header file of Qt not covered yet, w
+QtQuick3DPhysics qsphericaljoint_p.h skipped: it pulls in 'joints/qjoint_p.h', a header file of Qt not covered yet, w
+QtQuick3DPhysics qstaticphysxobjects_p.h needs extensions/PxDefaultAllocator.h
+QtQuickTimelineBlendTrees qtquicktimelineblendtreesglobal_p.h needs QtQuickTimelineBlendTrees/private/qtquicktimelineblendtreesexports_p.h
+QtRemoteObjects qconnection_qnx_global_p.h needs sys/neutrino.h
+QtRemoteObjects qconnection_qnx_qiodevices_p.h In file included from <stdin>:1: In file included from QtRemoteObjects/6.12.0/Qt
+QtRemoteObjects qconnection_qnx_server_p.h In file included from <stdin>:1: In file included from QtRemoteObjects/6.12.0/Qt
+QtRemoteObjects qremoteobjectrepparser_p.h needs repparser.h
+QtLinguist batchtranslationdialog.h needs ui_batchtranslation.h
+QtLinguist cpp.h needs fmt.h
+QtLinguist finddialog.h needs ui_finddialog.h
+QtLinguist mainwindow.h needs ui_mainwindow.h
+QtLinguist messageeditor.h In file included from <stdin>:1: In file included from QtLinguist/messageeditor.
+QtLinguist messagemodel.h needs fmt.h
+QtLinguist phrasebookbox.h needs ui_phrasebookbox.h
+QtLinguist projectprocessor.h needs trlib/trparser.h
+QtLinguist statistics.h needs ui_statistics.h
+QtLinguist translatedialog.h needs ui_translatedialog.h
+QtLinguist translationsettingsdialog.h needs ui_translationsettings.h
+QtLinguist translator.h needs fmt.h
+QtWaylandCompositor qtwaylandcompositorglobal_p.h needs QtWaylandGlobal/private/qtwaylandglobal-config_p.h
+QtWaylandCompositor qwaylandcompositor_p.h In file included from <stdin>:1: In file included from QtWaylandCompositor/6.12.
+QtWaylandCompositor qwaylanddestroylistener_p.h needs wayland-server-core.h
+QtWaylandCompositor qwaylandidleinhibitv1_p.h needs QtWaylandCompositor/private/qwayland-server-idle-inhibit-unstable-v1.h
+QtWaylandCompositor qwaylandiviapplication_p.h needs QtWaylandCompositor/private/qwayland-server-ivi-application.h
+QtWaylandCompositor qwaylandivisurface_p.h needs QtWaylandCompositor/private/qwayland-server-ivi-application.h
+QtWaylandCompositor qwaylandkeyboard_p.h In file included from <stdin>:1: In file included from QtWaylandCompositor/6.12.
+QtWaylandCompositor qwaylandoutput_p.h needs QtWaylandCompositor/private/qwayland-server-wayland.h
+QtWaylandCompositor qwaylandpointer_p.h needs QtWaylandCompositor/private/qwayland-server-wayland.h
+QtWaylandCompositor qwaylandpresentationtime_p_p.h needs QtWaylandCompositor/private/qwayland-server-presentation-time.h
+QtWaylandCompositor qwaylandqttextinputmethod_p.h needs QtWaylandCompositor/private/qwayland-server-qt-text-input-method-unstable-v1.h
+QtWaylandCompositor qwaylandqttextinputmethodmanager_p.h needs QtWaylandCompositor/private/qwayland-server-qt-text-input-method-unstable-v1.h
+QtWaylandCompositor qwaylandqtwindowmanager_p.h needs QtWaylandCompositor/private/qwayland-server-qt-windowmanager.h
+QtWaylandCompositor qwaylandquicksurface_p.h In file included from <stdin>:1: In file included from QtWaylandCompositor/6.12.
+QtWaylandCompositor qwaylandseat_p.h In file included from <stdin>:1: In file included from QtWaylandCompositor/6.12.
+QtWaylandCompositor qwaylandsurface_p.h In file included from <stdin>:1: In file included from QtWaylandCompositor/6.12.
+QtWaylandCompositor qwaylandtextinput_p.h needs QtWaylandCompositor/private/qwayland-server-text-input-unstable-v2.h
+QtWaylandCompositor qwaylandtextinputmanager_p.h needs QtWaylandCompositor/private/qwayland-server-text-input-unstable-v2.h
+QtWaylandCompositor qwaylandtextinputmanagerv3_p.h needs QtWaylandCompositor/private/qwayland-server-text-input-unstable-v3.h
+QtWaylandCompositor qwaylandtextinputv3_p.h needs QtWaylandCompositor/private/qwayland-server-text-input-unstable-v3.h
+QtWaylandCompositor qwaylandtouch_p.h needs QtWaylandCompositor/private/qwayland-server-wayland.h
+QtWaylandCompositor qwaylandviewporter_p.h needs QtWaylandCompositor/private/qwayland-server-viewporter.h
+QtWaylandCompositor qwaylandwlshell_p.h needs wayland-server-core.h
+QtWaylandCompositor qwaylandxdgdecorationv1_p.h needs QtWaylandCompositor/private/qwayland-server-xdg-decoration-unstable-v1.h
+QtWaylandCompositor qwaylandxdgdialogv1_p.h needs QtWaylandCompositor/private/qwayland-server-xdg-dialog-v1.h
+QtWaylandCompositor qwaylandxdgoutputv1_p.h needs QtWaylandCompositor/private/qwayland-server-xdg-output-unstable-v1.h
+QtWaylandCompositor qwaylandxdgshell_p.h needs QtWaylandCompositor/private/qwayland-server-xdg-shell.h
+QtWaylandCompositor qwlbuffermanager_p.h In file included from <stdin>:1: In file included from QtWaylandCompositor/6.12.
+QtWaylandCompositor qwlclientbuffer_p.h needs wayland-server-core.h
+QtWaylandCompositor qwlclientbufferintegration_p.h needs wayland-server-core.h
+QtWaylandCompositor qwldatadevice_p.h needs QtWaylandCompositor/private/qwayland-server-wayland.h
+QtWaylandCompositor qwldatadevicemanager_p.h needs QtWaylandCompositor/private/qwayland-server-wayland.h
+QtWaylandCompositor qwldataoffer_p.h needs QtWaylandCompositor/private/qwayland-server-wayland.h
+QtWaylandCompositor qwldatasource_p.h needs QtWaylandCompositor/private/qwayland-server-wayland.h
+QtWaylandCompositor qwlhwintegration_p.h needs QtWaylandCompositor/private/qwayland-server-hardware-integration.h
+QtWaylandCompositor qwlregion_p.h needs wayland-util.h
+QtWaylandCompositor qwltexturesharingextension_p.h needs wayland-util.h
+QtWaylandCompositorQtShell qwaylandqtshell_p.h needs qwayland-server-qt-shell-unstable-v1.h

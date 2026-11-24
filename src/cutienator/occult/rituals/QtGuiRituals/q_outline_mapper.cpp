@@ -10,11 +10,11 @@
 #include <QtCore/qrect.h>
 #include <QtCore/qpoint.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qoutlinemapper_p.h"
-#include "qbezier_p.h"
-#include "qmath.h"
-#include "qpainterpath_p.h"
-#include "qscopedvaluerollback.h"
+#include <QtGui/private/qoutlinemapper_p.h>
+#include <QtGui/private/qbezier_p.h>
+#include <QtCore/qmath.h>
+#include <QtGui/private/qpainterpath_p.h>
+#include <QtCore/qscopedvaluerollback.h>
 #include <stdlib.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

@@ -10,8 +10,8 @@
 #include <QtGui/qquaternion.h>
 #include <QtCore/qlist.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquick3dxrhandinput_p.h"
-#include "qquick3dxrinputmanager_p.h"
+#include <QtQuick3DXr/private/qquick3dxrhandinput_p.h>
+#include <QtQuick3DXr/private/qquick3dxrinputmanager_p.h>
 #if defined(Q_OS_VISIONOS)
 #include "visionos/qquick3dxrinputmanager_visionos_p.h"
 #else

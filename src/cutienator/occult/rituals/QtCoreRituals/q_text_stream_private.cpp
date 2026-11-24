@@ -9,18 +9,18 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qchar.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qtextstream.h"
-#include "private/qtextstream_p.h"
-#include "qbuffer.h"
-#include "qfile.h"
-#include "qnumeric.h"
-#include "qvarlengtharray.h"
-#include <private/qdebug_p.h>
-#include <private/qnumeric_p.h>
-#include <private/qtools_p.h>
+#include <QtCore/qtextstream.h>
+#include <QtCore/private/qtextstream_p.h>
+#include <QtCore/qbuffer.h>
+#include <QtCore/qfile.h>
+#include <QtCore/qnumeric.h>
+#include <QtCore/qvarlengtharray.h>
+#include <QtCore/private/qdebug_p.h>
+#include <QtCore/private/qnumeric_p.h>
+#include <QtCore/private/qtools_p.h>
 #include <locale.h>
-#include "private/qlocale_p.h"
-#include "private/qstringconverter_p.h"
+#include <QtCore/private/qlocale_p.h>
+#include <QtCore/private/qstringconverter_p.h>
 #include <stdlib.h>
 #include <limits.h>
 #include <new>
@@ -290,6 +290,7 @@ inline void QTextStreamPrivate::resetReadBuffer()
 }
 
 //  from src/corelib/serialization/qtextstream.cpp, line 472, as _ZN18QTextStreamPrivate16flushWriteBufferEv
+#if defined(Q_OS_LINUX)
 inline void QTextStreamPrivate::flushWriteBuffer()
 {
     // no buffer next to the QString itself; this function should only
@@ -351,6 +352,7 @@ inline void QTextStreamPrivate::flushWriteBuffer()
     if (!flushed || bytesWritten != qint64(data.size()))
         status = QTextStream::WriteFailed;
 }
+#endif  // defined(Q_OS_LINUX)
 //  -----------------------------------------------------------------------
 
 //  QTextStream *QTextStreamPrivate::q_func()
@@ -386,6 +388,7 @@ void ritual_ZN18QTextStreamPrivate5resetEv(QTextStreamPrivate *self) {
   self->reset();
 }
 
+#if defined(Q_OS_LINUX)
 //  void QTextStreamPrivate::setupDevice(QIODevice *device)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18QTextStreamPrivate11setupDeviceEP9QIODevice(
@@ -393,6 +396,7 @@ void ritual_ZN18QTextStreamPrivate11setupDeviceEP9QIODevice(
     QIODevice *device) {
   self->setupDevice(device);
 }
+#endif  // defined(Q_OS_LINUX)
 
 //  void QTextStreamPrivate::disconnectFromDevice()
 extern "C" Q_DECL_EXPORT
@@ -446,9 +450,11 @@ void ritual_ZN18QTextStreamPrivate15resetReadBufferEv(
   self->resetReadBuffer();
 }
 
+#if defined(Q_OS_LINUX)
 //  void QTextStreamPrivate::flushWriteBuffer()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18QTextStreamPrivate16flushWriteBufferEv(
     QTextStreamPrivate *self) {
   self->flushWriteBuffer();
 }
+#endif  // defined(Q_OS_LINUX)

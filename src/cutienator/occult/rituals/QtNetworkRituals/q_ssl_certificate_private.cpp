@@ -13,15 +13,15 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtNetwork/qtnetworkglobal.h>
 #if QT_CONFIG(regularexpression)
-#include "qregularexpression.h"
+#include <QtCore/qregularexpression.h>
 #endif
-#include "qsslcertificateextension_p.h"
-#include "qsslcertificate_p.h"
-#include "qsslcertificate.h"
-#include "qssl_p.h"
+#include <QtNetwork/private/qsslcertificateextension_p.h>
+#include <QtNetwork/private/qsslcertificate_p.h>
+#include <QtNetwork/qsslcertificate.h>
+#include <QtNetwork/private/qssl_p.h>
 #ifndef QT_NO_SSL
-#include "qsslsocket_p.h"
-#include "qsslkey_p.h"
+#include <QtNetwork/private/qsslsocket_p.h>
+#include <QtNetwork/private/qsslkey_p.h>
 #endif
 #include <QtCore/qdir.h>
 #include <QtCore/qdirlisting.h>

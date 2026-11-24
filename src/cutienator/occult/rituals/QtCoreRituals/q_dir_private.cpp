@@ -10,7 +10,7 @@
 #include <QtCore/qchar.h>
 #include <QtCore/qlist.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qfilesystementry_p.h"
+#include <QtCore/private/qfilesystementry_p.h>
 #include <QtCore/qdir.h>
 #include <QtCore/private/qdir_p.h>
 #include <QtCore/qfile.h>
@@ -19,30 +19,30 @@
 #include <QtCore/qstringbuilder.h>
 #endif
 #include "qplatformdefs.h"
-#include "qdir.h"
-#include "qdir_p.h"
-#include "qabstractfileengine_p.h"
-#include "qfsfileengine_p.h"
+#include <QtCore/qdir.h>
+#include <QtCore/private/qdir_p.h>
+#include <QtCore/private/qabstractfileengine_p.h>
+#include <QtCore/private/qfsfileengine_p.h>
 #ifndef QT_NO_DEBUG_STREAM
-#include "qdebug.h"
+#include <QtCore/qdebug.h>
 #endif
-#include "qdirlisting.h"
-#include "qdatetime.h"
-#include "qstring.h"
+#include <QtCore/qdirlisting.h>
+#include <QtCore/qdatetime.h>
+#include <QtCore/qstring.h>
 #if QT_CONFIG(regularexpression)
-#  include <qregularexpression.h>
+#  include <QtCore/qregularexpression.h>
 #endif
-#include "qvarlengtharray.h"
-#include "qfilesystementry_p.h"
-#include "qfilesystemmetadata_p.h"
-#include "qfilesystemengine_p.h"
-#include <qstringbuilder.h>
+#include <QtCore/qvarlengtharray.h>
+#include <QtCore/private/qfilesystementry_p.h>
+#include <QtCore/private/qfilesystemmetadata_p.h>
+#include <QtCore/private/qfilesystemengine_p.h>
+#include <QtCore/qstringbuilder.h>
 #ifndef QT_BOOTSTRAPPED
-#  include <qcollator.h>
-#  include "qreadwritelock.h"
-#  include "qmutex.h"
+#  include <QtCore/qcollator.h>
+#  include <QtCore/qreadwritelock.h>
+#  include <QtCore/qmutex.h>
 #endif
-#include <private/qorderedmutexlocker_p.h>
+#include <QtCore/private/qorderedmutexlocker_p.h>
 #include <algorithm>
 #include <memory>
 #include <stack>

@@ -7,30 +7,30 @@
 #include <QtQuick/6.12.0/QtQuick/private/qquickflickable_p_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquicktimeline_p_p.h"
-#include <QDebug>
-#include <QMutex>
-#include <QThread>
-#include <QWaitCondition>
-#include <QEvent>
-#include <QCoreApplication>
-#include <QEasingCurve>
-#include <QTime>
+#include <QtQuick/private/qquicktimeline_p_p.h>
+#include <QtCore/QDebug>
+#include <QtCore/QMutex>
+#include <QtCore/QThread>
+#include <QtCore/QWaitCondition>
+#include <QtCore/QEvent>
+#include <QtCore/QCoreApplication>
+#include <QtCore/QEasingCurve>
+#include <QtCore/QTime>
 #include <QtCore/private/qnumeric_p.h>
-#include <QHash>
+#include <QtCore/QHash>
 #include <algorithm>
-#include "qquickflickable_p.h"
-#include "qquickflickable_p_p.h"
-#include "qquickflickablebehavior_p.h"
-#include "qquickwindow.h"
-#include "qquickwindow_p.h"
-#include "qquickmousearea_p.h"
+#include <QtQuick/private/qquickflickable_p.h>
+#include <QtQuick/private/qquickflickable_p_p.h>
+#include <QtQuick/private/qquickflickablebehavior_p.h>
+#include <QtQuick/qquickwindow.h>
+#include <QtQuick/private/qquickwindow_p.h>
+#include <QtQuick/private/qquickmousearea_p.h>
 #if QT_CONFIG(quick_draganddrop)
-#include "qquickdrag_p.h"
+#include <QtQuick/private/qquickdrag_p.h>
 #endif
 #include <QtQuick/private/qquickpointerhandler_p.h>
 #include <QtQuick/private/qquicktransition_p.h>
-#include <private/qqmlglobal_p.h>
+#include <QtQml/private/qqmlglobal_p.h>
 #include <QtQml/qqmlinfo.h>
 #include <QtGui/qevent.h>
 #include <QtGui/qguiapplication.h>
@@ -39,7 +39,7 @@
 #include <QtGui/qstylehints.h>
 #include <QtGui/qaccessible.h>
 #include <QtCore/qmath.h>
-#include <qpa/qplatformtheme.h>
+#include <QtGui/qpa/qplatformtheme.h>
 #include <math.h>
 #include <cmath>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER

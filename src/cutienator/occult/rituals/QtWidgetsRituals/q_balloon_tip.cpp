@@ -10,47 +10,47 @@
 #include <QtWidgets/6.12.0/QtWidgets/private/qsystemtrayicon_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qpainter.h"
-#include "qevent.h"
-#include "qpixmapcache.h"
-#include "qstyle.h"
-#include "qstyleoption.h"
-#include "qlabel_p.h"
-#include "private/qhexstring_p.h"
-#include <qmath.h>
+#include <QtGui/qpainter.h>
+#include <QtGui/qevent.h>
+#include <QtGui/qpixmapcache.h>
+#include <QtWidgets/qstyle.h>
+#include <QtWidgets/qstyleoption.h>
+#include <QtWidgets/private/qlabel_p.h>
+#include <QtGui/private/qhexstring_p.h>
+#include <QtCore/qmath.h>
 #if QT_CONFIG(style_stylesheet)
-#include "private/qstylesheetstyle_p.h"
+#include <QtWidgets/private/qstylesheetstyle_p.h>
 #endif
 #if QT_CONFIG(abstractbutton)
-#include "qabstractbutton.h"
+#include <QtWidgets/qabstractbutton.h>
 #endif
 #if QT_CONFIG(accessibility)
-#include <qaccessible.h>
+#include <QtGui/qaccessible.h>
 #endif
-#include "qsystemtrayicon.h"
-#include "qsystemtrayicon_p.h"
+#include <QtWidgets/qsystemtrayicon.h>
+#include <QtWidgets/private/qsystemtrayicon_p.h>
 #ifndef QT_NO_SYSTEMTRAYICON
 #if QT_CONFIG(menu)
-#include "qmenu.h"
+#include <QtWidgets/qmenu.h>
 #endif
-#include "qlist.h"
-#include "qevent.h"
-#include "qpoint.h"
+#include <QtCore/qlist.h>
+#include <QtGui/qevent.h>
+#include <QtCore/qpoint.h>
 #if QT_CONFIG(label)
-#include "qlabel.h"
-#include "private/qlabel_p.h"
+#include <QtWidgets/qlabel.h>
+#include <QtWidgets/private/qlabel_p.h>
 #endif
 #if QT_CONFIG(pushbutton)
-#include "qpushbutton.h"
+#include <QtWidgets/qpushbutton.h>
 #endif
-#include "qpainterpath.h"
-#include "qpainter.h"
-#include "qstyle.h"
-#include "qgridlayout.h"
-#include "qapplication.h"
-#include "qbitmap.h"
-#include <private/qhighdpiscaling_p.h>
-#include <qpa/qplatformscreen.h>
+#include <QtGui/qpainterpath.h>
+#include <QtGui/qpainter.h>
+#include <QtWidgets/qstyle.h>
+#include <QtWidgets/qgridlayout.h>
+#include <QtWidgets/qapplication.h>
+#include <QtGui/qbitmap.h>
+#include <QtGui/private/qhighdpiscaling_p.h>
+#include <QtGui/qpa/qplatformscreen.h>
 #endif
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

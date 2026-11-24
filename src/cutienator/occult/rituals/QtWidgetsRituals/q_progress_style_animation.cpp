@@ -1,8 +1,10 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/6.12.0/QtWidgets/private/qstyleanimation_p.h, Qt 6.12.0.
 //  Changes made here are lost.
+#include <QtCore/qglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
+#if QT_CONFIG(animation)
 #if QT_CONFIG(animation)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/QtWidgets>
@@ -86,4 +88,5 @@ bool ritual_own_ZNK23QProgressStyleAnimation14isUpdateNeededEv(
   return static_cast<const OwnQProgressStyleAnimation *>(self)->OwnQProgressStyleAnimation::isUpdateNeeded();
 }
 
+#endif  // QT_CONFIG(animation)
 #endif  // QT_CONFIG(animation)

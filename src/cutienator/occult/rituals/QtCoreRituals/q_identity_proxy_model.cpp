@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/qidentityproxymodel.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qglobal.h>
+#if QT_CONFIG(identityproxymodel) && QT_CONFIG(proxymodel)
 #if QT_CONFIG(identityproxymodel)
 #include <QtCore/qidentityproxymodel.h>
 #include <QtCore/qstring.h>
@@ -1772,3 +1773,4 @@ bool ritual_own_ZN19QIdentityProxyModel11moveColumnsERK11QModelIndexiiS2_i(
 }
 
 #endif  // QT_CONFIG(identityproxymodel)
+#endif  // QT_CONFIG(identityproxymodel) && QT_CONFIG(proxymodel)

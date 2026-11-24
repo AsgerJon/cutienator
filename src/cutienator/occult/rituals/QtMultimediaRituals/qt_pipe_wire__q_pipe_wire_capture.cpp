@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtMultimedia/6.12.0/QtMultimedia/private/qpipewire_screencapture_p.h, Qt
 //  6.12.0. Changes made here are lost.
+#include <QtMultimedia/qtmultimediaglobal.h>
+#include <QtMultimedia/6.12.0/QtMultimedia/private/qtmultimediaglobal_p.h>
+#if (QT_CONFIG(pipewire)) && (QT_CONFIG(pipewire_screencapture))
 #include <QtMultimedia/6.12.0/QtMultimedia/private/qtmultimediaglobal_p.h>
 #include <QtMultimedia/QtMultimedia>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -309,3 +312,5 @@ bool ritual_own_ZN10QtPipeWire16QPipeWireCapture17setActiveInternalEb(
   return static_cast<OwnQtPipeWire_QPipeWireCapture *>(self)->OwnQtPipeWire_QPipeWireCapture::setActiveInternal(
       active);
 }
+
+#endif  // (QT_CONFIG(pipewire)) && (QT_CONFIG(pipewire_screencapture))

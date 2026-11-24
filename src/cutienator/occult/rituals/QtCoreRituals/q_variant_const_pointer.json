@@ -6,7 +6,6 @@
   "rows": {
     "ritual_ZN20QVariantConstPointerC1E8QVariant": ["address", "address"],
     "ritual_ZNK20QVariantConstPointerdeEv": ["address", "address"],
-    "ritual_ZNK20QVariantConstPointerptEv": ["address", "address"],
-    "ritual_ZN20QVariantConstPointerD1Ev": ["nothing", "address"]
+    "ritual_ZNK20QVariantConstPointerptEv": ["address", "address"]
   }
 }

@@ -7,7 +7,7 @@
 #include <QtCore/6.12.0/QtCore/private/qloggingregistry_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qloggingregistry_p.h"
+#include <QtCore/private/qloggingregistry_p.h>
 #include <QtCore/qfile.h>
 #include <QtCore/qlibraryinfo.h>
 #include <QtCore/private/qlocking_p.h>

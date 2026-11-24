@@ -61,10 +61,4 @@ bool ritual_ZNK19QSequentialIterable22canRandomAccessIterateEv(
   return self->canRandomAccessIterate();
 }
 
-//  QSequentialIterable::~QSequentialIterable()
-extern "C" Q_DECL_EXPORT
-void ritual_ZN19QSequentialIterableD1Ev(QSequentialIterable *self) {
-  delete self;
-}
-
 #endif  // QT_DEPRECATED_SINCE(6, 15)

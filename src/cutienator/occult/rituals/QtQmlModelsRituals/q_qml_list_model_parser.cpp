@@ -4,6 +4,7 @@
 #include <QtQmlModels/qtqmlmodelsglobal.h>
 #include <QtQmlModels/6.12.0/QtQmlModels/private/qtqmlmodelsglobal_p.h>
 #if QT_CONFIG(qml_list_model)
+#if QT_CONFIG(qml_list_model)
 #include <QtQmlModels/6.12.0/QtQmlModels/private/qtqmlmodelsglobal_p.h>
 #include <QtQmlModels/QtQmlModels>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -12,31 +13,31 @@
 #include <QtCore/qstringview.h>
 #include <QtCore/qstring.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qqmllistmodel_p_p.h"
-#include "qqmllistmodelworkeragent_p.h"
-#include <private/qjsvalue_p.h>
-#include <private/qqmlcustomparser_p.h>
-#include <private/qqmlengine_p.h>
-#include <private/qqmljsast_p.h>
-#include <private/qqmljsengine_p.h>
-#include <private/qqmllistwrapper_p.h>
-#include <private/qqmlnotifier_p.h>
-#include <private/qqmlopenmetaobject_p.h>
-#include <private/qv4alloca_p.h>
-#include <private/qv4dateobject_p.h>
-#include <private/qv4lookup_p.h>
-#include <private/qv4object_p.h>
-#include <private/qv4objectiterator_p.h>
-#include <private/qv4qmlcontext_p.h>
-#include <private/qv4sequenceobject_p.h>
-#include <private/qv4urlobject_p.h>
-#include <qqmlcontext.h>
-#include <qqmlinfo.h>
+#include <QtQmlModels/private/qqmllistmodel_p_p.h>
+#include <QtQmlModels/private/qqmllistmodelworkeragent_p.h>
+#include <QtQml/private/qjsvalue_p.h>
+#include <QtQml/private/qqmlcustomparser_p.h>
+#include <QtQml/private/qqmlengine_p.h>
+#include <QtQml/private/qqmljsast_p.h>
+#include <QtQml/private/qqmljsengine_p.h>
+#include <QtQml/private/qqmllistwrapper_p.h>
+#include <QtQml/private/qqmlnotifier_p.h>
+#include <QtQml/private/qqmlopenmetaobject_p.h>
+#include <QtQml/private/qv4alloca_p.h>
+#include <QtQml/private/qv4dateobject_p.h>
+#include <QtQml/private/qv4lookup_p.h>
+#include <QtQml/private/qv4object_p.h>
+#include <QtQml/private/qv4objectiterator_p.h>
+#include <QtQml/private/qv4qmlcontext_p.h>
+#include <QtQml/private/qv4sequenceobject_p.h>
+#include <QtQml/private/qv4urlobject_p.h>
+#include <QtQml/qqmlcontext.h>
+#include <QtQml/qqmlinfo.h>
 #include <QtCore/qdebug.h>
 #include <QtCore/qstack.h>
-#include <QXmlStreamReader>
+#include <QtCore/QXmlStreamReader>
 #include <QtCore/qdatetime.h>
-#include <QScopedValueRollback>
+#include <QtCore/QScopedValueRollback>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -73,4 +74,5 @@ void ritual_ZN19QQmlListModelParserD1Ev(QQmlListModelParser *self) {
   delete self;
 }
 
+#endif  // QT_CONFIG(qml_list_model)
 #endif  // QT_CONFIG(qml_list_model)

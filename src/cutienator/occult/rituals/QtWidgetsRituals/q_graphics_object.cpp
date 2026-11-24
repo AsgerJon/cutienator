@@ -2,6 +2,7 @@
 //  QtWidgets/qgraphicsitem.h, Qt 6.12.0. Changes made here are lost.
 #include <QtWidgets/qtwidgetsglobal.h>
 #if QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 #include <QtWidgets/qgraphicsitem.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
@@ -1019,4 +1020,5 @@ bool ritual_own_ZN15QGraphicsObject5eventEP6QEvent(
       ev);
 }
 
+#endif  // QT_CONFIG(graphicsview)
 #endif  // QT_CONFIG(graphicsview)

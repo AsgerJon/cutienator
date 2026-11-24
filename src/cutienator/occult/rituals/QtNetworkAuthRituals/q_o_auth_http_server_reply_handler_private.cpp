@@ -9,10 +9,10 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtNetwork/qhostaddress.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <qabstractoauth.h>
-#include <qoauthhttpserverreplyhandler.h>
-#include "qabstractoauthreplyhandler_p.h"
-#include <private/qoauthhttpserverreplyhandler_p.h>
+#include <QtNetworkAuth/qabstractoauth.h>
+#include <QtNetworkAuth/qoauthhttpserverreplyhandler.h>
+#include <QtNetworkAuth/private/qabstractoauthreplyhandler_p.h>
+#include <QtNetworkAuth/private/qoauthhttpserverreplyhandler_p.h>
 #include <QtCore/qurl.h>
 #include <QtCore/qurlquery.h>
 #include <QtCore/qcoreapplication.h>

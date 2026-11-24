@@ -8,8 +8,8 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/qimage.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "texturehelper_p.h"
-#include "utils_p.h"
+#include <QtDataVisualization/private/texturehelper_p.h>
+#include <QtDataVisualization/private/utils_p.h>
 #include <QtGui/QImage>
 #include <QtGui/QPainter>
 #include <QtCore/QTime>

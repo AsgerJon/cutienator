@@ -12,23 +12,23 @@
 #include <QtCore/qrect.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qsgdefaultglyphnode_p_p.h"
-#include <private/qsgmaterialshader_p.h>
+#include <QtQuick/private/qsgdefaultglyphnode_p_p.h>
+#include <QtQuick/private/qsgmaterialshader_p.h>
 #include <QtGui/private/qguiapplication_p.h>
-#include <qpa/qplatformintegration.h>
-#include <private/qfontengine_p.h>
+#include <QtGui/qpa/qplatformintegration.h>
+#include <QtGui/private/qfontengine_p.h>
 #include <QtQuick/qquickwindow.h>
 #include <QtQuick/private/qsgtexture_p.h>
 #include <QtQuick/private/qsgdefaultrendercontext_p.h>
-#include <private/qrawfont_p.h>
+#include <QtGui/private/qrawfont_p.h>
 #include <QtCore/qmath.h>
-#include "qsgrhitextureglyphcache_p.h"
-#include "qsgdefaultrendercontext_p.h"
-#include <qrgb.h>
-#include <private/qdrawhelper_p.h>
-#include "qsgdefaultglyphnode_p.h"
-#include "qsgdefaultglyphnode_p_p.h"
-#include <private/qrawfont_p.h>
+#include <QtQuick/private/qsgrhitextureglyphcache_p.h>
+#include <QtQuick/private/qsgdefaultrendercontext_p.h>
+#include <QtGui/qrgb.h>
+#include <QtGui/private/qdrawhelper_p.h>
+#include <QtQuick/private/qsgdefaultglyphnode_p.h>
+#include <QtQuick/private/qsgdefaultglyphnode_p_p.h>
+#include <QtGui/private/qrawfont_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

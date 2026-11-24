@@ -13,8 +13,8 @@
 #include <QtQuickDialogs2QuickImpl/6.12.0/QtQuickDialogs2QuickImpl/private/qquickfiledialogimpl_p_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquickfiledialogimpl_p.h"
-#include "qquickfiledialogimpl_p_p.h"
+#include <QtQuickDialogs2QuickImpl/private/qquickfiledialogimpl_p.h>
+#include <QtQuickDialogs2QuickImpl/private/qquickfiledialogimpl_p_p.h>
 #include <QtCore/qloggingcategory.h>
 #include <QtGui/private/qguiapplication_p.h>
 #include <QtGui/qpa/qplatformtheme.h>
@@ -28,8 +28,8 @@
 #include <QtQuickTemplates2/private/qquickpopupitem_p_p.h>
 #include <QtQuickControls2Impl/private/qquickplatformtheme_p.h>
 #include <QtQuickDialogs2Utils/private/qquickfilenamefilter_p.h>
-#include "qquickfiledialogdelegate_p.h"
-#include "qquickfolderbreadcrumbbar_p.h"
+#include <QtQuickDialogs2QuickImpl/private/qquickfiledialogdelegate_p.h>
+#include <QtQuickDialogs2QuickImpl/private/qquickfolderbreadcrumbbar_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

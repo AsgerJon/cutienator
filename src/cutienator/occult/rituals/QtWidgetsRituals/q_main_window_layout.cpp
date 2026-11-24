@@ -4,6 +4,7 @@
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #if QT_CONFIG(mainwindow)
+#if QT_CONFIG(mainwindow)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/QtWidgets>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -14,60 +15,60 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qmainwindowlayout_p.h"
+#include <QtWidgets/private/qmainwindowlayout_p.h>
 #if QT_CONFIG(dockwidget)
-#include "qdockarealayout_p.h"
-#include "qdockwidget.h"
-#include "qdockwidget_p.h"
+#include <QtWidgets/private/qdockarealayout_p.h>
+#include <QtWidgets/qdockwidget.h>
+#include <QtWidgets/private/qdockwidget_p.h>
 #endif
 #if QT_CONFIG(toolbar)
-#include "qtoolbar_p.h"
-#include "qtoolbar.h"
-#include "qtoolbarlayout_p.h"
+#include <QtWidgets/private/qtoolbar_p.h>
+#include <QtWidgets/qtoolbar.h>
+#include <QtWidgets/private/qtoolbarlayout_p.h>
 #endif
-#include "qmainwindow.h"
+#include <QtWidgets/qmainwindow.h>
 #if QT_CONFIG(rubberband)
-#include "qrubberband.h"
+#include <QtWidgets/qrubberband.h>
 #endif
 #if QT_CONFIG(tabbar)
-#include "qtabbar_p.h"
+#include <QtWidgets/private/qtabbar_p.h>
 #endif
-#include <qapplication.h>
+#include <QtWidgets/qapplication.h>
 #if QT_CONFIG(draganddrop)
-#include <qdrag.h>
+#include <QtGui/qdrag.h>
 #endif
-#include <qmimedata.h>
+#include <QtCore/qmimedata.h>
 #if QT_CONFIG(statusbar)
-#include <qstatusbar.h>
+#include <QtWidgets/qstatusbar.h>
 #endif
-#include <qstring.h>
-#include <qstyle.h>
-#include <qstylepainter.h>
-#include <qvarlengtharray.h>
-#include <qstack.h>
-#include <qmap.h>
-#include <qpointer.h>
+#include <QtCore/qstring.h>
+#include <QtWidgets/qstyle.h>
+#include <QtWidgets/qstylepainter.h>
+#include <QtCore/qvarlengtharray.h>
+#include <QtCore/qstack.h>
+#include <QtCore/qmap.h>
+#include <QtCore/qpointer.h>
 #ifndef QT_NO_DEBUG_STREAM
-#  include <qdebug.h>
-#  include <qtextstream.h>
+#  include <QtCore/qdebug.h>
+#  include <QtCore/qtextstream.h>
 #endif
-#include <private/qmenu_p.h>
-#include <private/qapplication_p.h>
-#include <private/qlayoutengine_p.h>
-#include <private/qwidgetresizehandler_p.h>
-#include <qpa/qplatformwindow_p.h>
-#include <QScopedValueRollback>
+#include <QtWidgets/private/qmenu_p.h>
+#include <QtWidgets/private/qapplication_p.h>
+#include <QtWidgets/private/qlayoutengine_p.h>
+#include <QtWidgets/private/qwidgetresizehandler_p.h>
+#include <QtGui/qpa/qplatformwindow_p.h>
+#include <QtCore/QScopedValueRollback>
 #include <QtCore/private/qoffsetstringarray_p.h>
 #include <optional>
-#include <QWidgetItem>
-#include <QToolBar>
-#include <QStyleOption>
-#include <QApplication>
-#include <qdebug.h>
-#include "qtoolbararealayout_p.h"
-#include "qmainwindowlayout_p.h"
-#include "qtoolbarlayout_p.h"
-#include "qtoolbar_p.h"
+#include <QtWidgets/QWidgetItem>
+#include <QtWidgets/QToolBar>
+#include <QtWidgets/QStyleOption>
+#include <QtWidgets/QApplication>
+#include <QtCore/qdebug.h>
+#include <QtWidgets/private/qtoolbararealayout_p.h>
+#include <QtWidgets/private/qmainwindowlayout_p.h>
+#include <QtWidgets/private/qtoolbarlayout_p.h>
+#include <QtWidgets/private/qtoolbar_p.h>
 #include "QtWidgets/qapplication.h"
 #include "QtWidgets/qwidget.h"
 #if QT_CONFIG(tabbar)
@@ -76,49 +77,49 @@
 #include "QtWidgets/qstyle.h"
 #include "QtWidgets/qapplication.h"
 #include "QtCore/qvariant.h"
-#include "qdockarealayout_p.h"
-#include "qdockwidget.h"
-#include "qmainwindow.h"
-#include "qmainwindowlayout_p.h"
-#include "qmenu_p.h"
-#include "qdockwidget_p.h"
-#include <private/qlayoutengine_p.h>
+#include <QtWidgets/private/qdockarealayout_p.h>
+#include <QtWidgets/qdockwidget.h>
+#include <QtWidgets/qmainwindow.h>
+#include <QtWidgets/private/qmainwindowlayout_p.h>
+#include <QtWidgets/private/qmenu_p.h>
+#include <QtWidgets/private/qdockwidget_p.h>
+#include <QtWidgets/private/qlayoutengine_p.h>
 #if QT_CONFIG(toolbar)
-#include "qtoolbar.h"
-#include "qtoolbarlayout_p.h"
+#include <QtWidgets/qtoolbar.h>
+#include <QtWidgets/private/qtoolbarlayout_p.h>
 #endif
-#include <qpainter.h>
-#include <qstyleoption.h>
-#include "qwidgetanimator_p.h"
+#include <QtGui/qpainter.h>
+#include <QtWidgets/qstyleoption.h>
+#include <QtWidgets/private/qwidgetanimator_p.h>
 #if QT_CONFIG(animation)
 #include <QtCore/qpropertyanimation.h>
 #endif
 #include <QtWidgets/qwidget.h>
 #include <QtWidgets/qstyle.h>
 #if QT_CONFIG(mainwindow)
-#include <private/qmainwindowlayout_p.h>
+#include <QtWidgets/private/qmainwindowlayout_p.h>
 #endif
-#include "qdockwidget.h"
-#include <qaction.h>
-#include <qapplication.h>
+#include <QtWidgets/qdockwidget.h>
+#include <QtWidgets/qaction.h>
+#include <QtWidgets/qapplication.h>
 #if QT_CONFIG(accessibility)
-#include <qaccessible.h>
+#include <QtGui/qaccessible.h>
 #endif
-#include <qdrawutil.h>
-#include <qevent.h>
-#include <qfontmetrics.h>
-#include <qproxystyle.h>
-#include <qwindow.h>
-#include <qscreen.h>
-#include <qmainwindow.h>
-#include <qstylepainter.h>
-#include <qtoolbutton.h>
-#include <qdebug.h>
-#include <private/qwidgetresizehandler_p.h>
-#include <qpa/qplatformtheme.h>
-#include <private/qhighdpiscaling_p.h>
-#include "qdockwidget_p.h"
-#include "qmainwindowlayout_p.h"
+#include <QtWidgets/qdrawutil.h>
+#include <QtGui/qevent.h>
+#include <QtGui/qfontmetrics.h>
+#include <QtWidgets/qproxystyle.h>
+#include <QtGui/qwindow.h>
+#include <QtGui/qscreen.h>
+#include <QtWidgets/qmainwindow.h>
+#include <QtWidgets/qstylepainter.h>
+#include <QtWidgets/qtoolbutton.h>
+#include <QtCore/qdebug.h>
+#include <QtWidgets/private/qwidgetresizehandler_p.h>
+#include <QtGui/qpa/qplatformtheme.h>
+#include <QtGui/private/qhighdpiscaling_p.h>
+#include <QtWidgets/private/qdockwidget_p.h>
+#include <QtWidgets/private/qmainwindowlayout_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -1220,6 +1221,7 @@ inline QTabWidget::TabShape QMainWindowLayout::tabShape() const
 #endif  // QT_CONFIG(dockwidget)
 
 //  from src/widgets/widgets/qmainwindowlayout.cpp, line 2490, as _ZN17QMainWindowLayout11setGeometryERK5QRect
+#if defined(Q_OS_LINUX)
 inline void QMainWindowLayout::setGeometry(const QRect &_r)
 {
     // Check if the state is valid, and avoid replacing it again if it is currently used
@@ -1276,6 +1278,7 @@ inline void QMainWindowLayout::setGeometry(const QRect &_r)
     updateUnifiedToolBarArea();
 #endif
 }
+#endif  // defined(Q_OS_LINUX)
 
 //  from src/widgets/widgets/qmainwindowlayout.cpp, line 2410, as _ZNK17QMainWindowLayout6itemAtEi
 inline QLayoutItem *QMainWindowLayout::itemAt(int index) const
@@ -2325,4 +2328,5 @@ void ritual_own_ZN17QMainWindowLayout10timerEventEP11QTimerEvent(
       e);
 }
 
+#endif  // QT_CONFIG(mainwindow)
 #endif  // QT_CONFIG(mainwindow)

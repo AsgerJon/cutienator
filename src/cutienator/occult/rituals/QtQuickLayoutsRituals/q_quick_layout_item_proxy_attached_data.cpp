@@ -9,8 +9,8 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquicklayoutitemproxy_p.h"
-#include "qquicklayout_p.h"
+#include <QtQuickLayouts/private/qquicklayoutitemproxy_p.h>
+#include <QtQuickLayouts/private/qquicklayout_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

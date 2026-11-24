@@ -7,12 +7,12 @@
 #include <QtDesigner/6.12.0/QtDesigner/private/formbuilderextra_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "formbuilderextra_p.h"
-#include "abstractformbuilder.h"
-#include "properties_p.h"
-#include "resourcebuilder_p.h"
-#include "textbuilder_p.h"
-#include "ui4_p.h"
+#include <QtDesigner/private/formbuilderextra_p.h>
+#include <QtDesigner/abstractformbuilder.h>
+#include <QtDesigner/private/properties_p.h>
+#include <QtDesigner/private/resourcebuilder_p.h>
+#include <QtDesigner/private/textbuilder_p.h>
+#include <QtDesigner/private/ui4_p.h>
 #include <QtWidgets/qlabel.h>
 #include <QtWidgets/qboxlayout.h>
 #include <QtWidgets/qgridlayout.h>

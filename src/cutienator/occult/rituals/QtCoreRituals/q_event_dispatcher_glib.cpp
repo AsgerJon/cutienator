@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/6.12.0/QtCore/private/qeventdispatcher_glib_p.h, Qt 6.12.0.
 //  Changes made here are lost.
+#include <QtCore/qglobal.h>
+#include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
+#if QT_CONFIG(glib) && defined(Q_OS_UNIX)
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtCore/QtCore>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -378,3 +381,5 @@ bool ritual_own_ZN20QEventDispatcherGlib13processEventsE6QFlagsIN10QEventLoop17P
   return self->QEventDispatcherGlib::processEvents(
       QFlags<QEventLoop::ProcessEventsFlag>::fromInt(flags));
 }
+
+#endif  // QT_CONFIG(glib) && defined(Q_OS_UNIX)

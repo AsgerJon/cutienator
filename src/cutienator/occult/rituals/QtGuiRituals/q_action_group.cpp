@@ -2,6 +2,7 @@
 //  QtGui/qactiongroup.h, Qt 6.12.0. Changes made here are lost.
 #include <QtGui/qtguiglobal.h>
 #if QT_CONFIG(action)
+#if QT_CONFIG(action)
 #include <QtGui/qactiongroup.h>
 #include <QtCore/qstring.h>
 #include <QtGui/qicon.h>
@@ -350,4 +351,5 @@ bool ritual_take_QActionGroup(
   return static_cast<CuteQActionGroup *>(self)->take(key, call);
 }
 
+#endif  // QT_CONFIG(action)
 #endif  // QT_CONFIG(action)

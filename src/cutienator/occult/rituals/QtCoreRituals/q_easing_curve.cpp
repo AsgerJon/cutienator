@@ -2,6 +2,7 @@
 //  QtCore/qeasingcurve.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qglobal.h>
 #if QT_CONFIG(easingcurve)
+#if QT_CONFIG(easingcurve)
 #include <QtCore/qeasingcurve.h>
 #include <QtCore/qpoint.h>
 #include <QtCore/qdebug.h>
@@ -156,4 +157,5 @@ bool ritual_ZneRK12QEasingCurveS1_(
 }
 #endif  // !QT_CORE_REMOVED_SINCE(6, 8)
 
+#endif  // QT_CONFIG(easingcurve)
 #endif  // QT_CONFIG(easingcurve)

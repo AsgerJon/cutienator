@@ -4,6 +4,7 @@
 #include <QtQmlModels/qtqmlmodelsglobal.h>
 #include <QtQmlModels/6.12.0/QtQmlModels/private/qtqmlmodelsglobal_p.h>
 #if QT_CONFIG(qml_delegate_model)
+#if QT_CONFIG(qml_delegate_model)
 #include <QtQmlModels/6.12.0/QtQmlModels/private/qtqmlmodelsglobal_p.h>
 #include <QtQmlModels/QtQmlModels>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -13,26 +14,26 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qqmllistcompositor_p.h"
+#include <QtQmlModels/private/qqmllistcompositor_p.h>
 #include <QtCore/qvarlengtharray.h>
-#include "qqmldelegatemodel_p_p.h"
+#include <QtQmlModels/private/qqmldelegatemodel_p_p.h>
 #include <QtQml/qqmlinfo.h>
-#include <private/qabstractitemmodel_p.h>
-#include <private/qcoreapplication_p.h>
-#include <private/qjsvalue_p.h>
-#include <private/qmetaobjectbuilder_p.h>
-#include <private/qqmlabstractdelegatecomponent_p.h>
-#include <private/qqmladaptormodel_p.h>
-#include <private/qqmlanybinding_p.h>
-#include <private/qqmlchangeset_p.h>
-#include <private/qqmlcomponent_p.h>
-#include <private/qqmlengine_p.h>
-#include <private/qqmlpropertytopropertybinding_p.h>
-#include <private/qqmltableinstancemodel_p.h>
-#include <private/qquickpackage_p.h>
-#include <private/qv4functionobject_p.h>
-#include <private/qv4objectiterator_p.h>
-#include <private/qv4value_p.h>
+#include <QtCore/private/qabstractitemmodel_p.h>
+#include <QtCore/private/qcoreapplication_p.h>
+#include <QtQml/private/qjsvalue_p.h>
+#include <QtCore/private/qmetaobjectbuilder_p.h>
+#include <QtQmlModels/private/qqmlabstractdelegatecomponent_p.h>
+#include <QtQmlModels/private/qqmladaptormodel_p.h>
+#include <QtQml/private/qqmlanybinding_p.h>
+#include <QtQmlModels/private/qqmlchangeset_p.h>
+#include <QtQml/private/qqmlcomponent_p.h>
+#include <QtQml/private/qqmlengine_p.h>
+#include <QtQml/private/qqmlpropertytopropertybinding_p.h>
+#include <QtQmlModels/private/qqmltableinstancemodel_p.h>
+#include <QtQmlModels/private/qquickpackage_p.h>
+#include <QtQml/private/qv4functionobject_p.h>
+#include <QtQml/private/qv4objectiterator_p.h>
+#include <QtQml/private/qv4value_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -601,4 +602,5 @@ void ritual_own_ZN24QQmlDelegateModelPrivate16emitModelUpdatedERK13QQmlChangeSet
   self->QQmlDelegateModelPrivate::emitModelUpdated(*changeSet, reset);
 }
 
+#endif  // QT_CONFIG(qml_delegate_model)
 #endif  // QT_CONFIG(qml_delegate_model)

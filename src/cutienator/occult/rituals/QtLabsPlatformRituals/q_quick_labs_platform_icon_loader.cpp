@@ -11,8 +11,8 @@
 #include <QtLabsPlatform/6.12.0/QtLabsPlatform/private/qquicklabsplatformicon_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquicklabsplatformicon_p.h"
-#include "qquicklabsplatformiconloader_p.h"
+#include <QtLabsPlatform/private/qquicklabsplatformicon_p.h>
+#include <QtLabsPlatform/private/qquicklabsplatformiconloader_p.h>
 #include <QtCore/qobject.h>
 #include <QtCore/qmetaobject.h>
 #include <QtQml/qqml.h>

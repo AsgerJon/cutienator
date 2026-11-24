@@ -1,6 +1,10 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtMultimedia/6.12.0/QtMultimedia/private/qsymbolsresolveutils_p.h, Qt
 //  6.12.0. Changes made here are lost.
+#include <QtCore/qglobal.h>
+#include <QtMultimedia/qtmultimediaglobal.h>
+#include <QtMultimedia/6.12.0/QtMultimedia/private/qtmultimediaglobal_p.h>
+#if (defined(Q_OS_LINUX) || defined(Q_OS_ANDROID)) && QT_CONFIG(library)
 #include <QtMultimedia/6.12.0/QtMultimedia/private/qtmultimediaglobal_p.h>
 #include <QtMultimedia/QtMultimedia>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -34,3 +38,5 @@ SymbolsResolver *ritual_ZN15SymbolsResolverC1EPKcS1_S1_(
     const char *libLoggingName) {
   return new SymbolsResolver(libName, version, libLoggingName);
 }
+
+#endif  // (defined(Q_OS_LINUX) || defined(Q_OS_ANDROID)) && QT_CONFIG(library)

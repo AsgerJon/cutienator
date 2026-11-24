@@ -7,12 +7,12 @@
 #include <QtWebSockets/6.12.0/QtWebSockets/private/qwebsocket_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qwebsocket.h"
-#include "qwebsocket_p.h"
-#include "qwebsocketprotocol_p.h"
-#include "qwebsockethandshakerequest_p.h"
-#include "qwebsockethandshakeresponse_p.h"
-#include "qdefaultmaskgenerator_p.h"
+#include <QtWebSockets/qwebsocket.h>
+#include <QtWebSockets/private/qwebsocket_p.h>
+#include <QtWebSockets/private/qwebsocketprotocol_p.h>
+#include <QtWebSockets/private/qwebsockethandshakerequest_p.h>
+#include <QtWebSockets/private/qwebsockethandshakeresponse_p.h>
+#include <QtWebSockets/private/qdefaultmaskgenerator_p.h>
 #include <QtCore/QUrl>
 #include <QtNetwork/QAuthenticator>
 #include <QtNetwork/QTcpSocket>

@@ -2,6 +2,7 @@
 //  QtWidgets/qgraphicsanchorlayout.h, Qt 6.12.0. Changes made here are lost.
 #include <QtWidgets/qtwidgetsglobal.h>
 #if QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 #include <QtWidgets/qgraphicsanchorlayout.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
@@ -262,4 +263,5 @@ bool ritual_take_QGraphicsAnchor(
   return static_cast<CuteQGraphicsAnchor *>(self)->take(key, call);
 }
 
+#endif  // QT_CONFIG(graphicsview)
 #endif  // QT_CONFIG(graphicsview)

@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/6.12.0/QtWidgets/private/qdatetimeedit_p.h, Qt 6.12.0. Changes
 //  made here are lost.
+#include <QtWidgets/qtwidgetsglobal.h>
+#include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
+#if QT_CONFIG(datetimeedit)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/QtWidgets>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -8,21 +11,21 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qdatetime.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <private/qapplication_p.h>
-#include <private/qdatetimeedit_p.h>
-#include <qabstractspinbox.h>
-#include <qapplication.h>
-#include <qdatetimeedit.h>
-#include <qdebug.h>
-#include <qevent.h>
-#include <qlineedit.h>
-#include <private/qlineedit_p.h>
-#include <qlocale.h>
-#include <qpainter.h>
-#include <qlayout.h>
-#include <qset.h>
-#include <qstyle.h>
-#include <qstylepainter.h>
+#include <QtWidgets/private/qapplication_p.h>
+#include <QtWidgets/private/qdatetimeedit_p.h>
+#include <QtWidgets/qabstractspinbox.h>
+#include <QtWidgets/qapplication.h>
+#include <QtWidgets/qdatetimeedit.h>
+#include <QtCore/qdebug.h>
+#include <QtGui/qevent.h>
+#include <QtWidgets/qlineedit.h>
+#include <QtWidgets/private/qlineedit_p.h>
+#include <QtCore/qlocale.h>
+#include <QtGui/qpainter.h>
+#include <QtWidgets/qlayout.h>
+#include <QtCore/qset.h>
+#include <QtWidgets/qstyle.h>
+#include <QtWidgets/qstylepainter.h>
 #include <algorithm>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
@@ -242,3 +245,5 @@ bool ritual_own_ZN14QCalendarPopup5eventEP6QEvent(
     QEvent *e) {
   return static_cast<OwnQCalendarPopup *>(self)->OwnQCalendarPopup::event(e);
 }
+
+#endif  // QT_CONFIG(datetimeedit)

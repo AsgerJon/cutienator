@@ -4,6 +4,7 @@
 #include <QtQuick/qtquickglobal.h>
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #if QT_CONFIG(quick_canvas)
+#if QT_CONFIG(quick_canvas)
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #include <QtQuick/QtQuick>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -15,12 +16,12 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquickcontext2dtexture_p.h"
-#include "qquickcontext2dtile_p.h"
-#include "qquickcanvasitem_p.h"
-#include <private/qquickitem_p.h>
+#include <QtQuick/private/qquickcontext2dtexture_p.h>
+#include <QtQuick/private/qquickcontext2dtile_p.h>
+#include <QtQuick/private/qquickcanvasitem_p.h>
+#include <QtQuick/private/qquickitem_p.h>
 #include <QtQuick/private/qsgplaintexture_p.h>
-#include "qquickcontext2dcommandbuffer_p.h"
+#include <QtQuick/private/qquickcontext2dcommandbuffer_p.h>
 #include <QtCore/QThread>
 #include <QtGui/QGuiApplication>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -791,4 +792,5 @@ QSize *ritual_own_ZN22QQuickContext2DTexture16adjustedTileSizeERK5QSize(
           *ts));
 }
 
+#endif  // QT_CONFIG(quick_canvas)
 #endif  // QT_CONFIG(quick_canvas)

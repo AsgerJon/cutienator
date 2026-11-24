@@ -8,11 +8,11 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qqmlpluginimporter_p.h"
-#include "qqmlimport_p.h"
-#include <private/qqmlextensionplugin_p.h>
-#include <private/qqmltypeloader_p.h>
-#include <private/qqmlglobal_p.h>
+#include <QtQml/private/qqmlpluginimporter_p.h>
+#include <QtQml/private/qqmlimport_p.h>
+#include <QtQml/private/qqmlextensionplugin_p.h>
+#include <QtQml/private/qqmltypeloader_p.h>
+#include <QtQml/private/qqmlglobal_p.h>
 #include <QtCore/qobject.h>
 #include <QtCore/qpluginloader.h>
 #include <QtCore/qdir.h>

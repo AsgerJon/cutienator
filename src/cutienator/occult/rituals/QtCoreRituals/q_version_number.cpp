@@ -3,6 +3,10 @@
 #include <QtCore/qversionnumber.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qanystringview.h>
+#include <QtCore/qlist.h>
+#include <QtCore/qmap.h>
+#include <QtCore/qhash.h>
+#include <iterator>
 
 //  QVersionNumber::QVersionNumber()
 extern "C" Q_DECL_EXPORT
@@ -175,5 +179,101 @@ bool ritual_ZgeRK14QVersionNumberS1_(
 //  QVersionNumber::~QVersionNumber()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14QVersionNumberD1Ev(QVersionNumber *self) {
+  delete self;
+}
+
+//  QList<QVersionNumber>::QList()
+extern "C" Q_DECL_EXPORT
+QList<QVersionNumber> *ritual_list_make_QVersionNumber() {
+  return new QList<QVersionNumber>();
+}
+
+//  void QList<QVersionNumber>::append(const QVersionNumber &value)
+extern "C" Q_DECL_EXPORT
+void ritual_list_add_QVersionNumber(
+    QList<QVersionNumber> *self,
+    const QVersionNumber *element) {
+  self->append(*element);
+}
+
+//  qsizetype QList<QVersionNumber>::size() const
+extern "C" Q_DECL_EXPORT
+long long ritual_list_size_QVersionNumber(
+    const QList<QVersionNumber> *self) {
+  return self->size();
+}
+
+//  const QVersionNumber &QList<QVersionNumber>::at(qsizetype i) const
+extern "C" Q_DECL_EXPORT
+QVersionNumber *ritual_list_at_QVersionNumber(
+    const QList<QVersionNumber> *self,
+    long long index) {
+  return new QVersionNumber(self->at(index));
+}
+
+//  QList<QVersionNumber>::~QList()
+extern "C" Q_DECL_EXPORT
+void ritual_list_drop_QVersionNumber(QList<QVersionNumber> *self) {
+  delete self;
+}
+
+//  QMap<QString, QVersionNumber>: QMap<QString, QVersionNumber>()
+extern "C" Q_DECL_EXPORT
+QMap<QString, QVersionNumber> *ritual_map_make_QMap_QString_QVersionNumber() {
+  return new QMap<QString, QVersionNumber>();
+}
+
+//  QMap<QString, QVersionNumber>: insert(const Key &key, const T &value)
+extern "C" Q_DECL_EXPORT
+void ritual_map_put_QMap_QString_QVersionNumber(
+    QMap<QString, QVersionNumber> *self,
+    const QString *key,
+    const QVersionNumber *value) {
+  self->insert(*key, *value);
+}
+
+//  QMap<QString, QVersionNumber>: size() const
+extern "C" Q_DECL_EXPORT
+long long ritual_map_size_QMap_QString_QVersionNumber(
+    const QMap<QString, QVersionNumber> *self) {
+  return self->size();
+}
+
+//  QMap<QString, QVersionNumber>: the key at a place
+extern "C" Q_DECL_EXPORT
+QString *ritual_map_key_QMap_QString_QVersionNumber(
+    const QMap<QString, QVersionNumber> *self,
+    long long index) {
+  return new QString(*std::next(self->keyBegin(), index));
+}
+
+//  QMap<QString, QVersionNumber>: the value at a place
+extern "C" Q_DECL_EXPORT
+QVersionNumber *ritual_map_value_QMap_QString_QVersionNumber(
+    const QMap<QString, QVersionNumber> *self,
+    long long index) {
+  return new QVersionNumber(*std::next(self->constBegin(), index));
+}
+
+//  QMap<QString, QVersionNumber>: contains(const Key &key) const
+extern "C" Q_DECL_EXPORT
+bool ritual_map_has_QMap_QString_QVersionNumber(
+    const QMap<QString, QVersionNumber> *self,
+    const QString *key) {
+  return self->contains(*key);
+}
+
+//  QMap<QString, QVersionNumber>: value(const Key &key) const
+extern "C" Q_DECL_EXPORT
+QVersionNumber *ritual_map_get_QMap_QString_QVersionNumber(
+    const QMap<QString, QVersionNumber> *self,
+    const QString *key) {
+  return new QVersionNumber(self->value(*key));
+}
+
+//  QMap<QString, QVersionNumber>: ~QMap()
+extern "C" Q_DECL_EXPORT
+void ritual_map_drop_QMap_QString_QVersionNumber(
+    QMap<QString, QVersionNumber> *self) {
   delete self;
 }

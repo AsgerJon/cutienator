@@ -2,6 +2,7 @@
 //  QtCore/qregularexpression.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qglobal.h>
 #if QT_CONFIG(regularexpression)
+#if QT_CONFIG(regularexpression)
 #include <QtCore/qregularexpression.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qstringview.h>
@@ -309,4 +310,5 @@ bool ritual_ZneRK18QRegularExpressionS1_(
   return operator!=(*lhs, *rhs);
 }
 
+#endif  // QT_CONFIG(regularexpression)
 #endif  // QT_CONFIG(regularexpression)

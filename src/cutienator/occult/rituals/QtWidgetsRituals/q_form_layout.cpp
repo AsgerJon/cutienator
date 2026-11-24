@@ -2,6 +2,7 @@
 //  QtWidgets/qformlayout.h, Qt 6.12.0. Changes made here are lost.
 #include <QtWidgets/qtwidgetsglobal.h>
 #if QT_CONFIG(formlayout)
+#if QT_CONFIG(formlayout)
 #include <QtWidgets/qformlayout.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qrect.h>
@@ -1236,4 +1237,5 @@ int ritual_own_ZNK11QFormLayout5countEv(const QFormLayout *self) {
   return self->QFormLayout::count();
 }
 
+#endif  // QT_CONFIG(formlayout)
 #endif  // QT_CONFIG(formlayout)

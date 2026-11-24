@@ -9,8 +9,8 @@
 #include <QtCore/qvariant.h>
 #include <QtCore/qstring.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qopcuainternaldatatypenode_p.h"
-#include "qopcuagenericstructhandler_p.h"
+#include <QtOpcUa/private/qopcuainternaldatatypenode_p.h>
+#include <QtOpcUa/private/qopcuagenericstructhandler_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

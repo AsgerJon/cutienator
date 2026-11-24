@@ -3,6 +3,7 @@
 //  are lost.
 #include <QtGui/qtguiglobal.h>
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
+#if QT_CONFIG(undocommand)
 #if QT_CONFIG(undostack)
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
 #include <QtGui/qundostack.h>
@@ -13,11 +14,11 @@
 #include <QtCore/qstring.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qdebug.h>
-#include "qundostack.h"
+#include <QtGui/qundostack.h>
 #if QT_CONFIG(undogroup)
-#include "qundogroup.h"
+#include <QtGui/qundogroup.h>
 #endif
-#include "qundostack_p.h"
+#include <QtGui/private/qundostack_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -202,3 +203,4 @@ void ritual_ZN17QUndoStackPrivate15setPrefixedTextEP7QActionRK7QStringS4_S4_(
 #endif  // !defined(QT_NO_ACTION)
 
 #endif  // QT_CONFIG(undostack)
+#endif  // QT_CONFIG(undocommand)

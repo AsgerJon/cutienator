@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qabstractitemview.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(itemviews)
 #if QT_CONFIG(itemviews)
 #include <QtWidgets/qabstractitemview.h>
 #include <QtCore/qstring.h>
@@ -3555,4 +3557,5 @@ QSize *ritual_own_ZNK17QAbstractItemView16viewportSizeHintEv(
       static_cast<const OwnQAbstractItemView *>(self)->OwnQAbstractItemView::viewportSizeHint());
 }
 
+#endif  // QT_CONFIG(itemviews)
 #endif  // QT_CONFIG(itemviews)

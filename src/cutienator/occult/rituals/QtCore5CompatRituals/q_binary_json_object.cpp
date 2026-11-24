@@ -7,9 +7,9 @@
 #include <QtCore5Compat/6.12.0/QtCore5Compat/private/qbinaryjsonobject_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qbinaryjsonobject_p.h"
-#include "qbinaryjson_p.h"
-#include <qjsonobject.h>
+#include <QtCore5Compat/private/qbinaryjsonobject_p.h>
+#include <QtCore5Compat/private/qbinaryjson_p.h>
+#include <QtCore/qjsonobject.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

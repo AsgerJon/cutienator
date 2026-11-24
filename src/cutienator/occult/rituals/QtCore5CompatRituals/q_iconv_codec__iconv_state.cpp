@@ -3,6 +3,7 @@
 //  Changes made here are lost.
 #include <QtCore5Compat/qcore5global.h>
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
+#if QT_CONFIG(iconv) && QT_CONFIG(textcodec) && !QT_CONFIG(icu)
 #if QT_CONFIG(iconv)
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtCore5Compat/QtCore5Compat>
@@ -11,10 +12,10 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/private/qglobal_p.h>
-#include "qiconvcodec_p.h"
-#include "qtextcodec_p.h"
-#include <qdebug.h>
-#include <qthreadstorage.h>
+#include <QtCore5Compat/private/qiconvcodec_p.h>
+#include <QtCore5Compat/private/qtextcodec_p.h>
+#include <QtCore/qdebug.h>
+#include <QtCore/qthreadstorage.h>
 #include <errno.h>
 #include <locale.h>
 #include <stdio.h>
@@ -70,3 +71,4 @@ void ritual_ZN11QIconvCodec10IconvState9saveCharsEPKci(
 }
 
 #endif  // QT_CONFIG(iconv)
+#endif  // QT_CONFIG(iconv) && QT_CONFIG(textcodec) && !QT_CONFIG(icu)

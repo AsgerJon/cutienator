@@ -1,8 +1,10 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/6.12.0/QtWidgets/private/simplewidgets_p.h, Qt 6.12.0. Changes
 //  made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
+#if QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
 #if QT_CONFIG(abstractbutton)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
@@ -18,62 +20,62 @@
 #include <QtCore/qlist.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "simplewidgets_p.h"
+#include <QtWidgets/private/simplewidgets_p.h>
 #if QT_CONFIG(abstractbutton)
-#include <qabstractbutton.h>
+#include <QtWidgets/qabstractbutton.h>
 #endif
 #if QT_CONFIG(checkbox)
-#include <qcheckbox.h>
+#include <QtWidgets/qcheckbox.h>
 #endif
 #if QT_CONFIG(pushbutton)
-#include <qpushbutton.h>
+#include <QtWidgets/qpushbutton.h>
 #endif
 #if QT_CONFIG(progressbar)
-#include <qprogressbar.h>
+#include <QtWidgets/qprogressbar.h>
 #endif
 #if QT_CONFIG(statusbar)
-#include <qstatusbar.h>
+#include <QtWidgets/qstatusbar.h>
 #endif
 #if QT_CONFIG(radiobutton)
-#include <qradiobutton.h>
+#include <QtWidgets/qradiobutton.h>
 #endif
 #if QT_CONFIG(toolbutton)
-#include <qtoolbutton.h>
+#include <QtWidgets/qtoolbutton.h>
 #endif
 #if QT_CONFIG(menu)
-#include <qmenu.h>
+#include <QtWidgets/qmenu.h>
 #endif
 #if QT_CONFIG(label)
-#include <qlabel.h>
+#include <QtWidgets/qlabel.h>
 #endif
 #if QT_CONFIG(groupbox)
-#include <qgroupbox.h>
+#include <QtWidgets/qgroupbox.h>
 #endif
 #if QT_CONFIG(lcdnumber)
-#include <qlcdnumber.h>
+#include <QtWidgets/qlcdnumber.h>
 #endif
 #if QT_CONFIG(lineedit)
-#include <qlineedit.h>
-#include <private/qlineedit_p.h>
+#include <QtWidgets/qlineedit.h>
+#include <QtWidgets/private/qlineedit_p.h>
 #endif
 #ifndef QT_NO_PICTURE
 #include <QtGui/qpicture.h>
 #endif
 #if QT_CONFIG(messagebox)
-#include <qmessagebox.h>
+#include <QtWidgets/qmessagebox.h>
 #endif
-#include <qstyle.h>
-#include <qstyleoption.h>
-#include <qtextdocument.h>
-#include <qwindow.h>
-#include <private/qwindowcontainer_p.h>
+#include <QtWidgets/qstyle.h>
+#include <QtWidgets/qstyleoption.h>
+#include <QtGui/qtextdocument.h>
+#include <QtGui/qwindow.h>
+#include <QtWidgets/private/qwindowcontainer_p.h>
 #include <QtCore/qvarlengtharray.h>
 #if QT_CONFIG(accessibility)
 #include <QtGui/private/qaccessiblehelper_p.h>
 #endif
 #include <QtGui/qvalidator.h>
 #ifdef Q_OS_MACOS
-#include <qfocusframe.h>
+#include <QtWidgets/qfocusframe.h>
 #endif
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
@@ -873,4 +875,5 @@ void ritual_own_ZN17QAccessibleButton8doActionERK7QString(
 #endif  // QT_CONFIG(accessibility)
 
 #endif  // QT_CONFIG(abstractbutton)
+#endif  // QT_CONFIG(accessibility)
 #endif  // QT_CONFIG(accessibility)

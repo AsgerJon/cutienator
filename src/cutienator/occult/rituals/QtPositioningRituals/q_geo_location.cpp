@@ -5,6 +5,7 @@
 #include <QtPositioning/qgeocoordinate.h>
 #include <QtPositioning/qgeoshape.h>
 #include <QtCore/qvariant.h>
+#include <QtCore/qlist.h>
 #include <QtCore/qmap.h>
 #include <QtCore/qhash.h>
 #include <iterator>
@@ -115,4 +116,38 @@ bool ritual_ZN12QGeoLocation6equalsERKS_S1_(
     const QGeoLocation *lhs,
     const QGeoLocation *rhs) {
   return QGeoLocation::equals(*lhs, *rhs);
+}
+
+//  QList<QGeoLocation>::QList()
+extern "C" Q_DECL_EXPORT
+QList<QGeoLocation> *ritual_list_make_QGeoLocation() {
+  return new QList<QGeoLocation>();
+}
+
+//  void QList<QGeoLocation>::append(const QGeoLocation &value)
+extern "C" Q_DECL_EXPORT
+void ritual_list_add_QGeoLocation(
+    QList<QGeoLocation> *self,
+    const QGeoLocation *element) {
+  self->append(*element);
+}
+
+//  qsizetype QList<QGeoLocation>::size() const
+extern "C" Q_DECL_EXPORT
+long long ritual_list_size_QGeoLocation(const QList<QGeoLocation> *self) {
+  return self->size();
+}
+
+//  const QGeoLocation &QList<QGeoLocation>::at(qsizetype i) const
+extern "C" Q_DECL_EXPORT
+QGeoLocation *ritual_list_at_QGeoLocation(
+    const QList<QGeoLocation> *self,
+    long long index) {
+  return new QGeoLocation(self->at(index));
+}
+
+//  QList<QGeoLocation>::~QList()
+extern "C" Q_DECL_EXPORT
+void ritual_list_drop_QGeoLocation(QList<QGeoLocation> *self) {
+  delete self;
 }

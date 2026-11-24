@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qdatetimeedit.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(datetimeedit)
 #if QT_CONFIG(datetimeedit)
 #include <QtWidgets/qdatetimeedit.h>
 #include <QtCore/qstring.h>
@@ -1186,4 +1188,5 @@ bool ritual_take_QDateEdit(QDateEdit *self, const char *key, void *call) {
   return static_cast<CuteQDateEdit *>(self)->take(key, call);
 }
 
+#endif  // QT_CONFIG(datetimeedit)
 #endif  // QT_CONFIG(datetimeedit)

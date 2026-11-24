@@ -8,8 +8,8 @@
 #include <QtMultimedia/6.12.0/QtMultimedia/private/qmediacapturesession_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qmediacapturesession.h"
-#include "qmediacapturesession_p.h"
+#include <QtMultimedia/qmediacapturesession.h>
+#include <QtMultimedia/private/qmediacapturesession_p.h>
 #include <QtMultimedia/qaudiobufferinput.h>
 #include <QtMultimedia/qaudiodevice.h>
 #include <QtMultimedia/qaudioinput.h>

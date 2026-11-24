@@ -1,53 +1,56 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGui/6.12.0/QtGui/private/qgenericunixtheme_p.h, Qt 6.12.0. Changes made
 //  here are lost.
+#include <QtGui/qtguiglobal.h>
+#include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
+#if defined(Q_OS_UNIX) && (((QT_CONFIG(xcb) || !defined(Q_OS_MACOS)) && (QT_CONFIG(xcb) || !(defined(Q_OS_IOS) || defined(Q_OS_TVOS) || defined(Q_OS_VISIONOS)))) || QT_CONFIG(wayland))
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
 #include <QtGui/QtGui>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/6.12.0/QtGui/private/qgenericunixtheme_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qgenericunixtheme_p.h"
-#include "qgnometheme_p.h"
-#include <QPalette>
-#include <QFont>
-#include <QGuiApplication>
-#include <QDir>
-#include <QFileInfo>
-#include <QFile>
-#include <QDebug>
-#include <QHash>
-#include <QLoggingCategory>
-#include <QVariant>
-#include <QStandardPaths>
-#include <QStringList>
+#include <QtGui/private/qgenericunixtheme_p.h>
+#include <QtGui/private/qgnometheme_p.h>
+#include <QtGui/QPalette>
+#include <QtGui/QFont>
+#include <QtGui/QGuiApplication>
+#include <QtCore/QDir>
+#include <QtCore/QFileInfo>
+#include <QtCore/QFile>
+#include <QtCore/QDebug>
+#include <QtCore/QHash>
+#include <QtCore/QLoggingCategory>
+#include <QtCore/QVariant>
+#include <QtCore/QStandardPaths>
+#include <QtCore/QStringList>
 #if QT_CONFIG(mimetype)
-#include <QMimeDatabase>
+#include <QtCore/QMimeDatabase>
 #endif
 #if QT_CONFIG(settings)
-#include <QSettings>
+#include <QtCore/QSettings>
 #if QT_CONFIG(dbus)
-#include "qkdetheme_p.h"
+#include <QtGui/private/qkdetheme_p.h>
 #endif
 #endif
-#include <qpa/qplatformfontdatabase.h> // lcQpaFonts
-#include <qpa/qplatformintegration.h>
-#include <qpa/qplatformservices.h>
-#include <qpa/qplatformdialoghelper.h>
-#include <qpa/qplatformtheme_p.h>
+#include <QtGui/qpa/qplatformfontdatabase.h> // lcQpaFonts
+#include <QtGui/qpa/qplatformintegration.h>
+#include <QtGui/qpa/qplatformservices.h>
+#include <QtGui/qpa/qplatformdialoghelper.h>
+#include <QtGui/qpa/qplatformtheme_p.h>
 #if QT_CONFIG(dbus)
-#include <QJsonDocument>
-#include <QJsonArray>
-#include <QJsonObject>
-#include <QJsonValue>
-#include <QJsonParseError>
-#include <private/qdbusmenubar_p.h>
+#include <QtCore/QJsonDocument>
+#include <QtCore/QJsonArray>
+#include <QtCore/QJsonObject>
+#include <QtCore/QJsonValue>
+#include <QtCore/QJsonParseError>
+#include <QtGui/private/qdbusmenubar_p.h>
 #endif
 #if QT_CONFIG(dbus) && QT_CONFIG(systemtrayicon)
-#include <private/qdbustrayicon_p.h>
+#include <QtGui/private/qdbustrayicon_p.h>
 #endif
-#include <private/qguiapplication_p.h>
-#include <qpa/qplatformintegration.h>
+#include <QtGui/private/qguiapplication_p.h>
+#include <QtGui/qpa/qplatformintegration.h>
 #include <QtCore/QStandardPaths>
 #if QT_CONFIG(dbus)
 #include <QtDBus/QDBusConnectionInterface>
@@ -90,3 +93,5 @@ void ritual_ZN24QGenericUnixThemePrivateD1Ev(
     QGenericUnixThemePrivate *self) {
   delete self;
 }
+
+#endif  // defined(Q_OS_UNIX) && (((QT_CONFIG(xcb) || !defined(Q_OS_MACOS)) && (QT_CONFIG(xcb) || !(defined(Q_OS_IOS) || defined(Q_OS_TVOS) || defined(Q_OS_VISIONOS)))) || QT_CONFIG(wayland))

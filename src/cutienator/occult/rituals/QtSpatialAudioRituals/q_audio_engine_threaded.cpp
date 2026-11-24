@@ -8,7 +8,7 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtMultimedia/qaudiodevice.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qaudioengine_threaded_p.h"
+#include <QtSpatialAudio/private/qaudioengine_threaded_p.h>
 #include <QtMultimedia/qmediadevices.h>
 #include <QtMultimedia/qaudiosink.h>
 #include <QtMultimedia/private/qaudio_qspan_support_p.h>
@@ -24,7 +24,7 @@
 #include <QtCore/qdebug.h>
 #include <QtCore/qelapsedtimer.h>
 #include <memory>
-#include <q20vector.h>
+#include <QtCore/q20vector.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

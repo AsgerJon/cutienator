@@ -2,6 +2,7 @@
 //  QtCore/qfilesystemwatcher.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qglobal.h>
 #if QT_CONFIG(filesystemwatcher)
+#if QT_CONFIG(filesystemwatcher)
 #include <QtCore/qfilesystemwatcher.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
@@ -283,4 +284,5 @@ bool ritual_take_QFileSystemWatcher(
   return static_cast<CuteQFileSystemWatcher *>(self)->take(key, call);
 }
 
+#endif  // QT_CONFIG(filesystemwatcher)
 #endif  // QT_CONFIG(filesystemwatcher)

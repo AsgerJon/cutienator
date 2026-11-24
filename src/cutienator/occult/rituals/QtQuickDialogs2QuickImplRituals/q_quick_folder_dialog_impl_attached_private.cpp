@@ -13,12 +13,12 @@
 #include <QtQuickDialogs2QuickImpl/6.12.0/QtQuickDialogs2QuickImpl/private/qquickfolderdialogimpl_p_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquickfolderdialogimpl_p.h"
-#include "qquickfolderdialogimpl_p_p.h"
+#include <QtQuickDialogs2QuickImpl/private/qquickfolderdialogimpl_p.h>
+#include <QtQuickDialogs2QuickImpl/private/qquickfolderdialogimpl_p_p.h>
 #include <QtCore/qloggingcategory.h>
 #include <QtQuickTemplates2/private/qquickdialogbuttonbox_p_p.h>
-#include "qquickfiledialogdelegate_p.h"
-#include "qquickfolderbreadcrumbbar_p.h"
+#include <QtQuickDialogs2QuickImpl/private/qquickfiledialogdelegate_p.h>
+#include <QtQuickDialogs2QuickImpl/private/qquickfolderbreadcrumbbar_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

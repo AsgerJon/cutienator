@@ -3,6 +3,7 @@
 //  made here are lost.
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
+#if QT_CONFIG(scroller)
 #if !defined(QT_NO_GESTURES)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/QtWidgets>
@@ -10,23 +11,23 @@
 #include <QtWidgets/6.12.0/QtWidgets/private/qflickgesture_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qgesture.h"
-#include "qapplication.h"
-#include "qevent.h"
-#include "qwidget.h"
+#include <QtWidgets/qgesture.h>
+#include <QtWidgets/qapplication.h>
+#include <QtGui/qevent.h>
+#include <QtWidgets/qwidget.h>
 #if QT_CONFIG(graphicsview)
-#include "qgraphicsitem.h"
-#include "qgraphicsscene.h"
-#include "qgraphicssceneevent.h"
-#include "qgraphicsview.h"
+#include <QtWidgets/qgraphicsitem.h>
+#include <QtWidgets/qgraphicsscene.h>
+#include <QtWidgets/qgraphicssceneevent.h>
+#include <QtWidgets/qgraphicsview.h>
 #endif
-#include "qscroller.h"
+#include <QtWidgets/qscroller.h>
 #include <QtGui/qpointingdevice.h>
-#include "private/qapplication_p.h"
-#include "private/qevent_p.h"
-#include "private/qflickgesture_p.h"
-#include "qbasictimer.h"
-#include "qdebug.h"
+#include <QtWidgets/private/qapplication_p.h>
+#include <QtGui/private/qevent_p.h>
+#include <QtWidgets/private/qflickgesture_p.h>
+#include <QtCore/qbasictimer.h>
+#include <QtCore/qdebug.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -102,3 +103,4 @@ void ritual_own_ZN23QFlickGestureRecognizer5resetEP8QGesture(
 #endif  // !defined(QT_NO_GESTURES)
 
 #endif  // !defined(QT_NO_GESTURES)
+#endif  // QT_CONFIG(scroller)

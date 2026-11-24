@@ -9,13 +9,13 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qthread.h"
-#include "qthread_p.h"
-#include "qabstracteventdispatcher.h"
-#include "qbindingstorage.h"
-#include "private/qcoreapplication_p.h"
-#include "qeventloop.h"
-#include "qmutex.h"
+#include <QtCore/qthread.h>
+#include <QtCore/private/qthread_p.h>
+#include <QtCore/qabstracteventdispatcher.h>
+#include <QtCore/qbindingstorage.h>
+#include <QtCore/private/qcoreapplication_p.h>
+#include <QtCore/qeventloop.h>
+#include <QtCore/qmutex.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

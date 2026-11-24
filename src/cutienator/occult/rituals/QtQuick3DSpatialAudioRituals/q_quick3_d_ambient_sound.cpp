@@ -10,7 +10,7 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquick3dambientsound_p.h"
+#include <QtQuick3DSpatialAudio/private/qquick3dambientsound_p.h>
 #include <QtMultimediaQuick/private/qqmlcontext_source_resolver_p.h>
 #include <QtQuick3DSpatialAudio/private/qquick3daudioengine_p.h>
 #include <QtSpatialAudio/qambientsound.h>

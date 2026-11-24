@@ -14,8 +14,8 @@
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGraphs/QLogValueAxis>
-#include <private/qlogvalueaxis_p.h>
-#include <private/charthelpers_p.h>
+#include <QtGraphs/private/qlogvalueaxis_p.h>
+#include <QtGraphs/private/charthelpers_p.h>
 #include <QtCore/QtMath>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

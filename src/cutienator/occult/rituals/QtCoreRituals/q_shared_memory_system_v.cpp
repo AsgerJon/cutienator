@@ -11,11 +11,11 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qtipccommon.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qsharedmemory.h"
-#include "qsharedmemory_p.h"
-#include "qtipccommon_p.h"
-#include <qdir.h>
-#include <qdebug.h>
+#include <QtCore/qsharedmemory.h>
+#include <QtCore/private/qsharedmemory_p.h>
+#include <QtCore/private/qtipccommon_p.h>
+#include <QtCore/qdir.h>
+#include <QtCore/qdebug.h>
 #include <errno.h>
 #if QT_CONFIG(sharedmemory)
 #if QT_CONFIG(sysv_shm)
@@ -26,9 +26,9 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <unistd.h>
-#include "private/qcore_unix_p.h"
+#include <QtCore/private/qcore_unix_p.h>
 #if defined(Q_OS_DARWIN)
-#include "private/qcore_mac_p.h"
+#include <QtCore/private/qcore_mac_p.h>
 #endif
 #endif
 #endif
@@ -44,6 +44,7 @@
 //  from src/corelib/ipc/qsharedmemory_systemv.cpp, line 35, as _ZN20QSharedMemorySystemV19runtimeSupportCheckEv
 #if QT_CONFIG(sharedmemory)
 #if QT_CONFIG(sysv_shm)
+#if defined(Q_OS_LINUX)
 inline bool QSharedMemorySystemV::runtimeSupportCheck()
 {
 #if defined(Q_OS_DARWIN)
@@ -56,6 +57,7 @@ inline bool QSharedMemorySystemV::runtimeSupportCheck()
     }();
     return result;
 }
+#endif  // defined(Q_OS_LINUX)
 #endif  // QT_CONFIG(sysv_shm)
 #endif  // QT_CONFIG(sharedmemory)
 
@@ -81,11 +83,13 @@ bool ritual_ZN20QSharedMemorySystemV8supportsEN13QNativeIpcKey4TypeE(
 
 #if QT_CONFIG(sharedmemory)
 #if QT_CONFIG(sysv_shm)
+#if defined(Q_OS_LINUX)
 //  bool QSharedMemorySystemV::runtimeSupportCheck()
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN20QSharedMemorySystemV19runtimeSupportCheckEv() {
   return QSharedMemorySystemV::runtimeSupportCheck();
 }
+#endif  // defined(Q_OS_LINUX)
 #endif  // QT_CONFIG(sysv_shm)
 #endif  // QT_CONFIG(sharedmemory)
 

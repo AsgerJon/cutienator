@@ -15,7 +15,7 @@ from typing import TYPE_CHECKING
 
 from worktoy.waitaminute import MissingVariable, TypeException
 
-from . import HeaderFile, HeaderFolder
+from . import HeaderFile, HeaderFolder, Machine
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import (Any, Dict, FrozenSet, Iterator, List, Optional,
@@ -1121,7 +1121,7 @@ class HeaderReader:
     if self.hasPrivate():
       private = (*('-I%s' % f for f in self.getPrivateIncludeFolders()),)
     return (
-        'clang++', '-x', 'c++', '-std=c++17', '-fPIC',
+        'clang++', '-x', 'c++', '-std=c++17', *Machine.getCompilerFlags(),
         '-I%s' % self.getQtHeaderFolder(), *private,
     )
 

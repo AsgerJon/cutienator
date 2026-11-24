@@ -5,6 +5,7 @@
 #include <QtGui/qvectornd.h>
 #include <QtCore/qpoint.h>
 #include <QtCore/qvariant.h>
+#include <QtCore/qlist.h>
 
 //  QVector2D::QVector2D()
 extern "C" Q_DECL_EXPORT
@@ -274,6 +275,40 @@ QVariant *ritual_ZNK9QVector2Dcv8QVariantEv(const QVector2D *self) {
 //  QVector2D::~QVector2D()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN9QVector2DD1Ev(QVector2D *self) {
+  delete self;
+}
+
+//  QList<QVector2D>::QList()
+extern "C" Q_DECL_EXPORT
+QList<QVector2D> *ritual_list_make_QVector2D() {
+  return new QList<QVector2D>();
+}
+
+//  void QList<QVector2D>::append(const QVector2D &value)
+extern "C" Q_DECL_EXPORT
+void ritual_list_add_QVector2D(
+    QList<QVector2D> *self,
+    const QVector2D *element) {
+  self->append(*element);
+}
+
+//  qsizetype QList<QVector2D>::size() const
+extern "C" Q_DECL_EXPORT
+long long ritual_list_size_QVector2D(const QList<QVector2D> *self) {
+  return self->size();
+}
+
+//  const QVector2D &QList<QVector2D>::at(qsizetype i) const
+extern "C" Q_DECL_EXPORT
+QVector2D *ritual_list_at_QVector2D(
+    const QList<QVector2D> *self,
+    long long index) {
+  return new QVector2D(self->at(index));
+}
+
+//  QList<QVector2D>::~QList()
+extern "C" Q_DECL_EXPORT
+void ritual_list_drop_QVector2D(QList<QVector2D> *self) {
   delete self;
 }
 

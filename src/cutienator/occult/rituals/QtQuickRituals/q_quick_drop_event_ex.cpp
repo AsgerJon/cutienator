@@ -1,8 +1,10 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtQuick/6.12.0/QtQuick/private/qquickdrag_p.h, Qt 6.12.0. Changes made
 //  here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtQuick/qtquickglobal.h>
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
+#if QT_CONFIG(quick_draganddrop)
 #if QT_CONFIG(quick_draganddrop)
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #include <QtQuick/QtQuick>
@@ -96,4 +98,5 @@ bool ritual_take_QQuickDropEventEx(
   return static_cast<CuteQQuickDropEventEx *>(self)->take(key, call);
 }
 
+#endif  // QT_CONFIG(quick_draganddrop)
 #endif  // QT_CONFIG(quick_draganddrop)

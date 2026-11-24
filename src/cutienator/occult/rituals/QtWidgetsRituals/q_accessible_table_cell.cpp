@@ -1,8 +1,10 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/6.12.0/QtWidgets/private/itemviews_p.h, Qt 6.12.0. Changes made
 //  here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
+#if QT_CONFIG(accessibility) && QT_CONFIG(itemviews)
 #if QT_CONFIG(itemviews)
 #if QT_CONFIG(accessibility)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
@@ -15,19 +17,19 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qlist.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "itemviews_p.h"
-#include <qheaderview.h>
+#include <QtWidgets/private/itemviews_p.h>
+#include <QtWidgets/qheaderview.h>
 #if QT_CONFIG(tableview)
-#include <qtableview.h>
+#include <QtWidgets/qtableview.h>
 #endif
 #if QT_CONFIG(listview)
-#include <qlistview.h>
+#include <QtWidgets/qlistview.h>
 #endif
 #if QT_CONFIG(treeview)
-#include <qtreeview.h>
-#include <private/qtreeview_p.h>
+#include <QtWidgets/qtreeview.h>
+#include <QtWidgets/private/qtreeview_p.h>
 #endif
-#include <private/qwidget_p.h>
+#include <QtWidgets/private/qwidget_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -90,6 +92,7 @@ inline QAccessibleInterface *QAccessibleTableCell::table() const
 
 //  from src/widgets/accessible/itemviews.cpp, line 1155, as _ZN20QAccessibleTableCell8doActionERK7QString
 #if QT_CONFIG(accessibility)
+#if defined(Q_OS_LINUX)
 inline void QAccessibleTableCell::doAction(const QString& actionName)
 {
     if (actionName == toggleAction()) {
@@ -112,6 +115,7 @@ inline void QAccessibleTableCell::doAction(const QString& actionName)
         }
     }
 }
+#endif  // defined(Q_OS_LINUX)
 #endif  // QT_CONFIG(accessibility)
 
 //  from src/widgets/accessible/itemviews.cpp, line 1252, as _ZNK20QAccessibleTableCell4roleEv
@@ -719,6 +723,7 @@ QAccessibleInterface *ritual_own_ZNK20QAccessibleTableCell5tableEv(
 #endif  // QT_CONFIG(accessibility)
 
 #if QT_CONFIG(accessibility)
+#if defined(Q_OS_LINUX)
 //  void QAccessibleTableCell::doAction(const QString &actionName)
 extern "C" Q_DECL_EXPORT
 void ritual_own_ZN20QAccessibleTableCell8doActionERK7QString(
@@ -726,7 +731,9 @@ void ritual_own_ZN20QAccessibleTableCell8doActionERK7QString(
     const QString *actionName) {
   self->QAccessibleTableCell::doAction(*actionName);
 }
+#endif  // defined(Q_OS_LINUX)
 #endif  // QT_CONFIG(accessibility)
 
 #endif  // QT_CONFIG(accessibility)
 #endif  // QT_CONFIG(itemviews)
+#endif  // QT_CONFIG(accessibility) && QT_CONFIG(itemviews)

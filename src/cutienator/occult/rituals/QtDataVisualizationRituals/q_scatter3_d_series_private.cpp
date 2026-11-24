@@ -9,11 +9,11 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qabstract3dseries_p.h"
-#include "qabstractdataproxy_p.h"
-#include "abstract3dcontroller_p.h"
-#include "qscatter3dseries_p.h"
-#include "scatter3dcontroller_p.h"
+#include <QtDataVisualization/private/qabstract3dseries_p.h>
+#include <QtDataVisualization/private/qabstractdataproxy_p.h>
+#include <QtDataVisualization/private/abstract3dcontroller_p.h>
+#include <QtDataVisualization/private/qscatter3dseries_p.h>
+#include <QtDataVisualization/private/scatter3dcontroller_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

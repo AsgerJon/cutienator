@@ -10,13 +10,13 @@
 #include <QtCore/qstring.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <private/qqmlengine_p.h>
-#include <private/qqmlirbuilder_p.h>
-#include <private/qqmlscriptblob_p.h>
-#include <private/qqmlsourcecoordinate_p.h>
-#include <private/qqmlcontextdata_p.h>
-#include <private/qv4runtimecodegen_p.h>
-#include <private/qv4script_p.h>
+#include <QtQml/private/qqmlengine_p.h>
+#include <QtQml/private/qqmlirbuilder_p.h>
+#include <QtQml/private/qqmlscriptblob_p.h>
+#include <QtQml/private/qqmlsourcecoordinate_p.h>
+#include <QtQml/private/qqmlcontextdata_p.h>
+#include <QtQml/private/qv4runtimecodegen_p.h>
+#include <QtQml/private/qv4script_p.h>
 #include <QtCore/qloggingcategory.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

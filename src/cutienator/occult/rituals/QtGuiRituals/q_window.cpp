@@ -1221,6 +1221,24 @@ QWindow *ritual_ZN7QWindow9fromWinIdEy(WId id) {
   return QWindow::fromWinId(id);
 }
 
+#if QT_CONFIG(vulkan) || defined(Q_QDOC)
+//  void QWindow::setVulkanInstance(QVulkanInstance *instance)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN7QWindow17setVulkanInstanceEP15QVulkanInstance(
+    QWindow *self,
+    QVulkanInstance *instance) {
+  self->setVulkanInstance(instance);
+}
+#endif  // QT_CONFIG(vulkan) || defined(Q_QDOC)
+
+#if QT_CONFIG(vulkan) || defined(Q_QDOC)
+//  QVulkanInstance *QWindow::vulkanInstance() const
+extern "C" Q_DECL_EXPORT
+QVulkanInstance *ritual_ZNK7QWindow14vulkanInstanceEv(const QWindow *self) {
+  return self->vulkanInstance();
+}
+#endif  // QT_CONFIG(vulkan) || defined(Q_QDOC)
+
 //  void QWindow::requestActivate()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN7QWindow15requestActivateEv(QWindow *self) {

@@ -4,6 +4,7 @@
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #if QT_CONFIG(completer)
+#if QT_CONFIG(completer)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/QtWidgets>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -14,7 +15,7 @@
 #include <QtCore/qlist.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qcompleter_p.h"
+#include <QtWidgets/private/qcompleter_p.h>
 #include "QtWidgets/qscrollbar.h"
 #include "QtCore/qdir.h"
 #if QT_CONFIG(stringlistmodel)
@@ -29,10 +30,10 @@
 #endif
 #include "QtWidgets/qapplication.h"
 #include "QtGui/qevent.h"
-#include <private/qapplication_p.h>
-#include <private/qwidget_p.h>
-#include <qpa/qplatformwindow.h>
-#include <qpa/qplatformwindow_p.h>
+#include <QtWidgets/private/qapplication_p.h>
+#include <QtWidgets/private/qwidget_p.h>
+#include <QtGui/qpa/qplatformwindow.h>
+#include <QtGui/qpa/qplatformwindow_p.h>
 #if QT_CONFIG(lineedit)
 #include "QtWidgets/qlineedit.h"
 #endif
@@ -82,6 +83,7 @@ inline void QCompletionEngine::filter(const QStringList& parts)
 }
 
 //  from src/widgets/util/qcompleter.cpp, line 446, as _ZN17QCompletionEngine13filterHistoryEv
+#if defined(Q_OS_LINUX)
 inline QMatchData QCompletionEngine::filterHistory()
 {
     QAbstractItemModel *source = c->proxy->sourceModel();
@@ -109,6 +111,7 @@ inline QMatchData QCompletionEngine::filterHistory()
     }
     return m;
 }
+#endif  // defined(Q_OS_LINUX)
 
 //  from src/widgets/util/qcompleter.cpp, line 475, as _ZNK17QCompletionEngine9matchHintERK7QStringRK11QModelIndexP10QMatchData
 inline bool QCompletionEngine::matchHint(const QString &part, const QModelIndex &parent, QMatchData *hint) const
@@ -259,6 +262,7 @@ void ritual_ZN17QCompletionEngineD1Ev(QCompletionEngine *self) {
   delete self;
 }
 
+#if defined(Q_OS_LINUX)
 //  void QCompletionEngine::filter(const QStringList &parts)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QCompletionEngine6filterERK5QListI7QStringE(
@@ -266,13 +270,16 @@ void ritual_ZN17QCompletionEngine6filterERK5QListI7QStringE(
     const QList<QString> *parts) {
   self->filter(*parts);
 }
+#endif  // defined(Q_OS_LINUX)
 
+#if defined(Q_OS_LINUX)
 //  QMatchData QCompletionEngine::filterHistory()
 extern "C" Q_DECL_EXPORT
 QMatchData *ritual_ZN17QCompletionEngine13filterHistoryEv(
     QCompletionEngine *self) {
   return new QMatchData(self->filterHistory());
 }
+#endif  // defined(Q_OS_LINUX)
 
 //  bool QCompletionEngine::matchHint(const QString &part, const QModelIndex
 //      &parent, QMatchData *m) const
@@ -351,4 +358,5 @@ void ritual_own_ZN17QCompletionEngine14filterOnDemandEi(
   self->QCompletionEngine::filterOnDemand(a0);
 }
 
+#endif  // QT_CONFIG(completer)
 #endif  // QT_CONFIG(completer)

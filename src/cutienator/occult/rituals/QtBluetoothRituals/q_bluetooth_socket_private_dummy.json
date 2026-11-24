@@ -1,0 +1,63 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtBluetooth/6.12.0/QtBluetooth/private/qbluetoothsocket_dummy_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN28QBluetoothSocketPrivateDummy22connectToServiceHelperERK17QBluetoothAddresst6QFlagsIN13QIODeviceBase12OpenModeFlagEE": [
+      "nothing", "address", "address", "unsigned short", "int"
+    ],
+    "ritual_ZN28QBluetoothSocketPrivateDummy16connectToServiceERK21QBluetoothServiceInfo6QFlagsIN13QIODeviceBase12OpenModeFlagEE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN28QBluetoothSocketPrivateDummy16connectToServiceERK17QBluetoothAddressRK14QBluetoothUuid6QFlagsIN13QIODeviceBase12OpenModeFlagEE": [
+      "nothing", "address", "address", "address", "int"
+    ],
+    "ritual_ZN28QBluetoothSocketPrivateDummy16connectToServiceERK17QBluetoothAddresst6QFlagsIN13QIODeviceBase12OpenModeFlagEE": [
+      "nothing", "address", "address", "unsigned short", "int"
+    ],
+    "ritual_ZN28QBluetoothSocketPrivateDummy18ensureNativeSocketEN21QBluetoothServiceInfo8ProtocolE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK28QBluetoothSocketPrivateDummy9localNameEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK28QBluetoothSocketPrivateDummy12localAddressEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QBluetoothSocketPrivateDummy9localPortEv": [
+      "unsigned short", "address"
+    ],
+    "ritual_ZNK28QBluetoothSocketPrivateDummy8peerNameEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK28QBluetoothSocketPrivateDummy11peerAddressEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QBluetoothSocketPrivateDummy8peerPortEv": [
+      "unsigned short", "address"
+    ],
+    "ritual_ZN28QBluetoothSocketPrivateDummy5abortEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QBluetoothSocketPrivateDummy5closeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QBluetoothSocketPrivateDummy9writeDataEPKcx": [
+      "long long", "address", "chars", "long long"
+    ],
+    "ritual_ZN28QBluetoothSocketPrivateDummy19setSocketDescriptorEiN21QBluetoothServiceInfo8ProtocolEN16QBluetoothSocket11SocketStateE6QFlagsIN13QIODeviceBase12OpenModeFlagEE": [
+      "bool", "address", "int", "int", "int", "int"
+    ],
+    "ritual_ZNK28QBluetoothSocketPrivateDummy14bytesAvailableEv": [
+      "long long", "address"
+    ],
+    "ritual_ZNK28QBluetoothSocketPrivateDummy11canReadLineEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK28QBluetoothSocketPrivateDummy12bytesToWriteEv": [
+      "long long", "address"
+    ]
+  }
+}

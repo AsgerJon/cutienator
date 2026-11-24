@@ -1,7 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qgraphicsitemanimation.h, Qt 6.12.0. Changes made here are
 //  lost.
+#include <QtCore/qglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(easingcurve) && QT_CONFIG(graphicsview)
 #if QT_CONFIG(graphicsview)
 #include <QtWidgets/qgraphicsitemanimation.h>
 #include <QtCore/qstring.h>
@@ -468,3 +470,4 @@ void ritual_own_ZN22QGraphicsItemAnimation18afterAnimationStepEd(
 }
 
 #endif  // QT_CONFIG(graphicsview)
+#endif  // QT_CONFIG(easingcurve) && QT_CONFIG(graphicsview)

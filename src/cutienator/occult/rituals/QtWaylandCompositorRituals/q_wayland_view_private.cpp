@@ -8,9 +8,9 @@
 #include <QtWaylandCompositor/6.12.0/QtWaylandCompositor/private/qwaylandview_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qwaylandview.h"
-#include "qwaylandview_p.h"
-#include "qwaylandsurface.h"
+#include <QtWaylandCompositor/qwaylandview.h>
+#include <QtWaylandCompositor/private/qwaylandview_p.h>
+#include <QtWaylandCompositor/qwaylandsurface.h>
 #include <QtWaylandCompositor/QWaylandSeat>
 #include <QtWaylandCompositor/QWaylandCompositor>
 #include <QtCore/QMutex>

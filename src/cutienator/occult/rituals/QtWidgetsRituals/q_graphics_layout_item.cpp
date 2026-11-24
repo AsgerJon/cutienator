@@ -2,6 +2,7 @@
 //  QtWidgets/qgraphicslayoutitem.h, Qt 6.12.0. Changes made here are lost.
 #include <QtWidgets/qtwidgetsglobal.h>
 #if QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 #include <QtWidgets/qgraphicslayoutitem.h>
 #include <QtWidgets/qsizepolicy.h>
 #include <QtCore/qsize.h>
@@ -473,4 +474,5 @@ bool ritual_own_ZNK19QGraphicsLayoutItem7isEmptyEv(
   return self->QGraphicsLayoutItem::isEmpty();
 }
 
+#endif  // QT_CONFIG(graphicsview)
 #endif  // QT_CONFIG(graphicsview)

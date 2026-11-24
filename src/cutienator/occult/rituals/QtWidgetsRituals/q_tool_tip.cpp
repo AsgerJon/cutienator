@@ -2,6 +2,7 @@
 //  QtWidgets/qtooltip.h, Qt 6.12.0. Changes made here are lost.
 #include <QtWidgets/qtwidgetsglobal.h>
 #if QT_CONFIG(tooltip)
+#if QT_CONFIG(tooltip)
 #include <QtWidgets/qtooltip.h>
 #include <QtCore/qpoint.h>
 #include <QtCore/qstring.h>
@@ -69,4 +70,5 @@ void ritual_ZN8QToolTipD1Ev(QToolTip *self) {
   delete self;
 }
 
+#endif  // QT_CONFIG(tooltip)
 #endif  // QT_CONFIG(tooltip)

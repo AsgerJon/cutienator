@@ -8,20 +8,20 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qscxmlcompiler_p.h"
-#include "qscxmlexecutablecontent_p.h"
-#include <qxmlstream.h>
-#include <qloggingcategory.h>
-#include <qfile.h>
-#include <qlist.h>
-#include <qstring.h>
+#include <QtScxml/private/qscxmlcompiler_p.h>
+#include <QtScxml/private/qscxmlexecutablecontent_p.h>
+#include <QtCore/qxmlstream.h>
+#include <QtCore/qloggingcategory.h>
+#include <QtCore/qfile.h>
+#include <QtCore/qlist.h>
+#include <QtCore/qstring.h>
 #ifndef BUILD_QSCXMLC
-#include "qscxmlinvokableservice_p.h"
-#include "qscxmldatamodel_p.h"
-#include "qscxmlstatemachine_p.h"
-#include "qscxmlstatemachine.h"
-#include "qscxmltabledata_p.h"
-#include <private/qmetaobjectbuilder_p.h>
+#include <QtScxml/private/qscxmlinvokableservice_p.h>
+#include <QtScxml/private/qscxmldatamodel_p.h>
+#include <QtScxml/private/qscxmlstatemachine_p.h>
+#include <QtScxml/qscxmlstatemachine.h>
+#include <QtScxml/private/qscxmltabledata_p.h>
+#include <QtCore/private/qmetaobjectbuilder_p.h>
 #endif
 #include <QtCore/qmap.h>
 #include <functional>

@@ -11,12 +11,12 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquicklabsplatformdialog_p.h"
+#include <QtLabsPlatform/private/qquicklabsplatformdialog_p.h>
 #include <QtCore/qloggingcategory.h>
 #include <QtGui/private/qguiapplication_p.h>
 #include <QtQuick/qquickitem.h>
 #include <QtQuick/qquickwindow.h>
-#include "qquicklabsplatformmessagedialog_p.h"
+#include <QtLabsPlatform/private/qquicklabsplatformmessagedialog_p.h>
 #if QT_DEPRECATED_SINCE(6, 9)
 #include <QtQml/qqmlinfo.h>
 #endif

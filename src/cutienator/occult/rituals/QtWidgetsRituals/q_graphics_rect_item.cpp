@@ -2,6 +2,7 @@
 //  QtWidgets/qgraphicsitem.h, Qt 6.12.0. Changes made here are lost.
 #include <QtWidgets/qtwidgetsglobal.h>
 #if QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 #include <QtWidgets/qgraphicsitem.h>
 #include <QtCore/qrect.h>
 #include <QtGui/qpainterpath.h>
@@ -987,4 +988,5 @@ QVariant *ritual_own_ZNK17QGraphicsRectItem9extensionERK8QVariant(
           *variant));
 }
 
+#endif  // QT_CONFIG(graphicsview)
 #endif  // QT_CONFIG(graphicsview)

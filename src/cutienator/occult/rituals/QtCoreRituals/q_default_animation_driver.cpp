@@ -4,6 +4,7 @@
 #include <QtCore/qglobal.h>
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #if QT_CONFIG(animation)
+#if QT_CONFIG(animation)
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtCore/QtCore>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -12,10 +13,10 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qabstractanimation.h"
-#include "qanimationgroup.h"
+#include <QtCore/qabstractanimation.h>
+#include <QtCore/qanimationgroup.h>
 #include <QtCore/qdebug.h>
-#include "qabstractanimation_p.h"
+#include <QtCore/private/qabstractanimation_p.h>
 #if defined(Q_OS_WASM)
 #include <QtCore/private/qwasmanimationdriver_p.h>
 #endif
@@ -384,4 +385,5 @@ void ritual_own_ZN23QDefaultAnimationDriver10timerEventEP11QTimerEvent(
       e);
 }
 
+#endif  // QT_CONFIG(animation)
 #endif  // QT_CONFIG(animation)

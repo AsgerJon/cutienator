@@ -8,13 +8,13 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qqstylekitcontrols_p.h"
-#include "qqstylekitcontrol_p.h"
-#include "qqstylekitcustomcontrol_p.h"
-#include "qqstylekitvariation_p.h"
-#include "qqstylekitstyleandthemebase_p.h"
-#include "qqstylekitstyle_p.h"
-#include "qqstylekittheme_p.h"
+#include <QtLabsStyleKit/private/qqstylekitcontrols_p.h>
+#include <QtLabsStyleKit/private/qqstylekitcontrol_p.h>
+#include <QtLabsStyleKit/private/qqstylekitcustomcontrol_p.h>
+#include <QtLabsStyleKit/private/qqstylekitvariation_p.h>
+#include <QtLabsStyleKit/private/qqstylekitstyleandthemebase_p.h>
+#include <QtLabsStyleKit/private/qqstylekitstyle_p.h>
+#include <QtLabsStyleKit/private/qqstylekittheme_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

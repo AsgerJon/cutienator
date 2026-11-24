@@ -1,6 +1,10 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtQmlModels/6.12.0/QtQmlModels/private/qsortfilterproxymodelhelper_p.h,
 //  Qt 6.12.0. Changes made here are lost.
+#include <QtCore/qglobal.h>
+#include <QtQmlModels/qtqmlmodelsglobal.h>
+#include <QtQmlModels/6.12.0/QtQmlModels/private/qtqmlmodelsglobal_p.h>
+#if QT_CONFIG(qml_sfpm_model) && QT_CONFIG(proxymodel)
 #include <QtQmlModels/6.12.0/QtQmlModels/private/qtqmlmodelsglobal_p.h>
 #include <QtQmlModels/QtQmlModels>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -946,3 +950,5 @@ bool ritual_own_ZNK27QSortFilterProxyModelHelper8lessThanERK11QModelIndexS2_(
       *a0,
       *a1);
 }
+
+#endif  // QT_CONFIG(qml_sfpm_model) && QT_CONFIG(proxymodel)

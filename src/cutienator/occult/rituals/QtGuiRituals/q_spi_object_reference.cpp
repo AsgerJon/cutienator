@@ -3,6 +3,7 @@
 //  Changes made here are lost.
 #include <QtGui/qtguiglobal.h>
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
+#if __has_include(<QtGui/6.12.0/QtGui/private/qspi_struct_marshallers_p.h>)
 #if QT_CONFIG(accessibility)
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
 #include <QtGui/QtGui>
@@ -28,3 +29,4 @@ void ritual_ZN19QSpiObjectReferenceD1Ev(QSpiObjectReference *self) {
 }
 
 #endif  // QT_CONFIG(accessibility)
+#endif  // __has_include(<QtGui/6.12.0/QtGui/private/qspi_struct_marshallers_p.h>)

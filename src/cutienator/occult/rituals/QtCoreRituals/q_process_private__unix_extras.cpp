@@ -4,6 +4,7 @@
 #include <QtCore/qglobal.h>
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #if QT_CONFIG(processenvironment)
+#if QT_CONFIG(processenvironment)
 #if QT_CONFIG(process)
 #if !(defined(Q_OS_WIN))
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
@@ -21,4 +22,5 @@ void ritual_ZN15QProcessPrivate10UnixExtrasD1Ev(
 
 #endif  // !(defined(Q_OS_WIN))
 #endif  // QT_CONFIG(process)
+#endif  // QT_CONFIG(processenvironment)
 #endif  // QT_CONFIG(processenvironment)

@@ -2,6 +2,7 @@
 //  QtCore5Compat/qtextcodec.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore5Compat/qcore5global.h>
 #if QT_CONFIG(textcodec)
+#if QT_CONFIG(textcodec)
 #include <QtCore5Compat/qtextcodec.h>
 #include <QtCore/qbytearray.h>
 #include <QtCore/qchar.h>
@@ -247,4 +248,5 @@ bool ritual_take_QTextCodec(QTextCodec *self, const char *key, void *call) {
   return static_cast<CuteQTextCodec *>(self)->take(key, call);
 }
 
+#endif  // QT_CONFIG(textcodec)
 #endif  // QT_CONFIG(textcodec)

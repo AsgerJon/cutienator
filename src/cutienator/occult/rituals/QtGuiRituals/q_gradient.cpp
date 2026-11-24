@@ -2,6 +2,7 @@
 //  QtGui/qbrush.h, Qt 6.12.0. Changes made here are lost.
 #include <QtGui/qbrush.h>
 #include <QtGui/qcolor.h>
+#include <QtCore/qlist.h>
 
 //  QGradient::QGradient()
 extern "C" Q_DECL_EXPORT
@@ -94,4 +95,38 @@ bool ritual_ZNK9QGradientneERKS_(
     const QGradient *self,
     const QGradient *other) {
   return self->operator!=(*other);
+}
+
+//  QList<QGradient>::QList()
+extern "C" Q_DECL_EXPORT
+QList<QGradient> *ritual_list_make_QGradient() {
+  return new QList<QGradient>();
+}
+
+//  void QList<QGradient>::append(const QGradient &value)
+extern "C" Q_DECL_EXPORT
+void ritual_list_add_QGradient(
+    QList<QGradient> *self,
+    const QGradient *element) {
+  self->append(*element);
+}
+
+//  qsizetype QList<QGradient>::size() const
+extern "C" Q_DECL_EXPORT
+long long ritual_list_size_QGradient(const QList<QGradient> *self) {
+  return self->size();
+}
+
+//  const QGradient &QList<QGradient>::at(qsizetype i) const
+extern "C" Q_DECL_EXPORT
+QGradient *ritual_list_at_QGradient(
+    const QList<QGradient> *self,
+    long long index) {
+  return new QGradient(self->at(index));
+}
+
+//  QList<QGradient>::~QList()
+extern "C" Q_DECL_EXPORT
+void ritual_list_drop_QGradient(QList<QGradient> *self) {
+  delete self;
 }

@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtBluetooth/6.12.0/QtBluetooth/private/adapter1_bluez5_p.h, Qt 6.12.0.
 //  Changes made here are lost.
+#include <QtBluetooth/qtbluetoothglobal.h>
+#include <QtBluetooth/6.12.0/QtBluetooth/private/qtbluetoothglobal_p.h>
+#if QT_CONFIG(bluez)
 #include <QtBluetooth/6.12.0/QtBluetooth/private/qtbluetoothglobal_p.h>
 #include <QtBluetooth/QtBluetooth>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -357,3 +360,5 @@ bool ritual_take_QtBluetoothPrivate_OrgBluezAdapter1Interface(
     void *call) {
   return static_cast<CuteQtBluetoothPrivate_OrgBluezAdapter1Interface *>(self)->take(key, call);
 }
+
+#endif  // QT_CONFIG(bluez)

@@ -6,13 +6,13 @@
 #include <QtCore/qrect.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qlayout.h"
-#include "qapplication.h"
-#include "qlayoutengine_p.h"
-#include "qevent.h"
-#include "qstyle.h"
-#include "qvariant.h"
-#include "qwidget_p.h"
+#include <QtWidgets/qlayout.h>
+#include <QtWidgets/qapplication.h>
+#include <QtWidgets/private/qlayoutengine_p.h>
+#include <QtGui/qevent.h>
+#include <QtWidgets/qstyle.h>
+#include <QtCore/qvariant.h>
+#include <QtWidgets/private/qwidget_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

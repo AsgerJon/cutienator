@@ -1,5 +1,6 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtOpenGLWidgets/qopenglwidget.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtOpenGLWidgets/qopenglwidget.h>
 #include <QtCore/qstring.h>
 #include <QtGui/qsurfaceformat.h>

@@ -1,0 +1,34 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qrhivulkan_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN22QVkTextureRenderTargetD1Ev": ["nothing", "address"],
+    "ritual_ZN22QVkTextureRenderTarget7destroyEv": ["nothing", "address"],
+    "ritual_ZNK22QVkTextureRenderTarget9pixelSizeEv": ["address", "address"],
+    "ritual_ZNK22QVkTextureRenderTarget16devicePixelRatioEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK22QVkTextureRenderTarget11sampleCountEv": ["int", "address"],
+    "ritual_ZN22QVkTextureRenderTarget33newCompatibleRenderPassDescriptorEv": [
+      "address", "address"
+    ],
+    "ritual_take_QVkTextureRenderTarget": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN22QVkTextureRenderTarget7destroyEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZNK22QVkTextureRenderTarget9pixelSizeEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK22QVkTextureRenderTarget16devicePixelRatioEv": [
+      "float", "address"
+    ],
+    "ritual_own_ZNK22QVkTextureRenderTarget11sampleCountEv": [
+      "int", "address"
+    ]
+  }
+}

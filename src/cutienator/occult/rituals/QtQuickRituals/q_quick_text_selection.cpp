@@ -13,9 +13,9 @@
 #include <QtGui/qtextcursor.h>
 #include <QtGui/qtextformat.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquicktextselection_p.h"
-#include <QFont>
-#include <QTextOption>
+#include <QtQuick/private/qquicktextselection_p.h>
+#include <QtGui/QFont>
+#include <QtGui/QTextOption>
 #include <QtQuick/private/qquicktextcontrol_p.h>
 #include <QtQuick/private/qquicktextcontrol_p_p.h>
 #include <QtQuick/private/qquicktextedit_p_p.h>

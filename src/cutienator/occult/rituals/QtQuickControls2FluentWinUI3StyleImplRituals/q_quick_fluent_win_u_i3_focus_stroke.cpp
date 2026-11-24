@@ -9,7 +9,7 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/qcolor.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquickfluentwinui3focusstroke_p.h"
+#include <QtQuickControls2FluentWinUI3StyleImpl/private/qquickfluentwinui3focusstroke_p.h>
 #include <QtGui/qpainter.h>
 #include <QtGui/qpainterpath.h>
 #include <QtQuick/private/qquickitem_p.h>

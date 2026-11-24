@@ -1,6 +1,10 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtQuick/6.12.0/QtQuick/private/qquickwheelhandler_p_p.h, Qt 6.12.0.
 //  Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
+#include <QtQuick/qtquickglobal.h>
+#include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
+#if QT_CONFIG(wheelevent)
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #include <QtQuick/QtQuick>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -100,3 +104,5 @@ bool ritual_take_QQuickWheelHandlerPrivate(
     void *call) {
   return static_cast<CuteQQuickWheelHandlerPrivate *>(self)->take(key, call);
 }
+
+#endif  // QT_CONFIG(wheelevent)

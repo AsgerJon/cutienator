@@ -11,9 +11,9 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtOpenGL/qopenglpixeltransferoptions.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qopengltexturehelper_p.h"
-#include <QOpenGLContext>
-#include <private/qopenglextensions_p.h>
+#include <QtOpenGL/private/qopengltexturehelper_p.h>
+#include <QtGui/QOpenGLContext>
+#include <QtGui/private/qopenglextensions_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

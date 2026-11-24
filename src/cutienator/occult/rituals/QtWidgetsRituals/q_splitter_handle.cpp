@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qsplitter.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(splitter)
 #if QT_CONFIG(splitter)
 #include <QtWidgets/qsplitter.h>
 #include <QtCore/qstring.h>
@@ -1115,4 +1117,5 @@ bool ritual_own_ZN15QSplitterHandle5eventEP6QEvent(
       a0);
 }
 
+#endif  // QT_CONFIG(splitter)
 #endif  // QT_CONFIG(splitter)

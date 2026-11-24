@@ -4,20 +4,21 @@
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #if QT_CONFIG(treewidget)
+#if QT_CONFIG(treewidget)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/QtWidgets>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/6.12.0/QtWidgets/private/qtreewidget_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qtreewidget.h"
-#include <qheaderview.h>
-#include <qpainter.h>
-#include <qstack.h>
-#include <qdebug.h>
-#include <private/qtreewidget_p.h>
-#include <private/qwidgetitemdata_p.h>
-#include <private/qtreewidgetitemiterator_p.h>
+#include <QtWidgets/qtreewidget.h>
+#include <QtWidgets/qheaderview.h>
+#include <QtGui/qpainter.h>
+#include <QtCore/qstack.h>
+#include <QtCore/qdebug.h>
+#include <QtWidgets/private/qtreewidget_p.h>
+#include <QtWidgets/private/qwidgetitemdata_p.h>
+#include <QtWidgets/private/qtreewidgetitemiterator_p.h>
 #include <QtCore/private/qduplicatetracker_p.h>
 #include <algorithm>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -222,4 +223,5 @@ void ritual_ZN22QTreeWidgetItemPrivateD1Ev(QTreeWidgetItemPrivate *self) {
   delete self;
 }
 
+#endif  // QT_CONFIG(treewidget)
 #endif  // QT_CONFIG(treewidget)

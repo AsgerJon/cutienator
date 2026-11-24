@@ -9,7 +9,7 @@
 #include <QtCore/qurl.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qspatialaudiosound_p.h"
+#include <QtSpatialAudio/private/qspatialaudiosound_p.h>
 #include <QtMultimedia/qaudiosink.h>
 #include <QtMultimedia/private/qaudio_qspan_support_p.h>
 #include <QtMultimedia/private/qaudiohelpers_p.h>

@@ -2,6 +2,7 @@
 //  QtWidgets/qbuttongroup.h, Qt 6.12.0. Changes made here are lost.
 #include <QtWidgets/qtwidgetsglobal.h>
 #if QT_CONFIG(buttongroup)
+#if QT_CONFIG(buttongroup)
 #include <QtWidgets/qbuttongroup.h>
 #include <QtCore/qstring.h>
 #include <QtWidgets/qabstractbutton.h>
@@ -301,4 +302,5 @@ bool ritual_take_QButtonGroup(
   return static_cast<CuteQButtonGroup *>(self)->take(key, call);
 }
 
+#endif  // QT_CONFIG(buttongroup)
 #endif  // QT_CONFIG(buttongroup)

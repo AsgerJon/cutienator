@@ -8,8 +8,8 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qrect.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qopengl2pexvertexarray_p.h"
-#include <private/qbezier_p.h>
+#include <QtOpenGL/private/qopengl2pexvertexarray_p.h>
+#include <QtGui/private/qbezier_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

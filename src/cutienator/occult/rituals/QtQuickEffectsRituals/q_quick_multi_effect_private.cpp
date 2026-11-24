@@ -17,15 +17,15 @@
 #include <QtCore/qstring.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qgfxsourceproxy_p.h"
-#include <private/qquickshadereffectsource_p.h>
-#include <private/qquickitem_p.h>
-#include <private/qquickimage_p.h>
-#include "qtypes.h"
+#include <QtQuickEffects/private/qgfxsourceproxy_p.h>
+#include <QtQuick/private/qquickshadereffectsource_p.h>
+#include <QtQuick/private/qquickitem_p.h>
+#include <QtQuick/private/qquickimage_p.h>
+#include <QtCore/qtypes.h>
 #include <QtQml/qqmlcomponent.h>
-#include <private/qquickmultieffect_p_p.h>
-#include <private/qquickshadereffect_p.h>
-#include <private/qquickshadereffectsource_p.h>
+#include <QtQuickEffects/private/qquickmultieffect_p_p.h>
+#include <QtQuick/private/qquickshadereffect_p.h>
+#include <QtQuick/private/qquickshadereffectsource_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

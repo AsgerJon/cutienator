@@ -2,6 +2,7 @@
 //  QtCore/qcborstreamwriter.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qglobal.h>
 #if QT_CONFIG(cborstreamwriter)
+#if QT_CONFIG(cborstreamwriter)
 #include <QtCore/qcborstreamwriter.h>
 #include <QtCore/qbytearrayview.h>
 #include <QtCore/qlatin1stringview.h>
@@ -246,4 +247,5 @@ bool ritual_ZN17QCborStreamWriter6endMapEv(QCborStreamWriter *self) {
   return self->endMap();
 }
 
+#endif  // QT_CONFIG(cborstreamwriter)
 #endif  // QT_CONFIG(cborstreamwriter)

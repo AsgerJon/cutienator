@@ -14,11 +14,11 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/qfont.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquickfontdialogimpl_p.h"
-#include "qquickfontdialogimpl_p_p.h"
+#include <QtQuickDialogs2QuickImpl/private/qquickfontdialogimpl_p.h>
+#include <QtQuickDialogs2QuickImpl/private/qquickfontdialogimpl_p_p.h>
 #include <QtQuickTemplates2/private/qquickdialogbuttonbox_p_p.h>
-#include <private/qfontdatabase_p.h>
-#include <QRegularExpression>
+#include <QtGui/private/qfontdatabase_p.h>
+#include <QtCore/QRegularExpression>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

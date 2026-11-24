@@ -4,43 +4,44 @@
 #include <QtNetwork/qtnetworkglobal.h>
 #include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
 #if QT_CONFIG(http)
+#if QT_CONFIG(http)
 #include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
 #include <QtNetwork/QtNetwork>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtNetwork/6.12.0/QtNetwork/private/qhttp2protocolhandler_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qhttpnetworkrequest_p.h"
-#include "private/qnoncontiguousbytedevice_p.h"
+#include <QtNetwork/private/qhttpnetworkrequest_p.h>
+#include <QtCore/private/qnoncontiguousbytedevice_p.h>
 #include <QtCore/private/qtools_p.h>
-#include "qhttpnetworkreply_p.h"
-#include "qhttpnetworkconnection_p.h"
+#include <QtNetwork/private/qhttpnetworkreply_p.h>
+#include <QtNetwork/private/qhttpnetworkconnection_p.h>
 #ifndef QT_NO_SSL
 #    include <QtNetwork/qsslkey.h>
 #    include <QtNetwork/qsslcipher.h>
 #    include <QtNetwork/qsslconfiguration.h>
 #endif
-#include <private/qdecompresshelper_p.h>
-#include "qhttpnetworkconnectionchannel_p.h"
-#include "qhttpnetworkconnection_p.h"
-#include "private/qnoncontiguousbytedevice_p.h"
-#include <qdebug.h>
-#include <private/qhttp2protocolhandler_p.h>
-#include <private/qhttpprotocolhandler_p.h>
-#include <private/http2protocol_p.h>
-#include <private/qsocketabstraction_p.h>
+#include <QtNetwork/private/qdecompresshelper_p.h>
+#include <QtNetwork/private/qhttpnetworkconnectionchannel_p.h>
+#include <QtNetwork/private/qhttpnetworkconnection_p.h>
+#include <QtCore/private/qnoncontiguousbytedevice_p.h>
+#include <QtCore/qdebug.h>
+#include <QtNetwork/private/qhttp2protocolhandler_p.h>
+#include <QtNetwork/private/qhttpprotocolhandler_p.h>
+#include <QtNetwork/private/http2protocol_p.h>
+#include <QtNetwork/private/qsocketabstraction_p.h>
 #ifndef QT_NO_SSL
-#    include <private/qsslsocket_p.h>
+#    include <QtNetwork/private/qsslsocket_p.h>
 #    include <QtNetwork/qsslkey.h>
 #    include <QtNetwork/qsslcipher.h>
 #endif
 #include <QtNetwork/private/qtnetworkglobal_p.h>
 #include <memory>
 #include <utility>
-#include "qhttpnetworkconnection_p.h"
-#include "qhttp2protocolhandler_p.h"
-#include <private/qnoncontiguousbytedevice_p.h>
-#include <private/qsocketabstraction_p.h>
+#include <QtNetwork/private/qhttpnetworkconnection_p.h>
+#include <QtNetwork/private/qhttp2protocolhandler_p.h>
+#include <QtCore/private/qnoncontiguousbytedevice_p.h>
+#include <QtNetwork/private/qsocketabstraction_p.h>
 #include <QtNetwork/qabstractsocket.h>
 #include <QtCore/qloggingcategory.h>
 #include <QtCore/qendian.h>
@@ -48,11 +49,11 @@
 #include <QtCore/qlist.h>
 #include <QtCore/qnumeric.h>
 #include <QtCore/qurl.h>
-#include <qhttp2configuration.h>
+#include <QtNetwork/qhttp2configuration.h>
 #ifndef QT_NO_NETWORKPROXY
 #  include <QtNetwork/qnetworkproxy.h>
 #endif
-#include <qcoreapplication.h>
+#include <QtCore/qcoreapplication.h>
 #include <algorithm>
 #include <vector>
 #include <optional>
@@ -296,4 +297,5 @@ void ritual_own_ZN21QHttp2ProtocolHandler15_q_receiveReplyEv(
   self->QHttp2ProtocolHandler::_q_receiveReply();
 }
 
+#endif  // QT_CONFIG(http)
 #endif  // QT_CONFIG(http)

@@ -3,6 +3,7 @@
 //  Changes made here are lost.
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
+#if QT_CONFIG(style_stylesheet)
 #if QT_CONFIG(style_windows)
 #if QT_CONFIG(style_stylesheet)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
@@ -13,86 +14,86 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <qglobal.h>
-#include "qstylesheetstyle_p.h"
+#include <QtCore/qglobal.h>
+#include <QtWidgets/private/qstylesheetstyle_p.h>
 #if QT_CONFIG(style_stylesheet)
-#include "private/qcssutil_p.h"
-#include <qdebug.h>
-#include <qdir.h>
-#include <qapplication.h>
+#include <QtGui/private/qcssutil_p.h>
+#include <QtCore/qdebug.h>
+#include <QtCore/qdir.h>
+#include <QtWidgets/qapplication.h>
 #if QT_CONFIG(menu)
-#include <qmenu.h>
+#include <QtWidgets/qmenu.h>
 #endif
 #if QT_CONFIG(menubar)
-#include <qmenubar.h>
+#include <QtWidgets/qmenubar.h>
 #endif
-#include <qpainter.h>
-#include <qstyleoption.h>
+#include <QtGui/qpainter.h>
+#include <QtWidgets/qstyleoption.h>
 #if QT_CONFIG(lineedit)
-#include <qlineedit.h>
+#include <QtWidgets/qlineedit.h>
 #endif
 #if QT_CONFIG(textedit)
-#include <qtextedit.h>
-#include <qplaintextedit.h>
+#include <QtWidgets/qtextedit.h>
+#include <QtWidgets/qplaintextedit.h>
 #endif
-#include <private/qwindowsstyle_p.h>
+#include <QtWidgets/private/qwindowsstyle_p.h>
 #if QT_CONFIG(combobox)
-#include <qcombobox.h>
+#include <QtWidgets/qcombobox.h>
 #endif
-#include "private/qcssparser_p.h"
-#include "private/qmath_p.h"
-#include <qabstractscrollarea.h>
-#include "private/qabstractscrollarea_p.h"
+#include <QtGui/private/qcssparser_p.h>
+#include <QtGui/private/qmath_p.h>
+#include <QtWidgets/qabstractscrollarea.h>
+#include <QtWidgets/private/qabstractscrollarea_p.h>
 #if QT_CONFIG(tooltip)
-#include "private/qtooltip_p.h"
+#include <QtWidgets/private/qtooltip_p.h>
 #endif
-#include <qshareddata.h>
+#include <QtCore/qshareddata.h>
 #if QT_CONFIG(toolbutton)
-#include <qtoolbutton.h>
+#include <QtWidgets/qtoolbutton.h>
 #endif
 #if QT_CONFIG(scrollbar)
-#include <qscrollbar.h>
+#include <QtWidgets/qscrollbar.h>
 #endif
 #if QT_CONFIG(abstractslider)
-#include <qabstractslider.h>
+#include <QtWidgets/qabstractslider.h>
 #endif
-#include <qstring.h>
-#include <qfile.h>
+#include <QtCore/qstring.h>
+#include <QtCore/qfile.h>
 #if QT_CONFIG(checkbox)
-#include <qcheckbox.h>
+#include <QtWidgets/qcheckbox.h>
 #endif
 #if QT_CONFIG(itemviews)
-#include <qheaderview.h>
+#include <QtWidgets/qheaderview.h>
 #endif
-#include <private/qwindowsstyle_p_p.h>
+#include <QtWidgets/private/qwindowsstyle_p_p.h>
 #if QT_CONFIG(animation)
-#include <private/qstyleanimation_p.h>
+#include <QtWidgets/private/qstyleanimation_p.h>
 #endif
 #if QT_CONFIG(tabbar)
-#include <private/qtabbar_p.h>
+#include <QtWidgets/private/qtabbar_p.h>
 #endif
-#include <QMetaProperty>
+#include <QtCore/QMetaProperty>
 #if QT_CONFIG(mainwindow)
-#include <qmainwindow.h>
+#include <QtWidgets/qmainwindow.h>
 #endif
 #if QT_CONFIG(dockwidget)
-#include <qdockwidget.h>
+#include <QtWidgets/qdockwidget.h>
 #endif
 #if QT_CONFIG(mdiarea)
-#include <qmdisubwindow.h>
+#include <QtWidgets/qmdisubwindow.h>
 #endif
 #if QT_CONFIG(dialog)
-#include <qdialog.h>
+#include <QtWidgets/qdialog.h>
 #endif
-#include <private/qwidget_p.h>
+#include <QtWidgets/private/qwidget_p.h>
 #if QT_CONFIG(spinbox)
-#include <QAbstractSpinBox>
+#include <QtWidgets/QAbstractSpinBox>
 #endif
 #if QT_CONFIG(label)
-#include <QLabel>
+#include <QtWidgets/QLabel>
 #endif
-#include "qdrawutil.h"
-#include "qstylehelper_p.h"
+#include <QtWidgets/qdrawutil.h>
+#include <QtWidgets/private/qstylehelper_p.h>
 #include <limits.h>
 #if QT_CONFIG(toolbar)
 #include <QtWidgets/qtoolbar.h>
@@ -319,3 +320,4 @@ bool ritual_take_QStyleSheetStyleCaches(
 
 #endif  // QT_CONFIG(style_stylesheet)
 #endif  // QT_CONFIG(style_windows)
+#endif  // QT_CONFIG(style_stylesheet)

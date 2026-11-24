@@ -2,6 +2,7 @@
 //  QtCore/qresultstore.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qglobal.h>
 #if QT_CONFIG(future)
+#if QT_CONFIG(future)
 #include <QtCore/qresultstore.h>
 
 //  bool operator==(const ResultIteratorBase &lhs, const ResultIteratorBase
@@ -29,4 +30,5 @@ void ritual_ZN9QtPrivate18ResultIteratorBaseD1Ev(
   delete self;
 }
 
+#endif  // QT_CONFIG(future)
 #endif  // QT_CONFIG(future)

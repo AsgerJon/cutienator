@@ -8,11 +8,11 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qsgnode.h"
-#include "qsgnode_p.h"
-#include "qsgrenderer_p.h"
-#include "qsgnodeupdater_p.h"
-#include "qsgmaterial.h"
+#include <QtQuick/qsgnode.h>
+#include <QtQuick/private/qsgnode_p.h>
+#include <QtQuick/private/qsgrenderer_p.h>
+#include <QtQuick/private/qsgnodeupdater_p.h>
+#include <QtQuick/qsgmaterial.h>
 #include <algorithm>
 #include "limits.h"
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER

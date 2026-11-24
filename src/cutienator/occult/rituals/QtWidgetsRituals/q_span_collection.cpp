@@ -4,31 +4,32 @@
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #if QT_CONFIG(tableview)
+#if QT_CONFIG(tableview)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/QtWidgets>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/6.12.0/QtWidgets/private/qtableview_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qtableview.h"
-#include <qheaderview.h>
-#include <qabstractitemdelegate.h>
-#include <qapplication.h>
-#include <qpainter.h>
-#include <qstyle.h>
-#include <qsize.h>
-#include <qevent.h>
-#include <qbitarray.h>
-#include <qscrollbar.h>
+#include <QtWidgets/qtableview.h>
+#include <QtWidgets/qheaderview.h>
+#include <QtWidgets/qabstractitemdelegate.h>
+#include <QtWidgets/qapplication.h>
+#include <QtGui/qpainter.h>
+#include <QtWidgets/qstyle.h>
+#include <QtCore/qsize.h>
+#include <QtGui/qevent.h>
+#include <QtCore/qbitarray.h>
+#include <QtWidgets/qscrollbar.h>
 #if QT_CONFIG(abstractbutton)
-#include <qabstractbutton.h>
+#include <QtWidgets/qabstractbutton.h>
 #endif
-#include <private/qapplication_p.h>
-#include <private/qtableview_p.h>
-#include <private/qheaderview_p.h>
-#include <private/qscrollbar_p.h>
+#include <QtWidgets/private/qapplication_p.h>
+#include <QtWidgets/private/qtableview_p.h>
+#include <QtWidgets/private/qheaderview_p.h>
+#include <QtWidgets/private/qscrollbar_p.h>
 #if QT_CONFIG(accessibility)
-#include <qaccessible.h>
+#include <QtGui/qaccessible.h>
 #endif
 #include <algorithm>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -522,4 +523,5 @@ void ritual_ZN15QSpanCollection20updateRemovedColumnsEii(
   self->updateRemovedColumns(start, end);
 }
 
+#endif  // QT_CONFIG(tableview)
 #endif  // QT_CONFIG(tableview)

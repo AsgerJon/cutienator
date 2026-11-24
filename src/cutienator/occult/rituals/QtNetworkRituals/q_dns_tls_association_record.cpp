@@ -2,6 +2,7 @@
 //  QtNetwork/qdnslookup.h, Qt 6.12.0. Changes made here are lost.
 #include <QtNetwork/qtnetworkglobal.h>
 #if QT_CONFIG(dnslookup)
+#if QT_CONFIG(dnslookup)
 #include <QtNetwork/qdnslookup.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qbytearray.h>
@@ -108,4 +109,5 @@ void ritual_list_drop_QDnsTlsAssociationRecord(
   delete self;
 }
 
+#endif  // QT_CONFIG(dnslookup)
 #endif  // QT_CONFIG(dnslookup)

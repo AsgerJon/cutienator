@@ -15,9 +15,9 @@
 #include <QtCore/qrect.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquickanchors_p_p.h"
-#include "qquickitem_p.h"
-#include <qqmlinfo.h>
+#include <QtQuick/private/qquickanchors_p_p.h>
+#include <QtQuick/private/qquickitem_p.h>
+#include <QtQml/qqmlinfo.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

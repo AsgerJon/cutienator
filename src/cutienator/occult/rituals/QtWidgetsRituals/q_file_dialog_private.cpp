@@ -1,8 +1,10 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/6.12.0/QtWidgets/private/qfiledialog_p.h, Qt 6.12.0. Changes
 //  made here are lost.
+#include <QtCore/qglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
+#if QT_CONFIG(filedialog)
 #if QT_CONFIG(filedialog)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/qfiledialog.h>
@@ -23,39 +25,39 @@
 #include <QtCore/qlist.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <qvariant.h>
-#include <private/qwidgetitemdata_p.h>
-#include "qfiledialog.h"
-#include "qfiledialog_p.h"
-#include <private/qapplication_p.h>
-#include <private/qguiapplication_p.h>
-#include <qfontmetrics.h>
-#include <qaction.h>
-#include <qactiongroup.h>
-#include <qheaderview.h>
+#include <QtCore/qvariant.h>
+#include <QtWidgets/private/qwidgetitemdata_p.h>
+#include <QtWidgets/qfiledialog.h>
+#include <QtWidgets/private/qfiledialog_p.h>
+#include <QtWidgets/private/qapplication_p.h>
+#include <QtGui/private/qguiapplication_p.h>
+#include <QtGui/qfontmetrics.h>
+#include <QtWidgets/qaction.h>
+#include <QtWidgets/qactiongroup.h>
+#include <QtWidgets/qheaderview.h>
 #if QT_CONFIG(shortcut)
-#  include <qshortcut.h>
+#  include <QtWidgets/qshortcut.h>
 #endif
-#include <qgridlayout.h>
+#include <QtWidgets/qgridlayout.h>
 #if QT_CONFIG(menu)
-#include <qmenu.h>
+#include <QtWidgets/qmenu.h>
 #endif
 #if QT_CONFIG(messagebox)
-#include <qmessagebox.h>
+#include <QtWidgets/qmessagebox.h>
 #endif
 #include <stdlib.h>
 #if QT_CONFIG(settings)
-#include <qsettings.h>
+#include <QtCore/qsettings.h>
 #endif
-#include <qdebug.h>
+#include <QtCore/qdebug.h>
 #if QT_CONFIG(mimetype)
-#include <qmimedatabase.h>
+#include <QtCore/qmimedatabase.h>
 #endif
 #if QT_CONFIG(regularexpression)
-#include <qregularexpression.h>
+#include <QtCore/qregularexpression.h>
 #endif
-#include <qapplication.h>
-#include <qstylepainter.h>
+#include <QtWidgets/qapplication.h>
+#include <QtWidgets/qstylepainter.h>
 #if defined(Q_OS_UNIX)
 #include <pwd.h>
 #include <unistd.h> // for pathconf() on OS X
@@ -63,12 +65,12 @@
 #  include <QtCore/qt_windows.h>
 #endif
 #if defined(Q_OS_WASM)
-#include <private/qwasmlocalfileaccess_p.h>
+#include <QtGui/private/qwasmlocalfileaccess_p.h>
 #endif
 #include <algorithm>
-#include <QMetaEnum>
+#include <QtCore/QMetaEnum>
 #if QT_CONFIG(shortcut)
-#  include <qshortcut.h>
+#  include <QtWidgets/qshortcut.h>
 #endif
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
@@ -1247,4 +1249,5 @@ void ritual_own_ZN18QFileDialogPrivate10helperDoneEN7QDialog10DialogCodeEP21QPla
   self->QFileDialogPrivate::helperDone(a0, a1);
 }
 
+#endif  // QT_CONFIG(filedialog)
 #endif  // QT_CONFIG(filedialog)

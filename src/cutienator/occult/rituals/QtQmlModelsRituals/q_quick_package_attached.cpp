@@ -4,6 +4,7 @@
 #include <QtQmlModels/qtqmlmodelsglobal.h>
 #include <QtQmlModels/6.12.0/QtQmlModels/private/qtqmlmodelsglobal_p.h>
 #if QT_CONFIG(qml_delegate_model)
+#if QT_CONFIG(qml_delegate_model)
 #include <QtQmlModels/6.12.0/QtQmlModels/private/qtqmlmodelsglobal_p.h>
 #include <QtQmlModels/QtQmlModels>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -13,9 +14,9 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquickpackage_p.h"
-#include <private/qobject_p.h>
-#include <private/qqmlguard_p.h>
+#include <QtQmlModels/private/qquickpackage_p.h>
+#include <QtCore/private/qobject_p.h>
+#include <QtQml/private/qqmlguard_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -243,4 +244,5 @@ bool ritual_take_QQuickPackageAttached(
   return static_cast<CuteQQuickPackageAttached *>(self)->take(key, call);
 }
 
+#endif  // QT_CONFIG(qml_delegate_model)
 #endif  // QT_CONFIG(qml_delegate_model)

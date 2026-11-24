@@ -1,7 +1,10 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtPrintSupport/qprintpreviewdialog.h, Qt 6.12.0. Changes made here are
 //  lost.
+#include <QtWidgets/qtwidgetsglobal.h>
+#include <QtGui/qtguiglobal.h>
 #include <QtPrintSupport/qtprintsupportglobal.h>
+#if QT_CONFIG(printpreviewdialog)
 #if QT_CONFIG(printpreviewdialog)
 #include <QtPrintSupport/qprintpreviewdialog.h>
 #include <QtCore/qstring.h>
@@ -1123,4 +1126,5 @@ void ritual_own_ZN19QPrintPreviewDialog4doneEi(
   self->QPrintPreviewDialog::done(result);
 }
 
+#endif  // QT_CONFIG(printpreviewdialog)
 #endif  // QT_CONFIG(printpreviewdialog)

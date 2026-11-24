@@ -7,11 +7,11 @@
 #include <QtQml/6.12.0/QtQml/private/qqmllist_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qqmllist.h"
-#include "qqmllist_p.h"
-#include <private/qqmlcontextdata_p.h>
-#include <private/qqmlproperty_p.h>
-#include <private/qqmlpropertycache_p.h>
+#include <QtQml/qqmllist.h>
+#include <QtQml/private/qqmllist_p.h>
+#include <QtQml/private/qqmlcontextdata_p.h>
+#include <QtQml/private/qqmlproperty_p.h>
+#include <QtQml/private/qqmlpropertycache_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

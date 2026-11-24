@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/6.12.0/QtWidgets/private/qwidgetwindow_p.h, Qt 6.12.0. Changes
 //  made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/QtWidgets>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -11,20 +12,20 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "private/qwindow_p.h"
-#include "qwidgetwindow_p.h"
-#include "qlayout.h"
-#include "private/qwidget_p.h"
-#include "private/qapplication_p.h"
+#include <QtGui/private/qwindow_p.h>
+#include <QtWidgets/private/qwidgetwindow_p.h>
+#include <QtWidgets/qlayout.h>
+#include <QtWidgets/private/qwidget_p.h>
+#include <QtWidgets/private/qapplication_p.h>
 #if QT_CONFIG(accessibility)
 #include <QtGui/qaccessible.h>
 #endif
-#include <private/qwidgetrepaintmanager_p.h>
-#include <qpa/qwindowsysteminterface_p.h>
-#include <qpa/qplatformtheme.h>
-#include <qpa/qplatformwindow.h>
-#include <private/qgesturemanager_p.h>
-#include <private/qhighdpiscaling_p.h>
+#include <QtWidgets/private/qwidgetrepaintmanager_p.h>
+#include <QtGui/qpa/qwindowsysteminterface_p.h>
+#include <QtGui/qpa/qplatformtheme.h>
+#include <QtGui/qpa/qplatformwindow.h>
+#include <QtWidgets/private/qgesturemanager_p.h>
+#include <QtGui/private/qhighdpiscaling_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

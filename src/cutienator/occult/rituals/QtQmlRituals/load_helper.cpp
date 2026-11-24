@@ -8,17 +8,17 @@
 #include <QtQml/6.12.0/QtQml/private/qqmltype_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qqmlengine_p.h"
-#include "qqmlengine.h"
-#include <private/qqmlcontext_p.h>
-#include <private/qqmlpluginimporter_p.h>
-#include <private/qqmlprofiler_p.h>
-#include <private/qqmlscriptdata_p.h>
-#include <private/qqmlsourcecoordinate_p.h>
-#include <private/qqmltype_p.h>
-#include <private/qqmltypedata_p.h>
-#include <private/qqmlvmemetaobject_p.h>
-#include <private/qqmlcomponent_p.h>
+#include <QtQml/private/qqmlengine_p.h>
+#include <QtQml/qqmlengine.h>
+#include <QtQml/private/qqmlcontext_p.h>
+#include <QtQml/private/qqmlpluginimporter_p.h>
+#include <QtQml/private/qqmlprofiler_p.h>
+#include <QtQml/private/qqmlscriptdata_p.h>
+#include <QtQml/private/qqmlsourcecoordinate_p.h>
+#include <QtQml/private/qqmltype_p.h>
+#include <QtQml/private/qqmltypedata_p.h>
+#include <QtQml/private/qqmlvmemetaobject_p.h>
+#include <QtQml/private/qqmlcomponent_p.h>
 #include <QtQml/qqml.h>
 #include <QtQml/qqmlcomponent.h>
 #include <QtQml/qqmlcontext.h>
@@ -39,7 +39,7 @@
 #include <QtNetwork/qnetworkaccessmanager.h>
 #endif
 #ifdef Q_OS_WIN
-#  include <qt_windows.h>
+#  include <QtCore/qt_windows.h>
 #  include <shlobj.h>
 #  include <QtCore/qlibrary.h>
 #endif

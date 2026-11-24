@@ -7,12 +7,12 @@
 #include <QtQuick3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssgrenderpass_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qssgrenderpass_p.h"
-#include "qssgrhiquadrenderer_p.h"
-#include "qssglayerrenderdata_p.h"
-#include "qssgdebugdrawsystem_p.h"
-#include "qssgrenderhelpers_p.h"
-#include "qssgrendercommands_p.h"
+#include <QtQuick3DRuntimeRender/private/qssgrenderpass_p.h>
+#include <QtQuick3DRuntimeRender/private/qssgrhiquadrenderer_p.h>
+#include <QtQuick3DRuntimeRender/private/qssglayerrenderdata_p.h>
+#include <QtQuick3DRuntimeRender/private/qssgdebugdrawsystem_p.h>
+#include <QtQuick3DRuntimeRender/private/qssgrenderhelpers_p.h>
+#include <QtQuick3DRuntimeRender/private/qssgrendercommands_p.h>
 #include <QtQuick/private/qsgrenderer_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

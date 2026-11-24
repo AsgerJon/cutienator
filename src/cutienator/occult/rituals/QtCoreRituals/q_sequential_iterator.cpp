@@ -4,10 +4,4 @@
 #if QT_DEPRECATED_SINCE(6, 15)
 #include <QtCore/qsequentialiterable.h>
 
-//  QSequentialIterator::~QSequentialIterator()
-extern "C" Q_DECL_EXPORT
-void ritual_ZN19QSequentialIteratorD1Ev(QSequentialIterator *self) {
-  delete self;
-}
-
 #endif  // QT_DEPRECATED_SINCE(6, 15)

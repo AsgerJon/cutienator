@@ -14,9 +14,9 @@
 #include <QtCore/qlist.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qcoapresourcediscoveryreply_p.h"
-#include "qcoapinternalreply_p.h"
-#include "qcoapnamespace_p.h"
+#include <QtCoap/private/qcoapresourcediscoveryreply_p.h>
+#include <QtCoap/private/qcoapinternalreply_p.h>
+#include <QtCoap/private/qcoapnamespace_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

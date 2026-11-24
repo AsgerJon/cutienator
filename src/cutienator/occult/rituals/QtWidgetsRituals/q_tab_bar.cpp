@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qtabbar.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(tabbar)
 #if QT_CONFIG(tabbar)
 #include <QtWidgets/qtabbar.h>
 #include <QtCore/qstring.h>
@@ -1868,4 +1870,5 @@ void ritual_own_ZNK7QTabBar15initStyleOptionEP15QStyleOptionTabi(
       tabIndex);
 }
 
+#endif  // QT_CONFIG(tabbar)
 #endif  // QT_CONFIG(tabbar)

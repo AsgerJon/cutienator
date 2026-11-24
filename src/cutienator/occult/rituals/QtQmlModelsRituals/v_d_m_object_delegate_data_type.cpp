@@ -1,16 +1,19 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtQmlModels/6.12.0/QtQmlModels/private/qqmldmobjectdata_p.h, Qt 6.12.0.
 //  Changes made here are lost.
+#include <QtQmlModels/qtqmlmodelsglobal.h>
+#include <QtQmlModels/6.12.0/QtQmlModels/private/qtqmlmodelsglobal_p.h>
+#if QT_CONFIG(qml_delegate_model)
 #include <QtQmlModels/6.12.0/QtQmlModels/private/qtqmlmodelsglobal_p.h>
 #include <QtQmlModels/QtQmlModels>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQmlModels/6.12.0/QtQmlModels/private/qqmldmobjectdata_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qqmladaptormodel_p.h"
-#include <private/qqmldmabstractitemmodeldata_p.h>
-#include <private/qqmldmlistaccessordata_p.h>
-#include <private/qqmldmobjectdata_p.h>
+#include <QtQmlModels/private/qqmladaptormodel_p.h>
+#include <QtQmlModels/private/qqmldmabstractitemmodeldata_p.h>
+#include <QtQmlModels/private/qqmldmlistaccessordata_p.h>
+#include <QtQmlModels/private/qqmldmobjectdata_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -40,3 +43,5 @@ QQmlAdaptorModel::Accessors *ritual_cast_VDMObjectDelegateDataType_QQmlAdaptorMo
     VDMObjectDelegateDataType *self) {
   return static_cast<QQmlAdaptorModel::Accessors *>(self);
 }
+
+#endif  // QT_CONFIG(qml_delegate_model)

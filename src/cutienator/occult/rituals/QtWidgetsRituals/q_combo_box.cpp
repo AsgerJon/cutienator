@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qcombobox.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(combobox)
 #if QT_CONFIG(combobox)
 #include <QtWidgets/qcombobox.h>
 #include <QtCore/qstring.h>
@@ -1929,4 +1931,5 @@ void ritual_own_ZNK9QComboBox15initStyleOptionEP20QStyleOptionComboBox(
       option);
 }
 
+#endif  // QT_CONFIG(combobox)
 #endif  // QT_CONFIG(combobox)

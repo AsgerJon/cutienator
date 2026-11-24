@@ -3,6 +3,7 @@
 //  Changes made here are lost.
 #include <QtCore/qglobal.h>
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
+#if QT_CONFIG(filesystemwatcher) && QT_CONFIG(inotify) && defined(Q_OS_UNIX) && !defined(Q_OS_MACOS)
 #if QT_CONFIG(filesystemwatcher)
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtCore/QtCore>
@@ -12,16 +13,16 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qfilesystemwatcher.h"
-#include "qfilesystemwatcher_inotify_p.h"
-#include "private/qcore_unix_p.h"
-#include "private/qsystemerror_p.h"
-#include <qdebug.h>
-#include <qfile.h>
-#include <qfileinfo.h>
-#include <qscopeguard.h>
-#include <qsocketnotifier.h>
-#include <qvarlengtharray.h>
+#include <QtCore/qfilesystemwatcher.h>
+#include <QtCore/private/qfilesystemwatcher_inotify_p.h>
+#include <QtCore/private/qcore_unix_p.h>
+#include <QtCore/private/qsystemerror_p.h>
+#include <QtCore/qdebug.h>
+#include <QtCore/qfile.h>
+#include <QtCore/qfileinfo.h>
+#include <QtCore/qscopeguard.h>
+#include <QtCore/qsocketnotifier.h>
+#include <QtCore/qvarlengtharray.h>
 #if defined(Q_OS_LINUX)
 #include <sys/syscall.h>
 #include <sys/ioctl.h>
@@ -245,3 +246,4 @@ bool ritual_take_QInotifyFileSystemWatcherEngine(
 }
 
 #endif  // QT_CONFIG(filesystemwatcher)
+#endif  // QT_CONFIG(filesystemwatcher) && QT_CONFIG(inotify) && defined(Q_OS_UNIX) && !defined(Q_OS_MACOS)

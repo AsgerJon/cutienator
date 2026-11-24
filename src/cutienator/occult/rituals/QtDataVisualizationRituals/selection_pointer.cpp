@@ -12,29 +12,29 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "shaderhelper_p.h"
+#include <QtDataVisualization/private/shaderhelper_p.h>
 #include <QtOpenGL/QOpenGLShader>
-#include "texturehelper_p.h"
-#include "utils_p.h"
+#include <QtDataVisualization/private/texturehelper_p.h>
+#include <QtDataVisualization/private/utils_p.h>
 #include <QtGui/QImage>
 #include <QtGui/QPainter>
 #include <QtCore/QTime>
-#include "drawer_p.h"
-#include "shaderhelper_p.h"
-#include "surfaceobject_p.h"
-#include "utils_p.h"
-#include "texturehelper_p.h"
-#include "abstract3drenderer_p.h"
-#include "scatterpointbufferhelper_p.h"
+#include <QtDataVisualization/private/drawer_p.h>
+#include <QtDataVisualization/private/shaderhelper_p.h>
+#include <QtDataVisualization/private/surfaceobject_p.h>
+#include <QtDataVisualization/private/utils_p.h>
+#include <QtDataVisualization/private/texturehelper_p.h>
+#include <QtDataVisualization/private/abstract3drenderer_p.h>
+#include <QtDataVisualization/private/scatterpointbufferhelper_p.h>
 #include <QtGui/QMatrix4x4>
 #include <QtGui/qquaternion.h>
 #include <QtCore/qmath.h>
-#include "selectionpointer_p.h"
-#include "shaderhelper_p.h"
-#include "objecthelper_p.h"
-#include "texturehelper_p.h"
-#include "q3dcamera_p.h"
-#include "utils_p.h"
+#include <QtDataVisualization/private/selectionpointer_p.h>
+#include <QtDataVisualization/private/shaderhelper_p.h>
+#include <QtDataVisualization/private/objecthelper_p.h>
+#include <QtDataVisualization/private/texturehelper_p.h>
+#include <QtDataVisualization/private/q3dcamera_p.h>
+#include <QtDataVisualization/private/utils_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -43,6 +43,101 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from ../qtdatavis3d/src/datavisualization/utils/shaderhelper.cpp, line 81, as _ZN12ShaderHelper10initializeEv
+inline void ShaderHelper::initialize()
+{
+    if (m_program)
+        delete m_program;
+    m_program = new QOpenGLShaderProgram(m_caller);
+    if (!m_program->addShaderFromSourceFile(QOpenGLShader::Vertex, m_vertexShaderFile))
+        qFatal("Compiling Vertex shader failed");
+    if (!m_program->addShaderFromSourceFile(QOpenGLShader::Fragment, m_fragmentShaderFile))
+        qFatal("Compiling Fragment shader failed");
+
+    if (!m_program->link()) {
+        qWarning() << "Unable to link shader program:" <<
+                      m_vertexShaderFile << m_fragmentShaderFile;
+        return;
+    }
+
+    m_positionAttr = m_program->attributeLocation("vertexPosition_mdl");
+    m_normalAttr = m_program->attributeLocation("vertexNormal_mdl");
+    m_uvAttr = m_program->attributeLocation("vertexUV");
+
+    m_mvpMatrixUniform = m_program->uniformLocation("MVP");
+    m_viewMatrixUniform = m_program->uniformLocation("V");
+    m_modelMatrixUniform = m_program->uniformLocation("M");
+    m_invTransModelMatrixUniform = m_program->uniformLocation("itM");
+    m_depthMatrixUniform = m_program->uniformLocation("depthMVP");
+    m_lightPositionUniform = m_program->uniformLocation("lightPosition_wrld");
+    m_lightStrengthUniform = m_program->uniformLocation("lightStrength");
+    m_ambientStrengthUniform = m_program->uniformLocation("ambientStrength");
+    m_shadowQualityUniform = m_program->uniformLocation("shadowQuality");
+    m_colorUniform = m_program->uniformLocation("color_mdl");
+    m_textureUniform = m_program->uniformLocation("textureSampler");
+    m_shadowUniform = m_program->uniformLocation("shadowMap");
+    m_gradientMinUniform = m_program->uniformLocation("gradMin");
+    m_gradientHeightUniform = m_program->uniformLocation("gradHeight");
+    m_lightColorUniform = m_program->uniformLocation("lightColor");
+    m_volumeSliceIndicesUniform = m_program->uniformLocation("volumeSliceIndices");
+    m_colorIndexUniform = m_program->uniformLocation("colorIndex");
+    m_cameraPositionRelativeToModelUniform = m_program->uniformLocation("cameraPositionRelativeToModel");
+    m_color8BitUniform = m_program->uniformLocation("color8Bit");
+    m_textureDimensionsUniform = m_program->uniformLocation("textureDimensions");
+    m_sampleCountUniform = m_program->uniformLocation("sampleCount");
+    m_alphaMultiplierUniform = m_program->uniformLocation("alphaMultiplier");
+    m_preserveOpacityUniform = m_program->uniformLocation("preserveOpacity");
+    m_minBoundsUniform = m_program->uniformLocation("minBounds");
+    m_maxBoundsUniform = m_program->uniformLocation("maxBounds");
+    m_sliceFrameWidthUniform = m_program->uniformLocation("sliceFrameWidth");
+    m_initialized = true;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/utils/shaderhelper.cpp, line 18, as _ZN12ShaderHelperC1EP7QObjectRK7QStringS4_S4_S4_
+inline ShaderHelper::ShaderHelper(QObject *parent,
+                           const QString &vertexShader,
+                           const QString &fragmentShader,
+                           const QString &texture,
+                           const QString &depthTexture)
+    : m_caller(parent),
+      m_program(0),
+      m_vertexShaderFile(vertexShader),
+      m_fragmentShaderFile(fragmentShader),
+      m_textureFile(texture),
+      m_depthTextureFile(depthTexture),
+      m_positionAttr(0),
+      m_uvAttr(0),
+      m_normalAttr(0),
+      m_colorUniform(0),
+      m_viewMatrixUniform(0),
+      m_modelMatrixUniform(0),
+      m_invTransModelMatrixUniform(0),
+      m_depthMatrixUniform(0),
+      m_mvpMatrixUniform(0),
+      m_lightPositionUniform(0),
+      m_lightStrengthUniform(0),
+      m_ambientStrengthUniform(0),
+      m_shadowQualityUniform(0),
+      m_textureUniform(0),
+      m_shadowUniform(0),
+      m_gradientMinUniform(0),
+      m_gradientHeightUniform(0),
+      m_lightColorUniform(0),
+      m_volumeSliceIndicesUniform(0),
+      m_colorIndexUniform(0),
+      m_cameraPositionRelativeToModelUniform(0),
+      m_color8BitUniform(0),
+      m_textureDimensionsUniform(0),
+      m_sampleCountUniform(0),
+      m_alphaMultiplierUniform(0),
+      m_preserveOpacityUniform(0),
+      m_minBoundsUniform(0),
+      m_maxBoundsUniform(0),
+      m_sliceFrameWidthUniform(0),
+      m_initialized(false)
+{
+}
 
 //  from ../qtdatavis3d/src/datavisualization/utils/shaderhelper.cpp, line 62, as _ZN12ShaderHelperD1Ev
 inline ShaderHelper::~ShaderHelper()
@@ -58,6 +153,31 @@ inline TextureHelper::~TextureHelper()
 #endif
 }
 
+//  from ../qtdatavis3d/src/datavisualization/engine/drawer.cpp, line 407, as _ZN6Drawer17generateLabelItemER9LabelItemRK7QStringi
+inline void Drawer::generateLabelItem(LabelItem &item, const QString &text, int widestLabel)
+{
+    initializeOpenGL();
+
+    item.clear();
+
+    if (!text.isEmpty()) {
+        // Create labels
+        // Print label into a QImage using QPainter
+        QImage label = Utils::printTextToImage(m_theme->font(),
+                                               text,
+                                               m_theme->labelBackgroundColor(),
+                                               m_theme->labelTextColor(),
+                                               m_theme->isLabelBackgroundEnabled(),
+                                               m_theme->isLabelBorderEnabled(),
+                                               widestLabel);
+
+        // Set label size
+        item.setSize(label.size());
+        // Insert text texture into label (also deletes the old texture)
+        item.setTextureId(m_textureHelper->create2DTexture(label, true, true));
+    }
+}
+
 //  from ../qtdatavis3d/src/datavisualization/engine/drawer.cpp, line 68, as _ZNK6Drawer5themeEv
 inline Q3DTheme *Drawer::theme() const
 {
@@ -70,6 +190,50 @@ inline void Drawer::initializeOpenGL()
     initializeOpenGLFunctions();
     if (!m_textureHelper)
         m_textureHelper = new TextureHelper();
+}
+
+//  from ../qtdatavis3d/src/datavisualization/utils/texturehelper.cpp, line 44, as _ZN13TextureHelper15create2DTextureERK6QImagebbbb
+inline GLuint TextureHelper::create2DTexture(const QImage &image, bool useTrilinearFiltering,
+                                      bool convert, bool smoothScale, bool clampY)
+{
+    if (image.isNull())
+        return 0;
+
+    QImage texImage = image;
+
+    if (Utils::isOpenGLES()) {
+        GLuint imageWidth = Utils::getNearestPowerOfTwo(image.width());
+        GLuint imageHeight = Utils::getNearestPowerOfTwo(image.height());
+        if (smoothScale) {
+            texImage = image.scaled(imageWidth, imageHeight, Qt::IgnoreAspectRatio,
+                                    Qt::SmoothTransformation);
+        } else {
+            texImage = image.scaled(imageWidth, imageHeight, Qt::IgnoreAspectRatio);
+        }
+    }
+
+    GLuint textureId;
+    glGenTextures(1, &textureId);
+    glBindTexture(GL_TEXTURE_2D, textureId);
+    if (convert)
+        texImage = convertToGLFormat(texImage);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, texImage.width(), texImage.height(),
+                 0, GL_RGBA, GL_UNSIGNED_BYTE, texImage.bits());
+    if (smoothScale)
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    else
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+    if (useTrilinearFiltering) {
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+        glGenerateMipmap(GL_TEXTURE_2D);
+    } else {
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+    }
+    if (clampY)
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+    glBindTexture(GL_TEXTURE_2D, 0);
+
+    return textureId;
 }
 
 //  from ../qtdatavis3d/src/datavisualization/engine/selectionpointer.cpp, line 33, as _ZN16SelectionPointerD1Ev

@@ -2,6 +2,7 @@
 //  QtGui/qundogroup.h, Qt 6.12.0. Changes made here are lost.
 #include <QtGui/qtguiglobal.h>
 #if QT_CONFIG(undogroup)
+#if QT_CONFIG(undogroup)
 #include <QtGui/qundogroup.h>
 #include <QtCore/qstring.h>
 #include <QtGui/qundostack.h>
@@ -314,4 +315,5 @@ bool ritual_take_QUndoGroup(QUndoGroup *self, const char *key, void *call) {
   return static_cast<CuteQUndoGroup *>(self)->take(key, call);
 }
 
+#endif  // QT_CONFIG(undogroup)
 #endif  // QT_CONFIG(undogroup)

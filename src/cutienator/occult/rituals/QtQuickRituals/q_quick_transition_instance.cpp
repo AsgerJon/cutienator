@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtQuick/6.12.0/QtQuick/private/qquicktransition_p.h, Qt 6.12.0. Changes
 //  made here are lost.
+#include <QtQml/6.12.0/QtQml/private/qtqmlglobal_p.h>
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #include <QtQuick/QtQuick>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -8,15 +9,15 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquicktransition_p.h"
-#include "qquickstate_p.h"
-#include "qquickstate_p_p.h"
-#include "qquickstatechangescript_p.h"
-#include "qquickanimation_p.h"
-#include "qquickanimation_p_p.h"
-#include "qquicktransitionmanager_p_p.h"
-#include <private/qquickanimatorjob_p.h>
-#include "private/qparallelanimationgroupjob_p.h"
+#include <QtQuick/private/qquicktransition_p.h>
+#include <QtQuick/private/qquickstate_p.h>
+#include <QtQuick/private/qquickstate_p_p.h>
+#include <QtQuick/private/qquickstatechangescript_p.h>
+#include <QtQuick/private/qquickanimation_p.h>
+#include <QtQuick/private/qquickanimation_p_p.h>
+#include <QtQuick/private/qquicktransitionmanager_p_p.h>
+#include <QtQuick/private/qquickanimatorjob_p.h>
+#include <QtQml/private/qparallelanimationgroupjob_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

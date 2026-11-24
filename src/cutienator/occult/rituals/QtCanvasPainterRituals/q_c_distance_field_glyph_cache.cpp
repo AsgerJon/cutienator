@@ -8,15 +8,15 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/qrawfont.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qcrhicolorglyphcache_p.h"
+#include <QtCanvasPainter/private/qcrhicolorglyphcache_p.h>
 #include <QtGui/private/qrawfont_p.h>
-#include "qcrhidistancefieldglyphcache_p.h"
+#include <QtCanvasPainter/private/qcrhidistancefieldglyphcache_p.h>
 #include <QtGui/private/qrawfont_p.h>
-#include "qcdistancefieldglyphcache_p.h"
-#include "qcanvaspainter_p.h"
-#include <private/qrawfont_p.h>
+#include <QtCanvasPainter/private/qcdistancefieldglyphcache_p.h>
+#include <QtCanvasPainter/private/qcanvaspainter_p.h>
+#include <QtGui/private/qrawfont_p.h>
 #include <cmath>
-#include "qcareaallocator_p.h"
+#include <QtCanvasPainter/private/qcareaallocator_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

@@ -217,10 +217,10 @@ class TestBuild(BaseTest):
     for line in lines:
       self.assertTrue(line.startswith(('#include <', '#include "')), line)
 
-  def test_a_long_command_goes_in_a_file(self) -> None:
+  def test_a_long_command_arrives_whole(self) -> None:
     """A command of 'clang++' longer than Windows starts a program with
-    is handed over in a file, and every word arrives as it was given:
-    spaces, quotes and backslashes too."""
+    runs, and every word arrives as it was given: spaces, quotes and
+    backslashes too. On Windows it is handed over in a file."""
     words = ['-DCUTE_%d="a b\\c"' % i for i in range(1500)]
     self.assertGreater(sum(len(word) + 3 for word in words), 32767 - 5000)
     said = Build._run(

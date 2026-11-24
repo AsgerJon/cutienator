@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtQuick/6.12.0/QtQuick/private/qquickrectangle_p_p.h, Qt 6.12.0. Changes
 //  made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #include <QtQuick/QtQuick>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -9,12 +10,12 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquickrectangle_p.h"
-#include "qquickrectangle_p_p.h"
+#include <QtQuick/private/qquickrectangle_p.h>
+#include <QtQuick/private/qquickrectangle_p_p.h>
 #include <QtQml/qqmlinfo.h>
 #include <QtQuick/private/qsgcontext_p.h>
-#include <private/qsgadaptationlayer_p.h>
-#include <private/qqmlmetatype_p.h>
+#include <QtQuick/private/qsgadaptationlayer_p.h>
+#include <QtQml/private/qqmlmetatype_p.h>
 #include <QtGui/qpixmapcache.h>
 #include <QtCore/qmath.h>
 #include <QtCore/qmetaobject.h>

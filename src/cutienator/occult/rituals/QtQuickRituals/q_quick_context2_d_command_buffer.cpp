@@ -4,6 +4,7 @@
 #include <QtQuick/qtquickglobal.h>
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #if QT_CONFIG(quick_canvas)
+#if QT_CONFIG(quick_canvas)
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #include <QtQuick/QtQuick>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -20,31 +21,31 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/qpen.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <private/qsgadaptationlayer_p.h>
-#include "qquickcanvasitem_p.h"
-#include <private/qquickitem_p.h>
-#include <private/qquickcanvascontext_p.h>
-#include <private/qquickcontext2d_p.h>
-#include <private/qquickcontext2dtexture_p.h>
-#include <private/qsgadaptationlayer_p.h>
-#include <qsgtextureprovider.h>
+#include <QtQuick/private/qsgadaptationlayer_p.h>
+#include <QtQuick/private/qquickcanvasitem_p.h>
+#include <QtQuick/private/qquickitem_p.h>
+#include <QtQuick/private/qquickcanvascontext_p.h>
+#include <QtQuick/private/qquickcontext2d_p.h>
+#include <QtQuick/private/qquickcontext2dtexture_p.h>
+#include <QtQuick/private/qsgadaptationlayer_p.h>
+#include <QtQuick/qsgtextureprovider.h>
 #include <QtQuick/private/qquickpixmap_p.h>
 #include <QtGui/QGuiApplication>
-#include <qsgtextureprovider.h>
-#include <qqmlinfo.h>
-#include <private/qqmlengine_p.h>
+#include <QtQuick/qsgtextureprovider.h>
+#include <QtQml/qqmlinfo.h>
+#include <QtQml/private/qqmlengine_p.h>
 #include <QtCore/QBuffer>
 #include <QtCore/QDir>
 #include <QtCore/qdatetime.h>
-#include <private/qv4value_p.h>
-#include <private/qv4functionobject_p.h>
-#include <private/qv4scopedvalue_p.h>
-#include <private/qv4jscall_p.h>
-#include <private/qv4qobjectwrapper_p.h>
-#include <private/qjsvalue_p.h>
-#include "qquickcontext2dcommandbuffer_p.h"
-#include "qquickcanvasitem_p.h"
-#include <qqml.h>
+#include <QtQml/private/qv4value_p.h>
+#include <QtQml/private/qv4functionobject_p.h>
+#include <QtQml/private/qv4scopedvalue_p.h>
+#include <QtQml/private/qv4jscall_p.h>
+#include <QtQml/private/qv4qobjectwrapper_p.h>
+#include <QtQml/private/qjsvalue_p.h>
+#include <QtQuick/private/qquickcontext2dcommandbuffer_p.h>
+#include <QtQuick/private/qquickcanvasitem_p.h>
+#include <QtQml/qqml.h>
 #include <QtCore/QMutex>
 #include <QtQuick/qsgtexture.h>
 #include <QtGui/QPaintEngine>
@@ -568,4 +569,5 @@ void ritual_ZN28QQuickContext2DCommandBuffer15setPainterStateEP8QPainterRKN15QQu
   self->setPainterState(painter, *state, *pen);
 }
 
+#endif  // QT_CONFIG(quick_canvas)
 #endif  // QT_CONFIG(quick_canvas)

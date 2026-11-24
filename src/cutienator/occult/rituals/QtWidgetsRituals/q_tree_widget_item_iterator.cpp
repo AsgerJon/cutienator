@@ -3,6 +3,7 @@
 //  lost.
 #include <QtWidgets/qtwidgetsglobal.h>
 #if QT_CONFIG(treewidget)
+#if QT_CONFIG(treewidget)
 #include <QtWidgets/qtreewidgetitemiterator.h>
 
 //  QTreeWidgetItemIterator::QTreeWidgetItemIterator(const
@@ -104,4 +105,5 @@ const QTreeWidgetItemIteratorPrivate *ritual_ZNK23QTreeWidgetItemIterator6d_func
   return self->d_func();
 }
 
+#endif  // QT_CONFIG(treewidget)
 #endif  // QT_CONFIG(treewidget)

@@ -10,10 +10,10 @@
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/private/qsingleshottimer_p.h>
-#include "qcoreapplication.h"
-#include "qmetaobject_p.h"
-#include "private/qnumeric_p.h"
-#include "qthread.h"
+#include <QtCore/qcoreapplication.h>
+#include <QtCore/private/qmetaobject_p.h>
+#include <QtCore/private/qnumeric_p.h>
+#include <QtCore/qthread.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

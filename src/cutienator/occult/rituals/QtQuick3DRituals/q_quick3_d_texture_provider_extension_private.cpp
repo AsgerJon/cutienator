@@ -8,9 +8,9 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquick3dtextureproviderextension.h"
+#include <QtQuick3D/qquick3dtextureproviderextension.h>
 #include <QtQuick3D/private/qquick3dobject_p.h>
-#include "qquick3dtextureproviderextension_p.h"
+#include <QtQuick3D/private/qquick3dtextureproviderextension_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

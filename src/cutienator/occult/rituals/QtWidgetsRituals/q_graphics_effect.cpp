@@ -2,6 +2,7 @@
 //  QtWidgets/qgraphicseffect.h, Qt 6.12.0. Changes made here are lost.
 #include <QtWidgets/qtwidgetsglobal.h>
 #if QT_CONFIG(graphicseffect)
+#if QT_CONFIG(graphicseffect)
 #include <QtWidgets/qgraphicseffect.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qrect.h>
@@ -411,4 +412,5 @@ void ritual_own_ZN15QGraphicsEffect13sourceChangedE6QFlagsINS_10ChangeFlagEE(
       QFlags<QGraphicsEffect::ChangeFlag>::fromInt(flags));
 }
 
+#endif  // QT_CONFIG(graphicseffect)
 #endif  // QT_CONFIG(graphicseffect)

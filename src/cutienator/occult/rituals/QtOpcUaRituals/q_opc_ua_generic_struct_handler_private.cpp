@@ -11,9 +11,9 @@
 #include <QtOpcUa/qopcuastructuredefinition.h>
 #include <QtOpcUa/qopcuaenumdefinition.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qopcuainternaldatatypenode_p.h"
-#include "qopcuagenericstructhandler_p.h"
-#include "private/qopcuagenericstructhandler_p.h"
+#include <QtOpcUa/private/qopcuainternaldatatypenode_p.h>
+#include <QtOpcUa/private/qopcuagenericstructhandler_p.h>
+#include <QtOpcUa/private/qopcuagenericstructhandler_p.h>
 #include <QtOpcUa/qopcuaargument.h>
 #include <QtOpcUa/qopcuaaxisinformation.h>
 #include <QtOpcUa/qopcuabinarydataencoding.h>
@@ -28,7 +28,7 @@
 #include <QtOpcUa/qopcuarange.h>
 #include <QtOpcUa/qopcuastructurefield.h>
 #include <QtOpcUa/qopcuaxvalue.h>
-#include "qopcuainternaldatatypenode_p.h"
+#include <QtOpcUa/private/qopcuainternaldatatypenode_p.h>
 #include <QtCore/quuid.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

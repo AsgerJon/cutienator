@@ -11,18 +11,18 @@
 #include <QtOpenGL/6.12.0/QtOpenGL/private/qopengltexture_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qopengltexturehelper_p.h"
-#include <QOpenGLContext>
-#include <private/qopenglextensions_p.h>
-#include "qopengltexture.h"
-#include "qopengltexture_p.h"
-#include "qopengltexturehelper_p.h"
-#include "qopenglfunctions.h"
+#include <QtOpenGL/private/qopengltexturehelper_p.h>
+#include <QtGui/QOpenGLContext>
+#include <QtGui/private/qopenglextensions_p.h>
+#include <QtOpenGL/qopengltexture.h>
+#include <QtOpenGL/private/qopengltexture_p.h>
+#include <QtOpenGL/private/qopengltexturehelper_p.h>
+#include <QtGui/qopenglfunctions.h>
 #include <QtGui/qcolor.h>
 #include <QtGui/qopenglcontext.h>
 #include <QtCore/qdebug.h>
-#include <private/qobject_p.h>
-#include <private/qopenglcontext_p.h>
+#include <QtCore/private/qobject_p.h>
+#include <QtGui/private/qopenglcontext_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

@@ -13,20 +13,20 @@
 #include <QtQml/6.12.0/QtQml/private/qqmltype_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qqmltype_p_p.h"
+#include <QtQml/private/qqmltype_p_p.h>
 #include <QtQml/qjsvalue.h>
 #include <QtQml/qqmlengine.h>
 #include <QtQml/qqmlcontext.h>
 #include <QtQml/qqmlcomponent.h>
-#include <private/qqmlcustomparser_p.h>
-#include <private/qqmldata_p.h>
-#include <private/qqmlmetatypedata_p.h>
-#include <private/qqmlpropertycache_p.h>
-#include <private/qqmltypedata_p.h>
-#include "qqmlmetatypedata_p.h"
-#include <private/qqmltype_p_p.h>
-#include <private/qqmltypemodule_p.h>
-#include <private/qqmlpropertycache_p.h>
+#include <QtQml/private/qqmlcustomparser_p.h>
+#include <QtQml/private/qqmldata_p.h>
+#include <QtQml/private/qqmlmetatypedata_p.h>
+#include <QtQml/private/qqmlpropertycache_p.h>
+#include <QtQml/private/qqmltypedata_p.h>
+#include <QtQml/private/qqmlmetatypedata_p.h>
+#include <QtQml/private/qqmltype_p_p.h>
+#include <QtQml/private/qqmltypemodule_p.h>
+#include <QtQml/private/qqmlpropertycache_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

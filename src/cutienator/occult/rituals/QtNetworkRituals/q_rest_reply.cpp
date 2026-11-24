@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtNetwork/qrestreply.h, Qt 6.12.0. Changes made here are lost.
+#include <QtNetwork/qtnetworkglobal.h>
+#if QT_CONFIG(http)
 #include <QtNetwork/qrestreply.h>
 #include <QtCore/qbytearray.h>
 #include <QtCore/qstring.h>
@@ -71,3 +73,5 @@ extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK10QRestReply11errorStringEv(const QRestReply *self) {
   return new QString(self->errorString());
 }
+
+#endif  // QT_CONFIG(http)

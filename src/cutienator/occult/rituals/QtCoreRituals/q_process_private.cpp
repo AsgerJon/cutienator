@@ -4,6 +4,7 @@
 #include <QtCore/qglobal.h>
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #if QT_CONFIG(processenvironment)
+#if QT_CONFIG(processenvironment)
 #if QT_CONFIG(process)
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtCore/qprocess.h>
@@ -15,37 +16,37 @@
 #include <QtCore/qbytearray.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <qdebug.h>
-#include <qdir.h>
-#include <qscopedvaluerollback.h>
-#include "qprocess.h"
-#include "qprocess_p.h"
-#include <qbytearray.h>
-#include <qdeadlinetimer.h>
-#include <qcoreapplication.h>
+#include <QtCore/qdebug.h>
+#include <QtCore/qdir.h>
+#include <QtCore/qscopedvaluerollback.h>
+#include <QtCore/qprocess.h>
+#include <QtCore/private/qprocess_p.h>
+#include <QtCore/qbytearray.h>
+#include <QtCore/qdeadlinetimer.h>
+#include <QtCore/qcoreapplication.h>
 #if __has_include(<paths.h>)
 #include <paths.h>
 #endif
-#include "qdebug.h"
-#include <private/qdebug_p.h>
+#include <QtCore/qdebug.h>
+#include <QtCore/private/qdebug_p.h>
 #include "qplatformdefs.h"
-#include "qprocess.h"
-#include "qprocess_p.h"
-#include "qstandardpaths.h"
-#include "private/qcore_unix_p.h"
-#include "private/qlocking_p.h"
+#include <QtCore/qprocess.h>
+#include <QtCore/private/qprocess_p.h>
+#include <QtCore/qstandardpaths.h>
+#include <QtCore/private/qcore_unix_p.h>
+#include <QtCore/private/qlocking_p.h>
 #ifdef Q_OS_DARWIN
-#include <private/qcore_mac_p.h>
+#include <QtCore/private/qcore_mac_p.h>
 #endif
-#include <private/qcoreapplication_p.h>
-#include <private/qthread_p.h>
-#include <qfile.h>
-#include <qfileinfo.h>
-#include <qdir.h>
-#include <qlist.h>
-#include <qmutex.h>
-#include <qsocketnotifier.h>
-#include <qthread.h>
+#include <QtCore/private/qcoreapplication_p.h>
+#include <QtCore/private/qthread_p.h>
+#include <QtCore/qfile.h>
+#include <QtCore/qfileinfo.h>
+#include <QtCore/qdir.h>
+#include <QtCore/qlist.h>
+#include <QtCore/qmutex.h>
+#include <QtCore/qsocketnotifier.h>
+#include <QtCore/qthread.h>
 #ifdef Q_OS_QNX
 #  include <sys/neutrino.h>
 #endif
@@ -264,4 +265,5 @@ bool ritual_take_QProcessPrivate(
 }
 
 #endif  // QT_CONFIG(process)
+#endif  // QT_CONFIG(processenvironment)
 #endif  // QT_CONFIG(processenvironment)

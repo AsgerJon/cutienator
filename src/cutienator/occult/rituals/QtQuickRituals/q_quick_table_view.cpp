@@ -1,8 +1,10 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtQuick/6.12.0/QtQuick/private/qquicktableview_p.h, Qt 6.12.0. Changes
 //  made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtQuick/qtquickglobal.h>
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
+#if QT_CONFIG(quick_tableview)
 #if QT_CONFIG(quick_tableview)
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #include <QtQuick/QtQuick>
@@ -2054,4 +2056,5 @@ qreal ritual_own_ZNK15QQuickTableView10maxYExtentEv(
   return self->QQuickTableView::maxYExtent();
 }
 
+#endif  // QT_CONFIG(quick_tableview)
 #endif  // QT_CONFIG(quick_tableview)

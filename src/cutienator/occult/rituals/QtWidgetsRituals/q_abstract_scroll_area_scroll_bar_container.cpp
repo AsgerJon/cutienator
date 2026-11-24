@@ -12,29 +12,29 @@
 #include <QtWidgets/qwidget.h>
 #include <QtCore/qlist.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qabstractscrollarea.h"
+#include <QtWidgets/qabstractscrollarea.h>
 #if QT_CONFIG(scrollarea)
-#include "qscrollbar.h"
-#include "qapplication.h"
-#include "qstyle.h"
-#include "qstyleoption.h"
-#include "qevent.h"
-#include "qdebug.h"
-#include "qboxlayout.h"
-#include "qpainter.h"
-#include "qmargins.h"
+#include <QtWidgets/qscrollbar.h>
+#include <QtWidgets/qapplication.h>
+#include <QtWidgets/qstyle.h>
+#include <QtWidgets/qstyleoption.h>
+#include <QtGui/qevent.h>
+#include <QtCore/qdebug.h>
+#include <QtWidgets/qboxlayout.h>
+#include <QtGui/qpainter.h>
+#include <QtCore/qmargins.h>
 #if QT_CONFIG(itemviews)
-#include "qheaderview.h"
+#include <QtWidgets/qheaderview.h>
 #endif
-#include <QDebug>
-#include "qabstractscrollarea_p.h"
-#include "qscrollbar_p.h"
-#include <qwidget.h>
-#include <private/qguiapplication_p.h>
-#include <qpa/qplatformtheme.h>
-#include <private/qapplication_p.h>
+#include <QtCore/QDebug>
+#include <QtWidgets/private/qabstractscrollarea_p.h>
+#include <QtWidgets/private/qscrollbar_p.h>
+#include <QtWidgets/qwidget.h>
+#include <QtGui/private/qguiapplication_p.h>
+#include <QtGui/qpa/qplatformtheme.h>
+#include <QtWidgets/private/qapplication_p.h>
 #ifdef Q_OS_WIN
-#  include <qt_windows.h>
+#  include <QtCore/qt_windows.h>
 #endif
 #endif
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER

@@ -1,8 +1,10 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtQuick/6.12.0/QtQuick/private/qquickflipable_p.h, Qt 6.12.0. Changes
 //  made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtQuick/qtquickglobal.h>
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
+#if QT_CONFIG(quick_flipable)
 #if QT_CONFIG(quick_flipable)
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #include <QtQuick/QtQuick>
@@ -883,4 +885,5 @@ void ritual_own_ZN14QQuickFlipable12updatePolishEv(QQuickFlipable *self) {
   static_cast<OwnQQuickFlipable *>(self)->OwnQQuickFlipable::updatePolish();
 }
 
+#endif  // QT_CONFIG(quick_flipable)
 #endif  // QT_CONFIG(quick_flipable)

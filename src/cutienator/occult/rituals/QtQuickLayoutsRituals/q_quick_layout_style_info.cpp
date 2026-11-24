@@ -9,7 +9,7 @@
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/private/qfont_p.h>
-#include "qquicklayoutstyleinfo_p.h"
+#include <QtQuickLayouts/private/qquicklayoutstyleinfo_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -25,6 +25,7 @@ inline QQuickLayoutStyleInfo::QQuickLayoutStyleInfo()
 }
 
 //  from ../qtdeclarative/src/quicklayouts/qquicklayoutstyleinfo.cpp, line 16, as _ZNK21QQuickLayoutStyleInfo7spacingEN2Qt11OrientationE
+#if defined(Q_OS_LINUX)
 inline qreal QQuickLayoutStyleInfo::spacing(Qt::Orientation /*orientation*/) const
 {
 #if defined(Q_OS_ANDROID) || defined(Q_OS_IOS) || defined(Q_OS_QNX)
@@ -41,6 +42,7 @@ inline qreal QQuickLayoutStyleInfo::spacing(Qt::Orientation /*orientation*/) con
 
     return spacing;
 }
+#endif  // defined(Q_OS_LINUX)
 
 //  from ../qtdeclarative/src/quicklayouts/qquicklayoutstyleinfo.cpp, line 33, as _ZNK21QQuickLayoutStyleInfo12windowMarginEN2Qt11OrientationE
 inline qreal QQuickLayoutStyleInfo::windowMargin(Qt::Orientation /*orientation*/) const
@@ -178,11 +180,13 @@ public:
   }
 };
 
+#if defined(Q_OS_LINUX)
 //  QQuickLayoutStyleInfo::QQuickLayoutStyleInfo()
 extern "C" Q_DECL_EXPORT
 QQuickLayoutStyleInfo *ritual_ZN21QQuickLayoutStyleInfoC1Ev() {
   return new CuteQQuickLayoutStyleInfo();
 }
+#endif  // defined(Q_OS_LINUX)
 
 //  qreal QQuickLayoutStyleInfo::spacing(Qt::Orientation orientation) const
 extern "C" Q_DECL_EXPORT
@@ -224,6 +228,7 @@ bool ritual_take_QQuickLayoutStyleInfo(
   return static_cast<CuteQQuickLayoutStyleInfo *>(self)->take(key, call);
 }
 
+#if defined(Q_OS_LINUX)
 //  qreal QQuickLayoutStyleInfo::spacing(Qt::Orientation orientation) const
 extern "C" Q_DECL_EXPORT
 qreal ritual_own_ZNK21QQuickLayoutStyleInfo7spacingEN2Qt11OrientationE(
@@ -231,6 +236,7 @@ qreal ritual_own_ZNK21QQuickLayoutStyleInfo7spacingEN2Qt11OrientationE(
     Qt::Orientation orientation) {
   return self->QQuickLayoutStyleInfo::spacing(orientation);
 }
+#endif  // defined(Q_OS_LINUX)
 
 //  qreal QQuickLayoutStyleInfo::windowMargin(Qt::Orientation orientation)
 //      const

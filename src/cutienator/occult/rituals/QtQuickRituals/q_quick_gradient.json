@@ -20,6 +20,11 @@
       "nothing", "address", "int"
     ],
     "ritual_ZN14QQuickGradient8doUpdateEv": ["nothing", "address"],
-    "ritual_take_QQuickGradient": ["bool", "address", "chars", "address"]
+    "ritual_take_QQuickGradient": ["bool", "address", "chars", "address"],
+    "ritual_list_make_QQuickGradient_ptr": ["address"],
+    "ritual_list_add_QQuickGradient_ptr": ["nothing", "address", "address"],
+    "ritual_list_size_QQuickGradient_ptr": ["long long", "address"],
+    "ritual_list_at_QQuickGradient_ptr": ["address", "address", "long long"],
+    "ritual_list_drop_QQuickGradient_ptr": ["nothing", "address"]
   }
 }

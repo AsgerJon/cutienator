@@ -2,6 +2,7 @@
 //  QtWidgets/qtextedit.h, Qt 6.12.0. Changes made here are lost.
 #include <QtWidgets/qtwidgetsglobal.h>
 #if QT_CONFIG(textedit)
+#if QT_CONFIG(textedit)
 #include <QtWidgets/qtextedit.h>
 
 //  QTextEdit::ExtraSelection::~ExtraSelection()
@@ -11,4 +12,5 @@ void ritual_ZN9QTextEdit14ExtraSelectionD1Ev(
   delete self;
 }
 
+#endif  // QT_CONFIG(textedit)
 #endif  // QT_CONFIG(textedit)

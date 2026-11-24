@@ -11,10 +11,10 @@
 #include <QtCore/qpoint.h>
 #include <QtGui/qimage.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <private/qemulationpaintengine_p.h>
-#include <private/qpainter_p.h>
-#include <private/qtextengine_p.h>
-#include <qdebug.h>
+#include <QtGui/private/qemulationpaintengine_p.h>
+#include <QtGui/private/qpainter_p.h>
+#include <QtGui/private/qtextengine_p.h>
+#include <QtCore/qdebug.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

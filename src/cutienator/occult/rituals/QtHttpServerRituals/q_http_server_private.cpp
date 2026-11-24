@@ -11,9 +11,9 @@
 #include <QtHttpServer/qabstracthttpserver.h>
 #include <QtHttpServer/qhttpserverrequest.h>
 #include <QtHttpServer/qhttpserverresponder.h>
-#include <private/qabstracthttpserver_p.h>
-#include <private/qhttpserverhttp1protocolhandler_p.h>
-#include <private/qhttpserverrequest_p.h>
+#include <QtHttpServer/private/qabstracthttpserver_p.h>
+#include <QtHttpServer/private/qhttpserverhttp1protocolhandler_p.h>
+#include <QtHttpServer/private/qhttpserverrequest_p.h>
 #include <QtCore/qloggingcategory.h>
 #include <QtNetwork/qtcpserver.h>
 #include <QtNetwork/qtcpsocket.h>
@@ -28,15 +28,15 @@
 #include <QtNetwork/qsslserver.h>
 #endif
 #if QT_CONFIG(http) && QT_CONFIG(ssl)
-#include <private/qhttpserverhttp2protocolhandler_p.h>
+#include <QtHttpServer/private/qhttpserverhttp2protocolhandler_p.h>
 #endif
 #include <algorithm>
 #include <QtHttpServer/qhttpserver.h>
 #include <QtHttpServer/qhttpserverrequest.h>
 #include <QtHttpServer/qhttpserverresponder.h>
 #include <QtHttpServer/qhttpserverresponse.h>
-#include <private/qhttpserver_p.h>
-#include <private/qhttpserverstream_p.h>
+#include <QtHttpServer/private/qhttpserver_p.h>
+#include <QtHttpServer/private/qhttpserverstream_p.h>
 #include <QtCore/qloggingcategory.h>
 #include <QtNetwork/qtcpsocket.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER

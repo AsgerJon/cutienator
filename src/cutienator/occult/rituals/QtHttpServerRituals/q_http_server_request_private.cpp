@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtHttpServer/6.12.0/QtHttpServer/private/qhttpserverrequest_p.h, Qt
 //  6.12.0. Changes made here are lost.
+#include <QtNetwork/qtnetworkglobal.h>
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtHttpServer/QtHttpServer>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -9,7 +10,7 @@
 #include <QtNetwork/qhostaddress.h>
 #include <QtNetwork/qsslconfiguration.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qhttpserverrequest_p.h"
+#include <QtHttpServer/private/qhttpserverrequest_p.h>
 #include <QtHttpServer/private/qhttpserverparser_p.h>
 #include <QtHttpServer/qhttpserverrequest.h>
 #include <QtNetwork/qhttpheaders.h>

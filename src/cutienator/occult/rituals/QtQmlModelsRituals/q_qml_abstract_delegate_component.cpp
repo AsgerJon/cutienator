@@ -4,6 +4,7 @@
 #include <QtQmlModels/qtqmlmodelsglobal.h>
 #include <QtQmlModels/6.12.0/QtQmlModels/private/qtqmlmodelsglobal_p.h>
 #if QT_CONFIG(qml_delegate_model)
+#if QT_CONFIG(qml_delegate_model)
 #include <QtQmlModels/6.12.0/QtQmlModels/private/qtqmlmodelsglobal_p.h>
 #include <QtQmlModels/QtQmlModels>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -353,4 +354,5 @@ bool ritual_take_QQmlAbstractDelegateComponent(
   return static_cast<CuteQQmlAbstractDelegateComponent *>(self)->take(key, call);
 }
 
+#endif  // QT_CONFIG(qml_delegate_model)
 #endif  // QT_CONFIG(qml_delegate_model)

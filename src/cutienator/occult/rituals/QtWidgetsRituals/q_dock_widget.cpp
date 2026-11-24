@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qdockwidget.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(dockwidget)
 #if QT_CONFIG(dockwidget)
 #include <QtWidgets/qdockwidget.h>
 #include <QtCore/qstring.h>
@@ -1202,4 +1204,5 @@ void ritual_list_drop_QDockWidget_ptr(QList<QDockWidget *> *self) {
   delete self;
 }
 
+#endif  // QT_CONFIG(dockwidget)
 #endif  // QT_CONFIG(dockwidget)

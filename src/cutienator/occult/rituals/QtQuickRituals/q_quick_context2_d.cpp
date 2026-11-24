@@ -4,6 +4,7 @@
 #include <QtQuick/qtquickglobal.h>
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #if QT_CONFIG(quick_canvas)
+#if QT_CONFIG(quick_canvas)
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #include <QtQuick/QtQuick>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -22,53 +23,53 @@
 #include <iterator>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquickcontext2dtexture_p.h"
-#include "qquickcontext2dtile_p.h"
-#include "qquickcanvasitem_p.h"
+#include <QtQuick/private/qquickcontext2dtexture_p.h>
+#include <QtQuick/private/qquickcontext2dtile_p.h>
+#include <QtQuick/private/qquickcanvasitem_p.h>
 #include <QtQuick/private/qsgplaintexture_p.h>
-#include "qquickcontext2dcommandbuffer_p.h"
+#include <QtQuick/private/qquickcontext2dcommandbuffer_p.h>
 #include <QtCore/QThread>
 #include <QtGui/QGuiApplication>
-#include "qquickcontext2dcommandbuffer_p.h"
-#include "qquickcanvasitem_p.h"
-#include <qqml.h>
+#include <QtQuick/private/qquickcontext2dcommandbuffer_p.h>
+#include <QtQuick/private/qquickcanvasitem_p.h>
+#include <QtQml/qqml.h>
 #include <QtCore/QMutex>
 #include <QtQuick/qsgtexture.h>
 #include <QtGui/QPaintEngine>
-#include "qquickcontext2d_p.h"
-#include "qquickcontext2dcommandbuffer_p.h"
-#include "qquickcanvasitem_p.h"
-#include <private/qtquickglobal_p.h>
-#include <private/qquickcontext2dtexture_p.h>
+#include <QtQuick/private/qquickcontext2d_p.h>
+#include <QtQuick/private/qquickcontext2dcommandbuffer_p.h>
+#include <QtQuick/private/qquickcanvasitem_p.h>
+#include <QtQuick/private/qtquickglobal_p.h>
+#include <QtQuick/private/qquickcontext2dtexture_p.h>
 #if QT_CONFIG(quick_shadereffect)
 #include <QtQuick/private/qquickshadereffectsource_p.h>
 #endif
-#include <qsgrendererinterface.h>
+#include <QtQuick/qsgrendererinterface.h>
 #include <QtQuick/private/qsgcontext_p.h>
 #include <QtGui/private/qguisvg_p.h>
 #if QT_CONFIG(quick_path)
-#include <private/qquickpath_p.h>
+#include <QtQuick/private/qquickpath_p.h>
 #endif
-#include <qqmlinfo.h>
-#include <qqmlengine.h>
-#include <private/qv4domerrors_p.h>
-#include <private/qv4engine_p.h>
-#include <private/qv4object_p.h>
-#include <private/qv4qobjectwrapper_p.h>
-#include <private/qquickwindow_p.h>
-#include <private/qv4value_p.h>
-#include <private/qv4functionobject_p.h>
-#include <private/qv4objectproto_p.h>
-#include <private/qv4scopedvalue_p.h>
-#include <private/qlocale_tools_p.h>
+#include <QtQml/qqmlinfo.h>
+#include <QtQml/qqmlengine.h>
+#include <QtQml/private/qv4domerrors_p.h>
+#include <QtQml/private/qv4engine_p.h>
+#include <QtQml/private/qv4object_p.h>
+#include <QtQml/private/qv4qobjectwrapper_p.h>
+#include <QtQuick/private/qquickwindow_p.h>
+#include <QtQml/private/qv4value_p.h>
+#include <QtQml/private/qv4functionobject_p.h>
+#include <QtQml/private/qv4objectproto_p.h>
+#include <QtQml/private/qv4scopedvalue_p.h>
+#include <QtCore/private/qlocale_tools_p.h>
 #include <QtCore/qmath.h>
 #include <QtCore/qvector.h>
 #include <QtCore/private/qnumeric_p.h>
 #include <QtCore/QRunnable>
 #include <QtGui/qguiapplication.h>
-#include <private/qguiapplication_p.h>
-#include <qpa/qplatformintegration.h>
-#include <private/qsgdefaultrendercontext_p.h>
+#include <QtGui/private/qguiapplication_p.h>
+#include <QtGui/qpa/qplatformintegration.h>
+#include <QtQuick/private/qsgdefaultrendercontext_p.h>
 #include <QtCore/qpointer.h>
 #include <cmath>
 #if defined(Q_OS_QNX) || defined(Q_OS_ANDROID)
@@ -1648,4 +1649,5 @@ QV4::ExecutionEngine *ritual_own_ZNK15QQuickContext2D8v4EngineEv(
   return self->QQuickContext2D::v4Engine();
 }
 
+#endif  // QT_CONFIG(quick_canvas)
 #endif  // QT_CONFIG(quick_canvas)

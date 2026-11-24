@@ -148,6 +148,11 @@
     "ritual_ZNK10QMatrix4x420toGenericMatrix_implEPfii": [
       "nothing", "address", "address", "int", "int"
     ],
-    "ritual_ZN10QMatrix4x4D1Ev": ["nothing", "address"]
+    "ritual_ZN10QMatrix4x4D1Ev": ["nothing", "address"],
+    "ritual_list_make_QMatrix4x4": ["address"],
+    "ritual_list_add_QMatrix4x4": ["nothing", "address", "address"],
+    "ritual_list_size_QMatrix4x4": ["long long", "address"],
+    "ritual_list_at_QMatrix4x4": ["address", "address", "long long"],
+    "ritual_list_drop_QMatrix4x4": ["nothing", "address"]
   }
 }

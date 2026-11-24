@@ -10,12 +10,12 @@
 #include <QtCoap/qcoapoption.h>
 #include <QtCore/qurl.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qcoapinternalmessage_p.h"
-#include "qcoaprequest_p.h"
+#include <QtCoap/private/qcoapinternalmessage_p.h>
+#include <QtCoap/private/qcoaprequest_p.h>
 #include <QtCoap/qcoaprequest.h>
 #include <QtCore/qloggingcategory.h>
-#include "qcoaprequest.h"
-#include "qcoapinternalrequest_p.h"
+#include <QtCoap/qcoaprequest.h>
+#include <QtCoap/private/qcoapinternalrequest_p.h>
 #include <QtCore/qmath.h>
 #include <QtCore/qrandom.h>
 #include <QtCore/qregularexpression.h>

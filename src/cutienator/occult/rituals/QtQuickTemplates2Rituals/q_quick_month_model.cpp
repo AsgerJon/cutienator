@@ -14,7 +14,7 @@
 #include <QtCore/qhash.h>
 #include <iterator>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquickmonthmodel_p.h"
+#include <QtQuickTemplates2/private/qquickmonthmodel_p.h>
 #include <QtCore/private/qabstractitemmodel_p.h>
 #include <QtCore/qloggingcategory.h>
 #include <QtCore/qtimezone.h>

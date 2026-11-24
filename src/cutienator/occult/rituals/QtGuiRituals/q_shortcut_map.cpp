@@ -1,8 +1,10 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGui/6.12.0/QtGui/private/qshortcutmap_p.h, Qt 6.12.0. Changes made here
 //  are lost.
+#include <QtCore/qglobal.h>
 #include <QtGui/qtguiglobal.h>
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
+#if QT_CONFIG(shortcut)
 #if QT_CONFIG(shortcut)
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
 #include <QtGui/QtGui>
@@ -132,4 +134,5 @@ int ritual_ZN12QShortcutMap18translateModifiersE6QFlagsIN2Qt16KeyboardModifierEE
       QFlags<Qt::KeyboardModifier>::fromInt(modifiers));
 }
 
+#endif  // QT_CONFIG(shortcut)
 #endif  // QT_CONFIG(shortcut)

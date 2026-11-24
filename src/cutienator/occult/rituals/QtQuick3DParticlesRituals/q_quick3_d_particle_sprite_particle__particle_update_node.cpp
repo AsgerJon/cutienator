@@ -10,8 +10,8 @@
 #include <QtQuick3D/qquick3dobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquick3dparticlespriteparticle_p.h"
-#include "qquick3dparticleemitter_p.h"
+#include <QtQuick3DParticles/private/qquick3dparticlespriteparticle_p.h>
+#include <QtQuick3DParticles/private/qquick3dparticleemitter_p.h>
 #include <QtQuick3D/private/qquick3dobject_p.h>
 #include <QtQuick3DUtils/private/qssgutils_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER

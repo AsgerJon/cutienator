@@ -2,6 +2,7 @@
 //  QtWidgets/qscrollerproperties.h, Qt 6.12.0. Changes made here are lost.
 #include <QtWidgets/qtwidgetsglobal.h>
 #if QT_CONFIG(scroller)
+#if QT_CONFIG(scroller)
 #include <QtWidgets/qscrollerproperties.h>
 #include <QtCore/qvariant.h>
 
@@ -72,4 +73,5 @@ void ritual_ZN19QScrollerProperties15setScrollMetricENS_12ScrollMetricERK8QVaria
   self->setScrollMetric(metric, *value);
 }
 
+#endif  // QT_CONFIG(scroller)
 #endif  // QT_CONFIG(scroller)

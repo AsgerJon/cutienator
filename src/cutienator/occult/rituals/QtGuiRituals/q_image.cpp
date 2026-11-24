@@ -14,6 +14,9 @@
 #include <QtCore/qbytearray.h>
 #include <QtGui/qpixelformat.h>
 #include <QtCore/qlist.h>
+#include <QtCore/qmap.h>
+#include <QtCore/qhash.h>
+#include <iterator>
 #include <cstring>
 
 //  Only a class built on QImage may call these functions of it.
@@ -1065,5 +1068,97 @@ QImage *ritual_list_at_QImage(const QList<QImage> *self, long long index) {
 //  QList<QImage>::~QList()
 extern "C" Q_DECL_EXPORT
 void ritual_list_drop_QImage(QList<QImage> *self) {
+  delete self;
+}
+
+//  QList<QImage *>::QList()
+extern "C" Q_DECL_EXPORT
+QList<QImage *> *ritual_list_make_QImage_ptr() {
+  return new QList<QImage *>();
+}
+
+//  void QList<QImage *>::append(const QImage * &value)
+extern "C" Q_DECL_EXPORT
+void ritual_list_add_QImage_ptr(QList<QImage *> *self, QImage *element) {
+  self->append(element);
+}
+
+//  qsizetype QList<QImage *>::size() const
+extern "C" Q_DECL_EXPORT
+long long ritual_list_size_QImage_ptr(const QList<QImage *> *self) {
+  return self->size();
+}
+
+//  const QImage * &QList<QImage *>::at(qsizetype i) const
+extern "C" Q_DECL_EXPORT
+QImage *ritual_list_at_QImage_ptr(
+    const QList<QImage *> *self,
+    long long index) {
+  return self->at(index);
+}
+
+//  QList<QImage *>::~QList()
+extern "C" Q_DECL_EXPORT
+void ritual_list_drop_QImage_ptr(QList<QImage *> *self) {
+  delete self;
+}
+
+//  QMap<QString, QImage>: QMap<QString, QImage>()
+extern "C" Q_DECL_EXPORT
+QMap<QString, QImage> *ritual_map_make_QMap_QString_QImage() {
+  return new QMap<QString, QImage>();
+}
+
+//  QMap<QString, QImage>: insert(const Key &key, const T &value)
+extern "C" Q_DECL_EXPORT
+void ritual_map_put_QMap_QString_QImage(
+    QMap<QString, QImage> *self,
+    const QString *key,
+    const QImage *value) {
+  self->insert(*key, *value);
+}
+
+//  QMap<QString, QImage>: size() const
+extern "C" Q_DECL_EXPORT
+long long ritual_map_size_QMap_QString_QImage(
+    const QMap<QString, QImage> *self) {
+  return self->size();
+}
+
+//  QMap<QString, QImage>: the key at a place
+extern "C" Q_DECL_EXPORT
+QString *ritual_map_key_QMap_QString_QImage(
+    const QMap<QString, QImage> *self,
+    long long index) {
+  return new QString(*std::next(self->keyBegin(), index));
+}
+
+//  QMap<QString, QImage>: the value at a place
+extern "C" Q_DECL_EXPORT
+QImage *ritual_map_value_QMap_QString_QImage(
+    const QMap<QString, QImage> *self,
+    long long index) {
+  return new QImage(*std::next(self->constBegin(), index));
+}
+
+//  QMap<QString, QImage>: contains(const Key &key) const
+extern "C" Q_DECL_EXPORT
+bool ritual_map_has_QMap_QString_QImage(
+    const QMap<QString, QImage> *self,
+    const QString *key) {
+  return self->contains(*key);
+}
+
+//  QMap<QString, QImage>: value(const Key &key) const
+extern "C" Q_DECL_EXPORT
+QImage *ritual_map_get_QMap_QString_QImage(
+    const QMap<QString, QImage> *self,
+    const QString *key) {
+  return new QImage(self->value(*key));
+}
+
+//  QMap<QString, QImage>: ~QMap()
+extern "C" Q_DECL_EXPORT
+void ritual_map_drop_QMap_QString_QImage(QMap<QString, QImage> *self) {
   delete self;
 }

@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qrubberband.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(rubberband)
 #if QT_CONFIG(rubberband)
 #include <QtWidgets/qrubberband.h>
 #include <QtCore/qstring.h>
@@ -1125,4 +1127,5 @@ void ritual_own_ZNK11QRubberBand15initStyleOptionEP22QStyleOptionRubberBand(
       option);
 }
 
+#endif  // QT_CONFIG(rubberband)
 #endif  // QT_CONFIG(rubberband)

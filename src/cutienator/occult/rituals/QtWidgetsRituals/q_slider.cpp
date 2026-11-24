@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qslider.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(slider)
 #if QT_CONFIG(slider)
 #include <QtWidgets/qslider.h>
 #include <QtCore/qstring.h>
@@ -1128,4 +1130,5 @@ void ritual_own_ZNK7QSlider15initStyleOptionEP18QStyleOptionSlider(
   static_cast<const OwnQSlider *>(self)->OwnQSlider::initStyleOption(option);
 }
 
+#endif  // QT_CONFIG(slider)
 #endif  // QT_CONFIG(slider)

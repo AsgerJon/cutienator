@@ -3,6 +3,7 @@
 //  are lost.
 #include <QtGui/qtguiglobal.h>
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
+#if QT_CONFIG(png)
 #if !defined(QT_NO_IMAGEFORMAT_PNG)
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
 #include <QtGui/QtGui>
@@ -14,17 +15,19 @@
 #include <QtCore/qrect.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "private/qpnghandler_p.h"
+#include <QtGui/private/qpnghandler_p.h>
 #ifndef QT_NO_IMAGEFORMAT_PNG
-#include <qcoreapplication.h>
-#include <qdebug.h>
-#include <qiodevice.h>
-#include <qimage.h>
-#include <qloggingcategory.h>
-#include <qvariant.h>
-#include <private/qimage_p.h> // for qt_getImageText
-#include <qcolorspace.h>
-#include <private/qcolorspace_p.h>
+#include <QtCore/qcoreapplication.h>
+#include <QtCore/qdebug.h>
+#include <QtCore/qiodevice.h>
+#include <QtGui/qimage.h>
+#include <QtCore/qloggingcategory.h>
+#include <QtCore/qvariant.h>
+#include <QtGui/private/qimage_p.h> // for qt_getImageText
+#include <QtGui/qcolorspace.h>
+#include <QtGui/private/qcolorspace_p.h>
+#include <png.h>
+#include <pngconf.h>
 #endif
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
@@ -338,3 +341,4 @@ bool ritual_own_ZNK11QPngHandler14supportsOptionEN15QImageIOHandler11ImageOption
 #endif  // !defined(QT_NO_IMAGEFORMAT_PNG)
 
 #endif  // !defined(QT_NO_IMAGEFORMAT_PNG)
+#endif  // QT_CONFIG(png)

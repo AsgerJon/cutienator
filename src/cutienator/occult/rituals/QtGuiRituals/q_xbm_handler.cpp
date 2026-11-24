@@ -12,14 +12,14 @@
 #include <QtCore/qvariant.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <qplatformdefs.h>
-#include "private/qxbmhandler_p.h"
+#include <QtGui/private/qxbmhandler_p.h>
 #ifndef QT_NO_IMAGEFORMAT_XBM
-#include <qimage.h>
-#include <qiodevice.h>
-#include <qloggingcategory.h>
-#include <qvariant.h>
-#include <private/qtools_p.h>
-#include <private/qimage_p.h>
+#include <QtGui/qimage.h>
+#include <QtCore/qiodevice.h>
+#include <QtCore/qloggingcategory.h>
+#include <QtCore/qvariant.h>
+#include <QtCore/private/qtools_p.h>
+#include <QtGui/private/qimage_p.h>
 #include <cstdio>
 #include <stdio.h>
 #endif

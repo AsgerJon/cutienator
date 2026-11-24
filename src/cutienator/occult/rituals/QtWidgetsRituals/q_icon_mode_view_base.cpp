@@ -1,8 +1,10 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/6.12.0/QtWidgets/private/qlistview_p.h, Qt 6.12.0. Changes made
 //  here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
+#if QT_CONFIG(listview)
 #if QT_CONFIG(listview)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/QtWidgets>
@@ -15,65 +17,65 @@
 #include <QtCore/qsize.h>
 #include <QtCore/qlist.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qlistview.h"
-#include <qabstractitemdelegate.h>
+#include <QtWidgets/qlistview.h>
+#include <QtWidgets/qabstractitemdelegate.h>
 #if QT_CONFIG(accessibility)
-#include <qaccessible.h>
+#include <QtGui/qaccessible.h>
 #endif
-#include <qapplication.h>
-#include <qstylepainter.h>
-#include <qbitmap.h>
-#include <qdebug.h>
+#include <QtWidgets/qapplication.h>
+#include <QtWidgets/qstylepainter.h>
+#include <QtGui/qbitmap.h>
+#include <QtCore/qdebug.h>
 #if QT_CONFIG(draganddrop)
-#include <qdrag.h>
+#include <QtGui/qdrag.h>
 #endif
-#include <qevent.h>
-#include <qlist.h>
+#include <QtGui/qevent.h>
+#include <QtCore/qlist.h>
 #if QT_CONFIG(rubberband)
-#include <qrubberband.h>
+#include <QtWidgets/qrubberband.h>
 #endif
-#include <qscrollbar.h>
-#include <qstyle.h>
-#include <private/qapplication_p.h>
-#include <private/qlistview_p.h>
-#include <private/qscrollbar_p.h>
+#include <QtWidgets/qscrollbar.h>
+#include <QtWidgets/qstyle.h>
+#include <QtWidgets/private/qapplication_p.h>
+#include <QtWidgets/private/qlistview_p.h>
+#include <QtWidgets/private/qscrollbar_p.h>
 #include <algorithm>
-#include "qabstractitemview.h"
-#include <qpointer.h>
-#include <qapplication.h>
-#include <qclipboard.h>
-#include <qpainter.h>
-#include <qstyle.h>
+#include <QtWidgets/qabstractitemview.h>
+#include <QtCore/qpointer.h>
+#include <QtWidgets/qapplication.h>
+#include <QtGui/qclipboard.h>
+#include <QtGui/qpainter.h>
+#include <QtWidgets/qstyle.h>
 #if QT_CONFIG(draganddrop)
-#include <qdrag.h>
+#include <QtGui/qdrag.h>
 #endif
-#include <qevent.h>
-#include <qscrollbar.h>
+#include <QtGui/qevent.h>
+#include <QtWidgets/qscrollbar.h>
 #if QT_CONFIG(tooltip)
-#include <qtooltip.h>
+#include <QtWidgets/qtooltip.h>
 #endif
-#include <qdatetime.h>
+#include <QtCore/qdatetime.h>
 #if QT_CONFIG(lineedit)
-#include <qlineedit.h>
+#include <QtWidgets/qlineedit.h>
 #endif
 #if QT_CONFIG(spinbox)
-#include <qspinbox.h>
+#include <QtWidgets/qspinbox.h>
 #endif
-#include <qheaderview.h>
-#include <qstyleditemdelegate.h>
-#include <private/qabstractitemview_p.h>
-#include <private/qabstractitemmodel_p.h>
-#include <private/qapplication_p.h>
-#include <private/qguiapplication_p.h>
-#include <private/qscrollbar_p.h>
+#include <QtWidgets/qheaderview.h>
+#include <QtWidgets/qstyleditemdelegate.h>
+#include <QtWidgets/private/qabstractitemview_p.h>
+#include <QtCore/private/qabstractitemmodel_p.h>
+#include <QtWidgets/private/qapplication_p.h>
+#include <QtGui/private/qguiapplication_p.h>
+#include <QtWidgets/private/qscrollbar_p.h>
 #if QT_CONFIG(accessibility)
-#include <qaccessible.h>
+#include <QtGui/qaccessible.h>
 #endif
 #if QT_CONFIG(gestures) && QT_CONFIG(scroller)
-#  include <qscroller.h>
+#  include <QtWidgets/qscroller.h>
 #endif
 #include <algorithm>
-#include "qbsptree_p.h"
+#include <QtWidgets/private/qbsptree_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -1314,4 +1316,5 @@ bool ritual_own_ZN17QIconModeViewBase15filterStartDragE6QFlagsIN2Qt10DropActionE
 }
 #endif  // QT_CONFIG(draganddrop)
 
+#endif  // QT_CONFIG(listview)
 #endif  // QT_CONFIG(listview)

@@ -15,10 +15,10 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qsgrhitextureglyphcache_p.h"
-#include "qsgdefaultrendercontext_p.h"
-#include <qrgb.h>
-#include <private/qdrawhelper_p.h>
+#include <QtQuick/private/qsgrhitextureglyphcache_p.h>
+#include <QtQuick/private/qsgdefaultrendercontext_p.h>
+#include <QtGui/qrgb.h>
+#include <QtGui/private/qdrawhelper_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

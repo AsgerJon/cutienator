@@ -7,15 +7,15 @@
 #include <QtOpenGL/6.12.0/QtOpenGL/private/qopenglframebufferobject_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qopenglframebufferobject.h"
-#include "qopenglframebufferobject_p.h"
-#include <qdebug.h>
-#include <private/qopengl_p.h>
-#include <private/qopenglcontext_p.h>
-#include <private/qopenglextensions_p.h>
-#include <private/qfont_p.h>
-#include <qwindow.h>
-#include <qimage.h>
+#include <QtOpenGL/qopenglframebufferobject.h>
+#include <QtOpenGL/private/qopenglframebufferobject_p.h>
+#include <QtCore/qdebug.h>
+#include <QtGui/private/qopengl_p.h>
+#include <QtGui/private/qopenglcontext_p.h>
+#include <QtGui/private/qopenglextensions_p.h>
+#include <QtGui/private/qfont_p.h>
+#include <QtGui/qwindow.h>
+#include <QtGui/qimage.h>
 #include <QtCore/qbytearray.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

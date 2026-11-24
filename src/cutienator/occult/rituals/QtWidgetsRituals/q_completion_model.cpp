@@ -1,8 +1,10 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/6.12.0/QtWidgets/private/qcompleter_p.h, Qt 6.12.0. Changes
 //  made here are lost.
+#include <QtCore/qglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
+#if QT_CONFIG(completer)
 #if QT_CONFIG(completer)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/QtWidgets>
@@ -18,7 +20,7 @@
 #include <QtCore/qlist.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qcompleter_p.h"
+#include <QtWidgets/private/qcompleter_p.h>
 #include "QtWidgets/qscrollbar.h"
 #include "QtCore/qdir.h"
 #if QT_CONFIG(stringlistmodel)
@@ -33,10 +35,10 @@
 #endif
 #include "QtWidgets/qapplication.h"
 #include "QtGui/qevent.h"
-#include <private/qapplication_p.h>
-#include <private/qwidget_p.h>
-#include <qpa/qplatformwindow.h>
-#include <qpa/qplatformwindow_p.h>
+#include <QtWidgets/private/qapplication_p.h>
+#include <QtWidgets/private/qwidget_p.h>
+#include <QtGui/qpa/qplatformwindow.h>
+#include <QtGui/qpa/qplatformwindow_p.h>
 #if QT_CONFIG(lineedit)
 #include "QtWidgets/qlineedit.h"
 #endif
@@ -86,6 +88,7 @@ inline void QCompletionEngine::filter(const QStringList& parts)
 }
 
 //  from src/widgets/util/qcompleter.cpp, line 446, as _ZN17QCompletionEngine13filterHistoryEv
+#if defined(Q_OS_LINUX)
 inline QMatchData QCompletionEngine::filterHistory()
 {
     QAbstractItemModel *source = c->proxy->sourceModel();
@@ -113,6 +116,7 @@ inline QMatchData QCompletionEngine::filterHistory()
     }
     return m;
 }
+#endif  // defined(Q_OS_LINUX)
 
 //  from src/widgets/util/qcompleter.cpp, line 339, as _ZN16QCompletionModel11setFilteredEb
 inline void QCompletionModel::setFiltered(bool filtered)
@@ -1572,6 +1576,7 @@ void ritual_ZN16QCompletionModel11setFilteredEb(
   self->setFiltered(a0);
 }
 
+#if defined(Q_OS_LINUX)
 //  void QCompletionModel::filter(const QStringList &parts)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QCompletionModel6filterERK5QListI7QStringE(
@@ -1579,6 +1584,7 @@ void ritual_ZN16QCompletionModel6filterERK5QListI7QStringE(
     const QList<QString> *parts) {
   self->filter(*parts);
 }
+#endif  // defined(Q_OS_LINUX)
 
 //  int QCompletionModel::completionCount() const
 extern "C" Q_DECL_EXPORT
@@ -1702,17 +1708,21 @@ const QCompletionModelPrivate *ritual_ZNK16QCompletionModel6d_funcEv(
   return self->d_func();
 }
 
+#if defined(Q_OS_LINUX)
 //  void QCompletionModel::invalidate()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QCompletionModel10invalidateEv(QCompletionModel *self) {
   self->invalidate();
 }
+#endif  // defined(Q_OS_LINUX)
 
+#if defined(Q_OS_LINUX)
 //  void QCompletionModel::modelDestroyed()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QCompletionModel14modelDestroyedEv(QCompletionModel *self) {
   self->modelDestroyed();
 }
+#endif  // defined(Q_OS_LINUX)
 
 //  a Python function taken by a CuteQCompletionModel, for the function named
 //      by the key
@@ -1776,6 +1786,7 @@ QVariant *ritual_own_ZNK16QCompletionModel4dataERK11QModelIndexi(
   return new QVariant(self->QCompletionModel::data(*index, role));
 }
 
+#if defined(Q_OS_LINUX)
 //  void QCompletionModel::setSourceModel(QAbstractItemModel *sourceModel)
 extern "C" Q_DECL_EXPORT
 void ritual_own_ZN16QCompletionModel14setSourceModelEP18QAbstractItemModel(
@@ -1783,6 +1794,7 @@ void ritual_own_ZN16QCompletionModel14setSourceModelEP18QAbstractItemModel(
     QAbstractItemModel *sourceModel) {
   self->QCompletionModel::setSourceModel(sourceModel);
 }
+#endif  // defined(Q_OS_LINUX)
 
 //  QModelIndex QCompletionModel::mapToSource(const QModelIndex &proxyIndex)
 //      const
@@ -1804,4 +1816,5 @@ QModelIndex *ritual_own_ZNK16QCompletionModel13mapFromSourceERK11QModelIndex(
           *sourceIndex));
 }
 
+#endif  // QT_CONFIG(completer)
 #endif  // QT_CONFIG(completer)

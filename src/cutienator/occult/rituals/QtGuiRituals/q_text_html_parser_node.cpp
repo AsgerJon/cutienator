@@ -11,17 +11,17 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qtexthtmlparser_p.h"
-#include <qbytearray.h>
-#include <qstack.h>
-#include <qdebug.h>
-#include <qthread.h>
-#include <qguiapplication.h>
-#include "qtextdocument.h"
-#include "qtextformat_p.h"
-#include "qtextdocument_p.h"
-#include "qtextcursor.h"
-#include "qfont_p.h"
+#include <QtGui/private/qtexthtmlparser_p.h>
+#include <QtCore/qbytearray.h>
+#include <QtCore/qstack.h>
+#include <QtCore/qdebug.h>
+#include <QtCore/qthread.h>
+#include <QtGui/qguiapplication.h>
+#include <QtGui/qtextdocument.h>
+#include <QtGui/private/qtextformat_p.h>
+#include <QtGui/private/qtextdocument_p.h>
+#include <QtGui/qtextcursor.h>
+#include <QtGui/private/qfont_p.h>
 #include <algorithm>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

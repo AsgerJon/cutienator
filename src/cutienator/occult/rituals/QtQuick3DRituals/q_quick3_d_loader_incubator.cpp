@@ -7,13 +7,13 @@
 #include <QtQuick3D/6.12.0/QtQuick3D/private/qquick3dloader_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquick3dloader_p.h"
-#include "qquick3dobject_p.h"
+#include <QtQuick3D/private/qquick3dloader_p.h>
+#include <QtQuick3D/private/qquick3dobject_p.h>
 #include <QtQml/qqmlinfo.h>
-#include <private/qqmlengine_p.h>
-#include <private/qqmlglobal_p.h>
-#include <private/qqmlcomponent_p.h>
-#include <private/qqmlincubator_p.h>
+#include <QtQml/private/qqmlengine_p.h>
+#include <QtQml/private/qqmlglobal_p.h>
+#include <QtQml/private/qqmlcomponent_p.h>
+#include <QtQml/private/qqmlincubator_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

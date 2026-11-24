@@ -1,20 +1,27 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtMultimedia/6.12.0/QtMultimedia/private/qpulseaudiodevices_p.h, Qt
 //  6.12.0. Changes made here are lost.
+#include <QtMultimedia/qtmultimediaglobal.h>
+#include <QtMultimedia/6.12.0/QtMultimedia/private/qtmultimediaglobal_p.h>
+#if QT_CONFIG(pulseaudio)
 #include <QtMultimedia/6.12.0/QtMultimedia/private/qtmultimediaglobal_p.h>
 #include <QtMultimedia/QtMultimedia>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtMultimedia/6.12.0/QtMultimedia/private/qpulseaudiodevices_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <QtCore/qlatin1stringview.h>
 #include <QtMultimedia/qaudiodevice.h>
 #include <QtMultimedia/qaudioformat.h>
+#include <QtCore/qlatin1stringview.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qpulseaudiodevices_p.h"
-#include "qmediadevices.h"
-#include "private/qcameradevice_p.h"
+#include <QtMultimedia/private/qpulseaudiodevices_p.h>
+#include <QtMultimedia/qmediadevices.h>
+#include <QtMultimedia/private/qcameradevice_p.h>
+#include <QtMultimedia/private/qpulseaudiosource_p.h>
+#include <QtMultimedia/private/qpulseaudiosink_p.h>
+#include <QtMultimedia/private/qpulseaudio_contextmanager_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -28,6 +35,34 @@
 inline QPulseAudioDevices::~QPulseAudioDevices()
 {
     delete pulseEngine;
+}
+
+//  from ../qtmultimedia/src/multimedia/pulseaudio/qpulseaudiodevices.cpp, line 41, as _ZN18QPulseAudioDevices17createAudioSourceERK12QAudioDeviceRK12QAudioFormatP7QObject
+inline QPlatformAudioSource *QPulseAudioDevices::createAudioSource(const QAudioDevice &deviceInfo,
+                                                            const QAudioFormat &fmt,
+                                                            QObject *parent)
+{
+    return new QPulseAudioInternal::QPulseAudioSource(deviceInfo, fmt, parent);
+}
+
+//  from ../qtmultimedia/src/multimedia/pulseaudio/qpulseaudiodevices.cpp, line 48, as _ZN18QPulseAudioDevices15createAudioSinkERK12QAudioDeviceRK12QAudioFormatP7QObject
+inline QPlatformAudioSink *QPulseAudioDevices::createAudioSink(const QAudioDevice &deviceInfo,
+                                                        const QAudioFormat &fmt,
+                                                        QObject *parent)
+{
+    return new QPulseAudioInternal::QPulseAudioSink(deviceInfo, fmt, parent);
+}
+
+//  from ../qtmultimedia/src/multimedia/pulseaudio/qpulseaudiodevices.cpp, line 31, as _ZNK18QPulseAudioDevices15findAudioInputsEv
+inline QList<QAudioDevice> QPulseAudioDevices::findAudioInputs() const
+{
+    return pulseEngine->availableDevices(QAudioDevice::Input);
+}
+
+//  from ../qtmultimedia/src/multimedia/pulseaudio/qpulseaudiodevices.cpp, line 36, as _ZNK18QPulseAudioDevices16findAudioOutputsEv
+inline QList<QAudioDevice> QPulseAudioDevices::findAudioOutputs() const
+{
+    return pulseEngine->availableDevices(QAudioDevice::Output);
 }
 //  -----------------------------------------------------------------------
 
@@ -276,6 +311,28 @@ void ritual_ZN18QPulseAudioDevicesD1Ev(QPulseAudioDevices *self) {
   delete self;
 }
 
+//  QPlatformAudioSource *QPulseAudioDevices::createAudioSource(const
+//      QAudioDevice &a0, const QAudioFormat &a1, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QPlatformAudioSource *ritual_ZN18QPulseAudioDevices17createAudioSourceERK12QAudioDeviceRK12QAudioFormatP7QObject(
+    QPulseAudioDevices *self,
+    const QAudioDevice *a0,
+    const QAudioFormat *a1,
+    QObject *parent) {
+  return self->createAudioSource(*a0, *a1, parent);
+}
+
+//  QPlatformAudioSink *QPulseAudioDevices::createAudioSink(const
+//      QAudioDevice &a0, const QAudioFormat &a1, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QPlatformAudioSink *ritual_ZN18QPulseAudioDevices15createAudioSinkERK12QAudioDeviceRK12QAudioFormatP7QObject(
+    QPulseAudioDevices *self,
+    const QAudioDevice *a0,
+    const QAudioFormat *a1,
+    QObject *parent) {
+  return self->createAudioSink(*a0, *a1, parent);
+}
+
 //  QLatin1String QPulseAudioDevices::backendName() const
 extern "C" Q_DECL_EXPORT
 QLatin1String *ritual_ZNK18QPulseAudioDevices11backendNameEv(
@@ -288,6 +345,20 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZNK18QPulseAudioDevices14hasCallbackApiEv(
     const QPulseAudioDevices *self) {
   return self->hasCallbackApi();
+}
+
+//  QList<QAudioDevice> QPulseAudioDevices::findAudioInputs() const
+extern "C" Q_DECL_EXPORT
+QList<QAudioDevice> *ritual_ZNK18QPulseAudioDevices15findAudioInputsEv(
+    const QPulseAudioDevices *self) {
+  return new QList<QAudioDevice>(self->findAudioInputs());
+}
+
+//  QList<QAudioDevice> QPulseAudioDevices::findAudioOutputs() const
+extern "C" Q_DECL_EXPORT
+QList<QAudioDevice> *ritual_ZNK18QPulseAudioDevices16findAudioOutputsEv(
+    const QPulseAudioDevices *self) {
+  return new QList<QAudioDevice>(self->findAudioOutputs());
 }
 
 //  a Python function taken by a CuteQPulseAudioDevices, for the function
@@ -313,3 +384,5 @@ bool ritual_own_ZNK18QPulseAudioDevices14hasCallbackApiEv(
     const QPulseAudioDevices *self) {
   return self->QPulseAudioDevices::hasCallbackApi();
 }
+
+#endif  // QT_CONFIG(pulseaudio)

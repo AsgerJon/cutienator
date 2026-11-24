@@ -10,6 +10,22 @@
       "nothing", "address", "address"
     ],
     "ritual_ZNK12QDBusVariant7variantEv": ["address", "address"],
-    "ritual_ZN12QDBusVariantD1Ev": ["nothing", "address"]
+    "ritual_ZN12QDBusVariantD1Ev": ["nothing", "address"],
+    "ritual_map_make_QMap_QString_QDBusVariant": ["address"],
+    "ritual_map_put_QMap_QString_QDBusVariant": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_map_size_QMap_QString_QDBusVariant": ["long long", "address"],
+    "ritual_map_key_QMap_QString_QDBusVariant": [
+      "text", "address", "long long"
+    ],
+    "ritual_map_value_QMap_QString_QDBusVariant": [
+      "address", "address", "long long"
+    ],
+    "ritual_map_has_QMap_QString_QDBusVariant": ["bool", "address", "text"],
+    "ritual_map_get_QMap_QString_QDBusVariant": [
+      "address", "address", "text"
+    ],
+    "ritual_map_drop_QMap_QString_QDBusVariant": ["nothing", "address"]
   }
 }

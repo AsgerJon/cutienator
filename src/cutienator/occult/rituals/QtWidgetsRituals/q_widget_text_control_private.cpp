@@ -4,6 +4,7 @@
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #if QT_CONFIG(widgettextcontrol)
+#if QT_CONFIG(widgettextcontrol)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/QtWidgets>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -16,54 +17,54 @@
 #include <QtCore/qrect.h>
 #include <QtGui/qtextobject.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qwidgettextcontrol_p.h"
-#include "qwidgettextcontrol_p_p.h"
+#include <QtWidgets/private/qwidgettextcontrol_p.h>
+#include <QtWidgets/private/qwidgettextcontrol_p_p.h>
 #ifndef QT_NO_TEXTCONTROL
-#include <qfont.h>
-#include <qpainter.h>
-#include <qevent.h>
-#include <qdebug.h>
+#include <QtGui/qfont.h>
+#include <QtGui/qpainter.h>
+#include <QtGui/qevent.h>
+#include <QtCore/qdebug.h>
 #if QT_CONFIG(draganddrop)
-#include <qdrag.h>
+#include <QtGui/qdrag.h>
 #endif
-#include <qclipboard.h>
-#include <qstyle.h>
-#include "private/qapplication_p.h"
-#include "private/qtextdocumentlayout_p.h"
-#include "private/qabstracttextdocumentlayout_p.h"
+#include <QtGui/qclipboard.h>
+#include <QtWidgets/qstyle.h>
+#include <QtWidgets/private/qapplication_p.h>
+#include <QtGui/private/qtextdocumentlayout_p.h>
+#include <QtGui/private/qabstracttextdocumentlayout_p.h>
 #if QT_CONFIG(menu)
-#include "private/qmenu_p.h"
+#include <QtWidgets/private/qmenu_p.h>
 #endif
-#include "qtextdocument.h"
-#include "private/qtextdocument_p.h"
-#include "private/qtextdocumentfragment_p.h"
-#include "qtextlist.h"
-#include "private/qwidgettextcontrol_p.h"
+#include <QtGui/qtextdocument.h>
+#include <QtGui/private/qtextdocument_p.h>
+#include <QtGui/private/qtextdocumentfragment_p.h>
+#include <QtGui/qtextlist.h>
+#include <QtWidgets/private/qwidgettextcontrol_p.h>
 #if QT_CONFIG(style_stylesheet)
-#  include "private/qstylesheetstyle_p.h"
+#  include <QtWidgets/private/qstylesheetstyle_p.h>
 #endif
 #if QT_CONFIG(graphicsview)
-#include "qgraphicssceneevent.h"
+#include <QtWidgets/qgraphicssceneevent.h>
 #endif
-#include "qpagedpaintdevice.h"
-#include "private/qpagedpaintdevice_p.h"
-#include "qtextdocumentwriter.h"
-#include "qstylehints.h"
-#include "private/qtextcursor_p.h"
-#include <qtextformat.h>
-#include <qdatetime.h>
-#include <qbuffer.h>
-#include <qapplication.h>
+#include <QtGui/qpagedpaintdevice.h>
+#include <QtGui/private/qpagedpaintdevice_p.h>
+#include <QtGui/qtextdocumentwriter.h>
+#include <QtGui/qstylehints.h>
+#include <QtGui/private/qtextcursor_p.h>
+#include <QtGui/qtextformat.h>
+#include <QtCore/qdatetime.h>
+#include <QtCore/qbuffer.h>
+#include <QtWidgets/qapplication.h>
 #include <limits.h>
-#include <qtexttable.h>
-#include <qvariant.h>
-#include <qurl.h>
-#include <qdesktopservices.h>
-#include <qinputmethod.h>
+#include <QtGui/qtexttable.h>
+#include <QtCore/qvariant.h>
+#include <QtCore/qurl.h>
+#include <QtGui/qdesktopservices.h>
+#include <QtGui/qinputmethod.h>
 #if QT_CONFIG(tooltip)
-#include <qtooltip.h>
+#include <QtWidgets/qtooltip.h>
 #endif
-#include <qstyleoption.h>
+#include <QtWidgets/qstyleoption.h>
 #if QT_CONFIG(lineedit)
 #include <QtWidgets/qlineedit.h>
 #endif
@@ -72,11 +73,11 @@
 #ifdef Q_OS_WASM
 #include <QtCore/private/qstdweb_p.h>
 #endif
-#include <private/qoffsetstringarray_p.h>
+#include <QtCore/private/qoffsetstringarray_p.h>
 #if QT_CONFIG(shortcut)
-#include "private/qapplication_p.h"
-#include "private/qshortcutmap_p.h"
-#include <qkeysequence.h>
+#include <QtWidgets/private/qapplication_p.h>
+#include <QtGui/private/qshortcutmap_p.h>
+#include <QtGui/qkeysequence.h>
 #else
 #endif
 #include <algorithm>
@@ -332,6 +333,7 @@ inline void QWidgetTextControlPrivate::setContent(Qt::TextFormat format, const Q
 
 //  from src/widgets/widgets/qwidgettextcontrol.cpp, line 499, as _ZN25QWidgetTextControlPrivate9startDragEv
 #if !defined(QT_NO_TEXTCONTROL)
+#if defined(Q_OS_LINUX)
 inline void QWidgetTextControlPrivate::startDrag()
 {
 
@@ -364,6 +366,7 @@ inline void QWidgetTextControlPrivate::startDrag()
         cursor.removeSelectedText();
 #endif
 }
+#endif  // defined(Q_OS_LINUX)
 #endif  // !defined(QT_NO_TEXTCONTROL)
 
 //  from src/widgets/widgets/qwidgettextcontrol.cpp, line 532, as _ZN25QWidgetTextControlPrivate17setCursorPositionERK7QPointF
@@ -1458,12 +1461,14 @@ void ritual_ZN25QWidgetTextControlPrivate10setContentEN2Qt10TextFormatERK7QStrin
 #endif  // !defined(QT_NO_TEXTCONTROL)
 
 #if !defined(QT_NO_TEXTCONTROL)
+#if defined(Q_OS_LINUX)
 //  void QWidgetTextControlPrivate::startDrag()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN25QWidgetTextControlPrivate9startDragEv(
     QWidgetTextControlPrivate *self) {
   self->startDrag();
 }
+#endif  // defined(Q_OS_LINUX)
 #endif  // !defined(QT_NO_TEXTCONTROL)
 
 #if !defined(QT_NO_TEXTCONTROL)
@@ -1889,4 +1894,5 @@ void ritual_ZN25QWidgetTextControlPrivate24_q_documentLayoutChangedEv(
 }
 #endif  // !defined(QT_NO_TEXTCONTROL)
 
+#endif  // QT_CONFIG(widgettextcontrol)
 #endif  // QT_CONFIG(widgettextcontrol)

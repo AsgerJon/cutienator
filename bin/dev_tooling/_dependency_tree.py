@@ -13,7 +13,7 @@ from typing import TYPE_CHECKING
 
 from worktoy.waitaminute import MissingVariable, TypeException
 
-from . import HeaderFolder, HeaderReader
+from . import HeaderFolder, HeaderReader, Machine
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import (
@@ -1278,7 +1278,8 @@ class DependencyTree:
       #  '-fdata-sections' gives the letters a stretch of the object
       #  file to themselves, under their own name.
       command = (
-          'clang++', '-std=c++17', '-fPIC', '-fdata-sections', '-c',
+          'clang++', '-std=c++17', *Machine.getCompilerFlags(),
+          '-fdata-sections', '-c',
           '-ferror-limit=0', '-I%s' % HeaderReader.getQtHeaderFolder(),
           *private, sourceFile, '-o', objectFile,
       )

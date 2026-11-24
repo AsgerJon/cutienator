@@ -3,6 +3,7 @@
 //  6.12.0. Changes made here are lost.
 #include <QtBluetooth/qtbluetoothglobal.h>
 #include <QtBluetooth/6.12.0/QtBluetooth/private/qtbluetoothglobal_p.h>
+#if (QT_CONFIG(bluez)) && (QT_CONFIG(bluez_le))
 #if QT_CONFIG(bluez)
 #include <QtBluetooth/6.12.0/QtBluetooth/private/qtbluetoothglobal_p.h>
 #include <QtBluetooth/QtBluetooth>
@@ -12,7 +13,7 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qleadvertiser_bluezdbus_p.h"
+#include <QtBluetooth/private/qleadvertiser_bluezdbus_p.h>
 #include <QtCore/QtMinMax>
 #include <QtCore/QLoggingCategory>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -222,3 +223,4 @@ bool ritual_take_QLeDBusAdvertiser(
 }
 
 #endif  // QT_CONFIG(bluez)
+#endif  // (QT_CONFIG(bluez)) && (QT_CONFIG(bluez_le))

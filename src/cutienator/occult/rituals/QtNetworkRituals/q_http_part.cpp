@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtNetwork/qhttpmultipart.h, Qt 6.12.0. Changes made here are lost.
 #include <QtNetwork/qtnetworkglobal.h>
+#if (defined(Q_OS_WASM)) || (QT_CONFIG(http))
 #if QT_CONFIG(http)
 #include <QtNetwork/qhttpmultipart.h>
 #include <QtCore/qvariant.h>
@@ -88,3 +89,4 @@ QDebug *ritual_Zls6QDebugRK9QHttpPart(
 #endif  // !defined(QT_NO_DEBUG_STREAM)
 
 #endif  // QT_CONFIG(http)
+#endif  // (defined(Q_OS_WASM)) || (QT_CONFIG(http))

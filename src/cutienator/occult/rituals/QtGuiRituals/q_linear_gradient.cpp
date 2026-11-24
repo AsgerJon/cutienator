@@ -2,6 +2,7 @@
 //  QtGui/qbrush.h, Qt 6.12.0. Changes made here are lost.
 #include <QtGui/qbrush.h>
 #include <QtCore/qpoint.h>
+#include <QtCore/qlist.h>
 
 //  QLinearGradient::QLinearGradient()
 extern "C" Q_DECL_EXPORT
@@ -80,4 +81,39 @@ void ritual_ZN15QLinearGradient12setFinalStopEdd(
     qreal x,
     qreal y) {
   self->setFinalStop(x, y);
+}
+
+//  QList<QLinearGradient>::QList()
+extern "C" Q_DECL_EXPORT
+QList<QLinearGradient> *ritual_list_make_QLinearGradient() {
+  return new QList<QLinearGradient>();
+}
+
+//  void QList<QLinearGradient>::append(const QLinearGradient &value)
+extern "C" Q_DECL_EXPORT
+void ritual_list_add_QLinearGradient(
+    QList<QLinearGradient> *self,
+    const QLinearGradient *element) {
+  self->append(*element);
+}
+
+//  qsizetype QList<QLinearGradient>::size() const
+extern "C" Q_DECL_EXPORT
+long long ritual_list_size_QLinearGradient(
+    const QList<QLinearGradient> *self) {
+  return self->size();
+}
+
+//  const QLinearGradient &QList<QLinearGradient>::at(qsizetype i) const
+extern "C" Q_DECL_EXPORT
+QLinearGradient *ritual_list_at_QLinearGradient(
+    const QList<QLinearGradient> *self,
+    long long index) {
+  return new QLinearGradient(self->at(index));
+}
+
+//  QList<QLinearGradient>::~QList()
+extern "C" Q_DECL_EXPORT
+void ritual_list_drop_QLinearGradient(QList<QLinearGradient> *self) {
+  delete self;
 }

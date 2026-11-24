@@ -4,6 +4,7 @@
 #include <QtCore/qglobal.h>
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #if QT_CONFIG(library)
+#if QT_CONFIG(library)
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtCore/QtCore>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -16,4 +17,5 @@ void ritual_ZN15QLibraryPrivate7DeleterD1Ev(QLibraryPrivate::Deleter *self) {
   delete self;
 }
 
+#endif  // QT_CONFIG(library)
 #endif  // QT_CONFIG(library)

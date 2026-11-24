@@ -2,6 +2,7 @@
 //  QtCore/qsettings.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qglobal.h>
 #if QT_CONFIG(settings)
+#if QT_CONFIG(settings)
 #if !defined(QT_NO_QOBJECT)
 #include <QtCore/qsettings.h>
 #include <QtCore/qstring.h>
@@ -587,4 +588,5 @@ bool ritual_own_ZN9QSettings5eventEP6QEvent(QSettings *self, QEvent *event) {
 }
 
 #endif  // !defined(QT_NO_QOBJECT)
+#endif  // QT_CONFIG(settings)
 #endif  // QT_CONFIG(settings)

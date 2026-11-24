@@ -3,6 +3,7 @@
 //  here are lost.
 #include <QtGui/qtguiglobal.h>
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
+#if __has_include(<QtGui/6.12.0/QtGui/private/qspidbuscache_p.h>)
 #if QT_CONFIG(accessibility)
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
 #include <QtGui/QtGui>
@@ -14,8 +15,8 @@
 #include <QtCore/qlist.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qspidbuscache_p.h"
-#include "qspiaccessiblebridge_p.h"
+#include <QtGui/private/qspidbuscache_p.h>
+#include <QtGui/private/qspiaccessiblebridge_p.h>
 #if QT_CONFIG(accessibility)
 #endif
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -230,3 +231,4 @@ bool ritual_take_QSpiDBusCache(
 }
 
 #endif  // QT_CONFIG(accessibility)
+#endif  // __has_include(<QtGui/6.12.0/QtGui/private/qspidbuscache_p.h>)

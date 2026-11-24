@@ -1,8 +1,10 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtSql/6.12.0/QtSql/private/qsqltablemodel_p.h, Qt 6.12.0. Changes made
 //  here are lost.
+#include <QtCore/qglobal.h>
 #include <QtSql/qtsqlglobal.h>
 #include <QtSql/6.12.0/QtSql/private/qtsqlglobal_p.h>
+#if QT_CONFIG(sqlmodel)
 #if QT_CONFIG(sqlmodel)
 #include <QtSql/6.12.0/QtSql/private/qtsqlglobal_p.h>
 #include <QtSql/qsqltablemodel.h>
@@ -16,21 +18,21 @@
 #include <QtCore/qlist.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qsqlquerymodel.h"
-#include "qsqlquerymodel_p.h"
-#include <qdebug.h>
-#include <qsqldriver.h>
-#include <qsqlfield.h>
-#include "qsqltablemodel.h"
-#include "qsqldriver.h"
-#include "qsqlerror.h"
-#include "qsqlfield.h"
-#include "qsqlindex.h"
-#include "qsqlquery.h"
-#include "qsqlrecord.h"
-#include "qsqlresult.h"
-#include "qsqltablemodel_p.h"
-#include <qdebug.h>
+#include <QtSql/qsqlquerymodel.h>
+#include <QtSql/private/qsqlquerymodel_p.h>
+#include <QtCore/qdebug.h>
+#include <QtSql/qsqldriver.h>
+#include <QtSql/qsqlfield.h>
+#include <QtSql/qsqltablemodel.h>
+#include <QtSql/qsqldriver.h>
+#include <QtSql/qsqlerror.h>
+#include <QtSql/qsqlfield.h>
+#include <QtSql/qsqlindex.h>
+#include <QtSql/qsqlquery.h>
+#include <QtSql/qsqlrecord.h>
+#include <QtSql/qsqlresult.h>
+#include <QtSql/private/qsqltablemodel_p.h>
+#include <QtCore/qdebug.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -418,4 +420,5 @@ int ritual_own_ZNK21QSqlTableModelPrivate11nameToIndexERK7QString(
   return self->QSqlTableModelPrivate::nameToIndex(*name);
 }
 
+#endif  // QT_CONFIG(sqlmodel)
 #endif  // QT_CONFIG(sqlmodel)

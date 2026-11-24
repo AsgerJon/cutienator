@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qtabwidget.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(tabwidget)
 #if QT_CONFIG(tabwidget)
 #include <QtWidgets/qtabwidget.h>
 #include <QtCore/qstring.h>
@@ -1584,4 +1586,5 @@ void ritual_own_ZNK10QTabWidget15initStyleOptionEP26QStyleOptionTabWidgetFrame(
       option);
 }
 
+#endif  // QT_CONFIG(tabwidget)
 #endif  // QT_CONFIG(tabwidget)

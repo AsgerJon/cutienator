@@ -8,11 +8,11 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtPositioning/qgeopositioninfo.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qgeopositioninfo.h"
-#include "private/qgeopositioninfo_p.h"
-#include <QHash>
-#include <QDebug>
-#include <QDataStream>
+#include <QtPositioning/qgeopositioninfo.h>
+#include <QtPositioning/private/qgeopositioninfo_p.h>
+#include <QtCore/QHash>
+#include <QtCore/QDebug>
+#include <QtCore/QDataStream>
 #include <QtCore/QtNumeric>
 #include <algorithm>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER

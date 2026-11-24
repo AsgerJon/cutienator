@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/qrangemodel.h, Qt 6.12.0. Changes made here are lost.
+#include <QtCore/qglobal.h>
+#if QT_CONFIG(rangemodel)
 #include <QtCore/qrangemodel.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qabstractitemmodel.h>
@@ -1319,3 +1321,5 @@ bool ritual_own_ZN11QRangeModel11eventFilterEP7QObjectP6QEvent(
       a0,
       a1);
 }
+
+#endif  // QT_CONFIG(rangemodel)

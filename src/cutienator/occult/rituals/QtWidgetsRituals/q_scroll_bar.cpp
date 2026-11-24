@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qscrollbar.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(scrollbar)
 #if QT_CONFIG(scrollbar)
 #include <QtWidgets/qscrollbar.h>
 #include <QtCore/qstring.h>
@@ -1193,4 +1195,5 @@ void ritual_own_ZNK10QScrollBar15initStyleOptionEP18QStyleOptionSlider(
       option);
 }
 
+#endif  // QT_CONFIG(scrollbar)
 #endif  // QT_CONFIG(scrollbar)

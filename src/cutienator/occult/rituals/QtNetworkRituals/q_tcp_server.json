@@ -57,6 +57,11 @@
     ],
     "ritual_own_ZN10QTcpServer18incomingConnectionEx": [
       "nothing", "address", "long long"
-    ]
+    ],
+    "ritual_list_make_QTcpServer_ptr": ["address"],
+    "ritual_list_add_QTcpServer_ptr": ["nothing", "address", "address"],
+    "ritual_list_size_QTcpServer_ptr": ["long long", "address"],
+    "ritual_list_at_QTcpServer_ptr": ["address", "address", "long long"],
+    "ritual_list_drop_QTcpServer_ptr": ["nothing", "address"]
   }
 }

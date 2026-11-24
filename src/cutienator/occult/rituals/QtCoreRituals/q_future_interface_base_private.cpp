@@ -4,21 +4,22 @@
 #include <QtCore/qglobal.h>
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #if QT_CONFIG(future)
+#if QT_CONFIG(future)
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtCore/QtCore>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/6.12.0/QtCore/private/qfutureinterface_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qfuture.h"
-#include "qfutureinterface_p.h"
+#include <QtCore/qfuture.h>
+#include <QtCore/private/qfutureinterface_p.h>
 #include <QtCore/qatomic.h>
 #include <QtCore/qcoreapplication.h>
 #include <QtCore/qloggingcategory.h>
 #include <QtCore/qthread.h>
 #include <QtCore/qvarlengtharray.h>
-#include <private/qthreadpool_p.h>
-#include <private/qobject_p.h>
+#include <QtCore/private/qthreadpool_p.h>
+#include <QtCore/private/qobject_p.h>
 #include <climits> // For INT_MAX
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
@@ -216,4 +217,5 @@ void ritual_ZN27QFutureInterfaceBasePrivate8setStateEN20QFutureInterfaceBase5Sta
   self->setState(state);
 }
 
+#endif  // QT_CONFIG(future)
 #endif  // QT_CONFIG(future)

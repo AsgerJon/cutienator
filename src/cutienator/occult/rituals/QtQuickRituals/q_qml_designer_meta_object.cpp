@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtQuick/6.12.0/QtQuick/private/qqmldesignermetaobject_p.h, Qt 6.12.0.
 //  Changes made here are lost.
+#include <QtQuick/qtquickglobal.h>
+#include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
+#if QT_CONFIG(quick_designer)
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #include <QtQuick/QtQuick>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -10,12 +13,12 @@
 #include <QtCore/qbytearray.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qqmldesignermetaobject_p.h"
-#include <QSharedPointer>
-#include <QMetaProperty>
+#include <QtQuick/private/qqmldesignermetaobject_p.h>
+#include <QtCore/QSharedPointer>
+#include <QtCore/QMetaProperty>
 #include <QtCore/private/qnumeric_p.h>
-#include <QDebug>
-#include <private/qqmlengine_p.h>
+#include <QtCore/QDebug>
+#include <QtQml/private/qqmlengine_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -291,3 +294,5 @@ QVariant *ritual_own_ZN22QQmlDesignerMetaObject18propertyWriteValueEiRK8QVariant
           a0,
           *a1));
 }
+
+#endif  // QT_CONFIG(quick_designer)

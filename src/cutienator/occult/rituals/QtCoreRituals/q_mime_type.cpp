@@ -2,6 +2,7 @@
 //  QtCore/qmimetype.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qglobal.h>
 #if QT_CONFIG(mimetype)
+#if QT_CONFIG(mimetype)
 #include <QtCore/qmimetype.h>
 #include <QtCore/QtCore>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -168,4 +169,5 @@ void ritual_list_drop_QMimeType(QList<QMimeType> *self) {
   delete self;
 }
 
+#endif  // QT_CONFIG(mimetype)
 #endif  // QT_CONFIG(mimetype)

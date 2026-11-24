@@ -18,9 +18,9 @@
 #include <QtGui/qpalette.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquickscrollbar_p.h"
-#include "qquickscrollbar_p_p.h"
-#include "qquickscrollview_p.h"
+#include <QtQuickTemplates2/private/qquickscrollbar_p.h>
+#include <QtQuickTemplates2/private/qquickscrollbar_p_p.h>
+#include <QtQuickTemplates2/private/qquickscrollview_p.h>
 #include <QtQml/qqmlinfo.h>
 #include <QtQuick/private/qquickflickable_p.h>
 #if QT_CONFIG(accessibility)

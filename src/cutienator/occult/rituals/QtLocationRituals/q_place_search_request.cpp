@@ -8,15 +8,15 @@
 #include <QtCore/qvariant.h>
 #include <QtCore/qlist.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qplacesearchrequest.h"
-#include "qplacesearchrequest_p.h"
-#include "qgeocoordinate.h"
-#include "qgeoshape.h"
+#include <QtLocation/qplacesearchrequest.h>
+#include <QtLocation/private/qplacesearchrequest_p.h>
+#include <QtPositioning/qgeocoordinate.h>
+#include <QtPositioning/qgeoshape.h>
 #include <QtLocation/QPlaceCategory>
 #include <QtCore/QSharedData>
 #include <QtCore/QList>
 #include <QtCore/QVariant>
-#include <QDebug>
+#include <QtCore/QDebug>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

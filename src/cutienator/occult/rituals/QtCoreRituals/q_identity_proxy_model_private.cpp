@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/6.12.0/QtCore/private/qidentityproxymodel_p.h, Qt 6.12.0. Changes
 //  made here are lost.
+#include <QtCore/qglobal.h>
+#include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
+#if QT_CONFIG(identityproxymodel) && QT_CONFIG(proxymodel)
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtCore/qidentityproxymodel.h>
 #include <QtCore/QtCore>
@@ -315,3 +318,5 @@ bool ritual_take_QIdentityProxyModelPrivate(
     void *call) {
   return static_cast<CuteQIdentityProxyModelPrivate *>(self)->take(key, call);
 }
+
+#endif  // QT_CONFIG(identityproxymodel) && QT_CONFIG(proxymodel)

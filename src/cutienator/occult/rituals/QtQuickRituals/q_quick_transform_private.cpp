@@ -8,14 +8,14 @@
 #include <QtQuick/6.12.0/QtQuick/private/qquickitem_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquickitem.h"
-#include "qquickwindow.h"
-#include "qquickrendercontrol.h"
+#include <QtQuick/qquickitem.h>
+#include <QtQuick/qquickwindow.h>
+#include <QtQuick/qquickrendercontrol.h>
 #include <QtQml/qjsengine.h>
-#include "qquickwindow_p.h"
-#include "qquickevents_p_p.h"
-#include "qquickscreen_p.h"
-#include "qquicksafearea_p.h"
+#include <QtQuick/private/qquickwindow_p.h>
+#include <QtQuick/private/qquickevents_p_p.h>
+#include <QtQuick/private/qquickscreen_p.h>
+#include <QtQuick/private/qquicksafearea_p.h>
 #include <QtQml/qqmlengine.h>
 #include <QtQml/qqmlcomponent.h>
 #include <QtQml/qqmlinfo.h>
@@ -31,27 +31,27 @@
 #include <QtGui/qpa/qplatformtheme.h>
 #include <QtCore/qloggingcategory.h>
 #include <QtCore/private/qduplicatetracker_p.h>
-#include <private/qqmlglobal_p.h>
-#include <private/qqmlengine_p.h>
+#include <QtQml/private/qqmlglobal_p.h>
+#include <QtQml/private/qqmlengine_p.h>
 #include <QtQuick/private/qquickstategroup_p.h>
-#include <private/qqmlopenmetaobject_p.h>
+#include <QtQml/private/qqmlopenmetaobject_p.h>
 #include <QtQuick/private/qquickstate_p.h>
-#include <private/qquickitem_p.h>
+#include <QtQuick/private/qquickitem_p.h>
 #include <QtQuick/private/qquickaccessibleattached_p.h>
 #include <QtQuick/private/qquickattachedpropertypropagator_p.h>
 #include <QtQuick/private/qquickhoverhandler_p.h>
 #include <QtQuick/private/qquickpointerhandler_p.h>
 #include <QtQuick/private/qquickpointerhandler_p_p.h>
-#include <private/qv4engine_p.h>
-#include <private/qv4object_p.h>
-#include <private/qv4qobjectwrapper_p.h>
-#include <private/qdebug_p.h>
-#include <private/qqmlvaluetypewrapper_p.h>
+#include <QtQml/private/qv4engine_p.h>
+#include <QtQml/private/qv4object_p.h>
+#include <QtQml/private/qv4qobjectwrapper_p.h>
+#include <QtCore/private/qdebug_p.h>
+#include <QtQml/private/qqmlvaluetypewrapper_p.h>
 #if QT_CONFIG(cursor)
 # include <QtGui/qcursor.h>
 #endif
 #if QT_CONFIG(accessibility)
-# include <private/qaccessiblecache_p.h>
+# include <QtGui/private/qaccessiblecache_p.h>
 #endif
 #include <QtCore/qpointer.h>
 #include <algorithm>

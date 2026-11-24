@@ -2,6 +2,7 @@
 //  QtWidgets/qgraphicseffect.h, Qt 6.12.0. Changes made here are lost.
 #include <QtWidgets/qtwidgetsglobal.h>
 #if QT_CONFIG(graphicseffect)
+#if QT_CONFIG(graphicseffect)
 #include <QtWidgets/qgraphicseffect.h>
 #include <QtCore/qstring.h>
 #include <QtGui/qbrush.h>
@@ -350,4 +351,5 @@ void ritual_own_ZN22QGraphicsOpacityEffect4drawEP8QPainter(
       painter);
 }
 
+#endif  // QT_CONFIG(graphicseffect)
 #endif  // QT_CONFIG(graphicseffect)

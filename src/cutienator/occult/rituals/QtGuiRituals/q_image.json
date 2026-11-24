@@ -229,6 +229,23 @@
     "ritual_list_add_QImage": ["nothing", "address", "address"],
     "ritual_list_size_QImage": ["long long", "address"],
     "ritual_list_at_QImage": ["address", "address", "long long"],
-    "ritual_list_drop_QImage": ["nothing", "address"]
+    "ritual_list_drop_QImage": ["nothing", "address"],
+    "ritual_list_make_QImage_ptr": ["address"],
+    "ritual_list_add_QImage_ptr": ["nothing", "address", "address"],
+    "ritual_list_size_QImage_ptr": ["long long", "address"],
+    "ritual_list_at_QImage_ptr": ["address", "address", "long long"],
+    "ritual_list_drop_QImage_ptr": ["nothing", "address"],
+    "ritual_map_make_QMap_QString_QImage": ["address"],
+    "ritual_map_put_QMap_QString_QImage": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_map_size_QMap_QString_QImage": ["long long", "address"],
+    "ritual_map_key_QMap_QString_QImage": ["text", "address", "long long"],
+    "ritual_map_value_QMap_QString_QImage": [
+      "address", "address", "long long"
+    ],
+    "ritual_map_has_QMap_QString_QImage": ["bool", "address", "text"],
+    "ritual_map_get_QMap_QString_QImage": ["address", "address", "text"],
+    "ritual_map_drop_QMap_QString_QImage": ["nothing", "address"]
   }
 }

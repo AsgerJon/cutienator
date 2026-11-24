@@ -7,7 +7,7 @@
 #include <QtQuickControls2MaterialStyleImpl/6.12.0/QtQuickControls2MaterialStyleImpl/private/qquickmaterialplaceholdertext_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquickmaterialplaceholdertext_p.h"
+#include <QtQuickControls2MaterialStyleImpl/private/qquickmaterialplaceholdertext_p.h>
 #include <QtCore/qpropertyanimation.h>
 #include <QtCore/qparallelanimationgroup.h>
 #include <QtGui/qpainter.h>

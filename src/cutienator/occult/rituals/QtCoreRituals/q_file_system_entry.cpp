@@ -9,7 +9,7 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qbytearray.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qfilesystementry_p.h"
+#include <QtCore/private/qfilesystementry_p.h>
 #include <QtCore/qdir.h>
 #include <QtCore/private/qdir_p.h>
 #include <QtCore/qfile.h>
@@ -62,6 +62,7 @@ inline bool QFileSystemEntry::isEmpty() const
 }
 
 //  from src/corelib/io/qfilesystementry.cpp, line 112, as _ZNK16QFileSystemEntry15resolveFilePathEv
+#if defined(Q_OS_LINUX)
 inline void QFileSystemEntry::resolveFilePath() const
 {
     if (m_filePath.isEmpty() && !m_nativeFilePath.isEmpty()) {
@@ -72,8 +73,10 @@ inline void QFileSystemEntry::resolveFilePath() const
 #endif
     }
 }
+#endif  // defined(Q_OS_LINUX)
 
 //  from src/corelib/io/qfilesystementry.cpp, line 123, as _ZNK16QFileSystemEntry21resolveNativeFilePathEv
+#if defined(Q_OS_LINUX)
 inline void QFileSystemEntry::resolveNativeFilePath() const
 {
     if (!m_filePath.isEmpty() && m_nativeFilePath.isEmpty()) {
@@ -87,6 +90,7 @@ inline void QFileSystemEntry::resolveNativeFilePath() const
 #endif
     }
 }
+#endif  // defined(Q_OS_LINUX)
 //  -----------------------------------------------------------------------
 
 //  QFileSystemEntry::QFileSystemEntry()
@@ -95,25 +99,31 @@ QFileSystemEntry *ritual_ZN16QFileSystemEntryC1Ev() {
   return new QFileSystemEntry();
 }
 
+#if defined(Q_OS_LINUX)
 //  QString QFileSystemEntry::filePath() const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK16QFileSystemEntry8filePathEv(
     const QFileSystemEntry *self) {
   return new QString(self->filePath());
 }
+#endif  // defined(Q_OS_LINUX)
 
+#if defined(Q_OS_LINUX)
 //  NativePath QFileSystemEntry::nativeFilePath() const
 extern "C" Q_DECL_EXPORT
 QByteArray *ritual_ZNK16QFileSystemEntry14nativeFilePathEv(
     const QFileSystemEntry *self) {
   return new QByteArray(self->nativeFilePath());
 }
+#endif  // defined(Q_OS_LINUX)
 
+#if defined(Q_OS_LINUX)
 //  bool QFileSystemEntry::isRoot() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK16QFileSystemEntry6isRootEv(const QFileSystemEntry *self) {
   return self->isRoot();
 }
+#endif  // defined(Q_OS_LINUX)
 
 //  bool QFileSystemEntry::isEmpty() const
 extern "C" Q_DECL_EXPORT
@@ -134,19 +144,23 @@ bool ritual_ZN16QFileSystemEntry10isRootPathERK7QString(
   return QFileSystemEntry::isRootPath(*path);
 }
 
+#if defined(Q_OS_LINUX)
 //  void QFileSystemEntry::resolveFilePath() const
 extern "C" Q_DECL_EXPORT
 void ritual_ZNK16QFileSystemEntry15resolveFilePathEv(
     const QFileSystemEntry *self) {
   self->resolveFilePath();
 }
+#endif  // defined(Q_OS_LINUX)
 
+#if defined(Q_OS_LINUX)
 //  void QFileSystemEntry::resolveNativeFilePath() const
 extern "C" Q_DECL_EXPORT
 void ritual_ZNK16QFileSystemEntry21resolveNativeFilePathEv(
     const QFileSystemEntry *self) {
   self->resolveNativeFilePath();
 }
+#endif  // defined(Q_OS_LINUX)
 
 //  QFileSystemEntry::~QFileSystemEntry()
 extern "C" Q_DECL_EXPORT

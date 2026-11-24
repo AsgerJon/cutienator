@@ -7,9 +7,9 @@
 #include <QtGui/6.12.0/QtGui/private/qbackingstorerhisupport_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qbackingstorerhisupport_p.h"
-#include <qpa/qplatformintegration.h>
-#include <private/qguiapplication_p.h>
+#include <QtGui/private/qbackingstorerhisupport_p.h>
+#include <QtGui/qpa/qplatformintegration.h>
+#include <QtGui/private/qguiapplication_p.h>
 #if QT_CONFIG(opengl)
 #include <QtGui/qoffscreensurface.h>
 #include <QtGui/private/qopenglcontext_p.h>

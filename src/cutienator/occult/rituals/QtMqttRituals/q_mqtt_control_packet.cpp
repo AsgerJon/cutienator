@@ -8,7 +8,7 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qbytearray.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qmqttcontrolpacket_p.h"
+#include <QtMqtt/private/qmqttcontrolpacket_p.h>
 #include <QtCore/QtEndian>
 #include <QtCore/QLoggingCategory>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER

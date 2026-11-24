@@ -699,3 +699,37 @@ QPainterPathPrivate *ritual_ZNK12QPainterPath6d_funcEv(
     const QPainterPath *self) {
   return self->d_func();
 }
+
+//  QList<QPainterPath>::QList()
+extern "C" Q_DECL_EXPORT
+QList<QPainterPath> *ritual_list_make_QPainterPath() {
+  return new QList<QPainterPath>();
+}
+
+//  void QList<QPainterPath>::append(const QPainterPath &value)
+extern "C" Q_DECL_EXPORT
+void ritual_list_add_QPainterPath(
+    QList<QPainterPath> *self,
+    const QPainterPath *element) {
+  self->append(*element);
+}
+
+//  qsizetype QList<QPainterPath>::size() const
+extern "C" Q_DECL_EXPORT
+long long ritual_list_size_QPainterPath(const QList<QPainterPath> *self) {
+  return self->size();
+}
+
+//  const QPainterPath &QList<QPainterPath>::at(qsizetype i) const
+extern "C" Q_DECL_EXPORT
+QPainterPath *ritual_list_at_QPainterPath(
+    const QList<QPainterPath> *self,
+    long long index) {
+  return new QPainterPath(self->at(index));
+}
+
+//  QList<QPainterPath>::~QList()
+extern "C" Q_DECL_EXPORT
+void ritual_list_drop_QPainterPath(QList<QPainterPath> *self) {
+  delete self;
+}

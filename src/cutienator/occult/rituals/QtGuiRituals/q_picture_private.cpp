@@ -7,22 +7,22 @@
 #include <QtGui/6.12.0/QtGui/private/qpicture_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qpicture.h"
-#include <private/qpicture_p.h>
+#include <QtGui/qpicture.h>
+#include <QtGui/private/qpicture_p.h>
 #ifndef QT_NO_PICTURE
-#include <private/qfactoryloader_p.h>
-#include <private/qpaintengine_pic_p.h>
-#include <private/qfont_p.h>
-#include <qguiapplication.h>
-#include "qdatastream.h"
-#include "qfile.h"
-#include "qimage.h"
-#include "qmutex.h"
-#include "qpainter.h"
-#include "qpainterpath.h"
-#include "qpixmap.h"
-#include "qregion.h"
-#include "qdebug.h"
+#include <QtCore/private/qfactoryloader_p.h>
+#include <QtGui/private/qpaintengine_pic_p.h>
+#include <QtGui/private/qfont_p.h>
+#include <QtGui/qguiapplication.h>
+#include <QtCore/qdatastream.h>
+#include <QtCore/qfile.h>
+#include <QtGui/qimage.h>
+#include <QtCore/qmutex.h>
+#include <QtGui/qpainter.h>
+#include <QtGui/qpainterpath.h>
+#include <QtGui/qpixmap.h>
+#include <QtGui/qregion.h>
+#include <QtCore/qdebug.h>
 #include <QtCore/private/qlocking_p.h>
 #include <algorithm>
 #endif

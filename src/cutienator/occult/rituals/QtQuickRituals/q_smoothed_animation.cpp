@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtQuick/6.12.0/QtQuick/private/qquicksmoothedanimation_p_p.h, Qt 6.12.0.
 //  Changes made here are lost.
+#include <QtQml/6.12.0/QtQml/private/qtqmlglobal_p.h>
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #include <QtQuick/QtQuick>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -9,14 +10,14 @@
 #include <QtCore/qdebug.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquicksmoothedanimation_p.h"
-#include "qquicksmoothedanimation_p_p.h"
-#include "qquickanimation_p_p.h"
-#include "private/qcontinuinganimationgroupjob_p.h"
-#include <qmath.h>
-#include <qqmlproperty.h>
-#include <private/qqmlproperty_p.h>
-#include <private/qqmlglobal_p.h>
+#include <QtQuick/private/qquicksmoothedanimation_p.h>
+#include <QtQuick/private/qquicksmoothedanimation_p_p.h>
+#include <QtQuick/private/qquickanimation_p_p.h>
+#include <QtQml/private/qcontinuinganimationgroupjob_p.h>
+#include <QtCore/qmath.h>
+#include <QtQml/qqmlproperty.h>
+#include <QtQml/private/qqmlproperty_p.h>
+#include <QtQml/private/qqmlglobal_p.h>
 #include <QtCore/qdebug.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

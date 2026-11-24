@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGui/6.12.0/QtGui/private/qunixeventdispatcher_qpa_p.h, Qt 6.12.0.
 //  Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
+#include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
+#if defined(Q_OS_UNIX) && !defined(Q_OS_WASM)
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
 #include <QtGui/QtGui>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -329,3 +332,5 @@ bool ritual_own_ZN23QUnixEventDispatcherQPA13processEventsE6QFlagsIN10QEventLoop
   return self->QUnixEventDispatcherQPA::processEvents(
       QFlags<QEventLoop::ProcessEventsFlag>::fromInt(flags));
 }
+
+#endif  // defined(Q_OS_UNIX) && !defined(Q_OS_WASM)

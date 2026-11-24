@@ -12,7 +12,7 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "camerahelper_p.h"
+#include <QtDataVisualization/private/camerahelper_p.h>
 #include <QtCore/qmath.h>
 #include <QtGui/QMatrix4x4>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER

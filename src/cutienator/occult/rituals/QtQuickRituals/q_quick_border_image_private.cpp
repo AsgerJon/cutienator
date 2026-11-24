@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtQuick/6.12.0/QtQuick/private/qquickborderimage_p_p.h, Qt 6.12.0.
 //  Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #include <QtQuick/QtQuick>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -10,8 +11,8 @@
 #include <QtCore/qsize.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquickborderimage_p.h"
-#include "qquickborderimage_p_p.h"
+#include <QtQuick/private/qquickborderimage_p.h>
+#include <QtQuick/private/qquickborderimage_p_p.h>
 #include <QtQml/qqmlinfo.h>
 #include <QtQml/qqmlfile.h>
 #include <QtQml/qqmlengine.h>
@@ -21,8 +22,8 @@
 #include <QtCore/qfile.h>
 #include <QtCore/qmath.h>
 #include <QtGui/qguiapplication.h>
-#include <private/qqmlglobal_p.h>
-#include <private/qsgadaptationlayer_p.h>
+#include <QtQml/private/qqmlglobal_p.h>
+#include <QtQuick/private/qsgadaptationlayer_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qgroupbox.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(groupbox)
 #if QT_CONFIG(groupbox)
 #include <QtWidgets/qgroupbox.h>
 #include <QtCore/qstring.h>
@@ -1219,4 +1221,5 @@ void ritual_own_ZNK9QGroupBox15initStyleOptionEP20QStyleOptionGroupBox(
       option);
 }
 
+#endif  // QT_CONFIG(groupbox)
 #endif  // QT_CONFIG(groupbox)

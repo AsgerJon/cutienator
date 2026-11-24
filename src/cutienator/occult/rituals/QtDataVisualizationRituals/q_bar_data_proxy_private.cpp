@@ -12,10 +12,10 @@
 #include <QtCore/qlist.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qabstractdataproxy_p.h"
-#include "qabstract3dseries_p.h"
-#include "qbardataproxy_p.h"
-#include "qbar3dseries_p.h"
+#include <QtDataVisualization/private/qabstractdataproxy_p.h>
+#include <QtDataVisualization/private/qabstract3dseries_p.h>
+#include <QtDataVisualization/private/qbardataproxy_p.h>
+#include <QtDataVisualization/private/qbar3dseries_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

@@ -10,16 +10,16 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "utils_p.h"
+#include <QtDataVisualization/private/utils_p.h>
 #include <QtGui/QPainter>
 #include <QtGui/QOpenGLContext>
 #include <QtGui/QOffscreenSurface>
 #include <QtGui/qquaternion.h>
 #include <QtCore/QCoreApplication>
 #include <QtCore/QRegularExpression>
-#include <QLocale>
-#include "qvalue3daxisformatter_p.h"
-#include "qvalue3daxis_p.h"
+#include <QtCore/QLocale>
+#include <QtDataVisualization/private/qvalue3daxisformatter_p.h>
+#include <QtDataVisualization/private/qvalue3daxis_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

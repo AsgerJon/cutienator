@@ -13,80 +13,80 @@
 #include <QtGui/qpixmap.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qgraphicseffect_p.h"
-#include "private/qgraphicsitem_p.h"
+#include <QtWidgets/private/qgraphicseffect_p.h>
+#include <QtWidgets/private/qgraphicsitem_p.h>
 #include <QtWidgets/qgraphicsitem.h>
 #include <QtGui/qimage.h>
 #include <QtGui/qpainter.h>
 #include <QtGui/qpaintengine.h>
 #include <QtCore/qrect.h>
 #include <QtCore/qdebug.h>
-#include <private/qdrawhelper_p.h>
-#include "qapplication.h"
-#include "qapplication_p.h"
-#include "qbrush.h"
-#include "qcursor.h"
-#include "private/qduplicatetracker_p.h"
-#include "qevent.h"
-#include "qlayout.h"
+#include <QtGui/private/qdrawhelper_p.h>
+#include <QtWidgets/qapplication.h>
+#include <QtWidgets/private/qapplication_p.h>
+#include <QtGui/qbrush.h>
+#include <QtGui/qcursor.h>
+#include <QtCore/private/qduplicatetracker_p.h>
+#include <QtGui/qevent.h>
+#include <QtWidgets/qlayout.h>
 #if QT_CONFIG(menu)
-#include "qmenu.h"
+#include <QtWidgets/qmenu.h>
 #endif
-#include "qmetaobject.h"
-#include "qpixmap.h"
-#include "qpointer.h"
-#include "qstack.h"
-#include "qstyle.h"
-#include "qstylefactory.h"
-#include "qvariant.h"
-#include "qwidget.h"
-#include "qstyleoption.h"
-#include "qstylehints.h"
+#include <QtCore/qmetaobject.h>
+#include <QtGui/qpixmap.h>
+#include <QtCore/qpointer.h>
+#include <QtCore/qstack.h>
+#include <QtWidgets/qstyle.h>
+#include <QtWidgets/qstylefactory.h>
+#include <QtCore/qvariant.h>
+#include <QtWidgets/qwidget.h>
+#include <QtWidgets/qstyleoption.h>
+#include <QtGui/qstylehints.h>
 #if QT_CONFIG(accessibility)
-# include "qaccessible.h"
-# include <private/qaccessiblecache_p.h>
+# include <QtGui/qaccessible.h>
+# include <QtGui/private/qaccessiblecache_p.h>
 #endif
-#include <qpa/qplatformwindow.h>
-#include <qpa/qplatformwindow_p.h>
-#include "private/qwidgetwindow_p.h"
-#include "qpainter.h"
+#include <QtGui/qpa/qplatformwindow.h>
+#include <QtGui/qpa/qplatformwindow_p.h>
+#include <QtWidgets/private/qwidgetwindow_p.h>
+#include <QtGui/qpainter.h>
 #if QT_CONFIG(tooltip)
-#include "private/qtooltip_p.h"
+#include <QtWidgets/private/qtooltip_p.h>
 #endif
 #if QT_CONFIG(whatsthis)
-#include "qwhatsthis.h"
+#include <QtWidgets/qwhatsthis.h>
 #endif
-#include "qdebug.h"
+#include <QtCore/qdebug.h>
 #if QT_CONFIG(style_stylesheet)
-#include "private/qstylesheetstyle_p.h"
+#include <QtWidgets/private/qstylesheetstyle_p.h>
 #endif
-#include "private/qstyle_p.h"
-#include "qfileinfo.h"
-#include "qscopeguard.h"
+#include <QtWidgets/private/qstyle_p.h>
+#include <QtCore/qfileinfo.h>
+#include <QtCore/qscopeguard.h>
 #include <QtGui/qinputmethod.h>
 #if QT_CONFIG(graphicseffect)
-#include <private/qgraphicseffect_p.h>
+#include <QtWidgets/private/qgraphicseffect_p.h>
 #endif
-#include <qbackingstore.h>
-#include <private/qwidgetrepaintmanager_p.h>
-#include <private/qpaintengine_raster_p.h>
-#include "qwidget_p.h"
+#include <QtGui/qbackingstore.h>
+#include <QtWidgets/private/qwidgetrepaintmanager_p.h>
+#include <QtGui/private/qpaintengine_raster_p.h>
+#include <QtWidgets/private/qwidget_p.h>
 #include <QtGui/private/qwindow_p.h>
 #if QT_CONFIG(action)
 #  include "QtGui/private/qaction_p.h"
 #endif
-#include "qlayout_p.h"
+#include <QtWidgets/private/qlayout_p.h>
 #if QT_CONFIG(graphicsview)
 #include "QtWidgets/qgraphicsproxywidget.h"
 #include "QtWidgets/qgraphicsscene.h"
-#include "private/qgraphicsproxywidget_p.h"
-#include "private/qgraphicsview_p.h"
+#include <QtWidgets/private/qgraphicsproxywidget_p.h>
+#include <QtWidgets/private/qgraphicsview_p.h>
 #endif
 #include "QtWidgets/qabstractscrollarea.h"
-#include "private/qabstractscrollarea_p.h"
-#include "private/qevent_p.h"
-#include "private/qgesturemanager_p.h"
-#include "qwindowcontainer_p.h"
+#include <QtWidgets/private/qabstractscrollarea_p.h>
+#include <QtGui/private/qevent_p.h>
+#include <QtWidgets/private/qgesturemanager_p.h>
+#include <QtWidgets/private/qwindowcontainer_p.h>
 #include <sstream>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

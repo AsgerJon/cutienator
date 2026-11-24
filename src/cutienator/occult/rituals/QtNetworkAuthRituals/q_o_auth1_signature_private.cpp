@@ -8,8 +8,8 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qbytearray.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qoauth1signature.h"
-#include "qoauth1signature_p.h"
+#include <QtNetworkAuth/qoauth1signature.h>
+#include <QtNetworkAuth/private/qoauth1signature_p.h>
 #include <QtCore/qurlquery.h>
 #include <QtCore/qloggingcategory.h>
 #include <QtCore/qmessageauthenticationcode.h>

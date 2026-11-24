@@ -8,12 +8,12 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/qjsvalue.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qjsvalueiterator.h"
-#include "qjsvalueiterator_p.h"
-#include "qjsvalue_p.h"
-#include "private/qv4string_p.h"
-#include "private/qv4object_p.h"
-#include "private/qv4context_p.h"
+#include <QtQml/qjsvalueiterator.h>
+#include <QtQml/private/qjsvalueiterator_p.h>
+#include <QtQml/private/qjsvalue_p.h>
+#include <QtQml/private/qv4string_p.h>
+#include <QtQml/private/qv4object_p.h>
+#include <QtQml/private/qv4context_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

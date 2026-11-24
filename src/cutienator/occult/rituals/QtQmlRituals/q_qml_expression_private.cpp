@@ -14,13 +14,13 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qqmlexpression.h"
-#include "qqmlexpression_p.h"
-#include "qqmlengine_p.h"
-#include "qqmlscriptstring_p.h"
-#include "qqmlbinding_p.h"
-#include <private/qqmlsourcecoordinate_p.h>
-#include <private/qv4qmlcontext_p.h>
+#include <QtQml/qqmlexpression.h>
+#include <QtQml/private/qqmlexpression_p.h>
+#include <QtQml/private/qqmlengine_p.h>
+#include <QtQml/private/qqmlscriptstring_p.h>
+#include <QtQml/private/qqmlbinding_p.h>
+#include <QtQml/private/qqmlsourcecoordinate_p.h>
+#include <QtQml/private/qv4qmlcontext_p.h>
 #include <QtCore/qdebug.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

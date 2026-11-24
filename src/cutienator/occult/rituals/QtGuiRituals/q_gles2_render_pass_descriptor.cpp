@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGui/6.12.0/QtGui/private/qrhigles2_p.h, Qt 6.12.0. Changes made here
 //  are lost.
+#include <QtGui/qtguiglobal.h>
+#include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
+#if QT_CONFIG(opengl)
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
 #include <QtGui/QtGui>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -8,16 +11,16 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qrhigles2_p.h"
-#include <QOffscreenSurface>
-#include <QOpenGLContext>
+#include <QtGui/private/qrhigles2_p.h>
+#include <QtGui/QOffscreenSurface>
+#include <QtGui/QOpenGLContext>
 #include <QtCore/qmap.h>
 #include <QtGui/private/qguiapplication_p.h>
 #include <QtGui/private/qopenglextensions_p.h>
 #include <QtGui/private/qopenglprogrambinarycache_p.h>
 #include <QtGui/private/qwindow_p.h>
-#include <qpa/qplatformopenglcontext.h>
-#include <qmath.h>
+#include <QtGui/qpa/qplatformopenglcontext.h>
+#include <QtCore/qmath.h>
 #include <limits>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
@@ -241,3 +244,5 @@ QRhiRenderPassDescriptor *ritual_own_ZNK26QGles2RenderPassDescriptor33newCompati
     const QGles2RenderPassDescriptor *self) {
   return self->QGles2RenderPassDescriptor::newCompatibleRenderPassDescriptor();
 }
+
+#endif  // QT_CONFIG(opengl)

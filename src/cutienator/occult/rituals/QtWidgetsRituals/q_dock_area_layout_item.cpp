@@ -4,6 +4,7 @@
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #if QT_CONFIG(dockwidget)
+#if QT_CONFIG(dockwidget)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/QtWidgets>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -18,19 +19,19 @@
 #include "QtWidgets/qstyle.h"
 #include "QtWidgets/qapplication.h"
 #include "QtCore/qvariant.h"
-#include "qdockarealayout_p.h"
-#include "qdockwidget.h"
-#include "qmainwindow.h"
-#include "qmainwindowlayout_p.h"
-#include "qmenu_p.h"
-#include "qdockwidget_p.h"
-#include <private/qlayoutengine_p.h>
+#include <QtWidgets/private/qdockarealayout_p.h>
+#include <QtWidgets/qdockwidget.h>
+#include <QtWidgets/qmainwindow.h>
+#include <QtWidgets/private/qmainwindowlayout_p.h>
+#include <QtWidgets/private/qmenu_p.h>
+#include <QtWidgets/private/qdockwidget_p.h>
+#include <QtWidgets/private/qlayoutengine_p.h>
 #if QT_CONFIG(toolbar)
-#include "qtoolbar.h"
-#include "qtoolbarlayout_p.h"
+#include <QtWidgets/qtoolbar.h>
+#include <QtWidgets/private/qtoolbarlayout_p.h>
 #endif
-#include <qpainter.h>
-#include <qstyleoption.h>
+#include <QtGui/qpainter.h>
+#include <QtWidgets/qstyleoption.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -411,4 +412,5 @@ bool ritual_ZNK19QDockAreaLayoutItem9expansiveEN2Qt11OrientationE(
   return self->expansive(o);
 }
 
+#endif  // QT_CONFIG(dockwidget)
 #endif  // QT_CONFIG(dockwidget)

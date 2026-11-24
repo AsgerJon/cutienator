@@ -3,6 +3,7 @@
 //  are lost.
 #include <QtCore/qglobal.h>
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
+#if QT_CONFIG(library) && defined(Q_OS_UNIX) && !defined(Q_OS_DARWIN)
 #if QT_CONFIG(library)
 #if defined(Q_OF_ELF)
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
@@ -19,3 +20,4 @@ void ritual_ZN10QElfParserD1Ev(QElfParser *self) {
 
 #endif  // defined(Q_OF_ELF)
 #endif  // QT_CONFIG(library)
+#endif  // QT_CONFIG(library) && defined(Q_OS_UNIX) && !defined(Q_OS_DARWIN)

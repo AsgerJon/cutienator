@@ -12,12 +12,12 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qpkmhandler_p.h"
-#include "qtexturefiledata_p.h"
-#include <QFile>
-#include <QDebug>
-#include <QSize>
-#include <qendian.h>
+#include <QtGui/private/qpkmhandler_p.h>
+#include <QtGui/private/qtexturefiledata_p.h>
+#include <QtCore/QFile>
+#include <QtCore/QDebug>
+#include <QtCore/QSize>
+#include <QtCore/qendian.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

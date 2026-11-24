@@ -4,13 +4,13 @@
 #include <QtWaylandCompositor/6.12.0/QtWaylandCompositor/private/qtwaylandcompositorglobal_p.h>
 #include <QtWaylandCompositor/qwaylandtextinput.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qwaylandtextinput.h"
+#include <QtWaylandCompositor/qwaylandtextinput.h>
 #include <QtWaylandCompositor/QWaylandCompositor>
-#include "qwaylandsurface.h"
-#include "qwaylandview.h"
-#include "qwaylandinputmethodcontrol.h"
-#include <QGuiApplication>
-#include <QInputMethodEvent>
+#include <QtWaylandCompositor/qwaylandsurface.h>
+#include <QtWaylandCompositor/qwaylandview.h>
+#include <QtWaylandCompositor/qwaylandinputmethodcontrol.h>
+#include <QtGui/QGuiApplication>
+#include <QtGui/QInputMethodEvent>
 #if QT_CONFIG(xkbcommon)
 #include <QtGui/private/qxkbcommon_p.h>
 #endif

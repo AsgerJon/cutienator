@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtNetwork/qrestaccessmanager.h, Qt 6.12.0. Changes made here are lost.
+#include <QtNetwork/qtnetworkglobal.h>
+#if QT_CONFIG(http)
 #include <QtNetwork/qrestaccessmanager.h>
 #include <QtCore/qstring.h>
 #include <QtNetwork/qnetworkrequest.h>
@@ -767,3 +769,5 @@ bool ritual_take_QRestAccessManager(
     void *call) {
   return static_cast<CuteQRestAccessManager *>(self)->take(key, call);
 }
+
+#endif  // QT_CONFIG(http)

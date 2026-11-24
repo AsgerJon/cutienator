@@ -2,9 +2,11 @@
 //  QtCore/qabstractanimation.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qglobal.h>
 #if QT_CONFIG(animation)
+#if QT_CONFIG(animation)
 #include <QtCore/qabstractanimation.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  Only a class built on QAbstractAnimation may call these functions of it.
@@ -513,4 +515,43 @@ void ritual_own_ZN18QAbstractAnimation15updateDirectionENS_9DirectionE(
       direction);
 }
 
+//  QList<QAbstractAnimation *>::QList()
+extern "C" Q_DECL_EXPORT
+QList<QAbstractAnimation *> *ritual_list_make_QAbstractAnimation_ptr() {
+  return new QList<QAbstractAnimation *>();
+}
+
+//  void QList<QAbstractAnimation *>::append(const QAbstractAnimation *
+//      &value)
+extern "C" Q_DECL_EXPORT
+void ritual_list_add_QAbstractAnimation_ptr(
+    QList<QAbstractAnimation *> *self,
+    QAbstractAnimation *element) {
+  self->append(element);
+}
+
+//  qsizetype QList<QAbstractAnimation *>::size() const
+extern "C" Q_DECL_EXPORT
+long long ritual_list_size_QAbstractAnimation_ptr(
+    const QList<QAbstractAnimation *> *self) {
+  return self->size();
+}
+
+//  const QAbstractAnimation * &QList<QAbstractAnimation *>::at(qsizetype i)
+//      const
+extern "C" Q_DECL_EXPORT
+QAbstractAnimation *ritual_list_at_QAbstractAnimation_ptr(
+    const QList<QAbstractAnimation *> *self,
+    long long index) {
+  return self->at(index);
+}
+
+//  QList<QAbstractAnimation *>::~QList()
+extern "C" Q_DECL_EXPORT
+void ritual_list_drop_QAbstractAnimation_ptr(
+    QList<QAbstractAnimation *> *self) {
+  delete self;
+}
+
+#endif  // QT_CONFIG(animation)
 #endif  // QT_CONFIG(animation)

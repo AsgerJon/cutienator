@@ -1,8 +1,10 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtQuick/6.12.0/QtQuick/private/qquickshadereffect_p.h, Qt 6.12.0. Changes
 //  made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtQuick/qtquickglobal.h>
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
+#if QT_CONFIG(quick_shadereffect)
 #if QT_CONFIG(quick_shadereffect)
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #include <QtQuick/QtQuick>
@@ -1093,4 +1095,5 @@ void ritual_own_ZN18QQuickShaderEffect10itemChangeEN10QQuickItem10ItemChangeERKN
       *value);
 }
 
+#endif  // QT_CONFIG(quick_shadereffect)
 #endif  // QT_CONFIG(quick_shadereffect)

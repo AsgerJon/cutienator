@@ -24,9 +24,9 @@
 #include <QtGui/qpalette.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquickstackelement_p_p.h"
-#include "qquickstackview_p.h"
-#include "qquickstackview_p_p.h"
+#include <QtQuickTemplates2/private/qquickstackelement_p_p.h>
+#include <QtQuickTemplates2/private/qquickstackview_p.h>
+#include <QtQuickTemplates2/private/qquickstackview_p_p.h>
 #include <QtQml/qqmlinfo.h>
 #include <QtQml/qqmlengine.h>
 #include <QtQml/qqmlcomponent.h>
@@ -35,10 +35,10 @@
 #include <QtQml/private/qqmlcomponent_p.h>
 #include <QtQml/private/qqmlengine_p.h>
 #include <QtQml/private/qqmlincubator_p.h>
-#include "qquickstackview_p_p.h"
-#include "qquickstackelement_p_p.h"
+#include <QtQuickTemplates2/private/qquickstackview_p_p.h>
+#include <QtQuickTemplates2/private/qquickstackelement_p_p.h>
 #if QT_CONFIG(quick_viewtransitions)
-#include "qquickstacktransition_p_p.h"
+#include <QtQuickTemplates2/private/qquickstacktransition_p_p.h>
 #endif
 #include <QtCore/qscopedvaluerollback.h>
 #include <QtQml/qqmlinfo.h>

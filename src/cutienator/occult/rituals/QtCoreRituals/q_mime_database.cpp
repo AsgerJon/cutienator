@@ -2,6 +2,7 @@
 //  QtCore/qmimedatabase.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qglobal.h>
 #if QT_CONFIG(mimetype)
+#if QT_CONFIG(mimetype)
 #include <QtCore/qmimedatabase.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qmimetype.h>
@@ -119,4 +120,5 @@ QList<QMimeType> *ritual_ZNK13QMimeDatabase12allMimeTypesEv(
   return new QList<QMimeType>(self->allMimeTypes());
 }
 
+#endif  // QT_CONFIG(mimetype)
 #endif  // QT_CONFIG(mimetype)

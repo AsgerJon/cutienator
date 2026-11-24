@@ -12,23 +12,23 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qqmljavascriptexpression_p.h"
-#include "qqmljavascriptexpression_p.h"
-#include <private/qqmlexpression_p.h>
-#include <private/qv4context_p.h>
-#include <private/qv4value_p.h>
-#include <private/qv4functionobject_p.h>
-#include <private/qv4script_p.h>
-#include <private/qv4errorobject_p.h>
-#include <private/qv4scopedvalue_p.h>
-#include <private/qv4jscall_p.h>
-#include <private/qqmlglobal_p.h>
-#include <private/qv4qobjectwrapper_p.h>
-#include <private/qqmlbuiltinfunctions_p.h>
-#include <private/qqmlsourcecoordinate_p.h>
-#include <private/qqmlabstractbinding_p.h>
-#include <private/qqmlpropertybinding_p.h>
-#include <private/qproperty_p.h>
+#include <QtQml/private/qqmljavascriptexpression_p.h>
+#include <QtQml/private/qqmljavascriptexpression_p.h>
+#include <QtQml/private/qqmlexpression_p.h>
+#include <QtQml/private/qv4context_p.h>
+#include <QtQml/private/qv4value_p.h>
+#include <QtQml/private/qv4functionobject_p.h>
+#include <QtQml/private/qv4script_p.h>
+#include <QtQml/private/qv4errorobject_p.h>
+#include <QtQml/private/qv4scopedvalue_p.h>
+#include <QtQml/private/qv4jscall_p.h>
+#include <QtQml/private/qqmlglobal_p.h>
+#include <QtQml/private/qv4qobjectwrapper_p.h>
+#include <QtQml/private/qqmlbuiltinfunctions_p.h>
+#include <QtQml/private/qqmlsourcecoordinate_p.h>
+#include <QtQml/private/qqmlabstractbinding_p.h>
+#include <QtQml/private/qqmlpropertybinding_p.h>
+#include <QtCore/private/qproperty_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

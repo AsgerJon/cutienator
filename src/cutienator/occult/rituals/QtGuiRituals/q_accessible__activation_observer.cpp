@@ -2,6 +2,7 @@
 //  QtGui/qaccessible_base.h, Qt 6.12.0. Changes made here are lost.
 #include <QtGui/qtguiglobal.h>
 #if QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
 #include <QtGui/qaccessible.h>
 #include <cstring>
 
@@ -66,4 +67,5 @@ bool ritual_take_QAccessible_ActivationObserver(
   return static_cast<CuteQAccessible_ActivationObserver *>(self)->take(key, call);
 }
 
+#endif  // QT_CONFIG(accessibility)
 #endif  // QT_CONFIG(accessibility)

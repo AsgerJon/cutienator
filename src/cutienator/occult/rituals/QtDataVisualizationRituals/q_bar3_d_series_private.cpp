@@ -12,11 +12,11 @@
 #include <QtCore/qlist.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qabstract3dseries_p.h"
-#include "qabstractdataproxy_p.h"
-#include "abstract3dcontroller_p.h"
-#include "qbar3dseries_p.h"
-#include "bars3dcontroller_p.h"
+#include <QtDataVisualization/private/qabstract3dseries_p.h>
+#include <QtDataVisualization/private/qabstractdataproxy_p.h>
+#include <QtDataVisualization/private/abstract3dcontroller_p.h>
+#include <QtDataVisualization/private/qbar3dseries_p.h>
+#include <QtDataVisualization/private/bars3dcontroller_p.h>
 #include <QtGui/qquaternion.h>
 #include <QtCore/qmath.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER

@@ -8,14 +8,14 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qlist.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qgeopath.h"
-#include "qgeopolygon.h"
-#include "qgeopath_p.h"
-#include "qgeocoordinate.h"
-#include "qnumeric.h"
-#include "qlocationutils_p.h"
-#include "qwebmercator_p.h"
-#include "qdoublevector2d_p.h"
+#include <QtPositioning/qgeopath.h>
+#include <QtPositioning/qgeopolygon.h>
+#include <QtPositioning/private/qgeopath_p.h>
+#include <QtPositioning/qgeocoordinate.h>
+#include <QtCore/qnumeric.h>
+#include <QtPositioning/private/qlocationutils_p.h>
+#include <QtPositioning/private/qwebmercator_p.h>
+#include <QtPositioning/private/qdoublevector2d_p.h>
 #include <QtCore/qmutex.h>
 #include <mutex>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER

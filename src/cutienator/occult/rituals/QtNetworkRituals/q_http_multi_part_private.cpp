@@ -3,6 +3,7 @@
 //  made here are lost.
 #include <QtNetwork/qtnetworkglobal.h>
 #include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
+#if (defined(Q_OS_WASM)) || (QT_CONFIG(http))
 #if QT_CONFIG(http)
 #include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
 #include <QtNetwork/QtNetwork>
@@ -10,8 +11,8 @@
 #include <QtNetwork/6.12.0/QtNetwork/private/qhttpmultipart_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qhttpmultipart.h"
-#include "qhttpmultipart_p.h"
+#include <QtNetwork/qhttpmultipart.h>
+#include <QtNetwork/private/qhttpmultipart_p.h>
 #include "QtCore/qdatetime.h" // for initializing the random number generator with QTime
 #include <QtCore/qdebug.h>
 #include "QtCore/qmutex.h"
@@ -55,3 +56,4 @@ const QHttpMultiPartPrivate *ritual_ZN21QHttpMultiPartPrivate3getEPK14QHttpMulti
 }
 
 #endif  // QT_CONFIG(http)
+#endif  // (defined(Q_OS_WASM)) || (QT_CONFIG(http))

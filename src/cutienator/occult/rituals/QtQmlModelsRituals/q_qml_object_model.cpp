@@ -4,6 +4,7 @@
 #include <QtQmlModels/qtqmlmodelsglobal.h>
 #include <QtQmlModels/6.12.0/QtQmlModels/private/qtqmlmodelsglobal_p.h>
 #if QT_CONFIG(qml_object_model)
+#if QT_CONFIG(qml_object_model)
 #include <QtQmlModels/6.12.0/QtQmlModels/private/qtqmlmodelsglobal_p.h>
 #include <QtQmlModels/QtQmlModels>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -692,4 +693,5 @@ int ritual_own_ZNK15QQmlObjectModel7indexOfEP7QObjectS1_(
   return self->QQmlObjectModel::indexOf(object, objectContext);
 }
 
+#endif  // QT_CONFIG(qml_object_model)
 #endif  // QT_CONFIG(qml_object_model)

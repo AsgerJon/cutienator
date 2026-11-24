@@ -12,9 +12,9 @@
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include "qplatformdefs.h"
-#include "qfiledevice.h"
-#include "qfiledevice_p.h"
-#include "qfsfileengine_p.h"
+#include <QtCore/qfiledevice.h>
+#include <QtCore/private/qfiledevice_p.h>
+#include <QtCore/private/qfsfileengine_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -51,6 +51,7 @@ inline bool QFileDevicePrivate::setPermissions(QFileDevice::Permissions perms)
 }
 
 //  from src/corelib/io/qfiledevice.cpp, line 507, as _ZN18QFileDevicePrivate13putCharHelperEc
+#if defined(Q_OS_LINUX)
 inline bool QFileDevicePrivate::putCharHelper(char c)
 {
 #ifdef QT_NO_QOBJECT
@@ -104,6 +105,7 @@ inline bool QFileDevicePrivate::putCharHelper(char c)
     return true;
 #endif
 }
+#endif  // defined(Q_OS_LINUX)
 
 //  from src/corelib/io/qfiledevice.cpp, line 52, as _ZN18QFileDevicePrivate8setErrorEN11QFileDevice9FileErrorE
 inline void QFileDevicePrivate::setError(QFileDevice::FileError err)
@@ -339,6 +341,7 @@ bool ritual_own_ZN18QFileDevicePrivate14setPermissionsE6QFlagsIN11QFileDevice10P
       QFlags<QFileDevice::Permission>::fromInt(perms));
 }
 
+#if defined(Q_OS_LINUX)
 //  bool QFileDevicePrivate::putCharHelper(char c)
 extern "C" Q_DECL_EXPORT
 bool ritual_own_ZN18QFileDevicePrivate13putCharHelperEc(
@@ -347,3 +350,4 @@ bool ritual_own_ZN18QFileDevicePrivate13putCharHelperEc(
   return static_cast<OwnQFileDevicePrivate *>(self)->OwnQFileDevicePrivate::putCharHelper(
       c);
 }
+#endif  // defined(Q_OS_LINUX)

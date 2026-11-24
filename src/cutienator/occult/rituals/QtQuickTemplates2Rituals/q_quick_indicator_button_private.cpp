@@ -7,9 +7,9 @@
 #include <QtQuickTemplates2/6.12.0/QtQuickTemplates2/private/qquickindicatorbutton_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquickindicatorbutton_p.h"
-#include "qquickdeferredexecute_p_p.h"
-#include "qquickcontrol_p_p.h"
+#include <QtQuickTemplates2/private/qquickindicatorbutton_p.h>
+#include <QtQuickTemplates2/private/qquickdeferredexecute_p_p.h>
+#include <QtQuickTemplates2/private/qquickcontrol_p_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

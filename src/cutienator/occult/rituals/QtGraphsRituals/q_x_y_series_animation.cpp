@@ -15,9 +15,9 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qgraphanimation_p.h"
-#include <private/qgraphanimation_p.h>
-#include "qxyseriesanimation_p.h"
+#include <QtGraphs/private/qgraphanimation_p.h>
+#include <QtGraphs/private/qgraphanimation_p.h>
+#include <QtGraphs/private/qxyseriesanimation_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

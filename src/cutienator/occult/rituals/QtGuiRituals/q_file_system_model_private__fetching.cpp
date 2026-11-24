@@ -4,6 +4,7 @@
 #include <QtGui/qtguiglobal.h>
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
 #if QT_CONFIG(filesystemmodel)
+#if QT_CONFIG(filesystemmodel)
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
 #include <QtGui/QtGui>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -17,4 +18,5 @@ void ritual_ZN23QFileSystemModelPrivate8FetchingD1Ev(
   delete self;
 }
 
+#endif  // QT_CONFIG(filesystemmodel)
 #endif  // QT_CONFIG(filesystemmodel)

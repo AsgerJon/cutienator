@@ -1,8 +1,10 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtOpenGL/6.12.0/QtOpenGL/private/qopenglqueryhelper_p.h, Qt 6.12.0.
 //  Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtOpenGL/qtopenglglobal.h>
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
+#if !QT_CONFIG(opengles2)
 #if !QT_CONFIG(opengles2)
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtOpenGL/QtOpenGL>
@@ -49,4 +51,5 @@ void ritual_ZN18QOpenGLQueryHelperD1Ev(QOpenGLQueryHelper *self) {
   delete self;
 }
 
+#endif  // !QT_CONFIG(opengles2)
 #endif  // !QT_CONFIG(opengles2)

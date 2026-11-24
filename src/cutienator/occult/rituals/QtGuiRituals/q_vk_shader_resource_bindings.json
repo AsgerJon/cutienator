@@ -1,0 +1,23 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qrhivulkan_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN25QVkShaderResourceBindingsD1Ev": ["nothing", "address"],
+    "ritual_ZN25QVkShaderResourceBindings7destroyEv": ["nothing", "address"],
+    "ritual_ZN25QVkShaderResourceBindings15updateResourcesE6QFlagsIN26QRhiShaderResourceBindings10UpdateFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_take_QVkShaderResourceBindings": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN25QVkShaderResourceBindings7destroyEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN25QVkShaderResourceBindings15updateResourcesE6QFlagsIN26QRhiShaderResourceBindings10UpdateFlagEE": [
+      "nothing", "address", "int"
+    ]
+  }
+}

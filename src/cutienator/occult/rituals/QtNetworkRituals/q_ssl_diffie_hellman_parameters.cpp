@@ -2,6 +2,7 @@
 //  QtNetwork/qssldiffiehellmanparameters.h, Qt 6.12.0. Changes made here are
 //  lost.
 #include <QtNetwork/qtnetworkglobal.h>
+#if QT_CONFIG(ssl)
 #if !defined(QT_NO_SSL)
 #include <QtNetwork/qssldiffiehellmanparameters.h>
 #include <QtCore/qbytearray.h>
@@ -130,3 +131,4 @@ QDebug *ritual_Zls6QDebugRK27QSslDiffieHellmanParameters(
 #endif  // !defined(QT_NO_DEBUG_STREAM)
 
 #endif  // !defined(QT_NO_SSL)
+#endif  // QT_CONFIG(ssl)

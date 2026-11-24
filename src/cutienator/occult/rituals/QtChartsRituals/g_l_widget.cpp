@@ -17,14 +17,14 @@
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef QT_NO_OPENGL
-#include "private/glwidget_p.h"
-#include "private/glxyseriesdata_p.h"
-#include "private/qabstractseries_p.h"
+#include <QtCharts/private/glwidget_p.h>
+#include <QtCharts/private/glxyseriesdata_p.h>
+#include <QtCharts/private/qabstractseries_p.h>
 #include <QtOpenGL/QOpenGLShaderProgram>
 #include <QtGui/QOpenGLContext>
 #include <QtOpenGL/QOpenGLBuffer>
 #ifdef QDEBUG_TRACE_GL_FPS
-#  include <QElapsedTimer>
+#  include <QtCore/QElapsedTimer>
 #endif
 #endif
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER

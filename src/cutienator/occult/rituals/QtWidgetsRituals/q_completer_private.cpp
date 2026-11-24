@@ -4,6 +4,7 @@
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #if QT_CONFIG(completer)
+#if QT_CONFIG(completer)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/qcompleter.h>
 #include <QtWidgets/QtWidgets>
@@ -14,7 +15,7 @@
 #include <QtCore/qabstractitemmodel.h>
 #include <QtCore/qitemselectionmodel.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qcompleter_p.h"
+#include <QtWidgets/private/qcompleter_p.h>
 #include "QtWidgets/qscrollbar.h"
 #include "QtCore/qdir.h"
 #if QT_CONFIG(stringlistmodel)
@@ -29,10 +30,10 @@
 #endif
 #include "QtWidgets/qapplication.h"
 #include "QtGui/qevent.h"
-#include <private/qapplication_p.h>
-#include <private/qwidget_p.h>
-#include <qpa/qplatformwindow.h>
-#include <qpa/qplatformwindow_p.h>
+#include <QtWidgets/private/qapplication_p.h>
+#include <QtWidgets/private/qwidget_p.h>
+#include <QtGui/qpa/qplatformwindow.h>
+#include <QtGui/qpa/qplatformwindow_p.h>
 #if QT_CONFIG(lineedit)
 #include "QtWidgets/qlineedit.h"
 #endif
@@ -307,4 +308,5 @@ const QCompleterPrivate *ritual_ZN17QCompleterPrivate3getEPK10QCompleter(
   return QCompleterPrivate::get(o);
 }
 
+#endif  // QT_CONFIG(completer)
 #endif  // QT_CONFIG(completer)

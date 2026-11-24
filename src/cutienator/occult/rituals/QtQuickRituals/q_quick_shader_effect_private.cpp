@@ -1,8 +1,10 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtQuick/6.12.0/QtQuick/private/qquickshadereffect_p_p.h, Qt 6.12.0.
 //  Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtQuick/qtquickglobal.h>
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
+#if QT_CONFIG(quick_shadereffect)
 #if QT_CONFIG(quick_shadereffect)
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #include <QtQuick/QtQuick>
@@ -16,10 +18,10 @@
 #include <QtQuick/qquickitem.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <private/qquickshadereffect_p_p.h>
-#include <private/qsgcontextplugin_p.h>
-#include <private/qsgrhisupport_p.h>
-#include <private/qquickwindow_p.h>
+#include <QtQuick/private/qquickshadereffect_p_p.h>
+#include <QtQuick/private/qsgcontextplugin_p.h>
+#include <QtQuick/private/qsgrhisupport_p.h>
+#include <QtQuick/private/qquickwindow_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -697,4 +699,5 @@ bool ritual_take_QQuickShaderEffectPrivate(
   return static_cast<CuteQQuickShaderEffectPrivate *>(self)->take(key, call);
 }
 
+#endif  // QT_CONFIG(quick_shadereffect)
 #endif  // QT_CONFIG(quick_shadereffect)

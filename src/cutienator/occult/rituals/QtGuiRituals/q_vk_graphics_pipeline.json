@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qrhivulkan_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QVkGraphicsPipelineD1Ev": ["nothing", "address"],
+    "ritual_ZN19QVkGraphicsPipeline7destroyEv": ["nothing", "address"],
+    "ritual_take_QVkGraphicsPipeline": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN19QVkGraphicsPipeline7destroyEv": ["nothing", "address"]
+  }
+}

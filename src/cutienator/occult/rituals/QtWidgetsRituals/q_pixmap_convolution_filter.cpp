@@ -4,6 +4,7 @@
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #if QT_CONFIG(graphicseffect)
+#if QT_CONFIG(graphicseffect)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/QtWidgets>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -329,4 +330,5 @@ void ritual_own_ZNK24QPixmapConvolutionFilter4drawEP8QPainterRK7QPointFRK7QPixma
   self->QPixmapConvolutionFilter::draw(painter, *dest, *src, *srcRect);
 }
 
+#endif  // QT_CONFIG(graphicseffect)
 #endif  // QT_CONFIG(graphicseffect)

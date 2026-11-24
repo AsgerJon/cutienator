@@ -11,20 +11,20 @@
 #include <QtCore/qcbormap.h>
 #include <QtCore/qcborvalue.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qfactoryloader_p.h"
-#include "private/qcoreapplication_p.h"
-#include "private/qloggingregistry_p.h"
-#include "qcborarray.h"
-#include "qcbormap.h"
-#include "qcborstreamreader.h"
-#include "qcborvalue.h"
-#include "qdirlisting.h"
-#include "qfileinfo.h"
-#include "qjsonarray.h"
-#include "qjsondocument.h"
-#include "qjsonobject.h"
-#include "qplugin.h"
-#include "qpluginloader.h"
+#include <QtCore/private/qfactoryloader_p.h>
+#include <QtCore/private/qcoreapplication_p.h>
+#include <QtCore/private/qloggingregistry_p.h>
+#include <QtCore/qcborarray.h>
+#include <QtCore/qcbormap.h>
+#include <QtCore/qcborstreamreader.h>
+#include <QtCore/qcborvalue.h>
+#include <QtCore/qdirlisting.h>
+#include <QtCore/qfileinfo.h>
+#include <QtCore/qjsonarray.h>
+#include <QtCore/qjsondocument.h>
+#include <QtCore/qjsonobject.h>
+#include <QtCore/qplugin.h>
+#include <QtCore/qpluginloader.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

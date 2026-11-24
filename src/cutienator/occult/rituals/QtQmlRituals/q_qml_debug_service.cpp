@@ -4,6 +4,7 @@
 #include <QtQml/qtqmlglobal.h>
 #include <QtQml/6.12.0/QtQml/private/qtqmlglobal_p.h>
 #if QT_CONFIG(qml_debug)
+#if QT_CONFIG(qml_debug)
 #include <QtQml/6.12.0/QtQml/private/qtqmlglobal_p.h>
 #include <QtQml/QtQml>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -538,4 +539,5 @@ void ritual_own_ZN16QQmlDebugService13engineRemovedEP9QJSEngine(
   self->QQmlDebugService::engineRemoved(a0);
 }
 
+#endif  // QT_CONFIG(qml_debug)
 #endif  // QT_CONFIG(qml_debug)

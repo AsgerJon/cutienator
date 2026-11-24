@@ -11,7 +11,7 @@
 #include <QtQuickTemplates2/6.12.0/QtQuickTemplates2/private/qquickicon_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquicknativeiconloader_p.h"
+#include <QtQuickTemplates2/private/qquicknativeiconloader_p.h>
 #include <QtCore/qobject.h>
 #include <QtCore/qmetaobject.h>
 #include <QtQml/qqml.h>

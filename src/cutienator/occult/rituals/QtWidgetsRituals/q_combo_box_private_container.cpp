@@ -1,8 +1,10 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/6.12.0/QtWidgets/private/qcombobox_p.h, Qt 6.12.0. Changes made
 //  here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
+#if QT_CONFIG(combobox)
 #if QT_CONFIG(combobox)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/QtWidgets>
@@ -1224,4 +1226,5 @@ void ritual_own_ZN25QComboBoxPrivateContainer10paintEventEP11QPaintEvent(
       e);
 }
 
+#endif  // QT_CONFIG(combobox)
 #endif  // QT_CONFIG(combobox)

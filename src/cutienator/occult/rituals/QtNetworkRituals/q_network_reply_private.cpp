@@ -11,8 +11,8 @@
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtNetwork/private/qtnetworkglobal_p.h>
-#include "qnetworkreply.h"
-#include "qnetworkreply_p.h"
+#include <QtNetwork/qnetworkreply.h>
+#include <QtNetwork/private/qnetworkreply_p.h>
 #include <QtNetwork/qsslconfiguration.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

@@ -12,7 +12,7 @@
 #include <QtQuickTemplates2/6.12.0/QtQuickTemplates2/private/qquicktumbler_p_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquicktumbler_p.h"
+#include <QtQuickTemplates2/private/qquicktumbler_p.h>
 #include <QtCore/qloggingcategory.h>
 #include <QtGui/qpa/qplatformtheme.h>
 #include <QtQml/qqmlinfo.h>

@@ -11,7 +11,7 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qbytearray.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qcoreaudiodevice_p.h"
+#include <QtMultimedia/private/qcoreaudiodevice_p.h>
 #include <QtCore/private/qcore_mac_p.h>
 #include <QtMultimedia/private/qcoreaudioutils_p.h>
 #include <QtMultimedia/private/qaudioformat_p.h>

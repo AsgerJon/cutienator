@@ -8,11 +8,11 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquick3dinstancing_p.h"
-#include "qquick3dscenemanager_p.h"
+#include <QtQuick3D/private/qquick3dinstancing_p.h>
+#include <QtQuick3D/private/qquick3dscenemanager_p.h>
 #include <QtQuick3DRuntimeRender/private/qssgrenderinstancetable_p.h>
 #include <QtQuick3DUtils/private/qssgutils_p.h>
-#include <QXmlStreamReader>
+#include <QtCore/QXmlStreamReader>
 #include <QtQml/QQmlFile>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

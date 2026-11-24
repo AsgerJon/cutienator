@@ -11,10 +11,10 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qnetworkaccessfilebackend_p.h"
-#include "qfileinfo.h"
-#include "qdir.h"
-#include "private/qnoncontiguousbytedevice_p.h"
+#include <QtNetwork/private/qnetworkaccessfilebackend_p.h>
+#include <QtCore/qfileinfo.h>
+#include <QtCore/qdir.h>
+#include <QtCore/private/qnoncontiguousbytedevice_p.h>
 #include <QtCore/QCoreApplication>
 #include <QtCore/QDateTime>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER

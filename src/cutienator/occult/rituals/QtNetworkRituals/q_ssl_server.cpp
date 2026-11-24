@@ -2,6 +2,7 @@
 //  QtNetwork/qsslserver.h, Qt 6.12.0. Changes made here are lost.
 #include <QtNetwork/qtnetworkglobal.h>
 #if QT_CONFIG(ssl)
+#if QT_CONFIG(ssl)
 #include <QtNetwork/qsslserver.h>
 #include <QtCore/qstring.h>
 #include <QtNetwork/qsslconfiguration.h>
@@ -330,4 +331,5 @@ void ritual_own_ZN10QSslServer18incomingConnectionEx(
       socket);
 }
 
+#endif  // QT_CONFIG(ssl)
 #endif  // QT_CONFIG(ssl)

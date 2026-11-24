@@ -7,8 +7,8 @@
 #include <QtGui/6.12.0/QtGui/private/qpageranges_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qpageranges.h"
-#include "qpageranges_p.h"
+#include <QtGui/qpageranges.h>
+#include <QtGui/private/qpageranges_p.h>
 #include <QtCore/qstack.h>
 #include <QtCore/qdebug.h>
 #include <QtCore/qdatastream.h>

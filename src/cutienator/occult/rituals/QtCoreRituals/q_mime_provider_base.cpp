@@ -4,6 +4,7 @@
 #include <QtCore/qglobal.h>
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #if QT_CONFIG(mimetype)
+#if QT_CONFIG(mimetype)
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtCore/QtCore>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -13,18 +14,18 @@
 #include <QtCore/qlist.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qmimeprovider_p.h"
-#include "qmimetypeparser_p.h"
-#include <qstandardpaths.h>
-#include "qmimemagicrulematcher_p.h"
-#include <QXmlStreamReader>
-#include <QBuffer>
-#include <QDir>
-#include <QFile>
-#include <QByteArrayMatcher>
-#include <QDebug>
-#include <QDateTime>
-#include <QtEndian>
+#include <QtCore/private/qmimeprovider_p.h>
+#include <QtCore/private/qmimetypeparser_p.h>
+#include <QtCore/qstandardpaths.h>
+#include <QtCore/private/qmimemagicrulematcher_p.h>
+#include <QtCore/QXmlStreamReader>
+#include <QtCore/QBuffer>
+#include <QtCore/QDir>
+#include <QtCore/QFile>
+#include <QtCore/QByteArrayMatcher>
+#include <QtCore/QDebug>
+#include <QtCore/QDateTime>
+#include <QtCore/QtEndian>
 #if QT_CONFIG(mimetype_database)
 #  ifdef MIME_DATABASE_IS_ZSTD
 #    include <zstd.h>
@@ -389,4 +390,5 @@ void ritual_own_ZN17QMimeProviderBase12ensureLoadedEv(
   self->QMimeProviderBase::ensureLoaded();
 }
 
+#endif  // QT_CONFIG(mimetype)
 #endif  // QT_CONFIG(mimetype)

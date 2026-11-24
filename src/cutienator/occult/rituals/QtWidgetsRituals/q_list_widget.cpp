@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qlistwidget.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(listwidget)
 #if QT_CONFIG(listwidget)
 #include <QtWidgets/qlistwidget.h>
 #include <QtCore/qstring.h>
@@ -2638,4 +2640,5 @@ void ritual_own_ZN11QListWidget8setModelEP18QAbstractItemModel(
   self->QListWidget::setModel(model);
 }
 
+#endif  // QT_CONFIG(listwidget)
 #endif  // QT_CONFIG(listwidget)

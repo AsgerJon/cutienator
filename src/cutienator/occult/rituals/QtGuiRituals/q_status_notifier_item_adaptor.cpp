@@ -3,6 +3,7 @@
 //  Changes made here are lost.
 #include <QtGui/qtguiglobal.h>
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
+#if QT_CONFIG(systemtrayicon) && 1 && defined(Q_OS_UNIX) && (QT_CONFIG(xcb) || !defined(Q_OS_MACOS)) && (QT_CONFIG(xcb) || !(defined(Q_OS_IOS) || defined(Q_OS_TVOS) || defined(Q_OS_VISIONOS)))
 #if QT_CONFIG(systemtrayicon)
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
 #include <QtGui/QtGui>
@@ -18,11 +19,11 @@
 #include <QtCore/qlist.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qstatusnotifieritemadaptor_p.h"
+#include <QtGui/private/qstatusnotifieritemadaptor_p.h>
 #ifndef QT_NO_SYSTEMTRAYICON
 #include <QtCore/QLoggingCategory>
 #include <QtCore/QCoreApplication>
-#include "qdbustrayicon_p.h"
+#include <QtGui/private/qdbustrayicon_p.h>
 #endif
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
@@ -448,3 +449,4 @@ bool ritual_take_QStatusNotifierItemAdaptor(
 }
 
 #endif  // QT_CONFIG(systemtrayicon)
+#endif  // QT_CONFIG(systemtrayicon) && 1 && defined(Q_OS_UNIX) && (QT_CONFIG(xcb) || !defined(Q_OS_MACOS)) && (QT_CONFIG(xcb) || !(defined(Q_OS_IOS) || defined(Q_OS_TVOS) || defined(Q_OS_VISIONOS)))

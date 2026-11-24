@@ -4,6 +4,7 @@
 #include <QtPrintSupport/qtprintsupportglobal.h>
 #include <QtPrintSupport/6.12.0/QtPrintSupport/private/qtprintsupportglobal_p.h>
 #if QT_CONFIG(printpreviewwidget)
+#if QT_CONFIG(printpreviewwidget)
 #include <QtPrintSupport/6.12.0/QtPrintSupport/private/qtprintsupportglobal_p.h>
 #include <QtPrintSupport/QtPrintSupport>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -668,4 +669,5 @@ QPaintEngine::Type ritual_own_ZNK19QPreviewPaintEngine4typeEv(
   return self->QPreviewPaintEngine::type();
 }
 
+#endif  // QT_CONFIG(printpreviewwidget)
 #endif  // QT_CONFIG(printpreviewwidget)

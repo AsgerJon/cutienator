@@ -2,6 +2,7 @@
 //  Qt 6.12.0. Changes made here are lost.
 #include <QtXml/qtxmlglobal.h>
 #if QT_CONFIG(dom)
+#if QT_CONFIG(dom)
 #include <QtXml/qdom.h>
 
 //  bool QDomDocument::ParseResult::operator bool() const
@@ -18,4 +19,5 @@ void ritual_ZN12QDomDocument11ParseResultD1Ev(
   delete self;
 }
 
+#endif  // QT_CONFIG(dom)
 #endif  // QT_CONFIG(dom)

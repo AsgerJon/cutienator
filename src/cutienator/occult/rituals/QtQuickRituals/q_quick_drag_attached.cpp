@@ -4,6 +4,7 @@
 #include <QtQuick/qtquickglobal.h>
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #if QT_CONFIG(quick_draganddrop)
+#if QT_CONFIG(quick_draganddrop)
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #include <QtQuick/QtQuick>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -461,4 +462,5 @@ bool ritual_own_ZN18QQuickDragAttached5eventEP6QEvent(
   return self->QQuickDragAttached::event(event);
 }
 
+#endif  // QT_CONFIG(quick_draganddrop)
 #endif  // QT_CONFIG(quick_draganddrop)

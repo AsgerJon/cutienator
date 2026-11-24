@@ -4,6 +4,7 @@
 #include <QtCore/qglobal.h>
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #if QT_CONFIG(filesystemwatcher)
+#if QT_CONFIG(filesystemwatcher)
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtCore/qfilesystemwatcher.h>
 #include <QtCore/QtCore>
@@ -11,22 +12,22 @@
 #include <QtCore/6.12.0/QtCore/private/qfilesystemwatcher_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qfilesystemwatcher.h"
-#include "qfilesystemwatcher_p.h"
-#include <qdatetime.h>
-#include <qdir.h>
-#include <qfileinfo.h>
-#include <qloggingcategory.h>
-#include <qset.h>
-#include "qfilesystemwatcher_polling_p.h"
+#include <QtCore/qfilesystemwatcher.h>
+#include <QtCore/private/qfilesystemwatcher_p.h>
+#include <QtCore/qdatetime.h>
+#include <QtCore/qdir.h>
+#include <QtCore/qfileinfo.h>
+#include <QtCore/qloggingcategory.h>
+#include <QtCore/qset.h>
+#include <QtCore/private/qfilesystemwatcher_polling_p.h>
 #if defined(Q_OS_WIN)
-#  include "qfilesystemwatcher_win_p.h"
+#  include <QtCore/private/qfilesystemwatcher_win_p.h>
 #elif defined(USE_INOTIFY)
-#  include "qfilesystemwatcher_inotify_p.h"
+#  include <QtCore/private/qfilesystemwatcher_inotify_p.h>
 #elif defined(Q_OS_FREEBSD) || defined(Q_OS_NETBSD) || defined(Q_OS_OPENBSD) || defined(QT_PLATFORM_UIKIT)
-#  include "qfilesystemwatcher_kqueue_p.h"
+#  include <QtCore/private/qfilesystemwatcher_kqueue_p.h>
 #elif defined(Q_OS_MACOS)
-#  include "qfilesystemwatcher_fsevents_p.h"
+#  include <QtCore/private/qfilesystemwatcher_fsevents_p.h>
 #endif
 #include <algorithm>
 #include <iterator>
@@ -40,6 +41,7 @@
 //  'inline' put before it where Qt did not write it.
 
 //  from src/corelib/io/qfilesystemwatcher.cpp, line 38, as _ZN25QFileSystemWatcherPrivate18createNativeEngineEP7QObject
+#if defined(Q_OS_LINUX)
 inline QFileSystemWatcherEngine *QFileSystemWatcherPrivate::createNativeEngine(QObject *parent)
 {
 #if defined(Q_OS_WIN)
@@ -57,6 +59,7 @@ inline QFileSystemWatcherEngine *QFileSystemWatcherPrivate::createNativeEngine(Q
     return 0;
 #endif
 }
+#endif  // defined(Q_OS_LINUX)
 
 //  from src/corelib/io/qfilesystemwatcher.cpp, line 56, as _ZN25QFileSystemWatcherPrivateC1Ev
 inline QFileSystemWatcherPrivate::QFileSystemWatcherPrivate()
@@ -79,6 +82,7 @@ const QFileSystemWatcher *ritual_ZNK25QFileSystemWatcherPrivate6q_funcEv(
   return self->q_func();
 }
 
+#if defined(Q_OS_LINUX)
 //  QFileSystemWatcherEngine
 //      *QFileSystemWatcherPrivate::createNativeEngine(QObject *parent)
 extern "C" Q_DECL_EXPORT
@@ -86,6 +90,7 @@ QFileSystemWatcherEngine *ritual_ZN25QFileSystemWatcherPrivate18createNativeEngi
     QObject *parent) {
   return QFileSystemWatcherPrivate::createNativeEngine(parent);
 }
+#endif  // defined(Q_OS_LINUX)
 
 //  QFileSystemWatcherPrivate::QFileSystemWatcherPrivate()
 extern "C" Q_DECL_EXPORT
@@ -93,4 +98,5 @@ QFileSystemWatcherPrivate *ritual_ZN25QFileSystemWatcherPrivateC1Ev() {
   return new QFileSystemWatcherPrivate();
 }
 
+#endif  // QT_CONFIG(filesystemwatcher)
 #endif  // QT_CONFIG(filesystemwatcher)

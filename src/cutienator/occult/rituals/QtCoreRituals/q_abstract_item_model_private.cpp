@@ -4,6 +4,7 @@
 #include <QtCore/qglobal.h>
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #if QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtCore/qabstractitemmodel.h>
 #include <QtCore/QtCore>
@@ -344,4 +345,5 @@ void ritual_own_ZNK25QAbstractItemModelPrivate24executePendingOperationsEv(
   self->QAbstractItemModelPrivate::executePendingOperations();
 }
 
+#endif  // QT_CONFIG(itemmodel)
 #endif  // QT_CONFIG(itemmodel)

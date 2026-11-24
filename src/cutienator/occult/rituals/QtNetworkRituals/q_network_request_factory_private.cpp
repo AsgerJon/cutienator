@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtNetwork/6.12.0/QtNetwork/private/qnetworkrequestfactory_p.h, Qt 6.12.0.
 //  Changes made here are lost.
+#include <QtNetwork/qtnetworkglobal.h>
+#include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
+#if QT_CONFIG(http)
 #include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
 #include <QtNetwork/QtNetwork>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -9,8 +12,8 @@
 #include <QtCore/qurl.h>
 #include <QtNetwork/qnetworkrequest.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qnetworkrequestfactory.h"
-#include "qnetworkrequestfactory_p.h"
+#include <QtNetwork/qnetworkrequestfactory.h>
+#include <QtNetwork/private/qnetworkrequestfactory_p.h>
 #if QT_CONFIG(ssl)
 #include <QtNetwork/qsslconfiguration.h>
 #endif
@@ -79,3 +82,5 @@ void ritual_ZN29QNetworkRequestFactoryPrivateD1Ev(
     QNetworkRequestFactoryPrivate *self) {
   delete self;
 }
+
+#endif  // QT_CONFIG(http)

@@ -10,13 +10,13 @@
 #include <QtCore/qdatetime.h>
 #include <QtCore/qbytearray.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <private/qqmldatablob_p.h>
-#include <private/qqmlglobal_p.h>
-#include <private/qqmlprofiler_p.h>
-#include <private/qqmlsourcecoordinate_p.h>
-#include <private/qqmltypedata_p.h>
-#include <private/qqmltypeloader_p.h>
-#include <private/qqmltypeloaderthread_p.h>
+#include <QtQml/private/qqmldatablob_p.h>
+#include <QtQml/private/qqmlglobal_p.h>
+#include <QtQml/private/qqmlprofiler_p.h>
+#include <QtQml/private/qqmlsourcecoordinate_p.h>
+#include <QtQml/private/qqmltypedata_p.h>
+#include <QtQml/private/qqmltypeloader_p.h>
+#include <QtQml/private/qqmltypeloaderthread_p.h>
 #include <QtQml/qqmlengine.h>
 #include <QtCore/qcryptographichash.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER

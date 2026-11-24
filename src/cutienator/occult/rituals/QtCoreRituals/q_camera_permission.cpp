@@ -2,6 +2,7 @@
 //  QtCore/qpermissions.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qglobal.h>
 #if QT_CONFIG(permissions)
+#if QT_CONFIG(permissions)
 #include <QtCore/qpermissions.h>
 
 //  QCameraPermission::QCameraPermission()
@@ -23,4 +24,5 @@ void ritual_ZN17QCameraPermissionD1Ev(QCameraPermission *self) {
   delete self;
 }
 
+#endif  // QT_CONFIG(permissions)
 #endif  // QT_CONFIG(permissions)

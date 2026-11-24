@@ -25,10 +25,4 @@ const QVariant *ritual_ZNK20QVariantConstPointerptEv(
   return self->operator->();
 }
 
-//  QVariantConstPointer::~QVariantConstPointer()
-extern "C" Q_DECL_EXPORT
-void ritual_ZN20QVariantConstPointerD1Ev(QVariantConstPointer *self) {
-  delete self;
-}
-
 #endif  // QT_DEPRECATED_SINCE(6, 15)

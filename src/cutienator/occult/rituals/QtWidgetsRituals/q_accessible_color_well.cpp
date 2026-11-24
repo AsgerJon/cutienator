@@ -1,8 +1,10 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/6.12.0/QtWidgets/private/qaccessiblecolorwell_p.h, Qt 6.12.0.
 //  Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
+#if QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
 #if QT_CONFIG(colordialog)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
@@ -17,10 +19,10 @@
 #include <QtGui/qcolor.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "private/qaccessiblecolorwell_p.h"
+#include <QtWidgets/private/qaccessiblecolorwell_p.h>
 #include <QtCore/qcoreapplication.h>
 #if QT_CONFIG(colordialog)
-#include "private/qcolorwell_p.h"
+#include <QtWidgets/private/qcolorwell_p.h>
 #endif
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
@@ -595,4 +597,5 @@ int ritual_own_ZNK20QAccessibleColorWell12indexOfChildEPK20QAccessibleInterface(
 #endif  // QT_CONFIG(accessibility)
 
 #endif  // QT_CONFIG(colordialog)
+#endif  // QT_CONFIG(accessibility)
 #endif  // QT_CONFIG(accessibility)

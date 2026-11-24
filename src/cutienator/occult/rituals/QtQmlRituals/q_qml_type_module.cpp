@@ -15,8 +15,8 @@
 #include <QtQml/6.12.0/QtQml/private/qqmltype_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qqmltypemodule_p.h"
-#include <private/qqmltype_p_p.h>
+#include <QtQml/private/qqmltypemodule_p.h>
+#include <QtQml/private/qqmltype_p_p.h>
 #include <QtCore/qmutex.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

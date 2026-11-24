@@ -4,6 +4,7 @@
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #if QT_CONFIG(widgettextcontrol)
+#if QT_CONFIG(widgettextcontrol)
 #if !defined(QT_NO_CONTEXTMENU)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/QtWidgets>
@@ -19,4 +20,5 @@ const QMetaObject *ritual_ZNK28QUnicodeControlCharacterMenu10metaObjectEv(
 }
 
 #endif  // !defined(QT_NO_CONTEXTMENU)
+#endif  // QT_CONFIG(widgettextcontrol)
 #endif  // QT_CONFIG(widgettextcontrol)

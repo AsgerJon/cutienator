@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qtextbrowser.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(textbrowser)
 #if QT_CONFIG(textbrowser)
 #include <QtWidgets/qtextbrowser.h>
 #include <QtCore/qstring.h>
@@ -1730,4 +1732,5 @@ void ritual_own_ZN12QTextBrowser11doSetSourceERK4QUrlN13QTextDocument12ResourceT
       type);
 }
 
+#endif  // QT_CONFIG(textbrowser)
 #endif  // QT_CONFIG(textbrowser)

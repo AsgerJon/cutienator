@@ -8,7 +8,7 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/qcolor.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquickmaterialtextcontainer_p.h"
+#include <QtQuickControls2MaterialStyleImpl/private/qquickmaterialtextcontainer_p.h>
 #include <QtCore/qpropertyanimation.h>
 #include <QtGui/qpainter.h>
 #include <QtGui/qpainterpath.h>

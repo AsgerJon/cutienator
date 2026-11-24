@@ -7,16 +7,16 @@
 #include <QtCore/6.12.0/QtCore/private/qproperty_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qproperty.h"
-#include "qproperty_p.h"
-#include <qscopedvaluerollback.h>
-#include <QScopeGuard>
+#include <QtCore/qproperty.h>
+#include <QtCore/private/qproperty_p.h>
+#include <QtCore/qscopedvaluerollback.h>
+#include <QtCore/QScopeGuard>
 #include <QtCore/qalloc.h>
 #include <QtCore/qloggingcategory.h>
 #include <QtCore/private/qthread_p.h>
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qmutex.h>
-#include "qobject_p.h"
+#include <QtCore/private/qobject_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

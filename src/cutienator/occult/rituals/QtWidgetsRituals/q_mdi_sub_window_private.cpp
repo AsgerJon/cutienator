@@ -4,6 +4,7 @@
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #if QT_CONFIG(mdiarea)
+#if QT_CONFIG(mdiarea)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/qmdisubwindow.h>
 #include <QtWidgets/QtWidgets>
@@ -22,31 +23,31 @@
 #include <QtGui/qimage.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qmdisubwindow_p.h"
-#include <QApplication>
-#include <QStylePainter>
-#include <QVBoxLayout>
-#include <QMouseEvent>
+#include <QtWidgets/private/qmdisubwindow_p.h>
+#include <QtWidgets/QApplication>
+#include <QtWidgets/QStylePainter>
+#include <QtWidgets/QVBoxLayout>
+#include <QtGui/QMouseEvent>
 #if QT_CONFIG(whatsthis)
-#include <QWhatsThis>
+#include <QtWidgets/QWhatsThis>
 #endif
 #if QT_CONFIG(tooltip)
-#include <QToolTip>
+#include <QtWidgets/QToolTip>
 #endif
 #if QT_CONFIG(mainwindow)
-#include <QMainWindow>
+#include <QtWidgets/QMainWindow>
 #endif
-#include <QScrollBar>
-#include <QDebug>
-#include <QMdiArea>
-#include <QScopedValueRollback>
+#include <QtWidgets/QScrollBar>
+#include <QtCore/QDebug>
+#include <QtWidgets/QMdiArea>
+#include <QtCore/QScopedValueRollback>
 #if QT_CONFIG(action)
-#  include <qaction.h>
+#  include <QtWidgets/qaction.h>
 #endif
 #if QT_CONFIG(menu)
-#include <QMenu>
+#include <QtWidgets/QMenu>
 #endif
-#include <QProxyStyle>
+#include <QtWidgets/QProxyStyle>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -805,4 +806,5 @@ bool ritual_take_QMdiSubWindowPrivate(
   return static_cast<CuteQMdiSubWindowPrivate *>(self)->take(key, call);
 }
 
+#endif  // QT_CONFIG(mdiarea)
 #endif  // QT_CONFIG(mdiarea)

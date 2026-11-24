@@ -9,7 +9,7 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qstringview.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquickscalegrid_p_p.h"
+#include <QtQuick/private/qquickscalegrid_p_p.h>
 #include <QtQml/qqml.h>
 #include <QtCore/qiodevice.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER

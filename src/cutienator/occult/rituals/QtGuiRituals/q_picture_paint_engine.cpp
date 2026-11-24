@@ -18,21 +18,21 @@
 #include <QtCore/qsize.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "private/qpaintengine_p.h"
-#include "private/qpainter_p.h"
-#include "private/qpicture_p.h"
-#include "private/qfont_p.h"
+#include <QtGui/private/qpaintengine_p.h>
+#include <QtGui/private/qpainter_p.h>
+#include <QtGui/private/qpicture_p.h>
+#include <QtGui/private/qfont_p.h>
 #ifndef QT_NO_PICTURE
-#include "qbuffer.h"
-#include "qbytearray.h"
-#include "qdatastream.h"
-#include "qmath.h"
-#include "qpaintengine_pic_p.h"
-#include "qpicture.h"
-#include "qpolygon.h"
-#include "qrect.h"
-#include <private/qtextengine_p.h>
-#include <qdebug.h>
+#include <QtCore/qbuffer.h>
+#include <QtCore/qbytearray.h>
+#include <QtCore/qdatastream.h>
+#include <QtCore/qmath.h>
+#include <QtGui/private/qpaintengine_pic_p.h>
+#include <QtGui/qpicture.h>
+#include <QtGui/qpolygon.h>
+#include <QtCore/qrect.h>
+#include <QtGui/private/qtextengine_p.h>
+#include <QtCore/qdebug.h>
 #endif
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

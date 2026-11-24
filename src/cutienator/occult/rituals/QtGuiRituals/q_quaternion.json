@@ -97,6 +97,11 @@
     "ritual_ZN11QQuaternion5nlerpERKS_S1_f": [
       "address", "address", "address", "float"
     ],
-    "ritual_ZN11QQuaternionD1Ev": ["nothing", "address"]
+    "ritual_ZN11QQuaternionD1Ev": ["nothing", "address"],
+    "ritual_list_make_QQuaternion": ["address"],
+    "ritual_list_add_QQuaternion": ["nothing", "address", "address"],
+    "ritual_list_size_QQuaternion": ["long long", "address"],
+    "ritual_list_at_QQuaternion": ["address", "address", "long long"],
+    "ritual_list_drop_QQuaternion": ["nothing", "address"]
   }
 }

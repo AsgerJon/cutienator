@@ -19,11 +19,11 @@
 #include <QtGui/qpalette.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquicklabel_p.h"
-#include "qquicklabel_p_p.h"
-#include "qquickcontrol_p.h"
-#include "qquickcontrol_p_p.h"
-#include "qquickdeferredexecute_p_p.h"
+#include <QtQuickTemplates2/private/qquicklabel_p.h>
+#include <QtQuickTemplates2/private/qquicklabel_p_p.h>
+#include <QtQuickTemplates2/private/qquickcontrol_p.h>
+#include <QtQuickTemplates2/private/qquickcontrol_p_p.h>
+#include <QtQuickTemplates2/private/qquickdeferredexecute_p_p.h>
 #include <QtQuick/private/qquickitem_p.h>
 #include <QtQuick/private/qquicktext_p.h>
 #if QT_CONFIG(accessibility)

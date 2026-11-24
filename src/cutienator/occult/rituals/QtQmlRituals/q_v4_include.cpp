@@ -10,9 +10,9 @@
 #include <QtQml/qjsvalue.h>
 #include <QtCore/qstring.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qv4include_p.h"
-#include "qv4scopedvalue_p.h"
-#include "qv4jscall_p.h"
+#include <QtQml/private/qv4include_p.h>
+#include <QtQml/private/qv4scopedvalue_p.h>
+#include <QtQml/private/qv4jscall_p.h>
 #include <QtQml/qjsengine.h>
 #if QT_CONFIG(qml_network)
 #include <QtNetwork/qnetworkrequest.h>
@@ -20,13 +20,13 @@
 #endif
 #include <QtCore/qfile.h>
 #include <QtQml/qqmlfile.h>
-#include <private/qqmlengine_p.h>
-#include <private/qqmlscriptblob_p.h>
-#include <private/qqmlscriptdata_p.h>
-#include <private/qv4context_p.h>
-#include <private/qv4engine_p.h>
-#include <private/qv4functionobject_p.h>
-#include <private/qv4script_p.h>
+#include <QtQml/private/qqmlengine_p.h>
+#include <QtQml/private/qqmlscriptblob_p.h>
+#include <QtQml/private/qqmlscriptdata_p.h>
+#include <QtQml/private/qv4context_p.h>
+#include <QtQml/private/qv4engine_p.h>
+#include <QtQml/private/qv4functionobject_p.h>
+#include <QtQml/private/qv4script_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

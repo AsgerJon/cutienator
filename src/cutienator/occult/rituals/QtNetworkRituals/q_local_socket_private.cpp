@@ -4,6 +4,7 @@
 #include <QtNetwork/qtnetworkglobal.h>
 #include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
 #if QT_CONFIG(localserver)
+#if QT_CONFIG(localserver)
 #include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
 #include <QtNetwork/qlocalsocket.h>
 #include <QtNetwork/QtNetwork>
@@ -13,19 +14,19 @@
 #include <QtCore/qbytearray.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qlocalsocket.h"
-#include "qlocalsocket_p.h"
-#include "qnet_unix_p.h"
+#include <QtNetwork/qlocalsocket.h>
+#include <QtNetwork/private/qlocalsocket_p.h>
+#include <QtNetwork/private/qnet_unix_p.h>
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <sys/un.h>
 #include <unistd.h>
 #include <fcntl.h>
 #include <errno.h>
-#include <qdir.h>
-#include <qdeadlinetimer.h>
-#include <qdebug.h>
-#include <qstringconverter.h>
+#include <QtCore/qdir.h>
+#include <QtCore/qdeadlinetimer.h>
+#include <QtCore/qdebug.h>
+#include <QtCore/qstringconverter.h>
 #ifdef Q_OS_VXWORKS
 #  include <selectLib.h>
 #endif
@@ -216,4 +217,5 @@ bool ritual_take_QLocalSocketPrivate(
   return static_cast<CuteQLocalSocketPrivate *>(self)->take(key, call);
 }
 
+#endif  // QT_CONFIG(localserver)
 #endif  // QT_CONFIG(localserver)

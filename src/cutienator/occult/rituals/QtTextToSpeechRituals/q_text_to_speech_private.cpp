@@ -8,8 +8,8 @@
 #include <QtTextToSpeech/6.12.0/QtTextToSpeech/private/qtexttospeech_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qtexttospeech.h"
-#include "qtexttospeech_p.h"
+#include <QtTextToSpeech/qtexttospeech.h>
+#include <QtTextToSpeech/private/qtexttospeech_p.h>
 #include <QtCore/qcborarray.h>
 #include <QtCore/qdebug.h>
 #include <QtCore/private/qfactoryloader_p.h>

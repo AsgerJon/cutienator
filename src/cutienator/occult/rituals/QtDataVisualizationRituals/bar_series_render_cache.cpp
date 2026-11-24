@@ -8,13 +8,13 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "seriesrendercache_p.h"
-#include "abstract3drenderer_p.h"
-#include "texturehelper_p.h"
-#include "utils_p.h"
-#include "barseriesrendercache_p.h"
-#include "texturehelper_p.h"
-#include "utils_p.h"
+#include <QtDataVisualization/private/seriesrendercache_p.h>
+#include <QtDataVisualization/private/abstract3drenderer_p.h>
+#include <QtDataVisualization/private/texturehelper_p.h>
+#include <QtDataVisualization/private/utils_p.h>
+#include <QtDataVisualization/private/barseriesrendercache_p.h>
+#include <QtDataVisualization/private/texturehelper_p.h>
+#include <QtDataVisualization/private/utils_p.h>
 #include <QtGui/QImage>
 #include <QtGui/QPainter>
 #include <QtCore/QTime>

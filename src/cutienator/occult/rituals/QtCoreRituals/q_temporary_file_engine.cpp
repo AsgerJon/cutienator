@@ -13,7 +13,7 @@
 #include <QtCore/qbytearray.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qfilesystementry_p.h"
+#include <QtCore/private/qfilesystementry_p.h>
 #include <QtCore/qdir.h>
 #include <QtCore/private/qdir_p.h>
 #include <QtCore/qfile.h>
@@ -21,35 +21,35 @@
 #ifdef Q_OS_WIN
 #include <QtCore/qstringbuilder.h>
 #endif
-#include "qfsfileengine_p.h"
-#include "qfsfileengine_iterator_p.h"
-#include "qfilesystemengine_p.h"
-#include "qdatetime.h"
-#include "qset.h"
+#include <QtCore/private/qfsfileengine_p.h>
+#include <QtCore/private/qfsfileengine_iterator_p.h>
+#include <QtCore/private/qfilesystemengine_p.h>
+#include <QtCore/qdatetime.h>
+#include <QtCore/qset.h>
 #include <QtCore/qdebug.h>
 #ifndef QT_NO_FSFILEENGINE
 #include <errno.h>
 #if defined(Q_OS_UNIX)
-#include "private/qcore_unix_p.h"
+#include <QtCore/private/qcore_unix_p.h>
 #endif
 #include <stdio.h>
 #include <stdlib.h>
 #if defined(Q_OS_DARWIN)
-# include <private/qcore_mac_p.h>
+# include <QtCore/private/qcore_mac_p.h>
 #endif
 #endif
-#include "qtemporaryfile.h"
+#include <QtCore/qtemporaryfile.h>
 #include "qplatformdefs.h"
-#include "qrandom.h"
-#include "private/qtemporaryfile_p.h"
-#include "private/qfile_p.h"
-#include "private/qsystemerror_p.h"
+#include <QtCore/qrandom.h>
+#include <QtCore/private/qtemporaryfile_p.h>
+#include <QtCore/private/qfile_p.h>
+#include <QtCore/private/qsystemerror_p.h>
 #if !defined(Q_OS_WIN)
-#include "private/qcore_unix_p.h"       // overrides QT_OPEN
+#include <QtCore/private/qcore_unix_p.h>       // overrides QT_OPEN
 #include <errno.h>
 #endif
 #if defined(QT_BUILD_CORE_LIB)
-#include "qcoreapplication.h"
+#include <QtCore/qcoreapplication.h>
 #else
 #endif
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -99,6 +99,7 @@ inline QTemporaryFileEngine::~QTemporaryFileEngine()
 
 //  from src/corelib/io/qtemporaryfile.cpp, line 289, as _ZNK20QTemporaryFileEngine12isReallyOpenEv
 #if QT_CONFIG(temporaryfile)
+#if defined(Q_OS_LINUX)
 inline bool QTemporaryFileEngine::isReallyOpen() const
 {
     Q_D(const QFSFileEngine);
@@ -113,6 +114,7 @@ inline bool QTemporaryFileEngine::isReallyOpen() const
     return false;
 
 }
+#endif  // defined(Q_OS_LINUX)
 #endif  // QT_CONFIG(temporaryfile)
 
 //  from src/corelib/io/qtemporaryfile.cpp, line 304, as _ZN20QTemporaryFileEngine11setFileNameERK7QString
@@ -166,6 +168,7 @@ inline bool QTemporaryFileEngine::rename(const QString &newName)
 
 //  from src/corelib/io/qtemporaryfile.cpp, line 389, as _ZN20QTemporaryFileEngine15renameOverwriteERK7QString
 #if QT_CONFIG(temporaryfile)
+#if defined(Q_OS_LINUX)
 inline bool QTemporaryFileEngine::renameOverwrite(const QString &newName)
 {
     if (isUnnamedFile()) {
@@ -188,6 +191,7 @@ inline bool QTemporaryFileEngine::renameOverwrite(const QString &newName)
     QFSFileEngine::close();
     return QFSFileEngine::renameOverwrite(newName);
 }
+#endif  // defined(Q_OS_LINUX)
 #endif  // QT_CONFIG(temporaryfile)
 
 //  from src/corelib/io/qtemporaryfile.cpp, line 412, as _ZN20QTemporaryFileEngine5closeEv
@@ -881,12 +885,14 @@ void ritual_ZN20QTemporaryFileEngineD1Ev(QTemporaryFileEngine *self) {
 }
 
 #if QT_CONFIG(temporaryfile)
+#if defined(Q_OS_LINUX)
 //  bool QTemporaryFileEngine::isReallyOpen() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK20QTemporaryFileEngine12isReallyOpenEv(
     const QTemporaryFileEngine *self) {
   return self->isReallyOpen();
 }
+#endif  // defined(Q_OS_LINUX)
 #endif  // QT_CONFIG(temporaryfile)
 
 //  void QTemporaryFileEngine::setFileName(const QString &file)

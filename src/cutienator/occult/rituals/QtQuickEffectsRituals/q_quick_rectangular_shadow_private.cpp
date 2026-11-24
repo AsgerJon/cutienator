@@ -16,10 +16,10 @@
 #include <QtQuick/qquickitem.h>
 #include <QtGui/qvectornd.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qtypes.h"
-#include <private/qquickrectangularshadow_p_p.h>
-#include <private/qquickshadereffect_p.h>
-#include <private/qquickitem_p.h>
+#include <QtCore/qtypes.h>
+#include <QtQuickEffects/private/qquickrectangularshadow_p_p.h>
+#include <QtQuick/private/qquickshadereffect_p.h>
+#include <QtQuick/private/qquickitem_p.h>
 #include <QtCore/qurl.h>
 #include <QtGui/qvector4d.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER

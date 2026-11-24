@@ -11,7 +11,7 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qconnection_local_backend_p.h"
+#include <QtRemoteObjects/private/qconnection_local_backend_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -34,6 +34,7 @@ inline QIODevice *LocalClientIo::connection() const
 }
 
 //  from ../qtremoteobjects/src/remoteobjects/qconnection_local_backend.cpp, line 43, as _ZN13LocalClientIo15connectToServerEv
+#if defined(Q_OS_LINUX)
 inline void LocalClientIo::connectToServer()
 {
 #ifdef Q_OS_ANDROID
@@ -43,6 +44,7 @@ inline void LocalClientIo::connectToServer()
     if (!isOpen())
         m_socket->connectToServer(url().path());
 }
+#endif  // defined(Q_OS_LINUX)
 
 //  from ../qtremoteobjects/src/remoteobjects/qconnection_local_backend.cpp, line 53, as _ZNK13LocalClientIo6isOpenEv
 inline bool LocalClientIo::isOpen() const
@@ -488,11 +490,13 @@ QIODevice *ritual_own_ZNK13LocalClientIo10connectionEv(
   return self->LocalClientIo::connection();
 }
 
+#if defined(Q_OS_LINUX)
 //  void LocalClientIo::connectToServer()
 extern "C" Q_DECL_EXPORT
 void ritual_own_ZN13LocalClientIo15connectToServerEv(LocalClientIo *self) {
   self->LocalClientIo::connectToServer();
 }
+#endif  // defined(Q_OS_LINUX)
 
 //  bool LocalClientIo::isOpen() const
 extern "C" Q_DECL_EXPORT

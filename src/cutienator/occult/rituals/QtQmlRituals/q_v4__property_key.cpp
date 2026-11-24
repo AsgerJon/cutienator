@@ -8,12 +8,12 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qv4propertykey_p.h"
+#include <QtQml/private/qv4propertykey_p.h>
 #include <QtCore/qstring.h>
-#include <qv4string_p.h>
-#include <qv4engine_p.h>
-#include <qv4scopedvalue_p.h>
-#include <private/qv4mm_p.h>
+#include <QtQml/private/qv4string_p.h>
+#include <QtQml/private/qv4engine_p.h>
+#include <QtQml/private/qv4scopedvalue_p.h>
+#include <QtQml/private/qv4mm_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

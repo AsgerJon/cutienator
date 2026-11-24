@@ -4,14 +4,15 @@
 #include <QtQuick/qtquickglobal.h>
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #if QT_CONFIG(quick_positioners)
+#if QT_CONFIG(quick_positioners)
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #include <QtQuick/QtQuick>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuick/6.12.0/QtQuick/private/qquickpositioners_p_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquickpositioners_p.h"
-#include "qquickpositioners_p_p.h"
+#include <QtQuick/private/qquickpositioners_p.h>
+#include <QtQuick/private/qquickpositioners_p_p.h>
 #include <QtQml/qqml.h>
 #include <QtQml/qqmlinfo.h>
 #include <QtCore/qcoreapplication.h>
@@ -54,4 +55,5 @@ void ritual_ZN27QQuickBasePositionerPrivate9ExtraDataD1Ev(
   delete self;
 }
 
+#endif  // QT_CONFIG(quick_positioners)
 #endif  // QT_CONFIG(quick_positioners)

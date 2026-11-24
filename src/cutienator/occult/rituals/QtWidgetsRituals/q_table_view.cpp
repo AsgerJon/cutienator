@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qtableview.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(tableview)
 #if QT_CONFIG(tableview)
 #include <QtWidgets/qtableview.h>
 #include <QtCore/qstring.h>
@@ -2947,4 +2949,5 @@ void ritual_own_ZN10QTableView14currentChangedERK11QModelIndexS2_(
       *previous);
 }
 
+#endif  // QT_CONFIG(tableview)
 #endif  // QT_CONFIG(tableview)

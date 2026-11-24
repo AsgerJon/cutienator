@@ -11,30 +11,30 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qsize.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qicon.h"
-#include "qicon_p.h"
-#include "qiconengine.h"
-#include "qiconengineplugin.h"
-#include "qimagereader.h"
-#include "private/qfactoryloader_p.h"
-#include "private/qiconloader_p.h"
-#include "qpainter.h"
-#include "qfileinfo.h"
+#include <QtGui/qicon.h>
+#include <QtGui/private/qicon_p.h>
+#include <QtGui/qiconengine.h>
+#include <QtGui/qiconengineplugin.h>
+#include <QtGui/qimagereader.h>
+#include <QtCore/private/qfactoryloader_p.h>
+#include <QtGui/private/qiconloader_p.h>
+#include <QtGui/qpainter.h>
+#include <QtCore/qfileinfo.h>
 #if QT_CONFIG(mimetype)
-#include <qmimedatabase.h>
-#include <qmimetype.h>
+#include <QtCore/qmimedatabase.h>
+#include <QtCore/qmimetype.h>
 #endif
-#include "qpixmapcache.h"
-#include "qvariant.h"
-#include "qcache.h"
-#include "qdebug.h"
-#include "qdir.h"
-#include "qpalette.h"
-#include "qmath.h"
-#include "private/qhexstring_p.h"
-#include "private/qguiapplication_p.h"
-#include "private/qoffsetstringarray_p.h"
-#include "qpa/qplatformtheme.h"
+#include <QtGui/qpixmapcache.h>
+#include <QtCore/qvariant.h>
+#include <QtCore/qcache.h>
+#include <QtCore/qdebug.h>
+#include <QtCore/qdir.h>
+#include <QtGui/qpalette.h>
+#include <QtCore/qmath.h>
+#include <QtGui/private/qhexstring_p.h>
+#include <QtGui/private/qguiapplication_p.h>
+#include <QtCore/private/qoffsetstringarray_p.h>
+#include <QtGui/qpa/qplatformtheme.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

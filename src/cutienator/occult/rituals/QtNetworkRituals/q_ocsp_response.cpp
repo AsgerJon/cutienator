@@ -2,6 +2,7 @@
 //  QtNetwork/qocspresponse.h, Qt 6.12.0. Changes made here are lost.
 #include <QtNetwork/qtnetworkglobal.h>
 #if QT_CONFIG(ssl)
+#if QT_CONFIG(ssl)
 #include <QtNetwork/qocspresponse.h>
 #include <QtNetwork/qsslcertificate.h>
 #include <QtCore/qlist.h>
@@ -103,4 +104,5 @@ void ritual_list_drop_QOcspResponse(QList<QOcspResponse> *self) {
   delete self;
 }
 
+#endif  // QT_CONFIG(ssl)
 #endif  // QT_CONFIG(ssl)

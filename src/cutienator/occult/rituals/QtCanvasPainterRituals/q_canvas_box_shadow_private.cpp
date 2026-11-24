@@ -15,11 +15,11 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qcanvasboxshadow.h"
-#include "qcanvasboxshadow_p.h"
-#include "qcanvaspainter_p.h"
-#include <QVariant>
-#include <QVector4D>
+#include <QtCanvasPainter/qcanvasboxshadow.h>
+#include <QtCanvasPainter/private/qcanvasboxshadow_p.h>
+#include <QtCanvasPainter/private/qcanvaspainter_p.h>
+#include <QtCore/QVariant>
+#include <QtGui/QVector4D>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

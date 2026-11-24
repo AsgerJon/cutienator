@@ -2,6 +2,7 @@
 //  QtWidgets/qscroller.h, Qt 6.12.0. Changes made here are lost.
 #include <QtWidgets/qtwidgetsglobal.h>
 #if QT_CONFIG(scroller)
+#if QT_CONFIG(scroller)
 #include <QtWidgets/qscroller.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qpoint.h>
@@ -263,4 +264,5 @@ void ritual_list_drop_QScroller_ptr(QList<QScroller *> *self) {
   delete self;
 }
 
+#endif  // QT_CONFIG(scroller)
 #endif  // QT_CONFIG(scroller)

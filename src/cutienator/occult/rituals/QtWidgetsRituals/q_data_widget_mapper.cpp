@@ -2,6 +2,7 @@
 //  QtWidgets/qdatawidgetmapper.h, Qt 6.12.0. Changes made here are lost.
 #include <QtWidgets/qtwidgetsglobal.h>
 #if QT_CONFIG(datawidgetmapper)
+#if QT_CONFIG(datawidgetmapper)
 #include <QtWidgets/qdatawidgetmapper.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qabstractitemmodel.h>
@@ -437,4 +438,5 @@ void ritual_own_ZN17QDataWidgetMapper15setCurrentIndexEi(
   self->QDataWidgetMapper::setCurrentIndex(index);
 }
 
+#endif  // QT_CONFIG(datawidgetmapper)
 #endif  // QT_CONFIG(datawidgetmapper)

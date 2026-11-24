@@ -2,6 +2,7 @@
 //  QtGui/qaccessiblebridge.h, Qt 6.12.0. Changes made here are lost.
 #include <QtGui/qtguiglobal.h>
 #if QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
 #include <QtGui/qaccessiblebridge.h>
 #include <cstring>
 
@@ -94,4 +95,5 @@ bool ritual_take_QAccessibleBridge(
   return static_cast<CuteQAccessibleBridge *>(self)->take(key, call);
 }
 
+#endif  // QT_CONFIG(accessibility)
 #endif  // QT_CONFIG(accessibility)

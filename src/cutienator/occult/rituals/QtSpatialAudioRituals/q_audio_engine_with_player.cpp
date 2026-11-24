@@ -9,7 +9,7 @@
 #include <QtMultimedia/qaudiodevice.h>
 #include <QtMultimedia/qaudioformat.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qaudioengine_withplayer_p.h"
+#include <QtSpatialAudio/private/qaudioengine_withplayer_p.h>
 #include <QtMultimedia/qmediadevices.h>
 #include <QtMultimedia/private/qmemory_resource_tlsf_p.h>
 #include <QtMultimedia/private/qmultimedia_ranges_p.h>

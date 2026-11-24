@@ -4,6 +4,7 @@
 #include <QtQuick/qtquickglobal.h>
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #if QT_CONFIG(quick_positioners)
+#if QT_CONFIG(quick_positioners)
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #include <QtQuick/QtQuick>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -203,4 +204,5 @@ void ritual_own_ZN10QQuickGrid24reportConflictingAnchorsEv(
   static_cast<OwnQQuickGrid *>(self)->OwnQQuickGrid::reportConflictingAnchors();
 }
 
+#endif  // QT_CONFIG(quick_positioners)
 #endif  // QT_CONFIG(quick_positioners)

@@ -8,9 +8,9 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtNfc/qndefrecord.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <qndefnfcsmartposterrecord.h>
-#include "qndefnfcsmartposterrecord_p.h"
-#include <qndefmessage.h>
+#include <QtNfc/qndefnfcsmartposterrecord.h>
+#include <QtNfc/private/qndefnfcsmartposterrecord_p.h>
+#include <QtNfc/qndefmessage.h>
 #include <QtCore/QString>
 #include <QtCore/QStringList>
 #include <QtCore/QUrl>

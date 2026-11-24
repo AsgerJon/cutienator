@@ -10,7 +10,7 @@
 #include <QtQuick/QtQuick>
 #include <QtQuick/qquickitem.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquickbasicbusyindicator_p.h"
+#include <QtQuickControls2BasicStyleImpl/private/qquickbasicbusyindicator_p.h>
 #include <QtQuick/private/qquickitem_p.h>
 #include <QtQuick/private/qsgadaptationlayer_p.h>
 #include <QtQuickControls2Impl/private/qquickanimatednode_p.h>

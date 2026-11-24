@@ -1,8 +1,10 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/6.12.0/QtWidgets/private/qtablewidget_p.h, Qt 6.12.0. Changes
 //  made here are lost.
+#include <QtCore/qglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
+#if QT_CONFIG(tablewidget)
 #if QT_CONFIG(tablewidget)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/QtWidgets>
@@ -21,9 +23,9 @@
 #include <iterator>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qtablewidget.h"
-#include <qpainter.h>
-#include <private/qtablewidget_p.h>
+#include <QtWidgets/qtablewidget.h>
+#include <QtGui/qpainter.h>
+#include <QtWidgets/private/qtablewidget_p.h>
 #include <algorithm>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
@@ -2555,4 +2557,5 @@ int ritual_own_ZNK11QTableModel20supportedDragActionsEv(
   return static_cast<int>(self->QTableModel::supportedDragActions().toInt());
 }
 
+#endif  // QT_CONFIG(tablewidget)
 #endif  // QT_CONFIG(tablewidget)

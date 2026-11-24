@@ -11,7 +11,7 @@
 #include <QtCore/qhash.h>
 #include <iterator>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qremoteobjectabstractitemmodeladapter_p.h"
+#include <QtRemoteObjects/private/qremoteobjectabstractitemmodeladapter_p.h>
 #include <QtCore/qitemselectionmodel.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

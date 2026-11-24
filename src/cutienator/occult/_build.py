@@ -133,11 +133,14 @@ class Build:
     also when several builds run at once, as 'Rituals.build' runs
     those of several parts of Qt.
 
-    A command of 'clang++' longer than '__long_command__' letters is
-    handed over in a file, as 'clang++ @file', which 'clang++' reads
-    as if each line stood on the command: Windows starts no program
-    whose command is longer than 32767 letters, and the link of a part
-    of Qt with a thousand ritual files is.
+    On Windows a command of 'clang++' longer than '__long_command__'
+    letters is handed over in a file, as 'clang++ @file', which
+    'clang++' reads as if each line stood on the command: Windows
+    starts no program whose command is longer than 32767 letters, and
+    the link of a part of Qt with a thousand ritual files is. Linux
+    and macOS take commands of some million letters, and get theirs
+    as they are, so whatever runs in the place of 'clang++' there
+    sees every word.
 
     Parameters
     ----------
@@ -167,7 +170,8 @@ class Build:
       raise FileNotFoundError(infoSpec % command[0])
     told = None  # type: Optional[str]
     tooLong = sum(len(word) + 3 for word in command) > Build.__long_command__
-    if tooLong and os.path.basename(command[0]).startswith('clang'):
+    if tooLong and os.name == 'nt' and (
+        os.path.basename(command[0]).startswith('clang')):
       #  One word to a line, between quotes, as 'clang++' reads a file
       #  of them when told '--rsp-quoting=posix', on any system.
       handle, told = tempfile.mkstemp(prefix='cutienator-', suffix='.txt')
@@ -198,8 +202,8 @@ class Build:
   #  One slot for each processor of the machine; a program run through
   #  '_run' holds one while it runs.
   __program_slots__ = threading.BoundedSemaphore(os.cpu_count() or 1)
-  #  How many letters a command may have before it is handed over in a
-  #  file; see '_run'. Windows refuses more than 32767.
+  #  How many letters a command may have on Windows before it is handed
+  #  over in a file; see '_run'. Windows refuses more than 32767.
   __long_command__ = 8000
   __qt_header_folder__: Optional[str] = None
   __qt_shared_object_folder__: Optional[str] = None

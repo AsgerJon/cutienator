@@ -1,14 +1,17 @@
 //  Written by dev_tooling.RitualGenerator from the records of QtBluetooth/6.
 //  12.0/QtBluetooth/private/bluezperipheralconnectionmanager_p.h, Qt 6.12.0.
 //  Changes made here are lost.
+#include <QtBluetooth/qtbluetoothglobal.h>
+#include <QtBluetooth/6.12.0/QtBluetooth/private/qtbluetoothglobal_p.h>
+#if QT_CONFIG(bluez)
 #include <QtBluetooth/6.12.0/QtBluetooth/private/qtbluetoothglobal_p.h>
 #include <QtBluetooth/QtBluetooth>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtBluetooth/6.12.0/QtBluetooth/private/bluezperipheralconnectionmanager_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "bluezperipheralconnectionmanager_p.h"
-#include "device1_bluez5_p.h"
+#include <QtBluetooth/private/bluezperipheralconnectionmanager_p.h>
+#include <QtBluetooth/private/device1_bluez5_p.h>
 #include <QtBluetooth/QBluetoothLocalDevice>
 #include <QtDBus/QDBusConnection>
 #include <QtCore/QLoggingCategory>
@@ -42,3 +45,5 @@ void ritual_ZN34QtBluezPeripheralConnectionManager5resetEv(
     QtBluezPeripheralConnectionManager *self) {
   self->reset();
 }
+
+#endif  // QT_CONFIG(bluez)

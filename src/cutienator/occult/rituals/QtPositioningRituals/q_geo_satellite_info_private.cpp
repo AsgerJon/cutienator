@@ -8,11 +8,11 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtPositioning/qgeosatelliteinfo.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qgeosatelliteinfo.h"
-#include "private/qgeosatelliteinfo_p.h"
-#include <QHash>
-#include <QDebug>
-#include <QDataStream>
+#include <QtPositioning/qgeosatelliteinfo.h>
+#include <QtPositioning/private/qgeosatelliteinfo_p.h>
+#include <QtCore/QHash>
+#include <QtCore/QDebug>
+#include <QtCore/QDataStream>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

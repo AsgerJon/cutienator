@@ -9,7 +9,7 @@
 #include <QtCore/qrect.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquickshapesoftwarerenderer_p.h"
+#include <QtQuickShapes/private/qquickshapesoftwarerenderer_p.h>
 #include <private/qquickpath_p_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

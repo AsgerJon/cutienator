@@ -7,8 +7,8 @@
 #include <QtCanvasPainter/6.12.0/QtCanvasPainter/private/qcrhicolorglyphcache_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qcareaallocator_p.h"
-#include "qcrhicolorglyphcache_p.h"
+#include <QtCanvasPainter/private/qcareaallocator_p.h>
+#include <QtCanvasPainter/private/qcrhicolorglyphcache_p.h>
 #include <QtGui/private/qrawfont_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

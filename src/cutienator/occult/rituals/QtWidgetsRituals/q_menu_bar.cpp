@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qmenubar.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(menubar)
 #if QT_CONFIG(menubar)
 #include <QtWidgets/qmenubar.h>
 #include <QtCore/qstring.h>
@@ -1466,4 +1468,5 @@ void ritual_own_ZNK8QMenuBar15initStyleOptionEP20QStyleOptionMenuItemPK7QAction(
       action);
 }
 
+#endif  // QT_CONFIG(menubar)
 #endif  // QT_CONFIG(menubar)

@@ -4,6 +4,7 @@
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #if QT_CONFIG(columnview)
+#if QT_CONFIG(columnview)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/QtWidgets>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -217,4 +218,5 @@ void ritual_own_ZN24QColumnViewPreviewColumn12setSelectionERK5QRect6QFlagsIN19QI
       QFlags<QItemSelectionModel::SelectionFlag>::fromInt(a1));
 }
 
+#endif  // QT_CONFIG(columnview)
 #endif  // QT_CONFIG(columnview)

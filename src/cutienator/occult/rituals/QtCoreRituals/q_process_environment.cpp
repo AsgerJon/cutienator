@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/qprocess.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qglobal.h>
+#if (QT_CONFIG(processenvironment)) || (!QT_CONFIG(process))
 #if QT_CONFIG(processenvironment)
 #include <QtCore/qprocess.h>
 #include <QtCore/qstring.h>
@@ -136,3 +137,4 @@ bool ritual_ZneRK19QProcessEnvironmentS1_(
 }
 
 #endif  // QT_CONFIG(processenvironment)
+#endif  // (QT_CONFIG(processenvironment)) || (!QT_CONFIG(process))

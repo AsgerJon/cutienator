@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGui/6.12.0/QtGui/private/qopenglprogrambinarycache_p.h, Qt 6.12.0.
 //  Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
+#include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
+#if QT_CONFIG(opengl)
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
 #include <QtGui/QtGui>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -51,3 +54,5 @@ void ritual_own_ZN32QOpenGLProgramBinarySupportCheck12freeResourceEP14QOpenGLCon
     QOpenGLContext *a0) {
   self->QOpenGLProgramBinarySupportCheck::freeResource(a0);
 }
+
+#endif  // QT_CONFIG(opengl)

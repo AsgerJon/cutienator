@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtMultimedia/6.12.0/QtMultimedia/private/qdmabufvideobuffer_p.h, Qt
 //  6.12.0. Changes made here are lost.
+#include <QtMultimedia/qtmultimediaglobal.h>
+#include <QtMultimedia/6.12.0/QtMultimedia/private/qtmultimediaglobal_p.h>
+#if QT_CONFIG(linux_dmabuf)
 #include <QtMultimedia/6.12.0/QtMultimedia/private/qtmultimediaglobal_p.h>
 #include <QtMultimedia/QtMultimedia>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -29,3 +32,5 @@ QSize *ritual_ZNK19QtMultimediaPrivate18QDmaBufVideoBuffer4sizeEv(
     const QtMultimediaPrivate::QDmaBufVideoBuffer *self) {
   return new QSize(self->size());
 }
+
+#endif  // QT_CONFIG(linux_dmabuf)

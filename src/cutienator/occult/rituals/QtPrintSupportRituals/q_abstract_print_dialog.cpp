@@ -1,7 +1,10 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtPrintSupport/qabstractprintdialog.h, Qt 6.12.0. Changes made here are
 //  lost.
+#include <QtWidgets/qtwidgetsglobal.h>
+#include <QtGui/qtguiglobal.h>
 #include <QtPrintSupport/qtprintsupportglobal.h>
+#if QT_CONFIG(printdialog)
 #if QT_CONFIG(printdialog)
 #include <QtPrintSupport/qabstractprintdialog.h>
 #include <QtCore/qstring.h>
@@ -1146,4 +1149,5 @@ bool ritual_take_QAbstractPrintDialog(
   return static_cast<CuteQAbstractPrintDialog *>(self)->take(key, call);
 }
 
+#endif  // QT_CONFIG(printdialog)
 #endif  // QT_CONFIG(printdialog)

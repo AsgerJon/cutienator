@@ -10,17 +10,17 @@
 #include <QtCore/6.12.0/QtCore/private/qsystemsemaphore_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qsystemsemaphore.h"
-#include "qsystemsemaphore_p.h"
-#include <qdebug.h>
-#include <qfile.h>
-#include <qcoreapplication.h>
+#include <QtCore/qsystemsemaphore.h>
+#include <QtCore/private/qsystemsemaphore_p.h>
+#include <QtCore/qdebug.h>
+#include <QtCore/qfile.h>
+#include <QtCore/qcoreapplication.h>
 #if QT_CONFIG(posix_sem)
 #include <sys/types.h>
 #include <fcntl.h>
 #include <errno.h>
 #ifdef Q_OS_UNIX
-#  include "private/qcore_unix_p.h"
+#  include <QtCore/private/qcore_unix_p.h>
 #else
 #endif
 #endif

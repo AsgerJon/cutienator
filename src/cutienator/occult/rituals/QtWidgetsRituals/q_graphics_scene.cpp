@@ -2,6 +2,7 @@
 //  QtWidgets/qgraphicsscene.h, Qt 6.12.0. Changes made here are lost.
 #include <QtWidgets/qtwidgetsglobal.h>
 #if QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 #include <QtWidgets/qgraphicsscene.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qrect.h>
@@ -1840,4 +1841,5 @@ bool ritual_own_ZN14QGraphicsScene18focusNextPrevChildEb(
       next);
 }
 
+#endif  // QT_CONFIG(graphicsview)
 #endif  // QT_CONFIG(graphicsview)

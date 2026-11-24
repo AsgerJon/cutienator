@@ -7,23 +7,23 @@
 #include <QtQml/6.12.0/QtQml/private/qqmlvmemetaobject_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qqmlvmemetaobject_p.h"
-#include <private/qqmlrefcount_p.h>
-#include "qqmlpropertyvalueinterceptor_p.h"
-#include <qqmlinfo.h>
-#include <private/qqmlglobal_p.h>
-#include <private/qqmlpropertycachecreator_p.h>
-#include <private/qqmlpropertycachemethodarguments_p.h>
-#include <private/qqmlvaluetypewrapper_p.h>
-#include <private/qv4functionobject_p.h>
-#include <private/qv4jscall_p.h>
-#include <private/qv4object_p.h>
-#include <private/qv4qobjectwrapper_p.h>
-#include <private/qv4runtime_p.h>
-#include <private/qv4scopedvalue_p.h>
-#include <private/qv4sequenceobject_p.h>
-#include <private/qv4variantassociationobject_p.h>
-#include <private/qv4variantobject_p.h>
+#include <QtQml/private/qqmlvmemetaobject_p.h>
+#include <QtQml/private/qqmlrefcount_p.h>
+#include <QtQml/private/qqmlpropertyvalueinterceptor_p.h>
+#include <QtQml/qqmlinfo.h>
+#include <QtQml/private/qqmlglobal_p.h>
+#include <QtQml/private/qqmlpropertycachecreator_p.h>
+#include <QtQml/private/qqmlpropertycachemethodarguments_p.h>
+#include <QtQml/private/qqmlvaluetypewrapper_p.h>
+#include <QtQml/private/qv4functionobject_p.h>
+#include <QtQml/private/qv4jscall_p.h>
+#include <QtQml/private/qv4object_p.h>
+#include <QtQml/private/qv4qobjectwrapper_p.h>
+#include <QtQml/private/qv4runtime_p.h>
+#include <QtQml/private/qv4scopedvalue_p.h>
+#include <QtQml/private/qv4sequenceobject_p.h>
+#include <QtQml/private/qv4variantassociationobject_p.h>
+#include <QtQml/private/qv4variantobject_p.h>
 #include <QtCore/qmetasequence.h>
 #include <climits> // for CHAR_BIT
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER

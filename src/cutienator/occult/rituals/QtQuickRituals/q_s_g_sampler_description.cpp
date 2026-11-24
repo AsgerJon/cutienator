@@ -7,18 +7,18 @@
 #include <QtQuick/6.12.0/QtQuick/private/qsgtexture_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qsgtexture_p.h"
-#include "qsgtexture_platform.h"
-#include <private/qqmlglobal_p.h>
-#include <private/qsgmaterialshader_p.h>
-#include <private/qsgrenderer_p.h>
-#include <private/qquickitem_p.h> // qquickwindow_p.h cannot be included on its own due to template nonsense
-#include <private/qquickwindow_p.h>
+#include <QtQuick/private/qsgtexture_p.h>
+#include <QtQuick/qsgtexture_platform.h>
+#include <QtQml/private/qqmlglobal_p.h>
+#include <QtQuick/private/qsgmaterialshader_p.h>
+#include <QtQuick/private/qsgrenderer_p.h>
+#include <QtQuick/private/qquickitem_p.h> // qquickwindow_p.h cannot be included on its own due to template nonsense
+#include <QtQuick/private/qquickwindow_p.h>
 #include <QtCore/private/qnativeinterface_p.h>
-#include <rhi/qrhi.h>
+#include <QtGui/rhi/qrhi.h>
 #if defined(CAN_BACKTRACE_EXECINFO)
 #include <execinfo.h>
-#include <QHash>
+#include <QtCore/QHash>
 #endif
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qabstractslider.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(abstractslider)
 #if QT_CONFIG(abstractslider)
 #include <QtWidgets/qabstractslider.h>
 #include <QtCore/qstring.h>
@@ -1229,4 +1231,5 @@ void ritual_own_ZN15QAbstractSlider11changeEventEP6QEvent(
       e);
 }
 
+#endif  // QT_CONFIG(abstractslider)
 #endif  // QT_CONFIG(abstractslider)

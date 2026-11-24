@@ -4,6 +4,7 @@
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #if QT_CONFIG(splitter)
+#if QT_CONFIG(splitter)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/qsplitter.h>
 #include <QtWidgets/QtWidgets>
@@ -358,4 +359,5 @@ bool ritual_take_QSplitterHandlePrivate(
   return static_cast<CuteQSplitterHandlePrivate *>(self)->take(key, call);
 }
 
+#endif  // QT_CONFIG(splitter)
 #endif  // QT_CONFIG(splitter)

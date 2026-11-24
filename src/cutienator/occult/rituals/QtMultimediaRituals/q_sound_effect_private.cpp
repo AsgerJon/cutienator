@@ -9,7 +9,7 @@
 #include <QtMultimedia/qaudiodevice.h>
 #include <QtCore/qurl.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qsoundeffect.h"
+#include <QtMultimedia/qsoundeffect.h>
 #include <QtMultimedia/private/qaudiosystem_p.h>
 #include <QtMultimedia/private/qplatformaudiodevices_p.h>
 #include <QtMultimedia/private/qplatformmediaintegration_p.h>

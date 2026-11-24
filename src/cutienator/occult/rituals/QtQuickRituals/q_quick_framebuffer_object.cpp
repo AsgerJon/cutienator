@@ -1,5 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtQuick/qquickframebufferobject.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
+#include <QtQuick/qtquickglobal.h>
+#if QT_CONFIG(opengl) || QT_CONFIG(opengles2) || QT_CONFIG(opengles3)
 #include <QtQuick/qquickframebufferobject.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qrect.h>
@@ -156,3 +159,5 @@ QSGNode *ritual_own_ZN23QQuickFramebufferObject15updatePaintNodeEP7QSGNodePN10QQ
       a0,
       a1);
 }
+
+#endif  // QT_CONFIG(opengl) || QT_CONFIG(opengles2) || QT_CONFIG(opengles3)

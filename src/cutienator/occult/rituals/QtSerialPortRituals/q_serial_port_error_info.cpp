@@ -8,10 +8,10 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qserialport.h"
-#include "qserialportinfo.h"
-#include "qserialportinfo_p.h"
-#include "qserialport_p.h"
+#include <QtSerialPort/qserialport.h>
+#include <QtSerialPort/qserialportinfo.h>
+#include <QtSerialPort/private/qserialportinfo_p.h>
+#include <QtSerialPort/private/qserialport_p.h>
 #include <QtCore/qdebug.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

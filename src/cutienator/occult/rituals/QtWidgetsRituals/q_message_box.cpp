@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qmessagebox.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(messagebox)
 #if QT_CONFIG(messagebox)
 #include <QtWidgets/qmessagebox.h>
 #include <QtCore/qstring.h>
@@ -1894,4 +1896,5 @@ void ritual_own_ZN11QMessageBox11changeEventEP6QEvent(
   static_cast<OwnQMessageBox *>(self)->OwnQMessageBox::changeEvent(event);
 }
 
+#endif  // QT_CONFIG(messagebox)
 #endif  // QT_CONFIG(messagebox)

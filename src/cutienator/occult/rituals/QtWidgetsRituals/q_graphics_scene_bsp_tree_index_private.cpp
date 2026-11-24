@@ -4,27 +4,28 @@
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #if QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/QtWidgets>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/6.12.0/QtWidgets/private/qgraphicsscenebsptreeindex_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qgraphicsscene_bsp_p.h"
+#include <QtWidgets/private/qgraphicsscene_bsp_p.h>
 #include <QtCore/qstring.h>
-#include <private/qgraphicsitem_p.h>
-#include "qdebug.h"
-#include "qgraphicsscene.h"
-#include "qgraphicsitem_p.h"
-#include "qgraphicsscene_p.h"
-#include "qgraphicswidget.h"
-#include "qgraphicssceneindex_p.h"
-#include "qgraphicsscenebsptreeindex_p.h"
+#include <QtWidgets/private/qgraphicsitem_p.h>
+#include <QtCore/qdebug.h>
+#include <QtWidgets/qgraphicsscene.h>
+#include <QtWidgets/private/qgraphicsitem_p.h>
+#include <QtWidgets/private/qgraphicsscene_p.h>
+#include <QtWidgets/qgraphicswidget.h>
+#include <QtWidgets/private/qgraphicssceneindex_p.h>
+#include <QtWidgets/private/qgraphicsscenebsptreeindex_p.h>
 #include <QtGui/qpainterpath.h>
 #include <QtCore/qglobal.h>
-#include <private/qgraphicsscene_p.h>
-#include <private/qgraphicsscenebsptreeindex_p.h>
-#include <private/qgraphicssceneindex_p.h>
+#include <QtWidgets/private/qgraphicsscene_p.h>
+#include <QtWidgets/private/qgraphicsscenebsptreeindex_p.h>
+#include <QtWidgets/private/qgraphicssceneindex_p.h>
 #include <QtCore/qmath.h>
 #include <QtCore/qdebug.h>
 #include <algorithm>
@@ -262,4 +263,5 @@ bool ritual_ZN33QGraphicsSceneBspTreeIndexPrivate25closestItemLast_withCacheEPK1
       item2);
 }
 
+#endif  // QT_CONFIG(graphicsview)
 #endif  // QT_CONFIG(graphicsview)

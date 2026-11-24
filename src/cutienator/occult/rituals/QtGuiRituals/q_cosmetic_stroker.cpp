@@ -7,10 +7,10 @@
 #include <QtGui/6.12.0/QtGui/private/qcosmeticstroker_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qcosmeticstroker_p.h"
-#include "private/qpainterpath_p.h"
-#include "private/qrgba64_p.h"
-#include <qdebug.h>
+#include <QtGui/private/qcosmeticstroker_p.h>
+#include <QtGui/private/qpainterpath_p.h>
+#include <QtGui/private/qrgba64_p.h>
+#include <QtCore/qdebug.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

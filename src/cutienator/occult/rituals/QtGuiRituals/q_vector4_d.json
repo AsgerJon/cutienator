@@ -58,6 +58,11 @@
     "ritual_ZmlRK9QVector4DRK10QMatrix4x4": [
       "address", "address", "address"
     ],
-    "ritual_ZN9QVector4DD1Ev": ["nothing", "address"]
+    "ritual_ZN9QVector4DD1Ev": ["nothing", "address"],
+    "ritual_list_make_QVector4D": ["address"],
+    "ritual_list_add_QVector4D": ["nothing", "address", "address"],
+    "ritual_list_size_QVector4D": ["long long", "address"],
+    "ritual_list_at_QVector4D": ["address", "address", "long long"],
+    "ritual_list_drop_QVector4D": ["nothing", "address"]
   }
 }

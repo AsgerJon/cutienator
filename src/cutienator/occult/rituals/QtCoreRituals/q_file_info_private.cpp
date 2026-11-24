@@ -7,7 +7,7 @@
 #include <QtCore/6.12.0/QtCore/private/qfileinfo_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qfilesystementry_p.h"
+#include <QtCore/private/qfilesystementry_p.h>
 #include <QtCore/qdir.h>
 #include <QtCore/private/qdir_p.h>
 #include <QtCore/qfile.h>
@@ -16,11 +16,11 @@
 #include <QtCore/qstringbuilder.h>
 #endif
 #include "qplatformdefs.h"
-#include "qfileinfo.h"
-#include "qglobal.h"
-#include "qdir.h"
-#include "qfileinfo_p.h"
-#include "qdebug.h"
+#include <QtCore/qfileinfo.h>
+#include <QtCore/qglobal.h>
+#include <QtCore/qdir.h>
+#include <QtCore/private/qfileinfo_p.h>
+#include <QtCore/qdebug.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

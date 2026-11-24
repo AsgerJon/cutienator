@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/qrangemodel_impl.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qglobal.h>
+#if QT_CONFIG(rangemodel)
 #if !defined(Q_QDOC)
 #include <QtCore/qrangemodel.h>
 #include <QtCore/qbytearray.h>
@@ -383,3 +384,4 @@ bool ritual_ZN19QRangeModelImplBase14dropDataOnItemEPK9QMimeDataRK11QModelIndex(
 }
 
 #endif  // !defined(Q_QDOC)
+#endif  // QT_CONFIG(rangemodel)

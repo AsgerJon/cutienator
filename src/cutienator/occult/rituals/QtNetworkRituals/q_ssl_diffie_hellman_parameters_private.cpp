@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtNetwork/6.12.0/QtNetwork/private/qssldiffiehellmanparameters_p.h, Qt
 //  6.12.0. Changes made here are lost.
+#include <QtNetwork/qtnetworkglobal.h>
+#include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
+#if QT_CONFIG(ssl)
 #include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
 #include <QtNetwork/QtNetwork>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -8,11 +11,11 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qbytearray.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qssldiffiehellmanparameters.h"
-#include "qssldiffiehellmanparameters_p.h"
-#include "qtlsbackend_p.h"
-#include "qsslsocket.h"
-#include "qsslsocket_p.h"
+#include <QtNetwork/qssldiffiehellmanparameters.h>
+#include <QtNetwork/private/qssldiffiehellmanparameters_p.h>
+#include <QtNetwork/private/qtlsbackend_p.h>
+#include <QtNetwork/qsslsocket.h>
+#include <QtNetwork/private/qsslsocket_p.h>
 #include <QtCore/qcoreapplication.h>
 #include <QtCore/qatomic.h>
 #include <QtCore/qbytearray.h>
@@ -67,3 +70,5 @@ void ritual_ZN34QSslDiffieHellmanParametersPrivateD1Ev(
     QSslDiffieHellmanParametersPrivate *self) {
   delete self;
 }
+
+#endif  // QT_CONFIG(ssl)

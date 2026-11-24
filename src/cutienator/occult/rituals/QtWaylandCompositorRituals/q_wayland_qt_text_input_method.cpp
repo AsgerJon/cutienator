@@ -4,7 +4,7 @@
 #include <QtWaylandCompositor/6.12.0/QtWaylandCompositor/private/qtwaylandcompositorglobal_p.h>
 #include <QtWaylandCompositor/qwaylandqttextinputmethod.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qwaylandqttextinputmethod.h"
+#include <QtWaylandCompositor/qwaylandqttextinputmethod.h>
 #include <QtGui/qevent.h>
 #include <QtGui/qguiapplication.h>
 #include <QtGui/qinputmethod.h>

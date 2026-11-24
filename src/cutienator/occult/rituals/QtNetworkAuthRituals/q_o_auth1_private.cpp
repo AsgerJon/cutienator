@@ -11,10 +11,10 @@
 #include <QtNetworkAuth/qoauth1signature.h>
 #include <QtCore/qbytearray.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qoauth1.h"
-#include "qoauth1_p.h"
-#include "qoauth1signature.h"
-#include "qoauthhttpserverreplyhandler.h"
+#include <QtNetworkAuth/qoauth1.h>
+#include <QtNetworkAuth/private/qoauth1_p.h>
+#include <QtNetworkAuth/qoauth1signature.h>
+#include <QtNetworkAuth/qoauthhttpserverreplyhandler.h>
 #include <QtCore/qmap.h>
 #include <QtCore/qlist.h>
 #include <QtCore/qvariant.h>

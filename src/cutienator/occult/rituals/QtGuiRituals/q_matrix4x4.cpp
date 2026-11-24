@@ -10,6 +10,7 @@
 #include <QtCore/qrect.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qdebug.h>
+#include <QtCore/qlist.h>
 
 //  QMatrix4x4::QMatrix4x4()
 extern "C" Q_DECL_EXPORT
@@ -675,6 +676,40 @@ void ritual_ZNK10QMatrix4x420toGenericMatrix_implEPfii(
 //  QMatrix4x4::~QMatrix4x4()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN10QMatrix4x4D1Ev(QMatrix4x4 *self) {
+  delete self;
+}
+
+//  QList<QMatrix4x4>::QList()
+extern "C" Q_DECL_EXPORT
+QList<QMatrix4x4> *ritual_list_make_QMatrix4x4() {
+  return new QList<QMatrix4x4>();
+}
+
+//  void QList<QMatrix4x4>::append(const QMatrix4x4 &value)
+extern "C" Q_DECL_EXPORT
+void ritual_list_add_QMatrix4x4(
+    QList<QMatrix4x4> *self,
+    const QMatrix4x4 *element) {
+  self->append(*element);
+}
+
+//  qsizetype QList<QMatrix4x4>::size() const
+extern "C" Q_DECL_EXPORT
+long long ritual_list_size_QMatrix4x4(const QList<QMatrix4x4> *self) {
+  return self->size();
+}
+
+//  const QMatrix4x4 &QList<QMatrix4x4>::at(qsizetype i) const
+extern "C" Q_DECL_EXPORT
+QMatrix4x4 *ritual_list_at_QMatrix4x4(
+    const QList<QMatrix4x4> *self,
+    long long index) {
+  return new QMatrix4x4(self->at(index));
+}
+
+//  QList<QMatrix4x4>::~QList()
+extern "C" Q_DECL_EXPORT
+void ritual_list_drop_QMatrix4x4(QList<QMatrix4x4> *self) {
   delete self;
 }
 

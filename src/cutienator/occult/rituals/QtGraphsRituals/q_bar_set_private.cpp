@@ -14,8 +14,8 @@
 #include <QtCore/qlist.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGraphs/qbarset.h>
-#include <private/qbarset_p.h>
-#include <private/charthelpers_p.h>
+#include <QtGraphs/private/qbarset_p.h>
+#include <QtGraphs/private/charthelpers_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

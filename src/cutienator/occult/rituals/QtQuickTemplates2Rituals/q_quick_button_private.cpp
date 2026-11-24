@@ -18,8 +18,8 @@
 #include <QtCore/qrect.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquickbutton_p.h"
-#include "qquickbutton_p_p.h"
+#include <QtQuickTemplates2/private/qquickbutton_p.h>
+#include <QtQuickTemplates2/private/qquickbutton_p_p.h>
 #include <QtGui/qpa/qplatformtheme.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

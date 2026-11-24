@@ -7,11 +7,11 @@
 #include <QtPositioning/6.12.0/QtPositioning/private/qgeoaddress_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qgeoaddress.h"
-#include "qgeoaddress_p.h"
+#include <QtPositioning/qgeoaddress.h>
+#include <QtPositioning/private/qgeoaddress_p.h>
 #include <QtCore/QStringList>
 #ifdef QGEOADDRESS_DEBUG
-#include <QDebug>
+#include <QtCore/QDebug>
 #endif
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

@@ -10,18 +10,18 @@
 #include <QtNetwork/qhostinfo.h>
 #include <QtNetwork/qhostaddress.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qhostinfo.h"
-#include "qhostinfo_p.h"
+#include <QtNetwork/qhostinfo.h>
+#include <QtNetwork/private/qhostinfo_p.h>
 #include <qplatformdefs.h>
 #include "QtCore/qapplicationstatic.h"
-#include <qabstracteventdispatcher.h>
-#include <qcoreapplication.h>
-#include <qmetaobject.h>
-#include <qscopeguard.h>
-#include <qstringlist.h>
-#include <qthread.h>
-#include <qurl.h>
-#include <private/qobject_p.h>
+#include <QtCore/qabstracteventdispatcher.h>
+#include <QtCore/qcoreapplication.h>
+#include <QtCore/qmetaobject.h>
+#include <QtCore/qscopeguard.h>
+#include <QtCore/qstringlist.h>
+#include <QtCore/qthread.h>
+#include <QtCore/qurl.h>
+#include <QtCore/private/qobject_p.h>
 #include <algorithm>
 #ifdef Q_OS_UNIX
 #  include <unistd.h>
@@ -40,6 +40,7 @@
 //  'inline' put before it where Qt did not write it.
 
 //  from src/network/kernel/qhostinfo.cpp, line 395, as _ZN14QHostInfoAgent6lookupERK7QString
+#if defined(Q_OS_LINUX)
 inline QHostInfo QHostInfoAgent::lookup(const QString &hostName)
 {
     QHostInfo results;
@@ -160,6 +161,7 @@ inline QHostInfo QHostInfoAgent::lookup(const QString &hostName)
 
     return results;
 }
+#endif  // defined(Q_OS_LINUX)
 
 //  from src/network/kernel/qhostinfo.cpp, line 359, as _ZN14QHostInfoAgent13reverseLookupERK12QHostAddress
 inline QHostInfo QHostInfoAgent::reverseLookup(const QHostAddress &address)
@@ -196,12 +198,14 @@ inline QHostInfo QHostInfoAgent::reverseLookup(const QHostAddress &address)
 }
 //  -----------------------------------------------------------------------
 
+#if defined(Q_OS_LINUX)
 //  QHostInfo QHostInfoAgent::lookup(const QString &hostName)
 extern "C" Q_DECL_EXPORT
 QHostInfo *ritual_ZN14QHostInfoAgent6lookupERK7QString(
     const QString *hostName) {
   return new QHostInfo(QHostInfoAgent::lookup(*hostName));
 }
+#endif  // defined(Q_OS_LINUX)
 
 //  QHostInfo QHostInfoAgent::reverseLookup(const QHostAddress &address)
 extern "C" Q_DECL_EXPORT

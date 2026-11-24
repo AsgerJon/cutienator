@@ -8,8 +8,8 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qdeclarativegeomapitemtransitionmanager_p.h"
-#include "qdeclarativegeomapitemview_p.h"
+#include <QtLocation/private/qdeclarativegeomapitemtransitionmanager_p.h>
+#include <QtLocation/private/qdeclarativegeomapitemview_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

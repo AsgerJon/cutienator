@@ -7,7 +7,7 @@
 #include <QtMultimedia/6.12.0/QtMultimedia/private/qmediaframeinput_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qmediaframeinput_p.h"
+#include <QtMultimedia/private/qmediaframeinput_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

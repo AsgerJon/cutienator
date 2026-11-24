@@ -7,7 +7,7 @@
 #include <QtDataVisualization/6.12.0/QtDataVisualization/private/qabstract3dinputhandler_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qabstract3dinputhandler_p.h"
+#include <QtDataVisualization/private/qabstract3dinputhandler_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

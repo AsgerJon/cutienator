@@ -22,10 +22,10 @@
 #include <QtCore/qrect.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquickmenuitem_p.h"
-#include "qquickmenuitem_p_p.h"
-#include "qquickmenu_p_p.h"
-#include "qquickdeferredexecute_p_p.h"
+#include <QtQuickTemplates2/private/qquickmenuitem_p.h>
+#include <QtQuickTemplates2/private/qquickmenuitem_p_p.h>
+#include <QtQuickTemplates2/private/qquickmenu_p_p.h>
+#include <QtQuickTemplates2/private/qquickdeferredexecute_p_p.h>
 #include <QtGui/qpa/qplatformtheme.h>
 #include <QtQuick/private/qquickevents_p_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER

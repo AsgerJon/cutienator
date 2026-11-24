@@ -9,10 +9,10 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquicklabsplatformmenuitem_p.h"
-#include "qquicklabsplatformmenu_p.h"
-#include "qquicklabsplatformmenuitemgroup_p.h"
-#include "qquicklabsplatformiconloader_p.h"
+#include <QtLabsPlatform/private/qquicklabsplatformmenuitem_p.h>
+#include <QtLabsPlatform/private/qquicklabsplatformmenu_p.h>
+#include <QtLabsPlatform/private/qquicklabsplatformmenuitemgroup_p.h>
+#include <QtLabsPlatform/private/qquicklabsplatformiconloader_p.h>
 #include <QtGui/qicon.h>
 #if QT_CONFIG(shortcut)
 #include <QtGui/qkeysequence.h>

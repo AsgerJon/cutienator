@@ -2,6 +2,7 @@
 //  QtCore/qitemselectionmodel.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qglobal.h>
 #if QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qitemselectionmodel.h>
 #include <QtCore/qabstractitemmodel.h>
 #include <QtCore/qlist.h>
@@ -68,4 +69,5 @@ void ritual_ZN14QItemSelectionD1Ev(QItemSelection *self) {
   delete self;
 }
 
+#endif  // QT_CONFIG(itemmodel)
 #endif  // QT_CONFIG(itemmodel)

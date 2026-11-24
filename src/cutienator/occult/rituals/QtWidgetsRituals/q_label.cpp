@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qlabel.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(label)
 #if QT_CONFIG(label)
 #include <QtWidgets/qlabel.h>
 #include <QtCore/qstring.h>
@@ -1465,4 +1467,5 @@ bool ritual_own_ZN6QLabel18focusNextPrevChildEb(QLabel *self, bool next) {
   return static_cast<OwnQLabel *>(self)->OwnQLabel::focusNextPrevChild(next);
 }
 
+#endif  // QT_CONFIG(label)
 #endif  // QT_CONFIG(label)

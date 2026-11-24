@@ -7,6 +7,7 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qdebug.h>
+#include <QtCore/qlist.h>
 
 //  QDBusObjectPath::QDBusObjectPath()
 extern "C" Q_DECL_EXPORT
@@ -74,6 +75,41 @@ void ritual_ZN15QDBusObjectPath7doCheckEv(QDBusObjectPath *self) {
 //  QDBusObjectPath::~QDBusObjectPath()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QDBusObjectPathD1Ev(QDBusObjectPath *self) {
+  delete self;
+}
+
+//  QList<QDBusObjectPath>::QList()
+extern "C" Q_DECL_EXPORT
+QList<QDBusObjectPath> *ritual_list_make_QDBusObjectPath() {
+  return new QList<QDBusObjectPath>();
+}
+
+//  void QList<QDBusObjectPath>::append(const QDBusObjectPath &value)
+extern "C" Q_DECL_EXPORT
+void ritual_list_add_QDBusObjectPath(
+    QList<QDBusObjectPath> *self,
+    const QDBusObjectPath *element) {
+  self->append(*element);
+}
+
+//  qsizetype QList<QDBusObjectPath>::size() const
+extern "C" Q_DECL_EXPORT
+long long ritual_list_size_QDBusObjectPath(
+    const QList<QDBusObjectPath> *self) {
+  return self->size();
+}
+
+//  const QDBusObjectPath &QList<QDBusObjectPath>::at(qsizetype i) const
+extern "C" Q_DECL_EXPORT
+QDBusObjectPath *ritual_list_at_QDBusObjectPath(
+    const QList<QDBusObjectPath> *self,
+    long long index) {
+  return new QDBusObjectPath(self->at(index));
+}
+
+//  QList<QDBusObjectPath>::~QList()
+extern "C" Q_DECL_EXPORT
+void ritual_list_drop_QDBusObjectPath(QList<QDBusObjectPath> *self) {
   delete self;
 }
 

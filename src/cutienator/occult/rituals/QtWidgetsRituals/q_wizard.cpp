@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qwizard.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(wizard)
 #if QT_CONFIG(wizard)
 #include <QtWidgets/QtWidgets>
 #include <QtWidgets/qwizard.h>
@@ -1541,4 +1543,5 @@ void ritual_own_ZN7QWizard11cleanupPageEi(QWizard *self, int id) {
   static_cast<OwnQWizard *>(self)->OwnQWizard::cleanupPage(id);
 }
 
+#endif  // QT_CONFIG(wizard)
 #endif  // QT_CONFIG(wizard)

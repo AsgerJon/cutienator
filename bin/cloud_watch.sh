@@ -21,6 +21,9 @@
 #                         '~/.config/cutienator-gcp/id_ed25519'
 #    CUTIENATOR_PORT      the port on this PC's loopback; 5901
 #    VIEWER               the VNC viewer, given 'vnc://HOST:PORT'; 'krdc'
+#    CUTIENATOR_LOGIN     the user whose session is watched, the one
+#                         'bin/cloud_display_setup.sh' was run for;
+#                         'builder'
 set -u -o pipefail
 
 REPO=$(cd "$(dirname "$0")/.." && pwd)
@@ -28,7 +31,7 @@ INSTANCE=${CUTIENATOR_INSTANCE:-cutienator}
 KEY=${CUTIENATOR_KEY:-$HOME/.config/cutienator-gcp/id_ed25519}
 PORT=${CUTIENATOR_PORT:-5901}
 VIEWER=${VIEWER:-krdc}
-LOGIN=builder
+LOGIN=${CUTIENATOR_LOGIN:-builder}
 KEPT=$REPO/tmp/cloud_build
 KEEPER=
 TUNNEL=

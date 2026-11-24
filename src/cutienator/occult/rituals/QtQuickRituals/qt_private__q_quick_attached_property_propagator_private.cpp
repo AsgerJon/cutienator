@@ -2,6 +2,8 @@
 //  QtQuick/6.12.0/QtQuick/private/qquickattachedpropertypropagator_p_p.h, Qt
 //  6.12.0. Changes made here are lost.
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
+#include <QtQuickControls2/QtQuickControls2>
+#include <QtQuickControls2/qquickattachedpropertypropagator.h>
 #include <QtQuick/QtQuick>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuick/6.12.0/QtQuick/private/qquickattachedpropertypropagator_p_p.h>

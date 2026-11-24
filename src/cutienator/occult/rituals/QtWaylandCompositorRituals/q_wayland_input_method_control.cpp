@@ -8,15 +8,15 @@
 #include <QtWaylandCompositor/6.12.0/QtWaylandCompositor/private/qtwaylandcompositorglobal_p.h>
 #include <QtWaylandCompositor/qwaylandinputmethodcontrol.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qwaylandinputmethodcontrol.h"
-#include "qwaylandinputmethodcontrol_p.h"
-#include "qwaylandcompositor.h"
-#include "qwaylandseat.h"
-#include "qwaylandsurface.h"
-#include "qwaylandview.h"
-#include "qwaylandtextinput.h"
-#include "qwaylandtextinputv3.h"
-#include "qwaylandqttextinputmethod.h"
+#include <QtWaylandCompositor/qwaylandinputmethodcontrol.h>
+#include <QtWaylandCompositor/private/qwaylandinputmethodcontrol_p.h>
+#include <QtWaylandCompositor/qwaylandcompositor.h>
+#include <QtWaylandCompositor/qwaylandseat.h>
+#include <QtWaylandCompositor/qwaylandsurface.h>
+#include <QtWaylandCompositor/qwaylandview.h>
+#include <QtWaylandCompositor/qwaylandtextinput.h>
+#include <QtWaylandCompositor/qwaylandtextinputv3.h>
+#include <QtWaylandCompositor/qwaylandqttextinputmethod.h>
 #include <QtGui/QInputMethodEvent>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

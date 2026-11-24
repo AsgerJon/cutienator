@@ -22,8 +22,8 @@
 #include <QtCore/qrect.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquicktableviewdelegate_p.h"
-#include "qquicktableviewdelegate_p_p.h"
+#include <QtQuickTemplates2/private/qquicktableviewdelegate_p.h>
+#include <QtQuickTemplates2/private/qquicktableviewdelegate_p_p.h>
 #include <QtQuickTemplates2/private/qquickitemdelegate_p_p.h>
 #include <QtQuick/private/qquicktaphandler_p.h>
 #include <QtQuick/private/qquicktableview_p.h>

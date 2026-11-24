@@ -1,5 +1,6 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qabstractscrollarea.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
 #if QT_CONFIG(scrollarea)
 #include <QtWidgets/qabstractscrollarea.h>

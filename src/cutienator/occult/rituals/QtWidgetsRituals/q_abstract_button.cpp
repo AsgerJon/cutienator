@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qabstractbutton.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(abstractbutton)
 #if QT_CONFIG(abstractbutton)
 #include <QtWidgets/qabstractbutton.h>
 #include <QtCore/qstring.h>
@@ -1489,4 +1491,5 @@ void ritual_list_drop_QAbstractButton_ptr(QList<QAbstractButton *> *self) {
   delete self;
 }
 
+#endif  // QT_CONFIG(abstractbutton)
 #endif  // QT_CONFIG(abstractbutton)

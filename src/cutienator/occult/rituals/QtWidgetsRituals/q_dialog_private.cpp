@@ -4,6 +4,7 @@
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #if QT_CONFIG(dialog)
+#if QT_CONFIG(dialog)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/qdialog.h>
 #include <QtWidgets/QtWidgets>
@@ -667,4 +668,5 @@ void ritual_own_ZN14QDialogPrivate10helperDoneEN7QDialog10DialogCodeEP21QPlatfor
   self->QDialogPrivate::helperDone(a0, a1);
 }
 
+#endif  // QT_CONFIG(dialog)
 #endif  // QT_CONFIG(dialog)

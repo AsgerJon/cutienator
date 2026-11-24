@@ -7,11 +7,11 @@
 #include <QtRemoteObjects/6.12.0/QtRemoteObjects/private/qremoteobjectpendingcall_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qremoteobjectpendingcall.h"
-#include "qremoteobjectpendingcall_p.h"
-#include "qremoteobjectreplica_p.h"
+#include <QtRemoteObjects/qremoteobjectpendingcall.h>
+#include <QtRemoteObjects/private/qremoteobjectpendingcall_p.h>
+#include <QtRemoteObjects/private/qremoteobjectreplica_p.h>
 #include <QtCore/qcoreapplication.h>
-#include <private/qobject_p.h>
+#include <QtCore/private/qobject_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

@@ -10,7 +10,7 @@
 #include <QtGui/qvectornd.h>
 #include <QtGui/qmatrix4x4.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "shaderhelper_p.h"
+#include <QtDataVisualization/private/shaderhelper_p.h>
 #include <QtOpenGL/QOpenGLShader>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

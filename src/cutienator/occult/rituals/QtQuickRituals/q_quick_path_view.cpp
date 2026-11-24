@@ -1,8 +1,10 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtQuick/6.12.0/QtQuick/private/qquickpathview_p.h, Qt 6.12.0. Changes
 //  made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtQuick/qtquickglobal.h>
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
+#if QT_CONFIG(quick_pathview)
 #if QT_CONFIG(quick_pathview)
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #include <QtQuick/QtQuick>
@@ -1432,4 +1434,5 @@ void ritual_own_ZN14QQuickPathView17componentCompleteEv(
   static_cast<OwnQQuickPathView *>(self)->OwnQQuickPathView::componentComplete();
 }
 
+#endif  // QT_CONFIG(quick_pathview)
 #endif  // QT_CONFIG(quick_pathview)

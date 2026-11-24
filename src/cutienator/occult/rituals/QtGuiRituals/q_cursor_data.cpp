@@ -7,17 +7,17 @@
 #include <QtGui/6.12.0/QtGui/private/qcursor_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qcursor.h"
-#include <qcoreapplication.h>
-#include <qbitmap.h>
-#include <qimage.h>
-#include <qdatastream.h>
-#include <qvariant.h>
-#include <private/qcursor_p.h>
-#include <qdebug.h>
-#include <qpa/qplatformcursor.h>
-#include <private/qguiapplication_p.h>
-#include <private/qhighdpiscaling_p.h>
+#include <QtGui/qcursor.h>
+#include <QtCore/qcoreapplication.h>
+#include <QtGui/qbitmap.h>
+#include <QtGui/qimage.h>
+#include <QtCore/qdatastream.h>
+#include <QtCore/qvariant.h>
+#include <QtGui/private/qcursor_p.h>
+#include <QtCore/qdebug.h>
+#include <QtGui/qpa/qplatformcursor.h>
+#include <QtGui/private/qguiapplication_p.h>
+#include <QtGui/private/qhighdpiscaling_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

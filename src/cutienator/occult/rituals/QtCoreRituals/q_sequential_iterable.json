@@ -23,7 +23,6 @@
     ],
     "ritual_ZNK19QSequentialIterable22canRandomAccessIterateEv": [
       "bool", "address"
-    ],
-    "ritual_ZN19QSequentialIterableD1Ev": ["nothing", "address"]
+    ]
   }
 }

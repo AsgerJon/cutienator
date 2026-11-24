@@ -9,8 +9,8 @@
 #include <QtCore/qsize.h>
 #include <QtGui/qpixmap.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qsgsoftwarepixmaptexture_p.h"
-#include <private/qsgcontext_p.h>
+#include <QtQuick/private/qsgsoftwarepixmaptexture_p.h>
+#include <QtQuick/private/qsgcontext_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

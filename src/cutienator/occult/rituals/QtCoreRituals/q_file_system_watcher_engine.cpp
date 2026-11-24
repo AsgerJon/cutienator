@@ -4,6 +4,7 @@
 #include <QtCore/qglobal.h>
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #if QT_CONFIG(filesystemwatcher)
+#if QT_CONFIG(filesystemwatcher)
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtCore/QtCore>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -196,4 +197,5 @@ bool ritual_take_QFileSystemWatcherEngine(
   return static_cast<CuteQFileSystemWatcherEngine *>(self)->take(key, call);
 }
 
+#endif  // QT_CONFIG(filesystemwatcher)
 #endif  // QT_CONFIG(filesystemwatcher)

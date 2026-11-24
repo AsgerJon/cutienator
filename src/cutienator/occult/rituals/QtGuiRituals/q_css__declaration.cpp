@@ -3,6 +3,7 @@
 //  are lost.
 #include <QtGui/qtguiglobal.h>
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
+#if QT_CONFIG(cssparser)
 #if !defined(QT_NO_CSSPARSER)
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
 #include <QtGui/QtGui>
@@ -29,3 +30,4 @@ void ritual_ZN4QCss11DeclarationD1Ev(QCss::Declaration *self) {
 }
 
 #endif  // !defined(QT_NO_CSSPARSER)
+#endif  // QT_CONFIG(cssparser)

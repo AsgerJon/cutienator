@@ -16,15 +16,15 @@
 #include <QtCore/qlist.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <private/xychart_p.h>
+#include <QtCharts/private/xychart_p.h>
 #include <QtCharts/QXYSeries>
-#include <private/qxyseries_p.h>
-#include <private/chartpresenter_p.h>
-#include <private/abstractdomain_p.h>
-#include <private/chartdataset_p.h>
-#include <private/glxyseriesdata_p.h>
+#include <QtCharts/private/qxyseries_p.h>
+#include <QtCharts/private/chartpresenter_p.h>
+#include <QtCharts/private/abstractdomain_p.h>
+#include <QtCharts/private/chartdataset_p.h>
+#include <QtCharts/private/glxyseriesdata_p.h>
 #include <QtCharts/QXYModelMapper>
-#include <private/qabstractaxis_p.h>
+#include <QtCharts/private/qabstractaxis_p.h>
 #include <QtGui/QPainter>
 #include <QtCore/QAbstractItemModel>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER

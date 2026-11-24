@@ -12,10 +12,10 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qlist.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qhostaddress.h"
-#include "qhostaddress_p.h"
-#include "private/qipaddress_p.h"
-#include "qdebug.h"
+#include <QtNetwork/qhostaddress.h>
+#include <QtNetwork/private/qhostaddress_p.h>
+#include <QtCore/private/qipaddress_p.h>
+#include <QtCore/qdebug.h>
 #if defined(Q_OS_WIN)
 # include <winsock2.h>
 # include <ws2tcpip.h>
@@ -23,22 +23,22 @@
 # include <netinet/in.h>
 #endif
 #include "qplatformdefs.h"
-#include "qstringlist.h"
-#include "qendian.h"
+#include <QtCore/qstringlist.h>
+#include <QtCore/qendian.h>
 #ifndef QT_NO_DATASTREAM
-#include <qdatastream.h>
+#include <QtCore/qdatastream.h>
 #endif
 #ifdef __SSE2__
-#  include <private/qsimd_p.h>
+#  include <QtCore/private/qsimd_p.h>
 #endif
 #ifdef QT_LINUXBASE
 #  include <arpa/inet.h>
 #endif
-#include "qnetworkinterface.h"
-#include "qnetworkinterface_p.h"
-#include "qdebug.h"
-#include "qendian.h"
-#include "private/qtools_p.h"
+#include <QtNetwork/qnetworkinterface.h>
+#include <QtNetwork/private/qnetworkinterface_p.h>
+#include <QtCore/qdebug.h>
+#include <QtCore/qendian.h>
+#include <QtCore/private/qtools_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

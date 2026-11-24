@@ -13,9 +13,9 @@
 #include <QtCore/qstring.h>
 #include <QtMultimedia/qaudioformat.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qandroidaudiodevice_p.h"
-#include <private/qaudioformat_p.h>
-#include <private/qaudiodevice_p.h>
+#include <QtMultimedia/private/qandroidaudiodevice_p.h>
+#include <QtMultimedia/private/qaudioformat_p.h>
+#include <QtMultimedia/private/qaudiodevice_p.h>
 #include <QtCore/qjniobject.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

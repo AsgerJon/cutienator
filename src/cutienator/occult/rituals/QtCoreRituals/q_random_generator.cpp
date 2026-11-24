@@ -3,11 +3,11 @@
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtCore/qrandom.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qrandom.h"
-#include "qrandom_p.h"
-#include <qendian.h>
-#include <qmutex.h>
-#include <qobjectdefs.h>
+#include <QtCore/qrandom.h>
+#include <QtCore/private/qrandom_p.h>
+#include <QtCore/qendian.h>
+#include <QtCore/qmutex.h>
+#include <QtCore/qobjectdefs.h>
 #include <QtCore/qtcoreglobal.h> // for FEATURE macros
 #include <errno.h>
 #if QT_CONFIG(getauxval)
@@ -16,17 +16,17 @@
 #if QT_CONFIG(getentropy) && __has_include(<sys/random.h>)
 #  include <sys/random.h>
 #elif !QT_CONFIG(getentropy) && (!defined(Q_OS_BSD4) || defined(__GLIBC__)) && !defined(Q_OS_WIN)
-#  include "qdeadlinetimer.h"
-#  include "qhashfunctions.h"
+#  include <QtCore/qdeadlinetimer.h>
+#  include <QtCore/qhashfunctions.h>
 #  include <cstdio>
 #  include <cstdlib>
 #  include <mutex>
 #endif
 #ifdef Q_OS_UNIX
 #  include <fcntl.h>
-#  include <private/qcore_unix_p.h>
+#  include <QtCore/private/qcore_unix_p.h>
 #else
-#  include <qt_windows.h>
+#  include <QtCore/qt_windows.h>
 #endif
 #include <assert.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER

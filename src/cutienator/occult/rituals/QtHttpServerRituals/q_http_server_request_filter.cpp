@@ -9,7 +9,7 @@
 #include <QtHttpServer/qhttpserverconfiguration.h>
 #include <QtNetwork/qhostaddress.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qhttpserverrequestfilter_p.h"
+#include <QtHttpServer/private/qhttpserverrequestfilter_p.h>
 #include <QtCore/qdatetime.h>
 #include <algorithm>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER

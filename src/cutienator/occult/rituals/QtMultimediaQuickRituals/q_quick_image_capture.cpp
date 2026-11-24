@@ -11,7 +11,7 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquickimagecapture_p.h"
+#include <QtMultimediaQuick/private/qquickimagecapture_p.h>
 #include <QtCore/qurl.h>
 #include <QtMultimediaQuick/private/qquickimagepreviewprovider_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER

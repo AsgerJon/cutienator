@@ -1,8 +1,10 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/6.12.0/QtWidgets/private/qaccessiblewidgets_p.h, Qt 6.12.0.
 //  Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
+#if QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/QtWidgets>
@@ -16,59 +18,59 @@
 #include <QtGui/qcolor.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qaccessiblewidgets_p.h"
-#include "qabstracttextdocumentlayout.h"
-#include "qapplication.h"
-#include "qclipboard.h"
-#include "qtextdocument.h"
-#include "qtextobject.h"
+#include <QtWidgets/private/qaccessiblewidgets_p.h>
+#include <QtGui/qabstracttextdocumentlayout.h>
+#include <QtWidgets/qapplication.h>
+#include <QtGui/qclipboard.h>
+#include <QtGui/qtextdocument.h>
+#include <QtGui/qtextobject.h>
 #if QT_CONFIG(textedit)
-#include "qplaintextedit.h"
-#include "qtextedit.h"
-#include "private/qtextedit_p.h"
+#include <QtWidgets/qplaintextedit.h>
+#include <QtWidgets/qtextedit.h>
+#include <QtWidgets/private/qtextedit_p.h>
 #endif
-#include "qtextboundaryfinder.h"
+#include <QtCore/qtextboundaryfinder.h>
 #if QT_CONFIG(scrollbar)
-#include "qscrollbar.h"
+#include <QtWidgets/qscrollbar.h>
 #endif
-#include "qdebug.h"
-#include <QApplication>
+#include <QtCore/qdebug.h>
+#include <QtWidgets/QApplication>
 #if QT_CONFIG(stackedwidget)
-#include <QStackedWidget>
+#include <QtWidgets/QStackedWidget>
 #endif
 #if QT_CONFIG(toolbox)
-#include <QToolBox>
+#include <QtWidgets/QToolBox>
 #endif
 #if QT_CONFIG(mdiarea)
-#include <QMdiArea>
-#include <QMdiSubWindow>
+#include <QtWidgets/QMdiArea>
+#include <QtWidgets/QMdiSubWindow>
 #endif
 #if QT_CONFIG(dialogbuttonbox)
-#include <QDialogButtonBox>
+#include <QtWidgets/QDialogButtonBox>
 #endif
 #include <limits.h>
 #if QT_CONFIG(rubberband)
-#include <QRubberBand>
+#include <QtWidgets/QRubberBand>
 #endif
 #if QT_CONFIG(textbrowser)
-#include <QTextBrowser>
+#include <QtWidgets/QTextBrowser>
 #endif
 #if QT_CONFIG(calendarwidget)
-#include <QCalendarWidget>
+#include <QtWidgets/QCalendarWidget>
 #endif
 #if QT_CONFIG(itemviews)
-#include <QAbstractItemView>
+#include <QtWidgets/QAbstractItemView>
 #endif
 #if QT_CONFIG(dockwidget)
-#include <QDockWidget>
-#include <private/qdockwidget_p.h>
+#include <QtWidgets/QDockWidget>
+#include <QtWidgets/private/qdockwidget_p.h>
 #endif
 #if QT_CONFIG(mainwindow)
-#include <QMainWindow>
+#include <QtWidgets/QMainWindow>
 #endif
-#include <QFocusFrame>
+#include <QtWidgets/QFocusFrame>
 #if QT_CONFIG(menu)
-#include <QMenu>
+#include <QtWidgets/QMenu>
 #endif
 #if QT_CONFIG(accessibility)
 #include <QtGui/private/qaccessiblehelper_p.h>
@@ -746,4 +748,5 @@ QAccessibleInterface *ritual_own_ZNK24QAccessibleStackedWidget5childEi(
 #endif  // QT_CONFIG(stackedwidget)
 #endif  // QT_CONFIG(accessibility)
 
+#endif  // QT_CONFIG(accessibility)
 #endif  // QT_CONFIG(accessibility)

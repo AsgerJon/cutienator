@@ -4,6 +4,7 @@
 #include <QtQuick/qtquickglobal.h>
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #if QT_CONFIG(quick_path)
+#if QT_CONFIG(quick_path)
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #include <QtQuick/QtQuick>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -122,4 +123,5 @@ QDebug *ritual_Zls6QDebugPK11QQuickCurve(
 }
 #endif  // !defined(QT_NO_DEBUG_STREAM)
 
+#endif  // QT_CONFIG(quick_path)
 #endif  // QT_CONFIG(quick_path)

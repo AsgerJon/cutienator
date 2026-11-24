@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qgraphicsproxywidget.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(graphicsview)
 #if QT_CONFIG(graphicsview)
 #include <QtWidgets/qgraphicsproxywidget.h>
 #include <QtCore/qstring.h>
@@ -2202,4 +2204,5 @@ void ritual_own_ZN20QGraphicsProxyWidget11resizeEventEP25QGraphicsSceneResizeEve
       event);
 }
 
+#endif  // QT_CONFIG(graphicsview)
 #endif  // QT_CONFIG(graphicsview)

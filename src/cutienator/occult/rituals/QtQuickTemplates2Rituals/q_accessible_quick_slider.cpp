@@ -12,10 +12,10 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qvariant.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qaccessiblequickcontrol_p.h"
-#include "qquickcontrol_p.h"
-#include "qaccessiblequickslider_p.h"
-#include "qquickslider_p.h"
+#include <QtQuickTemplates2/private/qaccessiblequickcontrol_p.h>
+#include <QtQuickTemplates2/private/qquickcontrol_p.h>
+#include <QtQuickTemplates2/private/qaccessiblequickslider_p.h>
+#include <QtQuickTemplates2/private/qquickslider_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

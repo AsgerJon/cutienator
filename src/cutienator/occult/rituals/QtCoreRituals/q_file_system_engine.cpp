@@ -14,10 +14,10 @@
 #include <QtCore/qbytearray.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include "qplatformdefs.h"
-#include "qfilesystemengine_p.h"
-#include "qfile.h"
-#include "qstorageinfo.h"
-#include "qurl.h"
+#include <QtCore/private/qfilesystemengine_p.h>
+#include <QtCore/qfile.h>
+#include <QtCore/qstorageinfo.h>
+#include <QtCore/qurl.h>
 #include <QtCore/qoperatingsystemversion.h>
 #include <QtCore/private/qcore_unix_p.h>
 #include <QtCore/private/qfiledevice_p.h>
@@ -65,7 +65,7 @@
 #  include <dosFsLib.h>
 # endif
 #endif
-#include "qfilesystemengine_p.h"
+#include <QtCore/private/qfilesystemengine_p.h>
 #include <QtCore/qdir.h>
 #include <QtCore/qset.h>
 #include <QtCore/qstringbuilder.h>
@@ -84,6 +84,7 @@
 //  'inline' put before it where Qt did not write it.
 
 //  from src/corelib/io/qfilesystemengine_unix.cpp, line 810, as _ZN17QFileSystemEngine15resolveUserNameEj
+#if defined(Q_OS_LINUX)
 inline QString QFileSystemEngine::resolveUserName(uint userId)
 {
 #if QT_CONFIG(thread) && defined(_POSIX_THREAD_SAFE_FUNCTIONS) && !defined(Q_OS_OPENBSD)
@@ -108,8 +109,10 @@ inline QString QFileSystemEngine::resolveUserName(uint userId)
 #endif
     return QString();
 }
+#endif  // defined(Q_OS_LINUX)
 
 //  from src/corelib/io/qfilesystemengine_unix.cpp, line 836, as _ZN17QFileSystemEngine16resolveGroupNameEj
+#if defined(Q_OS_LINUX)
 inline QString QFileSystemEngine::resolveGroupName(uint groupId)
 {
 #if QT_CONFIG(thread) && defined(_POSIX_THREAD_SAFE_FUNCTIONS) && !defined(Q_OS_OPENBSD)
@@ -147,8 +150,10 @@ inline QString QFileSystemEngine::resolveGroupName(uint groupId)
 #endif
     return QString();
 }
+#endif  // defined(Q_OS_LINUX)
 
 //  from src/corelib/io/qfilesystemengine_unix.cpp, line 1142, as _ZN17QFileSystemEngine9cloneFileEiiRK19QFileSystemMetaData
+#if defined(Q_OS_LINUX)
 inline auto QFileSystemEngine::cloneFile(int srcfd, int dstfd, const QFileSystemMetaData &knownData) -> TriStateResult
 {
     QT_STATBUF statBuffer;
@@ -254,6 +259,7 @@ inline auto QFileSystemEngine::cloneFile(int srcfd, int dstfd, const QFileSystem
     return TriStateResult::NotSupported;
 #endif
 }
+#endif  // defined(Q_OS_LINUX)
 
 //  from src/corelib/io/qfilesystemengine_unix.cpp, line 796, as _ZN17QFileSystemEngine2idEi
 inline QByteArray QFileSystemEngine::id(int fd)
@@ -270,6 +276,7 @@ inline QByteArray QFileSystemEngine::id(int fd)
 }
 
 //  from src/corelib/io/qfilesystemengine.cpp, line 49, as _ZN17QFileSystemEngine17slowCanonicalizedERK7QString
+#if defined(Q_OS_LINUX)
 inline QString QFileSystemEngine::slowCanonicalized(const QString &path)
 {
     if (path.isEmpty())
@@ -320,22 +327,27 @@ inline QString QFileSystemEngine::slowCanonicalized(const QString &path)
 
     return QDir::cleanPath(tmpPath);
 }
+#endif  // defined(Q_OS_LINUX)
 //  -----------------------------------------------------------------------
 
 #if defined(Q_OS_UNIX)
+#if defined(Q_OS_LINUX)
 //  QString QFileSystemEngine::resolveUserName(uint userId)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN17QFileSystemEngine15resolveUserNameEj(uint userId) {
   return new QString(QFileSystemEngine::resolveUserName(userId));
 }
+#endif  // defined(Q_OS_LINUX)
 #endif  // defined(Q_OS_UNIX)
 
 #if defined(Q_OS_UNIX)
+#if defined(Q_OS_LINUX)
 //  QString QFileSystemEngine::resolveGroupName(uint groupId)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN17QFileSystemEngine16resolveGroupNameEj(uint groupId) {
   return new QString(QFileSystemEngine::resolveGroupName(groupId));
 }
+#endif  // defined(Q_OS_LINUX)
 #endif  // defined(Q_OS_UNIX)
 
 #if !(defined(Q_OS_DARWIN))
@@ -348,6 +360,7 @@ QString *ritual_ZN17QFileSystemEngine10bundleNameERK16QFileSystemEntry(
 #endif  // !(defined(Q_OS_DARWIN))
 
 #if defined(Q_OS_UNIX)
+#if defined(Q_OS_LINUX)
 //  TriStateResult QFileSystemEngine::cloneFile(int srcfd, int dstfd, const
 //      QFileSystemMetaData &knownData)
 extern "C" Q_DECL_EXPORT
@@ -357,6 +370,7 @@ QFileSystemEngine::TriStateResult ritual_ZN17QFileSystemEngine9cloneFileEiiRK19Q
     const QFileSystemMetaData *knownData) {
   return QFileSystemEngine::cloneFile(srcfd, dstfd, *knownData);
 }
+#endif  // defined(Q_OS_LINUX)
 #endif  // defined(Q_OS_UNIX)
 
 #if defined(Q_OS_UNIX)
@@ -367,12 +381,14 @@ QByteArray *ritual_ZN17QFileSystemEngine2idEi(int fd) {
 }
 #endif  // defined(Q_OS_UNIX)
 
+#if defined(Q_OS_LINUX)
 //  QString QFileSystemEngine::slowCanonicalized(const QString &path)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN17QFileSystemEngine17slowCanonicalizedERK7QString(
     const QString *path) {
   return new QString(QFileSystemEngine::slowCanonicalized(*path));
 }
+#endif  // defined(Q_OS_LINUX)
 
 //  QFileSystemEngine::~QFileSystemEngine()
 extern "C" Q_DECL_EXPORT

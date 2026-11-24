@@ -1,8 +1,10 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/6.12.0/QtWidgets/private/complexwidgets_p.h, Qt 6.12.0. Changes
 //  made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
+#if QT_CONFIG(accessibility)
 #if QT_CONFIG(accessibility)
 #if QT_CONFIG(tabbar)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
@@ -18,39 +20,39 @@
 #include <QtCore/qlist.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "complexwidgets_p.h"
-#include <qaccessible.h>
-#include <qapplication.h>
-#include <qevent.h>
+#include <QtWidgets/private/complexwidgets_p.h>
+#include <QtGui/qaccessible.h>
+#include <QtWidgets/qapplication.h>
+#include <QtGui/qevent.h>
 #if QT_CONFIG(itemviews)
-#include <qheaderview.h>
+#include <QtWidgets/qheaderview.h>
 #endif
 #if QT_CONFIG(tabbar)
-#include <qtabbar.h>
-#include <private/qtabbar_p.h>
+#include <QtWidgets/qtabbar.h>
+#include <QtWidgets/private/qtabbar_p.h>
 #endif
 #if QT_CONFIG(combobox)
-#include <qcombobox.h>
+#include <QtWidgets/qcombobox.h>
 #endif
 #if QT_CONFIG(lineedit)
-#include <qlineedit.h>
+#include <QtWidgets/qlineedit.h>
 #endif
-#include <qstyle.h>
-#include <qstyleoption.h>
+#include <QtWidgets/qstyle.h>
+#include <QtWidgets/qstyleoption.h>
 #if QT_CONFIG(tooltip)
-#include <qtooltip.h>
+#include <QtWidgets/qtooltip.h>
 #endif
 #if QT_CONFIG(whatsthis)
-#include <qwhatsthis.h>
+#include <QtWidgets/qwhatsthis.h>
 #endif
-#include <QAbstractScrollArea>
+#include <QtWidgets/QAbstractScrollArea>
 #if QT_CONFIG(scrollarea)
-#include <QScrollArea>
+#include <QtWidgets/QScrollArea>
 #endif
 #if QT_CONFIG(scrollbar)
-#include <QScrollBar>
+#include <QtWidgets/QScrollBar>
 #endif
-#include <QDebug>
+#include <QtCore/QDebug>
 #if QT_CONFIG(accessibility)
 #include <QtGui/private/qaccessiblehelper_p.h>
 #endif
@@ -1126,4 +1128,5 @@ bool ritual_own_ZN17QAccessibleTabBar5clearEv(QAccessibleTabBar *self) {
 #endif  // QT_CONFIG(accessibility)
 
 #endif  // QT_CONFIG(tabbar)
+#endif  // QT_CONFIG(accessibility)
 #endif  // QT_CONFIG(accessibility)

@@ -9,12 +9,12 @@
 #include <QtCore/qpoint.h>
 #include <QtGui/qcolor.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qstatictext.h"
-#include "qstatictext_p.h"
-#include <qmath.h>
-#include <private/qtextengine_p.h>
-#include <private/qfontengine_p.h>
-#include <qabstracttextdocumentlayout.h>
+#include <QtGui/qstatictext.h>
+#include <QtGui/private/qstatictext_p.h>
+#include <QtCore/qmath.h>
+#include <QtGui/private/qtextengine_p.h>
+#include <QtGui/private/qfontengine_p.h>
+#include <QtGui/qabstracttextdocumentlayout.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

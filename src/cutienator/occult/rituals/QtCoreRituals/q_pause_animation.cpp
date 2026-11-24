@@ -2,6 +2,7 @@
 //  QtCore/qpauseanimation.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qglobal.h>
 #if QT_CONFIG(animation)
+#if QT_CONFIG(animation)
 #include <QtCore/qpauseanimation.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
@@ -380,4 +381,5 @@ void ritual_own_ZN15QPauseAnimation17updateCurrentTimeEi(
       a0);
 }
 
+#endif  // QT_CONFIG(animation)
 #endif  // QT_CONFIG(animation)

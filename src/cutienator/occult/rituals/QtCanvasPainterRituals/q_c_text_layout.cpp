@@ -9,8 +9,8 @@
 #include <QtCore/qrect.h>
 #include <QtGui/qfontmetrics.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qctextlayout_p.h"
-#include <QTransform>
+#include <QtCanvasPainter/private/qctextlayout_p.h>
+#include <QtGui/QTransform>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

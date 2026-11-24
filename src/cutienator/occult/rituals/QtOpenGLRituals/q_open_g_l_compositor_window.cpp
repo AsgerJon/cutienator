@@ -1,6 +1,10 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtOpenGL/6.12.0/QtOpenGL/private/qopenglcompositor_p.h, Qt 6.12.0.
 //  Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
+#include <QtOpenGL/qtopenglglobal.h>
+#include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
+#if QT_CONFIG(egl)
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtOpenGL/QtOpenGL>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -233,3 +237,5 @@ void ritual_list_drop_QOpenGLCompositorWindow_ptr(
     QList<QOpenGLCompositorWindow *> *self) {
   delete self;
 }
+
+#endif  // QT_CONFIG(egl)

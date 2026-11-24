@@ -8,9 +8,9 @@
 #include <QtMqtt/6.12.0/QtMqtt/private/qmqttsubscription_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qmqttsubscription.h"
-#include "qmqttsubscription_p.h"
-#include "qmqttclient.h"
+#include <QtMqtt/qmqttsubscription.h>
+#include <QtMqtt/private/qmqttsubscription_p.h>
+#include <QtMqtt/qmqttclient.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

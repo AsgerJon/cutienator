@@ -2,6 +2,7 @@
 //  QtWidgets/qgraphicslinearlayout.h, Qt 6.12.0. Changes made here are lost.
 #include <QtWidgets/qtwidgetsglobal.h>
 #if QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 #include <QtWidgets/qgraphicslinearlayout.h>
 #include <QtCore/qrect.h>
 #include <QtCore/qsize.h>
@@ -487,4 +488,5 @@ QSizeF *ritual_own_ZNK21QGraphicsLinearLayout8sizeHintEN2Qt8SizeHintERK6QSizeF(
           *constraint));
 }
 
+#endif  // QT_CONFIG(graphicsview)
 #endif  // QT_CONFIG(graphicsview)

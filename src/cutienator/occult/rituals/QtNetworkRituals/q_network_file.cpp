@@ -10,10 +10,10 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qnetworkfile_p.h"
-#include "qnetworkrequest_p.h"
+#include <QtNetwork/private/qnetworkfile_p.h>
+#include <QtNetwork/private/qnetworkrequest_p.h>
 #include <QtCore/QDebug>
-#include <QNetworkReply>
+#include <QtNetwork/QNetworkReply>
 #include <QtCore/QDateTime>
 #include <QtCore/QFileInfo>
 #include <QtCore/QMetaObject>

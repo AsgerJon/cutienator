@@ -13,10 +13,10 @@
 #include <QtCore/qhash.h>
 #include <iterator>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qgeomaneuver.h"
-#include "qgeomaneuver_p.h"
+#include <QtLocation/qgeomaneuver.h>
+#include <QtLocation/private/qgeomaneuver_p.h>
 #include <QtCore/QVariant>
-#include "qgeocoordinate.h"
+#include <QtPositioning/qgeocoordinate.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

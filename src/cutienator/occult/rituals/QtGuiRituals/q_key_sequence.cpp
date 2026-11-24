@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGui/qkeysequence.h, Qt 6.12.0. Changes made here are lost.
+#include <QtCore/qglobal.h>
 #include <QtGui/qtguiglobal.h>
+#if QT_CONFIG(shortcut)
 #if QT_CONFIG(shortcut)
 #include <QtGui/qkeysequence.h>
 #include <QtCore/qstring.h>
@@ -259,4 +261,5 @@ void ritual_list_drop_QKeySequence(QList<QKeySequence> *self) {
   delete self;
 }
 
+#endif  // QT_CONFIG(shortcut)
 #endif  // QT_CONFIG(shortcut)

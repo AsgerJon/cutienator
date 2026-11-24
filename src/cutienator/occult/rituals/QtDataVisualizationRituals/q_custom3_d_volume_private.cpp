@@ -10,9 +10,9 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qcustom3ditem_p.h"
-#include "qcustom3dvolume_p.h"
-#include "utils_p.h"
+#include <QtDataVisualization/private/qcustom3ditem_p.h>
+#include <QtDataVisualization/private/qcustom3dvolume_p.h>
+#include <QtDataVisualization/private/utils_p.h>
 #include <QtGui/qquaternion.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

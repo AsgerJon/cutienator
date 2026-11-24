@@ -82,6 +82,9 @@
     ],
     "ritual_ZNK20QPlatformIntegration4beepEv": ["nothing", "address"],
     "ritual_ZNK20QPlatformIntegration4quitEv": ["nothing", "address"],
+    "ritual_ZNK20QPlatformIntegration28createPlatformVulkanInstanceEP15QVulkanInstance": [
+      "address", "address", "address"
+    ],
     "ritual_take_QPlatformIntegration": [
       "bool", "address", "chars", "address"
     ],
@@ -155,6 +158,9 @@
       "nothing", "address", "long long"
     ],
     "ritual_own_ZNK20QPlatformIntegration4beepEv": ["nothing", "address"],
-    "ritual_own_ZNK20QPlatformIntegration4quitEv": ["nothing", "address"]
+    "ritual_own_ZNK20QPlatformIntegration4quitEv": ["nothing", "address"],
+    "ritual_own_ZNK20QPlatformIntegration28createPlatformVulkanInstanceEP15QVulkanInstance": [
+      "address", "address", "address"
+    ]
   }
 }

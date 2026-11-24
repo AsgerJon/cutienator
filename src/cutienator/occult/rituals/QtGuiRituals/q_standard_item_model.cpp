@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGui/qstandarditemmodel.h, Qt 6.12.0. Changes made here are lost.
+#include <QtCore/qglobal.h>
 #include <QtGui/qtguiglobal.h>
+#if QT_CONFIG(standarditemmodel)
 #if QT_CONFIG(standarditemmodel)
 #include <QtGui/qstandarditemmodel.h>
 #include <QtCore/qstring.h>
@@ -1839,4 +1841,5 @@ bool ritual_own_ZN18QStandardItemModel12dropMimeDataEPK9QMimeDataN2Qt10DropActio
       *parent);
 }
 
+#endif  // QT_CONFIG(standarditemmodel)
 #endif  // QT_CONFIG(standarditemmodel)

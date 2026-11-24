@@ -4,6 +4,7 @@
 #include <QtCore/qglobal.h>
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #if QT_CONFIG(mimetype)
+#if QT_CONFIG(mimetype)
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtCore/QtCore>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -12,12 +13,12 @@
 #include <QtCore/qstring.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <qplatformdefs.h> // always first
-#include "qmimedatabase.h"
-#include "qmimedatabase_p.h"
-#include "qmimeprovider_p.h"
-#include "qmimetype_p.h"
-#include <private/qduplicatetracker_p.h>
-#include <private/qfilesystementry_p.h>
+#include <QtCore/qmimedatabase.h>
+#include <QtCore/private/qmimedatabase_p.h>
+#include <QtCore/private/qmimeprovider_p.h>
+#include <QtCore/private/qmimetype_p.h>
+#include <QtCore/private/qduplicatetracker_p.h>
+#include <QtCore/private/qfilesystementry_p.h>
 #include <QtCore/QFile>
 #include <QtCore/QFileInfo>
 #include <QtCore/QStandardPaths>
@@ -27,7 +28,7 @@
 #include <algorithm>
 #include <functional>
 #include <stack>
-#include "qfilesystementry_p.h"
+#include <QtCore/private/qfilesystementry_p.h>
 #include <QtCore/qdir.h>
 #include <QtCore/private/qdir_p.h>
 #include <QtCore/qfile.h>
@@ -61,6 +62,7 @@ inline const QMimeDatabasePrivate::Providers &QMimeDatabasePrivate::providers()
 }
 
 //  from src/corelib/io/qfilesystementry.cpp, line 137, as _ZNK16QFileSystemEntry8fileNameEv
+#if defined(Q_OS_LINUX)
 inline QString QFileSystemEntry::fileName() const
 {
     findLastSeparator();
@@ -70,6 +72,7 @@ inline QString QFileSystemEntry::fileName() const
 #endif
     return m_filePath.mid(m_lastSeparator + 1);
 }
+#endif  // defined(Q_OS_LINUX)
 
 //  from src/corelib/mimetypes/qmimedatabase.cpp, line 48, as _ZN20QMimeDatabasePrivateC1Ev
 inline QMimeDatabasePrivate::QMimeDatabasePrivate()
@@ -102,4 +105,5 @@ QString *ritual_ZNK20QMimeDatabasePrivate15defaultMimeTypeEv(
   return new QString(self->defaultMimeType());
 }
 
+#endif  // QT_CONFIG(mimetype)
 #endif  // QT_CONFIG(mimetype)

@@ -8,13 +8,13 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qconnectionfactories_p.h"
-#include "qremoteobjectpacket_p.h"
+#include <QtRemoteObjects/private/qconnectionfactories_p.h>
+#include <QtRemoteObjects/private/qremoteobjectpacket_p.h>
 #if defined(Q_OS_QNX)
-#include "qconnection_qnx_backend_p.h"
+#include <QtRemoteObjects/private/qconnection_qnx_backend_p.h>
 #endif
-#include "qconnection_local_backend_p.h"
-#include "qconnection_tcpip_backend_p.h"
+#include <QtRemoteObjects/private/qconnection_local_backend_p.h>
+#include <QtRemoteObjects/private/qconnection_tcpip_backend_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

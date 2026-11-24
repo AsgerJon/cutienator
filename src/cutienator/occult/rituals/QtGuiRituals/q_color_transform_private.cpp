@@ -8,33 +8,33 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/qcolortransform.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qcolorspace.h"
-#include "qcolorspace_p.h"
-#include "qcolortransform.h"
-#include "qcolorclut_p.h"
-#include "qcolormatrix_p.h"
-#include "qcolortransferfunction_p.h"
-#include "qcolortransform_p.h"
-#include "qicc_p.h"
-#include <qatomic.h>
-#include <qmath.h>
-#include <qtransform.h>
-#include <qdebug.h>
-#include "qcolortransform.h"
-#include "qcolortransform_p.h"
-#include "qcmyk_p.h"
-#include "qcolorclut_p.h"
-#include "qcolormatrix_p.h"
-#include "qcolorspace_p.h"
-#include "qcolortrc_p.h"
-#include "qcolortrclut_p.h"
+#include <QtGui/qcolorspace.h>
+#include <QtGui/private/qcolorspace_p.h>
+#include <QtGui/qcolortransform.h>
+#include <QtGui/private/qcolorclut_p.h>
+#include <QtGui/private/qcolormatrix_p.h>
+#include <QtGui/private/qcolortransferfunction_p.h>
+#include <QtGui/private/qcolortransform_p.h>
+#include <QtGui/private/qicc_p.h>
+#include <QtCore/qatomic.h>
+#include <QtCore/qmath.h>
+#include <QtGui/qtransform.h>
+#include <QtCore/qdebug.h>
+#include <QtGui/qcolortransform.h>
+#include <QtGui/private/qcolortransform_p.h>
+#include <QtGui/private/qcmyk_p.h>
+#include <QtGui/private/qcolorclut_p.h>
+#include <QtGui/private/qcolormatrix_p.h>
+#include <QtGui/private/qcolorspace_p.h>
+#include <QtGui/private/qcolortrc_p.h>
+#include <QtGui/private/qcolortrclut_p.h>
 #include <QtCore/qatomic.h>
 #include <QtCore/qmath.h>
 #include <QtGui/qcolor.h>
 #include <QtGui/qimage.h>
 #include <QtGui/qtransform.h>
 #include <QtCore/private/qsimd_p.h>
-#include <qdebug.h>
+#include <QtCore/qdebug.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

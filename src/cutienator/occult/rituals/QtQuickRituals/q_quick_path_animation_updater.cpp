@@ -12,15 +12,15 @@
 #include <QtCore/qdebug.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquickitemanimation_p.h"
-#include "qquickitemanimation_p_p.h"
-#include "qquickstateoperations_p.h"
-#include <private/qqmlproperty_p.h>
+#include <QtQuick/private/qquickitemanimation_p.h>
+#include <QtQuick/private/qquickitemanimation_p_p.h>
+#include <QtQuick/private/qquickstateoperations_p.h>
+#include <QtQml/private/qqmlproperty_p.h>
 #if QT_CONFIG(quick_path)
-#include <private/qquickpath_p.h>
+#include <QtQuick/private/qquickpath_p.h>
 #endif
-#include "private/qparallelanimationgroupjob_p.h"
-#include "private/qsequentialanimationgroupjob_p.h"
+#include <QtQml/private/qparallelanimationgroupjob_p.h>
+#include <QtQml/private/qsequentialanimationgroupjob_p.h>
 #include <QtCore/qmath.h>
 #include <QtGui/qtransform.h>
 #include <QtQml/qqmlinfo.h>

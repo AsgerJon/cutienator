@@ -1,6 +1,10 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtOpenGL/6.12.0/QtOpenGL/private/qopenglcompositorbackingstore_p.h, Qt
 //  6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
+#include <QtOpenGL/qtopenglglobal.h>
+#include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
+#if QT_CONFIG(egl)
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtOpenGL/QtOpenGL>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -367,3 +371,5 @@ QPlatformBackingStore::FlushResult ritual_own_ZN29QOpenGLCompositorBackingStore8
       translucentBackground,
       sourceTransformFactor);
 }
+
+#endif  // QT_CONFIG(egl)

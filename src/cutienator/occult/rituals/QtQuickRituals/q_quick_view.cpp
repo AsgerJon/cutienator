@@ -1,5 +1,6 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtQuick/qquickview.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtQuick/QtQuick>
 #include <QtQuick/qquickview.h>
 #include <QtCore/qstring.h>

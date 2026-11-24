@@ -11,8 +11,8 @@
 #include <QtCore/qlist.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qresource.h"
-#include "qresource_iterator_p.h"
+#include <QtCore/qresource.h>
+#include <QtCore/private/qresource_iterator_p.h>
 #include <QtCore/qvariant.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

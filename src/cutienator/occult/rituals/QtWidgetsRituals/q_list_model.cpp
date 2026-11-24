@@ -1,8 +1,11 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/6.12.0/QtWidgets/private/qlistwidget_p.h, Qt 6.12.0. Changes
 //  made here are lost.
+#include <QtGui/qtguiglobal.h>
+#include <QtCore/qglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
+#if QT_CONFIG(listwidget)
 #if QT_CONFIG(listwidget)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/QtWidgets>
@@ -20,10 +23,10 @@
 #include <iterator>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qlistwidget.h"
-#include <private/qlistview_p.h>
-#include <private/qwidgetitemdata_p.h>
-#include <private/qlistwidget_p.h>
+#include <QtWidgets/qlistwidget.h>
+#include <QtWidgets/private/qlistview_p.h>
+#include <QtWidgets/private/qwidgetitemdata_p.h>
+#include <QtWidgets/private/qlistwidget_p.h>
 #include <algorithm>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
@@ -1876,4 +1879,5 @@ int ritual_own_ZNK10QListModel20supportedDragActionsEv(
 }
 #endif  // QT_CONFIG(draganddrop)
 
+#endif  // QT_CONFIG(listwidget)
 #endif  // QT_CONFIG(listwidget)

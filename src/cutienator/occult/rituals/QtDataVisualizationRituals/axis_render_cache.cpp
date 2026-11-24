@@ -11,18 +11,23 @@
 #include <QtCore/qlist.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "labelitem_p.h"
-#include "drawer_p.h"
-#include "shaderhelper_p.h"
-#include "surfaceobject_p.h"
-#include "utils_p.h"
-#include "texturehelper_p.h"
-#include "abstract3drenderer_p.h"
-#include "scatterpointbufferhelper_p.h"
+#include <QtDataVisualization/private/drawer_p.h>
+#include <QtDataVisualization/private/shaderhelper_p.h>
+#include <QtDataVisualization/private/surfaceobject_p.h>
+#include <QtDataVisualization/private/utils_p.h>
+#include <QtDataVisualization/private/texturehelper_p.h>
+#include <QtDataVisualization/private/abstract3drenderer_p.h>
+#include <QtDataVisualization/private/scatterpointbufferhelper_p.h>
 #include <QtGui/QMatrix4x4>
 #include <QtGui/qquaternion.h>
 #include <QtCore/qmath.h>
-#include "axisrendercache_p.h"
+#include <QtDataVisualization/private/labelitem_p.h>
+#include <QtDataVisualization/private/texturehelper_p.h>
+#include <QtDataVisualization/private/utils_p.h>
+#include <QtGui/QImage>
+#include <QtGui/QPainter>
+#include <QtCore/QTime>
+#include <QtDataVisualization/private/axisrendercache_p.h>
 #include <QtGui/QFontMetrics>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
@@ -32,6 +37,31 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from ../qtdatavis3d/src/datavisualization/engine/drawer.cpp, line 407, as _ZN6Drawer17generateLabelItemER9LabelItemRK7QStringi
+inline void Drawer::generateLabelItem(LabelItem &item, const QString &text, int widestLabel)
+{
+    initializeOpenGL();
+
+    item.clear();
+
+    if (!text.isEmpty()) {
+        // Create labels
+        // Print label into a QImage using QPainter
+        QImage label = Utils::printTextToImage(m_theme->font(),
+                                               text,
+                                               m_theme->labelBackgroundColor(),
+                                               m_theme->labelTextColor(),
+                                               m_theme->isLabelBackgroundEnabled(),
+                                               m_theme->isLabelBorderEnabled(),
+                                               widestLabel);
+
+        // Set label size
+        item.setSize(label.size());
+        // Insert text texture into label (also deletes the old texture)
+        item.setTextureId(m_textureHelper->create2DTexture(label, true, true));
+    }
+}
 
 //  from ../qtdatavis3d/src/datavisualization/data/labelitem.cpp, line 40, as _ZN9LabelItem5clearEv
 inline void LabelItem::clear()
@@ -65,6 +95,79 @@ inline LabelItem::LabelItem()
 inline QSize LabelItem::size() const
 {
     return m_size;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/utils/texturehelper.cpp, line 44, as _ZN13TextureHelper15create2DTextureERK6QImagebbbb
+inline GLuint TextureHelper::create2DTexture(const QImage &image, bool useTrilinearFiltering,
+                                      bool convert, bool smoothScale, bool clampY)
+{
+    if (image.isNull())
+        return 0;
+
+    QImage texImage = image;
+
+    if (Utils::isOpenGLES()) {
+        GLuint imageWidth = Utils::getNearestPowerOfTwo(image.width());
+        GLuint imageHeight = Utils::getNearestPowerOfTwo(image.height());
+        if (smoothScale) {
+            texImage = image.scaled(imageWidth, imageHeight, Qt::IgnoreAspectRatio,
+                                    Qt::SmoothTransformation);
+        } else {
+            texImage = image.scaled(imageWidth, imageHeight, Qt::IgnoreAspectRatio);
+        }
+    }
+
+    GLuint textureId;
+    glGenTextures(1, &textureId);
+    glBindTexture(GL_TEXTURE_2D, textureId);
+    if (convert)
+        texImage = convertToGLFormat(texImage);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, texImage.width(), texImage.height(),
+                 0, GL_RGBA, GL_UNSIGNED_BYTE, texImage.bits());
+    if (smoothScale)
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    else
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+    if (useTrilinearFiltering) {
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+        glGenerateMipmap(GL_TEXTURE_2D);
+    } else {
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+    }
+    if (clampY)
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+    glBindTexture(GL_TEXTURE_2D, 0);
+
+    return textureId;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/engine/drawer.cpp, line 54, as _ZN6Drawer16initializeOpenGLEv
+inline void Drawer::initializeOpenGL()
+{
+    initializeOpenGLFunctions();
+    if (!m_textureHelper)
+        m_textureHelper = new TextureHelper();
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/labelitem.cpp, line 29, as _ZN9LabelItem12setTextureIdEj
+inline void LabelItem::setTextureId(GLuint textureId)
+{
+    QOpenGLContext::currentContext()->functions()->glDeleteTextures(1, &m_textureId);
+    m_textureId = textureId;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/labelitem.cpp, line 19, as _ZN9LabelItem7setSizeERK5QSize
+inline void LabelItem::setSize(const QSize &size)
+{
+    m_size = size;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/utils/texturehelper.cpp, line 334, as _ZN13TextureHelper17convertToGLFormatERK6QImage
+inline QImage TextureHelper::convertToGLFormat(const QImage &srcImage)
+{
+    QImage res(srcImage.size(), QImage::Format_ARGB32);
+    convertToGLFormatHelper(res, srcImage.convertToFormat(QImage::Format_ARGB32), GL_RGBA);
+    return res;
 }
 
 //  from ../qtdatavis3d/src/datavisualization/engine/axisrendercache.cpp, line 49, as _ZN15AxisRenderCache7setTypeEN15QAbstract3DAxis8AxisTypeE

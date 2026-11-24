@@ -13,7 +13,7 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGraphs/qpieseries.h>
 #include <QtQuick/private/qquicktext_p.h>
-#include <private/qpieslice_p.h>
+#include <QtGraphs/private/qpieslice_p.h>
 #if QT_CONFIG(graphs_2d_high_quality_backend)
 #include <QtQuickShapes/private/qquickshape_p.h>
 #endif

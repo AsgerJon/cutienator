@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DQuickScene2D/6.12.0/Qt3DQuickScene2D/private/scene2d_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "parts first": [
+    "Qt3DQuickScene2D", "Qt3DCore", "Qt3DQuick", "Qt3DRender", "QtCore",
+    "QtGui", "QtQml", "QtConcurrent", "QtNetwork", "QtQuick", "QtOpenGL",
+    "QtQmlIntegration"
+  ],
+  "rows": {
+    "ritual_ZNK10Qt3DRender6Render5Quick21RenderQmlEventHandler10metaObjectEv": [
+      "address", "address"
+    ]
+  }
+}

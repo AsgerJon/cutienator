@@ -5,6 +5,7 @@
 #include <QtGui/qquaternion.h>
 #include <QtGui/qvectornd.h>
 #include <QtCore/qvariant.h>
+#include <QtCore/qlist.h>
 
 //  QQuaternion::QQuaternion()
 extern "C" Q_DECL_EXPORT
@@ -468,6 +469,40 @@ QQuaternion *ritual_ZN11QQuaternion5nlerpERKS_S1_f(
 //  QQuaternion::~QQuaternion()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QQuaternionD1Ev(QQuaternion *self) {
+  delete self;
+}
+
+//  QList<QQuaternion>::QList()
+extern "C" Q_DECL_EXPORT
+QList<QQuaternion> *ritual_list_make_QQuaternion() {
+  return new QList<QQuaternion>();
+}
+
+//  void QList<QQuaternion>::append(const QQuaternion &value)
+extern "C" Q_DECL_EXPORT
+void ritual_list_add_QQuaternion(
+    QList<QQuaternion> *self,
+    const QQuaternion *element) {
+  self->append(*element);
+}
+
+//  qsizetype QList<QQuaternion>::size() const
+extern "C" Q_DECL_EXPORT
+long long ritual_list_size_QQuaternion(const QList<QQuaternion> *self) {
+  return self->size();
+}
+
+//  const QQuaternion &QList<QQuaternion>::at(qsizetype i) const
+extern "C" Q_DECL_EXPORT
+QQuaternion *ritual_list_at_QQuaternion(
+    const QList<QQuaternion> *self,
+    long long index) {
+  return new QQuaternion(self->at(index));
+}
+
+//  QList<QQuaternion>::~QList()
+extern "C" Q_DECL_EXPORT
+void ritual_list_drop_QQuaternion(QList<QQuaternion> *self) {
   delete self;
 }
 

@@ -7,13 +7,13 @@
 #include <QtLabsStyleKit/6.12.0/QtLabsStyleKit/private/qqstylekitstyleandthemebase_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qqstylekitfont_p.h"
-#include "qqstylekitpalette_p.h"
-#include "qqstylekitcontrols_p.h"
-#include "qqstylekitcontrol_p.h"
-#include "qqstylekitcustomcontrol_p.h"
-#include "qqstylekitstyleandthemebase_p.h"
-#include "qqstylekitvariation_p.h"
+#include <QtLabsStyleKit/private/qqstylekitfont_p.h>
+#include <QtLabsStyleKit/private/qqstylekitpalette_p.h>
+#include <QtLabsStyleKit/private/qqstylekitcontrols_p.h>
+#include <QtLabsStyleKit/private/qqstylekitcontrol_p.h>
+#include <QtLabsStyleKit/private/qqstylekitcustomcontrol_p.h>
+#include <QtLabsStyleKit/private/qqstylekitstyleandthemebase_p.h>
+#include <QtLabsStyleKit/private/qqstylekitvariation_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

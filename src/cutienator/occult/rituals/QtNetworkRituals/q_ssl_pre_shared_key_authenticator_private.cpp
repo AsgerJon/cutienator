@@ -1,15 +1,18 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtNetwork/6.12.0/QtNetwork/private/qsslpresharedkeyauthenticator_p.h, Qt
 //  6.12.0. Changes made here are lost.
+#include <QtNetwork/qtnetworkglobal.h>
+#include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
+#if QT_CONFIG(ssl)
 #include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
 #include <QtNetwork/QtNetwork>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtNetwork/6.12.0/QtNetwork/private/qsslpresharedkeyauthenticator_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qsslpresharedkeyauthenticator.h"
-#include "qsslpresharedkeyauthenticator_p.h"
-#include <QSharedData>
+#include <QtNetwork/qsslpresharedkeyauthenticator.h>
+#include <QtNetwork/private/qsslpresharedkeyauthenticator_p.h>
+#include <QtCore/QSharedData>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -41,3 +44,5 @@ void ritual_ZN36QSslPreSharedKeyAuthenticatorPrivateD1Ev(
     QSslPreSharedKeyAuthenticatorPrivate *self) {
   delete self;
 }
+
+#endif  // QT_CONFIG(ssl)

@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qfiledialog.h, Qt 6.12.0. Changes made here are lost.
+#include <QtCore/qglobal.h>
+#include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(filedialog)
 #if QT_CONFIG(filedialog)
 #include <QtWidgets/qfiledialog.h>
 #include <QtCore/qstring.h>
@@ -1726,4 +1729,5 @@ void ritual_own_ZN11QFileDialog11changeEventEP6QEvent(
   static_cast<OwnQFileDialog *>(self)->OwnQFileDialog::changeEvent(e);
 }
 
+#endif  // QT_CONFIG(filedialog)
 #endif  // QT_CONFIG(filedialog)

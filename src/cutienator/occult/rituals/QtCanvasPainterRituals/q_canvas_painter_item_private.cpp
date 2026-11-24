@@ -13,8 +13,8 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qcanvaspainteritem_p.h"
-#include "qcanvaspainteritemrenderer.h"
+#include <QtCanvasPainter/private/qcanvaspainteritem_p.h>
+#include <QtCanvasPainter/qcanvaspainteritemrenderer.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

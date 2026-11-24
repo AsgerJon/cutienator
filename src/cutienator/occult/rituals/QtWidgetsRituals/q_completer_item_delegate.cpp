@@ -4,6 +4,7 @@
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #if QT_CONFIG(completer)
+#if QT_CONFIG(completer)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/QtWidgets>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -41,4 +42,5 @@ void ritual_own_ZNK22QCompleterItemDelegate5paintEP8QPainterRK20QStyleOptionView
   self->QCompleterItemDelegate::paint(p, *opt, *idx);
 }
 
+#endif  // QT_CONFIG(completer)
 #endif  // QT_CONFIG(completer)

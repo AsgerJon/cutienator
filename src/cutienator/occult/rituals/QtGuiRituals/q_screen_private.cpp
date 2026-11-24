@@ -8,15 +8,15 @@
 #include <QtGui/6.12.0/QtGui/private/qscreen_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qscreen.h"
-#include "qscreen_p.h"
-#include "qpixmap.h"
-#include "qguiapplication_p.h"
-#include <qpa/qplatformscreen.h>
-#include <qpa/qplatformscreen_p.h>
+#include <QtGui/qscreen.h>
+#include <QtGui/private/qscreen_p.h>
+#include <QtGui/qpixmap.h>
+#include <QtGui/private/qguiapplication_p.h>
+#include <QtGui/qpa/qplatformscreen.h>
+#include <QtGui/qpa/qplatformscreen_p.h>
 #include <QtCore/QDebug>
 #include <QtCore/private/qobject_p.h>
-#include "qhighdpiscaling_p.h"
+#include <QtGui/private/qhighdpiscaling_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

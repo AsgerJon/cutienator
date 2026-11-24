@@ -6,7 +6,7 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qlist.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qcoapoption_p.h"
+#include <QtCoap/private/qcoapoption_p.h>
 #include <QtCore/qdebug.h>
 #include <QtCore/qloggingcategory.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER

@@ -13,10 +13,10 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qcanvasgridpattern.h"
-#include "qcanvasgridpattern_p.h"
-#include "qcanvaspainter_p.h"
-#include <QVariant>
+#include <QtCanvasPainter/qcanvasgridpattern.h>
+#include <QtCanvasPainter/private/qcanvasgridpattern_p.h>
+#include <QtCanvasPainter/private/qcanvaspainter_p.h>
+#include <QtCore/QVariant>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

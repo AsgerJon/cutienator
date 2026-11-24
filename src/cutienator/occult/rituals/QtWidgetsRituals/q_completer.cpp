@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qcompleter.h, Qt 6.12.0. Changes made here are lost.
+#include <QtCore/qglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(completer)
 #if QT_CONFIG(completer)
 #include <QtWidgets/qcompleter.h>
 #include <QtCore/qstring.h>
@@ -557,4 +559,5 @@ bool ritual_own_ZN10QCompleter5eventEP6QEvent(QCompleter *self, QEvent *a0) {
   return static_cast<OwnQCompleter *>(self)->OwnQCompleter::event(a0);
 }
 
+#endif  // QT_CONFIG(completer)
 #endif  // QT_CONFIG(completer)

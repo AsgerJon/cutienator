@@ -2,6 +2,7 @@
 //  QtWidgets/qitemeditorfactory.h, Qt 6.12.0. Changes made here are lost.
 #include <QtWidgets/qtwidgetsglobal.h>
 #if QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
 #include <QtWidgets/qitemeditorfactory.h>
 #include <QtCore/qbytearray.h>
 #include <cstring>
@@ -148,4 +149,5 @@ QByteArray *ritual_own_ZNK18QItemEditorFactory17valuePropertyNameEi(
           userType));
 }
 
+#endif  // QT_CONFIG(itemviews)
 #endif  // QT_CONFIG(itemviews)

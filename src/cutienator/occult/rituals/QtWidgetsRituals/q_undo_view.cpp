@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qundoview.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(undoview)
 #if QT_CONFIG(undoview)
 #include <QtWidgets/qundoview.h>
 #include <QtCore/qstring.h>
@@ -2167,4 +2169,5 @@ bool ritual_take_QUndoView(QUndoView *self, const char *key, void *call) {
   return static_cast<CuteQUndoView *>(self)->take(key, call);
 }
 
+#endif  // QT_CONFIG(undoview)
 #endif  // QT_CONFIG(undoview)

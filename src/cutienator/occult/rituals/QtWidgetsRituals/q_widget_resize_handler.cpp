@@ -4,23 +4,24 @@
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #if QT_CONFIG(resizehandler)
+#if QT_CONFIG(resizehandler)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/QtWidgets>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/6.12.0/QtWidgets/private/qwidgetresizehandler_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qwidgetresizehandler_p.h"
-#include "qframe.h"
-#include "qapplication.h"
-#include "private/qwidget_p.h"
-#include "qcursor.h"
+#include <QtWidgets/private/qwidgetresizehandler_p.h>
+#include <QtWidgets/qframe.h>
+#include <QtWidgets/qapplication.h>
+#include <QtWidgets/private/qwidget_p.h>
+#include <QtGui/qcursor.h>
 #if QT_CONFIG(sizegrip)
-#include "qsizegrip.h"
+#include <QtWidgets/qsizegrip.h>
 #endif
-#include "qevent.h"
-#include "qdebug.h"
-#include "private/qlayoutengine_p.h"
+#include <QtGui/qevent.h>
+#include <QtCore/qdebug.h>
+#include <QtWidgets/private/qlayoutengine_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -234,4 +235,5 @@ bool ritual_ZNK20QWidgetResizeHandler10isResizingEv(
   return self->isResizing();
 }
 
+#endif  // QT_CONFIG(resizehandler)
 #endif  // QT_CONFIG(resizehandler)

@@ -2,6 +2,7 @@
 //  QtSql/qsqlrelationaltablemodel.h, Qt 6.12.0. Changes made here are lost.
 #include <QtSql/qtsqlglobal.h>
 #if QT_CONFIG(sqlmodel)
+#if QT_CONFIG(sqlmodel)
 #include <QtSql/qsqlrelationaltablemodel.h>
 #include <QtCore/qstring.h>
 
@@ -52,4 +53,5 @@ void ritual_ZN12QSqlRelationD1Ev(QSqlRelation *self) {
   delete self;
 }
 
+#endif  // QT_CONFIG(sqlmodel)
 #endif  // QT_CONFIG(sqlmodel)

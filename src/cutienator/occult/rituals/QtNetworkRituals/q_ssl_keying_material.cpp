@@ -2,6 +2,7 @@
 //  QtNetwork/qsslkeyingmaterial.h, Qt 6.12.0. Changes made here are lost.
 #include <QtNetwork/qtnetworkglobal.h>
 #if QT_CONFIG(ssl)
+#if QT_CONFIG(ssl)
 #include <QtNetwork/qsslkeyingmaterial.h>
 #include <QtCore/qbytearray.h>
 #include <QtCore/qdebug.h>
@@ -151,4 +152,5 @@ void ritual_list_drop_QSslKeyingMaterial(QList<QSslKeyingMaterial> *self) {
   delete self;
 }
 
+#endif  // QT_CONFIG(ssl)
 #endif  // QT_CONFIG(ssl)

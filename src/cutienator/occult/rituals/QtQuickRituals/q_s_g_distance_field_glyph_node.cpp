@@ -12,8 +12,8 @@
 #include <QtCore/qrect.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qsgdistancefieldglyphnode_p.h"
-#include "qsgdistancefieldglyphnode_p_p.h"
+#include <QtQuick/private/qsgdistancefieldglyphnode_p.h>
+#include <QtQuick/private/qsgdistancefieldglyphnode_p_p.h>
 #include <QtQuick/private/qsgcontext_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

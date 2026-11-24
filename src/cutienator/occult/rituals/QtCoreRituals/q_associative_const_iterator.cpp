@@ -26,18 +26,4 @@ QVariant *ritual_ZNK25QAssociativeConstIteratordeEv(
   return new QVariant(self->operator*());
 }
 
-//  QVariantConstPointer QAssociativeConstIterator::operator->() const
-extern "C" Q_DECL_EXPORT
-QVariantConstPointer *ritual_ZNK25QAssociativeConstIteratorptEv(
-    const QAssociativeConstIterator *self) {
-  return new QVariantConstPointer(self->operator->());
-}
-
-//  QAssociativeConstIterator::~QAssociativeConstIterator()
-extern "C" Q_DECL_EXPORT
-void ritual_ZN25QAssociativeConstIteratorD1Ev(
-    QAssociativeConstIterator *self) {
-  delete self;
-}
-
 #endif  // QT_DEPRECATED_SINCE(6, 15)

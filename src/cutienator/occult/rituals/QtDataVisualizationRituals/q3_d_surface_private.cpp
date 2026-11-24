@@ -9,8 +9,8 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "q3dsurface.h"
-#include "q3dsurface_p.h"
+#include <QtDataVisualization/q3dsurface.h>
+#include <QtDataVisualization/private/q3dsurface_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

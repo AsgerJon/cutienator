@@ -7,13 +7,13 @@
 #include <QtQuick/6.12.0/QtQuick/private/qquickloader_p_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquickloader_p_p.h"
+#include <QtQuick/private/qquickloader_p_p.h>
 #include <QtQml/qqmlinfo.h>
 #include <QtQml/qqmlcomponent.h>
-#include <private/qqmlengine_p.h>
-#include <private/qqmlglobal_p.h>
-#include <private/qqmlcomponent_p.h>
-#include <private/qqmlincubator_p.h>
+#include <QtQml/private/qqmlengine_p.h>
+#include <QtQml/private/qqmlglobal_p.h>
+#include <QtQml/private/qqmlcomponent_p.h>
+#include <QtQml/private/qqmlincubator_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from

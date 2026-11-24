@@ -4,6 +4,7 @@
 #include <QtNetwork/qtnetworkglobal.h>
 #include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
 #if QT_CONFIG(socks5)
+#if QT_CONFIG(socks5)
 #include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
 #include <QtNetwork/QtNetwork>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -119,4 +120,5 @@ bool ritual_take_QSocks5SocketEngineHandler(
   return static_cast<CuteQSocks5SocketEngineHandler *>(self)->take(key, call);
 }
 
+#endif  // QT_CONFIG(socks5)
 #endif  // QT_CONFIG(socks5)

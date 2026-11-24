@@ -2,6 +2,7 @@
 //  QtCore/qfuturewatcher.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qglobal.h>
 #if QT_CONFIG(future)
+#if QT_CONFIG(future)
 #include <QtCore/qfuturewatcher.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
@@ -271,4 +272,5 @@ void ritual_own_ZN18QFutureWatcherBase16disconnectNotifyERK11QMetaMethod(
       *signal);
 }
 
+#endif  // QT_CONFIG(future)
 #endif  // QT_CONFIG(future)

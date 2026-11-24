@@ -4,6 +4,7 @@
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #if QT_CONFIG(keysequenceedit)
+#if QT_CONFIG(keysequenceedit)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/qkeysequenceedit.h>
 #include <QtWidgets/QtWidgets>
@@ -19,11 +20,11 @@
 #include <QtGui/qimage.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qkeysequenceedit.h"
-#include "qkeysequenceedit_p.h"
-#include "qboxlayout.h"
-#include "qlineedit.h"
-#include <private/qkeymapper_p.h>
+#include <QtWidgets/qkeysequenceedit.h>
+#include <QtWidgets/private/qkeysequenceedit_p.h>
+#include <QtWidgets/qboxlayout.h>
+#include <QtWidgets/qlineedit.h>
+#include <QtGui/private/qkeymapper_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -467,4 +468,5 @@ bool ritual_take_QKeySequenceEditPrivate(
   return static_cast<CuteQKeySequenceEditPrivate *>(self)->take(key, call);
 }
 
+#endif  // QT_CONFIG(keysequenceedit)
 #endif  // QT_CONFIG(keysequenceedit)

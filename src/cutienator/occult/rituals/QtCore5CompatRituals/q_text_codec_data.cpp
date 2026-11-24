@@ -11,41 +11,41 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include "qplatformdefs.h"
-#include "qtextcodec.h"
-#include "qtextcodec_p.h"
-#include "qbytearraymatcher.h"
-#include "qendian.h"
-#include "qfile.h"
-#include "qlist.h"
-#include <private/qlocking_p.h>
+#include <QtCore5Compat/qtextcodec.h>
+#include <QtCore5Compat/private/qtextcodec_p.h>
+#include <QtCore/qbytearraymatcher.h>
+#include <QtCore/qendian.h>
+#include <QtCore/qfile.h>
+#include <QtCore/qlist.h>
+#include <QtCore/private/qlocking_p.h>
 #include <QtCore/qloggingcategory.h>
-#include "qstringlist.h"
-#include "qvarlengtharray.h"
-#include <private/qcoreapplication_p.h>
-#include "qutfcodec_p.h"
-#include "qlatincodec_p.h"
+#include <QtCore/qstringlist.h>
+#include <QtCore/qvarlengtharray.h>
+#include <QtCore/private/qcoreapplication_p.h>
+#include <QtCore5Compat/private/qutfcodec_p.h>
+#include <QtCore5Compat/private/qlatincodec_p.h>
 #if QT_CONFIG(codecs)
-#  include "qtsciicodec_p.h"
-#  include "qisciicodec_p.h"
+#  include <QtCore5Compat/private/qtsciicodec_p.h>
+#  include <QtCore5Compat/private/qisciicodec_p.h>
 #endif
 #if QT_CONFIG(icu)
-#include "qicucodec_p.h"
+#include <QtCore5Compat/private/qicucodec_p.h>
 #else
 #if QT_CONFIG(iconv)
-#  include "qiconvcodec_p.h"
+#  include <QtCore5Compat/private/qiconvcodec_p.h>
 #endif
 #ifdef Q_OS_WIN
-#  include "qwindowscodec_p.h"
+#  include <QtCore5Compat/private/qwindowscodec_p.h>
 #endif
-#  include "qsimplecodec_p.h"
+#  include <QtCore5Compat/private/qsimplecodec_p.h>
 #if QT_CONFIG(big_codecs) && QT_CONFIG(textcodec)
 #  ifndef Q_OS_INTEGRITY
-#    include "qgb18030codec_p.h"
-#    include "qeucjpcodec_p.h"
-#    include "qjiscodec_p.h"
-#    include "qsjiscodec_p.h"
-#    include "qeuckrcodec_p.h"
-#    include "qbig5codec_p.h"
+#    include <QtCore5Compat/private/qgb18030codec_p.h>
+#    include <QtCore5Compat/private/qeucjpcodec_p.h>
+#    include <QtCore5Compat/private/qjiscodec_p.h>
+#    include <QtCore5Compat/private/qsjiscodec_p.h>
+#    include <QtCore5Compat/private/qeuckrcodec_p.h>
+#    include <QtCore5Compat/private/qbig5codec_p.h>
 #  endif
 #endif
 #endif

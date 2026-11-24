@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qtreewidget.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(treewidget)
 #if QT_CONFIG(treewidget)
 #include <QtWidgets/qtreewidget.h>
 #include <QtCore/qstring.h>
@@ -770,4 +772,5 @@ void ritual_list_drop_QTreeWidgetItem_ptr(QList<QTreeWidgetItem *> *self) {
   delete self;
 }
 
+#endif  // QT_CONFIG(treewidget)
 #endif  // QT_CONFIG(treewidget)

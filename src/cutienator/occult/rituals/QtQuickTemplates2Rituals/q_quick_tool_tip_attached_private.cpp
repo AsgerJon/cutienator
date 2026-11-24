@@ -10,11 +10,11 @@
 #include <QtCore/qstring.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qquicktooltip_p.h"
-#include "qquicktooltip_p_p.h"
-#include "qquickpopup_p_p.h"
-#include "qquickpopupitem_p_p.h"
-#include "qquickcontrol_p_p.h"
+#include <QtQuickTemplates2/private/qquicktooltip_p.h>
+#include <QtQuickTemplates2/private/qquicktooltip_p_p.h>
+#include <QtQuickTemplates2/private/qquickpopup_p_p.h>
+#include <QtQuickTemplates2/private/qquickpopupitem_p_p.h>
+#include <QtQuickTemplates2/private/qquickcontrol_p_p.h>
 #include <QtCore/qbasictimer.h>
 #include <QtQml/qqmlinfo.h>
 #include <QtQml/qqmlengine.h>

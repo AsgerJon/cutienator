@@ -4,6 +4,7 @@
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #if QT_CONFIG(pushbutton)
+#if QT_CONFIG(pushbutton)
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/qpushbutton.h>
 #include <QtWidgets/QtWidgets>
@@ -19,56 +20,56 @@
 #include <QtGui/qimage.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "private/qabstractbutton_p.h"
+#include <QtWidgets/private/qabstractbutton_p.h>
 #if QT_CONFIG(itemviews)
-#include "qabstractitemview.h"
+#include <QtWidgets/qabstractitemview.h>
 #endif
 #if QT_CONFIG(buttongroup)
-#include "qbuttongroup.h"
-#include "private/qbuttongroup_p.h"
+#include <QtWidgets/qbuttongroup.h>
+#include <QtWidgets/private/qbuttongroup_p.h>
 #endif
-#include "private/qapplication_p.h"
-#include "qabstractbutton_p.h"
-#include "qevent.h"
-#include "qpainter.h"
-#include "qapplication.h"
-#include "qstyle.h"
+#include <QtWidgets/private/qapplication_p.h>
+#include <QtWidgets/private/qabstractbutton_p.h>
+#include <QtGui/qevent.h>
+#include <QtGui/qpainter.h>
+#include <QtWidgets/qapplication.h>
+#include <QtWidgets/qstyle.h>
 #if QT_CONFIG(accessibility)
-#include "qaccessible.h"
+#include <QtGui/qaccessible.h>
 #endif
-#include <qpa/qplatformtheme.h>
+#include <QtGui/qpa/qplatformtheme.h>
 #include <QtCore/qpointer.h>
 #include <algorithm>
-#include "qapplication.h"
-#include "qbitmap.h"
+#include <QtWidgets/qapplication.h>
+#include <QtGui/qbitmap.h>
 #if QT_CONFIG(dialog)
-#include <private/qdialog_p.h>
+#include <QtWidgets/private/qdialog_p.h>
 #endif
-#include "qdrawutil.h"
-#include "qevent.h"
-#include "qfontmetrics.h"
-#include "qstylepainter.h"
-#include "qpixmap.h"
-#include "qpointer.h"
-#include "qpushbutton.h"
-#include "qstyle.h"
-#include "qstyleoption.h"
+#include <QtWidgets/qdrawutil.h>
+#include <QtGui/qevent.h>
+#include <QtGui/qfontmetrics.h>
+#include <QtWidgets/qstylepainter.h>
+#include <QtGui/qpixmap.h>
+#include <QtCore/qpointer.h>
+#include <QtWidgets/qpushbutton.h>
+#include <QtWidgets/qstyle.h>
+#include <QtWidgets/qstyleoption.h>
 #if QT_CONFIG(toolbar)
-#include "qtoolbar.h"
+#include <QtWidgets/qtoolbar.h>
 #endif
-#include "qdebug.h"
-#include "qlayoutitem.h"
+#include <QtCore/qdebug.h>
+#include <QtWidgets/qlayoutitem.h>
 #if QT_CONFIG(dialogbuttonbox)
-#include "qdialogbuttonbox.h"
+#include <QtWidgets/qdialogbuttonbox.h>
 #endif
 #if QT_CONFIG(accessibility)
-#include "qaccessible.h"
+#include <QtGui/qaccessible.h>
 #endif
 #if QT_CONFIG(menu)
-#include "qmenu.h"
-#include "private/qmenu_p.h"
+#include <QtWidgets/qmenu.h>
+#include <QtWidgets/private/qmenu_p.h>
 #endif
-#include "private/qpushbutton_p.h"
+#include <QtWidgets/private/qpushbutton_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -617,4 +618,5 @@ int ritual_own_ZNK18QPushButtonPrivate16styleButtonStateE6QFlagsIN6QStyle9StateF
           QFlags<QStyle::StateFlag>::fromInt(state)).toInt());
 }
 
+#endif  // QT_CONFIG(pushbutton)
 #endif  // QT_CONFIG(pushbutton)

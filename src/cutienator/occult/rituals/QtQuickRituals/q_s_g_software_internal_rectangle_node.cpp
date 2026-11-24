@@ -9,8 +9,8 @@
 #include <QtCore/qrect.h>
 #include <QtGui/qcolor.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qsgsoftwareinternalrectanglenode_p.h"
-#include <qmath.h>
+#include <QtQuick/private/qsgsoftwareinternalrectanglenode_p.h>
+#include <QtCore/qmath.h>
 #include <QtGui/QPainter>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

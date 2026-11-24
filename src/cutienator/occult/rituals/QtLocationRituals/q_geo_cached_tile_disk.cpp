@@ -7,14 +7,14 @@
 #include <QtLocation/6.12.0/QtLocation/private/qgeofiletilecache_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qgeofiletilecache_p.h"
-#include "qgeotilespec_p.h"
-#include "qgeomappingmanager_p.h"
-#include <QDir>
-#include <QStandardPaths>
-#include <QMetaType>
-#include <QPixmap>
-#include <QDebug>
+#include <QtLocation/private/qgeofiletilecache_p.h>
+#include <QtLocation/private/qgeotilespec_p.h>
+#include <QtLocation/private/qgeomappingmanager_p.h>
+#include <QtCore/QDir>
+#include <QtCore/QStandardPaths>
+#include <QtCore/QMetaType>
+#include <QtGui/QPixmap>
+#include <QtCore/QDebug>
 #include <QtCore/qsavefile.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

@@ -12,26 +12,26 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "private/qgesturemanager_p.h"
-#include "private/qstandardgestures_p.h"
-#include "private/qwidget_p.h"
-#include "private/qgesture_p.h"
+#include <QtWidgets/private/qgesturemanager_p.h>
+#include <QtWidgets/private/qstandardgestures_p.h>
+#include <QtWidgets/private/qwidget_p.h>
+#include <QtWidgets/private/qgesture_p.h>
 #if QT_CONFIG(graphicsview)
-#include "private/qgraphicsitem_p.h"
-#include "qgraphicsitem.h"
+#include <QtWidgets/private/qgraphicsitem_p.h>
+#include <QtWidgets/qgraphicsitem.h>
 #endif
-#include "private/qevent_p.h"
-#include "private/qapplication_p.h"
-#include "private/qwidgetwindow_p.h"
-#include "qgesture.h"
-#include "qevent.h"
+#include <QtGui/private/qevent_p.h>
+#include <QtWidgets/private/qapplication_p.h>
+#include <QtWidgets/private/qwidgetwindow_p.h>
+#include <QtWidgets/qgesture.h>
+#include <QtGui/qevent.h>
 #ifdef Q_OS_HARMONY
-#include "qohosgesturerecognizer_p.h"
+#include <QtWidgets/private/qohosgesturerecognizer_p.h>
 #endif
 #ifdef Q_OS_MACOS
-#include "qmacgesturerecognizer_p.h"
+#include <QtWidgets/private/qmacgesturerecognizer_p.h>
 #endif
-#include "qdebug.h"
+#include <QtCore/qdebug.h>
 #include <QtCore/QLoggingCategory>
 #include <QtCore/QVarLengthArray>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER

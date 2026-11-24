@@ -22,7 +22,7 @@
 #include <QtQuick/private/qsgrenderer_p.h>
 #include <QtQuick/private/qquickwindow_p.h>
 #include <QtQuick3DRuntimeRender/private/qssgrenderitem2d_p.h>
-#include "qquick3dnode_p_p.h"
+#include <QtQuick3D/private/qquick3dnode_p_p.h>
 #include <QtGui/rhi/qrhi.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

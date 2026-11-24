@@ -7,15 +7,15 @@
 #include <QtRemoteObjects/6.12.0/QtRemoteObjects/private/qremoteobjectreplica_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qremoteobjectreplica.h"
-#include "qremoteobjectreplica_p.h"
-#include "qremoteobjectnode.h"
-#include "qremoteobjectnode_p.h"
-#include "qremoteobjectdynamicreplica.h"
-#include "qremoteobjectpacket_p.h"
-#include "qremoteobjectpendingcall_p.h"
-#include "qconnectionfactories_p.h"
-#include "qremoteobjectsource_p.h"
+#include <QtRemoteObjects/qremoteobjectreplica.h>
+#include <QtRemoteObjects/private/qremoteobjectreplica_p.h>
+#include <QtRemoteObjects/qremoteobjectnode.h>
+#include <QtRemoteObjects/private/qremoteobjectnode_p.h>
+#include <QtRemoteObjects/qremoteobjectdynamicreplica.h>
+#include <QtRemoteObjects/private/qremoteobjectpacket_p.h>
+#include <QtRemoteObjects/private/qremoteobjectpendingcall_p.h>
+#include <QtRemoteObjects/private/qconnectionfactories_p.h>
+#include <QtRemoteObjects/private/qremoteobjectsource_p.h>
 #include <QtCore/qcoreapplication.h>
 #include <QtCore/qdatastream.h>
 #include <QtCore/qelapsedtimer.h>
