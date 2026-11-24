@@ -12,7 +12,9 @@
 #
 #  What it does:
 #  1. Installs from pacman: LXQt, its Wayland session, labwc, greetd,
-#     wayvnc, grim and Qt's Wayland platform.
+#     wayvnc and grim. Qt's Wayland platform comes with 'qt6-base';
+#     'qt6-wayland' is Qt's Wayland compositor, which nothing here uses,
+#     and is not installed: the machine's Qt stays the PC's.
 #  2. Has greetd log SESSION_USER ('builder' unless set) into the LXQt
 #     Wayland session at boot, on the virtual display, with no one at a
 #     screen. When that session ends, greetd shows its plain login
@@ -57,7 +59,7 @@ ensureLine() {
 
 echo "1. packages"
 pacman -S --needed --noconfirm lxqt lxqt-wayland-session labwc greetd \
-  wayvnc grim qt6-wayland
+  wayvnc grim
 
 echo "2. greetd logs $SESSION_USER into the session at boot"
 if [ -f /etc/greetd/config.toml ] && [ ! -e /etc/greetd/config.toml.orig ] \
