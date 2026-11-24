@@ -1,0 +1,25 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSerialBus/qmodbuspdu.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN24QModbusExceptionResponseC1Ev": ["address"],
+    "ritual_ZN24QModbusExceptionResponseC1EN10QModbusPdu12FunctionCodeENS0_13ExceptionCodeE": [
+      "address", "int", "int"
+    ],
+    "ritual_ZN24QModbusExceptionResponseD1Ev": ["nothing", "address"],
+    "ritual_ZN24QModbusExceptionResponse15setFunctionCodeEN10QModbusPdu12FunctionCodeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN24QModbusExceptionResponse16setExceptionCodeEN10QModbusPdu13ExceptionCodeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_take_QModbusExceptionResponse": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN24QModbusExceptionResponse15setFunctionCodeEN10QModbusPdu12FunctionCodeE": [
+      "nothing", "address", "int"
+    ]
+  }
+}

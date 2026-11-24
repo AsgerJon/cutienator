@@ -1,0 +1,76 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtRemoteObjects/qremoteobjectnode.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QRemoteObjectNode10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QRemoteObjectNode2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QRemoteObjectNodeC1EP7QObject": ["address", "address"],
+    "ritual_ZN17QRemoteObjectNodeC1ERK4QUrlP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN17QRemoteObjectNodeD1Ev": ["nothing", "address"],
+    "ritual_ZN17QRemoteObjectNode13connectToNodeERK4QUrl": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN17QRemoteObjectNode23addClientSideConnectionEP9QIODevice": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QRemoteObjectNode7setNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK17QRemoteObjectNode9instancesE11QStringView": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN17QRemoteObjectNode14acquireDynamicERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK17QRemoteObjectNode11registryUrlEv": ["address", "address"],
+    "ritual_ZN17QRemoteObjectNode14setRegistryUrlERK4QUrl": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN17QRemoteObjectNode15waitForRegistryEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK17QRemoteObjectNode8registryEv": ["address", "address"],
+    "ritual_ZNK17QRemoteObjectNode14persistedStoreEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QRemoteObjectNode17setPersistedStoreEP35QRemoteObjectAbstractPersistedStore": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QRemoteObjectNode9lastErrorEv": ["int", "address"],
+    "ritual_ZNK17QRemoteObjectNode17heartbeatIntervalEv": ["int", "address"],
+    "ritual_ZN17QRemoteObjectNode20setHeartbeatIntervalEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QRemoteObjectNode10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QRemoteObjectNode17initializeReplicaEP20QRemoteObjectReplicaRK7QString": [
+      "nothing", "address", "address", "text"
+    ],
+    "ritual_ZN17QRemoteObjectNode17persistPropertiesERK7QStringRK10QByteArrayRK5QListI8QVariantE": [
+      "nothing", "address", "text", "address", "address"
+    ],
+    "ritual_ZN17QRemoteObjectNode18retrievePropertiesERK7QStringRK10QByteArray": [
+      "address", "address", "text", "address"
+    ],
+    "ritual_ZN17QRemoteObjectNode6d_funcEv": ["address", "address"],
+    "ritual_ZNK17QRemoteObjectNode6d_funcEv": ["address", "address"],
+    "ritual_take_QRemoteObjectNode": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN17QRemoteObjectNode7setNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_own_ZN17QRemoteObjectNode14setRegistryUrlERK4QUrl": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN17QRemoteObjectNode10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ]
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLottie/6.12.0/QtLottie/private/qlottietrimpath_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15QLottieTrimPathC1EP11QLottieBase": ["address", "address"],
+    "ritual_ZN15QLottieTrimPathC1ERKS_": ["address", "address"],
+    "ritual_ZNK15QLottieTrimPath5cloneEv": ["address", "address"],
+    "ritual_ZN15QLottieTrimPath5parseERK11QJsonObject": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN15QLottieTrimPath16updatePropertiesEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QLottieTrimPath11acceptsTrimEv": ["bool", "address"],
+    "ritual_ZN15QLottieTrimPath9applyTrimERKS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QLottieTrimPath5startEv": ["double", "address"],
+    "ritual_ZNK15QLottieTrimPath3endEv": ["double", "address"],
+    "ritual_ZNK15QLottieTrimPath6offsetEv": ["double", "address"],
+    "ritual_ZNK15QLottieTrimPath10isParallelEv": ["bool", "address"],
+    "ritual_ZNK15QLottieTrimPath4trimERK12QPainterPath": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN15QLottieTrimPathD1Ev": ["nothing", "address"],
+    "ritual_take_QLottieTrimPath": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK15QLottieTrimPath5cloneEv": ["address", "address"],
+    "ritual_own_ZN15QLottieTrimPath5parseERK11QJsonObject": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZN15QLottieTrimPath16updatePropertiesEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZNK15QLottieTrimPath11acceptsTrimEv": ["bool", "address"],
+    "ritual_own_ZN15QLottieTrimPath9applyTrimERKS_": [
+      "nothing", "address", "address"
+    ]
+  }
+}

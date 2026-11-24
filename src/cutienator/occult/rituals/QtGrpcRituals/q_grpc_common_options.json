@@ -1,0 +1,20 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGrpc/6.12.0/QtGrpc/private/qgrpccommonoptions_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QGrpcCommonOptionsC1Ev": ["address"],
+    "ritual_ZN18QGrpcCommonOptionsD1Ev": ["nothing", "address"],
+    "ritual_ZN18QGrpcCommonOptions23setFilterServerMetadataEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN18QGrpcCommonOptions28setMaximumReceiveMessageSizeEy": [
+      "nothing", "address", "unsigned long long"
+    ],
+    "ritual_ZN18QGrpcCommonOptions21setRequestCompressionEN6QtGrpc20CompressionAlgorithmE": [
+      "nothing", "address", "unsigned int"
+    ]
+  }
+}

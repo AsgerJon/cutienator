@@ -1,0 +1,25 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DInput/qmouseevent.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK9Qt3DInput11QMouseEvent10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput11QMouseEvent2trEPKcS2_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZNK9Qt3DInput11QMouseEvent1xEv": ["int", "address"],
+    "ritual_ZNK9Qt3DInput11QMouseEvent1yEv": ["int", "address"],
+    "ritual_ZNK9Qt3DInput11QMouseEvent7wasHeldEv": ["bool", "address"],
+    "ritual_ZNK9Qt3DInput11QMouseEvent10isAcceptedEv": ["bool", "address"],
+    "ritual_ZN9Qt3DInput11QMouseEvent11setAcceptedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK9Qt3DInput11QMouseEvent4typeEv": ["int", "address"],
+    "ritual_take_Qt3DInput_QMouseEvent": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DExtras/qconemesh.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK10Qt3DExtras9QConeMesh10metaObjectEv": ["address", "address"],
+    "ritual_ZN10Qt3DExtras9QConeMesh2trEPKcS2_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_take_Qt3DExtras_QConeMesh": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

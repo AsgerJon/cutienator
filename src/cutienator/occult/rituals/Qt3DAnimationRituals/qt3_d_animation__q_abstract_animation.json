@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DAnimation/qabstractanimation.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZNK13Qt3DAnimation18QAbstractAnimation10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation18QAbstractAnimation2trEPKcS2_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN13Qt3DAnimation18QAbstractAnimation6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation18QAbstractAnimation6d_funcEv": [
+      "address", "address"
+    ]
+  }
+}

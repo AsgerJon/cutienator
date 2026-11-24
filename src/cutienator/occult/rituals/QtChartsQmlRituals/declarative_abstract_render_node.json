@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtChart",
+    "sQml/6.12.0/QtChartsQml/private/declarativeabstractrendernode_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN29DeclarativeAbstractRenderNode14setTextureSizeERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK29DeclarativeAbstractRenderNode11textureSizeEv": [
+      "address", "address"
+    ],
+    "ritual_ZN29DeclarativeAbstractRenderNode7setRectERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN29DeclarativeAbstractRenderNode15setAntialiasingEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN29DeclarativeAbstractRenderNode14addMouseEventsERK5QListIP11QMouseEventE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_DeclarativeAbstractRenderNode": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

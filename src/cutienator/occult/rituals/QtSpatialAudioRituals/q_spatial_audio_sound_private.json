@@ -1,0 +1,35 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtSpati",
+    "alAudio/6.12.0/QtSpatialAudio/private/qspatialaudiosound_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK25QSpatialAudioSoundPrivate3urlEv": ["address", "address"],
+    "ritual_ZN25QSpatialAudioSoundPrivate9setVolumeEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK25QSpatialAudioSoundPrivate6volumeEv": ["float", "address"],
+    "ritual_ZNK25QSpatialAudioSoundPrivate5loopsEv": ["int", "address"],
+    "ritual_ZNK25QSpatialAudioSoundPrivate8autoPlayEv": ["bool", "address"],
+    "ritual_ZN25QSpatialAudioSoundPrivate11setAutoPlayEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN25QSpatialAudioSoundPrivate17updateRoomEffectsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QSpatialAudioSoundPrivate4stopEv": ["nothing", "address"],
+    "ritual_ZNK25QSpatialAudioSoundPrivate5stateEv": [
+      "unsigned char", "address"
+    ],
+    "ritual_ZN25QSpatialAudioSoundPrivate11applyVolumeEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QSpatialAudioSoundPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN25QSpatialAudioSoundPrivate17updateRoomEffectsEv": [
+      "nothing", "address"
+    ]
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3DXr/6.12.0/QtQuick3DXr/private/qquick3dxrinputmanager_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK22QQuick3DXrInputManager10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QQuick3DXrInputManager6d_funcEv": ["address", "address"],
+    "ritual_ZNK22QQuick3DXrInputManager6d_funcEv": ["address", "address"]
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuickTimeline/6.12.0/QtQuickTimeline/private/qquickkeyframe_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK19QQuickKeyframeGroup10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QQuickKeyframeGroup2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN19QQuickKeyframeGroupC1EP7QObject": ["address", "address"],
+    "ritual_ZNK19QQuickKeyframeGroup6targetEv": ["address", "address"],
+    "ritual_ZN19QQuickKeyframeGroup15setTargetObjectEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QQuickKeyframeGroup8propertyEv": ["text", "address"],
+    "ritual_ZN19QQuickKeyframeGroup11setPropertyERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK19QQuickKeyframeGroup14keyframeSourceEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QQuickKeyframeGroup17setKeyframeSourceERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QQuickKeyframeGroup12keyframeDataEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QQuickKeyframeGroup15setKeyframeDataERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QQuickKeyframeGroup8evaluateEd": [
+      "address", "address", "double"
+    ],
+    "ritual_ZN19QQuickKeyframeGroup11setPropertyEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN19QQuickKeyframeGroup4initEv": ["nothing", "address"],
+    "ritual_ZN19QQuickKeyframeGroup17resetDefaultValueEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickKeyframeGroup5resetEv": ["nothing", "address"],
+    "ritual_ZN19QQuickKeyframeGroup14setupKeyframesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickKeyframeGroup10classBeginEv": ["nothing", "address"],
+    "ritual_ZN19QQuickKeyframeGroup17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_cast_QQuickKeyframeGroup_QQmlParserStatus": [
+      "address", "address"
+    ],
+    "ritual_take_QQuickKeyframeGroup": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN19QQuickKeyframeGroup10classBeginEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN19QQuickKeyframeGroup17componentCompleteEv": [
+      "nothing", "address"
+    ]
+  }
+}

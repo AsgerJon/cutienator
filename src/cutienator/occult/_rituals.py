@@ -229,7 +229,8 @@ class Rituals:
   @classmethod
   def getRitualFiles(cls) -> Paths:
     """
-    Gives the ritual files that 'build' compiles.
+    Gives every ritual file of the package. 'build' compiles those of
+    the parts the Qt of this machine has; see 'getBuiltRitualFiles'.
 
     Found for you: every file ending in '.cpp' in the folder of a part
     of Qt in the ritual folder, part by part and in alphabetical order.
@@ -243,6 +244,26 @@ class Rituals:
     """
     pattern = os.path.join(cls.getRitualFolder(), '*Rituals', '*.cpp')
     return (*sorted(glob.glob(pattern)),)
+
+  @classmethod
+  def getBuiltRitualFiles(cls) -> Paths:
+    """
+    Gives the ritual files that 'build' compiles: those of
+    'getRitualFiles' of the parts the Qt of this machine has, as
+    'getInstalledParts' finds them. Those of a part it lacks, as Qt3D
+    where it is not installed, are left out, and their rituals raise
+    when called; see 'call'.
+    """
+    installed = {*cls.getInstalledParts()}
+    return (*(
+        path for path in cls.getRitualFiles()
+        if cls._getPartOf(path) in installed),)
+
+  @staticmethod
+  def _getPartOf(ritualFile: str) -> str:
+    """Gives the part of Qt a ritual file is of, as 'QtCore' for
+    '.../QtCoreRituals/q_object.cpp'."""
+    return os.path.basename(os.path.dirname(ritualFile))[:-len('Rituals')]
 
   @classmethod
   def getTargetFile(cls) -> str:
@@ -282,14 +303,35 @@ class Rituals:
     return (*found,)
 
   @classmethod
+  def getInstalledParts(cls) -> Paths:
+    """
+    Gives the parts of 'getRitualParts' the Qt of this machine has, in
+    the same order: its shared object is in the folder where Qt keeps
+    them, or, for a part of header files alone as QtUiPlugin, its
+    folder of header files is in Qt's header folder. The ritual files
+    of the others are not built here.
+    """
+    folder = Build.getQtSharedObjectFolder()
+    headers = Build.getQtHeaderFolder()
+    system = System.getHere()
+    found = []  # type: List[str]
+    for part in cls.getRitualParts():
+      shared = os.path.join(folder, system.getQtFileName(part))
+      if os.path.exists(shared) or os.path.isdir(
+          os.path.join(headers, part)):
+        found.append(part)
+    return (*found,)
+
+  @classmethod
   def getQtSharedObjects(cls) -> Paths:
     """
     Gives the Qt shared objects the rituals call into.
 
-    Found for you: one file for each part of Qt in 'getRitualParts',
-    in the folder where Qt keeps its shared objects. 'System' gives the
-    name the file has on the system Python runs on, which on Linux is
-    'libQt6Core.so.6' for 'QtCore'.
+    Found for you: the file of each part of 'getInstalledParts' that
+    has one, in the folder where Qt keeps its shared objects. 'System'
+    gives the name the file has on the system Python runs on, which on
+    Linux is 'libQt6Core.so.6' for 'QtCore'. A part of header files
+    alone, as QtUiPlugin, has none.
 
     Returns
     -------
@@ -299,9 +341,10 @@ class Rituals:
     """
     folder = Build.getQtSharedObjectFolder()
     system = System.getHere()
-    parts = cls.getRitualParts()
-    names = (*(system.getQtFileName(part) for part in parts),)
-    return (*(os.path.join(folder, name) for name in names),)
+    paths = (
+        os.path.join(folder, system.getQtFileName(part))
+        for part in cls.getInstalledParts())
+    return (*(path for path in paths if os.path.exists(path)),)
 
   @classmethod
   def getRowsFiles(cls) -> Paths:
@@ -417,7 +460,7 @@ class Rituals:
     if not os.path.isfile(target):
       return True
     made = os.path.getmtime(target)
-    for ritualFile in cls.getRitualFiles():
+    for ritualFile in cls.getBuiltRitualFiles():
       if os.path.getmtime(ritualFile) > made:
         return True
     return False
@@ -449,8 +492,9 @@ class Rituals:
       try:
         ritual = getattr(opened, name)
       except AttributeError:
-        #  Its ritual file has it between Qt's own '#if' lines, which do
-        #  not hold for the Qt of this machine. It raises when called.
+        #  Its ritual file is of a part of Qt this machine does not
+        #  have, or has it between Qt's own '#if' lines, which do not
+        #  hold for the Qt of this machine. It raises when called.
         missing.add(name)
         continue
       ritual.restype = words[gives]
@@ -503,8 +547,9 @@ class Rituals:
     """
     Gives the name of every ritual a rows file lists and the target file
     does not offer: those whose functions the Qt of this machine does
-    not have. Their ritual files have them between Qt's own '#if' lines,
-    which do not hold here, so 'build' compiled them out.
+    not have. Their ritual files are of a part of Qt not installed
+    here, which 'build' leaves out, or have them between Qt's own '#if'
+    lines, which do not hold here, so 'build' compiled them out.
 
     Found for you when the target file is opened, as 'getOpened' does.
     """
@@ -872,15 +917,17 @@ class Rituals:
       infoSpec = """The shared object is already open in this Python and
       cannot be swapped. Build in a Python that has run no ritual."""
       raise RuntimeError(' '.join(infoSpec.split()))
-    ritualFiles = cls.getRitualFiles()
+    ritualFiles = cls.getBuiltRitualFiles()
     if not ritualFiles:
-      infoSpec = """There is no ritual file in '%s'."""
-      raise FileNotFoundError(infoSpec % cls.getRitualFolder())
+      infoSpec = """There is no ritual file in '%s' of a part of Qt this
+      machine has."""
+      info = infoSpec % cls.getRitualFolder()
+      raise FileNotFoundError(' '.join(info.split()))
     build = Build()
     build.setRitualFiles(*ritualFiles)
     build.setTargetFile(cls.getTargetFile())
     build.setQtSharedObjects(*cls.getQtSharedObjects())
-    build.setComponents(*cls.getRitualParts())
+    build.setComponents(*cls.getInstalledParts())
     return build.run()
 
   @classmethod
@@ -932,8 +979,9 @@ class Rituals:
       raise LookupError(' '.join(info.split()))
     if name in cls.getMissing():
       infoSpec = """The ritual '%s' calls a function the Qt of this
-      machine does not have: its ritual file has it between Qt's own
-      '#if' lines, which do not hold here, so '%s' does not offer it."""
+      machine does not have: its ritual file is of a part of Qt that is
+      not installed here, or has it between Qt's own '#if' lines, which
+      do not hold here, so '%s' does not offer it."""
       info = infoSpec % (name, cls.getTargetFile())
       raise LookupError(' '.join(info.split()))
     ritual = getattr(cls.getOpened(), name)

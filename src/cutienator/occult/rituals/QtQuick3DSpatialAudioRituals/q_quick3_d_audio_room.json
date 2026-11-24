@@ -1,0 +1,60 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DSpatialAudio/6.12.0/QtQuick3DSpatialAudio/private/qquick3daudior",
+    "oom_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QQuick3DAudioRoom10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QQuick3DAudioRoomD1Ev": ["nothing", "address"],
+    "ritual_ZN17QQuick3DAudioRoom13setDimensionsE9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QQuick3DAudioRoom10dimensionsEv": ["address", "address"],
+    "ritual_ZN17QQuick3DAudioRoom15setLeftMaterialENS_8MaterialE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK17QQuick3DAudioRoom12leftMaterialEv": ["int", "address"],
+    "ritual_ZN17QQuick3DAudioRoom16setRightMaterialENS_8MaterialE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK17QQuick3DAudioRoom13rightMaterialEv": ["int", "address"],
+    "ritual_ZN17QQuick3DAudioRoom16setFrontMaterialENS_8MaterialE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK17QQuick3DAudioRoom13frontMaterialEv": ["int", "address"],
+    "ritual_ZN17QQuick3DAudioRoom15setBackMaterialENS_8MaterialE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK17QQuick3DAudioRoom12backMaterialEv": ["int", "address"],
+    "ritual_ZN17QQuick3DAudioRoom16setFloorMaterialENS_8MaterialE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK17QQuick3DAudioRoom13floorMaterialEv": ["int", "address"],
+    "ritual_ZN17QQuick3DAudioRoom18setCeilingMaterialENS_8MaterialE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK17QQuick3DAudioRoom15ceilingMaterialEv": ["int", "address"],
+    "ritual_ZN17QQuick3DAudioRoom17setReflectionGainEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK17QQuick3DAudioRoom14reflectionGainEv": ["float", "address"],
+    "ritual_ZN17QQuick3DAudioRoom13setReverbGainEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK17QQuick3DAudioRoom10reverbGainEv": ["float", "address"],
+    "ritual_ZN17QQuick3DAudioRoom13setReverbTimeEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK17QQuick3DAudioRoom10reverbTimeEv": ["float", "address"],
+    "ritual_ZN17QQuick3DAudioRoom19setReverbBrightnessEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK17QQuick3DAudioRoom16reverbBrightnessEv": [
+      "float", "address"
+    ],
+    "ritual_ZN17QQuick3DAudioRoom14updatePositionEv": ["nothing", "address"],
+    "ritual_ZN17QQuick3DAudioRoom14updateRotationEv": ["nothing", "address"],
+    "ritual_take_QQuick3DAudioRoom": ["bool", "address", "chars", "address"]
+  }
+}

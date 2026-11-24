@@ -1,0 +1,13 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGrpc/6.12.0/QtGrpc/private/qgrpcinterceptorchain_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN28QGrpcInterceptorChainPrivate5EntryC1Ev": ["address"],
+    "ritual_ZN28QGrpcInterceptorChainPrivate5EntryD1Ev": [
+      "nothing", "address"
+    ]
+  }
+}

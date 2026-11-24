@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DRender/qpaintedtextureimage.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZNK10Qt3DRender20QPaintedTextureImage10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender20QPaintedTextureImage2trEPKcS2_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DRender20QPaintedTextureImage5paintEP8QPainter": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender20QPaintedTextureImage6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender20QPaintedTextureImage6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_take_Qt3DRender_QPaintedTextureImage": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

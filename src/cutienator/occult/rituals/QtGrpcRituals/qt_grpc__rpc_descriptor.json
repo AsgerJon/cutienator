@@ -1,0 +1,30 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGrpc/qtgrpcnamespace.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN6QtGrpceqERKNS_13RpcDescriptorES2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QtGrpcneERKNS_13RpcDescriptorES2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QtGrpcltERKNS_13RpcDescriptorES2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QtGrpcgtERKNS_13RpcDescriptorES2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QtGrpcleERKNS_13RpcDescriptorES2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QtGrpcgeERKNS_13RpcDescriptorES2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QtGrpclsE6QDebugRKNS_13RpcDescriptorE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN6QtGrpc13RpcDescriptorD1Ev": ["nothing", "address"]
+  }
+}

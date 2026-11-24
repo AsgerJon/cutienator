@@ -1,0 +1,74 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtVirtualKeyboard/qvirtualkeyboardtrace.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK21QVirtualKeyboardTrace10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QVirtualKeyboardTrace2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN21QVirtualKeyboardTrace24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QVirtualKeyboardTraceC1EP7QObject": ["address", "address"],
+    "ritual_ZN21QVirtualKeyboardTraceD1Ev": ["nothing", "address"],
+    "ritual_ZNK21QVirtualKeyboardTrace7traceIdEv": ["int", "address"],
+    "ritual_ZN21QVirtualKeyboardTrace10setTraceIdEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK21QVirtualKeyboardTrace8channelsEv": ["address", "address"],
+    "ritual_ZN21QVirtualKeyboardTrace11setChannelsERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21QVirtualKeyboardTrace6lengthEv": ["int", "address"],
+    "ritual_ZNK21QVirtualKeyboardTrace6pointsEii": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZN21QVirtualKeyboardTrace8addPointERK7QPointF": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN21QVirtualKeyboardTrace14setChannelDataERK7QStringiRK8QVariant": [
+      "nothing", "address", "text", "int", "address"
+    ],
+    "ritual_ZNK21QVirtualKeyboardTrace11channelDataERK7QStringii": [
+      "address", "address", "text", "int", "int"
+    ],
+    "ritual_ZNK21QVirtualKeyboardTrace7isFinalEv": ["bool", "address"],
+    "ritual_ZN21QVirtualKeyboardTrace8setFinalEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK21QVirtualKeyboardTrace10isCanceledEv": ["bool", "address"],
+    "ritual_ZN21QVirtualKeyboardTrace11setCanceledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK21QVirtualKeyboardTrace7opacityEv": ["double", "address"],
+    "ritual_ZN21QVirtualKeyboardTrace10setOpacityEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN21QVirtualKeyboardTrace14startHideTimerEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN21QVirtualKeyboardTrace10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QVirtualKeyboardTrace": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN21QVirtualKeyboardTrace10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_list_make_QVirtualKeyboardTrace_ptr": ["address"],
+    "ritual_list_add_QVirtualKeyboardTrace_ptr": [
+      "nothing", "address", "address"
+    ],
+    "ritual_list_size_QVirtualKeyboardTrace_ptr": ["long long", "address"],
+    "ritual_list_at_QVirtualKeyboardTrace_ptr": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_QVirtualKeyboardTrace_ptr": ["nothing", "address"]
+  }
+}

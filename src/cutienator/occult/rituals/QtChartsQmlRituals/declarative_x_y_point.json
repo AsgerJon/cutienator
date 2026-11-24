@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtChartsQml/6.12.0/QtChartsQml/private/declarativexypoint_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18DeclarativeXYPoint10metaObjectEv": ["address", "address"],
+    "ritual_ZN18DeclarativeXYPoint2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18DeclarativeXYPointC1EP7QObject": ["address", "address"],
+    "ritual_cast_DeclarativeXYPoint_QPointF": ["address", "address"],
+    "ritual_take_DeclarativeXYPoint": ["bool", "address", "chars", "address"]
+  }
+}

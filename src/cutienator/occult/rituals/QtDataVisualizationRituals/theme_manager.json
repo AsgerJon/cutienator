@@ -1,0 +1,81 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtDataV",
+    "isualization/6.12.0/QtDataVisualization/private/thememanager_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK12ThemeManager10metaObjectEv": ["address", "address"],
+    "ritual_ZN12ThemeManagerD1Ev": ["nothing", "address"],
+    "ritual_ZNK12ThemeManager11activeThemeEv": ["address", "address"],
+    "ritual_ZNK12ThemeManager6themesEv": ["address", "address"],
+    "ritual_ZN12ThemeManager19connectThemeSignalsEv": ["nothing", "address"],
+    "ritual_ZN12ThemeManager14createGradientERK6QColorf": [
+      "address", "address", "float"
+    ],
+    "ritual_ZN12ThemeManager13setBaseColorsEP8Q3DThemeRK5QListI6QColorE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12ThemeManager18setBackgroundColorEP8Q3DThemeRK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12ThemeManager14setWindowColorEP8Q3DThemeRK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12ThemeManager12setTextColorEP8Q3DThemeRK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12ThemeManager22setTextBackgroundColorEP8Q3DThemeRK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12ThemeManager16setGridLineColorEP8Q3DThemeRK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12ThemeManager23setSingleHighlightColorEP8Q3DThemeRK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12ThemeManager22setMultiHighlightColorEP8Q3DThemeRK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12ThemeManager13setLightColorEP8Q3DThemeRK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12ThemeManager16setBaseGradientsEP8Q3DThemeRK5QListI15QLinearGradientE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12ThemeManager26setSingleHighlightGradientEP8Q3DThemeRK15QLinearGradient": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12ThemeManager25setMultiHighlightGradientEP8Q3DThemeRK15QLinearGradient": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12ThemeManager16setLightStrengthEP8Q3DThemef": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN12ThemeManager23setAmbientLightStrengthEP8Q3DThemef": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN12ThemeManager25setHighlightLightStrengthEP8Q3DThemef": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN12ThemeManager21setLabelBorderEnabledEP8Q3DThemeb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN12ThemeManager7setFontEP8Q3DThemeRK5QFont": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12ThemeManager20setBackgroundEnabledEP8Q3DThemeb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN12ThemeManager14setGridEnabledEP8Q3DThemeb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN12ThemeManager25setLabelBackgroundEnabledEP8Q3DThemeb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN12ThemeManager13setColorStyleEP8Q3DThemeNS0_10ColorStyleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_take_ThemeManager": ["bool", "address", "chars", "address"]
+  }
+}

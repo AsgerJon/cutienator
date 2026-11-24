@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DRender/qnopicking.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK10Qt3DRender10QNoPicking10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender10QNoPicking2trEPKcS2_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_take_Qt3DRender_QNoPicking": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DRender/qfilterkey.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK10Qt3DRender10QFilterKey10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender10QFilterKey2trEPKcS2_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DRender10QFilterKey6d_funcEv": ["address", "address"],
+    "ritual_ZNK10Qt3DRender10QFilterKey6d_funcEv": ["address", "address"],
+    "ritual_take_Qt3DRender_QFilterKey": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

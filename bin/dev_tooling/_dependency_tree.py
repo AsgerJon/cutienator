@@ -8,17 +8,28 @@ import re
 import subprocess
 import tempfile
 from concurrent.futures import ThreadPoolExecutor
+from types import MappingProxyType
 from typing import TYPE_CHECKING
 
 from worktoy.waitaminute import MissingVariable, TypeException
 
-from . import HeaderReader
+from . import HeaderFolder, HeaderReader
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Any, Dict, FrozenSet, List, Optional, Set, Tuple
+  from typing import (
+      Any, Dict, FrozenSet, Iterator, List, Mapping, Optional, Set, Tuple)
 
   Names = Tuple[str, ...]
   Record = Dict[str, Any]
+  #  A class of the tree: its part and its name, as ('QtCore', 'QObject').
+  Key = Tuple[str, str]
+  Keys = Tuple[Key, ...]
+
+
+def _byName(key: Key) -> Tuple[str, str]:
+  """The order classes go in where the alphabet decides: by name, and
+  by part among classes of one name."""
+  return key[1], key[0]
 
 
 class DependencyTree:
@@ -28,12 +39,13 @@ class DependencyTree:
 
     tree = DependencyTree()
     tree.setHeaderReaders(qtCore, qtGui, qtWidgets)  # parts that were read
-    tree.getClassNames()         # 770, each after what it is built on
-    tree.getParents('QWidget')   # ('QObject', 'QPaintDevice')
-    tree.getChildren('QObject')  # the classes built right on it
-    tree.getTakes('QObject')     # the classes its functions take
+    tree['QtWidgets']['QWidget']  # the class under its part
+    tree.getClasses()            # 770, each after what it is built on
+    tree.getParents('QWidget', 'QtWidgets')  # ('QObject', 'QPaintDevice')
+    tree.getChildren('QObject', 'QtCore')  # the classes built right on it
+    tree.getTakes('QObject', 'QtCore')  # the classes its functions take
     tree.getMakeOrder()          # an order to make Python classes in
-    tree.getTakenLater('QObject')  # those it takes that are made later
+    tree.getTakenLater('QObject', 'QtCore')  # those made later
     print(tree.getTreeText())    # the whole tree, indented
 
   Terms
@@ -47,6 +59,16 @@ class DependencyTree:
     'moveToThread(QThread *thread)'.
   - A class gives another when one of its functions gives back a type
     naming that class: 'QObject' gives 'QThread', through 'thread()'.
+  - A class is under its part: ('QtCore', 'QObject'), its key. Two
+    parts may each define a class by one name, as QtCharts and QtGraphs
+    each a 'QBarSeries'; Qt forbids reading both in one file.
+  - A name is seen from a part: every lookup by name says the part,
+    as 'getParents("QBarSeries", "QtGraphs")'. The name is looked up as
+    a header file of that part sees it: in the part itself first, then
+    in the parts it needs, the nearest first, as 'HeaderFolder' has
+    them, and then in the other parts, in the order read. Seen from its
+    own part, a class is always its own. A name only one part defines
+    is the same seen from every part.
 
   You provide
   -----------
@@ -63,12 +85,14 @@ class DependencyTree:
     declared inside a class or a namespace, by the name C++ gives them:
     'QMetaObject::Connection'. A class template, as 'QList', is a
     pattern and no class, and is not in it.
+  - What gives classes gives keys, as ('QtCore', 'QObject'): a name
+    alone may stand for two classes.
   - A class declared private or protected inside another class is left
     out, since it becomes no Python class. 'getLeftOut' names each of
     them.
   - 'Built on' is the tree. It has no rings, which is checked when the
-    tree is made; 'getClassNames' gives an order with every parent
-    before its children. A class can have two parents, as 'QWidget'.
+    tree is made; 'getClasses' gives an order with every parent before
+    its children. A class can have two parents, as 'QWidget'.
   - 'Takes' and 'gives' are kept beside the tree, not in it. They do
     form rings: 'QObject' takes 'QThread', and 'QThread' is built on
     'QObject'. 'getRings' gives the rings. 'getMakeOrder' gives an
@@ -193,32 +217,47 @@ class DependencyTree:
   __header_readers__ = None  # type: Optional[Tuple[HeaderReader, ...]]
   __source_reader__ = None  # type: Optional[Any]
   __kept_for_users__ = None  # type: Optional[Dict[str, Dict[Any, Any]]]
-  __cute_names__ = None  # type: Optional[FrozenSet[str]]
-  __ordered_names__ = None  # type: Optional[Names]
-  __class_parents__ = None  # type: Optional[Dict[str, Names]]
-  __class_children__ = None  # type: Optional[Dict[str, Names]]
-  __class_takes__ = None  # type: Optional[Dict[str, Names]]
-  __class_gives__ = None  # type: Optional[Dict[str, Names]]
-  __class_places__ = None  # type: Optional[Dict[str, Tuple[str, str]]]
-  __left_out_names__ = None  # type: Optional[Names]
-  __class_numbers__ = None  # type: Optional[Dict[str, str]]
-  __enum_names__ = None  # type: Optional[Names]
-  __enum_types__ = None  # type: Optional[Dict[str, Tuple[str, str]]]
-  __enum_records__ = None  # type: Optional[Dict[str, Record]]
-  __alias_types__ = None  # type: Optional[Dict[str, str]]
-  __copyable_names__ = None  # type: Optional[FrozenSet[str]]
+  __cute_names__ = None  # type: Optional[FrozenSet[Key]]
+  __ordered_names__ = None  # type: Optional[Keys]
+  #  The classes each class is built on, as C++ writes them, and those
+  #  of them that are classes of the tree.
+  __class_parents__ = None  # type: Optional[Dict[Key, Names]]
+  __parent_keys__ = None  # type: Optional[Dict[Key, Keys]]
+  __class_children__ = None  # type: Optional[Dict[Key, Keys]]
+  __class_takes__ = None  # type: Optional[Dict[Key, Keys]]
+  __class_gives__ = None  # type: Optional[Dict[Key, Keys]]
+  #  The header file each class is defined in.
+  __class_places__ = None  # type: Optional[Dict[Key, str]]
+  __left_out_names__ = None  # type: Optional[Keys]
+  __class_numbers__ = None  # type: Optional[Dict[Key, str]]
+  #  Each enum, each fixed number type of one, each enum with names in
+  #  it, and each second name for a type, under its part as a class is.
+  __enum_names__ = None  # type: Optional[FrozenSet[Key]]
+  __enum_types__ = None  # type: Optional[Dict[Key, Tuple[str, str]]]
+  __enum_records__ = None  # type: Optional[Dict[Key, Record]]
+  __alias_types__ = None  # type: Optional[Dict[Key, str]]
+  __copyable_names__ = None  # type: Optional[FrozenSet[Key]]
   #  The classes whose header file did not compile among the others
   #  when the compiler was asked what it can copy; see
   #  '_createCopyableNames'.
-  __not_asked_copyable__ = None  # type: Optional[FrozenSet[str]]
+  __not_asked_copyable__ = None  # type: Optional[FrozenSet[Key]]
+  #  Under each part, each class it defines; see '__getitem__'.
+  __classes_by_part__ = None  # type: Optional[Dict[str, Dict[str, Record]]]
+  #  For each part, the parts a name is looked up in when seen from it,
+  #  the part first; and for each part and each kind of name, which
+  #  part each name is looked up in; see '_findPart'.
+  __part_orders__ = None  # type: Optional[Dict[str, Names]]
+  __part_scopes__ = None  # type: Optional[Dict[Tuple[str, str], Dict]]
   #  Each class the tree leaves out for an edge case of Qt's source it
   #  has no rule for, with why; see 'getMissedClasses'.
   __missed_classes__ = None  # type: Optional[Dict[str, str]]
   __defined_names__ = None  # type: Optional[FrozenSet[str]]
-  __defined_paths__ = None  # type: Optional[Dict[str, str]]
-  __make_order__ = None  # type: Optional[Names]
-  __make_places__ = None  # type: Optional[Dict[str, int]]
-  __class_rings__ = None  # type: Optional[Tuple[Names, ...]]
+  #  The header file holding the code of a function, by the compiler's
+  #  name of it, under each part whose header file holds it.
+  __defined_paths__ = None  # type: Optional[Dict[Key, str]]
+  __make_order__ = None  # type: Optional[Keys]
+  __make_places__ = None  # type: Optional[Dict[Key, int]]
+  __class_rings__ = None  # type: Optional[Tuple[Keys, ...]]
 
   #  Public Variables
 
@@ -227,6 +266,37 @@ class DependencyTree:
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def __getitem__(self, partName: str) -> Mapping[str, Record]:
+    """
+    Gives the classes one part defines, under their names, as
+    'tree["QtWidgets"]["QWidget"]'. Each is a dict: its 'partName',
+    its 'headerPath', the classes it is built on as its header names
+    them, 'parents', and its 'number' in the reading of the part. A
+    name two parts define, as 'QBarSeries' of QtCharts and of QtGraphs,
+    is under each of them, and each is a class of the tree.
+
+    Raises
+    ------
+
+    KeyError
+      The tree has no part of that name.
+    """
+    self.getClasses()
+    if partName not in self.__classes_by_part__:
+      infoSpec = """The tree has no part named '%s'."""
+      raise KeyError(infoSpec % partName)
+    return MappingProxyType(self.__classes_by_part__[partName])
+
+  def __contains__(self, partName: object) -> bool:
+    """Says whether the tree has a part of that name, as 'QtCore'."""
+    self.getClasses()
+    return partName in self.__classes_by_part__
+
+  def __iter__(self) -> Iterator[str]:
+    """Goes through the names of the parts, in the order read."""
+    self.getClasses()
+    return iter([*self.__classes_by_part__])
 
   def getSourceReader(self) -> Any:
     """Gives the 'SourceReader' the code of a function is looked up in
@@ -240,17 +310,17 @@ class DependencyTree:
     that Qt's library carries under no name gets its code from there.
     """
     self.__source_reader__ = sourceReader
-  def getCuteNames(self) -> FrozenSet[str]:
+  def getCuteNames(self) -> FrozenSet[Key]:
     """
-    Gives the name of every class of the tree that gets a cute class:
-    those 'setCuteNames' named, or every class of the tree when it was
-    not called.
+    Gives every class of the tree that gets a cute class, by its key,
+    as ('QtCore', 'QObject'): those 'setCuteNames' named, or every
+    class of the tree when it was not called.
     """
     if self.__cute_names__ is None:
-      return frozenset(self.getClassNames())
+      return frozenset(self.getClasses())
     return self.__cute_names__
 
-  def setCuteNames(self, *cuteNames: str) -> None:
+  def setCuteNames(self, *cuteKeys: Key) -> None:
     """
     Tells which classes of the tree get a cute class.
 
@@ -267,30 +337,32 @@ class DependencyTree:
     Parameters
     ----------
 
-    *cuteNames : str
-      The full names of the classes, as 'QMetaObject::Connection'.
+    *cuteKeys : Key
+      The classes, each by its part and its full name, as ('QtCore',
+      'QMetaObject::Connection').
 
     Raises
     ------
 
     TypeException
-      A name is not text.
+      A key is not a pair of texts.
 
     LookupError
-      A name is no class of the tree.
+      A key is no class of the tree.
 
     MissingVariable
       'setHeaderReaders' has not been called.
     """
-    known = frozenset(self.getClassNames())
-    for cuteName in cuteNames:
-      if not isinstance(cuteName, str):
-        raise TypeException('cuteName', cuteName, str)
-      if cuteName not in known:
-        infoSpec = """'%s' is to get a cute class, and the tree has no
-        class of that name."""
-        raise LookupError(' '.join((infoSpec % cuteName).split()))
-    self.__cute_names__ = frozenset(cuteNames)
+    known = frozenset(self.getClasses())
+    for cuteKey in cuteKeys:
+      if not isinstance(cuteKey, tuple) or len(cuteKey) != 2 or not all(
+          isinstance(one, str) for one in cuteKey):
+        raise TypeException('cuteKey', cuteKey, tuple)
+      if cuteKey not in known:
+        infoSpec = """%s is to get a cute class, and the tree has no
+        class of that name in that part."""
+        raise LookupError(' '.join((infoSpec % (cuteKey,)).split()))
+    self.__cute_names__ = frozenset(cuteKeys)
     self.__kept_for_users__ = dict()
 
   def getKept(self, what: str) -> Dict[Any, Any]:
@@ -337,27 +409,29 @@ class DependencyTree:
 
   def _createTree(self, ) -> None:
     """Makes the tree from every record of the parts."""
-    parents = dict()  # type: Dict[str, Names]
-    taken = dict()  # type: Dict[str, Set[str]]
-    given = dict()  # type: Dict[str, Set[str]]
-    places = dict()  # type: Dict[str, Tuple[str, str]]
-    numbers = dict()  # type: Dict[str, str]
-    enumNames = set()  # type: Set[str]
-    enumTypes = dict()  # type: Dict[str, Tuple[str, str]]
-    enumRecords = dict()  # type: Dict[str, Record]
-    aliasTypes = dict()  # type: Dict[str, str]
-    definedNames = dict()  # type: Dict[str, str]
-    leftOut = []  # type: List[str]
-    twice = set()  # type: Set[str]
+    parents = dict()  # type: Dict[Key, Names]
+    taken = dict()  # type: Dict[Key, Set[str]]
+    given = dict()  # type: Dict[Key, Set[str]]
+    places = dict()  # type: Dict[Key, str]
+    numbers = dict()  # type: Dict[Key, str]
+    enumNames = set()  # type: Set[Key]
+    enumTypes = dict()  # type: Dict[Key, Tuple[str, str]]
+    enumRecords = dict()  # type: Dict[Key, Record]
+    aliasTypes = dict()  # type: Dict[Key, str]
+    definedPaths = dict()  # type: Dict[Key, str]
+    leftOut = []  # type: List[Key]
+    twice = set()  # type: Set[Key]
     self.__missed_classes__ = dict()
+    byPart = dict()  # type: Dict[str, Dict[str, Record]]
     for headerReader in self.getHeaderReaders():
       partName = headerReader.getPartName()
+      byPart.setdefault(partName, dict())
       #  Every declaration of a class in this part, and every namespace,
       #  under the number the compiler gave it. Those numbers hold within
       #  one reading, so each part is worked through on its own.
       found = dict(
           entries=dict(), namespaces=dict(), enums=[], aliases=[],
-          defined=definedNames,
+          defined=dict(),
       )  # type: Dict[str, Any]
       for headerFile in headerReader.getHeaderFiles():
         if not headerFile.wasRead():
@@ -368,6 +442,8 @@ class DependencyTree:
         for record in headerFile.getContents():
           self._collectEntries(record, '', None, 'public', headerPath, found)
         headerFile.forgetContents()
+      for compilerName, headerPath in found['defined'].items():
+        definedPaths[(partName, compilerName)] = headerPath
       entries, namespaces = found['entries'], found['namespaces']
       names = dict()  # type: Dict[str, str]
       for entryId in entries:
@@ -384,19 +460,20 @@ class DependencyTree:
           if one[1] is None or one[1] in names]
       for prefix, insideId, ownName, fixedType, detail in found['enums']:
         outer = prefix if insideId is None else '%s::' % names[insideId]
-        enumNames.add('%s%s' % (outer, ownName))
+        enumKey = (partName, '%s%s' % (outer, ownName))
+        enumNames.add(enumKey)
         if fixedType is not None:
-          enumTypes['%s%s' % (outer, ownName)] = fixedType
+          enumTypes[enumKey] = fixedType
         if not detail['members']:
           #  A line that only says the enum exists, with no names in it.
           continue
-        enumRecords.setdefault('%s%s' % (outer, ownName), dict(
+        enumRecords.setdefault(enumKey, dict(
             partName=partName, ownerName=outer[:-2], ownName=ownName,
             insideClass=False if insideId is None else True, **detail,
         ))
       for prefix, insideId, ownName, cppType in found['aliases']:
         outer = prefix if insideId is None else '%s::' % names[insideId]
-        aliasTypes['%s%s' % (outer, ownName)] = cppType
+        aliasTypes[(partName, '%s%s' % (outer, ownName))] = cppType
       #  Who may use each class that is declared inside another class.
       declared = dict()  # type: Dict[str, str]
       for entryId, entry in entries.items():
@@ -406,99 +483,110 @@ class DependencyTree:
         if not entry['complete']:
           continue
         name = names[entryId]
+        key = (partName, name)
         if entry['belongsToId'] in entries and name not in declared:
           infoSpec = """It is defined away from the class it belongs
           to, in '%s', and that class does not declare it."""
           self._missClass(name, infoSpec % entry['headerPath'])
-          leftOut.append(name)
+          leftOut.append(key)
           continue
         words = name.split('::')
         outer = ('::'.join(words[:end]) for end in range(1, len(words) + 1))
         if any(declared.get(o, 'public') != 'public' for o in outer):
-          leftOut.append(name)
+          leftOut.append(key)
           continue
-        if name in parents and places[name][0] != partName:
-          #  Two parts each define a class of their own by one name, as
-          #  'Color4ub' in QtQuickParticles and in QtQuick3DParticles,
-          #  which no file of Qt reads together. Neither is the class
-          #  of that name: both are left out.
-          infoSpec = """Two parts define a class of their own by this
-          name: in '%s' and in '%s'."""
-          self._missClass(
-              name, infoSpec % (places[name][1], entry['headerPath']))
-          twice.add(name)
-          continue
-        if name in parents:
+        #  Each class under its part, as 'tree["QtWidgets"]["QWidget"]'.
+        #  Two parts may each define a class of their own by one name,
+        #  as QtCharts and QtGraphs each a 'QBarSeries': each is a class
+        #  of the tree, under its own part.
+        byPart[partName][name] = dict(
+            partName=partName, headerPath=entry['headerPath'],
+            parents=(*entry['bases'],), number=entryId)
+        if key in parents:
           infoSpec = """It is defined in full twice: in '%s' and in
           '%s'."""
           self._missClass(
-              name, infoSpec % (places[name][1], entry['headerPath']))
-          twice.add(name)
+              name, infoSpec % (places[key], entry['headerPath']))
+          twice.add(key)
           continue
-        parents[name] = entry['bases']
-        taken[name], given[name] = entry['taken'], entry['given']
-        places[name] = (partName, entry['headerPath'])
-        numbers[name] = entryId
-    for name in twice:
+        parents[key] = entry['bases']
+        taken[key], given[key] = entry['taken'], entry['given']
+        places[key] = entry['headerPath']
+        numbers[key] = entryId
+    for key in twice:
       for kept in (parents, taken, given, places, numbers):
-        kept.pop(name, None)
-      leftOut.append(name)
-    self.__left_out_names__ = (*sorted(leftOut),)
-    self.__class_numbers__ = numbers
-    self.__enum_names__ = (*sorted(enumNames),)
+        kept.pop(key, None)
+      byPart[key[0]].pop(key[1], None)
+      leftOut.append(key)
+    self.__classes_by_part__ = byPart
+    self.__enum_names__ = frozenset(enumNames)
     self.__enum_types__ = enumTypes
     self.__enum_records__ = enumRecords
     self.__alias_types__ = aliasTypes
-    self.__defined_names__ = frozenset(definedNames)
-    self.__defined_paths__ = definedNames
+    self.__defined_names__ = frozenset(name for _, name in definedPaths)
+    self.__defined_paths__ = definedPaths
+    self.__part_orders__ = self._orderParts([*byPart])
+    self.__part_scopes__ = dict()
+    self.__left_out_names__ = (*sorted(leftOut, key=_byName),)
+    self.__class_numbers__ = numbers
     #  A class written in a namespace or inside another class may name
     #  the class it is built on short, as 'class ArgumentList: public
     #  Node' in 'QQmlJS::AST': C++ looks the name up in the scopes
     #  around the class first, the nearest first.
-    for name in parents:
+    for key in parents:
+      partName, name = key
       found = []  # type: List[str]
-      for base in parents[name]:
+      for base in parents[key]:
         words = name.split('::')[:-1]
-        while words and base not in parents:
+        while words and self._findPart('classes', base, partName) is None:
           spelled = '%s::%s' % ('::'.join(words), base)
-          if spelled in parents:
+          if self._findPart('classes', spelled, partName) is not None:
             base = spelled
             break
           words.pop()
         found.append(base)
-      parents[name] = (*found,)
+      parents[key] = (*found,)
+    parentKeys = dict()  # type: Dict[Key, Keys]
+    for key in parents:
+      inTree = []  # type: List[Key]
+      for base in parents[key]:
+        holder = self._findPart('classes', base, key[0])
+        if holder is not None:
+          inTree.append((holder, base))
+      parentKeys[key] = (*inTree,)
     takes, gives = dict(), dict()
-    for name in parents:
-      takes[name] = self._findClasses(taken[name], parents, name)
-      gives[name] = self._findClasses(given[name], parents, name)
-    children = {name: [] for name in parents}  # type: Dict[str, List[str]]
-    for name in sorted(parents):
-      for parent in parents[name]:
-        if parent in children:
-          children[parent].append(name)
-    self.__ordered_names__ = self._orderNames(parents)
+    for key in parents:
+      takes[key] = self._findClasses(taken[key], key)
+      gives[key] = self._findClasses(given[key], key)
+    children = {key: [] for key in parents}  # type: Dict[Key, List[Key]]
+    for key in sorted(parents, key=_byName):
+      for parentKey in parentKeys[key]:
+        children[parentKey].append(key)
+    self.__ordered_names__ = self._orderNames(parentKeys)
     self.__class_parents__ = parents
-    self.__class_children__ = {n: (*c,) for n, c in children.items()}
+    self.__parent_keys__ = parentKeys
+    self.__class_children__ = {k: (*c,) for k, c in children.items()}
     self.__class_takes__ = takes
     self.__class_gives__ = gives
     self.__class_places__ = places
 
-  def getClassNames(self, **kwargs) -> Names:
+  def getClasses(self, **kwargs) -> Keys:
     """
-    Gives the name of every class of the tree, in an order to make them
-    in: each class comes after every class it is built on.
+    Gives every class of the tree, by its key, as ('QtCore',
+    'QObject'), in an order to make them in: each class comes after
+    every class it is built on.
 
     Made for you, at the first call, from the records of the parts, and
     kept. You pass nothing; the keyword is for the method's own use.
-    Among classes free to come in any order, the alphabet decides, so
-    the order is the same every time.
+    Among classes free to come in any order, the alphabet decides, by
+    name and then by part, so the order is the same every time.
 
     Returns
     -------
 
-    Names
-      A 'Tuple[str, ...]'. For QtCore, QtGui and QtWidgets of Qt 6.12.0
-      it holds 770.
+    Keys
+      A 'Tuple[Tuple[str, str], ...]'. For QtCore, QtGui and QtWidgets
+      of Qt 6.12.0 it holds 770.
 
     Raises
     ------
@@ -510,29 +598,80 @@ class DependencyTree:
       A part has not been read. Call its 'read' first.
 
     RuntimeError
-      A class is defined in full twice, or the classes built on each
-      other form a ring. Neither is expected to happen.
+      The classes built on each other form a ring. That is not
+      expected to happen.
     """
     if self.__ordered_names__ is None:
       if kwargs.get('_recursion', False):
         raise RecursionError
       self._createTree()
-      return self.getClassNames(_recursion=True)
+      return self.getClasses(_recursion=True)
     return self.__ordered_names__
 
-  def getRoots(self) -> Names:
+  def getClassKey(self, className: str, partName: str) -> Key:
+    """
+    Gives the class a name stands for, seen from a part, by its key:
+    'getClassKey("QObject", "QtWidgets")' gives ('QtCore', 'QObject'),
+    and 'getClassKey("QBarSeries", "QtGraphs")' gives ('QtGraphs',
+    'QBarSeries').
+
+    Parameters
+    ----------
+
+    className : str
+      The full name of the class, as 'QMetaObject::Connection'.
+
+    partName : str
+      The part the name is seen from; see 'Terms'.
+
+    Raises
+    ------
+
+    LookupError
+      No part of the tree has a class of that name.
+    """
+    self.getClasses()
+    holder = self._findPart('classes', className, partName)
+    if holder is None:
+      infoSpec = """The dependency tree has no class named '%s'."""
+      raise LookupError(infoSpec % (className,))
+    return holder, className
+
+  def hasClass(self, className: str, partName: str) -> bool:
+    """Says whether a name stands for a class of the tree, seen from a
+    part, as 'getClassKey' has it."""
+    self.getClasses()
+    return self._findPart('classes', className, partName) is not None
+
+  def getPartOrder(self, partName: str) -> Names:
+    """
+    Gives the parts a name seen from a part is looked up in, in the
+    order looked: the part itself, the parts it needs, the nearest
+    first, and then the other parts, in the order read; see 'Terms'.
+
+    Raises
+    ------
+
+    LookupError
+      The tree has no part of that name.
+    """
+    self.getClasses()
+    if partName not in self.__part_orders__:
+      infoSpec = """The tree has no part named '%s'."""
+      raise LookupError(infoSpec % partName)
+    return self.__part_orders__[partName]
+
+  def getRoots(self) -> Keys:
     """
     Gives the classes built on no class of the tree, in alphabetical
     order. Each is the top of a tree of its own.
     """
-    self.getClassNames()
-    return (*(
-        name for name in sorted(self.__class_parents__)
-        if not any(p in self.__class_parents__
-                   for p in self.__class_parents__[name])
-    ),)
+    self.getClasses()
+    return (*sorted(
+        (key for key in self.__parent_keys__
+         if not self.__parent_keys__[key]), key=_byName),)
 
-  def getLeftOut(self) -> Names:
+  def getLeftOut(self) -> Keys:
     """
     Gives the classes that are defined in full and are not in the tree,
     in alphabetical order.
@@ -542,13 +681,13 @@ class DependencyTree:
     Only Qt's own code may use the private ones, and only a subclass
     the protected ones, so none of them becomes a Python class.
     """
-    self.getClassNames()
+    self.getClasses()
     return self.__left_out_names__
 
-  def getParents(self, className: str) -> Names:
+  def getParents(self, className: str, partName: str) -> Names:
     """
     Gives the classes a class is built on, in the order the header names
-    them, each as C++ writes it.
+    them, each as C++ writes it, seen from the part of the class.
 
     Returns
     -------
@@ -564,9 +703,14 @@ class DependencyTree:
     LookupError
       The tree has no class of that name.
     """
-    return self._lookUp('__class_parents__', className)
+    return self._lookUp('__class_parents__', className, partName)
 
-  def getChildren(self, className: str) -> Names:
+  def getParentKeys(self, className: str, partName: str) -> Keys:
+    """Gives those of the classes a class is built on that are classes
+    of the tree, by their keys, in the order the header names them."""
+    return self._lookUp('__parent_keys__', className, partName)
+
+  def getChildren(self, className: str, partName: str) -> Keys:
     """
     Gives the classes built right on a class, in alphabetical order.
 
@@ -576,16 +720,16 @@ class DependencyTree:
     LookupError
       The tree has no class of that name.
     """
-    return self._lookUp('__class_children__', className)
+    return self._lookUp('__class_children__', className, partName)
 
-  def getAncestors(self, className: str) -> Names:
+  def getAncestors(self, className: str, partName: str) -> Keys:
     """
     Gives every class of the tree a class is built on, through however
     many steps, in the order to make them in.
 
     For 'QListWidget' that is 'QObject', 'QPaintDevice', 'QWidget',
     'QFrame', 'QAbstractScrollArea', 'QAbstractItemView' and
-    'QListView'.
+    'QListView', each by its key.
 
     Raises
     ------
@@ -593,17 +737,17 @@ class DependencyTree:
     LookupError
       The tree has no class of that name.
     """
-    found = set()  # type: Set[str]
-    waiting = [*self.getParents(className)]
+    found = set()  # type: Set[Key]
+    waiting = [*self.getParentKeys(className, partName)]
     while waiting:
-      name = waiting.pop()
-      if name in found or name not in self.__class_parents__:
+      key = waiting.pop()
+      if key in found:
         continue
-      found.add(name)
-      waiting.extend(self.__class_parents__[name])
-    return (*(n for n in self.getClassNames() if n in found),)
+      found.add(key)
+      waiting.extend(self.__parent_keys__[key])
+    return (*(k for k in self.getClasses() if k in found),)
 
-  def getDescendants(self, className: str) -> Names:
+  def getDescendants(self, className: str, partName: str) -> Keys:
     """
     Gives every class built on a class, through however many steps, in
     the order to make them in.
@@ -614,21 +758,21 @@ class DependencyTree:
     LookupError
       The tree has no class of that name.
     """
-    found = set()  # type: Set[str]
-    waiting = [*self.getChildren(className)]
+    found = set()  # type: Set[Key]
+    waiting = [*self.getChildren(className, partName)]
     while waiting:
-      name = waiting.pop()
-      if name in found:
+      key = waiting.pop()
+      if key in found:
         continue
-      found.add(name)
-      waiting.extend(self.__class_children__[name])
-    return (*(n for n in self.getClassNames() if n in found),)
+      found.add(key)
+      waiting.extend(self.__class_children__[key])
+    return (*(k for k in self.getClasses() if k in found),)
 
-  def getTakes(self, className: str) -> Names:
+  def getTakes(self, className: str, partName: str) -> Keys:
     """
     Gives the classes a class takes: every class of the tree named in
-    the type of an argument of one of its functions, in alphabetical
-    order. The class itself is left out.
+    the type of an argument of one of its functions, seen from its
+    part, in alphabetical order. The class itself is left out.
 
     A class named inside a bigger type counts: an argument of type
     'const QList<QObject *> &' takes 'QObject'.
@@ -639,13 +783,13 @@ class DependencyTree:
     LookupError
       The tree has no class of that name.
     """
-    return self._lookUp('__class_takes__', className)
+    return self._lookUp('__class_takes__', className, partName)
 
-  def getGives(self, className: str) -> Names:
+  def getGives(self, className: str, partName: str) -> Keys:
     """
     Gives the classes a class gives: every class of the tree named in
-    the type one of its functions gives back, in alphabetical order.
-    The class itself is left out.
+    the type one of its functions gives back, seen from its part, in
+    alphabetical order. The class itself is left out.
 
     Raises
     ------
@@ -653,43 +797,46 @@ class DependencyTree:
     LookupError
       The tree has no class of that name.
     """
-    return self._lookUp('__class_gives__', className)
+    return self._lookUp('__class_gives__', className, partName)
 
   def _createMakeOrder(self, ) -> None:
     """Finds the rings and the order to make the Python classes in."""
-    names = self.getClassNames()
-    parents, takes = self.__class_parents__, self.__class_takes__
-    needs = dict()  # type: Dict[str, Names]
-    for name in names:
-      builtOn = [p for p in parents[name] if p in parents]
-      needs[name] = (*sorted({*builtOn, *takes[name]}),)
+    keys = self.getClasses()
+    parentKeys, takes = self.__parent_keys__, self.__class_takes__
+    needs = dict()  # type: Dict[Key, Keys]
+    for key in keys:
+      needs[key] = (*sorted({*parentKeys[key], *takes[key]}, key=_byName),)
     groups = self._findGroups(needs)
     groupOf = {n: at for at, group in enumerate(groups) for n in group}
     groupNeeds = [
-        {groupOf[need] for name in group for need in needs[name]} - {at}
+        {groupOf[need] for key in group for need in needs[key]} - {at}
         for at, group in enumerate(groups)
     ]
-    ordered, placed = [], set()  # type: List[str], Set[int]
-    remaining = sorted(range(len(groups)), key=lambda at: groups[at][0])
+    ordered, placed = [], set()  # type: List[Key], Set[int]
+    remaining = sorted(
+        range(len(groups)), key=lambda at: _byName(groups[at][0]))
     while remaining:
       ready = [at for at in remaining if groupNeeds[at] <= placed]
       if not ready:
         infoSpec = """The groups of classes needing each other form a ring
         themselves, which cannot be. It is among: %s."""
-        info = infoSpec % ', '.join(groups[at][0] for at in remaining[:20])
+        info = infoSpec % ', '.join(
+            '%s' % (groups[at][0],) for at in remaining[:20])
         raise RuntimeError(' '.join(info.split()))
       for at in ready:
         ordered.extend(self._orderRing(groups[at]))
       placed.update(ready)
       remaining = [at for at in remaining if at not in placed]
-    rings = sorted((group for group in groups if len(group) > 1))
+    rings = sorted(
+        (group for group in groups if len(group) > 1),
+        key=lambda group: [_byName(key) for key in group])
     self.__class_rings__ = (*((*ring,) for ring in rings),)
-    self.__make_places__ = {name: at for at, name in enumerate(ordered)}
+    self.__make_places__ = {key: at for at, key in enumerate(ordered)}
     self.__make_order__ = (*ordered,)
 
-  def getMakeOrder(self, **kwargs) -> Names:
+  def getMakeOrder(self, **kwargs) -> Keys:
     """
-    Gives the name of every class of the tree, in an order to make the
+    Gives every class of the tree, by its key, in an order to make the
     Python classes in: each class comes after every class it is built
     on, and after every class it takes, wherever that can be done.
 
@@ -707,8 +854,9 @@ class DependencyTree:
     Returns
     -------
 
-    Names
-      A 'Tuple[str, ...]' holding the same names as 'getClassNames'.
+    Keys
+      A 'Tuple[Tuple[str, str], ...]' holding the same classes as
+      'getClasses'.
 
     Raises
     ------
@@ -726,7 +874,7 @@ class DependencyTree:
       return self.getMakeOrder(_recursion=True)
     return self.__make_order__
 
-  def getRings(self) -> Tuple[Names, ...]:
+  def getRings(self) -> Tuple[Keys, ...]:
     """
     Gives the rings among the classes of the tree, each as its classes
     in alphabetical order.
@@ -740,15 +888,15 @@ class DependencyTree:
     Returns
     -------
 
-    Tuple[Names, ...]
-      A 'Tuple[Tuple[str, ...], ...]'. For QtCore, QtGui and QtWidgets
-      of Qt 6.12.0 it holds 19 rings of 95 classes in all, the biggest
-      of 21. A class in no ring is in none of the entries.
+    Tuple[Keys, ...]
+      For QtCore, QtGui and QtWidgets of Qt 6.12.0 it holds 19 rings of
+      95 classes in all, the biggest of 21. A class in no ring is in
+      none of the entries.
     """
     self.getMakeOrder()
     return self.__class_rings__
 
-  def getTakenLater(self, className: str) -> Names:
+  def getTakenLater(self, className: str, partName: str) -> Keys:
     """
     Gives the classes a class takes that are made later than the class
     itself, by 'getMakeOrder', in alphabetical order.
@@ -762,9 +910,8 @@ class DependencyTree:
     Returns
     -------
 
-    Names
-      A 'Tuple[str, ...]'. It is empty for a class in no ring, and for
-      most classes in one.
+    Keys
+      It is empty for a class in no ring, and for most classes in one.
 
     Raises
     ------
@@ -772,14 +919,16 @@ class DependencyTree:
     LookupError
       The tree has no class of that name.
     """
-    takes = self.getTakes(className)
+    takes = self.getTakes(className, partName)
+    key = self.getClassKey(className, partName)
     self.getMakeOrder()
     places = self.__make_places__
-    return (*(t for t in takes if places[t] > places[className]),)
+    return (*(t for t in takes if places[t] > places[key]),)
 
-  def getPartName(self, className: str) -> str:
+  def getPartName(self, className: str, partName: str) -> str:
     """
-    Gives the part of Qt a class belongs to, as 'QtCore'.
+    Gives the part of Qt the class a name stands for belongs to, seen
+    from a part: 'getPartName("QObject", "QtWidgets")' gives 'QtCore'.
 
     Raises
     ------
@@ -787,9 +936,9 @@ class DependencyTree:
     LookupError
       The tree has no class of that name.
     """
-    return self._lookUp('__class_places__', className)[0]
+    return self.getClassKey(className, partName)[0]
 
-  def getHeaderPath(self, className: str) -> str:
+  def getHeaderPath(self, className: str, partName: str) -> str:
     """
     Gives the full path of the header file a class is defined in.
 
@@ -799,9 +948,9 @@ class DependencyTree:
     LookupError
       The tree has no class of that name.
     """
-    return self._lookUp('__class_places__', className)[1]
+    return self._lookUp('__class_places__', className, partName)
 
-  def getHeaderReader(self, className: str) -> HeaderReader:
+  def getHeaderReader(self, className: str, partName: str) -> HeaderReader:
     """
     Gives the 'HeaderReader' a class belongs to, of the ones you provided.
 
@@ -811,13 +960,13 @@ class DependencyTree:
     LookupError
       The tree has no class of that name.
     """
-    partName = self.getPartName(className)
+    owner = self.getPartName(className, partName)
     for headerReader in self.getHeaderReaders():
-      if headerReader.getPartName() == partName:
+      if headerReader.getPartName() == owner:
         return headerReader
-    raise RuntimeError("The part '%s' is not among the parts." % partName)
+    raise RuntimeError("The part '%s' is not among the parts." % owner)
 
-  def getClassRecord(self, className: str) -> Record:
+  def getClassRecord(self, className: str, partName: str) -> Record:
     """
     Gives everything the compiler wrote down about a class: its record,
     untouched, with every function and other member inside it.
@@ -835,9 +984,10 @@ class DependencyTree:
       The record is not in the header file the tree found it in, so the
       part was read again since the tree was made. Make the tree again.
     """
-    number = self._lookUp('__class_numbers__', className)
-    headerPath = self.getHeaderPath(className)
-    for headerFile in self.getHeaderReader(className).getHeaderFiles():
+    number = self._lookUp('__class_numbers__', className, partName)
+    headerPath = self.getHeaderPath(className, partName)
+    headerReader = self.getHeaderReader(className, partName)
+    for headerFile in headerReader.getHeaderFiles():
       if headerFile.getHeaderPath() != headerPath:
         continue
       waiting = [*headerFile.getContents()]
@@ -855,24 +1005,25 @@ class DependencyTree:
     info = infoSpec % (className, headerPath)
     raise RuntimeError(' '.join(info.split()))
 
-  def getEnumNames(self) -> Names:
+  def getEnumNames(self) -> Keys:
     """
-    Gives the full name of every enum the parts declare, as
-    'Qt::TimerType', in alphabetical order.
+    Gives every enum the parts declare, by its part and its full name,
+    as ('QtCore', 'Qt::TimerType'), in alphabetical order.
 
     Kept beside the tree, from the same records. An enum is a list of
     names that each stand for a whole number. A function taking one
     needs nothing made first, so enums take no place in the order.
     """
-    self.getClassNames()
-    return self.__enum_names__
+    self.getClasses()
+    return (*sorted(self.__enum_names__, key=_byName),)
 
-  def getEnumTypes(self) -> Dict[str, Tuple[str, str]]:
+  def getEnumTypes(self, partName: str) -> Dict[str, Tuple[str, str]]:
     """
     Gives, for each enum whose declaration says which number type its
-    names are kept as, that type: as the header writes it, and as the
-    compiler reads it. 'QEvent::Type' is not in it; an enum declared as
-    'enum class Kind : quint8' gives ('quint8', 'unsigned char').
+    names are kept as, that type, seen from a part: as the header
+    writes it, and as the compiler reads it. 'QEvent::Type' is not in
+    it; an enum declared as 'enum class Kind : quint8' gives
+    ('quint8', 'unsigned char').
 
     Kept beside the tree, from the same records. An enum that says
     nothing is kept as the compiler sees fit, which is an 'int' for
@@ -884,12 +1035,12 @@ class DependencyTree:
     Dict[str, Tuple[str, str]]
       Under the full name of the enum, the two spellings of the type.
     """
-    self.getClassNames()
-    return dict(self.__enum_types__)
+    return self._seeTable('enumTypes', '__enum_types__', partName)
 
-  def getEnumRecord(self, enumName: str) -> Record:
+  def getEnumRecord(self, enumName: str, partName: str) -> Record:
     """
-    Gives what the parts say of one enum that has names in it.
+    Gives what the parts say of one enum that has names in it, seen
+    from a part.
 
     Kept beside the tree, from the same records.
 
@@ -898,6 +1049,9 @@ class DependencyTree:
 
     enumName : str
       The full name of the enum, as 'Qt::AlignmentFlag'.
+
+    partName : str
+      The part the name is seen from; see 'Terms'.
 
     Returns
     -------
@@ -920,22 +1074,22 @@ class DependencyTree:
     ValueError
       The parts hold no enum of that name with names in it.
     """
-    self.getClassNames()
-    try:
-      return dict(self.__enum_records__[enumName])
-    except KeyError:
+    self.getClasses()
+    holder = self._findPart('enumRecords', enumName, partName)
+    if holder is None:
       infoSpec = """The parts of Qt hold no enum named '%s' that has
       names in it."""
       raise ValueError(' '.join((infoSpec % enumName).split()))
+    return dict(self.__enum_records__[(holder, enumName)])
 
-  def getEnumRecordNames(self) -> Names:
+  def getEnumRecordNames(self) -> Keys:
     """
-    Gives the full name of every enum that has names in it, in
-    alphabetical order. 'getEnumNames' also lists the enums a header
-    only says exist.
+    Gives every enum that has names in it, by its part and its full
+    name, in alphabetical order. 'getEnumNames' also lists the enums a
+    header only says exist.
     """
-    self.getClassNames()
-    return (*sorted(self.__enum_records__),)
+    self.getClasses()
+    return (*sorted(self.__enum_records__, key=_byName),)
 
   def _createCopyableNames(self, ) -> None:
     """
@@ -960,22 +1114,27 @@ class DependencyTree:
       'clang++' refused the file, or the object file does not hold one
       letter for each class. What was said is in the message.
     """
-    classNames = self.getClassNames()
-    private = []  # type: List[str]
+    classKeys = self.getClasses()
+    #  The folders of the headers Qt calls private, for the file of each
+    #  part those of that part, its own first: two parts may each have
+    #  a header by one name, as 'private/qabstractseries_p.h'.
+    anyPrivate = any(
+        reader.hasPrivate() for reader in self.getHeaderReaders())
+    private = dict()  # type: Dict[str, List[str]]
     for headerReader in self.getHeaderReaders():
-      if headerReader.hasPrivate():
-        for privateFolder in headerReader.getPrivateIncludeFolders():
-          if '-I%s' % privateFolder not in private:
-            private.append('-I%s' % privateFolder)
+      private[headerReader.getPartName()] = [
+          '-I%s' % folder
+          for folder in headerReader.getPrivateIncludeFolders()
+      ] if anyPrivate else []
     #  One file for the classes of each part, all compiled at once: the
     #  compiler is asked by one core each time.
-    byPart = dict()  # type: Dict[str, List[str]]
-    for className in classNames:
-      byPart.setdefault(self.getPartName(className), []).append(className)
-    copyable, refused = set(), set()  # type: Set[str], Set[str]
+    byPart = dict()  # type: Dict[str, List[Key]]
+    for classKey in classKeys:
+      byPart.setdefault(classKey[0], []).append(classKey)
+    copyable, refused = set(), set()  # type: Set[Key], Set[Key]
     with ThreadPoolExecutor(os.cpu_count() or 1) as pool:
       for found, left in pool.map(
-          lambda names: self._findCopyable(names, private),
+          lambda keys: self._findCopyable(keys, private[keys[0][0]]),
           byPart.values()):
         copyable.update(found)
         refused.update(left)
@@ -984,11 +1143,11 @@ class DependencyTree:
 
   def _findCopyable(
       self,
-      classNames: List[str],
+      classKeys: List[Key],
       private: List[str],
-  ) -> Tuple[Set[str], Set[str]]:
+  ) -> Tuple[Set[Key], Set[Key]]:
     """
-    Asks the compiler which of some classes it can copy, as
+    Asks the compiler which of some classes of one part it can copy, as
     '_createCopyableNames' tells, in one file of their header files.
     Gives those it can copy, and those whose header files the compiler
     refused among the others.
@@ -1003,18 +1162,20 @@ class DependencyTree:
     """
     #  The lines that pull in the header file of each class. A class
     #  whose header file no line can pull in counts as not copyable.
-    linesOf = dict()  # type: Dict[str, List[str]]
+    linesOf = dict()  # type: Dict[Key, List[str]]
     includeLines = []  # type: List[str]
-    unplaced = set()  # type: Set[str]
-    for className in classNames:
-      headerReader = self.getHeaderReader(className)
+    unplaced = set()  # type: Set[Key]
+    for classKey in classKeys:
+      partName, className = classKey
+      headerReader = self.getHeaderReader(className, partName)
       try:
-        lines = headerReader.getIncludeLines(self.getHeaderPath(className))
+        lines = headerReader.getIncludeLines(
+            self.getHeaderPath(className, partName))
       except LookupError:
-        unplaced.add(className)
+        unplaced.add(classKey)
         lines = ''
-      linesOf[className] = [l for l in lines.split('\n') if l.strip()]
-      for line in linesOf[className]:
+      linesOf[classKey] = [l for l in lines.split('\n') if l.strip()]
+      for line in linesOf[classKey]:
         if line not in includeLines:
           includeLines.append(line)
     #  A header file Qt keeps apart may not compile among all the
@@ -1022,7 +1183,7 @@ class DependencyTree:
     #  a size the file pulling it in defines. The lines the compiler
     #  names are taken out, the classes of their header files count as
     #  not copyable, and the file is compiled again.
-    blocked, refused = set(), {*unplaced}  # type: Set[str], Set[str]
+    blocked, refused = set(), {*unplaced}  # type: Set[str], Set[Key]
     for _ in range(40):
       kept = [l for l in includeLines if l not in blocked]
       lines = [
@@ -1046,8 +1207,8 @@ class DependencyTree:
       firstClassLine = len(lines) + 1
       lineSpec = "    char('0' + int(CanCopy<%s>::value)),"
       lines.extend(
-          "    '0'," if name in refused else lineSpec % name
-          for name in classNames)
+          "    '0'," if key in refused else lineSpec % key[1]
+          for key in classKeys)
       lines.extend(('    0,', '};', ''))
       said, stderr = self._askCopyable(lines, private)
       if said is not None:
@@ -1062,31 +1223,31 @@ class DependencyTree:
           if line not in blocked:
             blocked.add(line)
             grown = True
-        elif firstClassLine <= number < firstClassLine + len(classNames):
-          name = classNames[number - firstClassLine]
-          if name not in refused:
-            refused.add(name)
+        elif firstClassLine <= number < firstClassLine + len(classKeys):
+          key = classKeys[number - firstClassLine]
+          if key not in refused:
+            refused.add(key)
             grown = True
-      for name in classNames:
-        if name not in refused and any(
-            line in blocked for line in linesOf[name]):
-          refused.add(name)
+      for key in classKeys:
+        if key not in refused and any(
+            line in blocked for line in linesOf[key]):
+          refused.add(key)
           grown = True
       if not grown:
         #  The compiler refuses the file for what no line can be taken
         #  out for: none of these classes counts as copyable.
-        return set(), {*classNames}
+        return set(), {*classKeys}
     else:
-      return set(), {*classNames}
-    if len(said) != len(classNames) + 1 or said.strip(b'01') != b'\x00':
+      return set(), {*classKeys}
+    if len(said) != len(classKeys) + 1 or said.strip(b'01') != b'\x00':
       infoSpec = """Asking the compiler which classes it can copy gave
       %d letters for %d classes, or other letters than '0' and '1'."""
-      info = infoSpec % (len(said) - 1, len(classNames))
+      info = infoSpec % (len(said) - 1, len(classKeys))
       raise RuntimeError(' '.join(info.split()))
-    copyable = set()  # type: Set[str]
-    for name, letter in zip(classNames, said.decode('ascii')):
+    copyable = set()  # type: Set[Key]
+    for key, letter in zip(classKeys, said.decode('ascii')):
       if letter == '1':
-        copyable.add(name)
+        copyable.add(key)
     return copyable, refused
 
   def _askCopyable(
@@ -1140,10 +1301,10 @@ class DependencyTree:
       with open(answerFile, 'rb') as file:
         return file.read(), ''
 
-  def getCopyableNames(self, **kwargs) -> FrozenSet[str]:
+  def getCopyableNames(self, **kwargs) -> FrozenSet[Key]:
     """
-    Gives the name of every class of the tree that C++ can copy, as
-    'QSize' and 'QString'. 'QObject' is not among them: Qt forbids
+    Gives every class of the tree that C++ can copy, by its key, as
+    ('QtCore', 'QSize'). 'QObject' is not among them: Qt forbids
     copying one.
 
     Asked of the compiler at the first call, which takes about ten
@@ -1175,14 +1336,20 @@ class DependencyTree:
     the code. A function a header only declares has to be offered by a
     shared object, or it cannot be called at all.
     """
-    self.getClassNames()
+    self.getClasses()
     return self.__defined_names__
 
-  def getDefinedPath(self, compilerName: str) -> Optional[str]:
+  def getDefinedPath(
+      self,
+      compilerName: str,
+      partName: str,
+  ) -> Optional[str]:
     """
     Gives the full path of the header file that has the body of code
-    of a function, by the compiler's own name of the function, or None
-    when no header file of the parts has it.
+    of a function, by the compiler's own name of the function, seen
+    from a part, or None when no header file of the parts has it. Two
+    classes of one name in two parts give their functions the same
+    names.
 
     Kept with 'getDefinedNames'. A header declares some functions in a
     class and has their code in another header file, as 'qvariant.h'
@@ -1190,22 +1357,24 @@ class DependencyTree:
     its code. Whoever calls such a function has to pull that other
     header file in.
     """
-    self.getClassNames()
-    return self.__defined_paths__.get(compilerName, None)
+    self.getClasses()
+    holder = self._findPart('defined', compilerName, partName)
+    if holder is None:
+      return None
+    return self.__defined_paths__[(holder, compilerName)]
 
-  def getAliasTypes(self) -> Dict[str, str]:
+  def getAliasTypes(self, partName: str) -> Dict[str, str]:
     """
     Gives every other name the parts declare for a type, with the type
-    it stands for: 'qsizetype' stands for 'long long', and 'QObjectList'
-    for 'QList<QObject *>'.
+    it stands for, seen from a part: 'qsizetype' stands for 'long
+    long', and 'QObjectList' for 'QList<QObject *>'.
 
     Kept beside the tree, from the same records. C++ lets a header
     give a type a second name, and functions then use either.
     """
-    self.getClassNames()
-    return dict(self.__alias_types__)
+    return self._seeTable('aliases', '__alias_types__', partName)
 
-  def getSpellings(self, className: str) -> Names:
+  def getSpellings(self, className: str, partName: str) -> Names:
     """
     Gives every name by which C++ code can write a class, its own name
     first.
@@ -1225,10 +1394,12 @@ class DependencyTree:
     className : str
       The name of the class, with every class around it, as
       'QStringConverterBase::State'.
+
+    partName : str
+      The part the name is seen from; see 'Terms'.
     """
-    classNames = {*self.getClassNames()}
     others = dict()  # type: Dict[str, List[str]]
-    for alias, cppType in sorted(self.getAliasTypes().items()):
+    for alias, cppType in sorted(self.getAliasTypes(partName).items()):
       bare = re.sub(r'^(?:class|struct)\s+', '', cppType.strip())
       others.setdefault(bare, []).append(alias)
 
@@ -1243,12 +1414,12 @@ class DependencyTree:
       if depth:
         found = ['%s::%s' % (outer, word) for outer in found]
       found.extend(named(own)[1:])
-      if depth < len(words) - 1 and own in classNames:
-        for built in self.getDescendants(own):
-          found.extend(named(built))
+      if depth < len(words) - 1 and self.hasClass(own, partName):
+        for built in self.getDescendants(own, partName):
+          found.extend(named(built[1]))
     return (*dict.fromkeys(found),)
 
-  def getTreeText(self, *classNames: str) -> str:
+  def getTreeText(self, *classKeys: Key) -> str:
     """
     Gives the tree as text, one class per line, each class two spaces
     further in than the class it is built on.
@@ -1256,9 +1427,10 @@ class DependencyTree:
     Parameters
     ----------
 
-    *classNames : str
-      The classes to start from, each shown with all that is built on
-      it. With none, every root is shown, which is the whole tree.
+    *classKeys : Key
+      The classes to start from, each by its key and shown with all
+      that is built on it. With none, every root is shown, which is
+      the whole tree.
 
     Returns
     -------
@@ -1272,12 +1444,14 @@ class DependencyTree:
     ------
 
     LookupError
-      The tree has no class of one of the names.
+      The tree has no class of one of the keys.
     """
-    tops = classNames or self.getRoots()
+    tops = classKeys or self.getRoots()
     lines = []  # type: List[str]
     for top in tops:
-      self.getParents(top)
+      if top != self.getClassKey(top[1], top[0]):
+        infoSpec = """The part '%s' has no class named '%s'."""
+        raise LookupError(infoSpec % top)
       self._writeBranch(top, None, 0, lines)
     return '\n'.join(lines)
 
@@ -1321,6 +1495,7 @@ class DependencyTree:
     self.__cute_names__ = None
     self.__ordered_names__ = None
     self.__class_parents__ = None
+    self.__parent_keys__ = None
     self.__class_children__ = None
     self.__class_takes__ = None
     self.__class_gives__ = None
@@ -1334,6 +1509,10 @@ class DependencyTree:
     self.__copyable_names__ = None
     self.__defined_names__ = None
     self.__defined_paths__ = None
+    self.__classes_by_part__ = None
+    self.__part_orders__ = None
+    self.__part_scopes__ = None
+    self.__missed_classes__ = None
     self.__make_order__ = None
     self.__make_places__ = None
     self.__class_rings__ = None
@@ -1367,7 +1546,7 @@ class DependencyTree:
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-  def _lookUp(self, tableName: str, className: str) -> Any:
+  def _lookUp(self, tableName: str, className: str, partName: str) -> Any:
     """
     Gives what one of the tables of the tree holds for a class, making
     the tree first when it is not made yet.
@@ -1381,18 +1560,104 @@ class DependencyTree:
     className : str
       The class to look up.
 
+    partName : str
+      The part the name is seen from; see 'Terms'.
+
     Raises
     ------
 
     LookupError
       The tree has no class of that name.
     """
-    self.getClassNames()
-    table = getattr(self, tableName)
-    if className not in table:
-      infoSpec = """The dependency tree has no class named '%s'."""
-      raise LookupError(infoSpec % (className,))
-    return table[className]
+    return getattr(self, tableName)[self.getClassKey(className, partName)]
+
+  def _orderParts(self, partNames: List[str]) -> Dict[str, Names]:
+    """
+    Gives, for each part, the parts a name seen from it is looked up
+    in, in order: the part itself; the parts it needs, as
+    'HeaderFolder.getPartNeeds' has them, and the parts those need,
+    the nearest first; and then the other parts, in the order read.
+    """
+    orders = dict()  # type: Dict[str, Names]
+    for partName in partNames:
+      order = [partName]  # type: List[str]
+      at = 0
+      while at < len(order):
+        try:
+          needs = HeaderFolder.getPartNeeds(order[at])
+        except LookupError:
+          needs = ()
+        order.extend(need for need in needs if need not in order)
+        at += 1
+      order = [one for one in order if one in partNames]
+      order.extend(one for one in partNames if one not in order)
+      orders[partName] = (*order,)
+    return orders
+
+  def _getHolders(self, kind: str) -> Dict[str, Names]:
+    """
+    Gives, for each name of one kind, the parts that have something by
+    that name, in the order read. The kinds: 'classes', 'enumRecords',
+    'enumTypes', 'aliases' and 'defined', the names of functions whose
+    code a header file holds.
+    """
+    held = self.__part_scopes__.get((kind, ''))
+    if held is not None:
+      return held
+    if kind == 'classes':
+      keys = [
+          (partName, name)
+          for partName, classes in self.__classes_by_part__.items()
+          for name in classes]  # type: List[Key]
+    else:
+      tables = dict(
+          enumRecords=self.__enum_records__, enumTypes=self.__enum_types__,
+          aliases=self.__alias_types__, defined=self.__defined_paths__)
+      keys = [*tables[kind]]
+    place = {name: at for at, name in enumerate(self.__classes_by_part__)}
+    collected = dict()  # type: Dict[str, List[str]]
+    for partName, name in sorted(keys, key=lambda key: place[key[0]]):
+      collected.setdefault(name, []).append(partName)
+    held = {name: (*parts,) for name, parts in collected.items()}
+    self.__part_scopes__[(kind, '')] = held
+    return held
+
+  def _findPart(self, kind: str, name: str, partName: str) -> Optional[str]:
+    """
+    Gives the part a name of one kind is looked up in, seen from a
+    part: of the parts that have something by that name, the one that
+    comes first in the order '_orderParts' gives that part. None when
+    no part has anything by that name.
+    """
+    order = self.__part_orders__.get(partName)
+    if order is None:
+      infoSpec = """A name is seen from the part '%s', which is no part
+      of the tree."""
+      raise LookupError(' '.join((infoSpec % partName).split()))
+    holders = self._getHolders(kind).get(name)
+    if not holders:
+      return None
+    if len(holders) == 1:
+      return holders[0]
+    return min(holders, key=order.index)
+
+  def _seeTable(
+      self,
+      kind: str,
+      tableName: str,
+      partName: str,
+  ) -> Dict[str, Any]:
+    """Gives a table of the tree kept under keys as it is seen from a
+    part: under each name, what the part '_findPart' finds has."""
+    self.getClasses()
+    kept = self.__part_scopes__.get((kind, partName))
+    if kept is None:
+      table = getattr(self, tableName)
+      kept = {
+          name: table[(self._findPart(kind, name, partName), name)]
+          for name in self._getHolders(kind)}
+      self.__part_scopes__[(kind, partName)] = kept
+    return dict(kept)
 
   def _collectEntries(
       self,
@@ -1558,8 +1823,17 @@ class DependencyTree:
     hand, class by class: a rule in the tree only where many classes
     share the case.
     """
-    self.getClassNames()
+    self.getClasses()
     return dict(self.__missed_classes__ or ())
+
+  def addMissedClass(self, name: str, reason: str) -> None:
+    """
+    Writes down a class a generator leaves out, and why, for
+    'getMissedClasses', as the classes of a part RitualGenerator's
+    probe header leaves out. A name written down before keeps its
+    first reason.
+    """
+    self._missClass(name, reason)
 
   def _collectTypes(self, classRecord: Record) -> Tuple[Set[str], Set[str]]:
     """
@@ -1589,26 +1863,24 @@ class DependencyTree:
         given.add(whole[:whole.index('(')])
     return taken, given
 
-  def _findClasses(
-      self,
-      cppTypes: Set[str],
-      classes: Dict[str, Any],
-      itself: str,
-  ) -> Names:
+  def _findClasses(self, cppTypes: Set[str], itself: Key) -> Keys:
     """
-    Gives the classes of the tree named anywhere in some types, in
-    alphabetical order, leaving out the class the types belong to.
+    Gives the classes of the tree named anywhere in some types, seen
+    from the part of the class the types belong to, in alphabetical
+    order, leaving out that class.
     """
-    found = set()  # type: Set[str]
+    found = set()  # type: Set[Key]
     for cppType in cppTypes:
       for name in self.__name_pattern__.findall(cppType):
-        while name and name not in classes:
+        holder = self._findPart('classes', name, itself[0])
+        while name and holder is None:
           name = name.rpartition('::')[0]
-        if name and name != itself:
-          found.add(name)
-    return (*sorted(found),)
+          holder = self._findPart('classes', name, itself[0])
+        if name and (holder, name) != itself:
+          found.add((holder, name))
+    return (*sorted(found, key=_byName),)
 
-  def _orderNames(self, parents: Dict[str, Names]) -> Names:
+  def _orderNames(self, parentKeys: Dict[Key, Keys]) -> Keys:
     """
     Puts the classes in an order with every parent before its children,
     the alphabet deciding where the tree leaves a choice.
@@ -1619,25 +1891,22 @@ class DependencyTree:
     RuntimeError
       The classes built on each other form a ring.
     """
-    waitingFor = {
-        name: {parent for parent in parents[name] if parent in parents}
-        for name in parents
-    }
-    ordered, placed = [], set()  # type: List[str], Set[str]
-    remaining = sorted(parents)
+    waitingFor = {key: {*parentKeys[key]} for key in parentKeys}
+    ordered, placed = [], set()  # type: List[Key], Set[Key]
+    remaining = sorted(parentKeys, key=_byName)
     while remaining:
       ready = [n for n in remaining if waitingFor[n] <= placed]
       if not ready:
         infoSpec = """The classes built on each other form a ring, among:
         %s."""
-        info = infoSpec % ', '.join(remaining[:20])
+        info = infoSpec % ', '.join('%s' % (key,) for key in remaining[:20])
         raise RuntimeError(' '.join(info.split()))
       ordered.extend(ready)
       placed.update(ready)
       remaining = [n for n in remaining if n not in placed]
     return (*ordered,)
 
-  def _findGroups(self, needs: Dict[str, Names]) -> List[List[str]]:
+  def _findGroups(self, needs: Dict[Key, Keys]) -> List[List[Key]]:
     """
     Sorts the classes into groups: two classes are in one group when
     each needs the other, straight or through other classes. A group of
@@ -1646,14 +1915,14 @@ class DependencyTree:
     Parameters
     ----------
 
-    needs : Dict[str, Names]
+    needs : Dict[Key, Keys]
       For each class, the classes of the tree it is built on or takes,
       in alphabetical order.
 
     Returns
     -------
 
-    List[List[str]]
+    List[List[Key]]
       The groups, each in alphabetical order. Every class is in exactly
       one.
     """
@@ -1661,10 +1930,10 @@ class DependencyTree:
     #  calling itself, since a chain of classes can be long. 'number' is
     #  when a class was first met, 'lowest' the earliest class it can
     #  get back to, and 'trail' the classes met and not yet grouped.
-    number, lowest = dict(), dict()  # type: Dict[str, int], Dict[str, int]
-    trail, onTrail = [], set()  # type: List[str], Set[str]
-    groups = []  # type: List[List[str]]
-    for root in sorted(needs):
+    number, lowest = dict(), dict()  # type: Dict[Key, int], Dict[Key, int]
+    trail, onTrail = [], set()  # type: List[Key], Set[Key]
+    groups = []  # type: List[List[Key]]
+    for root in sorted(needs, key=_byName):
       if root in number:
         continue
       work = [(root, 0)]
@@ -1684,17 +1953,17 @@ class DependencyTree:
             lowest[name] = min(lowest[name], number[other])
         else:
           if lowest[name] == number[name]:
-            group = []  # type: List[str]
+            group = []  # type: List[Key]
             while not group or group[-1] != name:
               group.append(trail.pop())
               onTrail.discard(group[-1])
-            groups.append(sorted(group))
+            groups.append(sorted(group, key=_byName))
           if work:
             above = work[-1][0]
             lowest[above] = min(lowest[above], lowest[name])
     return groups
 
-  def _orderRing(self, ring: List[str]) -> List[str]:
+  def _orderRing(self, ring: List[Key]) -> List[Key]:
     """
     Puts the classes of one ring in an order to make them in.
 
@@ -1707,17 +1976,17 @@ class DependencyTree:
     Parameters
     ----------
 
-    ring : List[str]
+    ring : List[Key]
       The classes of one group, in alphabetical order. A group of one
       class is given back as it is.
     """
     if len(ring) < 2:
       return [*ring]
     inside = set(ring)
-    parents, takes = self.__class_parents__, self.__class_takes__
-    ordered, placed = [], set()  # type: List[str], Set[str]
+    parents, takes = self.__parent_keys__, self.__class_takes__
+    ordered, placed = [], set()  # type: List[Key], Set[Key]
     while len(ordered) < len(ring):
-      best, bestScore = '', 0
+      best, bestScore = None, 0  # type: Optional[Key], int
       for name in ring:
         if name in placed:
           continue
@@ -1730,36 +1999,36 @@ class DependencyTree:
             1 for other in ring
             if other not in placed and name in takes[other]
         )
-        if not best or waiting - wanted < bestScore:
+        if best is None or waiting - wanted < bestScore:
           best, bestScore = name, waiting - wanted
-      if not best:
+      if best is None:
         infoSpec = """The classes built on each other form a ring, among:
         %s."""
-        raise RuntimeError(' '.join((infoSpec % ', '.join(ring)).split()))
+        info = infoSpec % ', '.join('%s' % (key,) for key in ring)
+        raise RuntimeError(' '.join(info.split()))
       ordered.append(best)
       placed.add(best)
     return ordered
 
   def _writeBranch(
       self,
-      className: str,
-      under: Optional[str],
+      classKey: Key,
+      under: Optional[Key],
       depth: int,
       lines: List[str],
   ) -> None:
     """Writes one class and all that is built on it, as lines of text."""
-    known = [p for p in self.__class_parents__[className]
-             if p in self.__class_parents__]
-    others = [p for p in known if p != under]
-    line = '%s%s' % ('  ' * depth, className)
+    known = [*self.__parent_keys__[classKey]]
+    others = [p[1] for p in known if p != under]
+    line = '%s%s' % ('  ' * depth, classKey[1])
     if under is not None and known and known[0] != under:
-      lines.append('%s  (see under %s)' % (line, known[0]))
+      lines.append('%s  (see under %s)' % (line, known[0][1]))
       return
     if others and under is not None:
       line = '%s  (also built on %s)' % (line, ', '.join(others))
     lines.append(line)
-    for child in self.__class_children__[className]:
-      self._writeBranch(child, className, depth + 1, lines)
+    for child in self.__class_children__[classKey]:
+      self._writeBranch(child, classKey, depth + 1, lines)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  OPTIONAL METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #

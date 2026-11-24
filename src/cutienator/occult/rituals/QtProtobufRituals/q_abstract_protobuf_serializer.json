@@ -1,0 +1,31 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtProtobuf/qabstractprotobufserializer.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK27QAbstractProtobufSerializer9serializeEPK16QProtobufMessage": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK27QAbstractProtobufSerializer11deserializeEP16QProtobufMessage14QByteArrayView": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN27QAbstractProtobufSerializerD1Ev": ["nothing", "address"],
+    "ritual_ZNK27QAbstractProtobufSerializer9lastErrorEv": [
+      "unsigned char", "address"
+    ],
+    "ritual_ZNK27QAbstractProtobufSerializer15lastErrorStringEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK27QAbstractProtobufSerializer16serializeMessageEPK16QProtobufMessage": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK27QAbstractProtobufSerializer18deserializeMessageEP16QProtobufMessage14QByteArrayView": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_take_QAbstractProtobufSerializer": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

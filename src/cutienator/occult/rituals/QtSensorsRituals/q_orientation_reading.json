@@ -1,0 +1,28 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSensors/qorientationsensor.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK19QOrientationReading10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QOrientationReading2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN19QOrientationReadingC1EP7QObject": ["address", "address"],
+    "ritual_ZN19QOrientationReadingD1Ev": ["nothing", "address"],
+    "ritual_ZN19QOrientationReading14copyValuesFromEP14QSensorReading": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QOrientationReading11orientationEv": ["int", "address"],
+    "ritual_ZN19QOrientationReading14setOrientationENS_11OrientationE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_take_QOrientationReading": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN19QOrientationReading14copyValuesFromEP14QSensorReading": [
+      "nothing", "address", "address"
+    ]
+  }
+}

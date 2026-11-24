@@ -1,0 +1,11 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtDataV",
+    "isualization/6.12.0/QtDataVisualization/private/q3dlight_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15Q3DLightPrivateC1EP8Q3DLight": ["address", "address"],
+    "ritual_ZN15Q3DLightPrivateD1Ev": ["nothing", "address"]
+  }
+}

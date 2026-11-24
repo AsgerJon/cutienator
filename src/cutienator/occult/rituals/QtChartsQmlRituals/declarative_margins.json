@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtChartsQml/6.12.0/QtChartsQml/private/declarativemargins_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18DeclarativeMargins10metaObjectEv": ["address", "address"],
+    "ritual_ZN18DeclarativeMargins2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18DeclarativeMargins24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18DeclarativeMarginsC1EP7QObject": ["address", "address"],
+    "ritual_ZN18DeclarativeMargins6setTopEi": ["nothing", "address", "int"],
+    "ritual_ZN18DeclarativeMargins9setBottomEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18DeclarativeMargins7setLeftEi": ["nothing", "address", "int"],
+    "ritual_ZN18DeclarativeMargins8setRightEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_cast_DeclarativeMargins_QMargins": ["address", "address"],
+    "ritual_take_DeclarativeMargins": ["bool", "address", "chars", "address"]
+  }
+}

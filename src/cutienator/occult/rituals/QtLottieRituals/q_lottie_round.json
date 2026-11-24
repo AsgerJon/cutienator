@@ -1,0 +1,31 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLottie/6.12.0/QtLottie/private/qlottieround_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN12QLottieRoundC1ERKS_": ["address", "address"],
+    "ritual_ZN12QLottieRoundC1EP11QLottieBase": ["address", "address"],
+    "ritual_ZNK12QLottieRound5cloneEv": ["address", "address"],
+    "ritual_ZN12QLottieRound5parseERK11QJsonObject": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN12QLottieRound16updatePropertiesEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK12QLottieRound11acceptsTrimEv": ["bool", "address"],
+    "ritual_ZNK12QLottieRound8positionEv": ["address", "address"],
+    "ritual_ZNK12QLottieRound6radiusEv": ["double", "address"],
+    "ritual_ZN12QLottieRoundD1Ev": ["nothing", "address"],
+    "ritual_take_QLottieRound": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK12QLottieRound5cloneEv": ["address", "address"],
+    "ritual_own_ZN12QLottieRound5parseERK11QJsonObject": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZN12QLottieRound16updatePropertiesEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZNK12QLottieRound11acceptsTrimEv": ["bool", "address"]
+  }
+}

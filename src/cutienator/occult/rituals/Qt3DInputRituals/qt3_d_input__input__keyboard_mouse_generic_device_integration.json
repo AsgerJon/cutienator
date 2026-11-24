@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of Qt3DInp",
+    "ut/6.12.0/Qt3DInput/private/keyboardmousegenericdeviceintegration_",
+    "p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK9Qt3DInput5Input37KeyboardMouseGenericDeviceIntegration10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_take_Qt3DInput_Input_KeyboardMouseGenericDeviceIntegration": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

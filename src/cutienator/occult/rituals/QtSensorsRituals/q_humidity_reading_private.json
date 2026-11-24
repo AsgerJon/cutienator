@@ -1,0 +1,11 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSensors/6.12.0/QtSensors/private/qhumiditysensor_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN23QHumidityReadingPrivateC1Ev": ["address"],
+    "ritual_ZN23QHumidityReadingPrivateD1Ev": ["nothing", "address"]
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtRemoteObjects/qremoteobjectnode.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QRemoteObjectHost10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QRemoteObjectHost2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QRemoteObjectHostC1EP7QObject": ["address", "address"],
+    "ritual_ZN17QRemoteObjectHostC1ERK4QUrlS2_N21QRemoteObjectHostBase14AllowedSchemasEP7QObject": [
+      "address", "address", "address", "int", "address"
+    ],
+    "ritual_ZN17QRemoteObjectHostC1ERK4QUrlP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN17QRemoteObjectHostD1Ev": ["nothing", "address"],
+    "ritual_ZNK17QRemoteObjectHost7hostUrlEv": ["address", "address"],
+    "ritual_ZN17QRemoteObjectHost10setHostUrlERK4QUrlN21QRemoteObjectHostBase14AllowedSchemasE": [
+      "bool", "address", "address", "int"
+    ],
+    "ritual_ZN17QRemoteObjectHost21setLocalServerOptionsE6QFlagsIN12QLocalServer12SocketOptionEE": [
+      "nothing", "int"
+    ],
+    "ritual_ZN17QRemoteObjectHost6d_funcEv": ["address", "address"],
+    "ritual_ZNK17QRemoteObjectHost6d_funcEv": ["address", "address"],
+    "ritual_take_QRemoteObjectHost": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK17QRemoteObjectHost7hostUrlEv": ["address", "address"],
+    "ritual_own_ZN17QRemoteObjectHost10setHostUrlERK4QUrlN21QRemoteObjectHostBase14AllowedSchemasE": [
+      "bool", "address", "address", "int"
+    ]
+  }
+}

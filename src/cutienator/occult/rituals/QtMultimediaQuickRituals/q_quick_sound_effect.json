@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtMulti",
+    "mediaQuick/6.12.0/QtMultimediaQuick/private/qquicksoundeffect_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QQuickSoundEffect10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QQuickSoundEffect2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QQuickSoundEffectC1EP7QObject": ["address", "address"],
+    "ritual_take_QQuickSoundEffect": ["bool", "address", "chars", "address"]
+  }
+}

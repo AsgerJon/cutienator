@@ -1,0 +1,36 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLottie/6.12.0/QtLottie/private/qlottieshapetransform_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN21QLottieShapeTransformC1ERKS_": ["address", "address"],
+    "ritual_ZN21QLottieShapeTransformC1EP11QLottieBase": [
+      "address", "address"
+    ],
+    "ritual_ZNK21QLottieShapeTransform5cloneEv": ["address", "address"],
+    "ritual_ZN21QLottieShapeTransform5parseERK11QJsonObject": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN21QLottieShapeTransform16updatePropertiesEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK21QLottieShapeTransform4skewEv": ["double", "address"],
+    "ritual_ZNK21QLottieShapeTransform8skewAxisEv": ["double", "address"],
+    "ritual_ZNK21QLottieShapeTransform6shearXEv": ["double", "address"],
+    "ritual_ZNK21QLottieShapeTransform6shearYEv": ["double", "address"],
+    "ritual_ZNK21QLottieShapeTransform10shearAngleEv": ["double", "address"],
+    "ritual_ZN21QLottieShapeTransformD1Ev": ["nothing", "address"],
+    "ritual_take_QLottieShapeTransform": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK21QLottieShapeTransform5cloneEv": ["address", "address"],
+    "ritual_own_ZN21QLottieShapeTransform5parseERK11QJsonObject": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZN21QLottieShapeTransform16updatePropertiesEi": [
+      "nothing", "address", "int"
+    ]
+  }
+}

@@ -1,0 +1,107 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDataVisualization/q3dtheme.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK8Q3DTheme10metaObjectEv": ["address", "address"],
+    "ritual_ZN8Q3DTheme2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN8Q3DThemeC1EP7QObject": ["address", "address"],
+    "ritual_ZN8Q3DThemeC1ENS_5ThemeEP7QObject": [
+      "address", "int", "address"
+    ],
+    "ritual_ZN8Q3DThemeD1Ev": ["nothing", "address"],
+    "ritual_ZN8Q3DTheme7setTypeENS_5ThemeE": ["nothing", "address", "int"],
+    "ritual_ZNK8Q3DTheme4typeEv": ["int", "address"],
+    "ritual_ZN8Q3DTheme13setBaseColorsERK5QListI6QColorE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK8Q3DTheme10baseColorsEv": ["address", "address"],
+    "ritual_ZN8Q3DTheme18setBackgroundColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK8Q3DTheme15backgroundColorEv": ["address", "address"],
+    "ritual_ZN8Q3DTheme14setWindowColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK8Q3DTheme11windowColorEv": ["address", "address"],
+    "ritual_ZN8Q3DTheme17setLabelTextColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK8Q3DTheme14labelTextColorEv": ["address", "address"],
+    "ritual_ZN8Q3DTheme23setLabelBackgroundColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK8Q3DTheme20labelBackgroundColorEv": ["address", "address"],
+    "ritual_ZN8Q3DTheme16setGridLineColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK8Q3DTheme13gridLineColorEv": ["address", "address"],
+    "ritual_ZN8Q3DTheme23setSingleHighlightColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK8Q3DTheme20singleHighlightColorEv": ["address", "address"],
+    "ritual_ZN8Q3DTheme22setMultiHighlightColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK8Q3DTheme19multiHighlightColorEv": ["address", "address"],
+    "ritual_ZN8Q3DTheme13setLightColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK8Q3DTheme10lightColorEv": ["address", "address"],
+    "ritual_ZN8Q3DTheme16setBaseGradientsERK5QListI15QLinearGradientE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK8Q3DTheme13baseGradientsEv": ["address", "address"],
+    "ritual_ZN8Q3DTheme26setSingleHighlightGradientERK15QLinearGradient": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK8Q3DTheme23singleHighlightGradientEv": ["address", "address"],
+    "ritual_ZN8Q3DTheme25setMultiHighlightGradientERK15QLinearGradient": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK8Q3DTheme22multiHighlightGradientEv": ["address", "address"],
+    "ritual_ZN8Q3DTheme16setLightStrengthEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK8Q3DTheme13lightStrengthEv": ["float", "address"],
+    "ritual_ZN8Q3DTheme23setAmbientLightStrengthEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK8Q3DTheme20ambientLightStrengthEv": ["float", "address"],
+    "ritual_ZN8Q3DTheme25setHighlightLightStrengthEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK8Q3DTheme22highlightLightStrengthEv": ["float", "address"],
+    "ritual_ZN8Q3DTheme21setLabelBorderEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK8Q3DTheme20isLabelBorderEnabledEv": ["bool", "address"],
+    "ritual_ZN8Q3DTheme7setFontERK5QFont": ["nothing", "address", "address"],
+    "ritual_ZNK8Q3DTheme4fontEv": ["address", "address"],
+    "ritual_ZN8Q3DTheme20setBackgroundEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK8Q3DTheme19isBackgroundEnabledEv": ["bool", "address"],
+    "ritual_ZN8Q3DTheme14setGridEnabledEb": ["nothing", "address", "bool"],
+    "ritual_ZNK8Q3DTheme13isGridEnabledEv": ["bool", "address"],
+    "ritual_ZN8Q3DTheme25setLabelBackgroundEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK8Q3DTheme24isLabelBackgroundEnabledEv": ["bool", "address"],
+    "ritual_ZN8Q3DTheme13setColorStyleENS_10ColorStyleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK8Q3DTheme10colorStyleEv": ["int", "address"],
+    "ritual_ZN8Q3DThemeC1EP15Q3DThemePrivateNS_5ThemeEP7QObject": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_take_Q3DTheme": ["bool", "address", "chars", "address"],
+    "ritual_list_make_Q3DTheme_ptr": ["address"],
+    "ritual_list_add_Q3DTheme_ptr": ["nothing", "address", "address"],
+    "ritual_list_size_Q3DTheme_ptr": ["long long", "address"],
+    "ritual_list_at_Q3DTheme_ptr": ["address", "address", "long long"],
+    "ritual_list_drop_Q3DTheme_ptr": ["nothing", "address"]
+  }
+}

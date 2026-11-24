@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DInput/6.12.0/Qt3DInput/private/backendnode_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_take_Qt3DInput_Input_BackendNode": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN9Qt3DInput5Input11BackendNode16syncFromFrontEndEPKN8Qt3DCore5QNodeEb": [
+      "nothing", "address", "address", "bool"
+    ]
+  }
+}

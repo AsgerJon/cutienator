@@ -1,0 +1,52 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtRemoteObjects/qconnectionfactories.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK16QtROIoDeviceBase10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QtROIoDeviceBase2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN16QtROIoDeviceBaseD1Ev": ["nothing", "address"],
+    "ritual_ZN16QtROIoDeviceBase5writeERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QtROIoDeviceBase5writeERK10QByteArrayx": [
+      "nothing", "address", "address", "long long"
+    ],
+    "ritual_ZNK16QtROIoDeviceBase6isOpenEv": ["bool", "address"],
+    "ritual_ZN16QtROIoDeviceBase5closeEv": ["nothing", "address"],
+    "ritual_ZNK16QtROIoDeviceBase14bytesAvailableEv": [
+      "long long", "address"
+    ],
+    "ritual_ZNK16QtROIoDeviceBase10connectionEv": ["address", "address"],
+    "ritual_ZN16QtROIoDeviceBase20initializeDataStreamEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK16QtROIoDeviceBase9isClosingEv": ["bool", "address"],
+    "ritual_ZN16QtROIoDeviceBase9addSourceERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN16QtROIoDeviceBase12removeSourceERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK16QtROIoDeviceBase10deviceTypeEv": ["text", "address"],
+    "ritual_ZN16QtROIoDeviceBase7doCloseEv": ["nothing", "address"],
+    "ritual_ZN16QtROIoDeviceBase6d_funcEv": ["address", "address"],
+    "ritual_ZNK16QtROIoDeviceBase6d_funcEv": ["address", "address"],
+    "ritual_take_QtROIoDeviceBase": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN16QtROIoDeviceBase5writeERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16QtROIoDeviceBase5writeERK10QByteArrayx": [
+      "nothing", "address", "address", "long long"
+    ],
+    "ritual_own_ZNK16QtROIoDeviceBase6isOpenEv": ["bool", "address"],
+    "ritual_own_ZN16QtROIoDeviceBase5closeEv": ["nothing", "address"],
+    "ritual_own_ZNK16QtROIoDeviceBase14bytesAvailableEv": [
+      "long long", "address"
+    ]
+  }
+}

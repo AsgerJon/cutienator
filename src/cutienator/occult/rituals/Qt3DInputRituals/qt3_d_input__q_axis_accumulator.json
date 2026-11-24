@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DInput/qaxisaccumulator.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK9Qt3DInput16QAxisAccumulator10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput16QAxisAccumulator2trEPKcS2_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN9Qt3DInput16QAxisAccumulator6d_funcEv": ["address", "address"],
+    "ritual_ZNK9Qt3DInput16QAxisAccumulator6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_take_Qt3DInput_QAxisAccumulator": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

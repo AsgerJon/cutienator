@@ -1,0 +1,14 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWaylandCompositor/qwaylandsurface.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QWaylandSurfaceRoleC1ERK10QByteArray": [
+      "address", "address"
+    ],
+    "ritual_ZN19QWaylandSurfaceRole4nameEv": ["address", "address"],
+    "ritual_ZN19QWaylandSurfaceRoleD1Ev": ["nothing", "address"]
+  }
+}

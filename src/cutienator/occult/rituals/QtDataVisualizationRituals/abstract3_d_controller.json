@@ -1,0 +1,521 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtDataV",
+    "isualization/6.12.0/QtDataVisualization/private/abstract3dcontroll",
+    "er_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK20Abstract3DController10metaObjectEv": ["address", "address"],
+    "ritual_ZN20Abstract3DController2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN20Abstract3DControllerD1Ev": ["nothing", "address"],
+    "ritual_ZN20Abstract3DController13isInitializedEv": ["bool", "address"],
+    "ritual_ZN20Abstract3DController19synchDataToRendererEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20Abstract3DController6renderEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN20Abstract3DController16initializeOpenGLEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20Abstract3DController11setRendererEP18Abstract3DRenderer": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20Abstract3DController9addSeriesEP17QAbstract3DSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20Abstract3DController12insertSeriesEiP17QAbstract3DSeries": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN20Abstract3DController12removeSeriesEP17QAbstract3DSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20Abstract3DController9hasSeriesEP17QAbstract3DSeries": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN20Abstract3DController10seriesListEv": ["address", "address"],
+    "ritual_ZN20Abstract3DController8setAxisXEP15QAbstract3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20Abstract3DController5axisXEv": ["address", "address"],
+    "ritual_ZN20Abstract3DController8setAxisYEP15QAbstract3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20Abstract3DController5axisYEv": ["address", "address"],
+    "ritual_ZN20Abstract3DController8setAxisZEP15QAbstract3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20Abstract3DController5axisZEv": ["address", "address"],
+    "ritual_ZN20Abstract3DController7addAxisEP15QAbstract3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20Abstract3DController11releaseAxisEP15QAbstract3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20Abstract3DController4axesEv": ["address", "address"],
+    "ritual_ZN20Abstract3DController15addInputHandlerEP23QAbstract3DInputHandler": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20Abstract3DController19releaseInputHandlerEP23QAbstract3DInputHandler": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20Abstract3DController21setActiveInputHandlerEP23QAbstract3DInputHandler": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20Abstract3DController18activeInputHandlerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20Abstract3DController13inputHandlersEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20Abstract3DController8addThemeEP8Q3DTheme": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20Abstract3DController12releaseThemeEP8Q3DTheme": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20Abstract3DController14setActiveThemeEP8Q3DThemeb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZNK20Abstract3DController11activeThemeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20Abstract3DController6themesEv": ["address", "address"],
+    "ritual_ZN20Abstract3DController16setSelectionModeE6QFlagsIN16QAbstract3DGraph13SelectionFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK20Abstract3DController13selectionModeEv": ["int", "address"],
+    "ritual_ZN20Abstract3DController16setShadowQualityEN16QAbstract3DGraph13ShadowQualityE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20Abstract3DController18doSetShadowQualityEN16QAbstract3DGraph13ShadowQualityE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK20Abstract3DController13shadowQualityEv": ["int", "address"],
+    "ritual_ZNK20Abstract3DController16shadowsSupportedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN20Abstract3DController20setOptimizationHintsE6QFlagsIN16QAbstract3DGraph16OptimizationHintEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK20Abstract3DController17optimizationHintsEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK20Abstract3DController15isSlicingActiveEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN20Abstract3DController16setSlicingActiveEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20Abstract3DController5sceneEv": ["address", "address"],
+    "ritual_ZN20Abstract3DController13markDataDirtyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20Abstract3DController22markSeriesVisualsDirtyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20Abstract3DController13requestRenderEP24QOpenGLFramebufferObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20Abstract3DController13addCustomItemEP13QCustom3DItem": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN20Abstract3DController17deleteCustomItemsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20Abstract3DController16deleteCustomItemEP13QCustom3DItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20Abstract3DController16deleteCustomItemERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20Abstract3DController17releaseCustomItemEP13QCustom3DItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20Abstract3DController11customItemsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20Abstract3DController18selectedLabelIndexEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK20Abstract3DController12selectedAxisEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20Abstract3DController23selectedCustomItemIndexEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK20Abstract3DController18selectedCustomItemEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20Abstract3DController18setOrthoProjectionEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK20Abstract3DController17isOrthoProjectionEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN20Abstract3DController13setMeasureFpsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK20Abstract3DController10measureFpsEv": ["bool", "address"],
+    "ritual_ZNK20Abstract3DController10currentFpsEv": ["double", "address"],
+    "ritual_ZNK20Abstract3DController15selectedElementEv": [
+      "int", "address"
+    ],
+    "ritual_ZN20Abstract3DController14setAspectRatioEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN20Abstract3DController11aspectRatioEv": ["double", "address"],
+    "ritual_ZN20Abstract3DController24setHorizontalAspectRatioEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK20Abstract3DController21horizontalAspectRatioEv": [
+      "double", "address"
+    ],
+    "ritual_ZN20Abstract3DController13setReflectionEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK20Abstract3DController10reflectionEv": ["bool", "address"],
+    "ritual_ZN20Abstract3DController15setReflectivityEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK20Abstract3DController12reflectivityEv": [
+      "double", "address"
+    ],
+    "ritual_ZN20Abstract3DController8setPolarEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK20Abstract3DController7isPolarEv": ["bool", "address"],
+    "ritual_ZN20Abstract3DController20setRadialLabelOffsetEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK20Abstract3DController17radialLabelOffsetEv": [
+      "float", "address"
+    ],
+    "ritual_ZN20Abstract3DController9setLocaleERK7QLocale": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20Abstract3DController6localeEv": ["address", "address"],
+    "ritual_ZNK20Abstract3DController20queriedGraphPositionEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20Abstract3DController9setMarginEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK20Abstract3DController6marginEv": ["double", "address"],
+    "ritual_ZN20Abstract3DController14emitNeedRenderEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20Abstract3DController14clearSelectionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20Abstract3DController21mouseDoubleClickEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20Abstract3DController10touchEventEP11QTouchEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20Abstract3DController15mousePressEventEP11QMouseEventRK6QPoint": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN20Abstract3DController17mouseReleaseEventEP11QMouseEventRK6QPoint": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN20Abstract3DController14mouseMoveEventEP11QMouseEventRK6QPoint": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN20Abstract3DController10wheelEventEP11QWheelEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20Abstract3DController30handleAxisTitleChangedBySenderEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20Abstract3DController31handleAxisLabelsChangedBySenderEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20Abstract3DController30handleAxisRangeChangedBySenderEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20Abstract3DController37handleAxisSegmentCountChangedBySenderEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20Abstract3DController40handleAxisSubSegmentCountChangedBySenderEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20Abstract3DController45handleAxisAutoAdjustRangeChangedInOrientationEN15QAbstract3DAxis15AxisOrientationEb": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZN20Abstract3DController36handleAxisLabelFormatChangedBySenderEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20Abstract3DController33handleAxisReversedChangedBySenderEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20Abstract3DController32handleAxisFormatterDirtyBySenderEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20Abstract3DController42handleAxisLabelAutoRotationChangedBySenderEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20Abstract3DController40handleAxisTitleVisibilityChangedBySenderEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20Abstract3DController35handleAxisTitleFixedChangedBySenderEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20Abstract3DController37handleSeriesVisibilityChangedBySenderEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20Abstract3DController18handlePendingClickEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20Abstract3DController31handlePendingGraphPositionQueryEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20Abstract3DController16adjustAxisRangesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20Abstract3DController25markSeriesItemLabelsDirtyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK20Abstract3DController10isOpenGLESEv": ["bool", "address"],
+    "ritual_ZN20Abstract3DController15destroyRendererEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20Abstract3DController22handleAxisTitleChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN20Abstract3DController23handleAxisLabelsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20Abstract3DController22handleAxisRangeChangedEff": [
+      "nothing", "address", "float", "float"
+    ],
+    "ritual_ZN20Abstract3DController29handleAxisSegmentCountChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20Abstract3DController32handleAxisSubSegmentCountChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20Abstract3DController32handleAxisAutoAdjustRangeChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20Abstract3DController28handleAxisLabelFormatChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN20Abstract3DController25handleAxisReversedChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20Abstract3DController24handleAxisFormatterDirtyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20Abstract3DController34handleAxisLabelAutoRotationChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN20Abstract3DController32handleAxisTitleVisibilityChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20Abstract3DController27handleAxisTitleFixedChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20Abstract3DController22handleInputViewChangedEN23QAbstract3DInputHandler9InputViewE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20Abstract3DController26handleInputPositionChangedERK6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20Abstract3DController29handleSeriesVisibilityChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20Abstract3DController28handleThemeColorStyleChangedEN8Q3DTheme10ColorStyleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20Abstract3DController28handleThemeBaseColorsChangedERK5QListI6QColorE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20Abstract3DController31handleThemeBaseGradientsChangedERK5QListI15QLinearGradientE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20Abstract3DController38handleThemeSingleHighlightColorChangedERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20Abstract3DController41handleThemeSingleHighlightGradientChangedERK15QLinearGradient": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20Abstract3DController37handleThemeMultiHighlightColorChangedERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20Abstract3DController40handleThemeMultiHighlightGradientChangedERK15QLinearGradient": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20Abstract3DController22handleThemeTypeChangedEN8Q3DTheme5ThemeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20Abstract3DController26handleRequestShadowQualityEN16QAbstract3DGraph13ShadowQualityE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20Abstract3DController16updateCustomItemEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20Abstract3DController17createDefaultAxisEN15QAbstract3DAxis15AxisOrientationE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN20Abstract3DController22createDefaultValueAxisEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20Abstract3DController25createDefaultCategoryAxisEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20Abstract3DController31startRecordingRemovesAndInsertsEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_Abstract3DController": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN20Abstract3DController19synchDataToRendererEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN20Abstract3DController6renderEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_own_ZN20Abstract3DController9addSeriesEP17QAbstract3DSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20Abstract3DController12insertSeriesEiP17QAbstract3DSeries": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZN20Abstract3DController12removeSeriesEP17QAbstract3DSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20Abstract3DController9hasSeriesEP17QAbstract3DSeries": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN20Abstract3DController8setAxisXEP15QAbstract3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK20Abstract3DController5axisXEv": ["address", "address"],
+    "ritual_own_ZN20Abstract3DController8setAxisYEP15QAbstract3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK20Abstract3DController5axisYEv": ["address", "address"],
+    "ritual_own_ZN20Abstract3DController8setAxisZEP15QAbstract3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK20Abstract3DController5axisZEv": ["address", "address"],
+    "ritual_own_ZN20Abstract3DController7addAxisEP15QAbstract3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20Abstract3DController11releaseAxisEP15QAbstract3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20Abstract3DController15addInputHandlerEP23QAbstract3DInputHandler": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20Abstract3DController19releaseInputHandlerEP23QAbstract3DInputHandler": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20Abstract3DController21setActiveInputHandlerEP23QAbstract3DInputHandler": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20Abstract3DController18activeInputHandlerEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN20Abstract3DController8addThemeEP8Q3DTheme": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20Abstract3DController12releaseThemeEP8Q3DTheme": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20Abstract3DController14setActiveThemeEP8Q3DThemeb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_own_ZNK20Abstract3DController11activeThemeEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN20Abstract3DController16setSelectionModeE6QFlagsIN16QAbstract3DGraph13SelectionFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZNK20Abstract3DController13selectionModeEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZN20Abstract3DController16setShadowQualityEN16QAbstract3DGraph13ShadowQualityE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN20Abstract3DController18doSetShadowQualityEN16QAbstract3DGraph13ShadowQualityE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZNK20Abstract3DController13shadowQualityEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZNK20Abstract3DController16shadowsSupportedEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZN20Abstract3DController21mouseDoubleClickEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20Abstract3DController10touchEventEP11QTouchEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20Abstract3DController15mousePressEventEP11QMouseEventRK6QPoint": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN20Abstract3DController17mouseReleaseEventEP11QMouseEventRK6QPoint": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN20Abstract3DController14mouseMoveEventEP11QMouseEventRK6QPoint": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN20Abstract3DController10wheelEventEP11QWheelEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20Abstract3DController30handleAxisTitleChangedBySenderEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20Abstract3DController31handleAxisLabelsChangedBySenderEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20Abstract3DController30handleAxisRangeChangedBySenderEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20Abstract3DController37handleAxisSegmentCountChangedBySenderEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20Abstract3DController40handleAxisSubSegmentCountChangedBySenderEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20Abstract3DController36handleAxisLabelFormatChangedBySenderEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20Abstract3DController33handleAxisReversedChangedBySenderEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20Abstract3DController32handleAxisFormatterDirtyBySenderEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20Abstract3DController42handleAxisLabelAutoRotationChangedBySenderEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20Abstract3DController40handleAxisTitleVisibilityChangedBySenderEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20Abstract3DController35handleAxisTitleFixedChangedBySenderEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20Abstract3DController37handleSeriesVisibilityChangedBySenderEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20Abstract3DController18handlePendingClickEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN20Abstract3DController31handlePendingGraphPositionQueryEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN20Abstract3DController17createDefaultAxisEN15QAbstract3DAxis15AxisOrientationE": [
+      "address", "address", "int"
+    ],
+    "ritual_own_ZN20Abstract3DController31startRecordingRemovesAndInsertsEv": [
+      "nothing", "address"
+    ]
+  }
+}

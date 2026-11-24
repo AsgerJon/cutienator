@@ -1,0 +1,34 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSerialBus/6.12.0/QtSerialBus/private/qmodbusclient_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QModbusClientPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK20QModbusClientPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK20QModbusClientPrivate17createReadRequestERK15QModbusDataUnit": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK20QModbusClientPrivate18createWriteRequestERK15QModbusDataUnit": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK20QModbusClientPrivate15createRWRequestERK15QModbusDataUnitS2_": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN20QModbusClientPrivate14enqueueRequestERK14QModbusRequestiRK15QModbusDataUnitN12QModbusReply9ReplyTypeE": [
+      "address", "address", "address", "int", "address", "int"
+    ],
+    "ritual_ZNK20QModbusClientPrivate6isOpenEv": ["bool", "address"],
+    "ritual_ZN20QModbusClientPrivate19processQueueElementERK15QModbusResponseRKNS_12QueueElementE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_take_QModbusClientPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN20QModbusClientPrivate14enqueueRequestERK14QModbusRequestiRK15QModbusDataUnitN12QModbusReply9ReplyTypeE": [
+      "address", "address", "address", "int", "address", "int"
+    ],
+    "ritual_own_ZNK20QModbusClientPrivate6isOpenEv": ["bool", "address"]
+  }
+}

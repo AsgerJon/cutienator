@@ -1,0 +1,66 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWaylandCompositor/qwaylandkeyboard.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK16QWaylandKeyboard10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QWaylandKeyboard2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN16QWaylandKeyboardC1EP12QWaylandSeatP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK16QWaylandKeyboard4seatEv": ["address", "address"],
+    "ritual_ZNK16QWaylandKeyboard10compositorEv": ["address", "address"],
+    "ritual_ZNK16QWaylandKeyboard10repeatRateEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZN16QWaylandKeyboard13setRepeatRateEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZNK16QWaylandKeyboard11repeatDelayEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZN16QWaylandKeyboard14setRepeatDelayEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN16QWaylandKeyboard8setFocusEP15QWaylandSurface": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QWaylandKeyboard16sendKeyModifiersEP14QWaylandClientj": [
+      "nothing", "address", "address", "unsigned int"
+    ],
+    "ritual_ZN16QWaylandKeyboard17sendKeyPressEventEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN16QWaylandKeyboard19sendKeyReleaseEventEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZNK16QWaylandKeyboard5focusEv": ["address", "address"],
+    "ritual_ZNK16QWaylandKeyboard11focusClientEv": ["address", "address"],
+    "ritual_ZN16QWaylandKeyboard9addClientEP14QWaylandClientjj": [
+      "nothing", "address", "address", "unsigned int", "unsigned int"
+    ],
+    "ritual_ZNK16QWaylandKeyboard13keyToScanCodeEi": [
+      "unsigned int", "address", "int"
+    ],
+    "ritual_ZN16QWaylandKeyboard12updateKeymapEv": ["nothing", "address"],
+    "ritual_own_ZN16QWaylandKeyboard8setFocusEP15QWaylandSurface": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16QWaylandKeyboard16sendKeyModifiersEP14QWaylandClientj": [
+      "nothing", "address", "address", "unsigned int"
+    ],
+    "ritual_own_ZN16QWaylandKeyboard17sendKeyPressEventEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_own_ZN16QWaylandKeyboard19sendKeyReleaseEventEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_own_ZN16QWaylandKeyboard9addClientEP14QWaylandClientjj": [
+      "nothing", "address", "address", "unsigned int", "unsigned int"
+    ]
+  }
+}

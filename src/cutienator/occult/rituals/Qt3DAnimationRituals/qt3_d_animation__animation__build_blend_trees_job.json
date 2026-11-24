@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DAnimation/6.12.0/Qt3DAnimation/private/buildblendtreesjob_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN13Qt3DAnimation9Animation18BuildBlendTreesJob10setHandlerEPNS0_7HandlerE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation9Animation18BuildBlendTreesJob7handlerEv": [
+      "address", "address"
+    ]
+  }
+}

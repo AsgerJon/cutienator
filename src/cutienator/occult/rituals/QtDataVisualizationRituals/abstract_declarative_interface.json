@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtDataV",
+    "isualization/6.12.0/QtDataVisualization/private/abstractdeclarativ",
+    "einterface_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN28AbstractDeclarativeInterfaceD1Ev": ["nothing", "address"],
+    "ritual_ZNK28AbstractDeclarativeInterface7isReadyEv": [
+      "bool", "address"
+    ],
+    "ritual_take_AbstractDeclarativeInterface": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

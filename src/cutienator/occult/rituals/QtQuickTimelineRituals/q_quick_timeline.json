@@ -1,0 +1,42 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuickTimeline/6.12.0/QtQuickTimeline/private/qquicktimeline_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK14QQuickTimeline10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QQuickTimeline2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN14QQuickTimelineC1EP7QObject": ["address", "address"],
+    "ritual_ZNK14QQuickTimeline7enabledEv": ["bool", "address"],
+    "ritual_ZN14QQuickTimeline10setEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK14QQuickTimeline10startFrameEv": ["double", "address"],
+    "ritual_ZN14QQuickTimeline13setStartFrameEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK14QQuickTimeline8endFrameEv": ["double", "address"],
+    "ritual_ZN14QQuickTimeline11setEndFrameEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK14QQuickTimeline12currentFrameEv": ["double", "address"],
+    "ritual_ZN14QQuickTimeline15setCurrentFrameEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN14QQuickTimeline10reevaluateEv": ["nothing", "address"],
+    "ritual_ZN14QQuickTimeline4initEv": ["nothing", "address"],
+    "ritual_ZN14QQuickTimeline5resetEv": ["nothing", "address"],
+    "ritual_ZNK14QQuickTimeline13getAnimationsEv": ["address", "address"],
+    "ritual_ZN14QQuickTimeline10classBeginEv": ["nothing", "address"],
+    "ritual_ZN14QQuickTimeline17componentCompleteEv": ["nothing", "address"],
+    "ritual_cast_QQuickTimeline_QQmlParserStatus": ["address", "address"],
+    "ritual_take_QQuickTimeline": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN14QQuickTimeline10classBeginEv": ["nothing", "address"],
+    "ritual_own_ZN14QQuickTimeline17componentCompleteEv": [
+      "nothing", "address"
+    ]
+  }
+}

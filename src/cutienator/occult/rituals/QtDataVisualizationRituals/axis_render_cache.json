@@ -1,0 +1,86 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtDataV",
+    "isualization/6.12.0/QtDataVisualization/private/axisrendercache_p.",
+    "h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK15AxisRenderCache10metaObjectEv": ["address", "address"],
+    "ritual_ZN15AxisRenderCacheD1Ev": ["nothing", "address"],
+    "ritual_ZN15AxisRenderCache7setTypeEN15QAbstract3DAxis8AxisTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15AxisRenderCache4typeEv": ["int", "address"],
+    "ritual_ZNK15AxisRenderCache5titleEv": ["text", "address"],
+    "ritual_ZNK15AxisRenderCache6labelsEv": ["address", "address"],
+    "ritual_ZN15AxisRenderCache6setMinEf": ["nothing", "address", "float"],
+    "ritual_ZNK15AxisRenderCache3minEv": ["float", "address"],
+    "ritual_ZN15AxisRenderCache6setMaxEf": ["nothing", "address", "float"],
+    "ritual_ZNK15AxisRenderCache3maxEv": ["float", "address"],
+    "ritual_ZN15AxisRenderCache15setSegmentCountEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15AxisRenderCache12segmentCountEv": ["int", "address"],
+    "ritual_ZN15AxisRenderCache18setSubSegmentCountEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15AxisRenderCache15subSegmentCountEv": ["int", "address"],
+    "ritual_ZN15AxisRenderCache14setLabelFormatERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK15AxisRenderCache11labelFormatEv": ["text", "address"],
+    "ritual_ZN15AxisRenderCache11setReversedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK15AxisRenderCache8reversedEv": ["bool", "address"],
+    "ritual_ZN15AxisRenderCache12setFormatterEP21QValue3DAxisFormatter": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15AxisRenderCache9formatterEv": ["address", "address"],
+    "ritual_ZN15AxisRenderCache16setCtrlFormatterEP21QValue3DAxisFormatter": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15AxisRenderCache13ctrlFormatterEv": ["address", "address"],
+    "ritual_ZN15AxisRenderCache16gridLinePositionEi": [
+      "float", "address", "int"
+    ],
+    "ritual_ZN15AxisRenderCache13gridLineCountEv": ["int", "address"],
+    "ritual_ZN15AxisRenderCache13labelPositionEi": [
+      "float", "address", "int"
+    ],
+    "ritual_ZN15AxisRenderCache10labelCountEv": ["int", "address"],
+    "ritual_ZN15AxisRenderCache18updateAllPositionsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK15AxisRenderCache14positionsDirtyEv": ["bool", "address"],
+    "ritual_ZN15AxisRenderCache18markPositionsDirtyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15AxisRenderCache12setTranslateEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN15AxisRenderCache9translateEv": ["float", "address"],
+    "ritual_ZN15AxisRenderCache8setScaleEf": ["nothing", "address", "float"],
+    "ritual_ZN15AxisRenderCache5scaleEv": ["float", "address"],
+    "ritual_ZN15AxisRenderCache10positionAtEf": [
+      "float", "address", "float"
+    ],
+    "ritual_ZNK15AxisRenderCache17labelAutoRotationEv": ["float", "address"],
+    "ritual_ZN15AxisRenderCache20setLabelAutoRotationEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK15AxisRenderCache14isTitleVisibleEv": ["bool", "address"],
+    "ritual_ZN15AxisRenderCache15setTitleVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK15AxisRenderCache12isTitleFixedEv": ["bool", "address"],
+    "ritual_ZN15AxisRenderCache13setTitleFixedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN15AxisRenderCache11clearLabelsEv": ["nothing", "address"],
+    "ritual_ZNK15AxisRenderCache13maxLabelWidthERK5QListI7QStringE": [
+      "int", "address", "address"
+    ],
+    "ritual_take_AxisRenderCache": ["bool", "address", "chars", "address"]
+  }
+}

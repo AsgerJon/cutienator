@@ -1,0 +1,34 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSerialBus/qmodbusreply.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK12QModbusReply10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QModbusReply2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN12QModbusReplyC1ENS_9ReplyTypeEiP7QObject": [
+      "address", "int", "int", "address"
+    ],
+    "ritual_ZNK12QModbusReply4typeEv": ["int", "address"],
+    "ritual_ZNK12QModbusReply13serverAddressEv": ["int", "address"],
+    "ritual_ZNK12QModbusReply10isFinishedEv": ["bool", "address"],
+    "ritual_ZNK12QModbusReply6resultEv": ["address", "address"],
+    "ritual_ZNK12QModbusReply9rawResultEv": ["address", "address"],
+    "ritual_ZNK12QModbusReply11errorStringEv": ["text", "address"],
+    "ritual_ZNK12QModbusReply5errorEv": ["int", "address"],
+    "ritual_ZN12QModbusReply9setResultERK15QModbusDataUnit": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QModbusReply12setRawResultERK15QModbusResponse": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QModbusReply11setFinishedEb": ["nothing", "address", "bool"],
+    "ritual_ZN12QModbusReply8setErrorEN13QModbusDevice5ErrorERK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZN12QModbusReply20addIntermediateErrorEN13QModbusDevice17IntermediateErrorE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_take_QModbusReply": ["bool", "address", "chars", "address"]
+  }
+}

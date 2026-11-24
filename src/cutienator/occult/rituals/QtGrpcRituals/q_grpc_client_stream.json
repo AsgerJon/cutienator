@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGrpc/qgrpcstream.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QGrpcClientStream10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QGrpcClientStream2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QGrpcClientStreamD1Ev": ["nothing", "address"],
+    "ritual_ZN17QGrpcClientStream10writesDoneEv": ["nothing", "address"],
+    "ritual_ZN17QGrpcClientStream5eventEP6QEvent": [
+      "bool", "address", "address"
+    ]
+  }
+}

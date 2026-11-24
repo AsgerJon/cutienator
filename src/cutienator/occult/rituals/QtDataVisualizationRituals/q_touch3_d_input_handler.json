@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDataVisualization/qtouch3dinputhandler.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK20QTouch3DInputHandler10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QTouch3DInputHandler2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN20QTouch3DInputHandlerC1EP7QObject": ["address", "address"],
+    "ritual_ZN20QTouch3DInputHandlerD1Ev": ["nothing", "address"],
+    "ritual_ZN20QTouch3DInputHandler10touchEventEP11QTouchEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QTouch3DInputHandler": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN20QTouch3DInputHandler10touchEventEP11QTouchEvent": [
+      "nothing", "address", "address"
+    ]
+  }
+}

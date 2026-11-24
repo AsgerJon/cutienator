@@ -1,0 +1,13 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSensors/6.12.0/QtSensors/private/qambienttemperaturesensor_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN33QAmbientTemperatureReadingPrivateC1Ev": ["address"],
+    "ritual_ZN33QAmbientTemperatureReadingPrivateD1Ev": [
+      "nothing", "address"
+    ]
+  }
+}

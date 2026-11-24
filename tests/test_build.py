@@ -46,14 +46,31 @@ class TestBuild(BaseTest):
 
   def test_shared_object_folder_holds_what_system_names(self) -> None:
     """The file 'System' names for each part of Qt the rituals call
-    into is where Qt keeps them."""
+    into and this machine has is where Qt keeps them; a part of header
+    files alone has none."""
     paths = []
-    for part in Rituals.getRitualParts():
+    for part in Rituals.getInstalledParts():
       name = System.getHere().getQtFileName(part)
       path = os.path.join(Build.getQtSharedObjectFolder(), name)
-      self.assertTrue(os.path.isfile(path), path)
-      paths.append(path)
+      if os.path.isfile(path):
+        paths.append(path)
+      else:
+        header = os.path.join(Build.getQtHeaderFolder(), part)
+        self.assertTrue(os.path.isdir(header), header)
+    self.assertIn(os.path.join(
+        Build.getQtSharedObjectFolder(),
+        System.getHere().getQtFileName('QtCore')), paths)
     self.assertEqual(Rituals.getQtSharedObjects(), (*paths,))
+
+  def test_a_part_this_machine_lacks_is_not_built(self) -> None:
+    """The ritual files 'build' compiles are those of the parts this
+    machine's Qt has, and only those."""
+    installed = {*Rituals.getInstalledParts()}
+    built = {*Rituals.getBuiltRitualFiles()}
+    for ritualFile in Rituals.getRitualFiles():
+      part = os.path.basename(os.path.dirname(ritualFile))[:-7]
+      with self.subTest(ritualFile=ritualFile):
+        self.assertIs(ritualFile in built, part in installed)
 
   def test_program_folder_holds_qmake(self) -> None:
     """The program folder holds 'qmake6', which answered for it."""
@@ -80,7 +97,7 @@ class TestBuild(BaseTest):
     this system is told."""
     system = System.getHere()
     build = Build()
-    build.setRitualFiles(*Rituals.getRitualFiles())
+    build.setRitualFiles(*Rituals.getBuiltRitualFiles())
     build.setTargetFile(Rituals.getTargetFile())
     build.setQtSharedObjects(*Rituals.getQtSharedObjects())
     qtFolder = Build.getQtSharedObjectFolder()
@@ -111,7 +128,7 @@ class TestBuild(BaseTest):
         *build.getQtSharedObjects(),
     )
     self.assertEqual(build.getLinkCommand(), expected)
-    self.assertEqual(build.getRitualFiles(), Rituals.getRitualFiles())
+    self.assertEqual(build.getRitualFiles(), Rituals.getBuiltRitualFiles())
     self.assertTrue(build.getRitualFiles())
 
   def test_commands_need_what_they_are_made_of(self) -> None:
@@ -164,7 +181,7 @@ class TestBuild(BaseTest):
     header of 'QObject' among them, and nothing else. A line taken
     along from Qt's source may name its file between quotes."""
     build = Build()
-    build.setRitualFiles(*Rituals.getRitualFiles())
+    build.setRitualFiles(*Rituals.getBuiltRitualFiles())
     lines = build.getCommonHeaderText().split('\n')
     self.assertEqual(lines.pop(), '')
     self.assertIn('#include <QtCore/qobject.h>', lines)

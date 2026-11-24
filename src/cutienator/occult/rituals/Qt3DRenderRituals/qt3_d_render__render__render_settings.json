@@ -1,0 +1,36 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DRender/6.12.0/Qt3DRender/private/rendersettings_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK10Qt3DRender6Render14RenderSettings18activeFrameGraphIDEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render14RenderSettings12renderPolicyEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render14RenderSettings10pickMethodEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render14RenderSettings14pickResultModeEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render14RenderSettings26faceOrientationPickingModeEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render14RenderSettings23pickWorldSpaceToleranceEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render14RenderSettings12capabilitiesEv": [
+      "text", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render14RenderSettings21setActiveFrameGraphIdEN8Qt3DCore7QNodeIdE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN10Qt3DRender6Render14RenderSettings16syncFromFrontEndEPKN8Qt3DCore5QNodeEb": [
+      "nothing", "address", "address", "bool"
+    ]
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDataVisualization/qcustom3ditem.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZNK13QCustom3DItem10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QCustom3DItem2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN13QCustom3DItemC1EP7QObject": ["address", "address"],
+    "ritual_ZN13QCustom3DItemC1ERK7QStringRK9QVector3DS5_RK11QQuaternionRK6QImageP7QObject": [
+      "address", "text", "address", "address", "address", "address",
+      "address"
+    ],
+    "ritual_ZN13QCustom3DItemD1Ev": ["nothing", "address"],
+    "ritual_ZN13QCustom3DItem11setMeshFileERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK13QCustom3DItem8meshFileEv": ["text", "address"],
+    "ritual_ZN13QCustom3DItem14setTextureFileERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK13QCustom3DItem11textureFileEv": ["text", "address"],
+    "ritual_ZN13QCustom3DItem11setPositionERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QCustom3DItem8positionEv": ["address", "address"],
+    "ritual_ZN13QCustom3DItem19setPositionAbsoluteEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK13QCustom3DItem18isPositionAbsoluteEv": ["bool", "address"],
+    "ritual_ZN13QCustom3DItem10setScalingERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QCustom3DItem7scalingEv": ["address", "address"],
+    "ritual_ZN13QCustom3DItem18setScalingAbsoluteEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK13QCustom3DItem17isScalingAbsoluteEv": ["bool", "address"],
+    "ritual_ZN13QCustom3DItem11setRotationERK11QQuaternion": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QCustom3DItem8rotationEv": ["address", "address"],
+    "ritual_ZN13QCustom3DItem10setVisibleEb": ["nothing", "address", "bool"],
+    "ritual_ZNK13QCustom3DItem9isVisibleEv": ["bool", "address"],
+    "ritual_ZN13QCustom3DItem16setShadowCastingEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK13QCustom3DItem15isShadowCastingEv": ["bool", "address"],
+    "ritual_ZN13QCustom3DItem23setRotationAxisAndAngleERK9QVector3Df": [
+      "nothing", "address", "address", "float"
+    ],
+    "ritual_ZN13QCustom3DItem15setTextureImageERK6QImage": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QCustom3DItemC1EP20QCustom3DItemPrivateP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_take_QCustom3DItem": ["bool", "address", "chars", "address"],
+    "ritual_list_make_QCustom3DItem_ptr": ["address"],
+    "ritual_list_add_QCustom3DItem_ptr": ["nothing", "address", "address"],
+    "ritual_list_size_QCustom3DItem_ptr": ["long long", "address"],
+    "ritual_list_at_QCustom3DItem_ptr": ["address", "address", "long long"],
+    "ritual_list_drop_QCustom3DItem_ptr": ["nothing", "address"]
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DInput/6.12.0/Qt3DInput/private/abstractactioninput_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN9Qt3DInput5Input19AbstractActionInput11milliToNanoEx": [
+      "long long", "long long"
+    ],
+    "ritual_ZN9Qt3DInput5Input19AbstractActionInput7processEPNS0_12InputHandlerEx": [
+      "bool", "address", "address", "long long"
+    ],
+    "ritual_take_Qt3DInput_Input_AbstractActionInput": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

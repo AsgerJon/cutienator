@@ -1,0 +1,38 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DPhysics/6.12.0/QtQuick3DPhysics/private/qcharactercontroller_p.h",
+    ", Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK20QCharacterController10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QCharacterController2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN20QCharacterControllerC1Ev": ["address"],
+    "ritual_ZNK20QCharacterController8movementEv": ["address", "address"],
+    "ritual_ZN20QCharacterController11setMovementERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QCharacterController7gravityEv": ["address", "address"],
+    "ritual_ZN20QCharacterController10setGravityERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QCharacterController15getDisplacementEf": [
+      "address", "address", "float"
+    ],
+    "ritual_ZNK20QCharacterController13midAirControlEv": ["bool", "address"],
+    "ritual_ZN20QCharacterController16setMidAirControlEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20QCharacterController8teleportERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QCharacterController22enableShapeHitCallbackEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN20QCharacterController25setEnableShapeHitCallbackEb": [
+      "nothing", "address", "bool"
+    ]
+  }
+}

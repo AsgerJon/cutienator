@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtDataV",
+    "isualization/6.12.0/QtDataVisualization/private/labelitem_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN9LabelItemC1Ev": ["address"],
+    "ritual_ZN9LabelItemD1Ev": ["nothing", "address"],
+    "ritual_ZN9LabelItem7setSizeERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9LabelItem4sizeEv": ["address", "address"],
+    "ritual_ZN9LabelItem12setTextureIdEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN9LabelItem5clearEv": ["nothing", "address"]
+  }
+}

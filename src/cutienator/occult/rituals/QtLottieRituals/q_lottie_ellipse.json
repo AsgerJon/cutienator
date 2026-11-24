@@ -1,0 +1,36 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLottie/6.12.0/QtLottie/private/qlottieellipse_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN14QLottieEllipseC1ERKS_": ["address", "address"],
+    "ritual_ZN14QLottieEllipseC1EP11QLottieBase": ["address", "address"],
+    "ritual_ZNK14QLottieEllipse5cloneEv": ["address", "address"],
+    "ritual_ZN14QLottieEllipse16updatePropertiesEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN14QLottieEllipse5parseERK11QJsonObject": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK14QLottieEllipse11acceptsTrimEv": ["bool", "address"],
+    "ritual_ZNK14QLottieEllipse8positionEv": ["address", "address"],
+    "ritual_ZNK14QLottieEllipse4sizeEv": ["address", "address"],
+    "ritual_ZNK14QLottieEllipse10isAnimatedEv": ["bool", "address"],
+    "ritual_ZNK14QLottieEllipse12fallbackPathEv": ["address", "address"],
+    "ritual_ZNK14QLottieEllipse16positionPropertyEv": ["address", "address"],
+    "ritual_ZN14QLottieEllipseD1Ev": ["nothing", "address"],
+    "ritual_take_QLottieEllipse": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK14QLottieEllipse5cloneEv": ["address", "address"],
+    "ritual_own_ZN14QLottieEllipse16updatePropertiesEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN14QLottieEllipse5parseERK11QJsonObject": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZNK14QLottieEllipse11acceptsTrimEv": ["bool", "address"],
+    "ritual_own_ZNK14QLottieEllipse10isAnimatedEv": ["bool", "address"],
+    "ritual_own_ZNK14QLottieEllipse12fallbackPathEv": ["address", "address"]
+  }
+}

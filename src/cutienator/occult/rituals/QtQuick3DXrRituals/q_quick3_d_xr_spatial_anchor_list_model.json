@@ -1,0 +1,36 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DXr/6.12.0/QtQuick3DXr/private/qquick3dxrspatialanchorlistmodel_p",
+    ".h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK32QQuick3DXrSpatialAnchorListModel10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK32QQuick3DXrSpatialAnchorListModel8rowCountERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK32QQuick3DXrSpatialAnchorListModel4dataERK11QModelIndexi": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZNK32QQuick3DXrSpatialAnchorListModel9roleNamesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK32QQuick3DXrSpatialAnchorListModel10filterModeEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK32QQuick3DXrSpatialAnchorListModel16identifierFilterEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK32QQuick3DXrSpatialAnchorListModel20classificationFilterEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK32QQuick3DXrSpatialAnchorListModel26classificationStringFilterEv": [
+      "address", "address"
+    ],
+    "ritual_ZN32QQuick3DXrSpatialAnchorListModel19handleAnchorRemovedE5QUuid": [
+      "nothing", "address", "address"
+    ]
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSerialBus/qmodbuspdu.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN10QModbusPduC1Ev": ["address"],
+    "ritual_ZN10QModbusPduD1Ev": ["nothing", "address"],
+    "ritual_ZNK10QModbusPdu7isValidEv": ["bool", "address"],
+    "ritual_ZNK10QModbusPdu13exceptionCodeEv": ["int", "address"],
+    "ritual_ZNK10QModbusPdu11isExceptionEv": ["bool", "address"],
+    "ritual_ZNK10QModbusPdu4sizeEv": ["short", "address"],
+    "ritual_ZNK10QModbusPdu8dataSizeEv": ["short", "address"],
+    "ritual_ZNK10QModbusPdu12functionCodeEv": ["int", "address"],
+    "ritual_ZN10QModbusPdu15setFunctionCodeENS_12FunctionCodeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK10QModbusPdu4dataEv": ["address", "address"],
+    "ritual_ZN10QModbusPdu7setDataERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QModbusPduC1ENS_12FunctionCodeERK10QByteArray": [
+      "address", "int", "address"
+    ],
+    "ritual_take_QModbusPdu": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN10QModbusPdu15setFunctionCodeENS_12FunctionCodeE": [
+      "nothing", "address", "int"
+    ]
+  }
+}

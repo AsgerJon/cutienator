@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtVirtu",
+    "alKeyboard/6.12.0/QtVirtualKeyboard/private/unipentrace_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QtVirtualKeyboard11UnipenTrace10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard11UnipenTrace2trEPKcS2_i": [
+      "text", "chars", "chars", "int"
+    ]
+  }
+}

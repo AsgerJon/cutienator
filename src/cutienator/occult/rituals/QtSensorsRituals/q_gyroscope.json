@@ -1,0 +1,14 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSensors/qgyroscope.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK10QGyroscope10metaObjectEv": ["address", "address"],
+    "ritual_ZN10QGyroscope2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN10QGyroscopeC1EP7QObject": ["address", "address"],
+    "ritual_ZN10QGyroscopeD1Ev": ["nothing", "address"],
+    "ritual_ZNK10QGyroscope7readingEv": ["address", "address"],
+    "ritual_take_QGyroscope": ["bool", "address", "chars", "address"]
+  }
+}

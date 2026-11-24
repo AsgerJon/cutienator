@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSerialBus/6.12.0/QtSerialBus/private/qcanmessagedescription_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK29QCanMessageDescriptionPrivate8isSharedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN29QCanMessageDescriptionPrivate3getERK22QCanMessageDescription": [
+      "address", "address"
+    ],
+    "ritual_ZN29QCanMessageDescriptionPrivateD1Ev": ["nothing", "address"]
+  }
+}

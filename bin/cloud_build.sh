@@ -11,13 +11,17 @@
 #  1. Starts the machine when it is stopped, and waits until it takes
 #     a login.
 #  2. Makes sure the dead hand runs there, and builds nothing when it
-#     does not. The machine is set up once, with 'bin/cloud_setup.sh',
-#     and its disk keeps that.
+#     does not. The machine runs Arch Linux, as this PC does; its
+#     compiler and Python are those of the mamba environment
+#     'cutienator_env' in the home of the login, '~/miniforge3', set up
+#     once, and its disk keeps that.
 #  3. Copies up what a build needs: the package, the Qt of THIS PC
 #     (its headers, its shared objects and its 'mkspecs', found by
 #     asking 'qmake6' here), and worktoy as the Python here has it.
 #     That Qt lies there at the very paths it has here, so what
-#     'clang++' is told is the same on both.
+#     'clang++' is told is the same on both. Where the machine's own
+#     packages have a Qt there, it has to be this PC's Qt to the byte,
+#     and nothing of Qt is copied.
 #  4. Builds there, with 'Rituals.build()', the way a build runs here.
 #     While it builds, '/run/deadhand' on the machine is touched from
 #     here once a minute.
@@ -33,7 +37,8 @@
 #  The library has to run on this PC, so it is built against this PC's
 #  Qt and with what 'Build' tells the compiler here, nothing more. The
 #  'clang++' it meets on the machine is a small script written below:
-#  it runs the real one through ccache, and refuses '-march=native'.
+#  it runs the one of the environment through ccache, and refuses
+#  '-march=native'.
 #
 #  You provide, when the defaults do not fit:
 #    PYTHON               the Python that has worktoy; 'python3'
@@ -50,6 +55,8 @@ KEY=${CUTIENATOR_KEY:-$HOME/.config/cutienator-gcp/id_ed25519}
 LOGIN=builder
 THERE=cutienator-build
 KEPT=$REPO/tmp/cloud_build
+#  The mamba environment on the machine, from the home of the login.
+TOOLS=miniforge3/envs/cutienator_env
 ATTEMPTS=5
 DROPPED=75
 ADDRESS=
@@ -183,7 +190,7 @@ deadhand.timer' 2> /dev/null)
   fi
   [ "$(echo $answer)" = "enabled active" ] \
     || fail "the dead hand does not run on the machine: set the \
-machine up with bin/cloud_setup.sh, as its heading says"
+machine up, as the heading of this script says"
 }
 
 #  Copies with rsync as the machine's root, for this PC's Qt, which
@@ -195,12 +202,14 @@ copyAsRoot() {
 #  Copies up the package, this PC's Qt and worktoy, and writes the two
 #  small programs the build meets on the machine.
 copyUp() {
-  local headers libs bins data answers worktoy part code name
+  local headers libs bins data spec answers worktoy part code name
+  local owned total print here there copyQt=yes
   local sharedObjects=()
   headers=$(qmake6 -query QT_INSTALL_HEADERS) \
     && libs=$(qmake6 -query QT_INSTALL_LIBS) \
     && bins=$(qmake6 -query QT_INSTALL_BINS) \
     && data=$(qmake6 -query QT_HOST_DATA) \
+    && spec=$(qmake6 -query QMAKE_SPEC) \
     && answers=$(qmake6 -query) \
     || fail "'qmake6' did not answer here"
   worktoy=$("$PYTHON" -B -c \
@@ -208,25 +217,56 @@ copyUp() {
     || fail "'$PYTHON' has no worktoy; set PYTHON to the one that has"
   #  One shared object of Qt for each part that has ritual files, as
   #  'libQt6Core.so' for the folder 'QtCoreRituals', with the names
-  #  that point at it.
+  #  that point at it. A part of header files alone, as QtUiPlugin, and
+  #  a part this PC's Qt lacks have none.
   for part in "$REPO"/src/cutienator/occult/rituals/Qt*Rituals; do
     name=$(basename "$part")
     name=${name%Rituals}
-    sharedObjects+=("$libs"/libQt6"${name#Qt}".so*)
+    for file in "$libs"/libQt6"${name#Qt}".so*; do
+      [ -e "$file" ] && sharedObjects+=("$file")
+    done
   done
-  #  This PC's Qt goes where it lies here. A Qt the machine has of its
-  #  own at one of those places is not written over.
-  onMachine "$LOGIN@$ADDRESS" "mkdir -p $THERE/tree/src/cutienator \
+  #  The Qt the build is against lies on the machine where it lies
+  #  here. Where packages of the machine own those places, its own Qt
+  #  has to be this PC's to the byte in what the build reads: the
+  #  header files of the parts, the folder of 'mkspecs' of the spec it
+  #  is built for, and the shared objects the library is joined to.
+  #  Then nothing of Qt is copied. Where no package owns them, this
+  #  PC's Qt is copied there. A Qt of the machine is never written
+  #  over.
+  owned=$(onMachine "$LOGIN@$ADDRESS" "mkdir -p $THERE/tree/src/cutienator \
 $THERE/pydeps/worktoy $THERE/shims || exit 1
+count=0
 for place in '$headers' '$data' ${sharedObjects[*]}; do
-  if dpkg -S \"\$place\" > /dev/null 2>&1; then
-    echo \"a package of the machine owns '\$place'\" >&2
-    exit 3
-  fi
+  pacman -Qqo \"\$place\" > /dev/null 2>&1 && count=\$((count + 1))
 done
-sudo -n mkdir -p '$headers' '$data/mkspecs' '$bins' '$libs'"
+echo \$count")
   code=$?
   [ $code -eq 0 ] || { endTry $code "readying the folders"; return; }
+  total=$((2 + ${#sharedObjects[@]}))
+  if [ "$owned" -eq "$total" ]; then
+    print="{ cd '$headers' && find Qt* -type f -print0 \
+| LC_ALL=C sort -z | xargs -0 md5sum
+cd '$data/mkspecs/$spec' && find . -type f -print0 | LC_ALL=C sort -z \
+| xargs -0 md5sum
+md5sum ${sharedObjects[*]}; } 2> /dev/null | md5sum | cut -d' ' -f1"
+    here=$(bash -c "$print")
+    there=$(onMachine "$LOGIN@$ADDRESS" "$print")
+    code=$?
+    [ $code -eq 0 ] || { endTry $code "comparing Qt there"; return; }
+    [ -n "$here" ] && [ "$here" = "$there" ] || fail "the Qt of the \
+machine's packages is not this PC's Qt: install the same versions there"
+    say "the machine's own Qt is this PC's: nothing of Qt is copied"
+    copyQt=
+  elif [ "$owned" -eq 0 ]; then
+    onMachine "$LOGIN@$ADDRESS" "sudo -n mkdir -p '$headers' \
+'$data/mkspecs' '$bins' '$libs'"
+    code=$?
+    [ $code -eq 0 ] || { endTry $code "readying Qt's folders"; return; }
+  else
+    fail "packages of the machine own $owned of the $total places of \
+Qt and not the others"
+  fi
   #  What is built there stays there: the object files and the library
   #  are left out, which also keeps '--delete' off them.
   copy -a --delete --exclude '__pycache__/' --exclude '*.py[cod]' \
@@ -235,25 +275,27 @@ sudo -n mkdir -p '$headers' '$data/mkspecs' '$bins' '$libs'"
     "$LOGIN@$ADDRESS:$THERE/tree/src/cutienator/"
   code=$?
   [ $code -eq 0 ] || { endTry $code "copying the package up"; return; }
-  copyAsRoot --delete "$headers/" "$LOGIN@$ADDRESS:$headers/"
-  code=$?
-  [ $code -eq 0 ] || { endTry $code "copying Qt's headers up"; return; }
-  copyAsRoot --delete "$data/mkspecs/" \
-    "$LOGIN@$ADDRESS:$data/mkspecs/"
-  code=$?
-  [ $code -eq 0 ] || { endTry $code "copying Qt's mkspecs up"; return; }
-  copyAsRoot "${sharedObjects[@]}" "$LOGIN@$ADDRESS:$libs/"
-  code=$?
-  [ $code -eq 0 ] || { endTry $code "copying Qt's libraries up"; return; }
+  if [ -n "$copyQt" ]; then
+    copyAsRoot --delete "$headers/" "$LOGIN@$ADDRESS:$headers/"
+    code=$?
+    [ $code -eq 0 ] || { endTry $code "copying Qt's headers up"; return; }
+    copyAsRoot --delete "$data/mkspecs/" \
+      "$LOGIN@$ADDRESS:$data/mkspecs/"
+    code=$?
+    [ $code -eq 0 ] || { endTry $code "copying Qt's mkspecs up"; return; }
+    copyAsRoot "${sharedObjects[@]}" "$LOGIN@$ADDRESS:$libs/"
+    code=$?
+    [ $code -eq 0 ] || { endTry $code "copying Qt's libraries up"; return; }
+  fi
   copy -a --delete --exclude '__pycache__/' "$worktoy/" \
     "$LOGIN@$ADDRESS:$THERE/pydeps/worktoy/"
   code=$?
   [ $code -eq 0 ] || { endTry $code "copying worktoy up"; return; }
   #  'qmake6' there answers what 'qmake6' answers here. 'clang++'
-  #  there runs the real one through ccache. It makes a precompiled
-  #  header without the times of the files it is made of, or ccache
-  #  would take every header made anew for a new one. And it refuses
-  #  '-march=native': what is built has to run on this PC.
+  #  there runs the one of the environment through ccache. It makes a
+  #  precompiled header without the times of the files it is made of,
+  #  or ccache would take every header made anew for a new one. And it
+  #  refuses '-march=native': what is built has to run on this PC.
   onMachine "$LOGIN@$ADDRESS" "cat > $THERE/shims/qmake6 <<'EOF'
 #!/bin/sh
 #  Written by bin/cloud_build.sh. Changes made here are lost.
@@ -284,9 +326,10 @@ for one in \"\$@\"; do
   esac
 done
 if [ -n \"\$header\" ]; then
-  exec ccache /usr/bin/clang++ -Xclang -fno-pch-timestamp \"\$@\"
+  exec ccache \"\$HOME/$TOOLS/bin/clang++\" -Xclang -fno-pch-timestamp \\
+    \"\$@\"
 fi
-exec ccache /usr/bin/clang++ \"\$@\"
+exec ccache \"\$HOME/$TOOLS/bin/clang++\" \"\$@\"
 EOF
 chmod 755 $THERE/shims/qmake6 $THERE/shims/clang++"
   code=$?
@@ -300,7 +343,7 @@ buildThere() {
   local code
   onMachine -tt "$LOGIN@$ADDRESS" "touch /run/deadhand
 cd $THERE/tree || exit 1
-export PATH=\"\$HOME/$THERE/shims:\$PATH\"
+export PATH=\"\$HOME/$THERE/shims:\$HOME/$TOOLS/bin:\$PATH\"
 export PYTHONPATH=\"src:\$HOME/$THERE/pydeps\"
 export CCACHE_SLOPPINESS=pch_defines,time_macros
 ccache --zero-stats > /dev/null

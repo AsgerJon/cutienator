@@ -1,0 +1,26 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DPhysics/6.12.0/QtQuick3DPhysics/private/qphysicsmaterial_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK16QPhysicsMaterial10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QPhysicsMaterial2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN16QPhysicsMaterialC1EP7QObject": ["address", "address"],
+    "ritual_ZNK16QPhysicsMaterial14staticFrictionEv": ["float", "address"],
+    "ritual_ZN16QPhysicsMaterial17setStaticFrictionEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK16QPhysicsMaterial15dynamicFrictionEv": ["float", "address"],
+    "ritual_ZN16QPhysicsMaterial18setDynamicFrictionEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK16QPhysicsMaterial11restitutionEv": ["float", "address"],
+    "ritual_ZN16QPhysicsMaterial14setRestitutionEf": [
+      "nothing", "address", "float"
+    ]
+  }
+}

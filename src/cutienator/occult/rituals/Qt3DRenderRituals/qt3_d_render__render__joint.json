@@ -1,0 +1,36 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DRender/6.12.0/Qt3DRender/private/joint_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK10Qt3DRender6Render5Joint9localPoseEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render5Joint17inverseBindMatrixEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render5Joint4nameEv": ["text", "address"],
+    "ritual_ZNK10Qt3DRender6Render5Joint11translationEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render5Joint8rotationEv": ["address", "address"],
+    "ritual_ZNK10Qt3DRender6Render5Joint5scaleEv": ["address", "address"],
+    "ritual_ZN10Qt3DRender6Render5Joint15setJointManagerEPNS0_12JointManagerE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render5Joint12jointManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render5Joint18setSkeletonManagerEPNS0_15SkeletonManagerE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render5Joint15skeletonManagerEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN10Qt3DRender6Render5Joint16syncFromFrontEndEPKN8Qt3DCore5QNodeEb": [
+      "nothing", "address", "address", "bool"
+    ]
+  }
+}

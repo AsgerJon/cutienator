@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtVirtualKeyboard/6.12.0/QtVirtualKeyboard/private/settings_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QtVirtualKeyboard8Settings10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard8Settings2trEPKcS2_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZNK17QtVirtualKeyboard8Settings27isDefaultDictionaryDisabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard8Settings28setDefaultDictionaryDisabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_take_QtVirtualKeyboard_Settings": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

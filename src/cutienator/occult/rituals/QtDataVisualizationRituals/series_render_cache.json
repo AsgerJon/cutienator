@@ -1,0 +1,48 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtDataV",
+    "isualization/6.12.0/QtDataVisualization/private/seriesrendercache_",
+    "p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN17SeriesRenderCacheD1Ev": ["nothing", "address"],
+    "ritual_ZN17SeriesRenderCache8populateEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN17SeriesRenderCache7cleanupEP13TextureHelper": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17SeriesRenderCache6seriesEv": ["address", "address"],
+    "ritual_ZNK17SeriesRenderCache12meshRotationEv": ["address", "address"],
+    "ritual_ZN17SeriesRenderCache15setMeshRotationERK11QQuaternion": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17SeriesRenderCache6objectEv": ["address", "address"],
+    "ritual_ZNK17SeriesRenderCache9baseColorEv": ["address", "address"],
+    "ritual_ZNK17SeriesRenderCache13gradientImageEv": ["address", "address"],
+    "ritual_ZNK17SeriesRenderCache20singleHighlightColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK17SeriesRenderCache19multiHighlightColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK17SeriesRenderCache4nameEv": ["text", "address"],
+    "ritual_ZNK17SeriesRenderCache9itemLabelEv": ["text", "address"],
+    "ritual_ZN17SeriesRenderCache8setValidEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK17SeriesRenderCache7isValidEv": ["bool", "address"],
+    "ritual_ZNK17SeriesRenderCache9isVisibleEv": ["bool", "address"],
+    "ritual_ZN17SeriesRenderCache12setDataDirtyEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK17SeriesRenderCache9dataDirtyEv": ["bool", "address"],
+    "ritual_ZN17SeriesRenderCache22setStaticObjectUVDirtyEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN17SeriesRenderCache19staticObjectUVDirtyEv": [
+      "bool", "address"
+    ],
+    "ritual_take_SeriesRenderCache": ["bool", "address", "chars", "address"]
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DPhysics/6.12.0/QtQuick3DPhysics/private/qheightfieldshape_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QHeightFieldShape10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QHeightFieldShape2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QHeightFieldShapeC1Ev": ["address"],
+    "ritual_ZN17QHeightFieldShapeD1Ev": ["nothing", "address"],
+    "ritual_ZNK17QHeightFieldShape6sourceEv": ["address", "address"],
+    "ritual_ZN17QHeightFieldShape9setSourceERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QHeightFieldShape8hfOffsetEv": ["address", "address"],
+    "ritual_ZNK17QHeightFieldShape7extentsEv": ["address", "address"],
+    "ritual_ZN17QHeightFieldShape10setExtentsERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QHeightFieldShape13isStaticShapeEv": ["bool", "address"],
+    "ritual_ZNK17QHeightFieldShape5imageEv": ["address", "address"],
+    "ritual_ZN17QHeightFieldShape8setImageEP11QQuickImage": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QHeightFieldShape14imageDestroyedEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QHeightFieldShape20imageGeometryChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QHeightFieldShape19updatePhysXGeometryEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QHeightFieldShape13updateExtentsEv": ["nothing", "address"],
+    "ritual_take_QHeightFieldShape": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK17QHeightFieldShape13isStaticShapeEv": ["bool", "address"]
+  }
+}

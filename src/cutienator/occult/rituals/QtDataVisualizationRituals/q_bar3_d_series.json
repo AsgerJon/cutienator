@@ -1,0 +1,41 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDataVisualization/qbar3dseries.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZNK12QBar3DSeries10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QBar3DSeries2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN12QBar3DSeriesC1EP7QObject": ["address", "address"],
+    "ritual_ZN12QBar3DSeriesC1EP13QBarDataProxyP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN12QBar3DSeriesD1Ev": ["nothing", "address"],
+    "ritual_ZN12QBar3DSeries12setDataProxyEP13QBarDataProxy": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12QBar3DSeries9dataProxyEv": ["address", "address"],
+    "ritual_ZN12QBar3DSeries14setSelectedBarERK6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12QBar3DSeries11selectedBarEv": ["address", "address"],
+    "ritual_ZN12QBar3DSeries24invalidSelectionPositionEv": ["address"],
+    "ritual_ZN12QBar3DSeries12setMeshAngleEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK12QBar3DSeries9meshAngleEv": ["float", "address"],
+    "ritual_ZNK12QBar3DSeries9rowColorsEv": ["address", "address"],
+    "ritual_ZN12QBar3DSeries12setRowColorsERK5QListI6QColorE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QBar3DSeries4dptrEv": ["address", "address"],
+    "ritual_ZNK12QBar3DSeries5dptrcEv": ["address", "address"],
+    "ritual_take_QBar3DSeries": ["bool", "address", "chars", "address"],
+    "ritual_list_make_QBar3DSeries_ptr": ["address"],
+    "ritual_list_add_QBar3DSeries_ptr": ["nothing", "address", "address"],
+    "ritual_list_size_QBar3DSeries_ptr": ["long long", "address"],
+    "ritual_list_at_QBar3DSeries_ptr": ["address", "address", "long long"],
+    "ritual_list_drop_QBar3DSeries_ptr": ["nothing", "address"]
+  }
+}

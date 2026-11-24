@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtTaskTree/qtcpsocketwrappertask.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZNK10QtTaskTree17QTcpSocketWrapper10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10QtTaskTree17QTcpSocketWrapper2trEPKcS2_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10QtTaskTree17QTcpSocketWrapperC1Ev": ["address"],
+    "ritual_take_QtTaskTree_QTcpSocketWrapper": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN10QtTaskTree17QTcpSocketWrapper5eventEP6QEvent": [
+      "bool", "address", "address"
+    ]
+  }
+}

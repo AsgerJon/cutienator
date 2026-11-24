@@ -1,0 +1,47 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtDataV",
+    "isualization/6.12.0/QtDataVisualization/private/q3dscene_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK15Q3DScenePrivate10metaObjectEv": ["address", "address"],
+    "ritual_ZN15Q3DScenePrivate2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN15Q3DScenePrivateC1EP8Q3DScene": ["address", "address"],
+    "ritual_ZN15Q3DScenePrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN15Q3DScenePrivate11setViewportERK5QRect": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15Q3DScenePrivate15setViewportSizeEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN15Q3DScenePrivate13setWindowSizeERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15Q3DScenePrivate10windowSizeEv": ["address", "address"],
+    "ritual_ZN15Q3DScenePrivate21calculateSubViewportsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15Q3DScenePrivate16updateGLViewportEv": ["nothing", "address"],
+    "ritual_ZN15Q3DScenePrivate20updateGLSubViewportsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15Q3DScenePrivate10glViewportEv": ["address", "address"],
+    "ritual_ZN15Q3DScenePrivate20glPrimarySubViewportEv": [
+      "address", "address"
+    ],
+    "ritual_ZN15Q3DScenePrivate22glSecondarySubViewportEv": [
+      "address", "address"
+    ],
+    "ritual_ZN15Q3DScenePrivate32setLightPositionRelativeToCameraERK9QVector3Dff": [
+      "nothing", "address", "address", "float", "float"
+    ],
+    "ritual_ZN15Q3DScenePrivate9markDirtyEv": ["nothing", "address"],
+    "ritual_ZNK15Q3DScenePrivate8isInAreaERK5QRectii": [
+      "bool", "address", "address", "int", "int"
+    ],
+    "ritual_take_Q3DScenePrivate": ["bool", "address", "chars", "address"]
+  }
+}

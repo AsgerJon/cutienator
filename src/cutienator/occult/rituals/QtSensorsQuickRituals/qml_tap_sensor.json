@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSensorsQuick/6.12.0/QtSensorsQuick/private/qmltapsensor_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK12QmlTapSensor10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QmlTapSensor2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN12QmlTapSensorC1EP7QObject": ["address", "address"],
+    "ritual_ZN12QmlTapSensorD1Ev": ["nothing", "address"],
+    "ritual_ZNK12QmlTapSensor21returnDoubleTapEventsEv": ["bool", "address"],
+    "ritual_ZN12QmlTapSensor24setReturnDoubleTapEventsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK12QmlTapSensor6sensorEv": ["address", "address"],
+    "ritual_ZNK12QmlTapSensor13createReadingEv": ["address", "address"],
+    "ritual_take_QmlTapSensor": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK12QmlTapSensor6sensorEv": ["address", "address"],
+    "ritual_own_ZNK12QmlTapSensor13createReadingEv": ["address", "address"]
+  }
+}

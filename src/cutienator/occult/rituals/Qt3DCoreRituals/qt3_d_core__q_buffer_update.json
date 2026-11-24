@@ -1,0 +1,10 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DCore/6.12.0/Qt3DCore/private/qbuffer_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN8Qt3DCore13QBufferUpdateD1Ev": ["nothing", "address"]
+  }
+}

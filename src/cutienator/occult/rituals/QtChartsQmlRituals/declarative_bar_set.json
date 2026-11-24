@@ -1,0 +1,42 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtChartsQml/6.12.0/QtChartsQml/private/declarativebarseries_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17DeclarativeBarSet10metaObjectEv": ["address", "address"],
+    "ritual_ZN17DeclarativeBarSet2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17DeclarativeBarSetC1EP7QObject": ["address", "address"],
+    "ritual_ZN17DeclarativeBarSet6valuesEv": ["address", "address"],
+    "ritual_ZN17DeclarativeBarSet9setValuesE5QListI8QVariantE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17DeclarativeBarSet11borderWidthEv": ["double", "address"],
+    "ritual_ZN17DeclarativeBarSet14setBorderWidthEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK17DeclarativeBarSet13brushFilenameEv": ["text", "address"],
+    "ritual_ZN17DeclarativeBarSet16setBrushFilenameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN17DeclarativeBarSet6appendEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN17DeclarativeBarSet6removeEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN17DeclarativeBarSet7replaceEid": [
+      "nothing", "address", "int", "double"
+    ],
+    "ritual_ZN17DeclarativeBarSet2atEi": ["double", "address", "int"],
+    "ritual_ZN17DeclarativeBarSet18handleCountChangedEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN17DeclarativeBarSet18handleBrushChangedEv": [
+      "nothing", "address"
+    ]
+  }
+}

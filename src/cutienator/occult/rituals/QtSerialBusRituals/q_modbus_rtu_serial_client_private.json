@@ -1,0 +1,42 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSerialBus/6.12.0/QtSerialBus/private/qmodbusrtuserialclient_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN29QModbusRtuSerialClientPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK29QModbusRtuSerialClientPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN29QModbusRtuSerialClientPrivate14onAboutToCloseEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN29QModbusRtuSerialClientPrivate16setupEnvironmentEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN29QModbusRtuSerialClientPrivate14enqueueRequestERK14QModbusRequestiRK15QModbusDataUnitN12QModbusReply9ReplyTypeE": [
+      "address", "address", "address", "int", "address", "int"
+    ],
+    "ritual_ZNK29QModbusRtuSerialClientPrivate26canMatchRequestAndResponseERK15QModbusResponsei": [
+      "bool", "address", "address", "int"
+    ],
+    "ritual_ZNK29QModbusRtuSerialClientPrivate6isOpenEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK29QModbusRtuSerialClientPrivate6deviceEv": [
+      "address", "address"
+    ],
+    "ritual_take_QModbusRtuSerialClientPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK29QModbusRtuSerialClientPrivate6isOpenEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZNK29QModbusRtuSerialClientPrivate6deviceEv": [
+      "address", "address"
+    ]
+  }
+}

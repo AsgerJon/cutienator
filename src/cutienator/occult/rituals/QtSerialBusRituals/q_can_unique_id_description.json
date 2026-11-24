@@ -1,0 +1,35 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSerialBus/qcanuniqueiddescription.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN23QCanUniqueIdDescriptionC1Ev": ["address"],
+    "ritual_ZN23QCanUniqueIdDescriptionC1ERKS_": ["address", "address"],
+    "ritual_ZN23QCanUniqueIdDescriptionD1Ev": ["nothing", "address"],
+    "ritual_ZNK23QCanUniqueIdDescription7isValidEv": ["bool", "address"],
+    "ritual_ZNK23QCanUniqueIdDescription6sourceEv": [
+      "unsigned char", "address"
+    ],
+    "ritual_ZN23QCanUniqueIdDescription9setSourceEN8QtCanBus10DataSourceE": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZNK23QCanUniqueIdDescription8startBitEv": [
+      "unsigned short", "address"
+    ],
+    "ritual_ZN23QCanUniqueIdDescription11setStartBitEt": [
+      "nothing", "address", "unsigned short"
+    ],
+    "ritual_ZNK23QCanUniqueIdDescription9bitLengthEv": [
+      "unsigned char", "address"
+    ],
+    "ritual_ZN23QCanUniqueIdDescription12setBitLengthEh": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZNK23QCanUniqueIdDescription6endianEv": ["int", "address"],
+    "ritual_ZN23QCanUniqueIdDescription9setEndianEN8QSysInfo6EndianE": [
+      "nothing", "address", "int"
+    ]
+  }
+}

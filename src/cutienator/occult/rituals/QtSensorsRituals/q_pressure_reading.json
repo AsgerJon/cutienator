@@ -1,0 +1,30 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSensors/qpressuresensor.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK16QPressureReading10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QPressureReading2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN16QPressureReadingC1EP7QObject": ["address", "address"],
+    "ritual_ZN16QPressureReadingD1Ev": ["nothing", "address"],
+    "ritual_ZN16QPressureReading14copyValuesFromEP14QSensorReading": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QPressureReading8pressureEv": ["double", "address"],
+    "ritual_ZN16QPressureReading11setPressureEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK16QPressureReading11temperatureEv": ["double", "address"],
+    "ritual_ZN16QPressureReading14setTemperatureEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_take_QPressureReading": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN16QPressureReading14copyValuesFromEP14QSensorReading": [
+      "nothing", "address", "address"
+    ]
+  }
+}

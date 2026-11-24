@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DRender/qobjectpicker.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK10Qt3DRender13QObjectPicker10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender13QObjectPicker2trEPKcS2_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DRender13QObjectPicker6d_funcEv": ["address", "address"],
+    "ritual_ZNK10Qt3DRender13QObjectPicker6d_funcEv": ["address", "address"],
+    "ritual_take_Qt3DRender_QObjectPicker": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

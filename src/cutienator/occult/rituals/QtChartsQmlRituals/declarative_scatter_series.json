@@ -1,0 +1,120 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtChart",
+    "sQml/6.12.0/QtChartsQml/private/declarativescatterseries_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK24DeclarativeScatterSeries10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24DeclarativeScatterSeries2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN24DeclarativeScatterSeriesC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN24DeclarativeScatterSeries8xySeriesEv": ["address", "address"],
+    "ritual_ZN24DeclarativeScatterSeries5axisXEv": ["address", "address"],
+    "ritual_ZN24DeclarativeScatterSeries8setAxisXEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24DeclarativeScatterSeries5axisYEv": ["address", "address"],
+    "ritual_ZN24DeclarativeScatterSeries8setAxisYEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24DeclarativeScatterSeries8axisXTopEv": ["address", "address"],
+    "ritual_ZN24DeclarativeScatterSeries11setAxisXTopEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24DeclarativeScatterSeries10axisYRightEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24DeclarativeScatterSeries13setAxisYRightEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24DeclarativeScatterSeries11axisAngularEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24DeclarativeScatterSeries14setAxisAngularEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24DeclarativeScatterSeries10axisRadialEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24DeclarativeScatterSeries13setAxisRadialEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK24DeclarativeScatterSeries11borderWidthEv": [
+      "double", "address"
+    ],
+    "ritual_ZN24DeclarativeScatterSeries14setBorderWidthEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK24DeclarativeScatterSeries13brushFilenameEv": [
+      "text", "address"
+    ],
+    "ritual_ZN24DeclarativeScatterSeries16setBrushFilenameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN24DeclarativeScatterSeries8setBrushERK6QBrush": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK24DeclarativeScatterSeries5brushEv": ["address", "address"],
+    "ritual_ZN24DeclarativeScatterSeries10classBeginEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24DeclarativeScatterSeries17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24DeclarativeScatterSeries6appendEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN24DeclarativeScatterSeries7replaceEdddd": [
+      "nothing", "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZN24DeclarativeScatterSeries7replaceEidd": [
+      "nothing", "address", "int", "double", "double"
+    ],
+    "ritual_ZN24DeclarativeScatterSeries6removeEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN24DeclarativeScatterSeries6removeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN24DeclarativeScatterSeries12removePointsEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN24DeclarativeScatterSeries6insertEidd": [
+      "nothing", "address", "int", "double", "double"
+    ],
+    "ritual_ZN24DeclarativeScatterSeries5clearEv": ["nothing", "address"],
+    "ritual_ZN24DeclarativeScatterSeries2atEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN24DeclarativeScatterSeries18handleCountChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN24DeclarativeScatterSeries18handleBrushChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_cast_DeclarativeScatterSeries_DeclarativeXySeries": [
+      "address", "address"
+    ],
+    "ritual_cast_DeclarativeScatterSeries_QQmlParserStatus": [
+      "address", "address"
+    ],
+    "ritual_own_ZN24DeclarativeScatterSeries8xySeriesEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN24DeclarativeScatterSeries8setBrushERK6QBrush": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN24DeclarativeScatterSeries10classBeginEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN24DeclarativeScatterSeries17componentCompleteEv": [
+      "nothing", "address"
+    ]
+  }
+}

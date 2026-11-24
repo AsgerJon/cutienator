@@ -4,9 +4,11 @@ compiler finds Qt's header files."""
 #  Copyright (c) 2026 Asger Jon Vistisen
 from __future__ import annotations
 
+import multiprocessing
 import os
 import re
 import shutil
+from concurrent.futures import ProcessPoolExecutor
 from typing import TYPE_CHECKING
 
 from worktoy.waitaminute import MissingVariable, TypeException
@@ -392,6 +394,17 @@ class HeaderFolder:
   __private_global_headers__ = {
       row[0]: row[3] for row in __parts__ if row[3]}
   __part_needs__ = {row[0]: row[4] for row in __parts__}
+  #  The name of the lists of switches of a part, where it is not the
+  #  name of the part in small letters: its 'CMakeLists.txt' says
+  #  'CONFIG_MODULE_NAME', as 'testlib' for QtTest.
+  __config_names__ = dict()  # type: Dict[str, str]
+  #  Modules of Qt's source that are no part, by hand: QtTest and
+  #  QtQuickTest declare their classes for Gui and Widgets only where an
+  #  app's build defines 'QT_GUI_LIB' and 'QT_WIDGETS_LIB' (his call).
+  __left_out_parts__ = ('QtTest', 'QtQuickTest')
+  #  The parts found in Qt's source beyond the table; see
+  #  '_addFoundParts'.
+  __found_parts__ = ()  # type: Tuple[str, ...]
   #  Switches that are out while every other switch is in, because
   #  each contradicts another one when both are in. 'static' names the
   #  shape of a build, against 'shared'. The four of OpenGL ES are the
@@ -577,6 +590,22 @@ class HeaderFolder:
     """
     cls.getPartPlace(partName)
     return cls.__private_global_headers__.get(partName, '')
+
+  @classmethod
+  def getPartNeeds(cls, partName: str) -> Tuple[str, ...]:
+    """
+    Gives the parts one part of Qt builds on, as Qt's build names them
+    for whoever uses the part: ('QtCore', 'QtGui') for 'QtWidgets'.
+    Those whose header files its header files may pull in.
+
+    Raises
+    ------
+
+    LookupError
+      The folder is made for no part of that name.
+    """
+    cls.getPartPlace(partName)
+    return (*cls.__part_needs__[partName],)
 
   def getInstallCondition(self, headerPath: str) -> Optional[str]:
     """
@@ -790,6 +819,7 @@ class HeaderFolder:
       infoSpec = """There is no folder 'src' in '%s'."""
       raise FileNotFoundError(infoSpec % sourceFolder)
     self.__source_folder__ = sourceFolder
+    self._addFoundParts()
     self.__qt_version__ = None
 
   def setFolder(self, folder: str) -> None:
@@ -888,6 +918,132 @@ class HeaderFolder:
         conditions[name] = ' || '.join(
             '(%s)' % one for one in dict.fromkeys(spoken))
     return conditions
+
+  def _readModuleRows(self) -> Dict[str, Any]:
+    """
+    Gives a row, as those of '__parts__', for every module of Qt's
+    source: each 'qt_internal_add_module' and 'qt_internal_add_qml_module'
+    of the 'CMakeLists.txt' files under a folder 'src' of 'qtbase' and
+    of the folders beside it. Left out are a module Qt builds as a
+    static library or keeps to its own build ('STATIC',
+    'INTERNAL_MODULE'), one with no header file, and one in the folder
+    of another.
+
+    Under the name of the part, as 'QtCharts': where it lies, from
+    'qtbase'; its header file that brings in its switches, the one
+    whose name holds 'global', or else its file of words for export;
+    the one in its folder 'private', or ''; the parts Qt builds it on
+    ('PUBLIC_LIBRARIES'); and the name of its lists of switches.
+    """
+    everywhere = os.path.dirname(os.path.abspath(self.getSourceFolder()))
+    skipped = ('3rdparty', 'tests', 'examples', 'doc', 'plugins')
+    found = dict()  # type: Dict[str, Any]
+    taken = set()  # type: Set[str]
+    for repo in sorted(os.listdir(everywhere)):
+      top = os.path.join(everywhere, repo, 'src')
+      if not os.path.isdir(top):
+        continue
+      for here, folders, names in os.walk(top):
+        folders[:] = sorted(n for n in folders if n not in skipped)
+        if 'CMakeLists.txt' not in names:
+          continue
+        with open(os.path.join(here, 'CMakeLists.txt')) as file:
+          commands = self._readCommands(file.read())
+        for word, arguments in commands:
+          if word not in (
+              'qt_internal_add_module', 'qt_internal_add_qml_module'):
+            continue
+          words = arguments.split()
+          if not words or re.search(
+              r'\b(?:STATIC|INTERNAL_MODULE)\b', arguments):
+            continue
+          partName = 'Qt%s' % words[0]
+          real = os.path.realpath(here)
+          if partName in found or real in taken:
+            continue
+          if not re.match(r'^[0-9]*[A-Z][A-Za-z0-9]*$', words[0]) or (
+              words[0].endswith('Private')) or (
+              partName in self.__left_out_parts__):
+            #  A plugin of QML in small letters, as 'quick3dinputplugin',
+            #  a module Qt keeps to its own tests, or one left out by
+            #  hand.
+            continue
+          headers = []  # type: List[str]
+          for inner, under, files in os.walk(here):
+            under[:] = sorted(
+                n for n in under if n not in skipped and not
+                self._isOtherModule(os.path.join(inner, n), set()))
+            headers.extend(n for n in files if n.endswith('.h'))
+          if not headers:
+            continue
+          taken.add(real)
+          low = partName.lower()
+          public = sorted(
+              n for n in headers if re.search(r'globals?\.h$', n))
+          own = [
+              n for n in ('%sglobal.h' % low, 'q%sglobal.h' % low[2:])
+              if n in public]
+          if own or public:
+            globalHeader = (own or public)[0]
+          elif 'NO_GENERATE_CPP_EXPORTS' in arguments:
+            globalHeader = sorted(headers)[0]
+          else:
+            globalHeader = '%sexports.h' % low
+          private = sorted(
+              n for n in headers if re.search(r'globals?_p\.h$', n))
+          ownPrivate = [
+              n for n in ('%sglobal_p.h' % low, 'q%sglobal_p.h' % low[2:])
+              if n in private]
+          privateHeader = (ownPrivate or private or [''])[0]
+          libraries = re.search(
+              r'\bPUBLIC_LIBRARIES\b(.*?)(?:\n\s*[A-Z_]{3,}\s*\n|$)',
+              arguments, re.S)
+          needs = []  # type: List[str]
+          for name in re.findall(
+              r'Qt::(\w+)', libraries.group(1) if libraries else ''):
+            name = 'Qt%s' % re.sub(r'Private$', '', name)
+            if name not in needs and name != partName:
+              needs.append(name)
+          config = re.search(r'\bCONFIG_MODULE_NAME\s+(\w+)', arguments)
+          found[partName] = (
+              os.path.relpath(here, self.getSourceFolder()), globalHeader,
+              privateHeader, (*needs,),
+              'qt%s' % config.group(1) if config else '')
+    return found
+
+  def _addFoundParts(self) -> None:
+    """
+    Adds to the table of parts every module of Qt's source it has no row
+    for, as '_readModuleRows' finds them, so that every part is asked
+    of the one table. A module in the folder of a part of the table is
+    left out, and so is a part it is built on that is not in the table
+    either way.
+    """
+    cls = type(self)
+    rows = self._readModuleRows()
+    known = {
+        os.path.realpath(os.path.join(self.getSourceFolder(), place))
+        for place in cls.__part_folders__.values()}
+    added = []  # type: List[str]
+    for partName, row in rows.items():
+      place, globalHeader, privateHeader, needs, config = row
+      real = os.path.realpath(os.path.join(self.getSourceFolder(), place))
+      if partName in cls.__part_folders__ or real in known:
+        continue
+      cls.__part_folders__[partName] = place
+      cls.__part_words__[partName] = partName[2:].upper()
+      cls.__global_headers__[partName] = globalHeader
+      if privateHeader:
+        cls.__private_global_headers__[partName] = privateHeader
+      cls.__part_needs__[partName] = needs
+      if config:
+        cls.__config_names__[partName] = config
+      added.append(partName)
+    for partName in added:
+      cls.__part_needs__[partName] = (*(
+          name for name in cls.__part_needs__[partName]
+          if name in cls.__part_folders__),)
+    cls.__found_parts__ = (*cls.__found_parts__, *added)
 
   @staticmethod
   def _isOtherModule(folder: str, others: Set[str]) -> bool:
@@ -1062,17 +1218,24 @@ class HeaderFolder:
           for name in re.findall(r'[\w/+.-]+\.h\b', block))
     return found
 
-  def _findClassNames(self, path: str) -> List[str]:
+  def _findClassNames(self, path: str, partName: str = '') -> List[str]:
     """
     Gives the classes one header file is the header file of: those it
-    declares outside of everything else, and those it names with
-    '#pragma qt_class(...)'. Reading stops where the header file says
-    '#pragma qt_sync_stop_processing', as Qt's own build stops there.
+    declares outside of everything else but a namespace named as the
+    part, as Qt3D's classes in 'namespace Qt3DRender {' of the part
+    Qt3DRender, and those it names with '#pragma qt_class(...)'.
+    Reading stops where the header file says '#pragma
+    qt_sync_stop_processing', as Qt's own build stops there.
     """
     with open(path, errors='replace') as file:
       text = file.read()
     text = re.sub(r'/\*.*?\*/', ' ', text, flags=re.S)
     found, depth = [], 0  # type: List[str], int
+    #  For each '{' that is open, whether it opened a namespace; a
+    #  namespace whose '{' stands on a line of its own waits for it.
+    opened, waiting = [], False  # type: List[bool], bool
+    namespaceLine = re.compile(
+        r'^\s*(?:inline\s+)?namespace\s+([\w:]+)\s*(\{)?')
     for line in text.split('\n'):
       line = re.sub(r'//.*$', '', line)
       named = self.__named_class__.match(line)
@@ -1098,7 +1261,20 @@ class HeaderFolder:
           if named is not None:
             names.extend(shape % named.group(1) for shape in shapes)
         found.extend(name for name in names if name not in found)
-      depth += line.count('{') - line.count('}')
+      opening = namespaceLine.match(line)
+      if opening is not None and opening.group(1) != partName:
+        opening = None
+      namespaceBrace = opening is not None and opening.group(2) is not None
+      if opening is not None and not namespaceBrace and not (
+          '=' in line or ';' in line):
+        waiting = True
+      for letter in line:
+        if letter == '{':
+          opened.append(waiting or namespaceBrace)
+          waiting = namespaceBrace = False
+        elif letter == '}' and opened:
+          opened.pop()
+      depth = sum(1 for one in opened if not one)
     return found
 
   def _fillFromPattern(self, pattern: str, target: str,
@@ -1158,7 +1334,7 @@ class HeaderFolder:
         required = re.search(
             r'^ *QT_REQUIRE_CONFIG\((\w+)\);?$', text, re.M)
         direct.append((name, required.group(1) if required else ''))
-      for className in self._findClassNames(path):
+      for className in self._findClassNames(path, partName):
         classFiles.setdefault(className, name)
     for className, name in sorted(classFiles.items()):
       with open(os.path.join(target, className), 'w') as file:
@@ -1180,11 +1356,12 @@ class HeaderFolder:
           line = '#if QT_CONFIG(%s)\n%s#endif\n' % (switch, line)
         file.write(line)
     low, word = partName.lower(), self.__part_words__[partName]
+    config = self.__config_names__.get(partName, low)
     public, private = self._findSwitches(
         os.path.join(self.getPartFolder(partName), 'configure.cmake'))
-    self._writeList(os.path.join(target, '%s-config.h' % low), public)
+    self._writeList(os.path.join(target, '%s-config.h' % config), public)
     self._writeList(
-        os.path.join(inner, 'private', '%s-config_p.h' % low), private)
+        os.path.join(inner, 'private', '%s-config_p.h' % config), private)
     self._fillFromPattern(
         'cmake/modulecppexports.h.in',
         os.path.join(target, '%sexports.h' % low),
@@ -1214,8 +1391,13 @@ class HeaderFolder:
         raise FileExistsError(' '.join((infoSpec % folder).split()))
       shutil.rmtree(folder)
     os.makedirs(folder, exist_ok=True)
-    for partName in self.getPartNames():
-      self._makePart(partName)
+    #  Each part has a folder of its own: they are made at once, one
+    #  process each, as many as the machine has cores.
+    context = multiprocessing.get_context('fork')
+    with ProcessPoolExecutor(
+        os.cpu_count() or 1, mp_context=context) as pool:
+      for _ in pool.map(self._makePart, self.getPartNames()):
+        pass
     #  The switches of Qt as a whole, and the two files Qt keeps with
     #  QtCore for all of it.
     version = self.getQtVersion()

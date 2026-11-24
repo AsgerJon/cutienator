@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DRender/6.12.0/Qt3DRender/private/qsceneexporter_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK10Qt3DRender14QSceneExporter10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender14QSceneExporter2trEPKcS2_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DRender14QSceneExporterD1Ev": ["nothing", "address"],
+    "ritual_ZN10Qt3DRender14QSceneExporter11exportSceneEPN8Qt3DCore7QEntityERK7QStringS6_RK5QHashIS4_8QVariantE": [
+      "bool", "address", "address", "text", "text", "address"
+    ],
+    "ritual_take_Qt3DRender_QSceneExporter": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

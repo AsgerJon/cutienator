@@ -1,0 +1,63 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DPhysics/6.12.0/QtQuick3DPhysics/private/qabstractphysicsnode_p.h",
+    ", Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK20QAbstractPhysicsNode10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QAbstractPhysicsNode2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN20QAbstractPhysicsNode24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QAbstractPhysicsNodeD1Ev": ["nothing", "address"],
+    "ritual_ZNK20QAbstractPhysicsNode18sendContactReportsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN20QAbstractPhysicsNode21setSendContactReportsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK20QAbstractPhysicsNode21receiveContactReportsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN20QAbstractPhysicsNode24setReceiveContactReportsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK20QAbstractPhysicsNode18sendTriggerReportsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN20QAbstractPhysicsNode21setSendTriggerReportsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK20QAbstractPhysicsNode21receiveTriggerReportsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN20QAbstractPhysicsNode24setReceiveTriggerReportsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK20QAbstractPhysicsNode15hasStaticShapesEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK20QAbstractPhysicsNode11filterGroupEv": ["int", "address"],
+    "ritual_ZN20QAbstractPhysicsNode14setfilterGroupEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK20QAbstractPhysicsNode18filterIgnoreGroupsEv": [
+      "int", "address"
+    ],
+    "ritual_ZN20QAbstractPhysicsNode21setFilterIgnoreGroupsEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QAbstractPhysicsNode16onShapeDestroyedEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QAbstractPhysicsNode19onShapeNeedsRebuildEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QAbstractPhysicsNode": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

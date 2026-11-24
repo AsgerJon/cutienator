@@ -1,0 +1,20 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSensors/qmagnetometer.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK13QMagnetometer10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QMagnetometer2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN13QMagnetometerC1EP7QObject": ["address", "address"],
+    "ritual_ZN13QMagnetometerD1Ev": ["nothing", "address"],
+    "ritual_ZNK13QMagnetometer7readingEv": ["address", "address"],
+    "ritual_ZNK13QMagnetometer15returnGeoValuesEv": ["bool", "address"],
+    "ritual_ZN13QMagnetometer18setReturnGeoValuesEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN13QMagnetometer6d_funcEv": ["address", "address"],
+    "ritual_ZNK13QMagnetometer6d_funcEv": ["address", "address"],
+    "ritual_take_QMagnetometer": ["bool", "address", "chars", "address"]
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLottie/6.12.0/QtLottie/private/qlottieanimation_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK16QLottieAnimation10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QLottieAnimation2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN16QLottieAnimationC1EP10QQuickItem": ["address", "address"],
+    "ritual_ZN16QLottieAnimationD1Ev": ["nothing", "address"],
+    "ritual_ZN16QLottieAnimation5paintEP8QPainter": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QLottieAnimation6statusEv": ["int", "address"],
+    "ritual_ZNK16QLottieAnimation6sourceEv": ["address", "address"],
+    "ritual_ZN16QLottieAnimation9setSourceERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QLottieAnimation9frameRateEv": ["int", "address"],
+    "ritual_ZN16QLottieAnimation12setFrameRateEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16QLottieAnimation14resetFrameRateEv": ["nothing", "address"],
+    "ritual_ZNK16QLottieAnimation7qualityEv": ["int", "address"],
+    "ritual_ZN16QLottieAnimation10setQualityENS_7QualityE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK16QLottieAnimation9directionEv": ["int", "address"],
+    "ritual_ZN16QLottieAnimation12setDirectionENS_9DirectionE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK16QLottieAnimation10startFrameEv": ["int", "address"],
+    "ritual_ZNK16QLottieAnimation8endFrameEv": ["int", "address"],
+    "ritual_ZNK16QLottieAnimation12currentFrameEv": ["int", "address"],
+    "ritual_ZNK16QLottieAnimation7versionEv": ["address", "address"],
+    "ritual_ZN16QLottieAnimation5startEv": ["nothing", "address"],
+    "ritual_ZN16QLottieAnimation4playEv": ["nothing", "address"],
+    "ritual_ZN16QLottieAnimation5pauseEv": ["nothing", "address"],
+    "ritual_ZN16QLottieAnimation11togglePauseEv": ["nothing", "address"],
+    "ritual_ZN16QLottieAnimation4stopEv": ["nothing", "address"],
+    "ritual_ZN16QLottieAnimation11gotoAndPlayEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16QLottieAnimation11gotoAndPlayERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN16QLottieAnimation11gotoAndStopEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16QLottieAnimation11gotoAndStopERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN16QLottieAnimation11getDurationEb": [
+      "double", "address", "bool"
+    ],
+    "ritual_ZNK16QLottieAnimation10jsonSourceEv": ["address", "address"],
+    "ritual_ZN16QLottieAnimation12loadFinishedERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QLottieAnimation15renderNextFrameEv": ["nothing", "address"],
+    "ritual_ZN16QLottieAnimation17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QLottieAnimation9setStatusENS_6StatusE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16QLottieAnimation13setStartFrameEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16QLottieAnimation11setEndFrameEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16QLottieAnimation4loadEv": ["nothing", "address"],
+    "ritual_ZN16QLottieAnimation5parseERK10QByteArray": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN16QLottieAnimation9gotoFrameEi": ["nothing", "address", "int"],
+    "ritual_ZN16QLottieAnimation5resetEv": ["nothing", "address"],
+    "ritual_take_QLottieAnimation": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN16QLottieAnimation5paintEP8QPainter": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16QLottieAnimation17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN16QLottieAnimation5parseERK10QByteArray": [
+      "int", "address", "address"
+    ]
+  }
+}

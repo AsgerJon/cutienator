@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DAnimation/qanimationclipdata.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZN13Qt3DAnimationeqERKNS_18QAnimationClipDataES2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimationneERKNS_18QAnimationClipDataES2_": [
+      "bool", "address", "address"
+    ]
+  }
+}

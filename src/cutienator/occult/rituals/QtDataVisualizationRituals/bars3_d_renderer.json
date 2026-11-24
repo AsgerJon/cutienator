@@ -1,0 +1,175 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtDataV",
+    "isualization/6.12.0/QtDataVisualization/private/bars3drenderer_p.h",
+    ", Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK14Bars3DRenderer10metaObjectEv": ["address", "address"],
+    "ritual_ZN14Bars3DRenderer2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN14Bars3DRendererD1Ev": ["nothing", "address"],
+    "ritual_ZN14Bars3DRenderer10updateDataEv": ["nothing", "address"],
+    "ritual_ZN14Bars3DRenderer12updateSeriesERK5QListIP17QAbstract3DSeriesE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14Bars3DRenderer14createNewCacheEP17QAbstract3DSeries": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN14Bars3DRenderer11updateSceneEP8Q3DScene": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14Bars3DRenderer6renderEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN14Bars3DRenderer28convertPositionToTranslationERK9QVector3Db": [
+      "address", "address", "address", "bool"
+    ],
+    "ritual_ZN14Bars3DRenderer17updateAspectRatioEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN14Bars3DRenderer16updateFloorLevelEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN14Bars3DRenderer12updateMarginEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN14Bars3DRenderer14contextCleanupEv": ["nothing", "address"],
+    "ritual_ZN14Bars3DRenderer16initializeOpenGLEv": ["nothing", "address"],
+    "ritual_ZN14Bars3DRenderer24updateMultiSeriesScalingEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN14Bars3DRenderer14updateBarSpecsEfRK6QSizeFb": [
+      "nothing", "address", "float", "address", "bool"
+    ],
+    "ritual_ZN14Bars3DRenderer21updateBarSeriesMarginERK6QSizeF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14Bars3DRenderer19updateSlicingActiveEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN14Bars3DRenderer17updateSelectedBarERK6QPointP12QBar3DSeries": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK14Bars3DRenderer15clickedPositionEv": ["address", "address"],
+    "ritual_ZN14Bars3DRenderer18resetClickedStatusEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14Bars3DRenderer15updateAxisRangeEN15QAbstract3DAxis15AxisOrientationEff": [
+      "nothing", "address", "int", "float", "float"
+    ],
+    "ritual_ZN14Bars3DRenderer18updateAxisReversedEN15QAbstract3DAxis15AxisOrientationEb": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZN14Bars3DRenderer11initShadersERK7QStringS2_": [
+      "nothing", "address", "text", "text"
+    ],
+    "ritual_ZN14Bars3DRenderer19initGradientShadersERK7QStringS2_": [
+      "nothing", "address", "text", "text"
+    ],
+    "ritual_ZN14Bars3DRenderer19updateShadowQualityEN16QAbstract3DGraph13ShadowQualityE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN14Bars3DRenderer14updateTexturesEv": ["nothing", "address"],
+    "ritual_ZN14Bars3DRenderer15drawSlicedSceneEv": ["nothing", "address"],
+    "ritual_ZN14Bars3DRenderer9drawSceneEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN14Bars3DRenderer10drawLabelsEbPK9Q3DCameraRK10QMatrix4x4S5_": [
+      "nothing", "address", "bool", "address", "address", "address"
+    ],
+    "ritual_ZN14Bars3DRenderer14drawBackgroundEfRK10QMatrix4x4S2_S2_bb": [
+      "nothing", "address", "float", "address", "address", "address", "bool",
+      "bool"
+    ],
+    "ritual_ZN14Bars3DRenderer13drawGridLinesERK10QMatrix4x4S2_S2_": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN14Bars3DRenderer18loadBackgroundMeshEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14Bars3DRenderer19initSelectionShaderEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14Bars3DRenderer21initBackgroundShadersERK7QStringS2_": [
+      "nothing", "address", "text", "text"
+    ],
+    "ritual_ZN14Bars3DRenderer19initSelectionBufferEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14Bars3DRenderer15initDepthShaderEv": ["nothing", "address"],
+    "ritual_ZN14Bars3DRenderer17updateDepthBufferEv": ["nothing", "address"],
+    "ritual_ZN14Bars3DRenderer28calculateSceneScalingFactorsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14Bars3DRenderer25calculateHeightAdjustmentEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14Bars3DRenderer28calculateSeriesStartPositionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14Bars3DRenderer10isSelectedEiiPK20BarSeriesRenderCache": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN14Bars3DRenderer29selectionColorToArrayPositionERK9QVector4D": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN14Bars3DRenderer22selectionColorToSeriesERK9QVector4D": [
+      "address", "address", "address"
+    ],
+    "ritual_take_Bars3DRenderer": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN14Bars3DRenderer10updateDataEv": ["nothing", "address"],
+    "ritual_own_ZN14Bars3DRenderer14createNewCacheEP17QAbstract3DSeries": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN14Bars3DRenderer11updateSceneEP8Q3DScene": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN14Bars3DRenderer6renderEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_own_ZN14Bars3DRenderer28convertPositionToTranslationERK9QVector3Db": [
+      "address", "address", "address", "bool"
+    ],
+    "ritual_own_ZN14Bars3DRenderer17updateAspectRatioEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_own_ZN14Bars3DRenderer12updateMarginEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_own_ZN14Bars3DRenderer14contextCleanupEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN14Bars3DRenderer16initializeOpenGLEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN14Bars3DRenderer15updateAxisRangeEN15QAbstract3DAxis15AxisOrientationEff": [
+      "nothing", "address", "int", "float", "float"
+    ],
+    "ritual_own_ZN14Bars3DRenderer18updateAxisReversedEN15QAbstract3DAxis15AxisOrientationEb": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_own_ZN14Bars3DRenderer11initShadersERK7QStringS2_": [
+      "nothing", "address", "text", "text"
+    ],
+    "ritual_own_ZN14Bars3DRenderer19initGradientShadersERK7QStringS2_": [
+      "nothing", "address", "text", "text"
+    ],
+    "ritual_own_ZN14Bars3DRenderer19updateShadowQualityEN16QAbstract3DGraph13ShadowQualityE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN14Bars3DRenderer14updateTexturesEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN14Bars3DRenderer21initBackgroundShadersERK7QStringS2_": [
+      "nothing", "address", "text", "text"
+    ],
+    "ritual_own_ZN14Bars3DRenderer19initSelectionBufferEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN14Bars3DRenderer17updateDepthBufferEv": [
+      "nothing", "address"
+    ]
+  }
+}

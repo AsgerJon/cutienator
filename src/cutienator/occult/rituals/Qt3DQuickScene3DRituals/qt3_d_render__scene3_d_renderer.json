@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of Qt3DQui",
+    "ckScene3D/6.12.0/Qt3DQuickScene3D/private/scene3drenderer_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK10Qt3DRender15Scene3DRenderer10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender15Scene3DRenderer11multisampleEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK10Qt3DRender15Scene3DRenderer12boundingSizeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender15Scene3DRenderer11hasShutdownEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK10Qt3DRender15Scene3DRenderer12renderAspectEv": [
+      "address", "address"
+    ],
+    "ritual_take_Qt3DRender_Scene3DRenderer": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

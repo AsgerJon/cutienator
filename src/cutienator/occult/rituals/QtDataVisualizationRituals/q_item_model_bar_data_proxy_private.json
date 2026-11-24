@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtDataV",
+    "isualization/6.12.0/QtDataVisualization/private/qitemmodelbardatap",
+    "roxy_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK29QItemModelBarDataProxyPrivate10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN29QItemModelBarDataProxyPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN29QItemModelBarDataProxyPrivate4qptrEv": [
+      "address", "address"
+    ],
+    "ritual_take_QItemModelBarDataProxyPrivate": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

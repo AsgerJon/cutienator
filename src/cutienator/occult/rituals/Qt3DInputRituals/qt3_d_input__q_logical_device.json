@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DInput/qlogicaldevice.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK9Qt3DInput14QLogicalDevice10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput14QLogicalDevice2trEPKcS2_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN9Qt3DInput14QLogicalDevice6d_funcEv": ["address", "address"],
+    "ritual_ZNK9Qt3DInput14QLogicalDevice6d_funcEv": ["address", "address"],
+    "ritual_take_Qt3DInput_QLogicalDevice": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

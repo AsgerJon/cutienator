@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtVirtu",
+    "alKeyboard/6.12.0/QtVirtualKeyboard/private/enterkeyactionattached",
+    "type_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QtVirtualKeyboard26EnterKeyActionAttachedType10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard26EnterKeyActionAttachedType2trEPKcS2_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QtVirtualKeyboard26EnterKeyActionAttachedType22qt_qmlMarker_anonymousEv": [
+      "nothing", "address"
+    ]
+  }
+}

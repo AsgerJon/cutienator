@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLottie/6.12.0/QtLottie/private/qlottieflatlayers_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN16QLottieNullLayerC1Ev": ["address"],
+    "ritual_ZN16QLottieNullLayerC1ERKS_": ["address", "address"],
+    "ritual_ZNK16QLottieNullLayer5cloneEv": ["address", "address"],
+    "ritual_ZN16QLottieNullLayer5parseERK11QJsonObject": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN16QLottieNullLayerD1Ev": ["nothing", "address"],
+    "ritual_take_QLottieNullLayer": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK16QLottieNullLayer5cloneEv": ["address", "address"],
+    "ritual_own_ZN16QLottieNullLayer5parseERK11QJsonObject": [
+      "int", "address", "address"
+    ]
+  }
+}

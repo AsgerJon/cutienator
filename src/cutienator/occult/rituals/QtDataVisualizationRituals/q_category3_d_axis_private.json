@@ -1,0 +1,34 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtDataV",
+    "isualization/6.12.0/QtDataVisualization/private/qcategory3daxis_p.",
+    "h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK22QCategory3DAxisPrivate10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QCategory3DAxisPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN22QCategory3DAxisPrivate13setDataLabelsERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QCategory3DAxisPrivate9allowZeroEv": ["bool", "address"],
+    "ritual_ZN22QCategory3DAxisPrivate14allowNegativesEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN22QCategory3DAxisPrivate15allowMinMaxSameEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN22QCategory3DAxisPrivate4qptrEv": ["address", "address"],
+    "ritual_take_QCategory3DAxisPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN22QCategory3DAxisPrivate9allowZeroEv": ["bool", "address"],
+    "ritual_own_ZN22QCategory3DAxisPrivate14allowNegativesEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZN22QCategory3DAxisPrivate15allowMinMaxSameEv": [
+      "bool", "address"
+    ]
+  }
+}

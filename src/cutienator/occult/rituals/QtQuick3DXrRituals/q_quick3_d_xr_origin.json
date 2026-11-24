@@ -1,0 +1,35 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3DXr/6.12.0/QtQuick3DXr/private/qquick3dxrorigin_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK16QQuick3DXrOrigin10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QQuick3DXrOrigin2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN16QQuick3DXrOriginC1EP12QQuick3DNode": ["address", "address"],
+    "ritual_ZN16QQuick3DXrOriginD1Ev": ["nothing", "address"],
+    "ritual_ZNK16QQuick3DXrOrigin6cameraEv": ["address", "address"],
+    "ritual_ZN16QQuick3DXrOrigin9setCameraEP16QQuick3DXrCamera": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QQuick3DXrOrigin9eyeCameraEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN16QQuick3DXrOrigin18syncCameraSettingsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuick3DXrOrigin19resetCameraSettingsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuick3DXrOrigin19updateTrackedCameraERK10QMatrix4x4": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuick3DXrOrigin19updateTrackedCameraE9QVector3D11QQuaternion": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_take_QQuick3DXrOrigin": ["bool", "address", "chars", "address"]
+  }
+}

@@ -1,0 +1,123 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCanvasPainter/qcanvaspath.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN11QCanvasPathC1Ev": ["address"],
+    "ritual_ZN11QCanvasPathC1Exx": ["address", "long long", "long long"],
+    "ritual_ZN11QCanvasPathC1ERKS_": ["address", "address"],
+    "ritual_ZN11QCanvasPathD1Ev": ["nothing", "address"],
+    "ritual_ZNK11QCanvasPathcv8QVariantEv": ["address", "address"],
+    "ritual_ZN11QCanvasPath9closePathEv": ["nothing", "address"],
+    "ritual_ZN11QCanvasPath6moveToEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN11QCanvasPath6moveToE7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QCanvasPath6lineToEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN11QCanvasPath6lineToE7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QCanvasPath13bezierCurveToEdddddd": [
+      "nothing", "address", "double", "double", "double", "double", "double",
+      "double"
+    ],
+    "ritual_ZN11QCanvasPath13bezierCurveToE7QPointFS0_S0_": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN11QCanvasPath16quadraticCurveToEdddd": [
+      "nothing", "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZN11QCanvasPath16quadraticCurveToE7QPointFS0_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN11QCanvasPath5arcToEddddd": [
+      "nothing", "address", "double", "double", "double", "double", "double"
+    ],
+    "ritual_ZN11QCanvasPath5arcToE7QPointFS0_d": [
+      "nothing", "address", "address", "address", "double"
+    ],
+    "ritual_ZN11QCanvasPath3arcEdddddN14QCanvasPainter11PathWindingENS0_14PathConnectionE": [
+      "nothing", "address", "double", "double", "double", "double", "double",
+      "unsigned char", "unsigned char"
+    ],
+    "ritual_ZN11QCanvasPath3arcE7QPointFdddN14QCanvasPainter11PathWindingENS1_14PathConnectionE": [
+      "nothing", "address", "address", "double", "double", "double",
+      "unsigned char", "unsigned char"
+    ],
+    "ritual_ZN11QCanvasPath4rectEdddd": [
+      "nothing", "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZN11QCanvasPath4rectERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QCanvasPath9roundRectEddddd": [
+      "nothing", "address", "double", "double", "double", "double", "double"
+    ],
+    "ritual_ZN11QCanvasPath9roundRectERK6QRectFd": [
+      "nothing", "address", "address", "double"
+    ],
+    "ritual_ZN11QCanvasPath9roundRectEdddddddd": [
+      "nothing", "address", "double", "double", "double", "double", "double",
+      "double", "double", "double"
+    ],
+    "ritual_ZN11QCanvasPath9roundRectERK6QRectFdddd": [
+      "nothing", "address", "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZN11QCanvasPath7ellipseEdddd": [
+      "nothing", "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZN11QCanvasPath7ellipseERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QCanvasPath6circleEddd": [
+      "nothing", "address", "double", "double", "double"
+    ],
+    "ritual_ZN11QCanvasPath6circleE7QPointFd": [
+      "nothing", "address", "address", "double"
+    ],
+    "ritual_ZN11QCanvasPath14setPathWindingEN14QCanvasPainter11PathWindingE": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZN11QCanvasPath17beginSolidSubPathEv": ["nothing", "address"],
+    "ritual_ZN11QCanvasPath16beginHoleSubPathEv": ["nothing", "address"],
+    "ritual_ZN11QCanvasPath7addPathERKS_RK10QTransform": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN11QCanvasPath7addPathERKS_xxRK10QTransform": [
+      "nothing", "address", "address", "long long", "long long", "address"
+    ],
+    "ritual_ZN11QCanvasPath7addPathE11QStringViewRK10QTransform": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZN11QCanvasPath7addPathERK12QPainterPath": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QCanvasPath7isEmptyEv": ["bool", "address"],
+    "ritual_ZN11QCanvasPath5clearEv": ["nothing", "address"],
+    "ritual_ZN11QCanvasPath7squeezeEv": ["nothing", "address"],
+    "ritual_ZNK11QCanvasPath12commandsSizeEv": ["long long", "address"],
+    "ritual_ZNK11QCanvasPath16commandsDataSizeEv": ["long long", "address"],
+    "ritual_ZNK11QCanvasPath16commandsCapacityEv": ["long long", "address"],
+    "ritual_ZNK11QCanvasPath20commandsDataCapacityEv": [
+      "long long", "address"
+    ],
+    "ritual_ZN11QCanvasPath7reserveExx": [
+      "nothing", "address", "long long", "long long"
+    ],
+    "ritual_ZNK11QCanvasPath15currentPositionEv": ["address", "address"],
+    "ritual_ZNK11QCanvasPath10positionAtEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZNK11QCanvasPath6slicedExxRK10QTransform": [
+      "address", "address", "long long", "long long", "address"
+    ],
+    "ritual_ZeqRK11QCanvasPathS1_": ["bool", "address", "address"],
+    "ritual_ZneRK11QCanvasPathS1_": ["bool", "address", "address"]
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtSenso",
+    "rsQuick/6.12.0/QtSensorsQuick/private/qmlproximitysensor_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18QmlProximitySensor10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QmlProximitySensor2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18QmlProximitySensorC1EP7QObject": ["address", "address"],
+    "ritual_ZN18QmlProximitySensorD1Ev": ["nothing", "address"],
+    "ritual_ZNK18QmlProximitySensor6sensorEv": ["address", "address"],
+    "ritual_ZNK18QmlProximitySensor13createReadingEv": [
+      "address", "address"
+    ],
+    "ritual_take_QmlProximitySensor": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK18QmlProximitySensor6sensorEv": ["address", "address"],
+    "ritual_own_ZNK18QmlProximitySensor13createReadingEv": [
+      "address", "address"
+    ]
+  }
+}

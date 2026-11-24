@@ -1,0 +1,31 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWebChannelQuick/qqmlwebchannel.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZNK14QQmlWebChannel10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QQmlWebChannel2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN14QQmlWebChannel21qt_qmlMarker_attachedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQmlWebChannelC1EP7QObject": ["address", "address"],
+    "ritual_ZN14QQmlWebChannelD1Ev": ["nothing", "address"],
+    "ritual_ZN14QQmlWebChannel15registerObjectsERK4QMapI7QString8QVariantE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QQmlWebChannel21qmlAttachedPropertiesEP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN14QQmlWebChannel9connectToEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QQmlWebChannel14disconnectFromEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QQmlWebChannel": ["bool", "address", "chars", "address"]
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLottie/6.12.0/QtLottie/private/qlottieprecomposition_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN21QLottiePrecompositionC1Ev": ["address"],
+    "ritual_ZN21QLottiePrecompositionC1ERKS_": ["address", "address"],
+    "ritual_ZNK21QLottiePrecomposition5cloneEv": ["address", "address"],
+    "ritual_ZN21QLottiePrecomposition9constructERK11QJsonObjectRK4QMapI7QStringS0_E": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN21QLottiePrecomposition5parseERK11QJsonObject": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK21QLottiePrecomposition5refIdEv": ["text", "address"],
+    "ritual_ZN21QLottiePrecompositionD1Ev": ["nothing", "address"],
+    "ritual_take_QLottiePrecomposition": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK21QLottiePrecomposition5cloneEv": ["address", "address"],
+    "ritual_own_ZN21QLottiePrecomposition5parseERK11QJsonObject": [
+      "int", "address", "address"
+    ],
+    "ritual_map_make_QMap_QString_QLottiePrecomposition_ptr": ["address"],
+    "ritual_map_put_QMap_QString_QLottiePrecomposition_ptr": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_map_size_QMap_QString_QLottiePrecomposition_ptr": [
+      "long long", "address"
+    ],
+    "ritual_map_key_QMap_QString_QLottiePrecomposition_ptr": [
+      "text", "address", "long long"
+    ],
+    "ritual_map_value_QMap_QString_QLottiePrecomposition_ptr": [
+      "address", "address", "long long"
+    ],
+    "ritual_map_has_QMap_QString_QLottiePrecomposition_ptr": [
+      "bool", "address", "text"
+    ],
+    "ritual_map_get_QMap_QString_QLottiePrecomposition_ptr": [
+      "address", "address", "text"
+    ],
+    "ritual_map_drop_QMap_QString_QLottiePrecomposition_ptr": [
+      "nothing", "address"
+    ]
+  }
+}

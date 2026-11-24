@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DCore/6.12.0/Qt3DCore/private/calcboundingvolumejob_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK8Qt3DCore25BoundingVolumeComputeData5validEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN8Qt3DCore25BoundingVolumeComputeDataD1Ev": [
+      "nothing", "address"
+    ]
+  }
+}

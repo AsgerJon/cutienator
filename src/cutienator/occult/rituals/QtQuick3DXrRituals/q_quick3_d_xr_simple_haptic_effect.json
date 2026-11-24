@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DXr/6.12.0/QtQuick3DXr/private/qquick3dxrabstracthapticeffect_p.h",
+    ", Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK28QQuick3DXrSimpleHapticEffect10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QQuick3DXrSimpleHapticEffect9amplitudeEv": [
+      "float", "address"
+    ],
+    "ritual_ZN28QQuick3DXrSimpleHapticEffect8durationEv": [
+      "float", "address"
+    ],
+    "ritual_ZN28QQuick3DXrSimpleHapticEffect9frequencyEv": [
+      "float", "address"
+    ]
+  }
+}

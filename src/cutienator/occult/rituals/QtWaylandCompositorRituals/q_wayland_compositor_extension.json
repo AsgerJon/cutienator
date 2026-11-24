@@ -1,0 +1,62 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWaylandCompositor/qwaylandcompositorextension.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK27QWaylandCompositorExtension10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QWaylandCompositorExtension2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN27QWaylandCompositorExtension6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK27QWaylandCompositorExtension6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QWaylandCompositorExtension24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QWaylandCompositorExtensionD1Ev": ["nothing", "address"],
+    "ritual_ZNK27QWaylandCompositorExtension18extensionContainerEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QWaylandCompositorExtension21setExtensionContainerEP14QWaylandObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN27QWaylandCompositorExtension10initializeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK27QWaylandCompositorExtension13isInitializedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN27QWaylandCompositorExtension5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_take_QWaylandCompositorExtension": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN27QWaylandCompositorExtension10initializeEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN27QWaylandCompositorExtension5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_list_make_QWaylandCompositorExtension_ptr": ["address"],
+    "ritual_list_add_QWaylandCompositorExtension_ptr": [
+      "nothing", "address", "address"
+    ],
+    "ritual_list_size_QWaylandCompositorExtension_ptr": [
+      "long long", "address"
+    ],
+    "ritual_list_at_QWaylandCompositorExtension_ptr": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_QWaylandCompositorExtension_ptr": [
+      "nothing", "address"
+    ]
+  }
+}

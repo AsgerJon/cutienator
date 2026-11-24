@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DQuick/6.12.0/Qt3DQuick/private/qt3dquickvaluetypes_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN8Qt3DCore5Quick25QQuick3DVector3DValueType20qt_qmlMarker_foreignEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN8Qt3DCore5Quick25QQuick3DVector3DValueType21qt_qmlMarker_extendedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN8Qt3DCore5Quick25QQuick3DVector3DValueTypeD1Ev": [
+      "nothing", "address"
+    ]
+  }
+}

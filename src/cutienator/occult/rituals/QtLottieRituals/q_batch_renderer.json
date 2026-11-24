@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLottie/6.12.0/QtLottie/private/qbatchrenderer_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK14QBatchRenderer10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QBatchRendererD1Ev": ["nothing", "address"],
+    "ritual_ZN14QBatchRenderer8getFrameEP16QLottieAnimationi": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN14QBatchRenderer3runEv": ["nothing", "address"],
+    "ritual_take_QBatchRenderer": ["bool", "address", "chars", "address"]
+  }
+}

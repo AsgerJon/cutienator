@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSensors/qrotationsensor.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN15QRotationFilter6filterEP16QRotationReading": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN15QRotationFilter6filterEP14QSensorReading": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN15QRotationFilter6filterEP14QSensorReading": [
+      "bool", "address", "address"
+    ]
+  }
+}

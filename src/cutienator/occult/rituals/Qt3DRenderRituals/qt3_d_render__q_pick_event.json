@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DRender/qpickevent.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK10Qt3DRender10QPickEvent10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender10QPickEvent2trEPKcS2_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DRender10QPickEventC1Ev": ["address"],
+    "ritual_ZN10Qt3DRender10QPickEventC1ERK7QPointFRK9QVector3DS6_f": [
+      "address", "address", "address", "address", "float"
+    ],
+    "ritual_ZN10Qt3DRender10QPickEventC1ERK7QPointFRK9QVector3DS6_fNS0_7ButtonsEii": [
+      "address", "address", "address", "address", "float", "int", "int",
+      "int"
+    ],
+    "ritual_ZN10Qt3DRender10QPickEvent6d_funcEv": ["address", "address"],
+    "ritual_ZNK10Qt3DRender10QPickEvent6d_funcEv": ["address", "address"],
+    "ritual_take_Qt3DRender_QPickEvent": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

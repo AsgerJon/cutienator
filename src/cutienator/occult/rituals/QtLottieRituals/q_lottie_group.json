@@ -1,0 +1,34 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLottie/6.12.0/QtLottie/private/qlottiegroup_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN12QLottieGroupC1EP11QLottieBase": ["address", "address"],
+    "ritual_ZNK12QLottieGroup5cloneEv": ["address", "address"],
+    "ritual_ZN12QLottieGroup16updatePropertiesEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN12QLottieGroup5parseERK11QJsonObject": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK12QLottieGroup11acceptsTrimEv": ["bool", "address"],
+    "ritual_ZN12QLottieGroup9applyTrimERK15QLottieTrimPath": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QLottieGroupD1Ev": ["nothing", "address"],
+    "ritual_take_QLottieGroup": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK12QLottieGroup5cloneEv": ["address", "address"],
+    "ritual_own_ZN12QLottieGroup16updatePropertiesEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN12QLottieGroup5parseERK11QJsonObject": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZNK12QLottieGroup11acceptsTrimEv": ["bool", "address"],
+    "ritual_own_ZN12QLottieGroup9applyTrimERK15QLottieTrimPath": [
+      "nothing", "address", "address"
+    ]
+  }
+}

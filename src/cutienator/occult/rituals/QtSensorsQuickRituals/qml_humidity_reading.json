@@ -1,0 +1,35 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtSenso",
+    "rsQuick/6.12.0/QtSensorsQuick/private/qmlhumiditysensor_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18QmlHumidityReading10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QmlHumidityReading2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18QmlHumidityReading24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QmlHumidityReadingC1EP15QHumiditySensor": [
+      "address", "address"
+    ],
+    "ritual_ZN18QmlHumidityReadingD1Ev": ["nothing", "address"],
+    "ritual_ZNK18QmlHumidityReading16relativeHumidityEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK18QmlHumidityReading16absoluteHumidityEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK18QmlHumidityReading7readingEv": ["address", "address"],
+    "ritual_ZN18QmlHumidityReading13readingUpdateEv": ["nothing", "address"],
+    "ritual_take_QmlHumidityReading": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK18QmlHumidityReading7readingEv": ["address", "address"],
+    "ritual_own_ZN18QmlHumidityReading13readingUpdateEv": [
+      "nothing", "address"
+    ]
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtMulti",
+    "mediaQuick/6.12.0/QtMultimediaQuick/private/qquickscreencapture_p.",
+    "h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK19QQuickScreenCapture10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QQuickScreenCapture2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN19QQuickScreenCaptureC1EP7QObject": ["address", "address"],
+    "ritual_ZN19QQuickScreenCapture12qmlSetScreenEP16QQuickScreenInfo": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickScreenCapture15ensureQmlScreenEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QQuickScreenCapture22qmlSetMaximumFrameRateEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK19QQuickScreenCapture19qmlMaximumFrameRateEv": [
+      "double", "address"
+    ],
+    "ritual_ZN19QQuickScreenCapture24qmlResetMaximumFrameRateEv": [
+      "nothing", "address"
+    ]
+  }
+}

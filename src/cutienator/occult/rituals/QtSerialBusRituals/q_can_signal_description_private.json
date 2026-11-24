@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSerialBus/6.12.0/QtSerialBus/private/qcansignaldescription_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK28QCanSignalDescriptionPrivate8isSharedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN28QCanSignalDescriptionPrivate3getERK21QCanSignalDescription": [
+      "address", "address"
+    ],
+    "ritual_ZN28QCanSignalDescriptionPrivateD1Ev": ["nothing", "address"]
+  }
+}

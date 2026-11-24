@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSerialBus/qcandbcfileparser.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN17QCanDbcFileParserC1Ev": ["address"],
+    "ritual_ZN17QCanDbcFileParserD1Ev": ["nothing", "address"],
+    "ritual_ZN17QCanDbcFileParser5parseERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN17QCanDbcFileParser5parseERK5QListI7QStringE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN17QCanDbcFileParser9parseDataE11QStringView": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZNK17QCanDbcFileParser19messageDescriptionsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK17QCanDbcFileParser5errorEv": ["unsigned char", "address"],
+    "ritual_ZNK17QCanDbcFileParser11errorStringEv": ["text", "address"],
+    "ritual_ZNK17QCanDbcFileParser8warningsEv": ["address", "address"],
+    "ritual_ZN17QCanDbcFileParser19uniqueIdDescriptionEv": ["address"]
+  }
+}

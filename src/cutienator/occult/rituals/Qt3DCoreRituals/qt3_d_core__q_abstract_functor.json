@@ -1,0 +1,14 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DCore/qabstractfunctor.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN8Qt3DCore16QAbstractFunctorD1Ev": ["nothing", "address"],
+    "ritual_ZNK8Qt3DCore16QAbstractFunctor2idEv": ["long long", "address"],
+    "ritual_take_Qt3DCore_QAbstractFunctor": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

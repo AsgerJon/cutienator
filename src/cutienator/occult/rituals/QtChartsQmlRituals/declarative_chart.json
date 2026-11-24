@@ -1,0 +1,222 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtChartsQml/6.12.0/QtChartsQml/private/declarativechart_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK16DeclarativeChart10metaObjectEv": ["address", "address"],
+    "ritual_ZN16DeclarativeChart2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN16DeclarativeChartC1EP10QQuickItem": ["address", "address"],
+    "ritual_ZN16DeclarativeChartD1Ev": ["nothing", "address"],
+    "ritual_ZN16DeclarativeChart17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16DeclarativeChart14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN16DeclarativeChart15updatePaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN16DeclarativeChart15mousePressEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16DeclarativeChart17mouseReleaseEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16DeclarativeChart14hoverMoveEventEP11QHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16DeclarativeChart21mouseDoubleClickEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16DeclarativeChart25handleAntialiasingChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN16DeclarativeChart12sceneChangedERK5QListI6QRectFE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16DeclarativeChart11renderSceneEv": ["nothing", "address"],
+    "ritual_ZN16DeclarativeChart8setThemeENS_5ThemeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16DeclarativeChart5themeEv": ["int", "address"],
+    "ritual_ZN16DeclarativeChart19setAnimationOptionsENS_9AnimationE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16DeclarativeChart16animationOptionsEv": ["int", "address"],
+    "ritual_ZN16DeclarativeChart20setAnimationDurationEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK16DeclarativeChart17animationDurationEv": ["int", "address"],
+    "ritual_ZN16DeclarativeChart23setAnimationEasingCurveERK12QEasingCurve": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16DeclarativeChart20animationEasingCurveEv": [
+      "address", "address"
+    ],
+    "ritual_ZN16DeclarativeChart8setTitleE7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN16DeclarativeChart5titleEv": ["text", "address"],
+    "ritual_ZN16DeclarativeChart6legendEv": ["address", "address"],
+    "ritual_ZNK16DeclarativeChart9titleFontEv": ["address", "address"],
+    "ritual_ZN16DeclarativeChart12setTitleFontERK5QFont": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16DeclarativeChart13setTitleColorE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16DeclarativeChart10titleColorEv": ["address", "address"],
+    "ritual_ZN16DeclarativeChart18setBackgroundColorE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16DeclarativeChart15backgroundColorEv": ["address", "address"],
+    "ritual_ZN16DeclarativeChart16setPlotAreaColorE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16DeclarativeChart13plotAreaColorEv": ["address", "address"],
+    "ritual_ZN16DeclarativeChart18setLocalizeNumbersEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK16DeclarativeChart15localizeNumbersEv": ["bool", "address"],
+    "ritual_ZN16DeclarativeChart9setLocaleERK7QLocale": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16DeclarativeChart6localeEv": ["address", "address"],
+    "ritual_ZN16DeclarativeChart5countEv": ["int", "address"],
+    "ritual_ZN16DeclarativeChart20setDropShadowEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN16DeclarativeChart17dropShadowEnabledEv": ["bool", "address"],
+    "ritual_ZNK16DeclarativeChart19backgroundRoundnessEv": [
+      "double", "address"
+    ],
+    "ritual_ZN16DeclarativeChart22setBackgroundRoundnessEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN16DeclarativeChart7marginsEv": ["address", "address"],
+    "ritual_ZN16DeclarativeChart8plotAreaEv": ["address", "address"],
+    "ritual_ZN16DeclarativeChart11setPlotAreaERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16DeclarativeChart11defaultAxisEN2Qt11OrientationEP15QAbstractSeries": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_ZN16DeclarativeChart14initializeAxesEP15QAbstractSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16DeclarativeChart16doInitializeAxesEP15QAbstractSeriesP15DeclarativeAxes": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN16DeclarativeChart6seriesEi": ["address", "address", "int"],
+    "ritual_ZN16DeclarativeChart6seriesE7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN16DeclarativeChart12createSeriesEi7QStringP13QAbstractAxisS2_": [
+      "address", "address", "int", "text", "address", "address"
+    ],
+    "ritual_ZN16DeclarativeChart12removeSeriesEP15QAbstractSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16DeclarativeChart15removeAllSeriesEv": ["nothing", "address"],
+    "ritual_ZN16DeclarativeChart8setAxisXEP13QAbstractAxisP15QAbstractSeries": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN16DeclarativeChart8setAxisYEP13QAbstractAxisP15QAbstractSeries": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN16DeclarativeChart5axisXEP15QAbstractSeries": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN16DeclarativeChart5axisYEP15QAbstractSeries": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN16DeclarativeChart4zoomEd": ["nothing", "address", "double"],
+    "ritual_ZN16DeclarativeChart6zoomInEv": ["nothing", "address"],
+    "ritual_ZN16DeclarativeChart6zoomInERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16DeclarativeChart7zoomOutEv": ["nothing", "address"],
+    "ritual_ZN16DeclarativeChart9zoomResetEv": ["nothing", "address"],
+    "ritual_ZN16DeclarativeChart8isZoomedEv": ["bool", "address"],
+    "ritual_ZN16DeclarativeChart10scrollLeftEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN16DeclarativeChart11scrollRightEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN16DeclarativeChart8scrollUpEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN16DeclarativeChart10scrollDownEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN16DeclarativeChart10mapToValueERK7QPointFP15QAbstractSeries": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN16DeclarativeChart13mapToPositionERK7QPointFP15QAbstractSeries": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN16DeclarativeChart13changeMarginsEiiii": [
+      "nothing", "address", "int", "int", "int", "int"
+    ],
+    "ritual_ZN16DeclarativeChart14handleAxisXSetEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16DeclarativeChart14handleAxisYSetEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16DeclarativeChart17handleAxisXTopSetEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16DeclarativeChart19handleAxisYRightSetEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16DeclarativeChart17handleSeriesAddedEP15QAbstractSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16DeclarativeChart42handlePendingRenderNodeMouseEventResponsesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16DeclarativeChartC1EN6QChart9ChartTypeEP10QQuickItem": [
+      "address", "int", "address"
+    ],
+    "ritual_ZN16DeclarativeChart9initChartEN6QChart9ChartTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16DeclarativeChart22seriesAxisAttachHelperEP15QAbstractSeriesP13QAbstractAxis6QFlagsIN2Qt11OrientationEES4_INS5_13AlignmentFlagEE": [
+      "nothing", "address", "address", "address", "int", "int"
+    ],
+    "ritual_ZN16DeclarativeChart19findMinMaxForSeriesEP15QAbstractSeries6QFlagsIN2Qt11OrientationEERdS6_": [
+      "nothing", "address", "address", "int", "address", "address"
+    ],
+    "ritual_ZN16DeclarativeChart23queueRendererMouseEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_DeclarativeChart": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN16DeclarativeChart17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN16DeclarativeChart14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN16DeclarativeChart15updatePaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN16DeclarativeChart15mousePressEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16DeclarativeChart17mouseReleaseEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16DeclarativeChart14hoverMoveEventEP11QHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16DeclarativeChart21mouseDoubleClickEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ]
+  }
+}

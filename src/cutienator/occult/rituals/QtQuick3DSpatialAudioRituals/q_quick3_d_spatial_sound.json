@@ -1,0 +1,87 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DSpatialAudio/6.12.0/QtQuick3DSpatialAudio/private/qquick3dspatia",
+    "lsound_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK20QQuick3DSpatialSound10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QQuick3DSpatialSoundD1Ev": ["nothing", "address"],
+    "ritual_ZN20QQuick3DSpatialSound9setSourceERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QQuick3DSpatialSound6sourceEv": ["address", "address"],
+    "ritual_ZN20QQuick3DSpatialSound9setVolumeEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK20QQuick3DSpatialSound6volumeEv": ["float", "address"],
+    "ritual_ZN20QQuick3DSpatialSound16setDistanceModelENS_13DistanceModelE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK20QQuick3DSpatialSound13distanceModelEv": ["int", "address"],
+    "ritual_ZN20QQuick3DSpatialSound7setSizeEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK20QQuick3DSpatialSound4sizeEv": ["float", "address"],
+    "ritual_ZN20QQuick3DSpatialSound17setDistanceCutoffEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK20QQuick3DSpatialSound14distanceCutoffEv": [
+      "float", "address"
+    ],
+    "ritual_ZN20QQuick3DSpatialSound20setManualAttenuationEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK20QQuick3DSpatialSound17manualAttenuationEv": [
+      "float", "address"
+    ],
+    "ritual_ZN20QQuick3DSpatialSound21setOcclusionIntensityEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK20QQuick3DSpatialSound18occlusionIntensityEv": [
+      "float", "address"
+    ],
+    "ritual_ZN20QQuick3DSpatialSound14setDirectivityEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK20QQuick3DSpatialSound11directivityEv": ["float", "address"],
+    "ritual_ZN20QQuick3DSpatialSound19setDirectivityOrderEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK20QQuick3DSpatialSound16directivityOrderEv": [
+      "float", "address"
+    ],
+    "ritual_ZN20QQuick3DSpatialSound16setNearFieldGainEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK20QQuick3DSpatialSound13nearFieldGainEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK20QQuick3DSpatialSound5loopsEv": ["int", "address"],
+    "ritual_ZN20QQuick3DSpatialSound8setLoopsEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK20QQuick3DSpatialSound8autoPlayEv": ["bool", "address"],
+    "ritual_ZN20QQuick3DSpatialSound11setAutoPlayEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20QQuick3DSpatialSound4playEv": ["nothing", "address"],
+    "ritual_ZN20QQuick3DSpatialSound5pauseEv": ["nothing", "address"],
+    "ritual_ZN20QQuick3DSpatialSound4stopEv": ["nothing", "address"],
+    "ritual_ZN20QQuick3DSpatialSound14updatePositionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuick3DSpatialSound14updateRotationEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuick3DSpatialSound17updateSpatialNodeEP21QSSGRenderGraphObject": [
+      "address", "address", "address"
+    ],
+    "ritual_take_QQuick3DSpatialSound": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN20QQuick3DSpatialSound17updateSpatialNodeEP21QSSGRenderGraphObject": [
+      "address", "address", "address"
+    ]
+  }
+}

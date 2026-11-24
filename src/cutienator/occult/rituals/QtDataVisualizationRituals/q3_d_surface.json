@@ -1,0 +1,49 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDataVisualization/q3dsurface.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK10Q3DSurface10metaObjectEv": ["address", "address"],
+    "ritual_ZN10Q3DSurface2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN10Q3DSurfaceC1EPK14QSurfaceFormatP7QWindow": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN10Q3DSurfaceD1Ev": ["nothing", "address"],
+    "ritual_ZN10Q3DSurface9addSeriesEP16QSurface3DSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Q3DSurface12removeSeriesEP16QSurface3DSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10Q3DSurface10seriesListEv": ["address", "address"],
+    "ritual_ZN10Q3DSurface8setAxisXEP12QValue3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10Q3DSurface5axisXEv": ["address", "address"],
+    "ritual_ZN10Q3DSurface8setAxisYEP12QValue3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10Q3DSurface5axisYEv": ["address", "address"],
+    "ritual_ZN10Q3DSurface8setAxisZEP12QValue3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10Q3DSurface5axisZEv": ["address", "address"],
+    "ritual_ZN10Q3DSurface7addAxisEP12QValue3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Q3DSurface11releaseAxisEP12QValue3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10Q3DSurface4axesEv": ["address", "address"],
+    "ritual_ZNK10Q3DSurface14selectedSeriesEv": ["address", "address"],
+    "ritual_ZN10Q3DSurface21setFlipHorizontalGridEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK10Q3DSurface18flipHorizontalGridEv": ["bool", "address"],
+    "ritual_ZN10Q3DSurface4dptrEv": ["address", "address"],
+    "ritual_ZNK10Q3DSurface5dptrcEv": ["address", "address"],
+    "ritual_take_Q3DSurface": ["bool", "address", "chars", "address"]
+  }
+}

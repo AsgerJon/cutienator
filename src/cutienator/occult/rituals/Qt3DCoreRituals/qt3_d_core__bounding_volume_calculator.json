@@ -1,0 +1,28 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DCore/6.12.0/Qt3DCore/private/qgeometryview_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN8Qt3DCore24BoundingVolumeCalculatorC1Ev": ["address"],
+    "ritual_ZNK8Qt3DCore24BoundingVolumeCalculator3minEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK8Qt3DCore24BoundingVolumeCalculator3maxEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK8Qt3DCore24BoundingVolumeCalculator6centerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK8Qt3DCore24BoundingVolumeCalculator6radiusEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK8Qt3DCore24BoundingVolumeCalculator7isValidEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN8Qt3DCore24BoundingVolumeCalculatorD1Ev": [
+      "nothing", "address"
+    ]
+  }
+}

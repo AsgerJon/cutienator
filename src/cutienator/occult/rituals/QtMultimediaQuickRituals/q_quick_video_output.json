@@ -1,0 +1,81 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtMulti",
+    "mediaQuick/6.12.0/QtMultimediaQuick/private/qquickvideooutput_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QQuickVideoOutput10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QQuickVideoOutput2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QQuickVideoOutputC1EP10QQuickItem": ["address", "address"],
+    "ritual_ZN17QQuickVideoOutputD1Ev": ["nothing", "address"],
+    "ritual_ZNK17QQuickVideoOutput9videoSinkEv": ["address", "address"],
+    "ritual_ZNK17QQuickVideoOutput8fillModeEv": ["int", "address"],
+    "ritual_ZN17QQuickVideoOutput11setFillModeENS_8FillModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK17QQuickVideoOutput11orientationEv": ["int", "address"],
+    "ritual_ZN17QQuickVideoOutput14setOrientationEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK17QQuickVideoOutput8mirroredEv": ["bool", "address"],
+    "ritual_ZN17QQuickVideoOutput11setMirroredEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK17QQuickVideoOutput10sourceRectEv": ["address", "address"],
+    "ritual_ZNK17QQuickVideoOutput11contentRectEv": ["address", "address"],
+    "ritual_ZNK17QQuickVideoOutput17endOfStreamPolicyEv": ["int", "address"],
+    "ritual_ZN17QQuickVideoOutput20setEndOfStreamPolicyENS_17EndOfStreamPolicyE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQuickVideoOutput11clearOutputEv": ["nothing", "address"],
+    "ritual_ZN17QQuickVideoOutput15updatePaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN17QQuickVideoOutput10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN17QQuickVideoOutput14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN17QQuickVideoOutput16releaseResourcesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK17QQuickVideoOutput10nativeSizeEv": ["address", "address"],
+    "ritual_ZN17QQuickVideoOutput14updateGeometryEv": ["nothing", "address"],
+    "ritual_ZNK17QQuickVideoOutput16adjustedViewportEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QQuickVideoOutput8setFrameERK11QVideoFrame": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QQuickVideoOutput14initRhiForSinkEv": ["nothing", "address"],
+    "ritual_ZN17QQuickVideoOutput9updateHdrEP12QSGVideoNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QQuickVideoOutput27disconnectWindowConnectionsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuickVideoOutput11_q_newFrameE5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QQuickVideoOutput17_q_updateGeometryEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QQuickVideoOutput": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN17QQuickVideoOutput15updatePaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN17QQuickVideoOutput10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZN17QQuickVideoOutput14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN17QQuickVideoOutput16releaseResourcesEv": [
+      "nothing", "address"
+    ]
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DAnimation/6.12.0/Qt3DAnimation/private/additiveclipblend_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK13Qt3DAnimation9Animation17AdditiveClipBlend10baseClipIdEv": [
+      "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation17AdditiveClipBlend13setBaseClipIdEN8Qt3DCore7QNodeIdE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation9Animation17AdditiveClipBlend14additiveClipIdEv": [
+      "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation17AdditiveClipBlend17setAdditiveClipIdEN8Qt3DCore7QNodeIdE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation9Animation17AdditiveClipBlend14additiveFactorEv": [
+      "float", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation17AdditiveClipBlend17setAdditiveFactorEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK13Qt3DAnimation9Animation17AdditiveClipBlend8durationEv": [
+      "double", "address"
+    ],
+    "ritual_take_Qt3DAnimation_Animation_AdditiveClipBlend": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

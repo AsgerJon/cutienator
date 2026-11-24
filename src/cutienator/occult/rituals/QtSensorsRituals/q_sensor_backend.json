@@ -1,0 +1,49 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSensors/qsensorbackend.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK14QSensorBackend10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QSensorBackend2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN14QSensorBackendD1Ev": ["nothing", "address"],
+    "ritual_ZN14QSensorBackend5startEv": ["nothing", "address"],
+    "ritual_ZN14QSensorBackend4stopEv": ["nothing", "address"],
+    "ritual_ZNK14QSensorBackend18isFeatureSupportedEN7QSensor7FeatureE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN14QSensorBackend11addDataRateEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN14QSensorBackend12setDataRatesEPK7QSensor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QSensorBackend14addOutputRangeEddd": [
+      "nothing", "address", "double", "double", "double"
+    ],
+    "ritual_ZN14QSensorBackend14setDescriptionERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK14QSensorBackend7readingEv": ["address", "address"],
+    "ritual_ZNK14QSensorBackend6sensorEv": ["address", "address"],
+    "ritual_ZN14QSensorBackend19newReadingAvailableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QSensorBackend13sensorStoppedEv": ["nothing", "address"],
+    "ritual_ZN14QSensorBackend10sensorBusyEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN14QSensorBackend11sensorErrorEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN14QSensorBackend11setReadingsEP14QSensorReadingS1_S1_": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_take_QSensorBackend": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK14QSensorBackend18isFeatureSupportedEN7QSensor7FeatureE": [
+      "bool", "address", "int"
+    ]
+  }
+}

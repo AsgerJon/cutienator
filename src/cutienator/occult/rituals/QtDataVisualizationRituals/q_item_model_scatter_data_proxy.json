@@ -1,0 +1,108 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDataVisualization/qitemmodelscatterdataproxy.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK26QItemModelScatterDataProxy10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QItemModelScatterDataProxy2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN26QItemModelScatterDataProxyC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN26QItemModelScatterDataProxyC1EP18QAbstractItemModelP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN26QItemModelScatterDataProxyC1EP18QAbstractItemModelRK7QStringS4_S4_P7QObject": [
+      "address", "address", "text", "text", "text", "address"
+    ],
+    "ritual_ZN26QItemModelScatterDataProxyC1EP18QAbstractItemModelRK7QStringS4_S4_S4_P7QObject": [
+      "address", "address", "text", "text", "text", "text", "address"
+    ],
+    "ritual_ZN26QItemModelScatterDataProxyD1Ev": ["nothing", "address"],
+    "ritual_ZN26QItemModelScatterDataProxy12setItemModelEP18QAbstractItemModel": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK26QItemModelScatterDataProxy9itemModelEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QItemModelScatterDataProxy11setXPosRoleERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK26QItemModelScatterDataProxy8xPosRoleEv": ["text", "address"],
+    "ritual_ZN26QItemModelScatterDataProxy11setYPosRoleERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK26QItemModelScatterDataProxy8yPosRoleEv": ["text", "address"],
+    "ritual_ZN26QItemModelScatterDataProxy11setZPosRoleERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK26QItemModelScatterDataProxy8zPosRoleEv": ["text", "address"],
+    "ritual_ZN26QItemModelScatterDataProxy15setRotationRoleERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK26QItemModelScatterDataProxy12rotationRoleEv": [
+      "text", "address"
+    ],
+    "ritual_ZN26QItemModelScatterDataProxy5remapERK7QStringS2_S2_S2_": [
+      "nothing", "address", "text", "text", "text", "text"
+    ],
+    "ritual_ZN26QItemModelScatterDataProxy18setXPosRolePatternERK18QRegularExpression": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK26QItemModelScatterDataProxy15xPosRolePatternEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QItemModelScatterDataProxy18setYPosRolePatternERK18QRegularExpression": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK26QItemModelScatterDataProxy15yPosRolePatternEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QItemModelScatterDataProxy18setZPosRolePatternERK18QRegularExpression": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK26QItemModelScatterDataProxy15zPosRolePatternEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QItemModelScatterDataProxy22setRotationRolePatternERK18QRegularExpression": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK26QItemModelScatterDataProxy19rotationRolePatternEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QItemModelScatterDataProxy18setXPosRoleReplaceERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK26QItemModelScatterDataProxy15xPosRoleReplaceEv": [
+      "text", "address"
+    ],
+    "ritual_ZN26QItemModelScatterDataProxy18setYPosRoleReplaceERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK26QItemModelScatterDataProxy15yPosRoleReplaceEv": [
+      "text", "address"
+    ],
+    "ritual_ZN26QItemModelScatterDataProxy18setZPosRoleReplaceERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK26QItemModelScatterDataProxy15zPosRoleReplaceEv": [
+      "text", "address"
+    ],
+    "ritual_ZN26QItemModelScatterDataProxy22setRotationRoleReplaceERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK26QItemModelScatterDataProxy19rotationRoleReplaceEv": [
+      "text", "address"
+    ],
+    "ritual_ZN26QItemModelScatterDataProxy4dptrEv": ["address", "address"],
+    "ritual_ZNK26QItemModelScatterDataProxy5dptrcEv": ["address", "address"],
+    "ritual_take_QItemModelScatterDataProxy": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

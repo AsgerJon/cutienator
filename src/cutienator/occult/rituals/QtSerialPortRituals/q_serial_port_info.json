@@ -1,0 +1,42 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSerialPort/qserialportinfo.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN15QSerialPortInfo6d_funcEv": ["address", "address"],
+    "ritual_ZNK15QSerialPortInfo6d_funcEv": ["address", "address"],
+    "ritual_ZN15QSerialPortInfoC1Ev": ["address"],
+    "ritual_ZN15QSerialPortInfoC1ERK7QString": ["address", "text"],
+    "ritual_ZN15QSerialPortInfoC1ERKS_": ["address", "address"],
+    "ritual_ZN15QSerialPortInfoD1Ev": ["nothing", "address"],
+    "ritual_ZNK15QSerialPortInfo8portNameEv": ["text", "address"],
+    "ritual_ZNK15QSerialPortInfo14systemLocationEv": ["text", "address"],
+    "ritual_ZNK15QSerialPortInfo11descriptionEv": ["text", "address"],
+    "ritual_ZNK15QSerialPortInfo12manufacturerEv": ["text", "address"],
+    "ritual_ZNK15QSerialPortInfo12serialNumberEv": ["text", "address"],
+    "ritual_ZNK15QSerialPortInfo16vendorIdentifierEv": [
+      "unsigned short", "address"
+    ],
+    "ritual_ZNK15QSerialPortInfo17productIdentifierEv": [
+      "unsigned short", "address"
+    ],
+    "ritual_ZNK15QSerialPortInfo19hasVendorIdentifierEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK15QSerialPortInfo20hasProductIdentifierEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK15QSerialPortInfo6isNullEv": ["bool", "address"],
+    "ritual_ZN15QSerialPortInfo14availablePortsEv": ["address"],
+    "ritual_ZN15QSerialPortInfoC1ERK22QSerialPortInfoPrivate": [
+      "address", "address"
+    ],
+    "ritual_list_make_QSerialPortInfo": ["address"],
+    "ritual_list_add_QSerialPortInfo": ["nothing", "address", "address"],
+    "ritual_list_size_QSerialPortInfo": ["long long", "address"],
+    "ritual_list_at_QSerialPortInfo": ["address", "address", "long long"],
+    "ritual_list_drop_QSerialPortInfo": ["nothing", "address"]
+  }
+}

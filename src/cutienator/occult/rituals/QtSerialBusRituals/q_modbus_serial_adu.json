@@ -1,0 +1,28 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSerialBus/6.12.0/QtSerialBus/private/qmodbusadu_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN16QModbusSerialAduC1ENS_4TypeERK10QByteArray": [
+      "address", "int", "address"
+    ],
+    "ritual_ZNK16QModbusSerialAdu4sizeEv": ["int", "address"],
+    "ritual_ZNK16QModbusSerialAdu4dataEv": ["address", "address"],
+    "ritual_ZNK16QModbusSerialAdu7rawSizeEv": ["int", "address"],
+    "ritual_ZNK16QModbusSerialAdu7rawDataEv": ["address", "address"],
+    "ritual_ZNK16QModbusSerialAdu13serverAddressEv": ["int", "address"],
+    "ritual_ZNK16QModbusSerialAdu16matchingChecksumEv": ["bool", "address"],
+    "ritual_ZN16QModbusSerialAdu12calculateLRCEPKci": [
+      "unsigned char", "chars", "int"
+    ],
+    "ritual_ZN16QModbusSerialAdu12calculateCRCEPKci": [
+      "unsigned short", "chars", "int"
+    ],
+    "ritual_ZN16QModbusSerialAdu11crc_reflectEti": [
+      "unsigned short", "unsigned short", "int"
+    ],
+    "ritual_ZN16QModbusSerialAduD1Ev": ["nothing", "address"]
+  }
+}

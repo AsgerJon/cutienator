@@ -1,0 +1,45 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of Qt3DAni",
+    "mation/6.12.0/Qt3DAnimation/private/blendedclipanimator_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK13Qt3DAnimation9Animation19BlendedClipAnimator8mapperIdEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation9Animation19BlendedClipAnimator7clockIdEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation9Animation19BlendedClipAnimator9isRunningEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation9Animation19BlendedClipAnimator19normalizedLocalTimeEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation9Animation19BlendedClipAnimator6canRunEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation19BlendedClipAnimator12setStartTimeEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation19BlendedClipAnimator8setLoopsEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK13Qt3DAnimation9Animation19BlendedClipAnimator5loopsEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation9Animation19BlendedClipAnimator11currentLoopEv": [
+      "int", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation19BlendedClipAnimator14setCurrentLoopEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation19BlendedClipAnimator23lastNormalizedLocalTimeEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation9Animation19BlendedClipAnimator9isSeekingEv": [
+      "bool", "address"
+    ]
+  }
+}

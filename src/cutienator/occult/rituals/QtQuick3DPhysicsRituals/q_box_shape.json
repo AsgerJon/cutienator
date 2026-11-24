@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3DPhysics/6.12.0/QtQuick3DPhysics/private/qboxshape_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK9QBoxShape10metaObjectEv": ["address", "address"],
+    "ritual_ZN9QBoxShape2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN9QBoxShapeC1Ev": ["address"],
+    "ritual_ZN9QBoxShapeD1Ev": ["nothing", "address"],
+    "ritual_ZNK9QBoxShape7extentsEv": ["address", "address"],
+    "ritual_ZNK9QBoxShape13isStaticShapeEv": ["bool", "address"],
+    "ritual_ZN9QBoxShape10setExtentsE9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QBoxShape19updatePhysXGeometryEv": ["nothing", "address"],
+    "ritual_take_QBoxShape": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK9QBoxShape13isStaticShapeEv": ["bool", "address"]
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWaylandCompositor/qwaylandwlshell.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK22QWaylandWlShellSurface10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QWaylandWlShellSurface2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN22QWaylandWlShellSurfaceC1Ev": ["address"],
+    "ritual_ZN22QWaylandWlShellSurfaceC1EP15QWaylandWlShellP15QWaylandSurfaceRK16QWaylandResource": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN22QWaylandWlShellSurfaceD1Ev": ["nothing", "address"],
+    "ritual_ZN22QWaylandWlShellSurface10initializeEP15QWaylandWlShellP15QWaylandSurfaceRK16QWaylandResource": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK22QWaylandWlShellSurface5titleEv": ["text", "address"],
+    "ritual_ZNK22QWaylandWlShellSurface9classNameEv": ["text", "address"],
+    "ritual_ZNK22QWaylandWlShellSurface7surfaceEv": ["address", "address"],
+    "ritual_ZNK22QWaylandWlShellSurface5shellEv": ["address", "address"],
+    "ritual_ZNK22QWaylandWlShellSurface10windowTypeEv": ["int", "address"],
+    "ritual_ZN22QWaylandWlShellSurface13interfaceNameEv": ["address"],
+    "ritual_ZN22QWaylandWlShellSurface4roleEv": ["address"],
+    "ritual_ZN22QWaylandWlShellSurface13sizeForResizeERK6QSizeFRK7QPointFNS_10ResizeEdgeE": [
+      "address", "address", "address", "address", "int"
+    ],
+    "ritual_ZN22QWaylandWlShellSurface13sendConfigureERK5QSizeNS_10ResizeEdgeE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN22QWaylandWlShellSurface13sendPopupDoneEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QWaylandWlShellSurface17createIntegrationEP29QWaylandQuickShellSurfaceItem": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN22QWaylandWlShellSurface4pingEv": ["nothing", "address"],
+    "ritual_ZN22QWaylandWlShellSurface10initializeEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QWaylandWlShellSurface": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK22QWaylandWlShellSurface10windowTypeEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZN22QWaylandWlShellSurface17createIntegrationEP29QWaylandQuickShellSurfaceItem": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN22QWaylandWlShellSurface10initializeEv": [
+      "nothing", "address"
+    ],
+    "ritual_list_make_QWaylandWlShellSurface_ptr": ["address"],
+    "ritual_list_add_QWaylandWlShellSurface_ptr": [
+      "nothing", "address", "address"
+    ],
+    "ritual_list_size_QWaylandWlShellSurface_ptr": ["long long", "address"],
+    "ritual_list_at_QWaylandWlShellSurface_ptr": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_QWaylandWlShellSurface_ptr": ["nothing", "address"]
+  }
+}

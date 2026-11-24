@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DInput/6.12.0/Qt3DInput/private/axisaccumulator_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK9Qt3DInput5Input15AxisAccumulator12sourceAxisIdEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK9Qt3DInput5Input15AxisAccumulator14sourceAxisTypeEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK9Qt3DInput5Input15AxisAccumulator5scaleEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK9Qt3DInput5Input15AxisAccumulator5valueEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK9Qt3DInput5Input15AxisAccumulator8velocityEv": [
+      "float", "address"
+    ]
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtDataV",
+    "isualization/6.12.0/QtDataVisualization/private/scatterseriesrende",
+    "rcache_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN24ScatterSeriesRenderCacheD1Ev": ["nothing", "address"],
+    "ritual_ZN24ScatterSeriesRenderCache7cleanupEP13TextureHelper": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK24ScatterSeriesRenderCache6seriesEv": ["address", "address"],
+    "ritual_ZN24ScatterSeriesRenderCache11setItemSizeEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK24ScatterSeriesRenderCache8itemSizeEv": ["float", "address"],
+    "ritual_ZN24ScatterSeriesRenderCache23setSelectionIndexOffsetEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK24ScatterSeriesRenderCache20selectionIndexOffsetEv": [
+      "int", "address"
+    ],
+    "ritual_ZN24ScatterSeriesRenderCache20setStaticBufferDirtyEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK24ScatterSeriesRenderCache17staticBufferDirtyEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK24ScatterSeriesRenderCache12oldArraySizeEv": [
+      "int", "address"
+    ],
+    "ritual_ZN24ScatterSeriesRenderCache15setOldArraySizeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK24ScatterSeriesRenderCache15oldMeshFileNameEv": [
+      "text", "address"
+    ],
+    "ritual_ZN24ScatterSeriesRenderCache18setOldMeshFileNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN24ScatterSeriesRenderCache15setBufferObjectEP25ScatterObjectBufferHelper": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK24ScatterSeriesRenderCache12bufferObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24ScatterSeriesRenderCache15setBufferPointsEP24ScatterPointBufferHelper": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK24ScatterSeriesRenderCache12bufferPointsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24ScatterSeriesRenderCache20setVisibilityChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK24ScatterSeriesRenderCache17visibilityChangedEv": [
+      "bool", "address"
+    ],
+    "ritual_take_ScatterSeriesRenderCache": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

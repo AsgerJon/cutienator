@@ -1,0 +1,165 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DRender/6.12.0/Qt3DRender/private/abstractrenderer_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN10Qt3DRender6Render16AbstractRendererD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render16AbstractRenderer8dumpInfoEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render16AbstractRenderer3apiEv": [
+      "int", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render16AbstractRenderer15setRenderDriverENS1_12RenderDriverE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK10Qt3DRender6Render16AbstractRenderer12renderDriverEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render16AbstractRenderer4timeEv": [
+      "long long", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render16AbstractRenderer7setTimeEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN10Qt3DRender6Render16AbstractRenderer18setJobsInLastFrameEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender6Render16AbstractRenderer9setAspectEPNS_13QRenderAspectE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render16AbstractRenderer15setNodeManagersEPNS0_12NodeManagersE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render16AbstractRenderer11setServicesEPN8Qt3DCore15QServiceLocatorE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render16AbstractRenderer17setSurfaceExposedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK10Qt3DRender6Render16AbstractRenderer6aspectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render16AbstractRenderer12nodeManagersEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render16AbstractRenderer8servicesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render16AbstractRenderer10initializeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render16AbstractRenderer8shutdownEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render16AbstractRenderer24releaseGraphicsResourcesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render16AbstractRenderer6renderEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN10Qt3DRender6Render16AbstractRenderer22cleanGraphicsResourcesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render16AbstractRenderer9isRunningEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render16AbstractRenderer9markDirtyE6QFlagsINS1_20BackendNodeDirtyFlagEEPNS0_11BackendNodeE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render16AbstractRenderer9dirtyBitsEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render16AbstractRenderer12shouldRenderEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render16AbstractRenderer13skipNextFrameEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render16AbstractRenderer8jobsDoneEPN8Qt3DCore14QAspectManagerE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render16AbstractRenderer17processMouseEventEP7QObjectP11QMouseEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render16AbstractRenderer15processKeyEventEP7QObjectP9QKeyEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render16AbstractRenderer12setSceneRootEPNS0_6EntityE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render16AbstractRenderer9sceneRootEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render16AbstractRenderer14frameGraphRootEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render16AbstractRenderer19frameAdvanceServiceEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render16AbstractRenderer11setSettingsEPNS0_14RenderSettingsE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render16AbstractRenderer8settingsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render16AbstractRenderer14executeCommandERK5QListI7QStringE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render16AbstractRenderer16setOpenGLContextEP14QOpenGLContext": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render16AbstractRenderer13setRHIContextEP4QRhi": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render16AbstractRenderer25setDefaultRHIRenderTargetEP16QRhiRenderTarget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render16AbstractRenderer19setRHICommandBufferEP17QRhiCommandBuffer": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render16AbstractRenderer9setScreenEP7QScreen": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render16AbstractRenderer6screenEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render16AbstractRenderer25setOffscreenSurfaceHelperEPNS0_22OffscreenSurfaceHelperE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render16AbstractRenderer6formatEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render16AbstractRenderer12shareContextEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render16AbstractRenderer11contextInfoEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render16AbstractRenderer28containsGeneratedShaderGraphERK10QByteArray": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render16AbstractRenderer26cachedGeneratedShaderGraphERK10QByteArray": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render16AbstractRenderer26insertGeneratedShaderGraphERK10QByteArrayS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render16AbstractRenderer26removeGeneratedShaderGraphERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_Qt3DRender_Render_AbstractRenderer": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN10Qt3DRender6Render16AbstractRenderer9setScreenEP7QScreen": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK10Qt3DRender6Render16AbstractRenderer6screenEv": [
+      "address", "address"
+    ]
+  }
+}

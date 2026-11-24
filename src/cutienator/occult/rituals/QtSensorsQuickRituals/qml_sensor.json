@@ -1,0 +1,64 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSensorsQuick/6.12.0/QtSensorsQuick/private/qmlsensor_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK9QmlSensor10metaObjectEv": ["address", "address"],
+    "ritual_ZN9QmlSensor2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN9QmlSensor24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN9QmlSensorD1Ev": ["nothing", "address"],
+    "ritual_ZNK9QmlSensor10identifierEv": ["address", "address"],
+    "ritual_ZN9QmlSensor13setIdentifierERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9QmlSensor4typeEv": ["address", "address"],
+    "ritual_ZNK9QmlSensor20isConnectedToBackendEv": ["bool", "address"],
+    "ritual_ZNK9QmlSensor6isBusyEv": ["bool", "address"],
+    "ritual_ZN9QmlSensor9setActiveEb": ["nothing", "address", "bool"],
+    "ritual_ZNK9QmlSensor8isActiveEv": ["bool", "address"],
+    "ritual_ZNK9QmlSensor10isAlwaysOnEv": ["bool", "address"],
+    "ritual_ZN9QmlSensor11setAlwaysOnEb": ["nothing", "address", "bool"],
+    "ritual_ZNK9QmlSensor14skipDuplicatesEv": ["bool", "address"],
+    "ritual_ZN9QmlSensor17setSkipDuplicatesEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK9QmlSensor8dataRateEv": ["int", "address"],
+    "ritual_ZN9QmlSensor11setDataRateEi": ["nothing", "address", "int"],
+    "ritual_ZNK9QmlSensor11outputRangeEv": ["int", "address"],
+    "ritual_ZN9QmlSensor14setOutputRangeEi": ["nothing", "address", "int"],
+    "ritual_ZNK9QmlSensor11descriptionEv": ["text", "address"],
+    "ritual_ZNK9QmlSensor5errorEv": ["int", "address"],
+    "ritual_ZNK9QmlSensor7readingEv": ["address", "address"],
+    "ritual_ZNK9QmlSensor18isFeatureSupportedENS_7FeatureE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK9QmlSensor19axesOrientationModeEv": ["int", "address"],
+    "ritual_ZN9QmlSensor22setAxesOrientationModeENS_19AxesOrientationModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK9QmlSensor18currentOrientationEv": ["int", "address"],
+    "ritual_ZNK9QmlSensor15userOrientationEv": ["int", "address"],
+    "ritual_ZN9QmlSensor18setUserOrientationEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK9QmlSensor13maxBufferSizeEv": ["int", "address"],
+    "ritual_ZNK9QmlSensor19efficientBufferSizeEv": ["int", "address"],
+    "ritual_ZNK9QmlSensor10bufferSizeEv": ["int", "address"],
+    "ritual_ZN9QmlSensor13setBufferSizeEi": ["nothing", "address", "int"],
+    "ritual_ZNK9QmlSensor6sensorEv": ["address", "address"],
+    "ritual_ZN9QmlSensor17componentCompleteEv": ["nothing", "address"],
+    "ritual_ZN9QmlSensor5startEv": ["bool", "address"],
+    "ritual_ZN9QmlSensor4stopEv": ["nothing", "address"],
+    "ritual_ZNK9QmlSensor13createReadingEv": ["address", "address"],
+    "ritual_ZN9QmlSensor13updateReadingEv": ["nothing", "address"],
+    "ritual_ZN9QmlSensor10classBeginEv": ["nothing", "address"],
+    "ritual_cast_QmlSensor_QQmlParserStatus": ["address", "address"],
+    "ritual_take_QmlSensor": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN9QmlSensor17componentCompleteEv": ["nothing", "address"],
+    "ritual_own_ZN9QmlSensor10classBeginEv": ["nothing", "address"]
+  }
+}

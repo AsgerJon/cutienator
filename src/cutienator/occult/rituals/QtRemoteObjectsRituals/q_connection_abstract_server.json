@@ -1,0 +1,38 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtRemoteObjects/qconnectionfactories.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK25QConnectionAbstractServer10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QConnectionAbstractServer2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN25QConnectionAbstractServerD1Ev": ["nothing", "address"],
+    "ritual_ZNK25QConnectionAbstractServer21hasPendingConnectionsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN25QConnectionAbstractServer21nextPendingConnectionEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK25QConnectionAbstractServer7addressEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QConnectionAbstractServer6listenERK4QUrl": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK25QConnectionAbstractServer11serverErrorEv": [
+      "int", "address"
+    ],
+    "ritual_ZN25QConnectionAbstractServer5closeEv": ["nothing", "address"],
+    "ritual_ZN25QConnectionAbstractServer22configureNewConnectionEv": [
+      "address", "address"
+    ],
+    "ritual_take_QConnectionAbstractServer": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

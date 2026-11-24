@@ -1,0 +1,66 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCanvasPainter/qcanvasradialgradient.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN21QCanvasRadialGradientC1Ev": ["address"],
+    "ritual_ZN21QCanvasRadialGradientC1Edddd": [
+      "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZN21QCanvasRadialGradientC1E7QPointFdd": [
+      "address", "address", "double", "double"
+    ],
+    "ritual_ZN21QCanvasRadialGradientC1Edddddd": [
+      "address", "double", "double", "double", "double", "double", "double"
+    ],
+    "ritual_ZN21QCanvasRadialGradientC1E7QPointFdS0_d": [
+      "address", "address", "double", "address", "double"
+    ],
+    "ritual_ZN21QCanvasRadialGradientC1ERKS_": ["address", "address"],
+    "ritual_ZN21QCanvasRadialGradientD1Ev": ["nothing", "address"],
+    "ritual_ZNK21QCanvasRadialGradient14centerPositionEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QCanvasRadialGradient17setCenterPositionEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN21QCanvasRadialGradient17setCenterPositionE7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21QCanvasRadialGradient19innerCenterPositionEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QCanvasRadialGradient22setInnerCenterPositionEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN21QCanvasRadialGradient22setInnerCenterPositionE7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21QCanvasRadialGradient19outerCenterPositionEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QCanvasRadialGradient22setOuterCenterPositionEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN21QCanvasRadialGradient22setOuterCenterPositionE7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21QCanvasRadialGradient11outerRadiusEv": [
+      "double", "address"
+    ],
+    "ritual_ZN21QCanvasRadialGradient14setOuterRadiusEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK21QCanvasRadialGradient11innerRadiusEv": [
+      "double", "address"
+    ],
+    "ritual_ZN21QCanvasRadialGradient14setInnerRadiusEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN21QCanvasRadialGradientC1ERK12QCanvasBrush": [
+      "address", "address"
+    ]
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of Qt3DQui",
+    "ckExtras/6.12.0/Qt3DQuickExtras/private/qt3dquick3dextrasforeign_p",
+    ".h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QConeGeometryForeign20qt_qmlMarker_foreignEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QConeGeometryForeignD1Ev": ["nothing", "address"]
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWaylandCompositor/qwaylandpointer.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK15QWaylandPointer10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QWaylandPointer2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN15QWaylandPointerC1EP12QWaylandSeatP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK15QWaylandPointer4seatEv": ["address", "address"],
+    "ritual_ZNK15QWaylandPointer10compositorEv": ["address", "address"],
+    "ritual_ZNK15QWaylandPointer6outputEv": ["address", "address"],
+    "ritual_ZN15QWaylandPointer9setOutputEP14QWaylandOutput": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QWaylandPointer19sendMousePressEventEN2Qt11MouseButtonE": [
+      "unsigned int", "address", "int"
+    ],
+    "ritual_ZN15QWaylandPointer21sendMouseReleaseEventEN2Qt11MouseButtonE": [
+      "unsigned int", "address", "int"
+    ],
+    "ritual_ZN15QWaylandPointer18sendMouseMoveEventEP12QWaylandViewRK7QPointFS4_": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN15QWaylandPointer19sendMouseWheelEventEN2Qt11OrientationEi": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK15QWaylandPointer10mouseFocusEv": ["address", "address"],
+    "ritual_ZNK15QWaylandPointer20currentLocalPositionEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK15QWaylandPointer20currentSpacePositionEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK15QWaylandPointer15isButtonPressedEv": ["bool", "address"],
+    "ritual_ZN15QWaylandPointer9addClientEP14QWaylandClientjj": [
+      "nothing", "address", "address", "unsigned int", "unsigned int"
+    ],
+    "ritual_ZN15QWaylandPointer19pointerFocusChangedEP12QWaylandViewS1_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN15QWaylandPointer19sendMousePressEventEN2Qt11MouseButtonE": [
+      "unsigned int", "address", "int"
+    ],
+    "ritual_own_ZN15QWaylandPointer21sendMouseReleaseEventEN2Qt11MouseButtonE": [
+      "unsigned int", "address", "int"
+    ],
+    "ritual_own_ZN15QWaylandPointer18sendMouseMoveEventEP12QWaylandViewRK7QPointFS4_": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN15QWaylandPointer19sendMouseWheelEventEN2Qt11OrientationEi": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZN15QWaylandPointer9addClientEP14QWaylandClientjj": [
+      "nothing", "address", "address", "unsigned int", "unsigned int"
+    ]
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLottie/6.12.0/QtLottie/private/qlottieroot_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11QLottieRootC1Ev": ["address"],
+    "ritual_ZN11QLottieRootC1ERKS_": ["address", "address"],
+    "ritual_ZN11QLottieRootD1Ev": ["nothing", "address"],
+    "ritual_ZNK11QLottieRoot5cloneEv": ["address", "address"],
+    "ritual_ZN11QLottieRoot16updatePropertiesEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11QLottieRoot9layerSizeEv": ["address", "address"],
+    "ritual_ZN11QLottieRoot11parseSourceERK10QByteArrayRK4QUrl": [
+      "int", "address", "address", "address"
+    ],
+    "ritual_ZN11QLottieRoot19setStructureDumpingEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK11QLottieRoot10startFrameEv": ["int", "address"],
+    "ritual_ZNK11QLottieRoot8endFrameEv": ["int", "address"],
+    "ritual_ZNK11QLottieRoot9frameRateEv": ["int", "address"],
+    "ritual_ZNK11QLottieRoot15precompositionsEv": ["address", "address"],
+    "ritual_take_QLottieRoot": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK11QLottieRoot5cloneEv": ["address", "address"],
+    "ritual_own_ZN11QLottieRoot16updatePropertiesEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZNK11QLottieRoot9layerSizeEv": ["address", "address"]
+  }
+}

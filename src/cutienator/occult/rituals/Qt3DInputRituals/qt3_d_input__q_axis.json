@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DInput/qaxis.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK9Qt3DInput5QAxis10metaObjectEv": ["address", "address"],
+    "ritual_ZN9Qt3DInput5QAxis2trEPKcS2_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN9Qt3DInput5QAxis6d_funcEv": ["address", "address"],
+    "ritual_ZNK9Qt3DInput5QAxis6d_funcEv": ["address", "address"],
+    "ritual_take_Qt3DInput_QAxis": ["bool", "address", "chars", "address"]
+  }
+}

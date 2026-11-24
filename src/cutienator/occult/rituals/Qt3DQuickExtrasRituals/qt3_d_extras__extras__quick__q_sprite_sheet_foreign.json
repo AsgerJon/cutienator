@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of Qt3DQui",
+    "ckExtras/6.12.0/Qt3DQuickExtras/private/quick3dspritesheet_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN10Qt3DExtras6Extras5Quick19QSpriteSheetForeign20qt_qmlMarker_foreignEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DExtras6Extras5Quick19QSpriteSheetForeign21qt_qmlMarker_extendedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DExtras6Extras5Quick19QSpriteSheetForeignD1Ev": [
+      "nothing", "address"
+    ]
+  }
+}

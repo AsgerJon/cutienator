@@ -1,0 +1,55 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3DXr/6.12.0/QtQuick3DXr/private/qquick3dxrcamera_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK19QQuick3DXrEyeCamera10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QQuick3DXrEyeCamera2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN19QQuick3DXrEyeCameraC1EP16QQuick3DXrOrigin": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QQuick3DXrEyeCamera11leftTangentEv": ["float", "address"],
+    "ritual_ZNK19QQuick3DXrEyeCamera12rightTangentEv": ["float", "address"],
+    "ritual_ZNK19QQuick3DXrEyeCamera9upTangentEv": ["float", "address"],
+    "ritual_ZNK19QQuick3DXrEyeCamera11downTangentEv": ["float", "address"],
+    "ritual_ZNK19QQuick3DXrEyeCamera8clipNearEv": ["float", "address"],
+    "ritual_ZNK19QQuick3DXrEyeCamera7clipFarEv": ["float", "address"],
+    "ritual_ZN19QQuick3DXrEyeCamera14setLeftTangentEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN19QQuick3DXrEyeCamera15setRightTangentEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN19QQuick3DXrEyeCamera12setUpTangentEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN19QQuick3DXrEyeCamera14setDownTangentEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN19QQuick3DXrEyeCamera11setClipNearEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN19QQuick3DXrEyeCamera10setClipFarEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN19QQuick3DXrEyeCamera13setProjectionERK10QMatrix4x4": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuick3DXrEyeCamera17updateSpatialNodeEP21QSSGRenderGraphObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN19QQuick3DXrEyeCamera9markDirtyENS_9DirtyFlagE": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZN19QQuick3DXrEyeCamera21maybeUpdateProjectionEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN19QQuick3DXrEyeCamera17updateSpatialNodeEP21QSSGRenderGraphObject": [
+      "address", "address", "address"
+    ]
+  }
+}

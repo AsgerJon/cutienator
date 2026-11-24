@@ -1,0 +1,91 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDataVisualization/qabstract3dinputhandler.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK23QAbstract3DInputHandler10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QAbstract3DInputHandler2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN23QAbstract3DInputHandlerC1EP7QObject": ["address", "address"],
+    "ritual_ZN23QAbstract3DInputHandlerD1Ev": ["nothing", "address"],
+    "ritual_ZN23QAbstract3DInputHandler21mouseDoubleClickEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QAbstract3DInputHandler10touchEventEP11QTouchEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QAbstract3DInputHandler15mousePressEventEP11QMouseEventRK6QPoint": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN23QAbstract3DInputHandler17mouseReleaseEventEP11QMouseEventRK6QPoint": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN23QAbstract3DInputHandler14mouseMoveEventEP11QMouseEventRK6QPoint": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN23QAbstract3DInputHandler10wheelEventEP11QWheelEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK23QAbstract3DInputHandler9inputViewEv": ["int", "address"],
+    "ritual_ZN23QAbstract3DInputHandler12setInputViewENS_9InputViewE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK23QAbstract3DInputHandler13inputPositionEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QAbstract3DInputHandler16setInputPositionERK6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK23QAbstract3DInputHandler5sceneEv": ["address", "address"],
+    "ritual_ZN23QAbstract3DInputHandler8setSceneEP8Q3DScene": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QAbstract3DInputHandler15setPrevDistanceEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK23QAbstract3DInputHandler12prevDistanceEv": [
+      "int", "address"
+    ],
+    "ritual_ZN23QAbstract3DInputHandler19setPreviousInputPosERK6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK23QAbstract3DInputHandler16previousInputPosEv": [
+      "address", "address"
+    ],
+    "ritual_take_QAbstract3DInputHandler": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN23QAbstract3DInputHandler21mouseDoubleClickEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN23QAbstract3DInputHandler10touchEventEP11QTouchEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN23QAbstract3DInputHandler15mousePressEventEP11QMouseEventRK6QPoint": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN23QAbstract3DInputHandler17mouseReleaseEventEP11QMouseEventRK6QPoint": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN23QAbstract3DInputHandler14mouseMoveEventEP11QMouseEventRK6QPoint": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN23QAbstract3DInputHandler10wheelEventEP11QWheelEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_list_make_QAbstract3DInputHandler_ptr": ["address"],
+    "ritual_list_add_QAbstract3DInputHandler_ptr": [
+      "nothing", "address", "address"
+    ],
+    "ritual_list_size_QAbstract3DInputHandler_ptr": ["long long", "address"],
+    "ritual_list_at_QAbstract3DInputHandler_ptr": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_QAbstract3DInputHandler_ptr": ["nothing", "address"]
+  }
+}

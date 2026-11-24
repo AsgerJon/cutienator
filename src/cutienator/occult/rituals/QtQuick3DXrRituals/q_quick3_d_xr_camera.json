@@ -1,0 +1,35 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3DXr/6.12.0/QtQuick3DXr/private/qquick3dxrcamera_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK16QQuick3DXrCamera10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QQuick3DXrCamera2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN16QQuick3DXrCameraC1EP16QQuick3DXrOrigin": [
+      "address", "address"
+    ],
+    "ritual_ZN16QQuick3DXrCameraD1Ev": ["nothing", "address"],
+    "ritual_ZNK16QQuick3DXrCamera8clipNearEv": ["float", "address"],
+    "ritual_ZNK16QQuick3DXrCamera7clipFarEv": ["float", "address"],
+    "ritual_ZN16QQuick3DXrCamera11setClipNearEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN16QQuick3DXrCamera10setClipFarEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN16QQuick3DXrCamera10itemChangeEN14QQuick3DObject10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN16QQuick3DXrCamera18syncCameraSettingsEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QQuick3DXrCamera": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN16QQuick3DXrCamera10itemChangeEN14QQuick3DObject10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ]
+  }
+}

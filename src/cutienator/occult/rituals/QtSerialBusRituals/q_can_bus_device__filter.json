@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSerialBus/qcanbusdevice.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZeqRKN13QCanBusDevice6FilterES2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZneRKN13QCanBusDevice6FilterES2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN13QCanBusDevice6FilterD1Ev": ["nothing", "address"]
+  }
+}

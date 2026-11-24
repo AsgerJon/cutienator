@@ -1,0 +1,34 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtDataV",
+    "isualization/6.12.0/QtDataVisualization/private/camerahelper_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK12CameraHelper10metaObjectEv": ["address", "address"],
+    "ritual_ZN12CameraHelperD1Ev": ["nothing", "address"],
+    "ritual_ZN12CameraHelper16setRotationSpeedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN12CameraHelper17setCameraRotationERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12CameraHelper18getCameraRotationsEv": ["address", "address"],
+    "ritual_ZN12CameraHelper27setDefaultCameraOrientationERK9QVector3DS2_S2_": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN12CameraHelper19calculateViewMatrixERK6QPointiiib": [
+      "address", "address", "address", "int", "int", "int", "bool"
+    ],
+    "ritual_ZN12CameraHelper22calculateLightPositionERK9QVector3Dff": [
+      "address", "address", "address", "float", "float"
+    ],
+    "ritual_ZN12CameraHelper14updateMousePosERK6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12CameraHelper15setCameraPresetEN9Q3DCamera12CameraPresetE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_take_CameraHelper": ["bool", "address", "chars", "address"]
+  }
+}

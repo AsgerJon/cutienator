@@ -1,0 +1,14 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DCore/6.12.0/Qt3DCore/private/qgeometryfactory_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN8Qt3DCore16QGeometryFactoryD1Ev": ["nothing", "address"],
+    "ritual_ZN8Qt3DCore16QGeometryFactoryclEv": ["address", "address"],
+    "ritual_take_Qt3DCore_QGeometryFactory": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

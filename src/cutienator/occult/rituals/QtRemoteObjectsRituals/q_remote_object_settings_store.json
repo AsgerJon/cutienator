@@ -1,0 +1,28 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtRemoteObjects/qremoteobjectsettingsstore.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK26QRemoteObjectSettingsStore10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QRemoteObjectSettingsStore2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN26QRemoteObjectSettingsStoreC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN26QRemoteObjectSettingsStoreD1Ev": ["nothing", "address"],
+    "ritual_ZN26QRemoteObjectSettingsStore14savePropertiesERK7QStringRK10QByteArrayRK5QListI8QVariantE": [
+      "nothing", "address", "text", "address", "address"
+    ],
+    "ritual_ZN26QRemoteObjectSettingsStore17restorePropertiesERK7QStringRK10QByteArray": [
+      "address", "address", "text", "address"
+    ],
+    "ritual_take_QRemoteObjectSettingsStore": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

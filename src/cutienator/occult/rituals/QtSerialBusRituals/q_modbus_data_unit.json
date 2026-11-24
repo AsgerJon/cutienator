@@ -1,0 +1,34 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSerialBus/qmodbusdataunit.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN15QModbusDataUnitC1Ev": ["address"],
+    "ritual_ZN15QModbusDataUnitC1ENS_12RegisterTypeE": ["address", "int"],
+    "ritual_ZN15QModbusDataUnitC1ENS_12RegisterTypeEit": [
+      "address", "int", "int", "unsigned short"
+    ],
+    "ritual_ZNK15QModbusDataUnit12registerTypeEv": ["int", "address"],
+    "ritual_ZN15QModbusDataUnit15setRegisterTypeENS_12RegisterTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QModbusDataUnit12startAddressEv": ["int", "address"],
+    "ritual_ZN15QModbusDataUnit15setStartAddressEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QModbusDataUnit10valueCountEv": ["long long", "address"],
+    "ritual_ZN15QModbusDataUnit13setValueCountEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN15QModbusDataUnit8setValueExt": [
+      "nothing", "address", "long long", "unsigned short"
+    ],
+    "ritual_ZNK15QModbusDataUnit5valueEx": [
+      "unsigned short", "address", "long long"
+    ],
+    "ritual_ZNK15QModbusDataUnit7isValidEv": ["bool", "address"],
+    "ritual_ZN15QModbusDataUnitD1Ev": ["nothing", "address"]
+  }
+}

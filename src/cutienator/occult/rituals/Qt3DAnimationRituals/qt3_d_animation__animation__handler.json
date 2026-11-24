@@ -1,0 +1,36 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DAnimation/6.12.0/Qt3DAnimation/private/handler_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK13Qt3DAnimation9Animation7Handler14simulationTimeEv": [
+      "long long", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation9Animation7Handler26animationClipLoaderManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation9Animation7Handler12clockManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation9Animation7Handler19clipAnimatorManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation9Animation7Handler26blendedClipAnimatorManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation9Animation7Handler21channelMappingManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation9Animation7Handler20channelMapperManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation9Animation7Handler20clipBlendNodeManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation9Animation7Handler15skeletonManagerEv": [
+      "address", "address"
+    ]
+  }
+}

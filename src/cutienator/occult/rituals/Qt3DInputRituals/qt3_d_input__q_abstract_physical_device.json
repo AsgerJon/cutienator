@@ -1,0 +1,54 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DInput/qabstractphysicaldevice.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZNK9Qt3DInput23QAbstractPhysicalDevice10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput23QAbstractPhysicalDevice2trEPKcS2_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZNK9Qt3DInput23QAbstractPhysicalDevice9axisCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK9Qt3DInput23QAbstractPhysicalDevice11buttonCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK9Qt3DInput23QAbstractPhysicalDevice9axisNamesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK9Qt3DInput23QAbstractPhysicalDevice11buttonNamesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK9Qt3DInput23QAbstractPhysicalDevice14axisIdentifierERK7QString": [
+      "int", "address", "text"
+    ],
+    "ritual_ZNK9Qt3DInput23QAbstractPhysicalDevice16buttonIdentifierERK7QString": [
+      "int", "address", "text"
+    ],
+    "ritual_ZN9Qt3DInput23QAbstractPhysicalDevice6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK9Qt3DInput23QAbstractPhysicalDevice6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_take_Qt3DInput_QAbstractPhysicalDevice": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK9Qt3DInput23QAbstractPhysicalDevice9axisCountEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZNK9Qt3DInput23QAbstractPhysicalDevice11buttonCountEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZNK9Qt3DInput23QAbstractPhysicalDevice14axisIdentifierERK7QString": [
+      "int", "address", "text"
+    ],
+    "ritual_own_ZNK9Qt3DInput23QAbstractPhysicalDevice16buttonIdentifierERK7QString": [
+      "int", "address", "text"
+    ]
+  }
+}

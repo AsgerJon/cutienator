@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtTaskTree/qtasktree.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK10QtTaskTree9QTaskTree10metaObjectEv": ["address", "address"],
+    "ritual_ZN10QtTaskTree9QTaskTree2trEPKcS2_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10QtTaskTree9QTaskTreeC1Ev": ["address"],
+    "ritual_ZNK10QtTaskTree9QTaskTree15progressMaximumEv": [
+      "long long", "address"
+    ],
+    "ritual_take_QtTaskTree_QTaskTree": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN10QtTaskTree9QTaskTree5eventEP6QEvent": [
+      "bool", "address", "address"
+    ]
+  }
+}

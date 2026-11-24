@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWebView/qwebviewloadinginfo.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN19QWebViewLoadingInfoC1Ev": ["address"],
+    "ritual_ZN19QWebViewLoadingInfoC1ERKS_": ["address", "address"],
+    "ritual_ZN19QWebViewLoadingInfoD1Ev": ["nothing", "address"],
+    "ritual_ZNK19QWebViewLoadingInfo3urlEv": ["address", "address"],
+    "ritual_ZNK19QWebViewLoadingInfo6statusEv": ["int", "address"],
+    "ritual_ZNK19QWebViewLoadingInfo11errorStringEv": ["text", "address"],
+    "ritual_Zls6QDebugRK19QWebViewLoadingInfo": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN19QWebViewLoadingInfoC1ERK4QUrlNS_10LoadStatusERK7QString": [
+      "address", "address", "int", "text"
+    ]
+  }
+}

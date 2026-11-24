@@ -1,0 +1,38 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSensorsQuick/6.12.0/QtSensorsQuick/private/qmlaccelerometer_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK23QmlAccelerometerReading10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QmlAccelerometerReading2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN23QmlAccelerometerReading24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QmlAccelerometerReadingC1EP14QAccelerometer": [
+      "address", "address"
+    ],
+    "ritual_ZN23QmlAccelerometerReadingD1Ev": ["nothing", "address"],
+    "ritual_ZNK23QmlAccelerometerReading1xEv": ["double", "address"],
+    "ritual_ZNK23QmlAccelerometerReading1yEv": ["double", "address"],
+    "ritual_ZNK23QmlAccelerometerReading1zEv": ["double", "address"],
+    "ritual_ZNK23QmlAccelerometerReading7readingEv": ["address", "address"],
+    "ritual_ZN23QmlAccelerometerReading13readingUpdateEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QmlAccelerometerReading": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK23QmlAccelerometerReading7readingEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN23QmlAccelerometerReading13readingUpdateEv": [
+      "nothing", "address"
+    ]
+  }
+}

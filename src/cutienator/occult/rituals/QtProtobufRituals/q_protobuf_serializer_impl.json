@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtProtobuf/6.12.0/QtProtobuf/private/qprotobufserializer_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK23QProtobufSerializerImpl6resultEv": ["address", "address"],
+    "ritual_ZN23QProtobufSerializerImpl5resetEv": ["nothing", "address"],
+    "ritual_ZN23QProtobufSerializerImpl22serializeUnknownFieldsEPK16QProtobufMessage": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QProtobufSerializerImpl26serializeMessageFieldBeginEv": [
+      "nothing", "address"
+    ]
+  }
+}

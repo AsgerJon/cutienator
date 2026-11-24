@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DInput/qabstractactioninput.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK9Qt3DInput20QAbstractActionInput10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput20QAbstractActionInput2trEPKcS2_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_take_Qt3DInput_QAbstractActionInput": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

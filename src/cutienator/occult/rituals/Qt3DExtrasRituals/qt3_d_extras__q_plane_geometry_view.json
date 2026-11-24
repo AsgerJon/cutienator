@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DExtras/qplanegeometryview.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK10Qt3DExtras18QPlaneGeometryView10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras18QPlaneGeometryView2trEPKcS2_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_take_Qt3DExtras_QPlaneGeometryView": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

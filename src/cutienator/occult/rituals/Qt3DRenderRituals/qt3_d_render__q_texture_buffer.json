@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DRender/qtexture.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK10Qt3DRender14QTextureBuffer10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender14QTextureBuffer2trEPKcS2_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_take_Qt3DRender_QTextureBuffer": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

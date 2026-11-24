@@ -1,0 +1,49 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtWebVi",
+    "ewQuick/6.12.0/QtWebViewQuick/private/qquickwebviewsettings_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK21QQuickWebViewSettings10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QQuickWebViewSettings2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN21QQuickWebViewSettings24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickWebViewSettingsD1Ev": ["nothing", "address"],
+    "ritual_ZNK21QQuickWebViewSettings19localStorageEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK21QQuickWebViewSettings17javaScriptEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK21QQuickWebViewSettings29localContentCanAccessFileUrlsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK21QQuickWebViewSettings15allowFileAccessEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QQuickWebViewSettings22setLocalStorageEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN21QQuickWebViewSettings20setJavaScriptEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN21QQuickWebViewSettings18setAllowFileAccessEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN21QQuickWebViewSettings32setLocalContentCanAccessFileUrlsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN21QQuickWebViewSettingsC1EP16QWebViewSettings": [
+      "address", "address"
+    ],
+    "ritual_take_QQuickWebViewSettings": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

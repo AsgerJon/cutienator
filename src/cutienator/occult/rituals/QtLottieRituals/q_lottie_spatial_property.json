@@ -1,0 +1,31 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLottie/6.12.0/QtLottie/private/qlottiespatialproperty_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN22QLottieSpatialProperty9constructERK11QJsonObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QLottieSpatialProperty6updateEi": ["bool", "address", "int"],
+    "ritual_ZNK22QLottieSpatialProperty9hasCurvesEv": ["bool", "address"],
+    "ritual_ZNK22QLottieSpatialProperty8subPathsEv": ["address", "address"],
+    "ritual_ZN22QLottieSpatialProperty6moveToERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QLottieSpatialProperty6lineToERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QLottieSpatialProperty7cubicToERK7QPointFS2_S2_": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN22QLottieSpatialPropertyD1Ev": ["nothing", "address"],
+    "ritual_own_ZN22QLottieSpatialProperty9constructERK11QJsonObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN22QLottieSpatialProperty6updateEi": [
+      "bool", "address", "int"
+    ]
+  }
+}

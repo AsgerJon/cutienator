@@ -1,0 +1,45 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSerialBus/qmodbusclient.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK13QModbusClient10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QModbusClient2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN13QModbusClient6d_funcEv": ["address", "address"],
+    "ritual_ZNK13QModbusClient6d_funcEv": ["address", "address"],
+    "ritual_ZN13QModbusClientD1Ev": ["nothing", "address"],
+    "ritual_ZN13QModbusClient15sendReadRequestERK15QModbusDataUniti": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN13QModbusClient16sendWriteRequestERK15QModbusDataUniti": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN13QModbusClient20sendReadWriteRequestERK15QModbusDataUnitS2_i": [
+      "address", "address", "address", "address", "int"
+    ],
+    "ritual_ZN13QModbusClient14sendRawRequestERK14QModbusRequesti": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZNK13QModbusClient7timeoutEv": ["int", "address"],
+    "ritual_ZN13QModbusClient10setTimeoutEi": ["nothing", "address", "int"],
+    "ritual_ZNK13QModbusClient15numberOfRetriesEv": ["int", "address"],
+    "ritual_ZN13QModbusClient18setNumberOfRetriesEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN13QModbusClient15processResponseERK15QModbusResponseP15QModbusDataUnit": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN13QModbusClient22processPrivateResponseERK15QModbusResponseP15QModbusDataUnit": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_take_QModbusClient": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN13QModbusClient15processResponseERK15QModbusResponseP15QModbusDataUnit": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_own_ZN13QModbusClient22processPrivateResponseERK15QModbusResponseP15QModbusDataUnit": [
+      "bool", "address", "address", "address"
+    ]
+  }
+}

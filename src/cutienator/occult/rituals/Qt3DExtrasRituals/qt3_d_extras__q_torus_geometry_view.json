@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DExtras/qtorusgeometryview.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK10Qt3DExtras18QTorusGeometryView10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras18QTorusGeometryView2trEPKcS2_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_take_Qt3DExtras_QTorusGeometryView": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

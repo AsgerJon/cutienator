@@ -1,0 +1,34 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLottie/6.12.0/QtLottie/private/qlottiegradientholder_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK28QLottieGradientHolderContent5valueEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QLottieGradientHolderContent12gradientTypeEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK28QLottieGradientHolderContent10startPointEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QLottieGradientHolderContent8endPointEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QLottieGradientHolderContent15highlightLengthEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK28QLottieGradientHolderContent14highlightAngleEv": [
+      "double", "address"
+    ],
+    "ritual_ZN28QLottieGradientHolderContent11setGradientEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN28QLottieGradientHolderContent24updateGradientPropertiesEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN28QLottieGradientHolderContentD1Ev": ["nothing", "address"]
+  }
+}

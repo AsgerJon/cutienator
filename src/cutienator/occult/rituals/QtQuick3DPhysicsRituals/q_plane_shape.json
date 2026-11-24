@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3DPhysics/6.12.0/QtQuick3DPhysics/private/qplaneshape_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK11QPlaneShape10metaObjectEv": ["address", "address"],
+    "ritual_ZN11QPlaneShape2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN11QPlaneShapeC1Ev": ["address"],
+    "ritual_ZN11QPlaneShapeD1Ev": ["nothing", "address"],
+    "ritual_ZNK11QPlaneShape13isStaticShapeEv": ["bool", "address"],
+    "ritual_ZN11QPlaneShape19updatePhysXGeometryEv": ["nothing", "address"],
+    "ritual_take_QPlaneShape": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK11QPlaneShape13isStaticShapeEv": ["bool", "address"]
+  }
+}

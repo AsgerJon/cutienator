@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DCore/qboundingvolume.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK8Qt3DCore15QBoundingVolume10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore15QBoundingVolume2trEPKcS2_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN8Qt3DCore15QBoundingVolume6d_funcEv": ["address", "address"],
+    "ritual_ZNK8Qt3DCore15QBoundingVolume6d_funcEv": ["address", "address"],
+    "ritual_take_Qt3DCore_QBoundingVolume": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

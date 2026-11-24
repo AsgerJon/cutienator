@@ -1,0 +1,195 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtDataV",
+    "isualization/6.12.0/QtDataVisualization/private/surface3drenderer_",
+    "p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17Surface3DRenderer10metaObjectEv": ["address", "address"],
+    "ritual_ZN17Surface3DRenderer2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17Surface3DRendererD1Ev": ["nothing", "address"],
+    "ritual_ZN17Surface3DRenderer10updateDataEv": ["nothing", "address"],
+    "ritual_ZN17Surface3DRenderer12updateSeriesERK5QListIP17QAbstract3DSeriesE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17Surface3DRenderer21updateSurfaceTexturesE5QListIP16QSurface3DSeriesE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17Surface3DRenderer14createNewCacheEP17QAbstract3DSeries": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN17Surface3DRenderer10cleanCacheEP17SeriesRenderCache": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17Surface3DRenderer19updateSelectionModeE6QFlagsIN16QAbstract3DGraph13SelectionFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17Surface3DRenderer11updateSceneEP8Q3DScene": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17Surface3DRenderer19updateSlicingActiveEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN17Surface3DRenderer19updateSelectedPointERK6QPointP16QSurface3DSeries": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN17Surface3DRenderer24updateFlipHorizontalGridEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK17Surface3DRenderer15clickedPositionEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17Surface3DRenderer18resetClickedStatusEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17Surface3DRenderer28convertPositionToTranslationERK9QVector3Db": [
+      "address", "address", "address", "bool"
+    ],
+    "ritual_ZN17Surface3DRenderer16updateAxisLabelsEN15QAbstract3DAxis15AxisOrientationERK5QListI7QStringE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN17Surface3DRenderer25updateAxisTitleVisibilityEN15QAbstract3DAxis15AxisOrientationEb": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZN17Surface3DRenderer12updateMarginEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN17Surface3DRenderer6renderEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN17Surface3DRenderer14contextCleanupEv": ["nothing", "address"],
+    "ritual_ZN17Surface3DRenderer16initializeOpenGLEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17Surface3DRenderer16checkFlatSupportEP24SurfaceSeriesRenderCache": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17Surface3DRenderer13updateObjectsEP24SurfaceSeriesRenderCacheb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN17Surface3DRenderer20updateSliceDataModelERK6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17Surface3DRenderer22mapCoordsToSampleSpaceEP24SurfaceSeriesRenderCacheRK7QPointF": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN17Surface3DRenderer17updateSliceObjectEP24SurfaceSeriesRenderCacheRK6QPoint": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN17Surface3DRenderer19updateShadowQualityEN16QAbstract3DGraph13ShadowQualityE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17Surface3DRenderer14updateTexturesEv": ["nothing", "address"],
+    "ritual_ZN17Surface3DRenderer11initShadersERK7QStringS2_": [
+      "nothing", "address", "text", "text"
+    ],
+    "ritual_ZN17Surface3DRenderer18loadBackgroundMeshEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17Surface3DRenderer15drawSlicedSceneEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17Surface3DRenderer9drawSceneEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN17Surface3DRenderer10drawLabelsEbPK9Q3DCameraRK10QMatrix4x4S5_": [
+      "nothing", "address", "bool", "address", "address", "address"
+    ],
+    "ritual_ZN17Surface3DRenderer28calculateSceneScalingFactorsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17Surface3DRenderer21initBackgroundShadersERK7QStringS2_": [
+      "nothing", "address", "text", "text"
+    ],
+    "ritual_ZN17Surface3DRenderer20initSelectionShadersEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17Surface3DRenderer18initSurfaceShadersEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17Surface3DRenderer19initSelectionBufferEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17Surface3DRenderer15initDepthShaderEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17Surface3DRenderer23updateSelectionTexturesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17Surface3DRenderer22createSelectionTextureEP24SurfaceSeriesRenderCacheRj": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN17Surface3DRenderer8idToRGBAEjPhS0_S0_S0_": [
+      "nothing", "address", "unsigned int", "address", "address", "address",
+      "address"
+    ],
+    "ritual_ZN17Surface3DRenderer12fillIdCornerEPhhhhh": [
+      "nothing", "address", "address", "unsigned char", "unsigned char",
+      "unsigned char", "unsigned char"
+    ],
+    "ritual_ZN17Surface3DRenderer20surfacePointSelectedERK6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17Surface3DRenderer20updateSelectionPointEP24SurfaceSeriesRenderCacheRK6QPointb": [
+      "nothing", "address", "address", "address", "bool"
+    ],
+    "ritual_ZN17Surface3DRenderer25selectionIdToSurfacePointEj": [
+      "address", "address", "unsigned int"
+    ],
+    "ritual_ZN17Surface3DRenderer17updateDepthBufferEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_Surface3DRenderer": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN17Surface3DRenderer10updateDataEv": ["nothing", "address"],
+    "ritual_own_ZN17Surface3DRenderer14createNewCacheEP17QAbstract3DSeries": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN17Surface3DRenderer10cleanCacheEP17SeriesRenderCache": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN17Surface3DRenderer19updateSelectionModeE6QFlagsIN16QAbstract3DGraph13SelectionFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN17Surface3DRenderer11updateSceneEP8Q3DScene": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN17Surface3DRenderer28convertPositionToTranslationERK9QVector3Db": [
+      "address", "address", "address", "bool"
+    ],
+    "ritual_own_ZN17Surface3DRenderer25updateAxisTitleVisibilityEN15QAbstract3DAxis15AxisOrientationEb": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_own_ZN17Surface3DRenderer12updateMarginEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_own_ZN17Surface3DRenderer6renderEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_own_ZN17Surface3DRenderer14contextCleanupEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN17Surface3DRenderer16initializeOpenGLEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN17Surface3DRenderer19updateShadowQualityEN16QAbstract3DGraph13ShadowQualityE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN17Surface3DRenderer14updateTexturesEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN17Surface3DRenderer11initShadersERK7QStringS2_": [
+      "nothing", "address", "text", "text"
+    ],
+    "ritual_own_ZN17Surface3DRenderer21initBackgroundShadersERK7QStringS2_": [
+      "nothing", "address", "text", "text"
+    ],
+    "ritual_own_ZN17Surface3DRenderer19initSelectionBufferEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN17Surface3DRenderer17updateDepthBufferEv": [
+      "nothing", "address"
+    ]
+  }
+}

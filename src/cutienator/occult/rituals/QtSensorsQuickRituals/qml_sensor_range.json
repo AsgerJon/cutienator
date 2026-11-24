@@ -1,0 +1,23 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSensorsQuick/6.12.0/QtSensorsQuick/private/qmlsensorrange_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK14QmlSensorRange10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QmlSensorRange2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN14QmlSensorRange24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QmlSensorRangeC1EP7QObject": ["address", "address"],
+    "ritual_ZN14QmlSensorRangeD1Ev": ["nothing", "address"],
+    "ritual_ZNK14QmlSensorRange7minimumEv": ["int", "address"],
+    "ritual_ZN14QmlSensorRange10setMinumumEi": ["nothing", "address", "int"],
+    "ritual_ZNK14QmlSensorRange7maximumEv": ["int", "address"],
+    "ritual_ZN14QmlSensorRange10setMaximumEi": ["nothing", "address", "int"],
+    "ritual_take_QmlSensorRange": ["bool", "address", "chars", "address"]
+  }
+}

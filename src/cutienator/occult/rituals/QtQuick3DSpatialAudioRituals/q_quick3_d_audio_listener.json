@@ -1,0 +1,29 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DSpatialAudio/6.12.0/QtQuick3DSpatialAudio/private/qquick3daudiol",
+    "istener_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK21QQuick3DAudioListener10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QQuick3DAudioListenerD1Ev": ["nothing", "address"],
+    "ritual_ZN21QQuick3DAudioListener8listenerEv": ["address", "address"],
+    "ritual_ZN21QQuick3DAudioListener17updateSpatialNodeEP21QSSGRenderGraphObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN21QQuick3DAudioListener14updatePositionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuick3DAudioListener14updateRotationEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QQuick3DAudioListener": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN21QQuick3DAudioListener17updateSpatialNodeEP21QSSGRenderGraphObject": [
+      "address", "address", "address"
+    ]
+  }
+}

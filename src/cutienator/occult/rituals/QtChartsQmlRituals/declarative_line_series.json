@@ -1,0 +1,103 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtChartsQml/6.12.0/QtChartsQml/private/declarativelineseries_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK21DeclarativeLineSeries10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21DeclarativeLineSeries2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN21DeclarativeLineSeriesC1EP7QObject": ["address", "address"],
+    "ritual_ZN21DeclarativeLineSeries8xySeriesEv": ["address", "address"],
+    "ritual_ZN21DeclarativeLineSeries5axisXEv": ["address", "address"],
+    "ritual_ZN21DeclarativeLineSeries8setAxisXEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21DeclarativeLineSeries5axisYEv": ["address", "address"],
+    "ritual_ZN21DeclarativeLineSeries8setAxisYEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21DeclarativeLineSeries8axisXTopEv": ["address", "address"],
+    "ritual_ZN21DeclarativeLineSeries11setAxisXTopEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21DeclarativeLineSeries10axisYRightEv": ["address", "address"],
+    "ritual_ZN21DeclarativeLineSeries13setAxisYRightEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21DeclarativeLineSeries11axisAngularEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21DeclarativeLineSeries14setAxisAngularEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21DeclarativeLineSeries10axisRadialEv": ["address", "address"],
+    "ritual_ZN21DeclarativeLineSeries13setAxisRadialEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21DeclarativeLineSeries5widthEv": ["double", "address"],
+    "ritual_ZN21DeclarativeLineSeries8setWidthEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK21DeclarativeLineSeries5styleEv": ["int", "address"],
+    "ritual_ZN21DeclarativeLineSeries8setStyleEN2Qt8PenStyleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK21DeclarativeLineSeries8capStyleEv": ["int", "address"],
+    "ritual_ZN21DeclarativeLineSeries11setCapStyleEN2Qt11PenCapStyleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN21DeclarativeLineSeries10classBeginEv": ["nothing", "address"],
+    "ritual_ZN21DeclarativeLineSeries17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21DeclarativeLineSeries6appendEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN21DeclarativeLineSeries7replaceEdddd": [
+      "nothing", "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZN21DeclarativeLineSeries7replaceEidd": [
+      "nothing", "address", "int", "double", "double"
+    ],
+    "ritual_ZN21DeclarativeLineSeries6removeEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN21DeclarativeLineSeries6removeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN21DeclarativeLineSeries12removePointsEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN21DeclarativeLineSeries6insertEidd": [
+      "nothing", "address", "int", "double", "double"
+    ],
+    "ritual_ZN21DeclarativeLineSeries5clearEv": ["nothing", "address"],
+    "ritual_ZN21DeclarativeLineSeries2atEi": ["address", "address", "int"],
+    "ritual_ZN21DeclarativeLineSeries18handleCountChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_cast_DeclarativeLineSeries_DeclarativeXySeries": [
+      "address", "address"
+    ],
+    "ritual_cast_DeclarativeLineSeries_QQmlParserStatus": [
+      "address", "address"
+    ],
+    "ritual_take_DeclarativeLineSeries": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN21DeclarativeLineSeries8xySeriesEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN21DeclarativeLineSeries10classBeginEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN21DeclarativeLineSeries17componentCompleteEv": [
+      "nothing", "address"
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuickTimeline/6.12.0/QtQuickTimeline/private/qquickkeyframe_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK14QQuickKeyframe10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QQuickKeyframe2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN14QQuickKeyframeC1EP7QObject": ["address", "address"],
+    "ritual_ZNK14QQuickKeyframe5frameEv": ["double", "address"],
+    "ritual_ZN14QQuickKeyframe8setFrameEd": ["nothing", "address", "double"],
+    "ritual_ZN14QQuickKeyframe5resetEv": ["nothing", "address"],
+    "ritual_ZNK14QQuickKeyframe6easingEv": ["address", "address"],
+    "ritual_ZN14QQuickKeyframe9setEasingERK12QEasingCurve": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QQuickKeyframe5valueEv": ["address", "address"],
+    "ritual_ZN14QQuickKeyframe8setValueERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QQuickKeyframe8evaluateEPS_di": [
+      "address", "address", "address", "double", "int"
+    ],
+    "ritual_take_QQuickKeyframe": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK14QQuickKeyframe8evaluateEPS_di": [
+      "address", "address", "address", "double", "int"
+    ]
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DRender/6.12.0/Qt3DRender/private/qaxisalignedboundingbox_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN10Qt3DRender23QAxisAlignedBoundingBoxC1Ev": ["address"],
+    "ritual_ZN10Qt3DRender23QAxisAlignedBoundingBox5clearEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK10Qt3DRender23QAxisAlignedBoundingBox6isNullEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK10Qt3DRender23QAxisAlignedBoundingBox6centerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender23QAxisAlignedBoundingBox5radiiEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender23QAxisAlignedBoundingBox8minPointEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender23QAxisAlignedBoundingBox8maxPointEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender23QAxisAlignedBoundingBox7xExtentEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK10Qt3DRender23QAxisAlignedBoundingBox7yExtentEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK10Qt3DRender23QAxisAlignedBoundingBox7zExtentEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK10Qt3DRender23QAxisAlignedBoundingBox9maxExtentEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK10Qt3DRender23QAxisAlignedBoundingBox9minExtentEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK10Qt3DRender23QAxisAlignedBoundingBox8containsERK9QVector3D": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender23QAxisAlignedBoundingBox15expandToContainERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender23QAxisAlignedBoundingBox15expandToContainERKS0_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender23QAxisAlignedBoundingBox11transformByERK10QMatrix4x4": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender23QAxisAlignedBoundingBoxD1Ev": [
+      "nothing", "address"
+    ]
+  }
+}

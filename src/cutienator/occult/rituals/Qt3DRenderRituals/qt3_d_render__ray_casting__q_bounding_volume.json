@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DRender/6.12.0/Qt3DRender/private/qboundingvolume_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN10Qt3DRender10RayCasting15QBoundingVolumeD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK10Qt3DRender10RayCasting15QBoundingVolume2idEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender10RayCasting15QBoundingVolume4typeEv": [
+      "int", "address"
+    ],
+    "ritual_take_Qt3DRender_RayCasting_QBoundingVolume": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWaylandCompositor/qwaylandxdgshell.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK19QWaylandXdgToplevel10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QWaylandXdgToplevel2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN19QWaylandXdgToplevelD1Ev": ["nothing", "address"],
+    "ritual_ZNK19QWaylandXdgToplevel10xdgSurfaceEv": ["address", "address"],
+    "ritual_ZNK19QWaylandXdgToplevel14parentToplevelEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QWaylandXdgToplevel5titleEv": ["text", "address"],
+    "ritual_ZNK19QWaylandXdgToplevel5appIdEv": ["text", "address"],
+    "ritual_ZNK19QWaylandXdgToplevel7maxSizeEv": ["address", "address"],
+    "ritual_ZNK19QWaylandXdgToplevel7minSizeEv": ["address", "address"],
+    "ritual_ZNK19QWaylandXdgToplevel9maximizedEv": ["bool", "address"],
+    "ritual_ZNK19QWaylandXdgToplevel10fullscreenEv": ["bool", "address"],
+    "ritual_ZNK19QWaylandXdgToplevel8resizingEv": ["bool", "address"],
+    "ritual_ZNK19QWaylandXdgToplevel9activatedEv": ["bool", "address"],
+    "ritual_ZNK19QWaylandXdgToplevel14decorationModeEv": ["int", "address"],
+    "ritual_ZNK19QWaylandXdgToplevel13sizeForResizeERK6QSizeFRK7QPointF6QFlagsIN2Qt4EdgeEE": [
+      "address", "address", "address", "address", "int"
+    ],
+    "ritual_ZN19QWaylandXdgToplevel9sendCloseEv": ["nothing", "address"],
+    "ritual_ZN19QWaylandXdgToplevel13sendMaximizedERK5QSize": [
+      "unsigned int", "address", "address"
+    ],
+    "ritual_ZN19QWaylandXdgToplevel15sendUnmaximizedERK5QSize": [
+      "unsigned int", "address", "address"
+    ],
+    "ritual_ZN19QWaylandXdgToplevel14sendFullscreenERK5QSize": [
+      "unsigned int", "address", "address"
+    ],
+    "ritual_ZN19QWaylandXdgToplevel12sendResizingERK5QSize": [
+      "unsigned int", "address", "address"
+    ],
+    "ritual_ZN19QWaylandXdgToplevel4roleEv": ["address"],
+    "ritual_ZNK19QWaylandXdgToplevel7isModalEv": ["bool", "address"],
+    "ritual_ZN19QWaylandXdgToplevel8setModalEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_take_QWaylandXdgToplevel": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

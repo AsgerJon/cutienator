@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtSeria",
+    "lBus/6.12.0/QtSerialBus/private/qcanuniqueiddescription_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK30QCanUniqueIdDescriptionPrivate8isSharedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN30QCanUniqueIdDescriptionPrivate3getERK23QCanUniqueIdDescription": [
+      "address", "address"
+    ],
+    "ritual_ZN30QCanUniqueIdDescriptionPrivateD1Ev": ["nothing", "address"]
+  }
+}

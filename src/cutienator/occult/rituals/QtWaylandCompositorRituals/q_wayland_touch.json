@@ -1,0 +1,47 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWaylandCompositor/qwaylandtouch.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZNK13QWaylandTouch10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QWaylandTouch2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN13QWaylandTouchC1EP12QWaylandSeatP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK13QWaylandTouch4seatEv": ["address", "address"],
+    "ritual_ZNK13QWaylandTouch10compositorEv": ["address", "address"],
+    "ritual_ZN13QWaylandTouch19sendTouchPointEventEP15QWaylandSurfaceiRK7QPointFN2Qt15TouchPointStateE": [
+      "unsigned int", "address", "address", "int", "address", "int"
+    ],
+    "ritual_ZN13QWaylandTouch14sendFrameEventEP14QWaylandClient": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QWaylandTouch15sendCancelEventEP14QWaylandClient": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QWaylandTouch18sendFullTouchEventEP15QWaylandSurfaceP11QTouchEvent": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN13QWaylandTouch9addClientEP14QWaylandClientjj": [
+      "nothing", "address", "address", "unsigned int", "unsigned int"
+    ],
+    "ritual_take_QWaylandTouch": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN13QWaylandTouch19sendTouchPointEventEP15QWaylandSurfaceiRK7QPointFN2Qt15TouchPointStateE": [
+      "unsigned int", "address", "address", "int", "address", "int"
+    ],
+    "ritual_own_ZN13QWaylandTouch14sendFrameEventEP14QWaylandClient": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN13QWaylandTouch15sendCancelEventEP14QWaylandClient": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN13QWaylandTouch18sendFullTouchEventEP15QWaylandSurfaceP11QTouchEvent": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN13QWaylandTouch9addClientEP14QWaylandClientjj": [
+      "nothing", "address", "address", "unsigned int", "unsigned int"
+    ]
+  }
+}

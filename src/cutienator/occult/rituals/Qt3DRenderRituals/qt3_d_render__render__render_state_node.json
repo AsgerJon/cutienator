@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DRender/6.12.0/Qt3DRender/private/renderstatenode_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN10Qt3DRender6Render15RenderStateNodeD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render15RenderStateNode4typeEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render15RenderStateNode4implEv": [
+      "address", "address"
+    ],
+    "ritual_take_Qt3DRender_Render_RenderStateNode": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN10Qt3DRender6Render15RenderStateNode16syncFromFrontEndEPKN8Qt3DCore5QNodeEb": [
+      "nothing", "address", "address", "bool"
+    ]
+  }
+}

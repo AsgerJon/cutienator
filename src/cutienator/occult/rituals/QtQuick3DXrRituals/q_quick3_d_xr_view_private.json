@@ -1,0 +1,13 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3DXr/6.12.0/QtQuick3DXr/private/qquick3dxrview_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN21QQuick3DXrViewPrivate9getView3dEP14QQuick3DXrView": [
+      "address", "address"
+    ],
+    "ritual_ZN21QQuick3DXrViewPrivateD1Ev": ["nothing", "address"]
+  }
+}

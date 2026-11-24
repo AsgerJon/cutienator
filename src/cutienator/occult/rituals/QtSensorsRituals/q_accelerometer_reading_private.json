@@ -1,0 +1,11 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSensors/6.12.0/QtSensors/private/qaccelerometer_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN28QAccelerometerReadingPrivateC1Ev": ["address"],
+    "ritual_ZN28QAccelerometerReadingPrivateD1Ev": ["nothing", "address"]
+  }
+}

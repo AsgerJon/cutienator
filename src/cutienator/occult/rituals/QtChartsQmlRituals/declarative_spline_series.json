@@ -1,0 +1,106 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtChart",
+    "sQml/6.12.0/QtChartsQml/private/declarativesplineseries_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK23DeclarativeSplineSeries10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23DeclarativeSplineSeries2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN23DeclarativeSplineSeriesC1EP7QObject": ["address", "address"],
+    "ritual_ZN23DeclarativeSplineSeries8xySeriesEv": ["address", "address"],
+    "ritual_ZN23DeclarativeSplineSeries5axisXEv": ["address", "address"],
+    "ritual_ZN23DeclarativeSplineSeries8setAxisXEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23DeclarativeSplineSeries5axisYEv": ["address", "address"],
+    "ritual_ZN23DeclarativeSplineSeries8setAxisYEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23DeclarativeSplineSeries8axisXTopEv": ["address", "address"],
+    "ritual_ZN23DeclarativeSplineSeries11setAxisXTopEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23DeclarativeSplineSeries10axisYRightEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23DeclarativeSplineSeries13setAxisYRightEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23DeclarativeSplineSeries11axisAngularEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23DeclarativeSplineSeries14setAxisAngularEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23DeclarativeSplineSeries10axisRadialEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23DeclarativeSplineSeries13setAxisRadialEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK23DeclarativeSplineSeries5widthEv": ["double", "address"],
+    "ritual_ZN23DeclarativeSplineSeries8setWidthEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK23DeclarativeSplineSeries5styleEv": ["int", "address"],
+    "ritual_ZN23DeclarativeSplineSeries8setStyleEN2Qt8PenStyleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK23DeclarativeSplineSeries8capStyleEv": ["int", "address"],
+    "ritual_ZN23DeclarativeSplineSeries11setCapStyleEN2Qt11PenCapStyleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN23DeclarativeSplineSeries10classBeginEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23DeclarativeSplineSeries17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23DeclarativeSplineSeries6appendEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN23DeclarativeSplineSeries7replaceEdddd": [
+      "nothing", "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZN23DeclarativeSplineSeries7replaceEidd": [
+      "nothing", "address", "int", "double", "double"
+    ],
+    "ritual_ZN23DeclarativeSplineSeries6removeEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN23DeclarativeSplineSeries6removeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN23DeclarativeSplineSeries12removePointsEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN23DeclarativeSplineSeries6insertEidd": [
+      "nothing", "address", "int", "double", "double"
+    ],
+    "ritual_ZN23DeclarativeSplineSeries5clearEv": ["nothing", "address"],
+    "ritual_ZN23DeclarativeSplineSeries2atEi": ["address", "address", "int"],
+    "ritual_ZN23DeclarativeSplineSeries18handleCountChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_cast_DeclarativeSplineSeries_DeclarativeXySeries": [
+      "address", "address"
+    ],
+    "ritual_cast_DeclarativeSplineSeries_QQmlParserStatus": [
+      "address", "address"
+    ],
+    "ritual_own_ZN23DeclarativeSplineSeries8xySeriesEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN23DeclarativeSplineSeries10classBeginEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN23DeclarativeSplineSeries17componentCompleteEv": [
+      "nothing", "address"
+    ]
+  }
+}

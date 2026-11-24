@@ -1,0 +1,11 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSensors/6.12.0/QtSensors/private/qtapsensor_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QTapReadingPrivateC1Ev": ["address"],
+    "ritual_ZN18QTapReadingPrivateD1Ev": ["nothing", "address"]
+  }
+}

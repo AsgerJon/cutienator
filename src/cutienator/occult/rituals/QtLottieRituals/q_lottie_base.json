@@ -1,0 +1,78 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLottie/6.12.0/QtLottie/private/qlottiebase_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11QLottieBaseC1Ev": ["address"],
+    "ritual_ZN11QLottieBaseC1ERKS_": ["address", "address"],
+    "ritual_ZN11QLottieBaseD1Ev": ["nothing", "address"],
+    "ritual_ZNK11QLottieBase5cloneEv": ["address", "address"],
+    "ritual_ZN11QLottieBase11setPropertyEN14QLottieLiteral12PropertyTypeE8QVariant": [
+      "bool", "address", "int", "address"
+    ],
+    "ritual_ZNK11QLottieBase4nameEv": ["text", "address"],
+    "ritual_ZN11QLottieBase7setNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK11QLottieBase4typeEv": ["int", "address"],
+    "ritual_ZN11QLottieBase7setTypeEi": ["nothing", "address", "int"],
+    "ritual_ZNK11QLottieBase14isShapeElementEv": ["bool", "address"],
+    "ritual_ZNK11QLottieBase13isPathElementEv": ["bool", "address"],
+    "ritual_ZN11QLottieBase5parseERK11QJsonObject": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK11QLottieBase10definitionEv": ["address", "address"],
+    "ritual_ZNK11QLottieBase6activeEi": ["bool", "address", "int"],
+    "ritual_ZNK11QLottieBase6hiddenEv": ["bool", "address"],
+    "ritual_ZNK11QLottieBase6parentEv": ["address", "address"],
+    "ritual_ZN11QLottieBase9setParentEPS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QLottieBase8childrenEv": ["address", "address"],
+    "ritual_ZN11QLottieBase12prependChildEPS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QLottieBase21insertChildBeforeLastEPS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QLottieBase11appendChildEPS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QLottieBase9findChildERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN11QLottieBase16updatePropertiesEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11QLottieBase9layerSizeEv": ["address", "address"],
+    "ritual_ZNK11QLottieBase18isStructureDumpingEv": ["bool", "address"],
+    "ritual_ZN11QLottieBase14resolveTopRootEv": ["nothing", "address"],
+    "ritual_ZNK11QLottieBase7topRootEv": ["address", "address"],
+    "ritual_ZN11QLottieBase17resolveExpressionERK11QJsonObject": [
+      "address", "address", "address"
+    ],
+    "ritual_take_QLottieBase": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK11QLottieBase5cloneEv": ["address", "address"],
+    "ritual_own_ZN11QLottieBase11setPropertyEN14QLottieLiteral12PropertyTypeE8QVariant": [
+      "bool", "address", "int", "address"
+    ],
+    "ritual_own_ZN11QLottieBase5parseERK11QJsonObject": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZNK11QLottieBase6activeEi": ["bool", "address", "int"],
+    "ritual_own_ZN11QLottieBase9findChildERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_own_ZN11QLottieBase16updatePropertiesEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZNK11QLottieBase9layerSizeEv": ["address", "address"],
+    "ritual_list_make_QLottieBase_ptr": ["address"],
+    "ritual_list_add_QLottieBase_ptr": ["nothing", "address", "address"],
+    "ritual_list_size_QLottieBase_ptr": ["long long", "address"],
+    "ritual_list_at_QLottieBase_ptr": ["address", "address", "long long"],
+    "ritual_list_drop_QLottieBase_ptr": ["nothing", "address"]
+  }
+}

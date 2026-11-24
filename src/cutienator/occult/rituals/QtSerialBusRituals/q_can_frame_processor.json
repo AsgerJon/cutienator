@@ -1,0 +1,38 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSerialBus/qcanframeprocessor.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN18QCanFrameProcessorC1Ev": ["address"],
+    "ritual_ZN18QCanFrameProcessorD1Ev": ["nothing", "address"],
+    "ritual_ZN18QCanFrameProcessor12prepareFrameEN8QtCanBus8UniqueIdERK4QMapI7QString8QVariantE": [
+      "address", "address", "unsigned int", "address"
+    ],
+    "ritual_ZN18QCanFrameProcessor10parseFrameERK12QCanBusFrame": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK18QCanFrameProcessor5errorEv": ["unsigned char", "address"],
+    "ritual_ZNK18QCanFrameProcessor11errorStringEv": ["text", "address"],
+    "ritual_ZNK18QCanFrameProcessor8warningsEv": ["address", "address"],
+    "ritual_ZNK18QCanFrameProcessor19messageDescriptionsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18QCanFrameProcessor22addMessageDescriptionsERK5QListI22QCanMessageDescriptionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QCanFrameProcessor22setMessageDescriptionsERK5QListI22QCanMessageDescriptionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QCanFrameProcessor24clearMessageDescriptionsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK18QCanFrameProcessor19uniqueIdDescriptionEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18QCanFrameProcessor22setUniqueIdDescriptionERK23QCanUniqueIdDescription": [
+      "nothing", "address", "address"
+    ]
+  }
+}

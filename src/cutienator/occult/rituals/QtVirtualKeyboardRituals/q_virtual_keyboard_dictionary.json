@@ -1,0 +1,28 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtVirtualKeyboard/qvirtualkeyboarddictionary.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK26QVirtualKeyboardDictionary10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QVirtualKeyboardDictionary2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN26QVirtualKeyboardDictionaryC1ERK7QStringP7QObject": [
+      "address", "text", "address"
+    ],
+    "ritual_ZNK26QVirtualKeyboardDictionary4nameEv": ["text", "address"],
+    "ritual_ZNK26QVirtualKeyboardDictionary8contentsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QVirtualKeyboardDictionary11setContentsERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QVirtualKeyboardDictionary13resetContentsEv": [
+      "nothing", "address"
+    ]
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtChart",
+    "sQml/6.12.0/QtChartsQml/private/declarativeabstractrendernode_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18MouseEventResponseC1Ev": ["address"],
+    "ritual_ZN18MouseEventResponseC1ENS_14MouseEventTypeERK6QPointPK9QXYSeries": [
+      "address", "int", "address", "address"
+    ],
+    "ritual_ZN18MouseEventResponseD1Ev": ["nothing", "address"]
+  }
+}

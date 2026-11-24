@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DAnimation/6.12.0/Qt3DAnimation/private/clipblendnode_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK13Qt3DAnimation9Animation13ClipBlendNode20clipBlendNodeManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation9Animation13ClipBlendNode8durationEv": [
+      "double", "address"
+    ],
+    "ritual_take_Qt3DAnimation_Animation_ClipBlendNode": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

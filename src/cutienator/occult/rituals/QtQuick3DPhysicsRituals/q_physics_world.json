@@ -1,0 +1,131 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DPhysics/6.12.0/QtQuick3DPhysics/private/qphysicsworld_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK13QPhysicsWorld10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QPhysicsWorld2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN13QPhysicsWorldC1EP7QObject": ["address", "address"],
+    "ritual_ZN13QPhysicsWorldD1Ev": ["nothing", "address"],
+    "ritual_ZN13QPhysicsWorld10classBeginEv": ["nothing", "address"],
+    "ritual_ZN13QPhysicsWorld17componentCompleteEv": ["nothing", "address"],
+    "ritual_ZNK13QPhysicsWorld7gravityEv": ["address", "address"],
+    "ritual_ZNK13QPhysicsWorld7runningEv": ["bool", "address"],
+    "ritual_ZNK13QPhysicsWorld14forceDebugDrawEv": ["bool", "address"],
+    "ritual_ZNK13QPhysicsWorld9enableCCDEv": ["bool", "address"],
+    "ritual_ZNK13QPhysicsWorld13typicalLengthEv": ["float", "address"],
+    "ritual_ZNK13QPhysicsWorld12typicalSpeedEv": ["float", "address"],
+    "ritual_ZNK13QPhysicsWorld14defaultDensityEv": ["float", "address"],
+    "ritual_ZNK13QPhysicsWorld15minimumTimestepEv": ["float", "address"],
+    "ritual_ZNK13QPhysicsWorld15maximumTimestepEv": ["float", "address"],
+    "ritual_ZN13QPhysicsWorld13isNodeRemovedEP20QAbstractPhysicsNode": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN13QPhysicsWorld8getWorldEP12QQuick3DNode": [
+      "address", "address"
+    ],
+    "ritual_ZN13QPhysicsWorld8getWorldEP13QPhysicsJoint": [
+      "address", "address"
+    ],
+    "ritual_ZN13QPhysicsWorld12registerNodeEP20QAbstractPhysicsNode": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13QPhysicsWorld14deregisterNodeEP20QAbstractPhysicsNode": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13QPhysicsWorld13registerJointEP13QPhysicsJoint": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13QPhysicsWorld15deregisterJointEP13QPhysicsJoint": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK13QPhysicsWorld8viewportEv": ["address", "address"],
+    "ritual_ZN13QPhysicsWorld25setHasIndividualDebugDrawEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK13QPhysicsWorld5sceneEv": ["address", "address"],
+    "ritual_ZNK13QPhysicsWorld10numThreadsEv": ["int", "address"],
+    "ritual_ZNK13QPhysicsWorld34reportKinematicKinematicCollisionsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN13QPhysicsWorld37setReportKinematicKinematicCollisionsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK13QPhysicsWorld31reportStaticKinematicCollisionsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN13QPhysicsWorld34setReportStaticKinematicCollisionsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN13QPhysicsWorld20cleanupRemovedJointsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13QPhysicsWorld10setGravityE9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QPhysicsWorld10setRunningEb": ["nothing", "address", "bool"],
+    "ritual_ZN13QPhysicsWorld17setForceDebugDrawEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN13QPhysicsWorld12setEnableCCDEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN13QPhysicsWorld16setTypicalLengthEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN13QPhysicsWorld15setTypicalSpeedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN13QPhysicsWorld17setDefaultDensityEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN13QPhysicsWorld11setViewportEP12QQuick3DNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QPhysicsWorld18setMinimumTimestepEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN13QPhysicsWorld18setMaximumTimestepEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN13QPhysicsWorld8setSceneEP12QQuick3DNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QPhysicsWorld13setNumThreadsEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN13QPhysicsWorld13simulateFrameEv": ["nothing", "address"],
+    "ritual_ZN13QPhysicsWorld13frameFinishedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN13QPhysicsWorld25frameFinishedDesignStudioEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13QPhysicsWorld11initPhysicsEv": ["nothing", "address"],
+    "ritual_ZN13QPhysicsWorld19cleanupRemovedNodesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13QPhysicsWorld15updateDebugDrawEv": ["nothing", "address"],
+    "ritual_ZN13QPhysicsWorld27updateDebugDrawDesignStudioEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13QPhysicsWorld19setupDebugMaterialsEP12QQuick3DNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QPhysicsWorld16disableDebugDrawEv": ["nothing", "address"],
+    "ritual_ZN13QPhysicsWorld16matchOrphanNodesEv": ["nothing", "address"],
+    "ritual_ZN13QPhysicsWorld17matchOrphanJointsEv": ["nothing", "address"],
+    "ritual_ZN13QPhysicsWorld16findPhysicsNodesEv": ["nothing", "address"],
+    "ritual_ZN13QPhysicsWorld20emitContactCallbacksEv": [
+      "nothing", "address"
+    ],
+    "ritual_cast_QPhysicsWorld_QQmlParserStatus": ["address", "address"],
+    "ritual_take_QPhysicsWorld": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN13QPhysicsWorld10classBeginEv": ["nothing", "address"],
+    "ritual_own_ZN13QPhysicsWorld17componentCompleteEv": [
+      "nothing", "address"
+    ]
+  }
+}

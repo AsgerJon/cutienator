@@ -1,0 +1,33 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtDataV",
+    "isualization/6.12.0/QtDataVisualization/private/qabstract3dgraph_p",
+    ".h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK23QAbstract3DGraphPrivate10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QAbstract3DGraphPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN23QAbstract3DGraphPrivate28handleDevicePixelRatioChangeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QAbstract3DGraphPrivate6renderEv": ["nothing", "address"],
+    "ritual_ZN23QAbstract3DGraphPrivate11renderLaterEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QAbstract3DGraphPrivate9renderNowEv": ["nothing", "address"],
+    "ritual_ZN23QAbstract3DGraphPrivate18handleAxisXChangedEP15QAbstract3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QAbstract3DGraphPrivate18handleAxisYChangedEP15QAbstract3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QAbstract3DGraphPrivate18handleAxisZChangedEP15QAbstract3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QAbstract3DGraphPrivate": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

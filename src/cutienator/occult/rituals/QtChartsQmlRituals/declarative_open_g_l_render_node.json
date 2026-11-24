@@ -1,0 +1,70 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtChart",
+    "sQml/6.12.0/QtChartsQml/private/declarativeopenglrendernode_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK27DeclarativeOpenGLRenderNode10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27DeclarativeOpenGLRenderNodeD1Ev": ["nothing", "address"],
+    "ritual_ZNK27DeclarativeOpenGLRenderNode11textureSizeEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27DeclarativeOpenGLRenderNode14setTextureSizeERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN27DeclarativeOpenGLRenderNode7setRectERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN27DeclarativeOpenGLRenderNode15setAntialiasingEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN27DeclarativeOpenGLRenderNode14addMouseEventsERK5QListIP11QMouseEventE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN27DeclarativeOpenGLRenderNode8renderGLEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN27DeclarativeOpenGLRenderNode15renderSelectionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27DeclarativeOpenGLRenderNode12renderVisualEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27DeclarativeOpenGLRenderNode11recreateFBOEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27DeclarativeOpenGLRenderNode22cleanXYSeriesResourcesEPK9QXYSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN27DeclarativeOpenGLRenderNode17handleMouseEventsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27DeclarativeOpenGLRenderNode17findSeriesAtEventEPK11QMouseEvent": [
+      "address", "address", "address"
+    ],
+    "ritual_cast_DeclarativeOpenGLRenderNode_DeclarativeAbstractRenderNode": [
+      "address", "address"
+    ],
+    "ritual_cast_DeclarativeOpenGLRenderNode_QOpenGLFunctions": [
+      "address", "address"
+    ],
+    "ritual_take_DeclarativeOpenGLRenderNode": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK27DeclarativeOpenGLRenderNode11textureSizeEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN27DeclarativeOpenGLRenderNode14setTextureSizeERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN27DeclarativeOpenGLRenderNode7setRectERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN27DeclarativeOpenGLRenderNode15setAntialiasingEb": [
+      "nothing", "address", "bool"
+    ]
+  }
+}

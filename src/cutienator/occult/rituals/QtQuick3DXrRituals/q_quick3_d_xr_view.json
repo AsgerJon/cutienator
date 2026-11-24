@@ -1,0 +1,99 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3DXr/6.12.0/QtQuick3DXr/private/qquick3dxrview_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK14QQuick3DXrView10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QQuick3DXrView2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN14QQuick3DXrViewC1Ev": ["address"],
+    "ritual_ZN14QQuick3DXrViewD1Ev": ["nothing", "address"],
+    "ritual_ZNK14QQuick3DXrView8xrOriginEv": ["address", "address"],
+    "ritual_ZNK14QQuick3DXrView11environmentEv": ["address", "address"],
+    "ritual_ZNK14QQuick3DXrView20passthroughSupportedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK14QQuick3DXrView18passthroughEnabledEv": ["bool", "address"],
+    "ritual_ZNK14QQuick3DXrView14fixedFoveationEv": ["int", "address"],
+    "ritual_ZN14QQuick3DXrView17setFixedFoveationENS_14FoveationLevelE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK14QQuick3DXrView11runtimeInfoEv": ["address", "address"],
+    "ritual_ZNK14QQuick3DXrView25isQuitOnSessionEndEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK14QQuick3DXrView11renderStatsEv": ["address", "address"],
+    "ritual_ZNK14QQuick3DXrView7rayPickERK9QVector3DS2_": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK14QQuick3DXrView10rayPickAllERK9QVector3DS2_": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK14QQuick3DXrView7rayPickERK9QVector3DS2_P13QQuick3DModel": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK14QQuick3DXrView16closestPointPickERK9QVector3DfP13QQuick3DModel": [
+      "address", "address", "address", "float", "address"
+    ],
+    "ritual_ZN14QQuick3DXrView13setTouchpointEP10QQuickItemRK7QPointFib": [
+      "nothing", "address", "address", "address", "int", "bool"
+    ],
+    "ritual_ZN14QQuick3DXrView12processTouchERK9QVector3Di": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZNK14QQuick3DXrView15touchpointStateEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK14QQuick3DXrView14referenceSpaceEv": ["int", "address"],
+    "ritual_ZN14QQuick3DXrView17setReferenceSpaceENS_14ReferenceSpaceE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK14QQuick3DXrView22depthSubmissionEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN14QQuick3DXrView14registerXrItemEP14QQuick3DXrItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QQuick3DXrView16unregisterXrItemEP14QQuick3DXrItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QQuick3DXrView29isMultiViewRenderingSupportedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK14QQuick3DXrView25multiViewRenderingEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN14QQuick3DXrView9xrManagerEv": ["address", "address"],
+    "ritual_ZN14QQuick3DXrView14setEnvironmentEP24QQuick3DSceneEnvironment": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QQuick3DXrView21setPassthroughEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN14QQuick3DXrView19setQuitOnSessionEndEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN14QQuick3DXrView25setDepthSubmissionEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN14QQuick3DXrView11setXROriginEP16QQuick3DXrOrigin": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QQuick3DXrView22updateViewportGeometryEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuick3DXrView18handleSessionEndedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuick3DXrView23handleClearColorChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuick3DXrView15handleAAChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQuick3DXrView4initEv": ["bool", "address"],
+    "ritual_ZNK14QQuick3DXrView6view3dEv": ["address", "address"],
+    "ritual_take_QQuick3DXrView": ["bool", "address", "chars", "address"]
+  }
+}

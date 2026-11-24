@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtMulti",
+    "mediaQuick/6.12.0/QtMultimediaQuick/private/qquickgstreamervideoso",
+    "urce_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK26QQuickGStreamerVideoSource10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QQuickGStreamerVideoSource2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN26QQuickGStreamerVideoSourceC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZNK26QQuickGStreamerVideoSource11qmlIsActiveEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN26QQuickGStreamerVideoSource12qmlSetActiveEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN26QQuickGStreamerVideoSource23setQmlGstBinDescriptionE7QString": [
+      "nothing", "address", "text"
+    ]
+  }
+}

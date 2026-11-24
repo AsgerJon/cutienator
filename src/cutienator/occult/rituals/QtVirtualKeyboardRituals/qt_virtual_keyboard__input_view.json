@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtVirtualKeyboard/6.12.0/QtVirtualKeyboard/private/inputview_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QtVirtualKeyboard9InputView10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard9InputView2trEPKcS2_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_take_QtVirtualKeyboard_InputView": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN17QtVirtualKeyboard9InputView11resizeEventEP12QResizeEvent": [
+      "nothing", "address", "address"
+    ]
+  }
+}

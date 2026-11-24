@@ -1,0 +1,89 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSerialBus/qcanbusdevice.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK13QCanBusDevice10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QCanBusDevice2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN13QCanBusDevice6d_funcEv": ["address", "address"],
+    "ritual_ZNK13QCanBusDevice6d_funcEv": ["address", "address"],
+    "ritual_ZN13QCanBusDevice25setConfigurationParameterENS_16ConfigurationKeyERK8QVariant": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZNK13QCanBusDevice22configurationParameterENS_16ConfigurationKeyE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN13QCanBusDevice10writeFrameERK12QCanBusFrame": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN13QCanBusDevice9readFrameEv": ["address", "address"],
+    "ritual_ZN13QCanBusDevice13readAllFramesEv": ["address", "address"],
+    "ritual_ZNK13QCanBusDevice15framesAvailableEv": ["long long", "address"],
+    "ritual_ZNK13QCanBusDevice13framesToWriteEv": ["long long", "address"],
+    "ritual_ZN13QCanBusDevice15resetControllerEv": ["nothing", "address"],
+    "ritual_ZNK13QCanBusDevice12hasBusStatusEv": ["bool", "address"],
+    "ritual_ZN13QCanBusDevice9busStatusEv": ["int", "address"],
+    "ritual_ZN13QCanBusDevice5clearE6QFlagsINS_9DirectionEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN13QCanBusDevice20waitForFramesWrittenEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN13QCanBusDevice21waitForFramesReceivedEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN13QCanBusDevice13connectDeviceEv": ["bool", "address"],
+    "ritual_ZN13QCanBusDevice16disconnectDeviceEv": ["nothing", "address"],
+    "ritual_ZNK13QCanBusDevice5stateEv": ["int", "address"],
+    "ritual_ZNK13QCanBusDevice5errorEv": ["int", "address"],
+    "ritual_ZNK13QCanBusDevice11errorStringEv": ["text", "address"],
+    "ritual_ZN13QCanBusDevice19interpretErrorFrameERK12QCanBusFrame": [
+      "text", "address", "address"
+    ],
+    "ritual_ZNK13QCanBusDevice10deviceInfoEv": ["address", "address"],
+    "ritual_ZN13QCanBusDevice8setStateENS_17CanBusDeviceStateE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN13QCanBusDevice8setErrorERK7QStringNS_11CanBusErrorE": [
+      "nothing", "address", "text", "int"
+    ],
+    "ritual_ZN13QCanBusDevice10clearErrorEv": ["nothing", "address"],
+    "ritual_ZN13QCanBusDevice21enqueueReceivedFramesERK5QListI12QCanBusFrameE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QCanBusDevice20enqueueOutgoingFrameERK12QCanBusFrame": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QCanBusDevice20dequeueOutgoingFrameEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK13QCanBusDevice17hasOutgoingFramesEv": ["bool", "address"],
+    "ritual_ZN13QCanBusDevice4openEv": ["bool", "address"],
+    "ritual_ZN13QCanBusDevice5closeEv": ["nothing", "address"],
+    "ritual_ZN13QCanBusDevice16createDeviceInfoERK7QStringS2_bb": [
+      "address", "text", "text", "bool", "bool"
+    ],
+    "ritual_ZN13QCanBusDevice16createDeviceInfoERK7QStringS2_S2_S2_S2_ibb": [
+      "address", "text", "text", "text", "text", "text", "int", "bool",
+      "bool"
+    ],
+    "ritual_take_QCanBusDevice": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN13QCanBusDevice25setConfigurationParameterENS_16ConfigurationKeyERK8QVariant": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZN13QCanBusDevice15resetControllerEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZNK13QCanBusDevice12hasBusStatusEv": ["bool", "address"],
+    "ritual_own_ZN13QCanBusDevice9busStatusEv": ["int", "address"],
+    "ritual_own_ZN13QCanBusDevice20waitForFramesWrittenEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_own_ZN13QCanBusDevice21waitForFramesReceivedEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_own_ZNK13QCanBusDevice10deviceInfoEv": ["address", "address"]
+  }
+}

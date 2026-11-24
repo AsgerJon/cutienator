@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DAnimation/6.12.0/Qt3DAnimation/private/animationutils_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN13Qt3DAnimation9Animation18ChannelNameAndTypeC1Ev": [
+      "address"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation18ChannelNameAndTypeC1ERK7QStringiiN8Qt3DCore7QNodeIdEi": [
+      "address", "text", "int", "int", "address", "int"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation18ChannelNameAndTypeC1ERK7QStringiNS0_23JointTransformComponentE": [
+      "address", "text", "int", "int"
+    ],
+    "ritual_ZNK13Qt3DAnimation9Animation18ChannelNameAndTypeeqERKS1_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation18ChannelNameAndTypeD1Ev": [
+      "nothing", "address"
+    ]
+  }
+}

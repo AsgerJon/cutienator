@@ -1,0 +1,96 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWaylandCompositor/qwaylandoutput.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZNK14QWaylandOutput10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QWaylandOutput2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN14QWaylandOutput24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QWaylandOutputC1Ev": ["address"],
+    "ritual_ZN14QWaylandOutputC1EP18QWaylandCompositorP7QWindow": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN14QWaylandOutputD1Ev": ["nothing", "address"],
+    "ritual_ZNK14QWaylandOutput10compositorEv": ["address", "address"],
+    "ritual_ZN14QWaylandOutput13setCompositorEP18QWaylandCompositor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QWaylandOutput6windowEv": ["address", "address"],
+    "ritual_ZN14QWaylandOutput9setWindowEP7QWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QWaylandOutput12manufacturerEv": ["text", "address"],
+    "ritual_ZN14QWaylandOutput15setManufacturerERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK14QWaylandOutput5modelEv": ["text", "address"],
+    "ritual_ZN14QWaylandOutput8setModelERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK14QWaylandOutput8positionEv": ["address", "address"],
+    "ritual_ZN14QWaylandOutput11setPositionERK6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QWaylandOutput5modesEv": ["address", "address"],
+    "ritual_ZN14QWaylandOutput7addModeERK18QWaylandOutputModeb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZNK14QWaylandOutput11currentModeEv": ["address", "address"],
+    "ritual_ZN14QWaylandOutput14setCurrentModeERK18QWaylandOutputMode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QWaylandOutput8geometryEv": ["address", "address"],
+    "ritual_ZNK14QWaylandOutput17availableGeometryEv": [
+      "address", "address"
+    ],
+    "ritual_ZN14QWaylandOutput20setAvailableGeometryERK5QRect": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QWaylandOutput12physicalSizeEv": ["address", "address"],
+    "ritual_ZN14QWaylandOutput15setPhysicalSizeERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QWaylandOutput8subpixelEv": ["int", "address"],
+    "ritual_ZNK14QWaylandOutput9transformEv": ["int", "address"],
+    "ritual_ZNK14QWaylandOutput11scaleFactorEv": ["int", "address"],
+    "ritual_ZN14QWaylandOutput14setScaleFactorEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK14QWaylandOutput17sizeFollowsWindowEv": ["bool", "address"],
+    "ritual_ZN14QWaylandOutput20setSizeFollowsWindowEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN14QWaylandOutput12frameStartedEv": ["nothing", "address"],
+    "ritual_ZN14QWaylandOutput18sendFrameCallbacksEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QWaylandOutput12surfaceEnterEP15QWaylandSurface": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QWaylandOutput12surfaceLeaveEP15QWaylandSurface": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QWaylandOutput6updateEv": ["nothing", "address"],
+    "ritual_ZN14QWaylandOutput5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN14QWaylandOutput10initializeEv": ["nothing", "address"],
+    "ritual_take_QWaylandOutput": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN14QWaylandOutput6updateEv": ["nothing", "address"],
+    "ritual_own_ZN14QWaylandOutput5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN14QWaylandOutput10initializeEv": ["nothing", "address"],
+    "ritual_list_make_QWaylandOutput_ptr": ["address"],
+    "ritual_list_add_QWaylandOutput_ptr": ["nothing", "address", "address"],
+    "ritual_list_size_QWaylandOutput_ptr": ["long long", "address"],
+    "ritual_list_at_QWaylandOutput_ptr": ["address", "address", "long long"],
+    "ritual_list_drop_QWaylandOutput_ptr": ["nothing", "address"]
+  }
+}

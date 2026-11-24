@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGrpc/qgrpcchanneloptions.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN19QGrpcChannelOptionsC1Ev": ["address"],
+    "ritual_ZN19QGrpcChannelOptionsD1Ev": ["nothing", "address"],
+    "ritual_ZN19QGrpcChannelOptionsC1ERKS_": ["address", "address"],
+    "ritual_ZNK19QGrpcChannelOptionscv8QVariantEv": ["address", "address"],
+    "ritual_ZN19QGrpcChannelOptions30supportedCompressionAlgorithmsEv": [
+      "int"
+    ],
+    "ritual_ZNK19QGrpcChannelOptions29acceptedCompressionAlgorithmsEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK19QGrpcChannelOptions19serializationFormatEv": [
+      "address", "address"
+    ],
+    "ritual_ZeqRK19QGrpcChannelOptionsS1_": ["bool", "address", "address"],
+    "ritual_ZneRK19QGrpcChannelOptionsS1_": ["bool", "address", "address"],
+    "ritual_Zls6QDebugRK19QGrpcChannelOptions": [
+      "address", "address", "address"
+    ]
+  }
+}

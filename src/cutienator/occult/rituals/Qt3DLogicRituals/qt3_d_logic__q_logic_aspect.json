@@ -1,0 +1,25 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DLogic/qlogicaspect.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK9Qt3DLogic12QLogicAspect10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN9Qt3DLogic12QLogicAspect2trEPKcS2_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN9Qt3DLogic12QLogicAspect6d_funcEv": ["address", "address"],
+    "ritual_ZNK9Qt3DLogic12QLogicAspect6d_funcEv": ["address", "address"],
+    "ritual_take_Qt3DLogic_QLogicAspect": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN9Qt3DLogic12QLogicAspect12onRegisteredEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN9Qt3DLogic12QLogicAspect15onEngineStartupEv": [
+      "nothing", "address"
+    ]
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DRender/6.12.0/Qt3DRender/private/qrendererplugin_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK10Qt3DRender6Render15QRendererPlugin10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render15QRendererPlugin2trEPKcS3_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DRender6Render15QRendererPlugin6createERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_take_Qt3DRender_Render_QRendererPlugin": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN10Qt3DRender6Render15QRendererPlugin6createERK7QString": [
+      "address", "address", "text"
+    ]
+  }
+}

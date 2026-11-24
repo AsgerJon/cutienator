@@ -1,0 +1,13 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtDataV",
+    "isualization/6.12.0/QtDataVisualization/private/qabstract3dseries_",
+    "p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN38QAbstract3DSeriesThemeOverrideBitFieldC1Ev": ["address"],
+    "ritual_ZN38QAbstract3DSeriesThemeOverrideBitFieldD1Ev": [
+      "nothing", "address"
+    ]
+  }
+}

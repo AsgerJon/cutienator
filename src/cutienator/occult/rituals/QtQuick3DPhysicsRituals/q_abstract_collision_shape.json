@@ -1,0 +1,34 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DPhysics/6.12.0/QtQuick3DPhysics/private/qabstractcollisionshape_",
+    "p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK23QAbstractCollisionShape10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QAbstractCollisionShape2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN23QAbstractCollisionShape24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QAbstractCollisionShapeD1Ev": ["nothing", "address"],
+    "ritual_ZNK23QAbstractCollisionShape15enableDebugDrawEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK23QAbstractCollisionShape13isStaticShapeEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN23QAbstractCollisionShape18setEnableDebugDrawEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN23QAbstractCollisionShape17handleScaleChangeEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QAbstractCollisionShape": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DCore/qnode.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN8Qt3DCore15QNodeIdTypePairC1Ev": ["address"],
+    "ritual_ZN8Qt3DCore15QNodeIdTypePairC1ENS_7QNodeIdEPK11QMetaObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore15QNodeIdTypePairD1Ev": ["nothing", "address"]
+  }
+}

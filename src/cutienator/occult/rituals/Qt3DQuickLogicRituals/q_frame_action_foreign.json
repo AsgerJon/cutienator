@@ -1,0 +1,13 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of Qt3DQui",
+    "ckLogic/6.12.0/Qt3DQuickLogic/private/qt3dquick3dlogicforeign_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QFrameActionForeign20qt_qmlMarker_foreignEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QFrameActionForeignD1Ev": ["nothing", "address"]
+  }
+}

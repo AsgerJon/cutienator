@@ -1,0 +1,47 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtDataV",
+    "isualization/6.12.0/QtDataVisualization/private/qscatterdataproxy_",
+    "p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK24QScatterDataProxyPrivate10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24QScatterDataProxyPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN24QScatterDataProxyPrivate7setItemEiRK16QScatterDataItem": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN24QScatterDataProxyPrivate8setItemsEiRK5QListI16QScatterDataItemE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN24QScatterDataProxyPrivate7addItemERK16QScatterDataItem": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN24QScatterDataProxyPrivate8addItemsERK5QListI16QScatterDataItemE": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN24QScatterDataProxyPrivate10insertItemEiRK16QScatterDataItem": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN24QScatterDataProxyPrivate11insertItemsEiRK5QListI16QScatterDataItemE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN24QScatterDataProxyPrivate11removeItemsEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK24QScatterDataProxyPrivate12isValidValueEffP15QAbstract3DAxis": [
+      "bool", "address", "float", "float", "address"
+    ],
+    "ritual_ZN24QScatterDataProxyPrivate9setSeriesEP17QAbstract3DSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QScatterDataProxyPrivate4qptrEv": ["address", "address"],
+    "ritual_take_QScatterDataProxyPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN24QScatterDataProxyPrivate9setSeriesEP17QAbstract3DSeries": [
+      "nothing", "address", "address"
+    ]
+  }
+}

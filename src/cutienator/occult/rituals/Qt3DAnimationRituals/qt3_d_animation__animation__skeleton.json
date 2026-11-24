@@ -1,0 +1,33 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DAnimation/6.12.0/Qt3DAnimation/private/skeleton_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK13Qt3DAnimation9Animation8Skeleton10jointCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation9Animation8Skeleton9jointNameEi": [
+      "text", "address", "int"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation8Skeleton13setJointScaleEiRK9QVector3D": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation9Animation8Skeleton10jointScaleEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation8Skeleton16setJointRotationEiRK11QQuaternion": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation9Animation8Skeleton13jointRotationEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation8Skeleton19setJointTranslationEiRK9QVector3D": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation9Animation8Skeleton16jointTranslationEi": [
+      "address", "address", "int"
+    ]
+  }
+}

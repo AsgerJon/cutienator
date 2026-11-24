@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGrpc/qabstractgrpcchannel.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN20QAbstractGrpcChannelD1Ev": ["nothing", "address"],
+    "ritual_ZNKR20QAbstractGrpcChannel14channelOptionsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QAbstractGrpcChannel17setChannelOptionsERK19QGrpcChannelOptions": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QAbstractGrpcChannel6d_funcEv": ["address", "address"],
+    "ritual_ZNK20QAbstractGrpcChannel6d_funcEv": ["address", "address"]
+  }
+}

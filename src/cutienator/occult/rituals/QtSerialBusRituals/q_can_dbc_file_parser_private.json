@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSerialBus/6.12.0/QtSerialBus/private/qcandbcfileparser_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN24QCanDbcFileParserPrivate5resetEv": ["nothing", "address"],
+    "ritual_ZN24QCanDbcFileParserPrivate17addCurrentMessageEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK24QCanDbcFileParserPrivate11getMessagesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24QCanDbcFileParserPrivateD1Ev": ["nothing", "address"]
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLottie/6.12.0/QtLottie/private/qlottierasterrenderer_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN21QLottieRasterRendererD1Ev": ["nothing", "address"],
+    "ritual_ZN21QLottieRasterRenderer9saveStateEv": ["nothing", "address"],
+    "ritual_ZN21QLottieRasterRenderer12restoreStateEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QLottieRasterRenderer6renderERK21QLottiePrecomposition": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QLottieRasterRenderer6renderERK12QLottieLayer": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QLottieRasterRenderer6renderERK17QLottieSolidLayer": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QLottieRasterRenderer6renderERK16QLottieTextLayer": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QLottieRasterRenderer6renderERK11QLottieRect": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QLottieRasterRenderer6renderERK14QLottieEllipse": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QLottieRasterRenderer6renderERK15QLottiePolyStar": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QLottieRasterRenderer6renderERK12QLottieRound": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QLottieRasterRenderer6renderERK11QLottieFill": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QLottieRasterRenderer6renderERK12QLottieGFill": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QLottieRasterRenderer6renderERK12QLottieImage": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QLottieRasterRenderer6renderERK13QLottieStroke": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QLottieRasterRenderer6renderERK21QLottieBasicTransform": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QLottieRasterRenderer6renderERK21QLottieShapeTransform": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QLottieRasterRenderer6renderERK20QLottieFreeFormShape": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QLottieRasterRenderer6renderERK15QLottieTrimPath": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QLottieRasterRenderer6renderERK17QLottieFillEffect": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QLottieRasterRenderer6renderERK15QLottieRepeater": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QLottieRasterRenderer18renderPathElementsERK5QListIP11QLottieBaseE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QLottieRasterRenderer22applyRepeaterTransformEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_take_QLottieRasterRenderer": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN21QLottieRasterRenderer6renderERK21QLottiePrecomposition": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN21QLottieRasterRenderer6renderERK17QLottieSolidLayer": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN21QLottieRasterRenderer6renderERK16QLottieTextLayer": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN21QLottieRasterRenderer6renderERK12QLottieRound": [
+      "nothing", "address", "address"
+    ]
+  }
+}

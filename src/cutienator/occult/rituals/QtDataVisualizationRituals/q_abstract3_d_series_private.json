@@ -1,0 +1,89 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtDataV",
+    "isualization/6.12.0/QtDataVisualization/private/qabstract3dseries_",
+    "p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK24QAbstract3DSeriesPrivate10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24QAbstract3DSeriesPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZNK24QAbstract3DSeriesPrivate9dataProxyEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24QAbstract3DSeriesPrivate12setDataProxyEP18QAbstractDataProxy": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QAbstract3DSeriesPrivate13setControllerEP20Abstract3DController": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QAbstract3DSeriesPrivate25connectControllerAndProxyEP20Abstract3DController": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QAbstract3DSeriesPrivate15createItemLabelEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QAbstract3DSeriesPrivate18setItemLabelFormatERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN24QAbstract3DSeriesPrivate10setVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN24QAbstract3DSeriesPrivate7setMeshEN17QAbstract3DSeries4MeshE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN24QAbstract3DSeriesPrivate13setMeshSmoothEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN24QAbstract3DSeriesPrivate15setMeshRotationERK11QQuaternion": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QAbstract3DSeriesPrivate18setUserDefinedMeshERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN24QAbstract3DSeriesPrivate13setColorStyleEN8Q3DTheme10ColorStyleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN24QAbstract3DSeriesPrivate12setBaseColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QAbstract3DSeriesPrivate15setBaseGradientERK15QLinearGradient": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QAbstract3DSeriesPrivate23setSingleHighlightColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QAbstract3DSeriesPrivate26setSingleHighlightGradientERK15QLinearGradient": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QAbstract3DSeriesPrivate22setMultiHighlightColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QAbstract3DSeriesPrivate25setMultiHighlightGradientERK15QLinearGradient": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QAbstract3DSeriesPrivate7setNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN24QAbstract3DSeriesPrivate9itemLabelEv": ["text", "address"],
+    "ritual_ZN24QAbstract3DSeriesPrivate18markItemLabelDirtyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK24QAbstract3DSeriesPrivate14itemLabelDirtyEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN24QAbstract3DSeriesPrivate19setItemLabelVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_take_QAbstract3DSeriesPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN24QAbstract3DSeriesPrivate12setDataProxyEP18QAbstractDataProxy": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN24QAbstract3DSeriesPrivate13setControllerEP20Abstract3DController": [
+      "nothing", "address", "address"
+    ]
+  }
+}

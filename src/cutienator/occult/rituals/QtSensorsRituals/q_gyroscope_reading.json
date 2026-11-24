@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSensors/qgyroscope.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QGyroscopeReading10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QGyroscopeReading2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QGyroscopeReadingC1EP7QObject": ["address", "address"],
+    "ritual_ZN17QGyroscopeReadingD1Ev": ["nothing", "address"],
+    "ritual_ZN17QGyroscopeReading14copyValuesFromEP14QSensorReading": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QGyroscopeReading1xEv": ["double", "address"],
+    "ritual_ZN17QGyroscopeReading4setXEd": ["nothing", "address", "double"],
+    "ritual_ZNK17QGyroscopeReading1yEv": ["double", "address"],
+    "ritual_ZN17QGyroscopeReading4setYEd": ["nothing", "address", "double"],
+    "ritual_ZNK17QGyroscopeReading1zEv": ["double", "address"],
+    "ritual_ZN17QGyroscopeReading4setZEd": ["nothing", "address", "double"],
+    "ritual_take_QGyroscopeReading": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN17QGyroscopeReading14copyValuesFromEP14QSensorReading": [
+      "nothing", "address", "address"
+    ]
+  }
+}

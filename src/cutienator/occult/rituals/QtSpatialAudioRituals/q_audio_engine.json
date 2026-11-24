@@ -1,0 +1,45 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSpatialAudio/qaudioengine.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK12QAudioEngine10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QAudioEngine2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN12QAudioEngineC1Ev": ["address"],
+    "ritual_ZN12QAudioEngineC1EP7QObject": ["address", "address"],
+    "ritual_ZN12QAudioEngineC1EiP7QObject": ["address", "int", "address"],
+    "ritual_ZN12QAudioEngineD1Ev": ["nothing", "address"],
+    "ritual_ZN12QAudioEngine13setOutputModeENS_10OutputModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK12QAudioEngine10outputModeEv": ["int", "address"],
+    "ritual_ZNK12QAudioEngine10sampleRateEv": ["int", "address"],
+    "ritual_ZN12QAudioEngine15setOutputDeviceERK12QAudioDevice": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12QAudioEngine12outputDeviceEv": ["address", "address"],
+    "ritual_ZN12QAudioEngine15setMasterVolumeEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK12QAudioEngine12masterVolumeEv": ["float", "address"],
+    "ritual_ZN12QAudioEngine9setPausedEb": ["nothing", "address", "bool"],
+    "ritual_ZNK12QAudioEngine6pausedEv": ["bool", "address"],
+    "ritual_ZN12QAudioEngine21setRoomEffectsEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK12QAudioEngine18roomEffectsEnabledEv": ["bool", "address"],
+    "ritual_ZN12QAudioEngine16setDistanceScaleEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK12QAudioEngine13distanceScaleEv": ["float", "address"],
+    "ritual_ZN12QAudioEngine5startEv": ["nothing", "address"],
+    "ritual_ZN12QAudioEngine4stopEv": ["nothing", "address"],
+    "ritual_ZN12QAudioEngine5pauseEv": ["nothing", "address"],
+    "ritual_ZN12QAudioEngine6resumeEv": ["nothing", "address"],
+    "ritual_ZN12QAudioEngine6d_funcEv": ["address", "address"],
+    "ritual_ZNK12QAudioEngine6d_funcEv": ["address", "address"],
+    "ritual_take_QAudioEngine": ["bool", "address", "chars", "address"]
+  }
+}

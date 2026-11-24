@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSensors/qaccelerometer.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK14QAccelerometer10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QAccelerometer2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN14QAccelerometerC1EP7QObject": ["address", "address"],
+    "ritual_ZN14QAccelerometerD1Ev": ["nothing", "address"],
+    "ritual_ZNK14QAccelerometer16accelerationModeEv": ["int", "address"],
+    "ritual_ZN14QAccelerometer19setAccelerationModeENS_16AccelerationModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK14QAccelerometer7readingEv": ["address", "address"],
+    "ritual_ZN14QAccelerometer6d_funcEv": ["address", "address"],
+    "ritual_ZNK14QAccelerometer6d_funcEv": ["address", "address"],
+    "ritual_take_QAccelerometer": ["bool", "address", "chars", "address"]
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DExtras/qpervertexcolormaterial.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZNK10Qt3DExtras23QPerVertexColorMaterial10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras23QPerVertexColorMaterial2trEPKcS2_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DExtras23QPerVertexColorMaterial6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras23QPerVertexColorMaterial6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_take_Qt3DExtras_QPerVertexColorMaterial": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

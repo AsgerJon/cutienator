@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtDataV",
+    "isualization/6.12.0/QtDataVisualization/private/surfaceitemmodelha",
+    "ndler_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK23SurfaceItemModelHandler10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23SurfaceItemModelHandlerD1Ev": ["nothing", "address"],
+    "ritual_ZN23SurfaceItemModelHandler12resolveModelEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_SurfaceItemModelHandler": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN23SurfaceItemModelHandler12resolveModelEv": [
+      "nothing", "address"
+    ]
+  }
+}

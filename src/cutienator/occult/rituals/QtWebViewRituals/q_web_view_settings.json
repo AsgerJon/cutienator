@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWebView/qwebviewsettings.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK16QWebViewSettings13testAttributeENS_12WebAttributeE": [
+      "bool", "address", "unsigned int"
+    ],
+    "ritual_ZN16QWebViewSettings12setAttributeENS_12WebAttributeEb": [
+      "nothing", "address", "unsigned int", "bool"
+    ],
+    "ritual_ZN16QWebViewSettings14doSetAttributeENS_12WebAttributeEb": [
+      "nothing", "address", "unsigned int", "bool"
+    ],
+    "ritual_ZNK16QWebViewSettings15doTestAttributeENS_12WebAttributeE": [
+      "bool", "address", "unsigned int"
+    ],
+    "ritual_ZN16QWebViewSettingsD1Ev": ["nothing", "address"]
+  }
+}

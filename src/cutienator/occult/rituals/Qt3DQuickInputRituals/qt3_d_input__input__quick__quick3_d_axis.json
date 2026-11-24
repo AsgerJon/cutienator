@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DQuickInput/6.12.0/Qt3DQuickInput/private/quick3daxis_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK9Qt3DInput5Input5Quick11Quick3DAxis10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput5Input5Quick11Quick3DAxis2trEPKcS4_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZNK9Qt3DInput5Input5Quick11Quick3DAxis10parentAxisEv": [
+      "address", "address"
+    ],
+    "ritual_take_Qt3DInput_Input_Quick_Quick3DAxis": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

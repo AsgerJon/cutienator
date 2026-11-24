@@ -1,0 +1,13 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DAnimation/6.12.0/Qt3DAnimation/private/keyframe_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK13Qt3DAnimation9Animation8KeyframeeqERKS1_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation8KeyframeD1Ev": ["nothing", "address"]
+  }
+}

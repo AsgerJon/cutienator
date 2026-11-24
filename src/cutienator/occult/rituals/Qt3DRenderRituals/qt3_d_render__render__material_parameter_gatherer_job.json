@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of Qt3DRen",
+    "der/6.12.0/Qt3DRender/private/materialparametergathererjob_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN10Qt3DRender6Render28MaterialParameterGathererJob15setNodeManagersEPNS0_12NodeManagersE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render28MaterialParameterGathererJob18setTechniqueFilterEPNS0_15TechniqueFilterE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render28MaterialParameterGathererJob19setRenderPassFilterEPNS0_16RenderPassFilterE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render28MaterialParameterGathererJob15techniqueFilterEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render28MaterialParameterGathererJob16renderPassFilterEv": [
+      "address", "address"
+    ]
+  }
+}

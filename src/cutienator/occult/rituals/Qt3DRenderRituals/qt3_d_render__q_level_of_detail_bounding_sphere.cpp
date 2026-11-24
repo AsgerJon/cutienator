@@ -1,0 +1,4 @@
+//  Written by dev_tooling.RitualGenerator from the records of
+//  Qt3DRender/qlevelofdetailboundingsphere.h, Qt 6.12.0. Changes made here
+//  are lost.
+#include <Qt3DRender/qlevelofdetailboundingsphere.h>

@@ -1,0 +1,60 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtRemoteObjects/qremoteobjectreplica.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK20QRemoteObjectReplica10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QRemoteObjectReplica2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN20QRemoteObjectReplicaD1Ev": ["nothing", "address"],
+    "ritual_ZNK20QRemoteObjectReplica14isReplicaValidEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN20QRemoteObjectReplica13waitForSourceEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK20QRemoteObjectReplica13isInitializedEv": ["bool", "address"],
+    "ritual_ZNK20QRemoteObjectReplica5stateEv": ["int", "address"],
+    "ritual_ZNK20QRemoteObjectReplica4nodeEv": ["address", "address"],
+    "ritual_ZN20QRemoteObjectReplica7setNodeEP17QRemoteObjectNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QRemoteObjectReplicaC1ENS_15ConstructorTypeE": [
+      "address", "int"
+    ],
+    "ritual_ZN20QRemoteObjectReplica10initializeEv": ["nothing", "address"],
+    "ritual_ZN20QRemoteObjectReplica4sendEN11QMetaObject4CallEiRK5QListI8QVariantE": [
+      "nothing", "address", "int", "int", "address"
+    ],
+    "ritual_ZN20QRemoteObjectReplica13sendWithReplyEN11QMetaObject4CallEiRK5QListI8QVariantE": [
+      "address", "address", "int", "int", "address"
+    ],
+    "ritual_ZN20QRemoteObjectReplica8setChildEiRK8QVariant": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZNK20QRemoteObjectReplica13propAsVariantEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK20QRemoteObjectReplica17persistPropertiesERK7QStringRK10QByteArrayRK5QListI8QVariantE": [
+      "nothing", "address", "text", "address", "address"
+    ],
+    "ritual_ZNK20QRemoteObjectReplica18retrievePropertiesERK7QStringRK10QByteArray": [
+      "address", "address", "text", "address"
+    ],
+    "ritual_ZN20QRemoteObjectReplica14initializeNodeEP17QRemoteObjectNodeRK7QString": [
+      "nothing", "address", "address", "text"
+    ],
+    "ritual_take_QRemoteObjectReplica": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN20QRemoteObjectReplica7setNodeEP17QRemoteObjectNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20QRemoteObjectReplica10initializeEv": [
+      "nothing", "address"
+    ]
+  }
+}

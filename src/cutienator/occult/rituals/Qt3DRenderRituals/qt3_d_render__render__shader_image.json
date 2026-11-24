@@ -1,0 +1,23 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DRender/6.12.0/Qt3DRender/private/shaderimage_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK10Qt3DRender6Render11ShaderImage9textureIdEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render11ShaderImage8mipLevelEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render11ShaderImage5layerEv": ["int", "address"],
+    "ritual_ZNK10Qt3DRender6Render11ShaderImage7layeredEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render11ShaderImage6accessEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render11ShaderImage6formatEv": ["int", "address"]
+  }
+}

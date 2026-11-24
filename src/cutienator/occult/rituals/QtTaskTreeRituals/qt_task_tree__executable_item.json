@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtTaskTree/qtasktree.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN10QtTaskTreentERKNS_14ExecutableItemE": ["address", "address"],
+    "ritual_ZN10QtTaskTreeaaERKNS_14ExecutableItemES2_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN10QtTaskTreeooERKNS_14ExecutableItemES2_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN10QtTaskTreeaaERKNS_14ExecutableItemENS_10DoneResultE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN10QtTaskTreeooERKNS_14ExecutableItemENS_10DoneResultE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN10QtTaskTree14ExecutableItemD1Ev": ["nothing", "address"]
+  }
+}

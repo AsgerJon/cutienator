@@ -1,0 +1,111 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtDataV",
+    "isualization/6.12.0/QtDataVisualization/private/scatter3dcontrolle",
+    "r_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK19Scatter3DController10metaObjectEv": ["address", "address"],
+    "ritual_ZN19Scatter3DController2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN19Scatter3DControllerC1E5QRectP8Q3DScene": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN19Scatter3DControllerD1Ev": ["nothing", "address"],
+    "ritual_ZN19Scatter3DController16initializeOpenGLEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19Scatter3DController16setSelectionModeE6QFlagsIN16QAbstract3DGraph13SelectionFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK19Scatter3DController14selectedSeriesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19Scatter3DController15setSelectedItemEiP16QScatter3DSeries": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN19Scatter3DController21invalidSelectionIndexEv": ["int"],
+    "ritual_ZN19Scatter3DController14clearSelectionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19Scatter3DController19synchDataToRendererEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19Scatter3DController9addSeriesEP17QAbstract3DSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19Scatter3DController12removeSeriesEP17QAbstract3DSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19Scatter3DController17scatterSeriesListEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19Scatter3DController45handleAxisAutoAdjustRangeChangedInOrientationEN15QAbstract3DAxis15AxisOrientationEb": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZN19Scatter3DController30handleAxisRangeChangedBySenderEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19Scatter3DController18handlePendingClickEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19Scatter3DController16adjustAxisRangesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19Scatter3DController16handleArrayResetEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19Scatter3DController16handleItemsAddedEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN19Scatter3DController18handleItemsChangedEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN19Scatter3DController18handleItemsRemovedEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN19Scatter3DController19handleItemsInsertedEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN19Scatter3DController31startRecordingRemovesAndInsertsEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_Scatter3DController": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN19Scatter3DController16initializeOpenGLEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN19Scatter3DController16setSelectionModeE6QFlagsIN16QAbstract3DGraph13SelectionFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN19Scatter3DController14clearSelectionEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN19Scatter3DController19synchDataToRendererEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN19Scatter3DController9addSeriesEP17QAbstract3DSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN19Scatter3DController12removeSeriesEP17QAbstract3DSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN19Scatter3DController45handleAxisAutoAdjustRangeChangedInOrientationEN15QAbstract3DAxis15AxisOrientationEb": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_own_ZN19Scatter3DController30handleAxisRangeChangedBySenderEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN19Scatter3DController18handlePendingClickEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN19Scatter3DController16adjustAxisRangesEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN19Scatter3DController31startRecordingRemovesAndInsertsEv": [
+      "nothing", "address"
+    ]
+  }
+}

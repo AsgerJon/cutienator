@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSensors/qpressuresensor.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN15QPressureFilter6filterEP16QPressureReading": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN15QPressureFilter6filterEP14QSensorReading": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN15QPressureFilter6filterEP14QSensorReading": [
+      "bool", "address", "address"
+    ]
+  }
+}

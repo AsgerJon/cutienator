@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DRender/6.12.0/Qt3DRender/private/qtexture_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN10Qt3DRender21QTextureLoaderPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender21QTextureLoaderPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_take_Qt3DRender_QTextureLoaderPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN10Qt3DRender21QTextureLoaderPrivate8setSceneEPN8Qt3DCore6QSceneE": [
+      "nothing", "address", "address"
+    ]
+  }
+}

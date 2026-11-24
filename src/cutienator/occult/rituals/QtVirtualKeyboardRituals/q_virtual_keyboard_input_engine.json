@@ -1,0 +1,93 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtVirtualKeyboard/qvirtualkeyboardinputengine.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK27QVirtualKeyboardInputEngine10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QVirtualKeyboardInputEngine2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN27QVirtualKeyboardInputEngine24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QVirtualKeyboardInputEngineC1EP28QVirtualKeyboardInputContext": [
+      "address", "address"
+    ],
+    "ritual_ZN27QVirtualKeyboardInputEngine4initEv": ["nothing", "address"],
+    "ritual_ZN27QVirtualKeyboardInputEngineD1Ev": ["nothing", "address"],
+    "ritual_ZN27QVirtualKeyboardInputEngine15virtualKeyPressEN2Qt3KeyERK7QString6QFlagsINS0_16KeyboardModifierEEb": [
+      "bool", "address", "int", "text", "int", "bool"
+    ],
+    "ritual_ZN27QVirtualKeyboardInputEngine16virtualKeyCancelEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QVirtualKeyboardInputEngine17virtualKeyReleaseEN2Qt3KeyERK7QString6QFlagsINS0_16KeyboardModifierEE": [
+      "bool", "address", "int", "text", "int"
+    ],
+    "ritual_ZN27QVirtualKeyboardInputEngine15virtualKeyClickEN2Qt3KeyERK7QString6QFlagsINS0_16KeyboardModifierEE": [
+      "bool", "address", "int", "text", "int"
+    ],
+    "ritual_ZNK27QVirtualKeyboardInputEngine12inputContextEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK27QVirtualKeyboardInputEngine9activeKeyEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK27QVirtualKeyboardInputEngine11previousKeyEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK27QVirtualKeyboardInputEngine11inputMethodEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QVirtualKeyboardInputEngine14setInputMethodEP35QVirtualKeyboardAbstractInputMethod": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK27QVirtualKeyboardInputEngine9inputModeEv": [
+      "int", "address"
+    ],
+    "ritual_ZN27QVirtualKeyboardInputEngine12setInputModeENS_9InputModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK27QVirtualKeyboardInputEngine22wordCandidateListModelEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK27QVirtualKeyboardInputEngine28wordCandidateListVisibleHintEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN27QVirtualKeyboardInputEngine10traceBeginEiNS_22PatternRecognitionModeERK4QMapI7QString8QVariantES6_": [
+      "address", "address", "int", "int", "address", "address"
+    ],
+    "ritual_ZN27QVirtualKeyboardInputEngine8traceEndEP21QVirtualKeyboardTrace": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN27QVirtualKeyboardInputEngine16clickPreeditTextEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN27QVirtualKeyboardInputEngine5resetEv": ["nothing", "address"],
+    "ritual_ZN27QVirtualKeyboardInputEngine6updateEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QVirtualKeyboardInputEngine12shiftChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QVirtualKeyboardInputEngine25updateSelectionListModelsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QVirtualKeyboardInputEngine16updateInputModesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QVirtualKeyboardInputEngine10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QVirtualKeyboardInputEngine": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN27QVirtualKeyboardInputEngine10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ]
+  }
+}

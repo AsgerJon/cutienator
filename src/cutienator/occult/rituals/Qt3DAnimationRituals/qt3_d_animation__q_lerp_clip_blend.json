@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DAnimation/qlerpclipblend.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK13Qt3DAnimation14QLerpClipBlend10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation14QLerpClipBlend2trEPKcS2_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN13Qt3DAnimation14QLerpClipBlend6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation14QLerpClipBlend6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_take_Qt3DAnimation_QLerpClipBlend": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

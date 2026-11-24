@@ -1,0 +1,91 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtRemoteObjects/qremoteobjectabstractitemmodelreplica.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK25QAbstractItemModelReplica10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QAbstractItemModelReplica2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN25QAbstractItemModelReplicaD1Ev": ["nothing", "address"],
+    "ritual_ZNK25QAbstractItemModelReplica14selectionModelEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK25QAbstractItemModelReplica4dataERK11QModelIndexi": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZNK25QAbstractItemModelReplica9multiDataERK11QModelIndex18QModelRoleDataSpan": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN25QAbstractItemModelReplica7setDataERK11QModelIndexRK8QVarianti": [
+      "bool", "address", "address", "address", "int"
+    ],
+    "ritual_ZNK25QAbstractItemModelReplica6parentERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK25QAbstractItemModelReplica5indexEiiRK11QModelIndex": [
+      "address", "address", "int", "int", "address"
+    ],
+    "ritual_ZNK25QAbstractItemModelReplica11hasChildrenERK11QModelIndex": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK25QAbstractItemModelReplica8rowCountERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK25QAbstractItemModelReplica11columnCountERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK25QAbstractItemModelReplica10headerDataEiN2Qt11OrientationEi": [
+      "address", "address", "int", "int", "int"
+    ],
+    "ritual_ZNK25QAbstractItemModelReplica5flagsERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK25QAbstractItemModelReplica9roleNamesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK25QAbstractItemModelReplica13isInitializedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK25QAbstractItemModelReplica7hasDataERK11QModelIndexi": [
+      "bool", "address", "address", "int"
+    ],
+    "ritual_ZN25QAbstractItemModelReplica16setRootCacheSizeEm": [
+      "nothing", "address", "size_t"
+    ],
+    "ritual_take_QAbstractItemModelReplica": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK25QAbstractItemModelReplica9multiDataERK11QModelIndex18QModelRoleDataSpan": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN25QAbstractItemModelReplica7setDataERK11QModelIndexRK8QVarianti": [
+      "bool", "address", "address", "address", "int"
+    ],
+    "ritual_own_ZNK25QAbstractItemModelReplica6parentERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZNK25QAbstractItemModelReplica5indexEiiRK11QModelIndex": [
+      "address", "address", "int", "int", "address"
+    ],
+    "ritual_own_ZNK25QAbstractItemModelReplica11hasChildrenERK11QModelIndex": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZNK25QAbstractItemModelReplica8rowCountERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZNK25QAbstractItemModelReplica11columnCountERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZNK25QAbstractItemModelReplica10headerDataEiN2Qt11OrientationEi": [
+      "address", "address", "int", "int", "int"
+    ],
+    "ritual_own_ZNK25QAbstractItemModelReplica5flagsERK11QModelIndex": [
+      "int", "address", "address"
+    ]
+  }
+}

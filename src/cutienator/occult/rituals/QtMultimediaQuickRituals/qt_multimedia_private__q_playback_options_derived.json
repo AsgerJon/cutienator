@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtMulti",
+    "mediaQuick/6.12.0/QtMultimediaQuick/private/qtmultimediaquicktypes",
+    "_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QtMultimediaPrivate23QPlaybackOptionsDerived20qt_qmlMarker_foreignEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QtMultimediaPrivate23QPlaybackOptionsDerived21qt_qmlMarker_extendedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK19QtMultimediaPrivate23QPlaybackOptionsDerived16networkTimeoutMsEv": [
+      "long long", "address"
+    ],
+    "ritual_ZN19QtMultimediaPrivate23QPlaybackOptionsDerived19setNetworkTimeoutMsEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN19QtMultimediaPrivate23QPlaybackOptionsDerived21resetNetworkTimeoutMsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QtMultimediaPrivate23QPlaybackOptionsDerivedD1Ev": [
+      "nothing", "address"
+    ]
+  }
+}

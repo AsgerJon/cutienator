@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of Qt3DQui",
+    "ckScene2D/6.12.0/Qt3DQuickScene2D/private/scene2dmanager_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK10Qt3DRender5Quick14Scene2DManager10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_take_Qt3DRender_Quick_Scene2DManager": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWaylandCompositor/qwaylandquickcompositor.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK23QWaylandQuickCompositor10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QWaylandQuickCompositor2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN23QWaylandQuickCompositorC1EP7QObject": ["address", "address"],
+    "ritual_ZN23QWaylandQuickCompositor6createEv": ["nothing", "address"],
+    "ritual_ZN23QWaylandQuickCompositor11grabSurfaceEP22QWaylandSurfaceGrabberRK17QWaylandBufferRef": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN23QWaylandQuickCompositor10classBeginEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QWaylandQuickCompositor17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_cast_QWaylandQuickCompositor_QQmlParserStatus": [
+      "address", "address"
+    ],
+    "ritual_take_QWaylandQuickCompositor": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN23QWaylandQuickCompositor6createEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN23QWaylandQuickCompositor11grabSurfaceEP22QWaylandSurfaceGrabberRK17QWaylandBufferRef": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN23QWaylandQuickCompositor10classBeginEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN23QWaylandQuickCompositor17componentCompleteEv": [
+      "nothing", "address"
+    ]
+  }
+}

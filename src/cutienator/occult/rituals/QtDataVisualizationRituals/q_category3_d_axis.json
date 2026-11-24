@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDataVisualization/qcategory3daxis.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK15QCategory3DAxis10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QCategory3DAxis2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN15QCategory3DAxisC1EP7QObject": ["address", "address"],
+    "ritual_ZN15QCategory3DAxisD1Ev": ["nothing", "address"],
+    "ritual_ZN15QCategory3DAxis9setLabelsERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QCategory3DAxis6labelsEv": ["address", "address"],
+    "ritual_ZN15QCategory3DAxis4dptrEv": ["address", "address"],
+    "ritual_take_QCategory3DAxis": ["bool", "address", "chars", "address"]
+  }
+}

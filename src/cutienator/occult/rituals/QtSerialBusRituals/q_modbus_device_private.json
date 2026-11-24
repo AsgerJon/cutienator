@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSerialBus/6.12.0/QtSerialBus/private/qmodbusdevice_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QModbusDevicePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK20QModbusDevicePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN20QModbusDevicePrivate24calculateInterFrameDelayEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK20QModbusDevicePrivate6deviceEv": ["address", "address"],
+    "ritual_take_QModbusDevicePrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK20QModbusDevicePrivate6deviceEv": ["address", "address"]
+  }
+}

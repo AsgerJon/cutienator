@@ -1,0 +1,100 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWaylandCompositor/qwaylandseat.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZNK12QWaylandSeat10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QWaylandSeat2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN12QWaylandSeat24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN12QWaylandSeatC1EP18QWaylandCompositor6QFlagsINS_14CapabilityFlagEE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN12QWaylandSeatD1Ev": ["nothing", "address"],
+    "ritual_ZN12QWaylandSeat10initializeEv": ["nothing", "address"],
+    "ritual_ZNK12QWaylandSeat13isInitializedEv": ["bool", "address"],
+    "ritual_ZN12QWaylandSeat19sendMousePressEventEN2Qt11MouseButtonE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN12QWaylandSeat21sendMouseReleaseEventEN2Qt11MouseButtonE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN12QWaylandSeat18sendMouseMoveEventEP12QWaylandViewRK7QPointFS4_": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN12QWaylandSeat19sendMouseWheelEventEN2Qt11OrientationEi": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN12QWaylandSeat17sendKeyPressEventEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN12QWaylandSeat19sendKeyReleaseEventEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN12QWaylandSeat16sendFullKeyEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QWaylandSeat12sendKeyEventEib": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZN12QWaylandSeat24sendUnicodeKeyPressEventEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN12QWaylandSeat26sendUnicodeKeyReleaseEventEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN12QWaylandSeat19sendTouchPointEventEP15QWaylandSurfaceiRK7QPointFN2Qt15TouchPointStateE": [
+      "unsigned int", "address", "address", "int", "address", "int"
+    ],
+    "ritual_ZN12QWaylandSeat21sendTouchPointPressedEP15QWaylandSurfaceiRK7QPointF": [
+      "unsigned int", "address", "address", "int", "address"
+    ],
+    "ritual_ZN12QWaylandSeat22sendTouchPointReleasedEP15QWaylandSurfaceiRK7QPointF": [
+      "unsigned int", "address", "address", "int", "address"
+    ],
+    "ritual_ZN12QWaylandSeat19sendTouchPointMovedEP15QWaylandSurfaceiRK7QPointF": [
+      "unsigned int", "address", "address", "int", "address"
+    ],
+    "ritual_ZN12QWaylandSeat19sendTouchFrameEventEP14QWaylandClient": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QWaylandSeat20sendTouchCancelEventEP14QWaylandClient": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QWaylandSeat18sendFullTouchEventEP15QWaylandSurfaceP11QTouchEvent": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK12QWaylandSeat7pointerEv": ["address", "address"],
+    "ritual_ZNK12QWaylandSeat10mouseFocusEv": ["address", "address"],
+    "ritual_ZN12QWaylandSeat13setMouseFocusEP12QWaylandView": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12QWaylandSeat8keyboardEv": ["address", "address"],
+    "ritual_ZNK12QWaylandSeat13keyboardFocusEv": ["address", "address"],
+    "ritual_ZN12QWaylandSeat16setKeyboardFocusEP15QWaylandSurface": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN12QWaylandSeat6keymapEv": ["address", "address"],
+    "ritual_ZNK12QWaylandSeat5touchEv": ["address", "address"],
+    "ritual_ZNK12QWaylandSeat10compositorEv": ["address", "address"],
+    "ritual_ZNK12QWaylandSeat4dragEv": ["address", "address"],
+    "ritual_ZNK12QWaylandSeat12capabilitiesEv": ["int", "address"],
+    "ritual_ZNK12QWaylandSeat7isOwnerEP11QInputEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN12QWaylandSeat19sendUnicodeKeyEventEjN6QEvent4TypeE": [
+      "nothing", "address", "unsigned int", "int"
+    ],
+    "ritual_ZN12QWaylandSeat25handleMouseFocusDestroyedEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QWaylandSeat": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN12QWaylandSeat10initializeEv": ["nothing", "address"],
+    "ritual_own_ZNK12QWaylandSeat7isOwnerEP11QInputEvent": [
+      "bool", "address", "address"
+    ]
+  }
+}

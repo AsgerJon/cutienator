@@ -1,0 +1,32 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLottie/6.12.0/QtLottie/private/qlottiestroke_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN13QLottieStrokeC1ERKS_": ["address", "address"],
+    "ritual_ZN13QLottieStrokeC1EP11QLottieBase": ["address", "address"],
+    "ritual_ZNK13QLottieStroke5cloneEv": ["address", "address"],
+    "ritual_ZN13QLottieStroke16updatePropertiesEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN13QLottieStroke5parseERK11QJsonObject": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK13QLottieStroke3penEv": ["address", "address"],
+    "ritual_ZNK13QLottieStroke7opacityEv": ["double", "address"],
+    "ritual_ZNK13QLottieStroke8getColorEv": ["address", "address"],
+    "ritual_ZN13QLottieStroke17updateDashPatternEv": ["nothing", "address"],
+    "ritual_ZN13QLottieStrokeD1Ev": ["nothing", "address"],
+    "ritual_take_QLottieStroke": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK13QLottieStroke5cloneEv": ["address", "address"],
+    "ritual_own_ZN13QLottieStroke16updatePropertiesEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN13QLottieStroke5parseERK11QJsonObject": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZNK13QLottieStroke3penEv": ["address", "address"]
+  }
+}

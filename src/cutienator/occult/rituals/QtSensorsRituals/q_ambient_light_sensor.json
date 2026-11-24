@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSensors/qambientlightsensor.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK19QAmbientLightSensor10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QAmbientLightSensor2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN19QAmbientLightSensorC1EP7QObject": ["address", "address"],
+    "ritual_ZN19QAmbientLightSensorD1Ev": ["nothing", "address"],
+    "ritual_ZNK19QAmbientLightSensor7readingEv": ["address", "address"],
+    "ritual_take_QAmbientLightSensor": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

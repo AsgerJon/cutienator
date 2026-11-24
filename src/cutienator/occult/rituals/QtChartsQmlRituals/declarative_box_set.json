@@ -1,0 +1,35 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtChart",
+    "sQml/6.12.0/QtChartsQml/private/declarativeboxplotseries_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17DeclarativeBoxSet10metaObjectEv": ["address", "address"],
+    "ritual_ZN17DeclarativeBoxSet2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17DeclarativeBoxSetC1E7QStringP7QObject": [
+      "address", "text", "address"
+    ],
+    "ritual_ZN17DeclarativeBoxSet6valuesEv": ["address", "address"],
+    "ritual_ZN17DeclarativeBoxSet9setValuesE5QListI8QVariantE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17DeclarativeBoxSet13brushFilenameEv": ["text", "address"],
+    "ritual_ZN17DeclarativeBoxSet16setBrushFilenameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN17DeclarativeBoxSet6appendEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN17DeclarativeBoxSet5clearEv": ["nothing", "address"],
+    "ritual_ZN17DeclarativeBoxSet2atEi": ["double", "address", "int"],
+    "ritual_ZN17DeclarativeBoxSet8setValueEid": [
+      "nothing", "address", "int", "double"
+    ],
+    "ritual_ZN17DeclarativeBoxSet18handleBrushChangedEv": [
+      "nothing", "address"
+    ]
+  }
+}

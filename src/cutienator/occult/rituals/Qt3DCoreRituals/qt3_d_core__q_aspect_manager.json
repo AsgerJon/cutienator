@@ -1,0 +1,31 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DCore/6.12.0/Qt3DCore/private/qaspectmanager_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK8Qt3DCore14QAspectManager10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore14QAspectManager2trEPKcS2_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZNK8Qt3DCore14QAspectManager6engineEv": ["address", "address"],
+    "ritual_ZNK8Qt3DCore14QAspectManager9schedulerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK8Qt3DCore14QAspectManager15jobsInLastFrameEv": [
+      "int", "address"
+    ],
+    "ritual_cast_Qt3DCore_QAspectManager_Qt3DCore_QAbstractFrontEndNodeManager": [
+      "address", "address"
+    ],
+    "ritual_take_Qt3DCore_QAspectManager": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK8Qt3DCore14QAspectManager10lookupNodeENS_7QNodeIdE": [
+      "address", "address", "address"
+    ]
+  }
+}

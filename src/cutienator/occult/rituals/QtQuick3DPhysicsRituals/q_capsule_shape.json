@@ -1,0 +1,25 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DPhysics/6.12.0/QtQuick3DPhysics/private/qcapsuleshape_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK13QCapsuleShape10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QCapsuleShape2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN13QCapsuleShapeC1Ev": ["address"],
+    "ritual_ZN13QCapsuleShapeD1Ev": ["nothing", "address"],
+    "ritual_ZNK13QCapsuleShape8diameterEv": ["float", "address"],
+    "ritual_ZN13QCapsuleShape11setDiameterEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK13QCapsuleShape6heightEv": ["float", "address"],
+    "ritual_ZN13QCapsuleShape9setHeightEf": ["nothing", "address", "float"],
+    "ritual_ZNK13QCapsuleShape13isStaticShapeEv": ["bool", "address"],
+    "ritual_ZN13QCapsuleShape19updatePhysXGeometryEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QCapsuleShape": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK13QCapsuleShape13isStaticShapeEv": ["bool", "address"]
+  }
+}

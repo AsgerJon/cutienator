@@ -1,0 +1,34 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCanvasPainter/qcanvasboxgradient.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QCanvasBoxGradientC1Ev": ["address"],
+    "ritual_ZN18QCanvasBoxGradientC1Edddd": [
+      "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZN18QCanvasBoxGradientC1ERK6QRectF": ["address", "address"],
+    "ritual_ZN18QCanvasBoxGradientC1ERKS_": ["address", "address"],
+    "ritual_ZN18QCanvasBoxGradientD1Ev": ["nothing", "address"],
+    "ritual_ZNK18QCanvasBoxGradient4rectEv": ["address", "address"],
+    "ritual_ZN18QCanvasBoxGradient7setRectEdddd": [
+      "nothing", "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZN18QCanvasBoxGradient7setRectERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QCanvasBoxGradient7featherEv": ["double", "address"],
+    "ritual_ZN18QCanvasBoxGradient10setFeatherEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK18QCanvasBoxGradient6radiusEv": ["double", "address"],
+    "ritual_ZN18QCanvasBoxGradient9setRadiusEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN18QCanvasBoxGradientC1ERK12QCanvasBrush": [
+      "address", "address"
+    ]
+  }
+}

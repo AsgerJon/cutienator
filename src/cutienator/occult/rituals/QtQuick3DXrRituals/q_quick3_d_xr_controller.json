@@ -1,0 +1,33 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3DXr/6.12.0/QtQuick3DXr/private/qquick3dxrcontroller_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK20QQuick3DXrController10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QQuick3DXrController2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN20QQuick3DXrControllerC1Ev": ["address"],
+    "ritual_ZNK20QQuick3DXrController10controllerEv": ["int", "address"],
+    "ritual_ZN20QQuick3DXrController13setControllerENS_10ControllerE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK20QQuick3DXrController9handInputEv": ["address", "address"],
+    "ritual_ZNK20QQuick3DXrController9poseSpaceEv": ["int", "address"],
+    "ritual_ZN20QQuick3DXrController12setPoseSpaceENS_13HandPoseSpaceE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK20QQuick3DXrController12pokePositionEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QQuick3DXrController14jointPositionsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QQuick3DXrController14jointRotationsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QQuick3DXrController8isActiveEv": ["bool", "address"]
+  }
+}

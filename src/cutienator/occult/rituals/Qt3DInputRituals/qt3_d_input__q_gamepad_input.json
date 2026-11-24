@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DInput/6.12.0/Qt3DInput/private/qgamepadinput_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK9Qt3DInput13QGamepadInput10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput13QGamepadInput2trEPKcS2_i": [
+      "text", "chars", "chars", "int"
+    ]
+  }
+}

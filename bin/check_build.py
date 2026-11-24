@@ -36,10 +36,10 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
 def createBuild() -> Build:
   """Gives a 'Build' told what 'Rituals.build()' tells its own."""
   build = Build()
-  build.setRitualFiles(*Rituals.getRitualFiles())
+  build.setRitualFiles(*Rituals.getBuiltRitualFiles())
   build.setTargetFile(Rituals.getTargetFile())
   build.setQtSharedObjects(*Rituals.getQtSharedObjects())
-  build.setComponents(*Rituals.getRitualParts())
+  build.setComponents(*Rituals.getInstalledParts())
   return build
 
 

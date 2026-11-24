@@ -1,0 +1,33 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtVirtu",
+    "alKeyboard/6.12.0/QtVirtualKeyboard/private/plaininputmethod_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QtVirtualKeyboard16PlainInputMethod10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard16PlainInputMethod2trEPKcS2_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_take_QtVirtualKeyboard_PlainInputMethod": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN17QtVirtualKeyboard16PlainInputMethod12setInputModeERK7QStringN27QVirtualKeyboardInputEngine9InputModeE": [
+      "bool", "address", "text", "int"
+    ],
+    "ritual_own_ZN17QtVirtualKeyboard16PlainInputMethod11setTextCaseEN27QVirtualKeyboardInputEngine8TextCaseE": [
+      "bool", "address", "int"
+    ],
+    "ritual_own_ZN17QtVirtualKeyboard16PlainInputMethod8keyEventEN2Qt3KeyERK7QString6QFlagsINS1_16KeyboardModifierEE": [
+      "bool", "address", "int", "text", "int"
+    ],
+    "ritual_own_ZN17QtVirtualKeyboard16PlainInputMethod5resetEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN17QtVirtualKeyboard16PlainInputMethod6updateEv": [
+      "nothing", "address"
+    ]
+  }
+}

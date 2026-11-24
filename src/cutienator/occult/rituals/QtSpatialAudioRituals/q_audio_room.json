@@ -1,0 +1,48 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSpatialAudio/qaudioroom.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK10QAudioRoom10metaObjectEv": ["address", "address"],
+    "ritual_ZN10QAudioRoom2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN10QAudioRoomC1EP12QAudioEngine": ["address", "address"],
+    "ritual_ZN10QAudioRoomD1Ev": ["nothing", "address"],
+    "ritual_ZN10QAudioRoom11setPositionE9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10QAudioRoom8positionEv": ["address", "address"],
+    "ritual_ZN10QAudioRoom13setDimensionsE9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10QAudioRoom10dimensionsEv": ["address", "address"],
+    "ritual_ZN10QAudioRoom11setRotationERK11QQuaternion": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10QAudioRoom8rotationEv": ["address", "address"],
+    "ritual_ZN10QAudioRoom15setWallMaterialENS_4WallENS_8MaterialE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK10QAudioRoom12wallMaterialENS_4WallE": [
+      "int", "address", "int"
+    ],
+    "ritual_ZN10QAudioRoom17setReflectionGainEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK10QAudioRoom14reflectionGainEv": ["float", "address"],
+    "ritual_ZN10QAudioRoom13setReverbGainEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK10QAudioRoom10reverbGainEv": ["float", "address"],
+    "ritual_ZN10QAudioRoom13setReverbTimeEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK10QAudioRoom10reverbTimeEv": ["float", "address"],
+    "ritual_ZN10QAudioRoom19setReverbBrightnessEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK10QAudioRoom16reverbBrightnessEv": ["float", "address"],
+    "ritual_take_QAudioRoom": ["bool", "address", "chars", "address"]
+  }
+}

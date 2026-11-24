@@ -1,0 +1,41 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtChartsQml/6.12.0/QtChartsQml/private/declarativeaxes_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK15DeclarativeAxes10metaObjectEv": ["address", "address"],
+    "ritual_ZN15DeclarativeAxes2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN15DeclarativeAxes24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15DeclarativeAxesC1EP7QObject": ["address", "address"],
+    "ritual_ZN15DeclarativeAxes5axisXEv": ["address", "address"],
+    "ritual_ZN15DeclarativeAxes8setAxisXEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15DeclarativeAxes5axisYEv": ["address", "address"],
+    "ritual_ZN15DeclarativeAxes8setAxisYEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15DeclarativeAxes8axisXTopEv": ["address", "address"],
+    "ritual_ZN15DeclarativeAxes11setAxisXTopEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15DeclarativeAxes10axisYRightEv": ["address", "address"],
+    "ritual_ZN15DeclarativeAxes13setAxisYRightEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15DeclarativeAxes16emitAxisXChangedEv": ["nothing", "address"],
+    "ritual_ZN15DeclarativeAxes16emitAxisYChangedEv": ["nothing", "address"],
+    "ritual_ZN15DeclarativeAxes19emitAxisXTopChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15DeclarativeAxes21emitAxisYRightChangedEv": [
+      "nothing", "address"
+    ]
+  }
+}

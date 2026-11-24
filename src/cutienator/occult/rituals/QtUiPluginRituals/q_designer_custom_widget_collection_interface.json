@@ -1,0 +1,14 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtUiPlugin/customwidget.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN40QDesignerCustomWidgetCollectionInterfaceD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK40QDesignerCustomWidgetCollectionInterface13customWidgetsEv": [
+      "address", "address"
+    ]
+  }
+}

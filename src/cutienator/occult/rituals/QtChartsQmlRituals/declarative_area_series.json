@@ -1,0 +1,73 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtChartsQml/6.12.0/QtChartsQml/private/declarativeareaseries_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK21DeclarativeAreaSeries10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21DeclarativeAreaSeries2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN21DeclarativeAreaSeriesC1EP7QObject": ["address", "address"],
+    "ritual_ZN21DeclarativeAreaSeries14setUpperSeriesEP21DeclarativeLineSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21DeclarativeAreaSeries11upperSeriesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21DeclarativeAreaSeries14setLowerSeriesEP21DeclarativeLineSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21DeclarativeAreaSeries11lowerSeriesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21DeclarativeAreaSeries5axisXEv": ["address", "address"],
+    "ritual_ZN21DeclarativeAreaSeries8setAxisXEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21DeclarativeAreaSeries5axisYEv": ["address", "address"],
+    "ritual_ZN21DeclarativeAreaSeries8setAxisYEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21DeclarativeAreaSeries8axisXTopEv": ["address", "address"],
+    "ritual_ZN21DeclarativeAreaSeries11setAxisXTopEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21DeclarativeAreaSeries10axisYRightEv": ["address", "address"],
+    "ritual_ZN21DeclarativeAreaSeries13setAxisYRightEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21DeclarativeAreaSeries11axisAngularEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21DeclarativeAreaSeries14setAxisAngularEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21DeclarativeAreaSeries10axisRadialEv": ["address", "address"],
+    "ritual_ZN21DeclarativeAreaSeries13setAxisRadialEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21DeclarativeAreaSeries11borderWidthEv": [
+      "double", "address"
+    ],
+    "ritual_ZN21DeclarativeAreaSeries14setBorderWidthEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK21DeclarativeAreaSeries13brushFilenameEv": [
+      "text", "address"
+    ],
+    "ritual_ZN21DeclarativeAreaSeries16setBrushFilenameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN21DeclarativeAreaSeries8setBrushERK6QBrush": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21DeclarativeAreaSeries5brushEv": ["address", "address"],
+    "ritual_ZN21DeclarativeAreaSeries18handleBrushChangedEv": [
+      "nothing", "address"
+    ]
+  }
+}

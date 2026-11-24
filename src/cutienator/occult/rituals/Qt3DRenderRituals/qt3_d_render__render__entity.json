@@ -1,0 +1,44 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DRender/6.12.0/Qt3DRender/private/entity_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK10Qt3DRender6Render6Entity11hasChildrenEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render6Entity21isParentLessTransformEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render6Entity22setParentLessTransformEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK10Qt3DRender6Render6Entity19localBoundingVolumeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render6Entity19worldBoundingVolumeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render6Entity31worldBoundingVolumeWithChildrenEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render6Entity14setTreeEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK10Qt3DRender6Render6Entity13isTreeEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render6Entity22clearRecursiveLayerIdsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render6Entity6d_funcEv": ["address", "address"],
+    "ritual_ZNK10Qt3DRender6Render6Entity6d_funcEv": ["address", "address"],
+    "ritual_take_Qt3DRender_Render_Entity": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN10Qt3DRender6Render6Entity16syncFromFrontEndEPKN8Qt3DCore5QNodeEb": [
+      "nothing", "address", "address", "bool"
+    ]
+  }
+}

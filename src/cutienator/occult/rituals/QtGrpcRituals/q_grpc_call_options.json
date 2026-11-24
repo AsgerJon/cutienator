@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGrpc/qgrpccalloptions.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN16QGrpcCallOptionsC1Ev": ["address"],
+    "ritual_ZN16QGrpcCallOptionsD1Ev": ["nothing", "address"],
+    "ritual_ZN16QGrpcCallOptionsC1ERKS_": ["address", "address"],
+    "ritual_ZNK16QGrpcCallOptionscv8QVariantEv": ["address", "address"],
+    "ritual_ZeqRK16QGrpcCallOptionsS1_": ["bool", "address", "address"],
+    "ritual_ZneRK16QGrpcCallOptionsS1_": ["bool", "address", "address"],
+    "ritual_Zls6QDebugRK16QGrpcCallOptions": [
+      "address", "address", "address"
+    ]
+  }
+}

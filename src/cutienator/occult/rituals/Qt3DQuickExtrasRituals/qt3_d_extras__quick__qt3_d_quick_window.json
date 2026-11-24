@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DQuickExtras/qt3dquickwindow.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZNK10Qt3DExtras5Quick15Qt3DQuickWindow10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras5Quick15Qt3DQuickWindow2trEPKcS3_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DExtras5Quick15Qt3DQuickWindow6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DExtras5Quick15Qt3DQuickWindow6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_take_Qt3DExtras_Quick_Qt3DQuickWindow": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN10Qt3DExtras5Quick15Qt3DQuickWindow9showEventEP10QShowEvent": [
+      "nothing", "address", "address"
+    ]
+  }
+}

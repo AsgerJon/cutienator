@@ -1,0 +1,44 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtRemoteObjects/qtremoteobjectglobal.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN31QRemoteObjectSourceLocationInfoC1Ev": ["address"],
+    "ritual_ZN31QRemoteObjectSourceLocationInfoC1ERK7QStringRK4QUrl": [
+      "address", "text", "address"
+    ],
+    "ritual_ZNK31QRemoteObjectSourceLocationInfoeqERKS_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK31QRemoteObjectSourceLocationInfoneERKS_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN31QRemoteObjectSourceLocationInfoD1Ev": ["nothing", "address"],
+    "ritual_map_make_QHash_QString_QRemoteObjectSourceLocationInfo": [
+      "address"
+    ],
+    "ritual_map_put_QHash_QString_QRemoteObjectSourceLocationInfo": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_map_size_QHash_QString_QRemoteObjectSourceLocationInfo": [
+      "long long", "address"
+    ],
+    "ritual_map_key_QHash_QString_QRemoteObjectSourceLocationInfo": [
+      "text", "address", "long long"
+    ],
+    "ritual_map_value_QHash_QString_QRemoteObjectSourceLocationInfo": [
+      "address", "address", "long long"
+    ],
+    "ritual_map_has_QHash_QString_QRemoteObjectSourceLocationInfo": [
+      "bool", "address", "text"
+    ],
+    "ritual_map_get_QHash_QString_QRemoteObjectSourceLocationInfo": [
+      "address", "address", "text"
+    ],
+    "ritual_map_drop_QHash_QString_QRemoteObjectSourceLocationInfo": [
+      "nothing", "address"
+    ]
+  }
+}

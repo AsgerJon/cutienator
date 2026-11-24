@@ -1,0 +1,38 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtSenso",
+    "rsQuick/6.12.0/QtSensorsQuick/private/qmlrotationsensor_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK24QmlRotationSensorReading10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24QmlRotationSensorReading2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN24QmlRotationSensorReading24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QmlRotationSensorReadingC1EP15QRotationSensor": [
+      "address", "address"
+    ],
+    "ritual_ZN24QmlRotationSensorReadingD1Ev": ["nothing", "address"],
+    "ritual_ZNK24QmlRotationSensorReading1xEv": ["double", "address"],
+    "ritual_ZNK24QmlRotationSensorReading1yEv": ["double", "address"],
+    "ritual_ZNK24QmlRotationSensorReading1zEv": ["double", "address"],
+    "ritual_ZNK24QmlRotationSensorReading7readingEv": ["address", "address"],
+    "ritual_ZN24QmlRotationSensorReading13readingUpdateEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QmlRotationSensorReading": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK24QmlRotationSensorReading7readingEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN24QmlRotationSensorReading13readingUpdateEv": [
+      "nothing", "address"
+    ]
+  }
+}

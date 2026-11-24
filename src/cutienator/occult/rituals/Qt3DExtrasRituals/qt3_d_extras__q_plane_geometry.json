@@ -1,0 +1,25 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DExtras/qplanegeometry.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK10Qt3DExtras14QPlaneGeometry10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras14QPlaneGeometry2trEPKcS2_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DExtras14QPlaneGeometryC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras14QPlaneGeometry6d_funcEv": ["address", "address"],
+    "ritual_ZNK10Qt3DExtras14QPlaneGeometry6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_take_Qt3DExtras_QPlaneGeometry": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

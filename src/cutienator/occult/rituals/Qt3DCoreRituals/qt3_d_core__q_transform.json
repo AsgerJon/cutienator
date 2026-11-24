@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DCore/qtransform.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK8Qt3DCore10QTransform10metaObjectEv": ["address", "address"],
+    "ritual_ZN8Qt3DCore10QTransform2trEPKcS2_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN8Qt3DCore10QTransform6d_funcEv": ["address", "address"],
+    "ritual_ZNK8Qt3DCore10QTransform6d_funcEv": ["address", "address"],
+    "ritual_take_Qt3DCore_QTransform": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

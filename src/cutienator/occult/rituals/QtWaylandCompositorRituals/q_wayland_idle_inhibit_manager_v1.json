@@ -1,0 +1,29 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWaylandCompositor/qwaylandidleinhibitv1.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK28QWaylandIdleInhibitManagerV110metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QWaylandIdleInhibitManagerV12trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN28QWaylandIdleInhibitManagerV1C1Ev": ["address"],
+    "ritual_ZN28QWaylandIdleInhibitManagerV1C1EP18QWaylandCompositor": [
+      "address", "address"
+    ],
+    "ritual_ZN28QWaylandIdleInhibitManagerV1D1Ev": ["nothing", "address"],
+    "ritual_ZN28QWaylandIdleInhibitManagerV110initializeEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QWaylandIdleInhibitManagerV1": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN28QWaylandIdleInhibitManagerV110initializeEv": [
+      "nothing", "address"
+    ]
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtProto",
+    "buf/6.12.0/QtProtobuf/private/qprotobufselfcheckiterator_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN26QProtobufSelfcheckIteratorC1Ev": ["address"],
+    "ritual_ZN26QProtobufSelfcheckIterator8fromViewE14QByteArrayView": [
+      "address", "address"
+    ],
+    "ritual_ZN26QProtobufSelfcheckIteratorC1ERKS_": ["address", "address"],
+    "ritual_ZNK26QProtobufSelfcheckIteratorcvPKcEv": ["chars", "address"],
+    "ritual_ZN26QProtobufSelfcheckIteratordeEv": ["char", "address"],
+    "ritual_ZNK26QProtobufSelfcheckIterator7isValidEv": ["bool", "address"],
+    "ritual_ZN26QProtobufSelfcheckIteratorppEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN26QProtobufSelfcheckIteratormmEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN26QProtobufSelfcheckIteratorpLEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN26QProtobufSelfcheckIteratormIEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZNK26QProtobufSelfcheckIterator4dataEv": ["chars", "address"],
+    "ritual_ZNK26QProtobufSelfcheckIterator9bytesLeftEv": [
+      "long long", "address"
+    ],
+    "ritual_ZN26QProtobufSelfcheckIteratorC1E14QByteArrayView": [
+      "address", "address"
+    ],
+    "ritual_ZeqRK26QProtobufSelfcheckIteratorS1_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZneRK26QProtobufSelfcheckIteratorS1_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZmiRK26QProtobufSelfcheckIteratorS1_": [
+      "long long", "address", "address"
+    ],
+    "ritual_ZN26QProtobufSelfcheckIteratorD1Ev": ["nothing", "address"]
+  }
+}

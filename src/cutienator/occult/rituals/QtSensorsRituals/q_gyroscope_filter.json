@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSensors/qgyroscope.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN16QGyroscopeFilter6filterEP17QGyroscopeReading": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN16QGyroscopeFilter6filterEP14QSensorReading": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN16QGyroscopeFilter6filterEP14QSensorReading": [
+      "bool", "address", "address"
+    ]
+  }
+}

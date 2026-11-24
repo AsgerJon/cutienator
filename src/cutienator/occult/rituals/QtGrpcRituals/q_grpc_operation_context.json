@@ -1,0 +1,38 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGrpc/qgrpcoperationcontext.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK21QGrpcOperationContext10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QGrpcOperationContext2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN21QGrpcOperationContextD1Ev": ["nothing", "address"],
+    "ritual_ZNK21QGrpcOperationContext6methodEv": ["address", "address"],
+    "ritual_ZNK21QGrpcOperationContext7serviceEv": ["address", "address"],
+    "ritual_ZNK21QGrpcOperationContext10descriptorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNKR21QGrpcOperationContext11callOptionsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK21QGrpcOperationContext16responseMetaTypeEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QGrpcOperationContext19setResponseMetaTypeE9QMetaType": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21QGrpcOperationContext11operationIdEv": [
+      "unsigned long long", "address"
+    ],
+    "ritual_ZN21QGrpcOperationContext6d_funcEv": ["address", "address"],
+    "ritual_ZNK21QGrpcOperationContext6d_funcEv": ["address", "address"],
+    "ritual_ZN21QGrpcOperationContext5eventEP6QEvent": [
+      "bool", "address", "address"
+    ]
+  }
+}

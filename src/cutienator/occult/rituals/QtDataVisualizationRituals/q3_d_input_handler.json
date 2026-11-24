@@ -1,0 +1,58 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDataVisualization/q3dinputhandler.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK15Q3DInputHandler10metaObjectEv": ["address", "address"],
+    "ritual_ZN15Q3DInputHandler2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN15Q3DInputHandlerC1EP7QObject": ["address", "address"],
+    "ritual_ZN15Q3DInputHandlerD1Ev": ["nothing", "address"],
+    "ritual_ZN15Q3DInputHandler18setRotationEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK15Q3DInputHandler17isRotationEnabledEv": ["bool", "address"],
+    "ritual_ZN15Q3DInputHandler14setZoomEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK15Q3DInputHandler13isZoomEnabledEv": ["bool", "address"],
+    "ritual_ZN15Q3DInputHandler19setSelectionEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK15Q3DInputHandler18isSelectionEnabledEv": ["bool", "address"],
+    "ritual_ZN15Q3DInputHandler22setZoomAtTargetEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK15Q3DInputHandler21isZoomAtTargetEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN15Q3DInputHandler15mousePressEventEP11QMouseEventRK6QPoint": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN15Q3DInputHandler17mouseReleaseEventEP11QMouseEventRK6QPoint": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN15Q3DInputHandler14mouseMoveEventEP11QMouseEventRK6QPoint": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN15Q3DInputHandler10wheelEventEP11QWheelEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_Q3DInputHandler": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN15Q3DInputHandler15mousePressEventEP11QMouseEventRK6QPoint": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN15Q3DInputHandler17mouseReleaseEventEP11QMouseEventRK6QPoint": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN15Q3DInputHandler14mouseMoveEventEP11QMouseEventRK6QPoint": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN15Q3DInputHandler10wheelEventEP11QWheelEvent": [
+      "nothing", "address", "address"
+    ]
+  }
+}

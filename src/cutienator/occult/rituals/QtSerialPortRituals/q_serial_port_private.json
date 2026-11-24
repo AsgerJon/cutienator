@@ -1,0 +1,46 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSerialPort/6.12.0/QtSerialPort/private/qserialport_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QSerialPortPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK18QSerialPortPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN18QSerialPortPrivateC1Ev": ["address"],
+    "ritual_ZN18QSerialPortPrivate8setErrorERK20QSerialPortErrorInfo": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QSerialPortPrivate16setBindableErrorEN11QSerialPort15SerialPortErrorE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18QSerialPortPrivate19setBindableDataBitsEN11QSerialPort8DataBitsE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN18QSerialPortPrivate17setBindableParityEN11QSerialPort6ParityE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN18QSerialPortPrivate19setBindableStopBitsEN11QSerialPort8StopBitsE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN18QSerialPortPrivate22setBindableFlowControlEN11QSerialPort11FlowControlE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN18QSerialPortPrivate23setBindableBreakEnabledEb": [
+      "bool", "address", "bool"
+    ],
+    "ritual_ZNK18QSerialPortPrivate25isReadNotificationEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK18QSerialPortPrivate26isWriteNotificationEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN18QSerialPortPrivate11writeToPortEPKcx": [
+      "long long", "address", "chars", "long long"
+    ],
+    "ritual_ZN18QSerialPortPrivate15handleExceptionEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QSerialPortPrivate": ["bool", "address", "chars", "address"]
+  }
+}

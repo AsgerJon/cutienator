@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGrpc/6.12.0/QtGrpc/private/qgrpcoperation_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN21QGrpcOperationPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK21QGrpcOperationPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN21QGrpcOperationPrivate3getEPK14QGrpcOperation": [
+      "address", "address"
+    ],
+    "ritual_ZN21QGrpcOperationPrivate3getEP14QGrpcOperation": [
+      "address", "address"
+    ]
+  }
+}

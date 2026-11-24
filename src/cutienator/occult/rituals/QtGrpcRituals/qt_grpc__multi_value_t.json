@@ -1,0 +1,10 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGrpc/qtgrpcnamespace.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN6QtGrpc12MultiValue_tC1Ev": ["address"],
+    "ritual_ZN6QtGrpc12MultiValue_tD1Ev": ["nothing", "address"]
+  }
+}

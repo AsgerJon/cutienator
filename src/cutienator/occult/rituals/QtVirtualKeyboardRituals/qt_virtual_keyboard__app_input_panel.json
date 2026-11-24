@@ -1,0 +1,33 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtVirtu",
+    "alKeyboard/6.12.0/QtVirtualKeyboard/private/appinputpanel_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QtVirtualKeyboard13AppInputPanel10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard13AppInputPanel2trEPKcS2_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QtVirtualKeyboard13AppInputPanel6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK17QtVirtualKeyboard13AppInputPanel6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_take_QtVirtualKeyboard_AppInputPanel": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN17QtVirtualKeyboard13AppInputPanel4showEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN17QtVirtualKeyboard13AppInputPanel4hideEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZNK17QtVirtualKeyboard13AppInputPanel9isVisibleEv": [
+      "bool", "address"
+    ]
+  }
+}

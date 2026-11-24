@@ -1,0 +1,30 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGrpc/qgrpcoperation.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK14QGrpcOperation10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QGrpcOperation2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN14QGrpcOperationD1Ev": ["nothing", "address"],
+    "ritual_ZNK14QGrpcOperation4readEP16QProtobufMessage": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK14QGrpcOperation6methodEv": ["address", "address"],
+    "ritual_ZNK14QGrpcOperation10isFinishedEv": ["bool", "address"],
+    "ritual_ZNK14QGrpcOperation16responseMetaTypeEv": ["address", "address"],
+    "ritual_ZN14QGrpcOperation6cancelEv": ["nothing", "address"],
+    "ritual_ZN14QGrpcOperation10writesDoneEv": ["nothing", "address"],
+    "ritual_ZN14QGrpcOperation6d_funcEv": ["address", "address"],
+    "ritual_ZNK14QGrpcOperation6d_funcEv": ["address", "address"],
+    "ritual_ZN14QGrpcOperation5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_take_QGrpcOperation": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN14QGrpcOperation5eventEP6QEvent": [
+      "bool", "address", "address"
+    ]
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSensors/qsensor.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN13QSensorFilter6filterEP14QSensorReading": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN13QSensorFilterD1Ev": ["nothing", "address"],
+    "ritual_ZN13QSensorFilter9setSensorEP7QSensor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QSensorFilter": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN13QSensorFilter9setSensorEP7QSensor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_list_make_QSensorFilter_ptr": ["address"],
+    "ritual_list_add_QSensorFilter_ptr": ["nothing", "address", "address"],
+    "ritual_list_size_QSensorFilter_ptr": ["long long", "address"],
+    "ritual_list_at_QSensorFilter_ptr": ["address", "address", "long long"],
+    "ritual_list_drop_QSensorFilter_ptr": ["nothing", "address"]
+  }
+}

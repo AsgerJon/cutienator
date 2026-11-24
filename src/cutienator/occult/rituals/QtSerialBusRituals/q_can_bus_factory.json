@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSerialBus/qcanbusfactory.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK14QCanBusFactory12createDeviceERK7QStringPS0_": [
+      "address", "address", "text", "address"
+    ],
+    "ritual_ZNK14QCanBusFactory16availableDevicesEP7QString": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN14QCanBusFactoryD1Ev": ["nothing", "address"],
+    "ritual_take_QCanBusFactory": ["bool", "address", "chars", "address"]
+  }
+}

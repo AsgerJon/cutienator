@@ -1,0 +1,36 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWaylandCompositor/qwaylandxdgshell.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK16QWaylandXdgPopup10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QWaylandXdgPopup2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZNK16QWaylandXdgPopup10xdgSurfaceEv": ["address", "address"],
+    "ritual_ZNK16QWaylandXdgPopup16parentXdgSurfaceEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK16QWaylandXdgPopup18configuredGeometryEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK16QWaylandXdgPopup10anchorRectEv": ["address", "address"],
+    "ritual_ZNK16QWaylandXdgPopup11anchorEdgesEv": ["int", "address"],
+    "ritual_ZNK16QWaylandXdgPopup12gravityEdgesEv": ["int", "address"],
+    "ritual_ZNK16QWaylandXdgPopup16slideConstraintsEv": ["int", "address"],
+    "ritual_ZNK16QWaylandXdgPopup15flipConstraintsEv": ["int", "address"],
+    "ritual_ZNK16QWaylandXdgPopup17resizeConstraintsEv": ["int", "address"],
+    "ritual_ZNK16QWaylandXdgPopup6offsetEv": ["address", "address"],
+    "ritual_ZNK16QWaylandXdgPopup14positionerSizeEv": ["address", "address"],
+    "ritual_ZNK16QWaylandXdgPopup21unconstrainedPositionEv": [
+      "address", "address"
+    ],
+    "ritual_ZN16QWaylandXdgPopup13sendConfigureERK5QRect": [
+      "unsigned int", "address", "address"
+    ],
+    "ritual_ZN16QWaylandXdgPopup13sendPopupDoneEv": ["nothing", "address"],
+    "ritual_ZN16QWaylandXdgPopup4roleEv": ["address"]
+  }
+}

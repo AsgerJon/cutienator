@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWaylandCompositor/qwaylandviewporter.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18QWaylandViewporter10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QWaylandViewporter2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18QWaylandViewporterC1Ev": ["address"],
+    "ritual_ZN18QWaylandViewporterC1EP18QWaylandCompositor": [
+      "address", "address"
+    ],
+    "ritual_ZN18QWaylandViewporter10initializeEv": ["nothing", "address"],
+    "ritual_take_QWaylandViewporter": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN18QWaylandViewporter10initializeEv": ["nothing", "address"]
+  }
+}

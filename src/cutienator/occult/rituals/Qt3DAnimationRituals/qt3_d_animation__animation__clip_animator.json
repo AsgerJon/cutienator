@@ -1,0 +1,57 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DAnimation/6.12.0/Qt3DAnimation/private/clipanimator_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK13Qt3DAnimation9Animation12ClipAnimator6clipIdEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation9Animation12ClipAnimator8mapperIdEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation9Animation12ClipAnimator7clockIdEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation9Animation12ClipAnimator9isRunningEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation12ClipAnimator8setLoopsEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK13Qt3DAnimation9Animation12ClipAnimator5loopsEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation9Animation12ClipAnimator19normalizedLocalTimeEv": [
+      "float", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation12ClipAnimator10setHandlerEPNS0_7HandlerE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation9Animation12ClipAnimator6canRunEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation12ClipAnimator12setStartTimeEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZNK13Qt3DAnimation9Animation12ClipAnimator11currentLoopEv": [
+      "int", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation12ClipAnimator14setCurrentLoopEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation12ClipAnimator13setClipFormatERKNS0_10ClipFormatE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation9Animation12ClipAnimator10clipFormatEv": [
+      "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation12ClipAnimator23lastNormalizedLocalTimeEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation9Animation12ClipAnimator9isSeekingEv": [
+      "bool", "address"
+    ]
+  }
+}

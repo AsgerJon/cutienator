@@ -1,0 +1,31 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtDataV",
+    "isualization/6.12.0/QtDataVisualization/private/q3dsurface_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17Q3DSurfacePrivate10metaObjectEv": ["address", "address"],
+    "ritual_ZN17Q3DSurfacePrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN17Q3DSurfacePrivate18handleAxisXChangedEP15QAbstract3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17Q3DSurfacePrivate18handleAxisYChangedEP15QAbstract3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17Q3DSurfacePrivate18handleAxisZChangedEP15QAbstract3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17Q3DSurfacePrivate4qptrEv": ["address", "address"],
+    "ritual_take_Q3DSurfacePrivate": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN17Q3DSurfacePrivate18handleAxisXChangedEP15QAbstract3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN17Q3DSurfacePrivate18handleAxisYChangedEP15QAbstract3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN17Q3DSurfacePrivate18handleAxisZChangedEP15QAbstract3DAxis": [
+      "nothing", "address", "address"
+    ]
+  }
+}

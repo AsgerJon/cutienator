@@ -1,0 +1,26 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSerialBus/qcanbusdeviceinfo.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN17QCanBusDeviceInfoC1ERKS_": ["address", "address"],
+    "ritual_ZN17QCanBusDeviceInfoD1Ev": ["nothing", "address"],
+    "ritual_ZNK17QCanBusDeviceInfo6pluginEv": ["text", "address"],
+    "ritual_ZNK17QCanBusDeviceInfo4nameEv": ["text", "address"],
+    "ritual_ZNK17QCanBusDeviceInfo11descriptionEv": ["text", "address"],
+    "ritual_ZNK17QCanBusDeviceInfo12serialNumberEv": ["text", "address"],
+    "ritual_ZNK17QCanBusDeviceInfo5aliasEv": ["text", "address"],
+    "ritual_ZNK17QCanBusDeviceInfo7channelEv": ["int", "address"],
+    "ritual_ZNK17QCanBusDeviceInfo19hasFlexibleDataRateEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK17QCanBusDeviceInfo9isVirtualEv": ["bool", "address"],
+    "ritual_list_make_QCanBusDeviceInfo": ["address"],
+    "ritual_list_add_QCanBusDeviceInfo": ["nothing", "address", "address"],
+    "ritual_list_size_QCanBusDeviceInfo": ["long long", "address"],
+    "ritual_list_at_QCanBusDeviceInfo": ["address", "address", "long long"],
+    "ritual_list_drop_QCanBusDeviceInfo": ["nothing", "address"]
+  }
+}

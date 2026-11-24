@@ -1,0 +1,115 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DPhysics/6.12.0/QtQuick3DPhysics/private/qdynamicrigidbody_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QDynamicRigidBody10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QDynamicRigidBody2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QDynamicRigidBodyC1Ev": ["address"],
+    "ritual_ZN17QDynamicRigidBodyD1Ev": ["nothing", "address"],
+    "ritual_ZNK17QDynamicRigidBody4massEv": ["float", "address"],
+    "ritual_ZN17QDynamicRigidBody7setMassEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK17QDynamicRigidBody7densityEv": ["float", "address"],
+    "ritual_ZN17QDynamicRigidBody10setDensityEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK17QDynamicRigidBody11isKinematicEv": ["bool", "address"],
+    "ritual_ZN17QDynamicRigidBody14setIsKinematicEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK17QDynamicRigidBody14linearAxisLockEv": ["int", "address"],
+    "ritual_ZN17QDynamicRigidBody17setLinearAxisLockENS_8AxisLockE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK17QDynamicRigidBody15angularAxisLockEv": ["int", "address"],
+    "ritual_ZN17QDynamicRigidBody18setAngularAxisLockENS_8AxisLockE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK17QDynamicRigidBody14gravityEnabledEv": ["bool", "address"],
+    "ritual_ZN17QDynamicRigidBody17setGravityEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN17QDynamicRigidBody17applyCentralForceERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QDynamicRigidBody10applyForceERK9QVector3DS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN17QDynamicRigidBody11applyTorqueERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QDynamicRigidBody19applyCentralImpulseERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QDynamicRigidBody12applyImpulseERK9QVector3DS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN17QDynamicRigidBody18applyTorqueImpulseERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QDynamicRigidBody18setAngularVelocityERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QDynamicRigidBody17setLinearVelocityERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QDynamicRigidBody5resetERK9QVector3DS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN17QDynamicRigidBody20updateDefaultDensityEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK17QDynamicRigidBody8massModeEv": ["int", "address"],
+    "ritual_ZNK17QDynamicRigidBody13inertiaTensorEv": ["address", "address"],
+    "ritual_ZN17QDynamicRigidBody16setInertiaTensorERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QDynamicRigidBody20centerOfMassPositionEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QDynamicRigidBody23setCenterOfMassPositionERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QDynamicRigidBody20centerOfMassRotationEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QDynamicRigidBody23setCenterOfMassRotationERK11QQuaternion": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QDynamicRigidBody20setKinematicPositionERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QDynamicRigidBody17kinematicPositionEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QDynamicRigidBody20setKinematicRotationERK11QQuaternion": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QDynamicRigidBody17kinematicRotationEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QDynamicRigidBody25setKinematicEulerRotationERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QDynamicRigidBody22kinematicEulerRotationEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QDynamicRigidBody17setKinematicPivotERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QDynamicRigidBody14kinematicPivotEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QDynamicRigidBody13setIsSleepingEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK17QDynamicRigidBody10isSleepingEv": ["bool", "address"],
+    "ritual_take_QDynamicRigidBody": ["bool", "address", "chars", "address"]
+  }
+}

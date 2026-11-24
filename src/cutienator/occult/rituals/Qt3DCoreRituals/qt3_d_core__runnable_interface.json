@@ -1,0 +1,29 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DCore/6.12.0/Qt3DCore/private/task_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN8Qt3DCore17RunnableInterfaceD1Ev": ["nothing", "address"],
+    "ritual_ZNK8Qt3DCore17RunnableInterface10isRequiredEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN8Qt3DCore17RunnableInterface3runEv": ["nothing", "address"],
+    "ritual_ZN8Qt3DCore17RunnableInterface2idEv": ["int", "address"],
+    "ritual_ZN8Qt3DCore17RunnableInterface5setIdEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN8Qt3DCore17RunnableInterface11setReservedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN8Qt3DCore17RunnableInterface8reservedEv": ["bool", "address"],
+    "ritual_ZN8Qt3DCore17RunnableInterface9setPoolerEPNS_13QThreadPoolerE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK8Qt3DCore17RunnableInterface4typeEv": ["int", "address"],
+    "ritual_take_Qt3DCore_RunnableInterface": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

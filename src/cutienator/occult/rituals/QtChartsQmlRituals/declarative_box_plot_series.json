@@ -1,0 +1,91 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtChart",
+    "sQml/6.12.0/QtChartsQml/private/declarativeboxplotseries_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK24DeclarativeBoxPlotSeries10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24DeclarativeBoxPlotSeries2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN24DeclarativeBoxPlotSeriesC1EP10QQuickItem": [
+      "address", "address"
+    ],
+    "ritual_ZN24DeclarativeBoxPlotSeries5axisXEv": ["address", "address"],
+    "ritual_ZN24DeclarativeBoxPlotSeries8setAxisXEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24DeclarativeBoxPlotSeries5axisYEv": ["address", "address"],
+    "ritual_ZN24DeclarativeBoxPlotSeries8setAxisYEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24DeclarativeBoxPlotSeries8axisXTopEv": ["address", "address"],
+    "ritual_ZN24DeclarativeBoxPlotSeries11setAxisXTopEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24DeclarativeBoxPlotSeries10axisYRightEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24DeclarativeBoxPlotSeries13setAxisYRightEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK24DeclarativeBoxPlotSeries13brushFilenameEv": [
+      "text", "address"
+    ],
+    "ritual_ZN24DeclarativeBoxPlotSeries16setBrushFilenameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN24DeclarativeBoxPlotSeries2atEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN24DeclarativeBoxPlotSeries6appendE7QString5QListI8QVariantE": [
+      "address", "address", "text", "address"
+    ],
+    "ritual_ZN24DeclarativeBoxPlotSeries6appendEP17DeclarativeBoxSet": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24DeclarativeBoxPlotSeries6insertEi7QString5QListI8QVariantE": [
+      "address", "address", "int", "text", "address"
+    ],
+    "ritual_ZN24DeclarativeBoxPlotSeries6removeEP17DeclarativeBoxSet": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN24DeclarativeBoxPlotSeries5clearEv": ["nothing", "address"],
+    "ritual_ZN24DeclarativeBoxPlotSeries10classBeginEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24DeclarativeBoxPlotSeries17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24DeclarativeBoxPlotSeries9onHoveredEbP7QBoxSet": [
+      "nothing", "address", "bool", "address"
+    ],
+    "ritual_ZN24DeclarativeBoxPlotSeries9onClickedEP7QBoxSet": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24DeclarativeBoxPlotSeries9onPressedEP7QBoxSet": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24DeclarativeBoxPlotSeries10onReleasedEP7QBoxSet": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24DeclarativeBoxPlotSeries15onDoubleClickedEP7QBoxSet": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24DeclarativeBoxPlotSeries18handleBrushChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_cast_DeclarativeBoxPlotSeries_QQmlParserStatus": [
+      "address", "address"
+    ],
+    "ritual_own_ZN24DeclarativeBoxPlotSeries10classBeginEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN24DeclarativeBoxPlotSeries17componentCompleteEv": [
+      "nothing", "address"
+    ]
+  }
+}

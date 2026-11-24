@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DCore/6.12.0/Qt3DCore/private/qaspectengine_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN8Qt3DCore20QAspectEnginePrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK8Qt3DCore20QAspectEnginePrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore20QAspectEnginePrivate3getEPNS_13QAspectEngineE": [
+      "address", "address"
+    ],
+    "ritual_cast_Qt3DCore_QAspectEnginePrivate_Qt3DCore_QAbstractFrontEndNodeManager": [
+      "address", "address"
+    ],
+    "ritual_take_Qt3DCore_QAspectEnginePrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK8Qt3DCore20QAspectEnginePrivate10lookupNodeENS_7QNodeIdE": [
+      "address", "address", "address"
+    ]
+  }
+}

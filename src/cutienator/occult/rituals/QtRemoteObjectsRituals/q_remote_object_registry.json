@@ -1,0 +1,37 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtRemoteObjects/qremoteobjectregistry.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK21QRemoteObjectRegistry10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QRemoteObjectRegistry2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN21QRemoteObjectRegistryD1Ev": ["nothing", "address"],
+    "ritual_ZN21QRemoteObjectRegistry17registerMetatypesEv": ["nothing"],
+    "ritual_ZNK21QRemoteObjectRegistry15sourceLocationsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QRemoteObjectRegistry22pushToRegistryIfNeededEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QRemoteObjectRegistry10initializeEv": ["nothing", "address"],
+    "ritual_ZN21QRemoteObjectRegistry28notifySourceLocationsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QRemoteObjectRegistryC1EP7QObject": ["address", "address"],
+    "ritual_ZN21QRemoteObjectRegistryC1EP17QRemoteObjectNodeRK7QStringP7QObject": [
+      "address", "address", "text", "address"
+    ],
+    "ritual_take_QRemoteObjectRegistry": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN21QRemoteObjectRegistry10initializeEv": [
+      "nothing", "address"
+    ]
+  }
+}

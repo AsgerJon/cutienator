@@ -1,0 +1,46 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DAnimation/qkeyframe.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN13Qt3DAnimation9QKeyFrameC1Ev": ["address"],
+    "ritual_ZN13Qt3DAnimation9QKeyFrameC1E9QVector2D": [
+      "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation9QKeyFrameC1E9QVector2DS1_S1_": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation9QKeyFrame14setCoordinatesE9QVector2D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation9QKeyFrame11coordinatesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation9QKeyFrame19setLeftControlPointE9QVector2D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation9QKeyFrame16leftControlPointEv": [
+      "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation9QKeyFrame20setRightControlPointE9QVector2D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation9QKeyFrame17rightControlPointEv": [
+      "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation9QKeyFrame20setInterpolationTypeENS0_17InterpolationTypeE": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZNK13Qt3DAnimation9QKeyFrame17interpolationTypeEv": [
+      "unsigned char", "address"
+    ],
+    "ritual_ZN13Qt3DAnimationeqERKNS_9QKeyFrameES2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimationneERKNS_9QKeyFrameES2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation9QKeyFrameD1Ev": ["nothing", "address"]
+  }
+}

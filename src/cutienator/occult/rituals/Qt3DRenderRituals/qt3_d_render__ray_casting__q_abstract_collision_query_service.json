@@ -1,0 +1,30 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of Qt3DRen",
+    "der/6.12.0/Qt3DRender/private/qabstractcollisionqueryservice_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK10Qt3DRender10RayCasting30QAbstractCollisionQueryService10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender10RayCasting30QAbstractCollisionQueryService2trEPKcS3_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DRender10RayCasting30QAbstractCollisionQueryService5queryERKNS0_6QRay3DENS1_9QueryModeEPNS0_23QBoundingVolumeProviderE": [
+      "int", "address", "address", "int", "address"
+    ],
+    "ritual_ZN10Qt3DRender10RayCasting30QAbstractCollisionQueryService5queryERKNS0_6QRay3DEPKNS0_15QBoundingVolumeE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender10RayCasting30QAbstractCollisionQueryService11fetchResultERKi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender10RayCasting30QAbstractCollisionQueryService6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender10RayCasting30QAbstractCollisionQueryService6d_funcEv": [
+      "address", "address"
+    ]
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSpatialAudio/qaudiolistener.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN14QAudioListenerC1EP12QAudioEngine": ["address", "address"],
+    "ritual_ZN14QAudioListenerD1Ev": ["nothing", "address"],
+    "ritual_ZN14QAudioListener11setPositionE9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QAudioListener8positionEv": ["address", "address"],
+    "ritual_ZN14QAudioListener11setRotationERK11QQuaternion": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QAudioListener8rotationEv": ["address", "address"],
+    "ritual_ZNK14QAudioListener6engineEv": ["address", "address"],
+    "ritual_take_QAudioListener": ["bool", "address", "chars", "address"]
+  }
+}

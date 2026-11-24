@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DLogic/6.12.0/Qt3DLogic/private/executor_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK9Qt3DLogic5Logic8Executor10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN9Qt3DLogic5Logic8Executor8setSceneEPN8Qt3DCore6QSceneE": [
+      "nothing", "address", "address"
+    ]
+  }
+}

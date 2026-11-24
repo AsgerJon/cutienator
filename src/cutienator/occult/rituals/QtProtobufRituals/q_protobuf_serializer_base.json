@@ -1,0 +1,33 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtProtobuf/6.12.0/QtProtobuf/private/qprotobufserializerbase_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN23QProtobufSerializerBase16serializeMessageEPK16QProtobufMessage": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QProtobufSerializerBase22isOneofOrOptionalFieldE6QFlagsIN17QtProtobufPrivate9FieldFlagEE": [
+      "bool", "int"
+    ],
+    "ritual_ZN23QProtobufSerializerBase21serializeMessageFieldEPK16QProtobufMessageRKN17QtProtobufPrivate18QProtobufFieldInfoE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN23QProtobufSerializerBase20serializeScalarFieldERK8QVariantRKN17QtProtobufPrivate18QProtobufFieldInfoE": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN23QProtobufSerializerBase26serializeMessageFieldBeginEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QProtobufSerializerBase24serializeMessageFieldEndEPK16QProtobufMessageRKN17QtProtobufPrivate18QProtobufFieldInfoE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_take_QProtobufSerializerBase": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN23QProtobufSerializerBase21serializeMessageFieldEPK16QProtobufMessageRKN17QtProtobufPrivate18QProtobufFieldInfoE": [
+      "nothing", "address", "address", "address"
+    ]
+  }
+}

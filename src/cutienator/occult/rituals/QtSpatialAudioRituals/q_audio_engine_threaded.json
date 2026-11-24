@@ -1,0 +1,25 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtSpati",
+    "alAudio/6.12.0/QtSpatialAudio/private/qaudioengine_threaded_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK20QAudioEngineThreaded8isPausedEv": ["bool", "address"],
+    "ritual_ZN20QAudioEngineThreaded15setOutputDeviceERK12QAudioDevice": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QAudioEngineThreaded12outputDeviceEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QAudioEngineThreaded8addSoundEP25QSpatialAudioSoundPrivate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QAudioEngineThreaded11removeSoundEP25QSpatialAudioSoundPrivate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QAudioEngineThreaded17updateRoomEffectsEv": [
+      "nothing", "address"
+    ]
+  }
+}

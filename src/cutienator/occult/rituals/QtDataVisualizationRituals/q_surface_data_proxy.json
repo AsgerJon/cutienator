@@ -1,0 +1,39 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDataVisualization/qsurfacedataproxy.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QSurfaceDataProxy10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QSurfaceDataProxy2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QSurfaceDataProxyC1EP7QObject": ["address", "address"],
+    "ritual_ZN17QSurfaceDataProxyD1Ev": ["nothing", "address"],
+    "ritual_ZNK17QSurfaceDataProxy6seriesEv": ["address", "address"],
+    "ritual_ZNK17QSurfaceDataProxy8rowCountEv": ["int", "address"],
+    "ritual_ZNK17QSurfaceDataProxy11columnCountEv": ["int", "address"],
+    "ritual_ZNK17QSurfaceDataProxy6itemAtEii": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZNK17QSurfaceDataProxy6itemAtERK6QPoint": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN17QSurfaceDataProxy7setItemEiiRK16QSurfaceDataItem": [
+      "nothing", "address", "int", "int", "address"
+    ],
+    "ritual_ZN17QSurfaceDataProxy7setItemERK6QPointRK16QSurfaceDataItem": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN17QSurfaceDataProxy10removeRowsEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN17QSurfaceDataProxyC1EP24QSurfaceDataProxyPrivateP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN17QSurfaceDataProxy4dptrEv": ["address", "address"],
+    "ritual_ZNK17QSurfaceDataProxy5dptrcEv": ["address", "address"],
+    "ritual_take_QSurfaceDataProxy": ["bool", "address", "chars", "address"]
+  }
+}

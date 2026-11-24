@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSerialBus/6.12.0/QtSerialBus/private/qcanframeprocessor_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN25QCanFrameProcessorPrivate11resetErrorsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QCanFrameProcessorPrivate8setErrorEN18QCanFrameProcessor5ErrorERK7QString": [
+      "nothing", "address", "unsigned char", "text"
+    ],
+    "ritual_ZN25QCanFrameProcessorPrivate10addWarningERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN25QCanFrameProcessorPrivateD1Ev": ["nothing", "address"]
+  }
+}

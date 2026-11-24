@@ -1,0 +1,46 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtVirtualKeyboard/qvirtualkeyboarddictionarymanager.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK33QVirtualKeyboardDictionaryManager10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN33QVirtualKeyboardDictionaryManager2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN33QVirtualKeyboardDictionaryManagerC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN33QVirtualKeyboardDictionaryManager8instanceEv": ["address"],
+    "ritual_ZNK33QVirtualKeyboardDictionaryManager21availableDictionariesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK33QVirtualKeyboardDictionaryManager16baseDictionariesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN33QVirtualKeyboardDictionaryManager19setBaseDictionariesERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK33QVirtualKeyboardDictionaryManager17extraDictionariesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN33QVirtualKeyboardDictionaryManager20setExtraDictionariesERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK33QVirtualKeyboardDictionaryManager18activeDictionariesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN33QVirtualKeyboardDictionaryManager16createDictionaryERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK33QVirtualKeyboardDictionaryManager10dictionaryERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_take_QVirtualKeyboardDictionaryManager": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

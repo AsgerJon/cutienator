@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSensors/qlightsensor.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK13QLightReading10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QLightReading2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN13QLightReadingC1EP7QObject": ["address", "address"],
+    "ritual_ZN13QLightReadingD1Ev": ["nothing", "address"],
+    "ritual_ZN13QLightReading14copyValuesFromEP14QSensorReading": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QLightReading3luxEv": ["double", "address"],
+    "ritual_ZN13QLightReading6setLuxEd": ["nothing", "address", "double"],
+    "ritual_take_QLightReading": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN13QLightReading14copyValuesFromEP14QSensorReading": [
+      "nothing", "address", "address"
+    ]
+  }
+}

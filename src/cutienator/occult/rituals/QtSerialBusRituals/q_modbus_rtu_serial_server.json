@@ -1,0 +1,38 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSerialBus/qmodbusrtuserialserver.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZNK22QModbusRtuSerialServer10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QModbusRtuSerialServer2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN22QModbusRtuSerialServer6d_funcEv": ["address", "address"],
+    "ritual_ZNK22QModbusRtuSerialServer6d_funcEv": ["address", "address"],
+    "ritual_ZN22QModbusRtuSerialServerC1EP7QObject": ["address", "address"],
+    "ritual_ZN22QModbusRtuSerialServerD1Ev": ["nothing", "address"],
+    "ritual_ZNK22QModbusRtuSerialServer18processesBroadcastEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK22QModbusRtuSerialServer15interFrameDelayEv": [
+      "int", "address"
+    ],
+    "ritual_ZN22QModbusRtuSerialServer18setInterFrameDelayEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN22QModbusRtuSerialServer4openEv": ["bool", "address"],
+    "ritual_ZN22QModbusRtuSerialServer5closeEv": ["nothing", "address"],
+    "ritual_take_QModbusRtuSerialServer": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK22QModbusRtuSerialServer18processesBroadcastEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZN22QModbusRtuSerialServer4openEv": ["bool", "address"],
+    "ritual_own_ZN22QModbusRtuSerialServer5closeEv": ["nothing", "address"]
+  }
+}

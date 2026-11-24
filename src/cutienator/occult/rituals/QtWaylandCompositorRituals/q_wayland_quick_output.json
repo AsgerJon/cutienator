@@ -1,0 +1,51 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWaylandCompositor/qwaylandquickoutput.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK19QWaylandQuickOutput10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QWaylandQuickOutput2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN19QWaylandQuickOutputC1Ev": ["address"],
+    "ritual_ZN19QWaylandQuickOutputC1EP18QWaylandCompositorP7QWindow": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN19QWaylandQuickOutput6updateEv": ["nothing", "address"],
+    "ritual_ZNK19QWaylandQuickOutput22automaticFrameCallbackEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN19QWaylandQuickOutput25setAutomaticFrameCallbackEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN19QWaylandQuickOutput17pickClickableItemERK7QPointF": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN19QWaylandQuickOutput13updateStartedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QWaylandQuickOutput10initializeEv": ["nothing", "address"],
+    "ritual_ZN19QWaylandQuickOutput10classBeginEv": ["nothing", "address"],
+    "ritual_ZN19QWaylandQuickOutput17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QWaylandQuickOutput16doFrameCallbacksEv": [
+      "nothing", "address"
+    ],
+    "ritual_cast_QWaylandQuickOutput_QQmlParserStatus": [
+      "address", "address"
+    ],
+    "ritual_own_ZN19QWaylandQuickOutput6updateEv": ["nothing", "address"],
+    "ritual_own_ZN19QWaylandQuickOutput10initializeEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN19QWaylandQuickOutput10classBeginEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN19QWaylandQuickOutput17componentCompleteEv": [
+      "nothing", "address"
+    ]
+  }
+}

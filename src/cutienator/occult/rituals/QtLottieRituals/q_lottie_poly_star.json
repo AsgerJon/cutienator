@@ -1,0 +1,45 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLottie/6.12.0/QtLottie/private/qlottiepolystar_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15QLottiePolyStarC1ERKS_": ["address", "address"],
+    "ritual_ZN15QLottiePolyStarC1EP11QLottieBase": ["address", "address"],
+    "ritual_ZNK15QLottiePolyStar5cloneEv": ["address", "address"],
+    "ritual_ZN15QLottiePolyStar5parseERK11QJsonObject": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN15QLottiePolyStar16updatePropertiesEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QLottiePolyStar11acceptsTrimEv": ["bool", "address"],
+    "ritual_ZNK15QLottiePolyStar8positionEv": ["address", "address"],
+    "ritual_ZNK15QLottiePolyStar11outerRadiusEv": ["double", "address"],
+    "ritual_ZNK15QLottiePolyStar11innerRadiusEv": ["double", "address"],
+    "ritual_ZNK15QLottiePolyStar10startAngleEv": ["double", "address"],
+    "ritual_ZNK15QLottiePolyStar10pointCountEv": ["int", "address"],
+    "ritual_ZNK15QLottiePolyStar20isPolygonModeEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK15QLottiePolyStar10isAnimatedEv": ["bool", "address"],
+    "ritual_ZNK15QLottiePolyStar16positionPropertyEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK15QLottiePolyStar12fallbackPathEv": ["address", "address"],
+    "ritual_ZN15QLottiePolyStar9buildPathEv": ["nothing", "address"],
+    "ritual_ZN15QLottiePolyStarD1Ev": ["nothing", "address"],
+    "ritual_take_QLottiePolyStar": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK15QLottiePolyStar5cloneEv": ["address", "address"],
+    "ritual_own_ZN15QLottiePolyStar5parseERK11QJsonObject": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZN15QLottiePolyStar16updatePropertiesEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZNK15QLottiePolyStar11acceptsTrimEv": ["bool", "address"],
+    "ritual_own_ZNK15QLottiePolyStar10isAnimatedEv": ["bool", "address"],
+    "ritual_own_ZNK15QLottiePolyStar12fallbackPathEv": ["address", "address"]
+  }
+}

@@ -29,6 +29,7 @@ class EnumGenerator:
 
     generator = EnumGenerator()
     generator.setDependencyTree(tree)
+    generator.setPartName('QtCore')
     generator.setEnumName('Qt::AlignmentFlag')
     generator.getNestedLines()    # the lines of 'class AlignmentFlag'
 
@@ -97,6 +98,7 @@ class EnumGenerator:
   #  Private Variables
   __dependency_tree__ = None  # type: Optional[DependencyTree]
   __enum_name__ = None  # type: Optional[str]
+  __part_name__ = None  # type: Optional[str]
   __work_folder__ = None  # type: Optional[str]
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -132,11 +134,24 @@ class EnumGenerator:
     ValueError
       The tree holds no enum of that name with names in it.
     """
-    return self.getDependencyTree().getEnumRecord(self.getEnumName())
+    return self.getDependencyTree().getEnumRecord(
+        self.getEnumName(), self.getPartName())
 
   def getPartName(self) -> str:
-    """Gives the part of Qt the enum is written in, as 'QtCore'."""
-    return self.getEnumRecord()['partName']
+    """
+    Gives the part of Qt the enum is written in, as 'QtCore'; every
+    name the generator meets is seen from it, as 'DependencyTree' has
+    it. Provided by you, through 'setPartName'.
+
+    Raises
+    ------
+
+    MissingVariable
+      'setPartName' has not been called.
+    """
+    if self.__part_name__ is None:
+      raise MissingVariable(self, '__part_name__', str)
+    return self.__part_name__
 
   def getOwnerName(self) -> str:
     """
@@ -159,7 +174,7 @@ class EnumGenerator:
     Qt declares such a name as 'QFlags' of the enum.
     """
     wanted = 'QFlags<%s>' % self.getEnumName()
-    aliasTypes = self.getDependencyTree().getAliasTypes()
+    aliasTypes = self.getDependencyTree().getAliasTypes(self.getPartName())
     for aliasName in sorted(aliasTypes):
       if aliasTypes[aliasName] == wanted:
         return aliasName
@@ -186,7 +201,7 @@ class EnumGenerator:
       system, as 'long'.
     """
     enumName = self.getEnumName()
-    fixedTypes = self.getDependencyTree().getEnumTypes()
+    fixedTypes = self.getDependencyTree().getEnumTypes(self.getPartName())
     if enumName in fixedTypes:
       numberName = fixedTypes[enumName][1]
       if numberName not in self.__number_layouts__:
@@ -350,6 +365,21 @@ class EnumGenerator:
     if not isinstance(enumName, str):
       raise TypeException('enumName', enumName, str)
     self.__enum_name__ = enumName
+
+  def setPartName(self, partName: str) -> None:
+    """
+    Tells the generator which part of Qt the enum is written in, as
+    'QtCore': two parts may each write an enum by one name.
+
+    Raises
+    ------
+
+    TypeException
+      'partName' is not text.
+    """
+    if not isinstance(partName, str):
+      raise TypeException('partName', partName, str)
+    self.__part_name__ = partName
 
   def setWorkFolder(self, workFolder: str) -> None:
     """

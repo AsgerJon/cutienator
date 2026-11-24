@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DRender/6.12.0/Qt3DRender/private/qframegraphnode_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN10Qt3DRender22QFrameGraphNodePrivate3getEPNS_15QFrameGraphNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender22QFrameGraphNodePrivate3getEPKNS_15QFrameGraphNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender22QFrameGraphNodePrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender22QFrameGraphNodePrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_take_Qt3DRender_QFrameGraphNodePrivate": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

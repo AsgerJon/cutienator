@@ -1,0 +1,37 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSensors/qaccelerometer.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK21QAccelerometerReading10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QAccelerometerReading2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN21QAccelerometerReadingC1EP7QObject": ["address", "address"],
+    "ritual_ZN21QAccelerometerReadingD1Ev": ["nothing", "address"],
+    "ritual_ZN21QAccelerometerReading14copyValuesFromEP14QSensorReading": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21QAccelerometerReading1xEv": ["double", "address"],
+    "ritual_ZN21QAccelerometerReading4setXEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK21QAccelerometerReading1yEv": ["double", "address"],
+    "ritual_ZN21QAccelerometerReading4setYEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK21QAccelerometerReading1zEv": ["double", "address"],
+    "ritual_ZN21QAccelerometerReading4setZEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_take_QAccelerometerReading": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN21QAccelerometerReading14copyValuesFromEP14QSensorReading": [
+      "nothing", "address", "address"
+    ]
+  }
+}

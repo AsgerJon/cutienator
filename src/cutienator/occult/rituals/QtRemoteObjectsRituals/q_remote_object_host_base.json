@@ -1,0 +1,49 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtRemoteObjects/qremoteobjectnode.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZNK21QRemoteObjectHostBase10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QRemoteObjectHostBase2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN21QRemoteObjectHostBaseD1Ev": ["nothing", "address"],
+    "ritual_ZN21QRemoteObjectHostBase7setNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN21QRemoteObjectHostBase14enableRemotingEP7QObjectRK7QString": [
+      "bool", "address", "address", "text"
+    ],
+    "ritual_ZN21QRemoteObjectHostBase15disableRemotingEP7QObject": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN21QRemoteObjectHostBase21addHostSideConnectionEP9QIODevice": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21QRemoteObjectHostBase7hostUrlEv": ["address", "address"],
+    "ritual_ZN21QRemoteObjectHostBase10setHostUrlERK4QUrlNS_14AllowedSchemasE": [
+      "bool", "address", "address", "int"
+    ],
+    "ritual_ZN21QRemoteObjectHostBase14enableRemotingEP7QObjectPK12SourceApiMapS1_": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZN21QRemoteObjectHostBase6d_funcEv": ["address", "address"],
+    "ritual_ZNK21QRemoteObjectHostBase6d_funcEv": ["address", "address"],
+    "ritual_take_QRemoteObjectHostBase": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN21QRemoteObjectHostBase7setNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_own_ZNK21QRemoteObjectHostBase7hostUrlEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN21QRemoteObjectHostBase10setHostUrlERK4QUrlNS_14AllowedSchemasE": [
+      "bool", "address", "address", "int"
+    ]
+  }
+}

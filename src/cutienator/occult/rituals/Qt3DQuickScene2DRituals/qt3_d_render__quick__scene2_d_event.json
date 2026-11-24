@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DQuickScene2D/6.12.0/Qt3DQuickScene2D/private/scene2devent_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN10Qt3DRender5Quick12Scene2DEventC1ENS1_4TypeE": [
+      "address", "int"
+    ],
+    "ritual_ZN10Qt3DRender5Quick12Scene2DEventD1Ev": ["nothing", "address"],
+    "ritual_take_Qt3DRender_Quick_Scene2DEvent": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

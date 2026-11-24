@@ -1,0 +1,33 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSerialBus/qmodbusdeviceidentification.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN27QModbusDeviceIdentificationC1Ev": ["address"],
+    "ritual_ZNK27QModbusDeviceIdentification7isValidEv": ["bool", "address"],
+    "ritual_ZN27QModbusDeviceIdentification6removeEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZNK27QModbusDeviceIdentification8containsEj": [
+      "bool", "address", "unsigned int"
+    ],
+    "ritual_ZN27QModbusDeviceIdentification6insertEjRK10QByteArray": [
+      "bool", "address", "unsigned int", "address"
+    ],
+    "ritual_ZNK27QModbusDeviceIdentification5valueEj": [
+      "address", "address", "unsigned int"
+    ],
+    "ritual_ZNK27QModbusDeviceIdentification15conformityLevelEv": [
+      "int", "address"
+    ],
+    "ritual_ZN27QModbusDeviceIdentification18setConformityLevelENS_15ConformityLevelE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN27QModbusDeviceIdentification13fromByteArrayERK10QByteArray": [
+      "address", "address"
+    ],
+    "ritual_ZN27QModbusDeviceIdentificationD1Ev": ["nothing", "address"]
+  }
+}

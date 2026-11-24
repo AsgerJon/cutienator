@@ -1,0 +1,26 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWaylandCompositor/qwaylandcompositorextension.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK14QWaylandObject10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QWaylandObject2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN14QWaylandObjectD1Ev": ["nothing", "address"],
+    "ritual_ZN14QWaylandObject9extensionERK10QByteArray": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK14QWaylandObject10extensionsEv": ["address", "address"],
+    "ritual_ZN14QWaylandObject12addExtensionEP27QWaylandCompositorExtension": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QWaylandObject15removeExtensionEP27QWaylandCompositorExtension": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QWaylandObjectC1EP7QObject": ["address", "address"],
+    "ritual_take_QWaylandObject": ["bool", "address", "chars", "address"]
+  }
+}

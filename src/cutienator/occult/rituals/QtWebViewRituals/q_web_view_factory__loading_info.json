@@ -1,0 +1,13 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWebView/6.12.0/QtWebView/private/qwebviewfactory_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15QWebViewFactory11LoadingInfo6createERK4QUrlN19QWebViewLoadingInfo10LoadStatusERK7QString": [
+      "address", "address", "int", "text"
+    ],
+    "ritual_ZN15QWebViewFactory11LoadingInfoD1Ev": ["nothing", "address"]
+  }
+}

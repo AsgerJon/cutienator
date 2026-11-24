@@ -1,0 +1,70 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWaylandCompositor/qwaylandsurface.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK15QWaylandSurface10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QWaylandSurface2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN15QWaylandSurface24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QWaylandSurfaceC1Ev": ["address"],
+    "ritual_ZN15QWaylandSurfaceC1EP18QWaylandCompositorP14QWaylandClientji": [
+      "address", "address", "address", "unsigned int", "int"
+    ],
+    "ritual_ZN15QWaylandSurfaceD1Ev": ["nothing", "address"],
+    "ritual_ZN15QWaylandSurface10initializeEP18QWaylandCompositorP14QWaylandClientji": [
+      "nothing", "address", "address", "address", "unsigned int", "int"
+    ],
+    "ritual_ZNK15QWaylandSurface13isInitializedEv": ["bool", "address"],
+    "ritual_ZNK15QWaylandSurface6clientEv": ["address", "address"],
+    "ritual_ZNK15QWaylandSurface4roleEv": ["address", "address"],
+    "ritual_ZNK15QWaylandSurface10hasContentEv": ["bool", "address"],
+    "ritual_ZNK15QWaylandSurface14sourceGeometryEv": ["address", "address"],
+    "ritual_ZNK15QWaylandSurface15destinationSizeEv": ["address", "address"],
+    "ritual_ZNK15QWaylandSurface10bufferSizeEv": ["address", "address"],
+    "ritual_ZNK15QWaylandSurface11bufferScaleEv": ["int", "address"],
+    "ritual_ZNK15QWaylandSurface18contentOrientationEv": ["int", "address"],
+    "ritual_ZNK15QWaylandSurface6originEv": ["int", "address"],
+    "ritual_ZNK15QWaylandSurface10compositorEv": ["address", "address"],
+    "ritual_ZNK15QWaylandSurface19inputRegionContainsERK6QPoint": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK15QWaylandSurface19inputRegionContainsERK7QPointF": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN15QWaylandSurface7destroyEv": ["nothing", "address"],
+    "ritual_ZNK15QWaylandSurface11isDestroyedEv": ["bool", "address"],
+    "ritual_ZN15QWaylandSurface12frameStartedEv": ["nothing", "address"],
+    "ritual_ZN15QWaylandSurface18sendFrameCallbacksEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK15QWaylandSurface11primaryViewEv": ["address", "address"],
+    "ritual_ZN15QWaylandSurface14setPrimaryViewEP12QWaylandView": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QWaylandSurface5viewsEv": ["address", "address"],
+    "ritual_ZN15QWaylandSurface19markAsCursorSurfaceEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK15QWaylandSurface15isCursorSurfaceEv": ["bool", "address"],
+    "ritual_ZNK15QWaylandSurface12inhibitsIdleEv": ["bool", "address"],
+    "ritual_ZNK15QWaylandSurface8isOpaqueEv": ["bool", "address"],
+    "ritual_ZNK15QWaylandSurface18inputMethodControlEv": [
+      "address", "address"
+    ],
+    "ritual_ZN15QWaylandSurface15updateSelectionEv": ["nothing", "address"],
+    "ritual_take_QWaylandSurface": ["bool", "address", "chars", "address"],
+    "ritual_list_make_QWaylandSurface_ptr": ["address"],
+    "ritual_list_add_QWaylandSurface_ptr": ["nothing", "address", "address"],
+    "ritual_list_size_QWaylandSurface_ptr": ["long long", "address"],
+    "ritual_list_at_QWaylandSurface_ptr": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_QWaylandSurface_ptr": ["nothing", "address"]
+  }
+}

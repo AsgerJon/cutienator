@@ -1,0 +1,56 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtDataV",
+    "isualization/6.12.0/QtDataVisualization/private/qabstract3daxis_p.",
+    "h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK22QAbstract3DAxisPrivate10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QAbstract3DAxisPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN22QAbstract3DAxisPrivate14setOrientationEN15QAbstract3DAxis15AxisOrientationE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN22QAbstract3DAxisPrivate13isDefaultAxisEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN22QAbstract3DAxisPrivate14setDefaultAxisEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN22QAbstract3DAxisPrivate8setRangeEffb": [
+      "nothing", "address", "float", "float", "bool"
+    ],
+    "ritual_ZN22QAbstract3DAxisPrivate6setMinEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN22QAbstract3DAxisPrivate6setMaxEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN22QAbstract3DAxisPrivate12updateLabelsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QAbstract3DAxisPrivate9allowZeroEv": ["bool", "address"],
+    "ritual_ZN22QAbstract3DAxisPrivate14allowNegativesEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN22QAbstract3DAxisPrivate15allowMinMaxSameEv": [
+      "bool", "address"
+    ],
+    "ritual_take_QAbstract3DAxisPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN22QAbstract3DAxisPrivate8setRangeEffb": [
+      "nothing", "address", "float", "float", "bool"
+    ],
+    "ritual_own_ZN22QAbstract3DAxisPrivate6setMinEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_own_ZN22QAbstract3DAxisPrivate6setMaxEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_own_ZN22QAbstract3DAxisPrivate12updateLabelsEv": [
+      "nothing", "address"
+    ]
+  }
+}

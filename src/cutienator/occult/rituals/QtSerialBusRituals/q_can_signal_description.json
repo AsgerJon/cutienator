@@ -1,0 +1,101 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSerialBus/qcansignaldescription.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZN21QCanSignalDescriptionC1Ev": ["address"],
+    "ritual_ZN21QCanSignalDescriptionC1ERKS_": ["address", "address"],
+    "ritual_ZN21QCanSignalDescriptionD1Ev": ["nothing", "address"],
+    "ritual_ZNK21QCanSignalDescription7isValidEv": ["bool", "address"],
+    "ritual_ZNK21QCanSignalDescription4nameEv": ["text", "address"],
+    "ritual_ZN21QCanSignalDescription7setNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK21QCanSignalDescription12physicalUnitEv": ["text", "address"],
+    "ritual_ZN21QCanSignalDescription15setPhysicalUnitERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK21QCanSignalDescription8receiverEv": ["text", "address"],
+    "ritual_ZN21QCanSignalDescription11setReceiverERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK21QCanSignalDescription7commentEv": ["text", "address"],
+    "ritual_ZN21QCanSignalDescription10setCommentERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK21QCanSignalDescription10dataSourceEv": [
+      "unsigned char", "address"
+    ],
+    "ritual_ZN21QCanSignalDescription13setDataSourceEN8QtCanBus10DataSourceE": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZNK21QCanSignalDescription10dataEndianEv": ["int", "address"],
+    "ritual_ZN21QCanSignalDescription13setDataEndianEN8QSysInfo6EndianE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK21QCanSignalDescription10dataFormatEv": [
+      "unsigned char", "address"
+    ],
+    "ritual_ZN21QCanSignalDescription13setDataFormatEN8QtCanBus10DataFormatE": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZNK21QCanSignalDescription8startBitEv": [
+      "unsigned short", "address"
+    ],
+    "ritual_ZN21QCanSignalDescription11setStartBitEt": [
+      "nothing", "address", "unsigned short"
+    ],
+    "ritual_ZNK21QCanSignalDescription9bitLengthEv": [
+      "unsigned short", "address"
+    ],
+    "ritual_ZN21QCanSignalDescription12setBitLengthEt": [
+      "nothing", "address", "unsigned short"
+    ],
+    "ritual_ZNK21QCanSignalDescription6factorEv": ["double", "address"],
+    "ritual_ZN21QCanSignalDescription9setFactorEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK21QCanSignalDescription6offsetEv": ["double", "address"],
+    "ritual_ZN21QCanSignalDescription9setOffsetEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK21QCanSignalDescription7scalingEv": ["double", "address"],
+    "ritual_ZN21QCanSignalDescription10setScalingEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK21QCanSignalDescription7minimumEv": ["double", "address"],
+    "ritual_ZNK21QCanSignalDescription7maximumEv": ["double", "address"],
+    "ritual_ZN21QCanSignalDescription8setRangeEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZNK21QCanSignalDescription14multiplexStateEv": [
+      "unsigned char", "address"
+    ],
+    "ritual_ZN21QCanSignalDescription17setMultiplexStateEN8QtCanBus14MultiplexStateE": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZN21QCanSignalDescription21clearMultiplexSignalsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QCanSignalDescription18addMultiplexSignalERK7QStringRK8QVariant": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_Zls6QDebugRK21QCanSignalDescription": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN21QCanSignalDescription14debugStreamingE6QDebugRKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_list_make_QCanSignalDescription": ["address"],
+    "ritual_list_add_QCanSignalDescription": [
+      "nothing", "address", "address"
+    ],
+    "ritual_list_size_QCanSignalDescription": ["long long", "address"],
+    "ritual_list_at_QCanSignalDescription": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_QCanSignalDescription": ["nothing", "address"]
+  }
+}

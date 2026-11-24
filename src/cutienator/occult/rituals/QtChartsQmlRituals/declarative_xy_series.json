@@ -1,0 +1,39 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtChartsQml/6.12.0/QtChartsQml/private/declarativexyseries_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19DeclarativeXySeriesD1Ev": ["nothing", "address"],
+    "ritual_ZN19DeclarativeXySeries10classBeginEv": ["nothing", "address"],
+    "ritual_ZN19DeclarativeXySeries17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19DeclarativeXySeries8xySeriesEv": ["address", "address"],
+    "ritual_ZN19DeclarativeXySeries6appendEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN19DeclarativeXySeries7replaceEdddd": [
+      "nothing", "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZN19DeclarativeXySeries7replaceEidd": [
+      "nothing", "address", "int", "double", "double"
+    ],
+    "ritual_ZN19DeclarativeXySeries6removeEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN19DeclarativeXySeries6removeEi": ["nothing", "address", "int"],
+    "ritual_ZN19DeclarativeXySeries12removePointsEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN19DeclarativeXySeries6insertEidd": [
+      "nothing", "address", "int", "double", "double"
+    ],
+    "ritual_ZN19DeclarativeXySeries5clearEv": ["nothing", "address"],
+    "ritual_ZN19DeclarativeXySeries2atEi": ["address", "address", "int"],
+    "ritual_take_DeclarativeXySeries": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

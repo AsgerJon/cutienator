@@ -1,0 +1,28 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWaylandCompositor/qwaylandoutputmode.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QWaylandOutputModeC1Ev": ["address"],
+    "ritual_ZN18QWaylandOutputModeC1ERK5QSizei": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN18QWaylandOutputModeC1ERKS_": ["address", "address"],
+    "ritual_ZN18QWaylandOutputModeD1Ev": ["nothing", "address"],
+    "ritual_ZNK18QWaylandOutputModeeqERKS_": ["bool", "address", "address"],
+    "ritual_ZNK18QWaylandOutputModeneERKS_": ["bool", "address", "address"],
+    "ritual_ZNK18QWaylandOutputMode7isValidEv": ["bool", "address"],
+    "ritual_ZNK18QWaylandOutputMode4sizeEv": ["address", "address"],
+    "ritual_ZNK18QWaylandOutputMode11refreshRateEv": ["int", "address"],
+    "ritual_ZN18QWaylandOutputMode7setSizeERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_list_make_QWaylandOutputMode": ["address"],
+    "ritual_list_add_QWaylandOutputMode": ["nothing", "address", "address"],
+    "ritual_list_size_QWaylandOutputMode": ["long long", "address"],
+    "ritual_list_at_QWaylandOutputMode": ["address", "address", "long long"],
+    "ritual_list_drop_QWaylandOutputMode": ["nothing", "address"]
+  }
+}

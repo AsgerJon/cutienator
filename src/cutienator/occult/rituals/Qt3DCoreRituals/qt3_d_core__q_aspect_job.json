@@ -1,0 +1,23 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DCore/qaspectjob.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN8Qt3DCore10QAspectJobD1Ev": ["nothing", "address"],
+    "ritual_ZN8Qt3DCore10QAspectJob3runEv": ["nothing", "address"],
+    "ritual_ZN8Qt3DCore10QAspectJob9postFrameEPNS_13QAspectEngineE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore10QAspectJob10isRequiredEv": ["bool", "address"],
+    "ritual_ZN8Qt3DCore10QAspectJob6d_funcEv": ["address", "address"],
+    "ritual_ZNK8Qt3DCore10QAspectJob6d_funcEv": ["address", "address"],
+    "ritual_take_Qt3DCore_QAspectJob": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN8Qt3DCore10QAspectJob9postFrameEPNS_13QAspectEngineE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN8Qt3DCore10QAspectJob10isRequiredEv": ["bool", "address"]
+  }
+}

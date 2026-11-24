@@ -1,0 +1,20 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWebView/6.12.0/QtWebView/private/qwebviewplugin_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK14QWebViewPlugin10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QWebViewPlugin2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN14QWebViewPluginD1Ev": ["nothing", "address"],
+    "ritual_ZNK14QWebViewPlugin6createERK7QStringP8QWebViewN15QWebViewFactory4HintE": [
+      "address", "address", "text", "address", "int"
+    ],
+    "ritual_ZNK14QWebViewPlugin7prepareEv": ["nothing", "address"],
+    "ritual_take_QWebViewPlugin": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK14QWebViewPlugin7prepareEv": ["nothing", "address"]
+  }
+}

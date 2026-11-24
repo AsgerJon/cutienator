@@ -1,0 +1,25 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DCore/6.12.0/Qt3DCore/private/qdownloadhelperservice_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN8Qt3DCore16QDownloadRequestD1Ev": ["nothing", "address"],
+    "ritual_ZNK8Qt3DCore16QDownloadRequest3urlEv": ["address", "address"],
+    "ritual_ZNK8Qt3DCore16QDownloadRequest9succeededEv": ["bool", "address"],
+    "ritual_ZNK8Qt3DCore16QDownloadRequest9cancelledEv": ["bool", "address"],
+    "ritual_ZN8Qt3DCore16QDownloadRequest12onDownloadedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN8Qt3DCore16QDownloadRequest11onCompletedEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_Qt3DCore_QDownloadRequest": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN8Qt3DCore16QDownloadRequest12onDownloadedEv": [
+      "nothing", "address"
+    ]
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtDataV",
+    "isualization/6.12.0/QtDataVisualization/private/qvalue3daxisformat",
+    "ter_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK28QValue3DAxisFormatterPrivate10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QValue3DAxisFormatterPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN28QValue3DAxisFormatterPrivate11recalculateEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QValue3DAxisFormatterPrivate13doRecalculateEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QValue3DAxisFormatterPrivate14stringForValueEdRK7QString": [
+      "text", "address", "double", "text"
+    ],
+    "ritual_ZNK28QValue3DAxisFormatterPrivate10positionAtEf": [
+      "float", "address", "float"
+    ],
+    "ritual_ZNK28QValue3DAxisFormatterPrivate7valueAtEf": [
+      "float", "address", "float"
+    ],
+    "ritual_take_QValue3DAxisFormatterPrivate": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

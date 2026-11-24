@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DInput/6.12.0/Qt3DInput/private/qaction_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN9Qt3DInput14QActionPrivateC1Ev": ["address"],
+    "ritual_ZN9Qt3DInput14QActionPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK9Qt3DInput14QActionPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN9Qt3DInput14QActionPrivate9setActiveEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_take_Qt3DInput_QActionPrivate": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

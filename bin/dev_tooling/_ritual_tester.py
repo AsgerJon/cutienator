@@ -218,7 +218,21 @@ class RitualTester:
     include = os.path.join(folder, 'include')
     version = HeaderReader.getQtVersion()
     found = [include]
-    for name in sorted(os.listdir(include)):
+    #  The parts in the order of the alphabet, as the generator reads
+    #  them; for a part of 'HeaderReader.getOwnOrderParts' in the order
+    #  it sees them, its own first: the compiler takes the first file
+    #  it finds by a name, and two parts may each have one, as
+    #  'private/qabstractseries_p.h' of QtCharts and of QtGraphs.
+    generator = self.getRitualGenerator()
+    order = ()  # type: Tuple[str, ...]
+    if generator.getPartName() in HeaderReader.getOwnOrderParts():
+      order = generator.getDependencyTree().getPartOrder(
+          generator.getPartName())
+    names = sorted(os.listdir(include))
+    names = [
+        *(name for name in order if name in names),
+        *(name for name in names if name not in order)]
+    for name in names:
       versioned = os.path.join(include, name, version)
       if os.path.isdir(os.path.join(versioned, name)):
         found.append(os.path.join(include, name))
@@ -232,9 +246,13 @@ class RitualTester:
     """
     Gives, for each '#if' condition, whether it holds for the installed
     Qt: its preprocessor reads every one once, after the header files
-    of each part that answer them, the public and the private one, and
-    says which lines it kept. The answers are kept for every
-    'RitualTester'.
+    that answer them, the public and the private one, of the part of
+    the class, of every part it needs, and of every part whose switch
+    a condition asks, and says which lines it kept. The answers are
+    kept for every 'RitualTester'.
+
+    Those parts only: a header file of a part sees no other, and Qt
+    refuses some parts in one file, as QtGraphs with QtCharts.
 
     Raises
     ------
@@ -245,11 +263,29 @@ class RitualTester:
     kept = self.__held_conditions__
     asked = sorted(c for c in conditions if c not in kept)
     if asked:
-      tree = self.getRitualGenerator().getDependencyTree()
+      generator = self.getRitualGenerator()
+      tree = generator.getDependencyTree()
+      held = {reader.getPartName() for reader in tree.getHeaderReaders()}
+      wanted, at = [generator.getPartName()], 0
+      while at < len(wanted):
+        try:
+          needs = HeaderFolder.getPartNeeds(wanted[at])
+        except LookupError:
+          needs = ()
+        wanted.extend(need for need in needs if need not in wanted)
+        at += 1
+      wanted.reverse()
+      folder = HeaderReader.getHeaderFolder()
+      for condition in asked:
+        for switch in re.findall(r'QT_CONFIG\((\w+)\)', condition):
+          owner = folder.getSwitchOwner(switch)
+          if owner is not None and owner[0] not in wanted:
+            wanted.append(owner[0])
       lines = []  # type: List[str]
       version = HeaderReader.getQtVersion()
-      for reader in tree.getHeaderReaders():
-        partName = reader.getPartName()
+      for partName in wanted:
+        if partName not in held:
+          continue
         lines.append('#include <%s/%s>' % (
             partName, HeaderFolder.getGlobalHeader(partName)))
         if not HeaderFolder.getPrivateGlobalHeader(partName):
@@ -355,10 +391,14 @@ class RitualTester:
       '-o' with the path of the target file;
       '-Wl,-rpath,' with the folder of the installed Qt's shared
       objects, so the target file finds them there;
-      the installed Qt's shared object of each part of the tree.
+      the installed Qt's shared object of each part of the tree, in
+      the order the part of the class sees them, its own first: a name
+      two parts offer, as a function of QtGraphs' 'QBarSeries' and of
+      QtCharts' one, is found in the first.
     """
     generator = self.getRitualGenerator()
-    headerReaders = generator.getDependencyTree().getHeaderReaders()
+    tree = generator.getDependencyTree()
+    partNames = tree.getPartOrder(generator.getPartName())
     library = os.path.join(self.getInstalledFolder(), 'lib')
     return (
         'clang++', '-std=c++17', '-shared', '-fPIC', '-O2',
@@ -370,8 +410,8 @@ class RitualTester:
         '-o', self.getTargetFile(),
         '-Wl,-rpath,%s' % library,
         *(path for path in (
-            os.path.join(library, 'lib%s.so.6' % reader.getPartName(
-                ).replace('Qt', 'Qt6', 1)) for reader in headerReaders)
+            os.path.join(library, 'lib%s.so.6' % partName.replace(
+                'Qt', 'Qt6', 1)) for partName in partNames)
           #  A part that is header files alone, as QtQmlIntegration,
           #  has no shared object.
           if os.path.isfile(path)),
@@ -612,8 +652,9 @@ class RitualTester:
     the destructor the compiler writes for it, under the name the
     compiler gives a destructor, as '_ZN5QSizeD1Ev' for 'QSize'.
     """
-    tree = self.getRitualGenerator().getDependencyTree()
-    record = tree.getClassRecord(className)
+    generator = self.getRitualGenerator()
+    tree, partName = generator.getDependencyTree(), generator.getPartName()
+    record = tree.getClassRecord(className, partName)
     count, compilerNames = 0, set()  # type: int, Set[str]
     declaresDestructor = False
     for member in record.get('inner', ()):
@@ -640,7 +681,9 @@ class RitualTester:
         declaresDestructor = True
       if 'mangledName' in member:
         compilerNames.add(member['mangledName'])
-    if not declaresDestructor and className in tree.getCopyableNames():
+    copyable = tree.getClassKey(className, partName) in (
+        tree.getCopyableNames())
+    if not declaresDestructor and copyable:
       count += 1
       words = className.split('::')
       lengths = ''.join('%d%s' % (len(word), word) for word in words)

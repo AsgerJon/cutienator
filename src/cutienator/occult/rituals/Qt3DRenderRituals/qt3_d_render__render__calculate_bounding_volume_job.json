@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DRender/6.12.0/Qt3DRender/private/calcboundingvolumejob_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_cast_Qt3DRender_Render_CalculateBoundingVolumeJob_Qt3DCore_BoundingVolumeJobProcessor": [
+      "address", "address"
+    ],
+    "ritual_own_ZN10Qt3DRender6Render26CalculateBoundingVolumeJob3runEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN10Qt3DRender6Render26CalculateBoundingVolumeJob9postFrameEPN8Qt3DCore13QAspectEngineE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN10Qt3DRender6Render26CalculateBoundingVolumeJob7processERKN8Qt3DCore27BoundingVolumeComputeResultEb": [
+      "nothing", "address", "address", "bool"
+    ]
+  }
+}

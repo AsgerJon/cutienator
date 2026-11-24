@@ -44,8 +44,9 @@ class ClassGenerator:
 
     generator = ClassGenerator()
     generator.setDependencyTree(tree)
+    generator.setPartName('QtCore')
     generator.setClassName('QSize')
-    generator.setCuteNames('QSize', 'QPoint')   # the cute classes
+    generator.setCuteNames(('QtCore', 'QSize'), ('QtCore', 'QPoint'))
     generator.setWorkFolder('/some/folder/cutienator')
     generator.write()        # writes '.../cutienator/QtCore/_q_size.py'
     generator.getFunctions()    # the functions of that class
@@ -69,11 +70,14 @@ class ClassGenerator:
   -----------
 
   - 'setDependencyTree': the tree of the parts of Qt. Required.
+  - 'setPartName': the part of Qt the class is under, as 'QtCore'.
+    Required. Every name the generator meets is seen from that part,
+    as 'DependencyTree' has it.
   - 'setClassName': the class of Qt to write the cute class of.
     Required.
   - 'setCuteNames': every class of Qt that has, or is about to get, a
-    cute class. A function naming any other class is left out.
-    Required.
+    cute class, each by its part and its name. A function naming any
+    other class is left out. Required.
   - 'setWorkFolder': the folder of the package 'cutienator'. The file
     goes into the folder of its part of Qt there. Required before
     'write' only.
@@ -325,8 +329,9 @@ class ClassGenerator:
   #  Private Variables
   __dependency_tree__ = None  # type: Optional[DependencyTree]
   __class_name__ = None  # type: Optional[str]
+  __part_name__ = None  # type: Optional[str]
   __work_folder__ = None  # type: Optional[str]
-  __cute_names__ = None  # type: Optional[Names]
+  __cute_names__ = None  # type: Optional[Tuple[Tuple[str, str], ...]]
   __ritual_generators__ = None  # type: Optional[Dict[str, Any]]
   __made_functions__ = None  # type: Optional[Records]
   __left_out__ = None  # type: Optional[Reasons]
@@ -388,9 +393,10 @@ class ClassGenerator:
       raise MissingVariable(self, '__work_folder__', str)
     return self.__work_folder__
 
-  def getCuteNames(self) -> Names:
+  def getCuteNames(self) -> Tuple[Tuple[str, str], ...]:
     """
-    Gives every class of Qt that has, or is about to get, a cute class.
+    Gives every class of Qt that has, or is about to get, a cute class,
+    each by its part and its name, as ('QtCore', 'QSize').
 
     Provided by you, through 'setCuteNames'.
 
@@ -403,6 +409,33 @@ class ClassGenerator:
     if self.__cute_names__ is None:
       raise MissingVariable(self, '__cute_names__', tuple)
     return self.__cute_names__
+
+  def _keyOf(self, className: str) -> Tuple[str, str]:
+    """
+    Gives the class a name stands for, seen from the part of the class
+    being written, by its key, as ('QtCore', 'QObject').
+
+    Raises
+    ------
+
+    LookupError
+      The tree has no class of that name.
+    """
+    tree = self.getDependencyTree()
+    return tree.getClassKey(className, self.getPartName())
+
+  def _isCute(self, className: str) -> bool:
+    """Says whether a name, seen from the part of the class being
+    written, stands for a class that has, or is about to get, a cute
+    class."""
+    try:
+      classKey = self._keyOf(className)
+    except LookupError:
+      return False
+    return classKey in self.__cute_keys__
+
+  #  The same classes as 'getCuteNames', to look them up.
+  __cute_keys__ = frozenset()
 
   def getPythonName(self, className: Optional[str] = None) -> str:
     """
@@ -441,6 +474,7 @@ class ClassGenerator:
       for innerName in self.getInnerNames():
         generator = type(self)()
         generator.setDependencyTree(self.getDependencyTree())
+        generator.setPartName(self.getPartName())
         generator.setClassName(innerName)
         generator.setCuteNames(*self.getCuteNames())
         generators.append(generator)
@@ -469,18 +503,28 @@ class ClassGenerator:
     cute class, in alphabetical order. The cute class holds each under
     its own name.
     """
-    className = self.getClassName()
+    className, partName = self.getClassName(), self.getPartName()
     return (*sorted(
-        name for name in self.getCuteNames()
-        if self.getOwnerName(name) == className),)
+        name for part, name in self.getCuteNames()
+        if part == partName and self.getOwnerName(name) == className),)
 
   def getPartName(self, className: Optional[str] = None) -> str:
     """
-    Gives the part of Qt a class belongs to, as 'QtCore': that of the
-    class being written when none is named.
+    Gives the part of Qt a class belongs to, as 'QtCore', the class
+    seen from the part of the class being written: that part itself
+    when none is named, provided by you through 'setPartName'.
+
+    Raises
+    ------
+
+    MissingVariable
+      'setPartName' has not been called.
     """
-    className = className or self.getClassName()
-    return self.getDependencyTree().getPartName(className)
+    if self.__part_name__ is None:
+      raise MissingVariable(self, '__part_name__', str)
+    if className is None:
+      return self.__part_name__
+    return self._keyOf(className)[0]
 
   def getFileStem(self, className: Optional[str] = None) -> str:
     """
@@ -518,15 +562,16 @@ class ClassGenerator:
     RitualGenerator
       With the tree and the class set, and no work folder.
     """
-    className = className or self.getClassName()
+    classKey = self._keyOf(className or self.getClassName())
     if self.__ritual_generators__ is None:
       self.__ritual_generators__ = dict()
-    if className not in self.__ritual_generators__:
+    if classKey not in self.__ritual_generators__:
       generator = RitualGenerator()
       generator.setDependencyTree(self.getDependencyTree())
-      generator.setClassName(className)
-      self.__ritual_generators__[className] = generator
-    return self.__ritual_generators__[className]
+      generator.setPartName(classKey[0])
+      generator.setClassName(classKey[1])
+      self.__ritual_generators__[classKey] = generator
+    return self.__ritual_generators__[classKey]
 
   def getBaseName(self) -> Optional[str]:
     """
@@ -534,8 +579,9 @@ class ClassGenerator:
     first class the Qt class is built on, when that has a cute class.
     Gives None for a class built on no such class.
     """
-    parents = self.getDependencyTree().getParents(self.getClassName())
-    if not parents or parents[0] not in self.getCuteNames():
+    parents = self.getDependencyTree().getParents(
+        self.getClassName(), self.getPartName())
+    if not parents or not self._isCute(parents[0]):
       return None
     if '::' in parents[0] or not self._isMadeBefore(parents[0]):
       return None
@@ -544,7 +590,8 @@ class ClassGenerator:
   def getUnreflectedParents(self) -> Names:
     """Gives the classes the Qt class is built on that the cute class
     is not built on."""
-    parents = self.getDependencyTree().getParents(self.getClassName())
+    parents = self.getDependencyTree().getParents(
+        self.getClassName(), self.getPartName())
     reflected = (self.getBaseName(), *self.getFurtherBaseNames())
     return (*(p for p in parents if p not in reflected),)
 
@@ -557,8 +604,10 @@ class ClassGenerator:
     """
     tree, className = self.getDependencyTree(), self.getClassName()
     generators = []
-    for enumName in tree.getEnumRecordNames():
-      if tree.getEnumRecord(enumName)['ownerName'] != className:
+    for partName, enumName in tree.getEnumRecordNames():
+      if partName != self.getPartName():
+        continue
+      if tree.getEnumRecord(enumName, partName)['ownerName'] != className:
         continue
       generator = self._getEnumGenerator(enumName)
       if generator.findRefusal() is None:
@@ -681,7 +730,29 @@ class ClassGenerator:
     self.__class_name__ = className
     self._forget()
 
-  def setCuteNames(self, *cuteNames: str) -> None:
+  def setPartName(self, partName: str) -> None:
+    """
+    Tells the generator which part of Qt the class is under, as
+    'QtGraphs' for its 'QBarSeries'. Every name the generator meets is
+    seen from that part, as 'DependencyTree' has it.
+
+    Required. Calling it again forgets what was decided before.
+
+    Raises
+    ------
+
+    TypeException
+      'partName' is not text.
+    """
+    if not isinstance(partName, str):
+      raise TypeException('partName', partName, str)
+    self.__part_name__ = partName
+    self.__ritual_generators__ = None
+    self.__inner_generators__ = None
+    self.__part_names__ = None
+    self._forget()
+
+  def setCuteNames(self, *cuteKeys: Tuple[str, str]) -> None:
     """
     Tells the generator which classes of Qt have, or are about to get,
     a cute class.
@@ -693,19 +764,23 @@ class ClassGenerator:
     Parameters
     ----------
 
-    *cuteNames : str
-      The classes, by the names the dependency tree has them under.
+    *cuteKeys : Tuple[str, str]
+      The classes, each by its part and the name the dependency tree
+      has it under, as ('QtCore', 'QSize').
 
     Raises
     ------
 
     TypeException
-      One of them is not text.
+      One of them is not a pair of texts.
     """
-    for cuteName in cuteNames:
-      if not isinstance(cuteName, str):
-        raise TypeException('cuteName', cuteName, str)
-    self.__cute_names__ = (*cuteNames,)
+    for cuteKey in cuteKeys:
+      if not isinstance(cuteKey, tuple) or len(cuteKey) != 2 or not all(
+          isinstance(one, str) for one in cuteKey):
+        raise TypeException('cuteKey', cuteKey, tuple)
+    self.__cute_names__ = (*cuteKeys,)
+    self.__cute_keys__ = frozenset(cuteKeys)
+    self.__part_names__ = None
     self._forget()
 
   def setWorkFolder(self, workFolder: str) -> None:
@@ -752,6 +827,7 @@ class ClassGenerator:
     unset = [
         setter for setter, value in (
             ('setDependencyTree', self.__dependency_tree__),
+            ('setPartName', self.__part_name__),
             ('setClassName', self.__class_name__),
             ('setCuteNames', self.__cute_names__),
         ) if value is None
@@ -776,6 +852,13 @@ class ClassGenerator:
     it writes into set when that is known."""
     generator = EnumGenerator()
     generator.setDependencyTree(self.getDependencyTree())
+    #  The enum as seen from the part of the class being written.
+    try:
+      enumPart = self.getDependencyTree().getEnumRecord(
+          enumName, self.getPartName())['partName']
+    except ValueError:
+      enumPart = self.getPartName()
+    generator.setPartName(enumPart)
     generator.setEnumName(enumName)
     if self.__work_folder__ is not None:
       generator.setWorkFolder(self.__work_folder__)
@@ -791,8 +874,8 @@ class ClassGenerator:
     """
     tree, className = self.getDependencyTree(), self.getClassName()
     order = self.__part_order__
-    here = order.index(tree.getPartName(className))
-    there = order.index(tree.getPartName(otherName))
+    here = order.index(self.getPartName())
+    there = order.index(self.getPartName(otherName))
     if there != here:
       return True if there < here else False
     #  A class written inside another is made right before the
@@ -801,7 +884,8 @@ class ClassGenerator:
     if mine == theirs:
       return len(otherName) > len(className)
     makeOrder = tree.getMakeOrder()
-    return makeOrder.index(theirs) < makeOrder.index(mine)
+    return makeOrder.index(self._keyOf(theirs)) < makeOrder.index(
+        self._keyOf(mine))
 
   def getFurtherBaseNames(self) -> Names:
     """
@@ -811,10 +895,11 @@ class ClassGenerator:
     names the ritual that gives where that part of an object is; see
     'RitualGenerator.getFurtherBases'.
     """
-    parents = self.getDependencyTree().getParents(self.getClassName())
+    parents = self.getDependencyTree().getParents(
+        self.getClassName(), self.getPartName())
     return (*(
         parent for parent in parents[1:]
-        if parent in self.getCuteNames() and '::' not in parent
+        if self._isCute(parent) and '::' not in parent
         and self._isMadeBefore(parent)
     ),)
 
@@ -825,17 +910,17 @@ class ClassGenerator:
     Their files are brought in with the file being written whatever it
     names, so naming them costs nothing.
     """
-    tree, cuteNames = self.getDependencyTree(), self.getCuteNames()
+    tree, partName = self.getDependencyTree(), self.getPartName()
     builtOn = [*filter(None, (self.getBaseName(),))]
     builtOn.extend(self.getFurtherBaseNames())
     for name in builtOn:
-      for parent in tree.getParents(name):
-        if parent in cuteNames and '::' not in parent:
+      for parent in tree.getParents(name, partName):
+        if self._isCute(parent) and '::' not in parent:
           if parent not in builtOn:
             builtOn.append(parent)
     return (*builtOn,)
 
-  def _getPartNames(self) -> Names:
+  def _getPartNames(self) -> Tuple[Tuple[str, str], ...]:
     """
     Gives every class of Qt that some cute class is built on after its
     first, and every class those are built on: the classes whose part
@@ -847,16 +932,23 @@ class ClassGenerator:
     class is taken is handed over as the address of that part.
     """
     if self.__part_names__ is None:
-      tree, cuteNames = self.getDependencyTree(), self.getCuteNames()
-      found = []  # type: List[str]
-      for className in cuteNames:
-        for parent in tree.getParents(className)[1:]:
-          if parent in cuteNames and parent not in found:
-            found.append(parent)
-      for name in found:
-        for parent in tree.getParents(name):
-          if parent in cuteNames and parent not in found:
-            found.append(parent)
+      tree, cuteKeys = self.getDependencyTree(), self.__cute_keys__
+      found = []  # type: List[Tuple[str, str]]
+
+      def take(parents: Names, partName: str) -> None:
+        """Takes those of the classes, as C++ writes them, that have a
+        cute class, seen from the part."""
+        for parent in parents:
+          if not tree.hasClass(parent, partName):
+            continue
+          parentKey = tree.getClassKey(parent, partName)
+          if parentKey in cuteKeys and parentKey not in found:
+            found.append(parentKey)
+
+      for partName, className in self.getCuteNames():
+        take(tree.getParents(className, partName)[1:], partName)
+      for partName, name in found:
+        take(tree.getParents(name, partName), partName)
       self.__part_names__ = (*found,)
     return self.__part_names__
 
@@ -1019,7 +1111,7 @@ class ClassGenerator:
       return dict(
           entry='THIS', name=name, late=False, bring='', hint='',
           holder=name)
-    if otherName not in self.getCuteNames():
+    if not self._isCute(otherName):
       return None
     mine, theirs = className.split('::')[0], otherName.split('::')[0]
     if className.startswith('%s::' % otherName):
@@ -1058,7 +1150,7 @@ class ClassGenerator:
       '%s' and cannot be named from here"""
       return ' '.join((infoSpec % (otherName, mine)).split())
     for depth in range(1, otherName.count('::') + 1):
-      if '::'.join(otherName.split('::')[:depth]) not in self.getCuteNames():
+      if not self._isCute('::'.join(otherName.split('::')[:depth])):
         return None
     #  A class written inside another class is reached through that
     #  class, as Qt writes it, so the file of that class is brought in.
@@ -1095,7 +1187,7 @@ class ClassGenerator:
     """
     tree = self.getDependencyTree()
     try:
-      record = tree.getEnumRecord(enumName)
+      record = tree.getEnumRecord(enumName, self.getPartName())
     except ValueError:
       return None
     generator = self._getEnumGenerator(enumName)
@@ -1117,7 +1209,7 @@ class ClassGenerator:
       return dict(entry=entry, shown=entry, owner='', generator=generator)
     if not record['insideClass']:
       return None
-    if ownerName not in self.getCuteNames():
+    if not self._isCute(ownerName):
       return None
     className = self.getClassName()
     if ownerName.split('::')[0] == className.split('::')[0]:
@@ -1146,11 +1238,12 @@ class ClassGenerator:
     """
     tree, name = self.getDependencyTree(), referenced.get('name')
     enumName = referenced.get('type', dict()).get('qualType', '')
-    className = self.getClassName()
-    for scope in ('', className, *tree.getAncestors(className)):
+    className, partName = self.getClassName(), self.getPartName()
+    ancestors = [n for _, n in tree.getAncestors(className, partName)]
+    for scope in ('', className, *ancestors):
       fullName = '%s::%s' % (scope, enumName) if scope else enumName
       try:
-        members = tree.getEnumRecord(fullName)['members']
+        members = tree.getEnumRecord(fullName, partName)['members']
       except ValueError:
         continue
       for memberName, number in members:
@@ -1158,8 +1251,8 @@ class ClassGenerator:
           return number
     #  An enum without a name of its own is in no list of enums. Its
     #  names are found in the record of the class that writes it.
-    for scope in (className, *tree.getAncestors(className)):
-      for child in tree.getClassRecord(scope).get('inner', ()):
+    for scope in (className, *ancestors):
+      for child in tree.getClassRecord(scope, partName).get('inner', ()):
         if child.get('kind') != 'EnumDecl' or child.get('name'):
           continue
         collected = DependencyTree._collectEnumMembers(child)
@@ -1237,8 +1330,9 @@ class ClassGenerator:
         #  another one asks here again, and finds what is there so far.
         numbers = dict()
         kept['found'] = numbers
-        for className in self.getCuteNames():
-          for child in tree.getClassRecord(className).get('inner', ()):
+        for partName, className in self.getCuteNames():
+          record = tree.getClassRecord(className, partName)
+          for child in record.get('inner', ()):
             if child.get('kind') != 'VarDecl':
               continue
             if not child.get('constexpr', False):
@@ -1569,7 +1663,11 @@ class ClassGenerator:
     """Says whether Python can own a C++ object of a class: whether
     C++ can copy it, and a ritual removes it."""
     tree = self.getDependencyTree()
-    if className not in tree.getCopyableNames():
+    try:
+      classKey = self._keyOf(className)
+    except LookupError:
+      return False
+    if classKey not in tree.getCopyableNames():
       return False
     for plan in self.getRitualGenerator(className).getWritten():
       if plan['kind'] == 'destructor':
@@ -1581,7 +1679,8 @@ class ClassGenerator:
     tree, className = self.getDependencyTree(), self.getClassName()
     if className == self.__application_name__:
       return True
-    return self.__application_name__ in tree.getAncestors(className)
+    ancestors = tree.getAncestors(className, self.getPartName())
+    return self.__application_name__ in [n for _, n in ancestors]
 
   def getDeleteRitual(self) -> Optional[str]:
     """
@@ -1710,7 +1809,9 @@ class ClassGenerator:
         return "names '%s', which has no cute class yet" % pointed
       #  A class other classes are built on beside another is named, so
       #  that the address is that of its part of the object.
-      part = ", '%s'" % pointed if pointed in self._getPartNames() else ''
+      isPart = self._isCute(pointed) and (
+          self._keyOf(pointed) in self._getPartNames())
+      part = ", '%s'" % pointed if isPart else ''
       if kind == 'address':
         passed = '%s._addressOf(%s%s)' % (helper, name, part)
         words = 'Passed on as the address of its C++ object.'
@@ -2077,10 +2178,10 @@ class ClassGenerator:
       one = className if one == 'THIS' else one
       another = className if another == 'THIS' else another
       try:
-        ancestors = tree.getAncestors(one)
+        ancestors = tree.getAncestors(one, self.getPartName())
       except LookupError:
         return False
-      if another not in ancestors:
+      if another not in [n for _, n in ancestors]:
         return False
     return True
 
@@ -2245,13 +2346,13 @@ class ClassGenerator:
     """Says who wrote the file, from what, and that it is written
     anew."""
     tree, className = self.getDependencyTree(), self.getClassName()
-    headerPath = tree.getHeaderPath(className)
+    headerPath = tree.getHeaderPath(className, self.getPartName())
     relative = os.path.relpath(headerPath, HeaderReader.getQtHeaderFolder())
     infoSpec = """Written by dev_tooling.ClassGenerator from the records
     of %s, Qt %s. Changes made here are lost."""
     info = infoSpec % (relative, HeaderReader.getQtVersion())
     lines = self._wrapWords(info, '#  ')
-    headerReader = tree.getHeaderReader(className)
+    headerReader = tree.getHeaderReader(className, self.getPartName())
     if headerReader.hasPrivate():
       if headerPath.startswith(headerReader.getPrivateFolder()):
         infoSpec = """Qt means %s to be private: it declares the
@@ -2481,7 +2582,8 @@ class ClassGenerator:
       expected.append(infoSpec % className)
     tree = self.getDependencyTree()
     watched = self.__watched_name__
-    if className == watched or watched in tree.getAncestors(className):
+    ancestors = tree.getAncestors(className, self.getPartName())
+    if className == watched or watched in [n for _, n in ancestors]:
       infoSpec = """Qt tells when it has removed the C++ %s. Every call
       on the cute object, and every use of it as an argument, then
       raises 'RuntimeError', and nothing reaches C++."""
@@ -2884,7 +2986,8 @@ class ClassGenerator:
       place = function['operator']['selfIndex']
       passed = [*passed[:place], function['selfPassed'], *passed[place:]]
     leading = ''
-    if kind == 'method' and self.getClassName() in self._getPartNames():
+    ownKey = (self.getPartName(), self.getClassName())
+    if kind == 'method' and ownKey in self._getPartNames():
       #  The object may be of a class built on this one beside another,
       #  whose part of this class begins inside the object. The ritual
       #  is handed the address of that part.
@@ -2974,15 +3077,14 @@ class ClassGenerator:
     """
     if how in ('number', 'nothing', 'text'):
       return ''
-    tree, cuteNames = self.getDependencyTree(), self.getCuteNames()
     #  The combinations of an enum are values of the class of the enum.
     listed = how in ('enum', 'flags')
     holder = what.rpartition('::')[0] if listed else what
-    if holder not in cuteNames and holder != 'Qt':
+    if not self._isCute(holder) and holder != 'Qt':
       return None
-    if not listed and what not in cuteNames:
+    if not listed and not self._isCute(what):
       return None
-    partName = 'QtCore' if holder == 'Qt' else tree.getPartName(
+    partName = 'QtCore' if holder == 'Qt' else self.getPartName(
         holder.split('::')[0])
     return '%s:%s' % (partName, what.replace('::', '.'))
 

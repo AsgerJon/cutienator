@@ -1,0 +1,33 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSensorsQuick/6.12.0/QtSensorsQuick/private/qmlsensorrange_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK20QmlSensorOutputRange10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QmlSensorOutputRange2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN20QmlSensorOutputRange24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QmlSensorOutputRangeC1EP7QObject": ["address", "address"],
+    "ritual_ZN20QmlSensorOutputRangeD1Ev": ["nothing", "address"],
+    "ritual_ZNK20QmlSensorOutputRange7minimumEv": ["double", "address"],
+    "ritual_ZN20QmlSensorOutputRange10setMinimumEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK20QmlSensorOutputRange7maximumEv": ["double", "address"],
+    "ritual_ZN20QmlSensorOutputRange10setMaximumEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK20QmlSensorOutputRange8accuracyEv": ["double", "address"],
+    "ritual_ZN20QmlSensorOutputRange11setAccuracyEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_take_QmlSensorOutputRange": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

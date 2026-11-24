@@ -1,0 +1,31 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtSenso",
+    "rsQuick/6.12.0/QtSensorsQuick/private/qmlpressuresensor_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18QmlPressureReading10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QmlPressureReading2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18QmlPressureReading24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QmlPressureReadingC1EP15QPressureSensor": [
+      "address", "address"
+    ],
+    "ritual_ZN18QmlPressureReadingD1Ev": ["nothing", "address"],
+    "ritual_ZNK18QmlPressureReading8pressureEv": ["double", "address"],
+    "ritual_ZNK18QmlPressureReading11temperatureEv": ["double", "address"],
+    "ritual_ZNK18QmlPressureReading7readingEv": ["address", "address"],
+    "ritual_ZN18QmlPressureReading13readingUpdateEv": ["nothing", "address"],
+    "ritual_take_QmlPressureReading": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK18QmlPressureReading7readingEv": ["address", "address"],
+    "ritual_own_ZN18QmlPressureReading13readingUpdateEv": [
+      "nothing", "address"
+    ]
+  }
+}

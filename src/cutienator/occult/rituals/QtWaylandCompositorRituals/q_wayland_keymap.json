@@ -1,0 +1,39 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWaylandCompositor/qwaylandkeymap.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZNK14QWaylandKeymap10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QWaylandKeymap2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN14QWaylandKeymap6d_funcEv": ["address", "address"],
+    "ritual_ZNK14QWaylandKeymap6d_funcEv": ["address", "address"],
+    "ritual_ZN14QWaylandKeymapC1ERK7QStringS2_S2_S2_S2_P7QObject": [
+      "address", "text", "text", "text", "text", "text", "address"
+    ],
+    "ritual_ZNK14QWaylandKeymap6layoutEv": ["text", "address"],
+    "ritual_ZN14QWaylandKeymap9setLayoutERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK14QWaylandKeymap7variantEv": ["text", "address"],
+    "ritual_ZN14QWaylandKeymap10setVariantERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK14QWaylandKeymap7optionsEv": ["text", "address"],
+    "ritual_ZN14QWaylandKeymap10setOptionsERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK14QWaylandKeymap5rulesEv": ["text", "address"],
+    "ritual_ZN14QWaylandKeymap8setRulesERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK14QWaylandKeymap5modelEv": ["text", "address"],
+    "ritual_ZN14QWaylandKeymap8setModelERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_take_QWaylandKeymap": ["bool", "address", "chars", "address"]
+  }
+}

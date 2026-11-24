@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DCore/qabstractskeleton.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK8Qt3DCore17QAbstractSkeleton10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore17QAbstractSkeleton2trEPKcS2_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN8Qt3DCore17QAbstractSkeleton6d_funcEv": ["address", "address"],
+    "ritual_ZNK8Qt3DCore17QAbstractSkeleton6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_take_Qt3DCore_QAbstractSkeleton": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

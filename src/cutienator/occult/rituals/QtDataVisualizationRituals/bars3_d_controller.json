@@ -1,0 +1,168 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtDataV",
+    "isualization/6.12.0/QtDataVisualization/private/bars3dcontroller_p",
+    ".h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK16Bars3DController10metaObjectEv": ["address", "address"],
+    "ritual_ZN16Bars3DController2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN16Bars3DControllerC1E5QRectP8Q3DScene": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN16Bars3DControllerD1Ev": ["nothing", "address"],
+    "ritual_ZN16Bars3DController16initializeOpenGLEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16Bars3DController19synchDataToRendererEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16Bars3DController21setMultiSeriesScalingEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK16Bars3DController18multiSeriesScalingEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN16Bars3DController11setBarSpecsEfRK6QSizeFb": [
+      "nothing", "address", "float", "address", "bool"
+    ],
+    "ritual_ZN16Bars3DController18setBarSeriesMarginERK6QSizeF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16Bars3DController15barSeriesMarginEv": ["address", "address"],
+    "ritual_ZN16Bars3DController10barSpacingEv": ["address", "address"],
+    "ritual_ZN16Bars3DController17isBarSpecRelativeEv": ["bool", "address"],
+    "ritual_ZN16Bars3DController13setFloorLevelEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK16Bars3DController10floorLevelEv": ["float", "address"],
+    "ritual_ZNK16Bars3DController14selectedSeriesEv": ["address", "address"],
+    "ritual_ZN16Bars3DController16setSelectionModeE6QFlagsIN16QAbstract3DGraph13SelectionFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16Bars3DController14setSelectedBarERK6QPointP12QBar3DSeriesb": [
+      "nothing", "address", "address", "address", "bool"
+    ],
+    "ritual_ZN16Bars3DController14clearSelectionEv": ["nothing", "address"],
+    "ritual_ZN16Bars3DController45handleAxisAutoAdjustRangeChangedInOrientationEN15QAbstract3DAxis15AxisOrientationEb": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZN16Bars3DController37handleSeriesVisibilityChangedBySenderEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16Bars3DController18handlePendingClickEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16Bars3DController24invalidSelectionPositionEv": ["address"],
+    "ritual_ZN16Bars3DController8setAxisXEP15QAbstract3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16Bars3DController8setAxisZEP15QAbstract3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16Bars3DController16setPrimarySeriesEP12QBar3DSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16Bars3DController13primarySeriesEv": ["address", "address"],
+    "ritual_ZN16Bars3DController9addSeriesEP17QAbstract3DSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16Bars3DController12removeSeriesEP17QAbstract3DSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16Bars3DController12insertSeriesEiP17QAbstract3DSeries": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN16Bars3DController13barSeriesListEv": ["address", "address"],
+    "ritual_ZN16Bars3DController30handleAxisRangeChangedBySenderEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16Bars3DController16adjustAxisRangesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16Bars3DController16handleArrayResetEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16Bars3DController15handleRowsAddedEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN16Bars3DController17handleRowsChangedEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN16Bars3DController17handleRowsRemovedEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN16Bars3DController18handleRowsInsertedEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN16Bars3DController17handleItemChangedEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN16Bars3DController26handleDataRowLabelsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16Bars3DController29handleDataColumnLabelsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16Bars3DController22handleRowColorsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16Bars3DController17createDefaultAxisEN15QAbstract3DAxis15AxisOrientationE": [
+      "address", "address", "int"
+    ],
+    "ritual_take_Bars3DController": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN16Bars3DController16initializeOpenGLEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN16Bars3DController19synchDataToRendererEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN16Bars3DController16setSelectionModeE6QFlagsIN16QAbstract3DGraph13SelectionFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN16Bars3DController14clearSelectionEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN16Bars3DController45handleAxisAutoAdjustRangeChangedInOrientationEN15QAbstract3DAxis15AxisOrientationEb": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_own_ZN16Bars3DController37handleSeriesVisibilityChangedBySenderEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16Bars3DController18handlePendingClickEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN16Bars3DController8setAxisXEP15QAbstract3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16Bars3DController8setAxisZEP15QAbstract3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16Bars3DController16setPrimarySeriesEP12QBar3DSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK16Bars3DController13primarySeriesEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN16Bars3DController9addSeriesEP17QAbstract3DSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16Bars3DController12removeSeriesEP17QAbstract3DSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16Bars3DController12insertSeriesEiP17QAbstract3DSeries": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZN16Bars3DController30handleAxisRangeChangedBySenderEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16Bars3DController16adjustAxisRangesEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN16Bars3DController17createDefaultAxisEN15QAbstract3DAxis15AxisOrientationE": [
+      "address", "address", "int"
+    ]
+  }
+}

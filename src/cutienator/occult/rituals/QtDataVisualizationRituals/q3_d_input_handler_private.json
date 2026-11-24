@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtDataV",
+    "isualization/6.12.0/QtDataVisualization/private/q3dinputhandler_p.",
+    "h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK22Q3DInputHandlerPrivate10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22Q3DInputHandlerPrivateD1Ev": ["nothing", "address"],
+    "ritual_take_Q3DInputHandlerPrivate": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

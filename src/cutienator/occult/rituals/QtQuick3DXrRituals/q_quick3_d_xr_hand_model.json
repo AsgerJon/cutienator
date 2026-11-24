@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3DXr/6.12.0/QtQuick3DXr/private/qquick3dxrhandmodel_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK19QQuick3DXrHandModel10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QQuick3DXrHandModel17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK19QQuick3DXrHandModel4handEv": ["int", "address"],
+    "ritual_ZN19QQuick3DXrHandModel10updatePoseEv": ["nothing", "address"]
+  }
+}

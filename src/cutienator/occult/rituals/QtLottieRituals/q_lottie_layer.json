@@ -1,0 +1,70 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLottie/6.12.0/QtLottie/private/qlottielayer_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN12QLottieLayerC1Ev": ["address"],
+    "ritual_ZN12QLottieLayerC1ERKS_": ["address", "address"],
+    "ritual_ZN12QLottieLayerD1Ev": ["nothing", "address"],
+    "ritual_ZNK12QLottieLayer5cloneEv": ["address", "address"],
+    "ritual_ZN12QLottieLayer9constructE11QJsonObject": [
+      "address", "address"
+    ],
+    "ritual_ZN12QLottieLayer18constructMaskLayerEPS_": [
+      "address", "address"
+    ],
+    "ritual_ZN12QLottieLayer15constructLayersE10QJsonArrayP11QLottieBaseRK4QMapI7QString11QJsonObjectE": [
+      "int", "address", "address", "address"
+    ],
+    "ritual_ZNK12QLottieLayer6activeEi": ["bool", "address", "int"],
+    "ritual_ZN12QLottieLayer5parseERK11QJsonObject": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN12QLottieLayer16updatePropertiesEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN12QLottieLayer9findChildERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK12QLottieLayer17isUsingMatteLayerEv": ["bool", "address"],
+    "ritual_ZNK12QLottieLayer12isMatteLayerEv": ["bool", "address"],
+    "ritual_ZNK12QLottieLayer9matteModeEv": ["int", "address"],
+    "ritual_ZNK12QLottieLayer15isAutoOrientingEv": ["bool", "address"],
+    "ritual_ZNK12QLottieLayer7layerIdEv": ["int", "address"],
+    "ritual_ZNK12QLottieLayer9transformEv": ["address", "address"],
+    "ritual_ZNK12QLottieLayer14hasLinkedLayerEv": ["bool", "address"],
+    "ritual_ZNK12QLottieLayer13linkedLayerIdEv": ["int", "address"],
+    "ritual_ZNK12QLottieLayer9layerSizeEv": ["address", "address"],
+    "ritual_ZNK12QLottieLayer10startFrameEv": ["int", "address"],
+    "ritual_ZNK12QLottieLayer8endFrameEv": ["int", "address"],
+    "ritual_ZNK12QLottieLayer11frameOffsetEv": ["double", "address"],
+    "ritual_ZNK12QLottieLayer11timeStretchEv": ["double", "address"],
+    "ritual_ZN12QLottieLayer11checkedCastEPK11QLottieBase": [
+      "address", "address"
+    ],
+    "ritual_ZN12QLottieLayer18resolveLinkedLayerEv": ["address", "address"],
+    "ritual_ZNK12QLottieLayer11linkedLayerEv": ["address", "address"],
+    "ritual_ZN12QLottieLayer12parseEffectsERK10QJsonArrayP11QLottieBase": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_take_QLottieLayer": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK12QLottieLayer5cloneEv": ["address", "address"],
+    "ritual_own_ZNK12QLottieLayer6activeEi": ["bool", "address", "int"],
+    "ritual_own_ZN12QLottieLayer5parseERK11QJsonObject": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZN12QLottieLayer16updatePropertiesEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN12QLottieLayer9findChildERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_own_ZNK12QLottieLayer9layerSizeEv": ["address", "address"],
+    "ritual_own_ZN12QLottieLayer18resolveLinkedLayerEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK12QLottieLayer11linkedLayerEv": ["address", "address"]
+  }
+}

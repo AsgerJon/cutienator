@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of Qt3DQui",
+    "ckAnimation/6.12.0/Qt3DQuickAnimation/private/quick3dchannelmapper",
+    "_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK13Qt3DAnimation9Animation5Quick20Quick3DChannelMapper10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation5Quick20Quick3DChannelMapper2trEPKcS4_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZNK13Qt3DAnimation9Animation5Quick20Quick3DChannelMapper12parentMapperEv": [
+      "address", "address"
+    ],
+    "ritual_take_Qt3DAnimation_Animation_Quick_Quick3DChannelMapper": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

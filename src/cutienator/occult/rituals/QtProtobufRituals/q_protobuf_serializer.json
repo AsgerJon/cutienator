@@ -1,0 +1,26 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtProtobuf/qprotobufserializer.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN19QProtobufSerializerC1Ev": ["address"],
+    "ritual_ZN19QProtobufSerializerD1Ev": ["nothing", "address"],
+    "ritual_ZNK19QProtobufSerializer9lastErrorEv": [
+      "unsigned char", "address"
+    ],
+    "ritual_ZNK19QProtobufSerializer15lastErrorStringEv": [
+      "text", "address"
+    ],
+    "ritual_ZN19QProtobufSerializer27shouldPreserveUnknownFieldsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK19QProtobufSerializer16serializeMessageEPK16QProtobufMessage": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK19QProtobufSerializer18deserializeMessageEP16QProtobufMessage14QByteArrayView": [
+      "bool", "address", "address", "address"
+    ]
+  }
+}

@@ -406,10 +406,16 @@ class TestQObject(BaseTest):
         self.assertIs(offered, ritualName not in missing)
 
   def test_a_missing_ritual_stands_under_an_if(self) -> None:
-    """A ritual the shared object does not offer stands in its ritual
-    file between Qt's own '#if' lines, which do not hold here."""
+    """A ritual the shared object does not offer is of a part of Qt
+    not installed here, or stands in its ritual file between Qt's own
+    '#if' lines, which do not hold here."""
     underIf = set()
+    built = {*Rituals.getBuiltRitualFiles()}
     for ritualFile in Rituals.getRitualFiles():
+      if ritualFile not in built:
+        with open(ritualFile, encoding='utf-8') as file:
+          underIf.update(re.findall(r'\b(ritual\w+)\(', file.read()))
+        continue
       depth = 0
       with open(ritualFile, encoding='utf-8') as file:
         for line in file:

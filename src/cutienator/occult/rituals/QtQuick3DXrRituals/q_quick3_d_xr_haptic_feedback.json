@@ -1,0 +1,38 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3DXr/6.12.0/QtQuick3DXr/private/qquick3dxractionmapper_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK24QQuick3DXrHapticFeedback10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24QQuick3DXrHapticFeedbackD1Ev": ["nothing", "address"],
+    "ritual_ZN24QQuick3DXrHapticFeedback10classBeginEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuick3DXrHapticFeedback17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK24QQuick3DXrHapticFeedback12hapticEffectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK24QQuick3DXrHapticFeedback10controllerEv": ["int", "address"],
+    "ritual_ZN24QQuick3DXrHapticFeedback7triggerEv": ["bool", "address"],
+    "ritual_ZN24QQuick3DXrHapticFeedback12testAndClearEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN24QQuick3DXrHapticFeedback5startEv": ["nothing", "address"],
+    "ritual_ZN24QQuick3DXrHapticFeedback4stopEv": ["nothing", "address"],
+    "ritual_cast_QQuick3DXrHapticFeedback_QQmlParserStatus": [
+      "address", "address"
+    ],
+    "ritual_take_QQuick3DXrHapticFeedback": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN24QQuick3DXrHapticFeedback10classBeginEv": [
+      "nothing", "address"
+    ]
+  }
+}

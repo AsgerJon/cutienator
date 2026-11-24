@@ -1,0 +1,105 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtVirtualKeyboard/qvirtualkeyboardabstractinputmethod.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK35QVirtualKeyboardAbstractInputMethod10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN35QVirtualKeyboardAbstractInputMethod2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN35QVirtualKeyboardAbstractInputMethod6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK35QVirtualKeyboardAbstractInputMethod6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN35QVirtualKeyboardAbstractInputMethod22qt_qmlMarker_anonymousEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN35QVirtualKeyboardAbstractInputMethodD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK35QVirtualKeyboardAbstractInputMethod12inputContextEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK35QVirtualKeyboardAbstractInputMethod11inputEngineEv": [
+      "address", "address"
+    ],
+    "ritual_ZN35QVirtualKeyboardAbstractInputMethod12setInputModeERK7QStringN27QVirtualKeyboardInputEngine9InputModeE": [
+      "bool", "address", "text", "int"
+    ],
+    "ritual_ZN35QVirtualKeyboardAbstractInputMethod11setTextCaseEN27QVirtualKeyboardInputEngine8TextCaseE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN35QVirtualKeyboardAbstractInputMethod8keyEventEN2Qt3KeyERK7QString6QFlagsINS0_16KeyboardModifierEE": [
+      "bool", "address", "int", "text", "int"
+    ],
+    "ritual_ZN35QVirtualKeyboardAbstractInputMethod22selectionListItemCountEN34QVirtualKeyboardSelectionListModel4TypeE": [
+      "int", "address", "int"
+    ],
+    "ritual_ZN35QVirtualKeyboardAbstractInputMethod17selectionListDataEN34QVirtualKeyboardSelectionListModel4TypeEiNS0_4RoleE": [
+      "address", "address", "int", "int", "int"
+    ],
+    "ritual_ZN35QVirtualKeyboardAbstractInputMethod25selectionListItemSelectedEN34QVirtualKeyboardSelectionListModel4TypeEi": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN35QVirtualKeyboardAbstractInputMethod23selectionListRemoveItemEN34QVirtualKeyboardSelectionListModel4TypeEi": [
+      "bool", "address", "int", "int"
+    ],
+    "ritual_ZN35QVirtualKeyboardAbstractInputMethod10traceBeginEiN27QVirtualKeyboardInputEngine22PatternRecognitionModeERK4QMapI7QString8QVariantES7_": [
+      "address", "address", "int", "int", "address", "address"
+    ],
+    "ritual_ZN35QVirtualKeyboardAbstractInputMethod8traceEndEP21QVirtualKeyboardTrace": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN35QVirtualKeyboardAbstractInputMethod16clickPreeditTextEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN35QVirtualKeyboardAbstractInputMethod5resetEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN35QVirtualKeyboardAbstractInputMethod6updateEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN35QVirtualKeyboardAbstractInputMethod14clearInputModeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN35QVirtualKeyboardAbstractInputMethod14setInputEngineEP27QVirtualKeyboardInputEngine": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QVirtualKeyboardAbstractInputMethod": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN35QVirtualKeyboardAbstractInputMethod22selectionListItemCountEN34QVirtualKeyboardSelectionListModel4TypeE": [
+      "int", "address", "int"
+    ],
+    "ritual_own_ZN35QVirtualKeyboardAbstractInputMethod17selectionListDataEN34QVirtualKeyboardSelectionListModel4TypeEiNS0_4RoleE": [
+      "address", "address", "int", "int", "int"
+    ],
+    "ritual_own_ZN35QVirtualKeyboardAbstractInputMethod25selectionListItemSelectedEN34QVirtualKeyboardSelectionListModel4TypeEi": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZN35QVirtualKeyboardAbstractInputMethod23selectionListRemoveItemEN34QVirtualKeyboardSelectionListModel4TypeEi": [
+      "bool", "address", "int", "int"
+    ],
+    "ritual_own_ZN35QVirtualKeyboardAbstractInputMethod8traceEndEP21QVirtualKeyboardTrace": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN35QVirtualKeyboardAbstractInputMethod16clickPreeditTextEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_own_ZN35QVirtualKeyboardAbstractInputMethod5resetEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN35QVirtualKeyboardAbstractInputMethod6updateEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN35QVirtualKeyboardAbstractInputMethod14clearInputModeEv": [
+      "nothing", "address"
+    ]
+  }
+}

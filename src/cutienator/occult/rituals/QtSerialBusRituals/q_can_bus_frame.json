@@ -1,0 +1,66 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSerialBus/qcanbusframe.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN12QCanBusFrameC1ENS_9FrameTypeE": ["address", "int"],
+    "ritual_ZN12QCanBusFrameC1EjRK10QByteArray": [
+      "address", "unsigned int", "address"
+    ],
+    "ritual_ZNK12QCanBusFrame7isValidEv": ["bool", "address"],
+    "ritual_ZNK12QCanBusFrame9frameTypeEv": ["int", "address"],
+    "ritual_ZN12QCanBusFrame12setFrameTypeENS_9FrameTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK12QCanBusFrame22hasExtendedFrameFormatEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN12QCanBusFrame22setExtendedFrameFormatEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK12QCanBusFrame7frameIdEv": ["unsigned int", "address"],
+    "ritual_ZN12QCanBusFrame10setFrameIdEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN12QCanBusFrame10setPayloadERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QCanBusFrame12setTimeStampENS_9TimeStampE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12QCanBusFrame7payloadEv": ["address", "address"],
+    "ritual_ZNK12QCanBusFrame9timeStampEv": ["address", "address"],
+    "ritual_ZNK12QCanBusFrame5errorEv": ["int", "address"],
+    "ritual_ZN12QCanBusFrame8setErrorE6QFlagsINS_10FrameErrorEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK12QCanBusFrame8toStringEv": ["text", "address"],
+    "ritual_ZNK12QCanBusFrame25hasFlexibleDataRateFormatEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN12QCanBusFrame25setFlexibleDataRateFormatEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK12QCanBusFrame16hasBitrateSwitchEv": ["bool", "address"],
+    "ritual_ZN12QCanBusFrame16setBitrateSwitchEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK12QCanBusFrame22hasErrorStateIndicatorEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN12QCanBusFrame22setErrorStateIndicatorEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK12QCanBusFrame12hasLocalEchoEv": ["bool", "address"],
+    "ritual_ZN12QCanBusFrame12setLocalEchoEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN12QCanBusFrameD1Ev": ["nothing", "address"],
+    "ritual_list_make_QCanBusFrame": ["address"],
+    "ritual_list_add_QCanBusFrame": ["nothing", "address", "address"],
+    "ritual_list_size_QCanBusFrame": ["long long", "address"],
+    "ritual_list_at_QCanBusFrame": ["address", "address", "long long"],
+    "ritual_list_drop_QCanBusFrame": ["nothing", "address"]
+  }
+}

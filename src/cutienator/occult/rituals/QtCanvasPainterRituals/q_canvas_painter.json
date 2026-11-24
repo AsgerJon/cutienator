@@ -1,0 +1,296 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCanvasPainter/qcanvaspainter.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN14QCanvasPainterC1Ev": ["address"],
+    "ritual_ZN14QCanvasPainterD1Ev": ["nothing", "address"],
+    "ritual_ZN14QCanvasPainter4saveEv": ["nothing", "address"],
+    "ritual_ZN14QCanvasPainter7restoreEv": ["nothing", "address"],
+    "ritual_ZN14QCanvasPainter5resetEv": ["nothing", "address"],
+    "ritual_ZN14QCanvasPainter14setStrokeStyleE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QCanvasPainter14setStrokeStyleERK12QCanvasBrush": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QCanvasPainter12setFillStyleE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QCanvasPainter12setFillStyleERK12QCanvasBrush": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QCanvasPainter13setMiterLimitEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN14QCanvasPainter12setLineWidthEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN14QCanvasPainter10setLineCapENS_7LineCapE": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZN14QCanvasPainter11setLineJoinENS_8LineJoinE": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZN14QCanvasPainter14setGlobalAlphaEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN14QCanvasPainter27setGlobalCompositeOperationENS_18CompositeOperationE": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZN14QCanvasPainter19setGlobalBrightnessEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN14QCanvasPainter17setGlobalContrastEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN14QCanvasPainter19setGlobalSaturationEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN14QCanvasPainter11setFillRuleENS_8FillRuleE": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZN14QCanvasPainter14resetTransformEv": ["nothing", "address"],
+    "ritual_ZN14QCanvasPainter12setTransformERK10QTransform": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QCanvasPainter9transformERK10QTransform": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QCanvasPainter9translateEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN14QCanvasPainter9translateE7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QCanvasPainter6rotateEd": ["nothing", "address", "double"],
+    "ritual_ZN14QCanvasPainter4skewEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN14QCanvasPainter5scaleEd": ["nothing", "address", "double"],
+    "ritual_ZN14QCanvasPainter5scaleEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZNK14QCanvasPainter12getTransformEv": ["address", "address"],
+    "ritual_ZN14QCanvasPainter11setClipRectEdddd": [
+      "nothing", "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZN14QCanvasPainter11setClipRectERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QCanvasPainter13resetClippingEv": ["nothing", "address"],
+    "ritual_ZN14QCanvasPainter9beginPathEv": ["nothing", "address"],
+    "ritual_ZN14QCanvasPainter9closePathEv": ["nothing", "address"],
+    "ritual_ZN14QCanvasPainter6moveToEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN14QCanvasPainter6moveToE7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QCanvasPainter6lineToEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN14QCanvasPainter6lineToE7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QCanvasPainter13bezierCurveToEdddddd": [
+      "nothing", "address", "double", "double", "double", "double", "double",
+      "double"
+    ],
+    "ritual_ZN14QCanvasPainter13bezierCurveToE7QPointFS0_S0_": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN14QCanvasPainter16quadraticCurveToEdddd": [
+      "nothing", "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZN14QCanvasPainter16quadraticCurveToE7QPointFS0_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN14QCanvasPainter5arcToEddddd": [
+      "nothing", "address", "double", "double", "double", "double", "double"
+    ],
+    "ritual_ZN14QCanvasPainter5arcToE7QPointFS0_d": [
+      "nothing", "address", "address", "address", "double"
+    ],
+    "ritual_ZN14QCanvasPainter3arcEdddddNS_11PathWindingENS_14PathConnectionE": [
+      "nothing", "address", "double", "double", "double", "double", "double",
+      "unsigned char", "unsigned char"
+    ],
+    "ritual_ZN14QCanvasPainter3arcE7QPointFdddNS_11PathWindingENS_14PathConnectionE": [
+      "nothing", "address", "address", "double", "double", "double",
+      "unsigned char", "unsigned char"
+    ],
+    "ritual_ZN14QCanvasPainter4rectEdddd": [
+      "nothing", "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZN14QCanvasPainter4rectERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QCanvasPainter9roundRectEddddd": [
+      "nothing", "address", "double", "double", "double", "double", "double"
+    ],
+    "ritual_ZN14QCanvasPainter9roundRectERK6QRectFd": [
+      "nothing", "address", "address", "double"
+    ],
+    "ritual_ZN14QCanvasPainter9roundRectEdddddddd": [
+      "nothing", "address", "double", "double", "double", "double", "double",
+      "double", "double", "double"
+    ],
+    "ritual_ZN14QCanvasPainter9roundRectERK6QRectFdddd": [
+      "nothing", "address", "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZN14QCanvasPainter7ellipseEdddd": [
+      "nothing", "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZN14QCanvasPainter7ellipseE7QPointFdd": [
+      "nothing", "address", "address", "double", "double"
+    ],
+    "ritual_ZN14QCanvasPainter7ellipseERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QCanvasPainter6circleEddd": [
+      "nothing", "address", "double", "double", "double"
+    ],
+    "ritual_ZN14QCanvasPainter6circleE7QPointFd": [
+      "nothing", "address", "address", "double"
+    ],
+    "ritual_ZN14QCanvasPainter7addPathERK12QPainterPath": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QCanvasPainter7addPathERK11QCanvasPathRK10QTransform": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN14QCanvasPainter7addPathERK11QCanvasPathxxRK10QTransform": [
+      "nothing", "address", "address", "long long", "long long", "address"
+    ],
+    "ritual_ZN14QCanvasPainter14setPathWindingENS_11PathWindingE": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZN14QCanvasPainter17beginSolidSubPathEv": ["nothing", "address"],
+    "ritual_ZN14QCanvasPainter16beginHoleSubPathEv": ["nothing", "address"],
+    "ritual_ZN14QCanvasPainter4fillEv": ["nothing", "address"],
+    "ritual_ZN14QCanvasPainter4fillENS_8FillRuleE": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZN14QCanvasPainter6strokeEv": ["nothing", "address"],
+    "ritual_ZN14QCanvasPainter4fillERK11QCanvasPathi": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN14QCanvasPainter4fillERK11QCanvasPathNS_8FillRuleEi": [
+      "nothing", "address", "address", "unsigned char", "int"
+    ],
+    "ritual_ZN14QCanvasPainter6strokeERK11QCanvasPathi": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN14QCanvasPainter8fillRectEdddd": [
+      "nothing", "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZN14QCanvasPainter8fillRectERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QCanvasPainter9clearRectEdddd": [
+      "nothing", "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZN14QCanvasPainter9clearRectERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QCanvasPainter10strokeRectEdddd": [
+      "nothing", "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZN14QCanvasPainter10strokeRectERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QCanvasPainter13drawBoxShadowERK16QCanvasBoxShadow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QCanvasPainter9drawImageERK12QCanvasImagedd": [
+      "nothing", "address", "address", "double", "double"
+    ],
+    "ritual_ZN14QCanvasPainter9drawImageERK12QCanvasImagedddd": [
+      "nothing", "address", "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZN14QCanvasPainter9drawImageERK12QCanvasImageRK6QRectF": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN14QCanvasPainter9drawImageERK12QCanvasImageRK6QRectFS5_": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN14QCanvasPainter7setFontERK5QFont": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QCanvasPainter12setTextAlignENS_9TextAlignE": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZN14QCanvasPainter15setTextBaselineENS_12TextBaselineE": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZN14QCanvasPainter16setTextDirectionENS_13TextDirectionE": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZN14QCanvasPainter15setTextWrapModeENS_8WrapModeE": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZN14QCanvasPainter17setTextLineHeightEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN14QCanvasPainter16setTextAntialiasEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN14QCanvasPainter8fillTextERK7QStringddd": [
+      "nothing", "address", "text", "double", "double", "double"
+    ],
+    "ritual_ZN14QCanvasPainter8fillTextERK7QString7QPointFd": [
+      "nothing", "address", "text", "address", "double"
+    ],
+    "ritual_ZN14QCanvasPainter8fillTextERK7QStringRK6QRectF": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZNK14QCanvasPainter15textBoundingBoxERK7QStringddd": [
+      "address", "address", "text", "double", "double", "double"
+    ],
+    "ritual_ZNK14QCanvasPainter15textBoundingBoxERK7QString7QPointFd": [
+      "address", "address", "text", "address", "double"
+    ],
+    "ritual_ZNK14QCanvasPainter15textBoundingBoxERK7QStringRK6QRectF": [
+      "address", "address", "text", "address"
+    ],
+    "ritual_ZN14QCanvasPainter12setAntialiasEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN14QCanvasPainter17setWindingEnforceEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN14QCanvasPainter22setHighQualityStrokingEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN14QCanvasPainter8addImageERK6QImage6QFlagsINS_9ImageFlagEE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN14QCanvasPainter8addImageEP11QRhiTexture6QFlagsINS_9ImageFlagEE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN14QCanvasPainter8addImageERK22QCanvasOffscreenCanvas6QFlagsINS_9ImageFlagEE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN14QCanvasPainter11removeImageERK12QCanvasImage": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QCanvasPainter16cleanupResourcesEv": ["nothing", "address"],
+    "ritual_ZNK14QCanvasPainter22activeImageMemoryUsageEv": [
+      "long long", "address"
+    ],
+    "ritual_ZNK14QCanvasPainter16activeImageCountEv": [
+      "long long", "address"
+    ],
+    "ritual_ZN14QCanvasPainter15removePathGroupEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN14QCanvasPainter12createCanvasE5QSizei6QFlagsIN22QCanvasOffscreenCanvas4FlagEE": [
+      "address", "address", "address", "int", "int"
+    ],
+    "ritual_ZN14QCanvasPainter6d_funcEv": ["address", "address"],
+    "ritual_ZNK14QCanvasPainter6d_funcEv": ["address", "address"]
+  }
+}

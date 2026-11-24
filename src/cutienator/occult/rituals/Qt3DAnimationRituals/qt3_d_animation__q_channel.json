@@ -1,0 +1,14 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DAnimation/qchannel.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN13Qt3DAnimationeqERKNS_8QChannelES2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimationneERKNS_8QChannelES2_": [
+      "bool", "address", "address"
+    ]
+  }
+}

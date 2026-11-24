@@ -1,0 +1,12 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtRepParser/qregexparser.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN14MatchCandidateC1ERK7QStringS2_i": [
+      "address", "text", "text", "int"
+    ],
+    "ritual_ZN14MatchCandidateD1Ev": ["nothing", "address"]
+  }
+}

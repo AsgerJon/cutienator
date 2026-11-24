@@ -1,0 +1,35 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLottie/6.12.0/QtLottie/private/qlottieshape_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN12QLottieShapeC1Ev": ["address"],
+    "ritual_ZN12QLottieShapeD1Ev": ["nothing", "address"],
+    "ritual_ZN12QLottieShapeC1ERKS_": ["address", "address"],
+    "ritual_ZNK12QLottieShape5cloneEv": ["address", "address"],
+    "ritual_ZN12QLottieShape9constructE11QJsonObjectP11QLottieBase": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK12QLottieShape10isAnimatedEv": ["bool", "address"],
+    "ritual_ZNK12QLottieShape4pathEv": ["address", "address"],
+    "ritual_ZNK12QLottieShape11acceptsTrimEv": ["bool", "address"],
+    "ritual_ZN12QLottieShape9applyTrimERK15QLottieTrimPath": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12QLottieShape11currentTrimEv": ["address", "address"],
+    "ritual_ZNK12QLottieShape12fallbackPathEv": ["address", "address"],
+    "ritual_ZNK12QLottieShape9directionEv": ["int", "address"],
+    "ritual_ZNK12QLottieShape20hasReversedDirectionEv": ["bool", "address"],
+    "ritual_take_QLottieShape": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK12QLottieShape5cloneEv": ["address", "address"],
+    "ritual_own_ZNK12QLottieShape10isAnimatedEv": ["bool", "address"],
+    "ritual_own_ZNK12QLottieShape4pathEv": ["address", "address"],
+    "ritual_own_ZNK12QLottieShape11acceptsTrimEv": ["bool", "address"],
+    "ritual_own_ZN12QLottieShape9applyTrimERK15QLottieTrimPath": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK12QLottieShape12fallbackPathEv": ["address", "address"]
+  }
+}

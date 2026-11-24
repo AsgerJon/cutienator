@@ -1,0 +1,14 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtTaskTree/qconditional.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN10QtTaskTreersERKNS_8ThenItemERKNS_4ElseE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN10QtTaskTreersERKNS_8ThenItemERKNS_6ElseIfE": [
+      "address", "address", "address"
+    ]
+  }
+}

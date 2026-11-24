@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSensors/qirproximitysensor.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK18QIRProximitySensor10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QIRProximitySensor2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18QIRProximitySensorC1EP7QObject": ["address", "address"],
+    "ritual_ZN18QIRProximitySensorD1Ev": ["nothing", "address"],
+    "ritual_ZNK18QIRProximitySensor7readingEv": ["address", "address"],
+    "ritual_take_QIRProximitySensor": ["bool", "address", "chars", "address"]
+  }
+}

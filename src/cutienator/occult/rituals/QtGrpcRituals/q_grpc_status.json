@@ -1,0 +1,20 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGrpc/qgrpcstatus.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11QGrpcStatusC1EN6QtGrpc10StatusCodeE14QAnyStringView": [
+      "address", "unsigned char", "text"
+    ],
+    "ritual_ZN11QGrpcStatusD1Ev": ["nothing", "address"],
+    "ritual_ZN11QGrpcStatusC1ERKS_": ["address", "address"],
+    "ritual_ZNK11QGrpcStatuscv8QVariantEv": ["address", "address"],
+    "ritual_ZNK11QGrpcStatus4codeEv": ["unsigned char", "address"],
+    "ritual_ZNK11QGrpcStatus4isOkEv": ["bool", "address"],
+    "ritual_ZNKR11QGrpcStatus7messageEv": ["text", "address"],
+    "ritual_ZeqRK11QGrpcStatusS1_": ["bool", "address", "address"],
+    "ritual_ZneRK11QGrpcStatusS1_": ["bool", "address", "address"],
+    "ritual_Zls6QDebugRK11QGrpcStatus": ["address", "address", "address"]
+  }
+}

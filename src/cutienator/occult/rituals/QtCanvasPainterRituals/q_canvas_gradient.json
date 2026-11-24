@@ -1,0 +1,38 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCanvasPainter/qcanvasgradient.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZNK15QCanvasGradient4typeEv": ["int", "address"],
+    "ritual_ZNK15QCanvasGradient10startColorEv": ["address", "address"],
+    "ritual_ZN15QCanvasGradient13setStartColorE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QCanvasGradient8endColorEv": ["address", "address"],
+    "ritual_ZN15QCanvasGradient11setEndColorE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QCanvasGradient10setColorAtEd6QColor": [
+      "nothing", "address", "double", "address"
+    ],
+    "ritual_ZN15QCanvasGradient8setStopsERK5QListI19QCanvasGradientStopE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QCanvasGradient5stopsEv": ["address", "address"],
+    "ritual_ZN15QCanvasGradient8setImageERK12QCanvasImagei": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN15QCanvasGradient12addColorStopEd6QColor": [
+      "nothing", "address", "double", "address"
+    ],
+    "ritual_ZNKR15QCanvasGradientcv12QCanvasBrushEv": ["address", "address"],
+    "ritual_ZNK15QCanvasGradientcv8QVariantEv": ["address", "address"],
+    "ritual_ZN15QCanvasGradientC1EN12QCanvasBrush9BrushTypeE": [
+      "address", "int"
+    ],
+    "ritual_ZN15QCanvasGradientC1ERK12QCanvasBrush": ["address", "address"],
+    "ritual_ZN15QCanvasGradientD1Ev": ["nothing", "address"]
+  }
+}

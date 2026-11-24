@@ -1,0 +1,25 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSerialBus/qmodbustcpserver.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK16QModbusTcpServer10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QModbusTcpServer2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN16QModbusTcpServer6d_funcEv": ["address", "address"],
+    "ritual_ZNK16QModbusTcpServer6d_funcEv": ["address", "address"],
+    "ritual_ZN16QModbusTcpServerC1EP7QObject": ["address", "address"],
+    "ritual_ZN16QModbusTcpServerD1Ev": ["nothing", "address"],
+    "ritual_ZN16QModbusTcpServer25installConnectionObserverEP28QModbusTcpConnectionObserver": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QModbusTcpServer4openEv": ["bool", "address"],
+    "ritual_ZN16QModbusTcpServer5closeEv": ["nothing", "address"],
+    "ritual_take_QModbusTcpServer": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN16QModbusTcpServer4openEv": ["bool", "address"],
+    "ritual_own_ZN16QModbusTcpServer5closeEv": ["nothing", "address"]
+  }
+}

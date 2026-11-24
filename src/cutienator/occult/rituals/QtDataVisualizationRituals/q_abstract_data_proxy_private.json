@@ -1,0 +1,23 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtDataV",
+    "isualization/6.12.0/QtDataVisualization/private/qabstractdataproxy",
+    "_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK25QAbstractDataProxyPrivate10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QAbstractDataProxyPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN25QAbstractDataProxyPrivate6seriesEv": ["address", "address"],
+    "ritual_ZN25QAbstractDataProxyPrivate9setSeriesEP17QAbstract3DSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QAbstractDataProxyPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN25QAbstractDataProxyPrivate9setSeriesEP17QAbstract3DSeries": [
+      "nothing", "address", "address"
+    ]
+  }
+}

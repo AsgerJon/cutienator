@@ -1,0 +1,35 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSerialBus/qmodbusdevice.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK13QModbusDevice10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QModbusDevice2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN13QModbusDevice6d_funcEv": ["address", "address"],
+    "ritual_ZNK13QModbusDevice6d_funcEv": ["address", "address"],
+    "ritual_ZN13QModbusDeviceD1Ev": ["nothing", "address"],
+    "ritual_ZNK13QModbusDevice19connectionParameterENS_19ConnectionParameterE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN13QModbusDevice22setConnectionParameterENS_19ConnectionParameterERK8QVariant": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN13QModbusDevice13connectDeviceEv": ["bool", "address"],
+    "ritual_ZN13QModbusDevice16disconnectDeviceEv": ["nothing", "address"],
+    "ritual_ZNK13QModbusDevice5stateEv": ["int", "address"],
+    "ritual_ZNK13QModbusDevice5errorEv": ["int", "address"],
+    "ritual_ZNK13QModbusDevice11errorStringEv": ["text", "address"],
+    "ritual_ZNK13QModbusDevice6deviceEv": ["address", "address"],
+    "ritual_ZN13QModbusDevice8setStateENS_5StateE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN13QModbusDevice8setErrorERK7QStringNS_5ErrorE": [
+      "nothing", "address", "text", "int"
+    ],
+    "ritual_ZN13QModbusDevice4openEv": ["bool", "address"],
+    "ritual_ZN13QModbusDevice5closeEv": ["nothing", "address"],
+    "ritual_take_QModbusDevice": ["bool", "address", "chars", "address"]
+  }
+}

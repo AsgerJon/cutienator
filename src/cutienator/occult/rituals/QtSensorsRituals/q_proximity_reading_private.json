@@ -1,0 +1,11 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSensors/6.12.0/QtSensors/private/qproximitysensor_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN24QProximityReadingPrivateC1Ev": ["address"],
+    "ritual_ZN24QProximityReadingPrivateD1Ev": ["nothing", "address"]
+  }
+}

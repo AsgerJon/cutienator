@@ -1,0 +1,229 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWaylandCompositor/qwaylandquickitem.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QWaylandQuickItem10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QWaylandQuickItem2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QWaylandQuickItem6d_funcEv": ["address", "address"],
+    "ritual_ZNK17QWaylandQuickItem6d_funcEv": ["address", "address"],
+    "ritual_ZN17QWaylandQuickItemC1EP10QQuickItem": ["address", "address"],
+    "ritual_ZN17QWaylandQuickItemD1Ev": ["nothing", "address"],
+    "ritual_ZNK17QWaylandQuickItem10compositorEv": ["address", "address"],
+    "ritual_ZNK17QWaylandQuickItem4viewEv": ["address", "address"],
+    "ritual_ZNK17QWaylandQuickItem7surfaceEv": ["address", "address"],
+    "ritual_ZN17QWaylandQuickItem10setSurfaceEP15QWaylandSurface": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QWaylandQuickItem6originEv": ["int", "address"],
+    "ritual_ZNK17QWaylandQuickItem17isTextureProviderEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK17QWaylandQuickItem15textureProviderEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK17QWaylandQuickItem14isPaintEnabledEv": ["bool", "address"],
+    "ritual_ZNK17QWaylandQuickItem18touchEventsEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN17QWaylandQuickItem21setTouchEventsEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK17QWaylandQuickItem18inputEventsEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN17QWaylandQuickItem21setInputEventsEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK17QWaylandQuickItem12focusOnClickEv": ["bool", "address"],
+    "ritual_ZN17QWaylandQuickItem15setFocusOnClickEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK17QWaylandQuickItem19inputRegionContainsERK7QPointF": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK17QWaylandQuickItem12mapToSurfaceERK7QPointF": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK17QWaylandQuickItem14mapFromSurfaceERK7QPointF": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK17QWaylandQuickItem16inputMethodQueryEN2Qt16InputMethodQueryE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK17QWaylandQuickItem16inputMethodQueryEN2Qt16InputMethodQueryE8QVariant": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_ZNK17QWaylandQuickItem17subsurfaceHandlerEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QWaylandQuickItem20setSubsurfaceHandlerEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QWaylandQuickItem6outputEv": ["address", "address"],
+    "ritual_ZN17QWaylandQuickItem9setOutputEP14QWaylandOutput": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QWaylandQuickItem14isBufferLockedEv": ["bool", "address"],
+    "ritual_ZN17QWaylandQuickItem15setBufferLockedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK17QWaylandQuickItem23allowDiscardFrontBufferEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN17QWaylandQuickItem26setAllowDiscardFrontBufferEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN17QWaylandQuickItem10setPrimaryEv": ["nothing", "address"],
+    "ritual_ZN17QWaylandQuickItem15mousePressEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QWaylandQuickItem14mouseMoveEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QWaylandQuickItem17mouseReleaseEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QWaylandQuickItem15hoverEnterEventEP11QHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QWaylandQuickItem14hoverMoveEventEP11QHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QWaylandQuickItem15hoverLeaveEventEP11QHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QWaylandQuickItem10wheelEventEP11QWheelEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QWaylandQuickItem13keyPressEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QWaylandQuickItem15keyReleaseEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QWaylandQuickItem10touchEventEP11QTouchEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QWaylandQuickItem16touchUngrabEventEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QWaylandQuickItem16inputMethodEventEP17QInputMethodEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QWaylandQuickItem19surfaceChangedEventEP15QWaylandSurfaceS1_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN17QWaylandQuickItem9takeFocusEP12QWaylandSeat": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QWaylandQuickItem15setPaintEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN17QWaylandQuickItem5raiseEv": ["nothing", "address"],
+    "ritual_ZN17QWaylandQuickItem5lowerEv": ["nothing", "address"],
+    "ritual_ZN17QWaylandQuickItem18sendMouseMoveEventERK7QPointFP12QWaylandSeat": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN17QWaylandQuickItem20surfaceMappedChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QWaylandQuickItem20handleSurfaceChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QWaylandQuickItem25handleBufferLockedChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QWaylandQuickItem13parentChangedEP15QWaylandSurfaceS1_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN17QWaylandQuickItem10updateSizeEv": ["nothing", "address"],
+    "ritual_ZN17QWaylandQuickItem12updateBufferEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN17QWaylandQuickItem12updateWindowEv": ["nothing", "address"],
+    "ritual_ZN17QWaylandQuickItem12updateOutputEv": ["nothing", "address"],
+    "ritual_ZN17QWaylandQuickItem10beforeSyncEv": ["nothing", "address"],
+    "ritual_ZN17QWaylandQuickItem21handleSubsurfaceAddedEP15QWaylandSurface": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QWaylandQuickItem24handleSubsurfacePositionERK6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QWaylandQuickItem16handlePlaceAboveEP15QWaylandSurface": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QWaylandQuickItem16handlePlaceBelowEP15QWaylandSurface": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QWaylandQuickItem17handleDragStartedEP12QWaylandDrag": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QWaylandQuickItem17updateInputMethodE6QFlagsIN2Qt16InputMethodQueryEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QWaylandQuickItem11updateFocusEv": ["nothing", "address"],
+    "ritual_ZN17QWaylandQuickItem15updatePaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_take_QWaylandQuickItem": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK17QWaylandQuickItem17isTextureProviderEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZNK17QWaylandQuickItem15textureProviderEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK17QWaylandQuickItem16inputMethodQueryEN2Qt16InputMethodQueryE": [
+      "address", "address", "int"
+    ],
+    "ritual_own_ZN17QWaylandQuickItem15mousePressEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN17QWaylandQuickItem14mouseMoveEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN17QWaylandQuickItem17mouseReleaseEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN17QWaylandQuickItem15hoverEnterEventEP11QHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN17QWaylandQuickItem14hoverMoveEventEP11QHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN17QWaylandQuickItem15hoverLeaveEventEP11QHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN17QWaylandQuickItem10wheelEventEP11QWheelEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN17QWaylandQuickItem13keyPressEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN17QWaylandQuickItem15keyReleaseEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN17QWaylandQuickItem10touchEventEP11QTouchEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN17QWaylandQuickItem16touchUngrabEventEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN17QWaylandQuickItem16inputMethodEventEP17QInputMethodEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN17QWaylandQuickItem19surfaceChangedEventEP15QWaylandSurfaceS1_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN17QWaylandQuickItem9takeFocusEP12QWaylandSeat": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN17QWaylandQuickItem15updatePaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE": [
+      "address", "address", "address", "address"
+    ]
+  }
+}

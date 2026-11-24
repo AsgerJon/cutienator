@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSensors/qhumiditysensor.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK15QHumiditySensor10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QHumiditySensor2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN15QHumiditySensorC1EP7QObject": ["address", "address"],
+    "ritual_ZN15QHumiditySensorD1Ev": ["nothing", "address"],
+    "ritual_ZNK15QHumiditySensor7readingEv": ["address", "address"],
+    "ritual_ZN15QHumiditySensor6d_funcEv": ["address", "address"],
+    "ritual_ZNK15QHumiditySensor6d_funcEv": ["address", "address"],
+    "ritual_take_QHumiditySensor": ["bool", "address", "chars", "address"]
+  }
+}

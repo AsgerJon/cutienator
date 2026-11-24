@@ -1,0 +1,82 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtRemoteObjects/qremoteobjectsource.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN12SourceApiMapD1Ev": ["nothing", "address"],
+    "ritual_ZNK12SourceApiMap4nameEv": ["text", "address"],
+    "ritual_ZNK12SourceApiMap8typeNameEv": ["text", "address"],
+    "ritual_ZNK12SourceApiMap9classNameEv": ["address", "address"],
+    "ritual_ZNK12SourceApiMap9enumCountEv": ["int", "address"],
+    "ritual_ZNK12SourceApiMap13propertyCountEv": ["int", "address"],
+    "ritual_ZNK12SourceApiMap11signalCountEv": ["int", "address"],
+    "ritual_ZNK12SourceApiMap11methodCountEv": ["int", "address"],
+    "ritual_ZNK12SourceApiMap15sourceEnumIndexEi": ["int", "address", "int"],
+    "ritual_ZNK12SourceApiMap19sourcePropertyIndexEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK12SourceApiMap17sourceSignalIndexEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK12SourceApiMap17sourceMethodIndexEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK12SourceApiMap20signalParameterCountEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK12SourceApiMap19signalParameterTypeEii": [
+      "int", "address", "int", "int"
+    ],
+    "ritual_ZNK12SourceApiMap15signalSignatureEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK12SourceApiMap20signalParameterNamesEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK12SourceApiMap20methodParameterCountEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK12SourceApiMap19methodParameterTypeEii": [
+      "int", "address", "int", "int"
+    ],
+    "ritual_ZNK12SourceApiMap15methodSignatureEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK12SourceApiMap10methodTypeEi": ["int", "address", "int"],
+    "ritual_ZNK12SourceApiMap8typeNameEi": ["address", "address", "int"],
+    "ritual_ZNK12SourceApiMap20methodParameterNamesEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK12SourceApiMap23propertyIndexFromSignalEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK12SourceApiMap26propertyRawIndexFromSignalEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK12SourceApiMap15objectSignatureEv": ["address", "address"],
+    "ritual_ZNK12SourceApiMap9isDynamicEv": ["bool", "address"],
+    "ritual_ZNK12SourceApiMap15isAdapterSignalEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK12SourceApiMap15isAdapterMethodEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK12SourceApiMap17isAdapterPropertyEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_take_SourceApiMap": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK12SourceApiMap9classNameEv": ["address", "address"],
+    "ritual_own_ZNK12SourceApiMap9isDynamicEv": ["bool", "address"],
+    "ritual_own_ZNK12SourceApiMap15isAdapterSignalEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_own_ZNK12SourceApiMap15isAdapterMethodEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_own_ZNK12SourceApiMap17isAdapterPropertyEi": [
+      "bool", "address", "int"
+    ]
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DAnimation/6.12.0/Qt3DAnimation/private/channelmapping_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN13Qt3DAnimation9Animation14ChannelMapping14setChannelNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK13Qt3DAnimation9Animation14ChannelMapping11channelNameEv": [
+      "text", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation14ChannelMapping11setTargetIdEN8Qt3DCore7QNodeIdE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation9Animation14ChannelMapping8targetIdEv": [
+      "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation14ChannelMapping7setTypeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK13Qt3DAnimation9Animation14ChannelMapping4typeEv": [
+      "int", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation14ChannelMapping15setPropertyNameEPKc": [
+      "nothing", "address", "chars"
+    ],
+    "ritual_ZNK13Qt3DAnimation9Animation14ChannelMapping12propertyNameEv": [
+      "chars", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation14ChannelMapping17setComponentCountEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK13Qt3DAnimation9Animation14ChannelMapping14componentCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation14ChannelMapping11setCallbackEPNS_18QAnimationCallbackE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation9Animation14ChannelMapping8callbackEv": [
+      "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation14ChannelMapping16setCallbackFlagsE6QFlagsINS_18QAnimationCallback4FlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK13Qt3DAnimation9Animation14ChannelMapping13callbackFlagsEv": [
+      "int", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation14ChannelMapping13setSkeletonIdEN8Qt3DCore7QNodeIdE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation9Animation14ChannelMapping10skeletonIdEv": [
+      "address", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation14ChannelMapping14setMappingTypeENS1_11MappingTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK13Qt3DAnimation9Animation14ChannelMapping11mappingTypeEv": [
+      "int", "address"
+    ]
+  }
+}

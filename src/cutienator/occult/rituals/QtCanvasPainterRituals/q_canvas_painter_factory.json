@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCanvasPainter/qcanvaspainterfactory.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN21QCanvasPainterFactoryC1Ev": ["address"],
+    "ritual_ZN21QCanvasPainterFactoryD1Ev": ["nothing", "address"],
+    "ritual_ZN21QCanvasPainterFactory14sharedInstanceEP4QRhi": [
+      "address", "address"
+    ],
+    "ritual_ZNK21QCanvasPainterFactory7isValidEv": ["bool", "address"],
+    "ritual_ZN21QCanvasPainterFactory6createEP4QRhi": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN21QCanvasPainterFactory7destroyEv": ["nothing", "address"],
+    "ritual_ZN21QCanvasPainterFactory7painterEv": ["address", "address"],
+    "ritual_ZN21QCanvasPainterFactory11paintDriverEv": ["address", "address"]
+  }
+}

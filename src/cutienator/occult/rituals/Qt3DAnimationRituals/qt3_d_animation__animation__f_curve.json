@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DAnimation/6.12.0/Qt3DAnimation/private/fcurve_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK13Qt3DAnimation9Animation6FCurve13keyframeCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation6FCurve14clearKeyframesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK13Qt3DAnimation9Animation6FCurve9localTimeEi": [
+      "float", "address", "int"
+    ],
+    "ritual_ZNK13Qt3DAnimation9Animation6FCurve8keyframeEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation6FCurveD1Ev": ["nothing", "address"]
+  }
+}

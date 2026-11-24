@@ -1,0 +1,33 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of Qt3DInp",
+    "ut/6.12.0/Qt3DInput/private/qabstractphysicaldevicebackendnode_p.h",
+    ", Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN9Qt3DInput34QAbstractPhysicalDeviceBackendNode7cleanupEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK9Qt3DInput34QAbstractPhysicalDeviceBackendNode9axisValueEi": [
+      "float", "address", "int"
+    ],
+    "ritual_ZNK9Qt3DInput34QAbstractPhysicalDeviceBackendNode15isButtonPressedEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN9Qt3DInput34QAbstractPhysicalDeviceBackendNode6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK9Qt3DInput34QAbstractPhysicalDeviceBackendNode6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_take_Qt3DInput_QAbstractPhysicalDeviceBackendNode": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN9Qt3DInput34QAbstractPhysicalDeviceBackendNode7cleanupEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN9Qt3DInput34QAbstractPhysicalDeviceBackendNode16syncFromFrontEndEPKN8Qt3DCore5QNodeEb": [
+      "nothing", "address", "address", "bool"
+    ]
+  }
+}

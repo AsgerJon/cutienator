@@ -1,0 +1,51 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DXr/6.12.0/QtQuick3DXr/private/qquick3dxrspatialanchor_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK23QQuick3DXrSpatialAnchor10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QQuick3DXrSpatialAnchor24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuick3DXrSpatialAnchorD1Ev": ["nothing", "address"],
+    "ritual_ZNK23QQuick3DXrSpatialAnchor8offset3DEv": ["address", "address"],
+    "ritual_ZNK23QQuick3DXrSpatialAnchor8extent3DEv": ["address", "address"],
+    "ritual_ZNK23QQuick3DXrSpatialAnchor8positionEv": ["address", "address"],
+    "ritual_ZNK23QQuick3DXrSpatialAnchor8rotationEv": ["address", "address"],
+    "ritual_ZNK23QQuick3DXrSpatialAnchor14classificationEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK23QQuick3DXrSpatialAnchor20classificationStringEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK23QQuick3DXrSpatialAnchor11has2DBoundsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK23QQuick3DXrSpatialAnchor11has3DBoundsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK23QQuick3DXrSpatialAnchor8offset2DEv": ["address", "address"],
+    "ritual_ZNK23QQuick3DXrSpatialAnchor8extent2DEv": ["address", "address"],
+    "ritual_ZNK23QQuick3DXrSpatialAnchor10identifierEv": ["text", "address"],
+    "ritual_ZNK23QQuick3DXrSpatialAnchor5spaceEv": [
+      "unsigned long long", "address"
+    ],
+    "ritual_ZNK23QQuick3DXrSpatialAnchor4uuidEv": ["address", "address"],
+    "ritual_take_QQuick3DXrSpatialAnchor": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_list_make_QQuick3DXrSpatialAnchor_ptr": ["address"],
+    "ritual_list_add_QQuick3DXrSpatialAnchor_ptr": [
+      "nothing", "address", "address"
+    ],
+    "ritual_list_size_QQuick3DXrSpatialAnchor_ptr": ["long long", "address"],
+    "ritual_list_at_QQuick3DXrSpatialAnchor_ptr": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_QQuick3DXrSpatialAnchor_ptr": ["nothing", "address"]
+  }
+}

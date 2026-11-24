@@ -1,0 +1,48 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtDataV",
+    "isualization/6.12.0/QtDataVisualization/private/qheightmapsurfaced",
+    "ataproxy_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK33QHeightMapSurfaceDataProxyPrivate10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN33QHeightMapSurfaceDataProxyPrivateD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN33QHeightMapSurfaceDataProxyPrivate14setValueRangesEffff": [
+      "nothing", "address", "float", "float", "float", "float"
+    ],
+    "ritual_ZN33QHeightMapSurfaceDataProxyPrivate12setMinXValueEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN33QHeightMapSurfaceDataProxyPrivate12setMaxXValueEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN33QHeightMapSurfaceDataProxyPrivate12setMinZValueEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN33QHeightMapSurfaceDataProxyPrivate12setMaxZValueEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN33QHeightMapSurfaceDataProxyPrivate12setMinYValueEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN33QHeightMapSurfaceDataProxyPrivate12setMaxYValueEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN33QHeightMapSurfaceDataProxyPrivate13setAutoScaleYEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN33QHeightMapSurfaceDataProxyPrivate4qptrEv": [
+      "address", "address"
+    ],
+    "ritual_ZN33QHeightMapSurfaceDataProxyPrivate20handlePendingResolveEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QHeightMapSurfaceDataProxyPrivate": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

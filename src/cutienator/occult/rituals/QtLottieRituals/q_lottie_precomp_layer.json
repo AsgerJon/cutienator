@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLottie/6.12.0/QtLottie/private/qlottieprecomplayer_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QLottiePrecompLayerC1Ev": ["address"],
+    "ritual_ZN19QLottiePrecompLayerC1ERKS_": ["address", "address"],
+    "ritual_ZNK19QLottiePrecompLayer5cloneEv": ["address", "address"],
+    "ritual_ZN19QLottiePrecompLayer16updatePropertiesEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN19QLottiePrecompLayer5parseERK11QJsonObject": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK19QLottiePrecompLayer5refIdEv": ["text", "address"],
+    "ritual_ZN19QLottiePrecompLayerD1Ev": ["nothing", "address"],
+    "ritual_own_ZNK19QLottiePrecompLayer5cloneEv": ["address", "address"],
+    "ritual_own_ZN19QLottiePrecompLayer16updatePropertiesEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN19QLottiePrecompLayer5parseERK11QJsonObject": [
+      "int", "address", "address"
+    ]
+  }
+}

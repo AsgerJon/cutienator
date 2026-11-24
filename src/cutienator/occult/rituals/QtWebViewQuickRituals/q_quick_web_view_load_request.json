@@ -1,0 +1,30 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtWebVi",
+    "ewQuick/6.12.0/QtWebViewQuick/private/qquickwebviewloadrequest_p.h",
+    ", Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK24QQuickWebViewLoadRequest10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24QQuickWebViewLoadRequest2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN24QQuickWebViewLoadRequest24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuickWebViewLoadRequestD1Ev": ["nothing", "address"],
+    "ritual_ZNK24QQuickWebViewLoadRequest3urlEv": ["address", "address"],
+    "ritual_ZNK24QQuickWebViewLoadRequest6statusEv": ["int", "address"],
+    "ritual_ZNK24QQuickWebViewLoadRequest11errorStringEv": [
+      "text", "address"
+    ],
+    "ritual_ZN24QQuickWebViewLoadRequestC1ERK19QWebViewLoadingInfo": [
+      "address", "address"
+    ],
+    "ritual_take_QQuickWebViewLoadRequest": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

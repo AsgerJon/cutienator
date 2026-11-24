@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DRender/6.12.0/Qt3DRender/private/qpolygonoffset_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN10Qt3DRender21QPolygonOffsetPrivateC1Ev": ["address"],
+    "ritual_ZN10Qt3DRender21QPolygonOffsetPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender21QPolygonOffsetPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_take_Qt3DRender_QPolygonOffsetPrivate": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

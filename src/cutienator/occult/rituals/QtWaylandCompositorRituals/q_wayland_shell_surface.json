@@ -1,0 +1,30 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWaylandCompositor/qwaylandshellsurface.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK20QWaylandShellSurface10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QWaylandShellSurface2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN20QWaylandShellSurface6d_funcEv": ["address", "address"],
+    "ritual_ZNK20QWaylandShellSurface6d_funcEv": ["address", "address"],
+    "ritual_ZN20QWaylandShellSurface24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QWaylandShellSurface17createIntegrationEP29QWaylandQuickShellSurfaceItem": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK20QWaylandShellSurface10windowTypeEv": ["int", "address"],
+    "ritual_ZNK20QWaylandShellSurface7isModalEv": ["bool", "address"],
+    "ritual_ZN20QWaylandShellSurface8setModalEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_take_QWaylandShellSurface": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK20QWaylandShellSurface10windowTypeEv": ["int", "address"]
+  }
+}

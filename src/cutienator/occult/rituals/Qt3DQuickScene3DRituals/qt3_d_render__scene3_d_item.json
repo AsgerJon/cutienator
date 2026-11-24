@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DQuickScene3D/6.12.0/Qt3DQuickScene3D/private/scene3ditem_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK10Qt3DRender11Scene3DItem10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_take_Qt3DRender_Scene3DItem": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

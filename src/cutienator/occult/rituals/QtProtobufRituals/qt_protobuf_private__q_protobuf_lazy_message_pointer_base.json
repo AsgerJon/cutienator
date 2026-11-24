@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtProtobuf/qprotobuflazymessagepointer.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN17QtProtobufPrivate31QProtobufLazyMessagePointerBaseC1Ev": [
+      "address"
+    ],
+    "ritual_ZN17QtProtobufPrivate31QProtobufLazyMessagePointerBaseC1EP16QProtobufMessage": [
+      "address", "address"
+    ],
+    "ritual_ZNK17QtProtobufPrivate31QProtobufLazyMessagePointerBase7messageEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK17QtProtobufPrivate31QProtobufLazyMessagePointerBase10setMessageEP16QProtobufMessage": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QtProtobufPrivate31QProtobufLazyMessagePointerBaseD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK17QtProtobufPrivate31QProtobufLazyMessagePointerBasecvbEv": [
+      "bool", "address"
+    ]
+  }
+}

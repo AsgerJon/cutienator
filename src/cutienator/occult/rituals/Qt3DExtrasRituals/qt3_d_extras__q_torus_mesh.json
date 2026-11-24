@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DExtras/qtorusmesh.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK10Qt3DExtras10QTorusMesh10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DExtras10QTorusMesh2trEPKcS2_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_take_Qt3DExtras_QTorusMesh": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

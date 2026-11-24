@@ -1,0 +1,31 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DInput/qinputaspect.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK9Qt3DInput12QInputAspect10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput12QInputAspect2trEPKcS2_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN9Qt3DInput12QInputAspect6d_funcEv": ["address", "address"],
+    "ritual_ZNK9Qt3DInput12QInputAspect6d_funcEv": ["address", "address"],
+    "ritual_take_Qt3DInput_QInputAspect": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN9Qt3DInput12QInputAspect12onRegisteredEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN9Qt3DInput12QInputAspect14onUnregisteredEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN9Qt3DInput12QInputAspect15onEngineStartupEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN9Qt3DInput12QInputAspect8jobsDoneEv": [
+      "nothing", "address"
+    ]
+  }
+}

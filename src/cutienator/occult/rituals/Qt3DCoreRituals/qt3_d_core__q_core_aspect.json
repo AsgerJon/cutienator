@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DCore/qcoreaspect.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK8Qt3DCore11QCoreAspect10metaObjectEv": ["address", "address"],
+    "ritual_ZN8Qt3DCore11QCoreAspect2trEPKcS2_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN8Qt3DCore11QCoreAspect6d_funcEv": ["address", "address"],
+    "ritual_ZNK8Qt3DCore11QCoreAspect6d_funcEv": ["address", "address"],
+    "ritual_take_Qt3DCore_QCoreAspect": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN8Qt3DCore11QCoreAspect12onRegisteredEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN8Qt3DCore11QCoreAspect14onUnregisteredEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN8Qt3DCore11QCoreAspect15onEngineStartupEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN8Qt3DCore11QCoreAspect9frameDoneEv": ["nothing", "address"]
+  }
+}

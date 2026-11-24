@@ -1,0 +1,12 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DExtras/6.12.0/Qt3DExtras/private/qtext2dentity_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN10Qt3DExtras20QText2DEntityPrivate10CacheEntryD1Ev": [
+      "nothing", "address"
+    ]
+  }
+}

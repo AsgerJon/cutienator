@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtDataV",
+    "isualization/6.12.0/QtDataVisualization/private/qitemmodelscatterd",
+    "ataproxy_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK33QItemModelScatterDataProxyPrivate10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN33QItemModelScatterDataProxyPrivateD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN33QItemModelScatterDataProxyPrivate4qptrEv": [
+      "address", "address"
+    ],
+    "ritual_take_QItemModelScatterDataProxyPrivate": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

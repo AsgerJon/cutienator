@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtLotti",
+    "eVectorImageHelpers/6.12.0/QtLottieVectorImageHelpers/private/qqui",
+    "cklayeritem_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK15QQuickLayerItem10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QQuickLayerItem2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN15QQuickLayerItem6d_funcEv": ["address", "address"],
+    "ritual_ZNK15QQuickLayerItem6d_funcEv": ["address", "address"],
+    "ritual_ZN15QQuickLayerItemC1EP10QQuickItem": ["address", "address"],
+    "ritual_ZN15QQuickLayerItem15transformMatrixEv": ["address", "address"],
+    "ritual_ZN15QQuickLayerItem10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_take_QQuickLayerItem": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN15QQuickLayerItem10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ]
+  }
+}

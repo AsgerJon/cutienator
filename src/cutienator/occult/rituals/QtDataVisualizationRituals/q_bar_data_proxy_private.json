@@ -1,0 +1,34 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtDataV",
+    "isualization/6.12.0/QtDataVisualization/private/qbardataproxy_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK20QBarDataProxyPrivate10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QBarDataProxyPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN20QBarDataProxyPrivate7setItemEiiRK12QBarDataItem": [
+      "nothing", "address", "int", "int", "address"
+    ],
+    "ritual_ZN20QBarDataProxyPrivate10removeRowsEiib": [
+      "nothing", "address", "int", "int", "bool"
+    ],
+    "ritual_ZN20QBarDataProxyPrivate9setSeriesEP17QAbstract3DSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QBarDataProxyPrivate4qptrEv": ["address", "address"],
+    "ritual_ZN20QBarDataProxyPrivate8clearRowEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QBarDataProxyPrivate10clearArrayEv": ["nothing", "address"],
+    "ritual_ZN20QBarDataProxyPrivate12fixRowLabelsEiiRK5QListI7QStringEb": [
+      "nothing", "address", "int", "int", "address", "bool"
+    ],
+    "ritual_take_QBarDataProxyPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN20QBarDataProxyPrivate9setSeriesEP17QAbstract3DSeries": [
+      "nothing", "address", "address"
+    ]
+  }
+}

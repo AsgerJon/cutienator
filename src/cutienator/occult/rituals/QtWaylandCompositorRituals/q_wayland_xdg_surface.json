@@ -1,0 +1,44 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWaylandCompositor/qwaylandxdgshell.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18QWaylandXdgSurface10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QWaylandXdgSurface2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18QWaylandXdgSurfaceC1Ev": ["address"],
+    "ritual_ZN18QWaylandXdgSurfaceC1EP16QWaylandXdgShellP15QWaylandSurfaceRK16QWaylandResource": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN18QWaylandXdgSurface10initializeEP16QWaylandXdgShellP15QWaylandSurfaceRK16QWaylandResource": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK18QWaylandXdgSurface10windowTypeEv": ["int", "address"],
+    "ritual_ZNK18QWaylandXdgSurface5shellEv": ["address", "address"],
+    "ritual_ZNK18QWaylandXdgSurface7surfaceEv": ["address", "address"],
+    "ritual_ZNK18QWaylandXdgSurface8toplevelEv": ["address", "address"],
+    "ritual_ZNK18QWaylandXdgSurface5popupEv": ["address", "address"],
+    "ritual_ZNK18QWaylandXdgSurface14windowGeometryEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18QWaylandXdgSurface13interfaceNameEv": ["address"],
+    "ritual_ZN18QWaylandXdgSurface17createIntegrationEP29QWaylandQuickShellSurfaceItem": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18QWaylandXdgSurface10initializeEv": ["nothing", "address"],
+    "ritual_ZN18QWaylandXdgSurface24handleSurfaceSizeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QWaylandXdgSurface24handleBufferScaleChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZNK18QWaylandXdgSurface10windowTypeEv": ["int", "address"],
+    "ritual_own_ZN18QWaylandXdgSurface17createIntegrationEP29QWaylandQuickShellSurfaceItem": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN18QWaylandXdgSurface10initializeEv": ["nothing", "address"]
+  }
+}

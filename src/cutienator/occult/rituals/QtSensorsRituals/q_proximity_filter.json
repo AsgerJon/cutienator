@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSensors/qproximitysensor.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN16QProximityFilter6filterEP17QProximityReading": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN16QProximityFilter6filterEP14QSensorReading": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN16QProximityFilter6filterEP14QSensorReading": [
+      "bool", "address", "address"
+    ]
+  }
+}

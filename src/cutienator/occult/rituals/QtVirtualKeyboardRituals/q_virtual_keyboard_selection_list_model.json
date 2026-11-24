@@ -1,0 +1,69 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtVirtualKeyboard/qvirtualkeyboardselectionlistmodel.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK34QVirtualKeyboardSelectionListModel10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN34QVirtualKeyboardSelectionListModel2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN34QVirtualKeyboardSelectionListModel24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN34QVirtualKeyboardSelectionListModelC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN34QVirtualKeyboardSelectionListModelD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN34QVirtualKeyboardSelectionListModel13setDataSourceEP35QVirtualKeyboardAbstractInputMethodNS_4TypeE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZNK34QVirtualKeyboardSelectionListModel10dataSourceEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK34QVirtualKeyboardSelectionListModel8rowCountERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK34QVirtualKeyboardSelectionListModel4dataERK11QModelIndexi": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZNK34QVirtualKeyboardSelectionListModel9roleNamesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK34QVirtualKeyboardSelectionListModel5countEv": [
+      "int", "address"
+    ],
+    "ritual_ZN34QVirtualKeyboardSelectionListModel10selectItemEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN34QVirtualKeyboardSelectionListModel10removeItemEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK34QVirtualKeyboardSelectionListModel6dataAtEiNS_4RoleE": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZN34QVirtualKeyboardSelectionListModel20selectionListChangedENS_4TypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN34QVirtualKeyboardSelectionListModel30selectionListActiveItemChangedENS_4TypeEi": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN34QVirtualKeyboardSelectionListModel19dataSourceDestroyedEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QVirtualKeyboardSelectionListModel": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK34QVirtualKeyboardSelectionListModel8rowCountERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZNK34QVirtualKeyboardSelectionListModel4dataERK11QModelIndexi": [
+      "address", "address", "address", "int"
+    ]
+  }
+}

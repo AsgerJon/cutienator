@@ -1,0 +1,56 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLottie/6.12.0/QtLottie/private/qlottiebasictransform_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN21QLottieBasicTransformC1ERKS_": ["address", "address"],
+    "ritual_ZN21QLottieBasicTransformC1EP11QLottieBase": [
+      "address", "address"
+    ],
+    "ritual_ZNK21QLottieBasicTransform5cloneEv": ["address", "address"],
+    "ritual_ZN21QLottieBasicTransform5parseERK11QJsonObject": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN21QLottieBasicTransform16updatePropertiesEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK21QLottieBasicTransform11anchorPointEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK21QLottieBasicTransform8positionEv": ["address", "address"],
+    "ritual_ZNK21QLottieBasicTransform5scaleEv": ["address", "address"],
+    "ritual_ZNK21QLottieBasicTransform8rotationEv": ["double", "address"],
+    "ritual_ZNK21QLottieBasicTransform7opacityEv": ["double", "address"],
+    "ritual_ZNK21QLottieBasicTransform13splitPositionEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK21QLottieBasicTransform19anchorPointPropertyEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK21QLottieBasicTransform16positionPropertyEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK21QLottieBasicTransform23hasLinkedLayerTransformEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QLottieBasicTransform26setHasLinkedLayerTransformEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN21QLottieBasicTransformD1Ev": ["nothing", "address"],
+    "ritual_take_QLottieBasicTransform": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK21QLottieBasicTransform5cloneEv": ["address", "address"],
+    "ritual_own_ZN21QLottieBasicTransform5parseERK11QJsonObject": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZN21QLottieBasicTransform16updatePropertiesEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZNK21QLottieBasicTransform8positionEv": [
+      "address", "address"
+    ]
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of Qt3DQui",
+    "ckInput/6.12.0/Qt3DQuickInput/private/quick3dlogicaldevice_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK9Qt3DInput5Input5Quick20Quick3DLogicalDevice10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN9Qt3DInput5Input5Quick20Quick3DLogicalDevice2trEPKcS4_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZNK9Qt3DInput5Input5Quick20Quick3DLogicalDevice19parentLogicalDeviceEv": [
+      "address", "address"
+    ],
+    "ritual_take_Qt3DInput_Input_Quick_Quick3DLogicalDevice": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

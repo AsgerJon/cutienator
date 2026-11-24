@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DCore/6.12.0/Qt3DCore/private/qabstractframeadvanceservice_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK8Qt3DCore28QAbstractFrameAdvanceService10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN8Qt3DCore28QAbstractFrameAdvanceService2trEPKcS2_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN8Qt3DCore28QAbstractFrameAdvanceService16waitForNextFrameEv": [
+      "long long", "address"
+    ],
+    "ritual_ZN8Qt3DCore28QAbstractFrameAdvanceService5startEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN8Qt3DCore28QAbstractFrameAdvanceService4stopEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_Qt3DCore_QAbstractFrameAdvanceService": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

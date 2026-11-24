@@ -18,8 +18,8 @@ from worktoy.waitaminute import MissingVariable, TypeException
 from . import HeaderFile, HeaderFolder
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import (Any, Dict, FrozenSet, Iterator, List, Optional, Set,
-                      Tuple)
+  from typing import (Any, Dict, FrozenSet, Iterator, List, Optional,
+                      Sequence, Set, Tuple)
 
   Record = Dict[str, Any]
   HeaderFiles = Tuple[HeaderFile, ...]
@@ -236,6 +236,9 @@ class HeaderReader:
   #  bare name of each header file. Kept for every 'HeaderReader'.
   __uncovered_file__ = None  # type: Optional[str]
   __uncovered_headers__ = None  # type: Optional[Dict[str, List[str]]]
+  #  The parts that are told their folders in their own order; see
+  #  'getOwnOrderParts'.
+  __own_order_parts__ = None  # type: Optional[FrozenSet[str]]
   #  How the compiler says that it cannot find a file pulled in.
   __not_found__ = re.compile(r"fatal error: '([^']+)' file not found")
 
@@ -974,10 +977,57 @@ class HeaderReader:
     '/usr/include/qt6/QtCore/6.12.0/QtCore' and the folder 'private'
     in that one, for a file of Qt's source that names such a header
     barely, as '"qlistwidget_p.h"'.
+
+    The compiler takes the first file it finds by a name, and two parts
+    may each have one by the same name, as 'private/qabstractseries_p.h'
+    of QtCharts and of QtGraphs. The parts come in the order of the
+    alphabet, as 'getSharedIncludeFolders' gives them, which is what
+    Qt3DAnimation's '<private/qabstractanimation_p.h>' means. For a
+    part of 'getOwnOrderParts' they come in the order the part sees
+    them: itself, then the parts it needs, the nearest first, as
+    'HeaderFolder.getPartNeeds' has them, then the others in the order
+    of the alphabet.
     """
-    headerFolder, version = self.getQtHeaderFolder(), self.getQtVersion()
+    if self.getPartName() not in self.getOwnOrderParts():
+      return self.getSharedIncludeFolders()
+    return self._listIncludeFolders(self._orderParts(self.getPartName()))
+
+  @classmethod
+  def getSharedIncludeFolders(cls) -> Paths:
+    """
+    Gives the folders of 'getPrivateIncludeFolders' with every part in
+    the order of the alphabet: those of every part not in
+    'getOwnOrderParts', and those the probe header of every part is
+    made with; see 'RitualGenerator.getProbeHeader'.
+    """
+    return cls._listIncludeFolders(())
+
+  @classmethod
+  def _orderParts(cls, partName: str) -> List[str]:
+    """Gives the part and the parts it needs, the nearest first, as
+    'HeaderFolder.getPartNeeds' has them."""
+    order, at = [partName], 0
+    while at < len(order):
+      try:
+        needs = HeaderFolder.getPartNeeds(order[at])
+      except LookupError:
+        needs = ()
+      order.extend(need for need in needs if need not in order)
+      at += 1
+    return order
+
+  @classmethod
+  def _listIncludeFolders(cls, first: Sequence[str]) -> Paths:
+    """Gives the four folders of each part that has them, the parts
+    named first in that order, then the others in the order of the
+    alphabet, and the folder of the system."""
+    headerFolder, version = cls.getQtHeaderFolder(), cls.getQtVersion()
+    names = sorted(os.listdir(headerFolder))
+    names = [
+        *(name for name in first if name in names),
+        *(name for name in names if name not in first)]
     found = []
-    for name in sorted(os.listdir(headerFolder)):
+    for name in names:
       folder = os.path.join(headerFolder, name, version)
       if os.path.isdir(os.path.join(folder, name)):
         found.append(os.path.join(headerFolder, name))
@@ -987,8 +1037,67 @@ class HeaderReader:
     #  Some of those headers name 'qplatformdefs.h', which Qt keeps
     #  with what it knows of the system and the compiler it is built
     #  for, in its source as 'mkspecs/linux-g++'.
-    found.append(self.getHeaderFolder().getSpecFolder())
+    found.append(cls.getHeaderFolder().getSpecFolder())
     return (*found,)
+
+  @classmethod
+  def getOwnOrderParts(cls) -> FrozenSet[str]:
+    """
+    Gives the parts whose folders 'getPrivateIncludeFolders' gives in
+    the order the part sees them: each part whose own header files
+    name, by the bare name, as '<private/qabstractseries_p.h>', a
+    header file two parts have in their folders 'private', and would
+    find another one in the order of the alphabet than in its own
+    order; and every part that needs such a part. For Qt 6.12.0 that
+    is QtGraphs, which would find QtCharts' files, Qt3DQuickScene2D,
+    which would find Qt3DAnimation's 'backendnode_p.h' for that of
+    Qt3DRender, and QtGraphsWidgets.
+
+    Found for you, from the folder the 'HeaderFolder' made, at the
+    first call, and kept.
+    """
+    if cls.__own_order_parts__ is not None:
+      return cls.__own_order_parts__
+    headerFolder, version = cls.getQtHeaderFolder(), cls.getQtVersion()
+    partNames = sorted(os.listdir(headerFolder))
+    holders = dict()  # type: Dict[str, List[str]]
+    for name in partNames:
+      private = os.path.join(headerFolder, name, version, name, 'private')
+      if os.path.isdir(private):
+        for fileName in os.listdir(private):
+          holders.setdefault(fileName, []).append(name)
+    shared = {f: p for f, p in holders.items() if len(p) > 1}
+    bare = re.compile(r'^\s*#\s*include\s*<(?:private/)?([^>/]+)>', re.M)
+    found = set()  # type: Set[str]
+    for name in partNames:
+      named = set()  # type: Set[str]
+      for here, _, fileNames in os.walk(os.path.join(headerFolder, name)):
+        for fileName in fileNames:
+          path = os.path.join(here, fileName)
+          try:
+            with open(path, errors='replace') as file:
+              named.update(bare.findall(file.read()))
+          except OSError:
+            continue
+      order = cls._orderParts(name)
+      for fileName in named & set(shared):
+        parts = shared[fileName]
+        own = min(
+            parts, key=lambda p: order.index(p) if p in order else len(
+                order) + parts.index(p))
+        if own != sorted(parts)[0]:
+          found.add(name)
+    #  A part that needs such a part reads its header files, so it sees
+    #  the parts the same way.
+    grown = True
+    while grown:
+      grown = False
+      for name in partNames:
+        if name not in found and set(cls._orderParts(name)) & found:
+          found.add(name)
+          grown = True
+    cls.__own_order_parts__ = frozenset(found)
+    return cls.__own_order_parts__
 
   def getCompilerCommand(self) -> Tuple[str, ...]:
     """

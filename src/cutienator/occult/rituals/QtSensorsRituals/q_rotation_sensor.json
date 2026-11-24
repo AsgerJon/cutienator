@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSensors/qrotationsensor.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK15QRotationSensor10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QRotationSensor2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN15QRotationSensorC1EP7QObject": ["address", "address"],
+    "ritual_ZN15QRotationSensorD1Ev": ["nothing", "address"],
+    "ritual_ZNK15QRotationSensor7readingEv": ["address", "address"],
+    "ritual_ZNK15QRotationSensor4hasZEv": ["bool", "address"],
+    "ritual_ZN15QRotationSensor7setHasZEb": ["nothing", "address", "bool"],
+    "ritual_ZN15QRotationSensor6d_funcEv": ["address", "address"],
+    "ritual_ZNK15QRotationSensor6d_funcEv": ["address", "address"],
+    "ritual_take_QRotationSensor": ["bool", "address", "chars", "address"]
+  }
+}

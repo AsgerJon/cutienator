@@ -1,0 +1,26 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtMulti",
+    "mediaQuick/6.12.0/QtMultimediaQuick/private/qquickimagepreviewprov",
+    "ider_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN26QQuickImagePreviewProviderC1Ev": ["address"],
+    "ritual_ZN26QQuickImagePreviewProviderD1Ev": ["nothing", "address"],
+    "ritual_ZN26QQuickImagePreviewProvider12requestImageERK7QStringP5QSizeRKS3_": [
+      "address", "address", "text", "address", "address"
+    ],
+    "ritual_ZN26QQuickImagePreviewProvider15registerPreviewE5QUuid7QString6QImage": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZN26QQuickImagePreviewProvider15cleanupInstanceE5QUuid": [
+      "nothing", "address"
+    ],
+    "ritual_take_QQuickImagePreviewProvider": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN26QQuickImagePreviewProvider12requestImageERK7QStringP5QSizeRKS3_": [
+      "address", "address", "text", "address", "address"
+    ]
+  }
+}

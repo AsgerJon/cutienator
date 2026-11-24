@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtProtobuf/qprotobufoneof.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN17QtProtobufPrivate14QProtobufOneof14ensureMetaTypeE9QMetaTypeS1_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QtProtobufPrivateeqERKNS_14QProtobufOneofES2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN17QtProtobufPrivateneERKNS_14QProtobufOneofES2_": [
+      "bool", "address", "address"
+    ]
+  }
+}

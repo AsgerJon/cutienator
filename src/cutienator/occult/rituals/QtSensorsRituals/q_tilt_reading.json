@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSensors/qtiltsensor.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK12QTiltReading10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QTiltReading2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN12QTiltReadingC1EP7QObject": ["address", "address"],
+    "ritual_ZN12QTiltReadingD1Ev": ["nothing", "address"],
+    "ritual_ZN12QTiltReading14copyValuesFromEP14QSensorReading": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12QTiltReading9yRotationEv": ["double", "address"],
+    "ritual_ZN12QTiltReading12setYRotationEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK12QTiltReading9xRotationEv": ["double", "address"],
+    "ritual_ZN12QTiltReading12setXRotationEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_take_QTiltReading": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN12QTiltReading14copyValuesFromEP14QSensorReading": [
+      "nothing", "address", "address"
+    ]
+  }
+}

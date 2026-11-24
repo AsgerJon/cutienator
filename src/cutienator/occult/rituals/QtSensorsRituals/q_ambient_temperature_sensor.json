@@ -1,0 +1,25 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSensors/qambienttemperaturesensor.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK25QAmbientTemperatureSensor10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QAmbientTemperatureSensor2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN25QAmbientTemperatureSensorC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN25QAmbientTemperatureSensorD1Ev": ["nothing", "address"],
+    "ritual_ZNK25QAmbientTemperatureSensor7readingEv": [
+      "address", "address"
+    ],
+    "ritual_take_QAmbientTemperatureSensor": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWaylandCompositor/qwaylandquicksurface.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK20QWaylandQuickSurface10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QWaylandQuickSurface2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN20QWaylandQuickSurfaceC1Ev": ["address"],
+    "ritual_ZN20QWaylandQuickSurfaceC1EP18QWaylandCompositorP14QWaylandClientji": [
+      "address", "address", "address", "unsigned int", "int"
+    ],
+    "ritual_ZN20QWaylandQuickSurfaceD1Ev": ["nothing", "address"],
+    "ritual_ZNK20QWaylandQuickSurface15useTextureAlphaEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN20QWaylandQuickSurface18setUseTextureAlphaEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_take_QWaylandQuickSurface": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

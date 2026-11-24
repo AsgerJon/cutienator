@@ -1,0 +1,29 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGrpcQuick/6.12.0/QtGrpcQuick/private/qqmlgrpchttp2channel_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK20QQmlGrpcHttp2Channel10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QQmlGrpcHttp2Channel2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN20QQmlGrpcHttp2ChannelC1EP7QObject": ["address", "address"],
+    "ritual_ZN20QQmlGrpcHttp2ChannelD1Ev": ["nothing", "address"],
+    "ritual_ZNK20QQmlGrpcHttp2Channel7optionsEv": ["address", "address"],
+    "ritual_ZN20QQmlGrpcHttp2Channel10setOptionsEP22QQmlGrpcChannelOptions": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QQmlGrpcHttp2Channel7hostUriEv": ["address", "address"],
+    "ritual_ZN20QQmlGrpcHttp2Channel10setHostUriERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQmlGrpcHttp2Channel13updateChannelEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QQmlGrpcHttp2Channel": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

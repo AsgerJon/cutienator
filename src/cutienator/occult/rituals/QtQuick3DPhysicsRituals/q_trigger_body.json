@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3DPhysics/6.12.0/QtQuick3DPhysics/private/qtriggerbody_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK12QTriggerBody10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QTriggerBody2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN12QTriggerBodyC1Ev": ["address"],
+    "ritual_ZN12QTriggerBody17registerCollisionEP20QAbstractPhysicsNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QTriggerBody19deregisterCollisionEP20QAbstractPhysicsNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12QTriggerBody14collisionCountEv": ["int", "address"]
+  }
+}

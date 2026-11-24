@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtVirtu",
+    "alKeyboard/6.12.0/QtVirtualKeyboard/private/desktopinputselectionc",
+    "ontrol_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QtVirtualKeyboard28DesktopInputSelectionControl10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard28DesktopInputSelectionControl2trEPKcS2_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QtVirtualKeyboard28DesktopInputSelectionControlD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_take_QtVirtualKeyboard_DesktopInputSelectionControl": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN17QtVirtualKeyboard28DesktopInputSelectionControl11eventFilterEP7QObjectP6QEvent": [
+      "bool", "address", "address", "address"
+    ]
+  }
+}

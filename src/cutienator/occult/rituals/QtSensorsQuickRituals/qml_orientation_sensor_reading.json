@@ -1,0 +1,40 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtSenso",
+    "rsQuick/6.12.0/QtSensorsQuick/private/qmlorientationsensor_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK27QmlOrientationSensorReading10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QmlOrientationSensorReading2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN27QmlOrientationSensorReading24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QmlOrientationSensorReadingC1EP18QOrientationSensor": [
+      "address", "address"
+    ],
+    "ritual_ZN27QmlOrientationSensorReadingD1Ev": ["nothing", "address"],
+    "ritual_ZNK27QmlOrientationSensorReading11orientationEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK27QmlOrientationSensorReading7readingEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QmlOrientationSensorReading13readingUpdateEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QmlOrientationSensorReading": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK27QmlOrientationSensorReading7readingEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN27QmlOrientationSensorReading13readingUpdateEv": [
+      "nothing", "address"
+    ]
+  }
+}

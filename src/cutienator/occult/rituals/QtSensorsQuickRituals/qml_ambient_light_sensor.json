@@ -1,0 +1,28 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtSenso",
+    "rsQuick/6.12.0/QtSensorsQuick/private/qmlambientlightsensor_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK21QmlAmbientLightSensor10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QmlAmbientLightSensor2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN21QmlAmbientLightSensorC1EP7QObject": ["address", "address"],
+    "ritual_ZN21QmlAmbientLightSensorD1Ev": ["nothing", "address"],
+    "ritual_ZNK21QmlAmbientLightSensor6sensorEv": ["address", "address"],
+    "ritual_ZNK21QmlAmbientLightSensor13createReadingEv": [
+      "address", "address"
+    ],
+    "ritual_take_QmlAmbientLightSensor": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK21QmlAmbientLightSensor6sensorEv": ["address", "address"],
+    "ritual_own_ZNK21QmlAmbientLightSensor13createReadingEv": [
+      "address", "address"
+    ]
+  }
+}

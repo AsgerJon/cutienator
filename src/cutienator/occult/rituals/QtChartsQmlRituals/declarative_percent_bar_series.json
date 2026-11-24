@@ -1,0 +1,69 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtChartsQml/6.12.0/QtChartsQml/private/declarativebarseries_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK27DeclarativePercentBarSeries10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27DeclarativePercentBarSeries2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN27DeclarativePercentBarSeriesC1EP10QQuickItem": [
+      "address", "address"
+    ],
+    "ritual_ZN27DeclarativePercentBarSeries5axisXEv": ["address", "address"],
+    "ritual_ZN27DeclarativePercentBarSeries8setAxisXEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN27DeclarativePercentBarSeries5axisYEv": ["address", "address"],
+    "ritual_ZN27DeclarativePercentBarSeries8setAxisYEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN27DeclarativePercentBarSeries8axisXTopEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27DeclarativePercentBarSeries11setAxisXTopEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN27DeclarativePercentBarSeries10axisYRightEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27DeclarativePercentBarSeries13setAxisYRightEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN27DeclarativePercentBarSeries2atEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN27DeclarativePercentBarSeries6appendE7QString5QListI8QVariantE": [
+      "address", "address", "text", "address"
+    ],
+    "ritual_ZN27DeclarativePercentBarSeries6insertEi7QString5QListI8QVariantE": [
+      "address", "address", "int", "text", "address"
+    ],
+    "ritual_ZN27DeclarativePercentBarSeries6removeEP7QBarSet": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN27DeclarativePercentBarSeries5clearEv": ["nothing", "address"],
+    "ritual_ZN27DeclarativePercentBarSeries10classBeginEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27DeclarativePercentBarSeries17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_cast_DeclarativePercentBarSeries_QQmlParserStatus": [
+      "address", "address"
+    ],
+    "ritual_take_DeclarativePercentBarSeries": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN27DeclarativePercentBarSeries10classBeginEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN27DeclarativePercentBarSeries17componentCompleteEv": [
+      "nothing", "address"
+    ]
+  }
+}

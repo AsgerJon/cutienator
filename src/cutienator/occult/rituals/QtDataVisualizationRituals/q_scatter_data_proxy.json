@@ -1,0 +1,45 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDataVisualization/qscatterdataproxy.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QScatterDataProxy10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QScatterDataProxy2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QScatterDataProxyC1EP7QObject": ["address", "address"],
+    "ritual_ZN17QScatterDataProxyD1Ev": ["nothing", "address"],
+    "ritual_ZNK17QScatterDataProxy6seriesEv": ["address", "address"],
+    "ritual_ZNK17QScatterDataProxy9itemCountEv": ["int", "address"],
+    "ritual_ZNK17QScatterDataProxy6itemAtEi": ["address", "address", "int"],
+    "ritual_ZN17QScatterDataProxy7setItemEiRK16QScatterDataItem": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN17QScatterDataProxy8setItemsEiRK5QListI16QScatterDataItemE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN17QScatterDataProxy7addItemERK16QScatterDataItem": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN17QScatterDataProxy8addItemsERK5QListI16QScatterDataItemE": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN17QScatterDataProxy10insertItemEiRK16QScatterDataItem": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN17QScatterDataProxy11insertItemsEiRK5QListI16QScatterDataItemE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN17QScatterDataProxy11removeItemsEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN17QScatterDataProxyC1EP24QScatterDataProxyPrivateP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN17QScatterDataProxy4dptrEv": ["address", "address"],
+    "ritual_ZNK17QScatterDataProxy5dptrcEv": ["address", "address"],
+    "ritual_take_QScatterDataProxy": ["bool", "address", "chars", "address"]
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDataVisualization/6.12.0/QtDataVisualization/private/utils_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN5Utils15vectorFromColorERK6QColor": ["address", "address"],
+    "ritual_ZN5Utils15colorFromVectorERK9QVector3D": ["address", "address"],
+    "ritual_ZN5Utils15colorFromVectorERK9QVector4D": ["address", "address"],
+    "ritual_ZN5Utils12getSelectionE6QPointi": ["address", "address", "int"],
+    "ritual_ZN5Utils18formatLabelSprintfERK10QByteArrayNS_9ParamTypeEd": [
+      "text", "address", "int", "double"
+    ],
+    "ritual_ZN5Utils20formatLabelLocalizedENS_9ParamTypeEdRK7QLocaleRK7QStringS6_icRK10QByteArray": [
+      "text", "int", "double", "address", "text", "text", "int", "char",
+      "address"
+    ],
+    "ritual_ZN5Utils18defaultLabelFormatEv": ["text"],
+    "ritual_ZN5Utils9wrapValueEfff": ["float", "float", "float", "float"],
+    "ritual_ZN5Utils17calculateRotationERK9QVector3D": [
+      "address", "address"
+    ],
+    "ritual_ZN5Utils24mapFormatCharToParamTypeEc": ["int", "char"],
+    "ritual_ZN5UtilsD1Ev": ["nothing", "address"]
+  }
+}

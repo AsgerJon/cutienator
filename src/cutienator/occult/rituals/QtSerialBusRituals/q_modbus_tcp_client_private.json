@@ -1,0 +1,26 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSerialBus/6.12.0/QtSerialBus/private/qmodbustcpclient_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN23QModbusTcpClientPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK23QModbusTcpClientPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN23QModbusTcpClientPrivate14enqueueRequestERK14QModbusRequestiRK15QModbusDataUnitN12QModbusReply9ReplyTypeE": [
+      "address", "address", "address", "int", "address", "int"
+    ],
+    "ritual_ZNK23QModbusTcpClientPrivate6isOpenEv": ["bool", "address"],
+    "ritual_ZN23QModbusTcpClientPrivate22incrementTransactionIdEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK23QModbusTcpClientPrivate13transactionIdEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK23QModbusTcpClientPrivate6deviceEv": ["address", "address"],
+    "ritual_own_ZNK23QModbusTcpClientPrivate6isOpenEv": ["bool", "address"],
+    "ritual_own_ZNK23QModbusTcpClientPrivate6deviceEv": [
+      "address", "address"
+    ]
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSerialPort/6.12.0/QtSerialPort/private/qserialport_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QSerialPortErrorInfoC1EN11QSerialPort15SerialPortErrorERK7QString": [
+      "address", "int", "text"
+    ],
+    "ritual_ZN20QSerialPortErrorInfoD1Ev": ["nothing", "address"]
+  }
+}

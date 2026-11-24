@@ -1,0 +1,36 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCanvasPainter/qcanvasconicalgradient.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN22QCanvasConicalGradientC1Ev": ["address"],
+    "ritual_ZN22QCanvasConicalGradientC1Eddd": [
+      "address", "double", "double", "double"
+    ],
+    "ritual_ZN22QCanvasConicalGradientC1E7QPointFd": [
+      "address", "address", "double"
+    ],
+    "ritual_ZN22QCanvasConicalGradientC1ERKS_": ["address", "address"],
+    "ritual_ZN22QCanvasConicalGradientD1Ev": ["nothing", "address"],
+    "ritual_ZNK22QCanvasConicalGradient14centerPositionEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QCanvasConicalGradient17setCenterPositionEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN22QCanvasConicalGradient17setCenterPositionE7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK22QCanvasConicalGradient10startAngleEv": [
+      "double", "address"
+    ],
+    "ritual_ZN22QCanvasConicalGradient13setStartAngleEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN22QCanvasConicalGradientC1ERK12QCanvasBrush": [
+      "address", "address"
+    ]
+  }
+}

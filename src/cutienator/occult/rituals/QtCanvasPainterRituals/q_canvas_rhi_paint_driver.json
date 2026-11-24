@@ -1,0 +1,30 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCanvasPainter/qcanvasrhipaintdriver.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN21QCanvasRhiPaintDriverC1Ev": ["address"],
+    "ritual_ZN21QCanvasRhiPaintDriverD1Ev": ["nothing", "address"],
+    "ritual_ZN21QCanvasRhiPaintDriver16resetForNewFrameEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QCanvasRhiPaintDriver10beginPaintEP17QRhiCommandBufferP16QRhiRenderTarget6QColor5QSized6QFlagsINS_14BeginPaintFlagEE": [
+      "nothing", "address", "address", "address", "address", "address",
+      "double", "int"
+    ],
+    "ritual_ZN21QCanvasRhiPaintDriver10beginPaintEP17QRhiCommandBufferP16QRhiRenderTargetRK10QMatrix4x46QFlagsINS_14BeginPaintFlagEE": [
+      "nothing", "address", "address", "address", "address", "int"
+    ],
+    "ritual_ZN21QCanvasRhiPaintDriver8endPaintE6QFlagsINS_12EndPaintFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN21QCanvasRhiPaintDriver11renderPaintEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QCanvasRhiPaintDriver14grabCanvasImplERK22QCanvasOffscreenCanvasPK7QObjectPN9QtPrivate15QSlotObjectBaseE": [
+      "nothing", "address", "address", "address", "address"
+    ]
+  }
+}

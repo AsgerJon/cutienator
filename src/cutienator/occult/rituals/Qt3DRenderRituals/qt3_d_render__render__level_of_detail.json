@@ -1,0 +1,33 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DRender/6.12.0/Qt3DRender/private/levelofdetail_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK10Qt3DRender6Render13LevelOfDetail6cameraEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render13LevelOfDetail12currentIndexEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render13LevelOfDetail13thresholdTypeEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render13LevelOfDetail6radiusEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render13LevelOfDetail6centerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render13LevelOfDetail25hasBoundingVolumeOverrideEv": [
+      "bool", "address"
+    ],
+    "ritual_take_Qt3DRender_Render_LevelOfDetail": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN10Qt3DRender6Render13LevelOfDetail16syncFromFrontEndEPKN8Qt3DCore5QNodeEb": [
+      "nothing", "address", "address", "bool"
+    ]
+  }
+}

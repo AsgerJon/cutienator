@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DRender/6.12.0/Qt3DRender/private/loadscenejob_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN10Qt3DRender6Render12LoadSceneJob15setNodeManagersEPNS0_12NodeManagersE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render12LoadSceneJob6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render12LoadSceneJob6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN10Qt3DRender6Render12LoadSceneJob3runEv": [
+      "nothing", "address"
+    ]
+  }
+}

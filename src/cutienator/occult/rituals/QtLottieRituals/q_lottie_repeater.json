@@ -1,0 +1,30 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLottie/6.12.0/QtLottie/private/qlottierepeater_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15QLottieRepeaterC1Ev": ["address"],
+    "ritual_ZN15QLottieRepeaterC1ERKS_": ["address", "address"],
+    "ritual_ZN15QLottieRepeaterC1ERK11QJsonObjectP11QLottieBase": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK15QLottieRepeater5cloneEv": ["address", "address"],
+    "ritual_ZN15QLottieRepeater9constructERK11QJsonObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QLottieRepeater16updatePropertiesEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QLottieRepeater6copiesEv": ["int", "address"],
+    "ritual_ZNK15QLottieRepeater6offsetEv": ["double", "address"],
+    "ritual_ZNK15QLottieRepeater9transformEv": ["address", "address"],
+    "ritual_ZN15QLottieRepeaterD1Ev": ["nothing", "address"],
+    "ritual_take_QLottieRepeater": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK15QLottieRepeater5cloneEv": ["address", "address"],
+    "ritual_own_ZN15QLottieRepeater16updatePropertiesEi": [
+      "nothing", "address", "int"
+    ]
+  }
+}

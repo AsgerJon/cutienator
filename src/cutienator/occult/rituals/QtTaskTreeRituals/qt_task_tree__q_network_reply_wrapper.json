@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtTaskTree/qnetworkreplywrappertask.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK10QtTaskTree20QNetworkReplyWrapper10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10QtTaskTree20QNetworkReplyWrapper2trEPKcS2_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10QtTaskTree20QNetworkReplyWrapperC1Ev": ["address"],
+    "ritual_take_QtTaskTree_QNetworkReplyWrapper": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN10QtTaskTree20QNetworkReplyWrapper5eventEP6QEvent": [
+      "bool", "address", "address"
+    ]
+  }
+}

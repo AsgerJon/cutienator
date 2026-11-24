@@ -1,0 +1,55 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSpatialAudio/6.12.0/QtSpatialAudio/private/qaudioengine_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QAudioEnginePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK19QAudioEnginePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN19QAudioEnginePrivate3getEP12QAudioEngine": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QAudioEnginePrivate10sampleRateEv": ["int", "address"],
+    "ritual_ZN19QAudioEnginePrivate16setDistanceScaleEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK19QAudioEnginePrivate13distanceScaleEv": ["float", "address"],
+    "ritual_ZNK19QAudioEnginePrivate12masterVolumeEv": ["float", "address"],
+    "ritual_ZN19QAudioEnginePrivate13setOutputModeEN12QAudioEngine10OutputModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK19QAudioEnginePrivate10outputModeEv": ["int", "address"],
+    "ritual_ZN19QAudioEnginePrivate7addRoomEP10QAudioRoom": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QAudioEnginePrivate10removeRoomEP10QAudioRoom": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QAudioEnginePrivate11currentRoomEv": ["address", "address"],
+    "ritual_ZN19QAudioEnginePrivate17updateRoomEffectsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QAudioEnginePrivate5startEv": ["nothing", "address"],
+    "ritual_ZN19QAudioEnginePrivate4stopEv": ["nothing", "address"],
+    "ritual_ZN19QAudioEnginePrivate9setPausedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK19QAudioEnginePrivate8isPausedEv": ["bool", "address"],
+    "ritual_ZN19QAudioEnginePrivate15setOutputDeviceERK12QAudioDevice": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QAudioEnginePrivate12outputDeviceEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QAudioEnginePrivate8addSoundEP25QSpatialAudioSoundPrivate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QAudioEnginePrivate11removeSoundEP25QSpatialAudioSoundPrivate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QAudioEnginePrivate": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

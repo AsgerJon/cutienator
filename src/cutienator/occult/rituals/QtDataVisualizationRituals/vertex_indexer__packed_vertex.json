@@ -1,0 +1,13 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtDataV",
+    "isualization/6.12.0/QtDataVisualization/private/vertexindexer_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK13VertexIndexer12PackedVertexltES0_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN13VertexIndexer12PackedVertexD1Ev": ["nothing", "address"]
+  }
+}

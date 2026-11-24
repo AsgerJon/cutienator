@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DRender/qlevelofdetailswitch.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZNK10Qt3DRender20QLevelOfDetailSwitch10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender20QLevelOfDetailSwitch2trEPKcS2_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DRender20QLevelOfDetailSwitchC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender20QLevelOfDetailSwitch6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender20QLevelOfDetailSwitch6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_take_Qt3DRender_QLevelOfDetailSwitch": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

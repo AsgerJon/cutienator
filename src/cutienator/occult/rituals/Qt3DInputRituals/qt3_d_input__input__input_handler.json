@@ -1,0 +1,63 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DInput/6.12.0/Qt3DInput/private/inputhandler_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN9Qt3DInput5Input12InputHandler8setSceneEPN8Qt3DCore6QSceneE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9Qt3DInput5Input12InputHandler21keyboardDeviceManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK9Qt3DInput5Input12InputHandler20keyboardInputManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK9Qt3DInput5Input12InputHandler18mouseDeviceManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK9Qt3DInput5Input12InputHandler17mouseInputManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK9Qt3DInput5Input12InputHandler11axisManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK9Qt3DInput5Input12InputHandler22axisAccumulatorManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK9Qt3DInput5Input12InputHandler13actionManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK9Qt3DInput5Input12InputHandler18axisSettingManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK9Qt3DInput5Input12InputHandler18actionInputManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK9Qt3DInput5Input12InputHandler22analogAxisInputManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK9Qt3DInput5Input12InputHandler22buttonAxisInputManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK9Qt3DInput5Input12InputHandler17inputChordManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK9Qt3DInput5Input12InputHandler20inputSequenceManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK9Qt3DInput5Input12InputHandler20logicalDeviceManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK9Qt3DInput5Input12InputHandler31genericDeviceBackendNodeManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK9Qt3DInput5Input12InputHandler26physicalDeviceProxyManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK9Qt3DInput5Input12InputHandler13inputSettingsEv": [
+      "address", "address"
+    ]
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3DXr/6.12.0/QtQuick3DXr/private/qquick3dxrhandinput_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK19QQuick3DXrHandInput10metaObjectEv": ["address", "address"],
+    "ritual_ZNK19QQuick3DXrHandInput8isActiveEv": ["bool", "address"],
+    "ritual_ZNK19QQuick3DXrHandInput14jointPositionsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QQuick3DXrHandInput14jointRotationsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QQuick3DXrHandInput12pokePositionEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QQuick3DXrHandInput20isHandTrackingActiveEv": [
+      "bool", "address"
+    ]
+  }
+}

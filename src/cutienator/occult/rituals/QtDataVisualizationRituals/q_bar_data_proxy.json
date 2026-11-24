@@ -1,0 +1,45 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDataVisualization/qbardataproxy.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZNK13QBarDataProxy10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QBarDataProxy2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN13QBarDataProxyC1EP7QObject": ["address", "address"],
+    "ritual_ZN13QBarDataProxyD1Ev": ["nothing", "address"],
+    "ritual_ZNK13QBarDataProxy6seriesEv": ["address", "address"],
+    "ritual_ZNK13QBarDataProxy8rowCountEv": ["int", "address"],
+    "ritual_ZNK13QBarDataProxy9rowLabelsEv": ["address", "address"],
+    "ritual_ZN13QBarDataProxy12setRowLabelsERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QBarDataProxy12columnLabelsEv": ["address", "address"],
+    "ritual_ZN13QBarDataProxy15setColumnLabelsERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QBarDataProxy6itemAtEii": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZNK13QBarDataProxy6itemAtERK6QPoint": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN13QBarDataProxy10resetArrayEv": ["nothing", "address"],
+    "ritual_ZN13QBarDataProxy7setItemEiiRK12QBarDataItem": [
+      "nothing", "address", "int", "int", "address"
+    ],
+    "ritual_ZN13QBarDataProxy7setItemERK6QPointRK12QBarDataItem": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN13QBarDataProxy10removeRowsEiib": [
+      "nothing", "address", "int", "int", "bool"
+    ],
+    "ritual_ZN13QBarDataProxyC1EP20QBarDataProxyPrivateP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN13QBarDataProxy4dptrEv": ["address", "address"],
+    "ritual_ZNK13QBarDataProxy5dptrcEv": ["address", "address"],
+    "ritual_take_QBarDataProxy": ["bool", "address", "chars", "address"]
+  }
+}

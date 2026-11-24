@@ -13,6 +13,7 @@ import subprocess
 import tempfile
 import textwrap
 import threading
+from concurrent.futures import ThreadPoolExecutor
 from multiprocessing.util import Finalize
 from typing import TYPE_CHECKING
 
@@ -40,6 +41,7 @@ class RitualGenerator:
 
     generator = RitualGenerator()
     generator.setDependencyTree(tree)
+    generator.setPartName('QtCore')
     generator.setClassName('QObject')
     generator.setWorkFolder('/some/folder')
     generator.write()            # writes '/some/folder/q_object.cpp'
@@ -68,6 +70,10 @@ class RitualGenerator:
 
   - 'setDependencyTree': the tree of the parts of Qt, which knows the
     classes, the enums and the records. Required.
+  - 'setPartName': the part of Qt the class is under, as 'QtCore'.
+    Required. Every name the generator meets is seen from that part,
+    as 'DependencyTree' has it: a class of QtGraphs names QtGraphs'
+    own 'QBarSeries', not that of QtCharts.
   - 'setClassName': the class to write rituals for. Required.
   - 'setWorkFolder': an existing folder for the ritual file. Required
     before 'write' only.
@@ -279,6 +285,7 @@ class RitualGenerator:
   #  Private Variables
   __dependency_tree__ = None  # type: Optional[DependencyTree]
   __class_name__ = None  # type: Optional[str]
+  __part_name__ = None  # type: Optional[str]
   __work_folder__ = None  # type: Optional[str]
   #  The classes that get a C++ class of ours, through which Python can
   #  take a function over, or None for every class that has such a
@@ -374,6 +381,38 @@ class RitualGenerator:
       raise MissingVariable(self, '__class_name__', str)
     return self.__class_name__
 
+  def getPartName(self) -> str:
+    """
+    Gives the part of Qt the class is under, as 'QtCore'; every name the
+    generator meets is seen from it.
+
+    Provided by you, through 'setPartName'. Nothing fills it in for
+    you.
+
+    Raises
+    ------
+
+    MissingVariable
+      'setPartName' has not been called.
+    """
+    if self.__part_name__ is None:
+      raise MissingVariable(self, '__part_name__', str)
+    return self.__part_name__
+
+  def _keyOf(self, className: str) -> Tuple[str, str]:
+    """
+    Gives the class a name stands for, seen from the part of the class
+    of the generator, by its key, as ('QtCore', 'QObject').
+
+    Raises
+    ------
+
+    LookupError
+      The tree has no class of that name.
+    """
+    tree = self.getDependencyTree()
+    return tree.getClassKey(className, self.getPartName())
+
   def getWorkFolder(self) -> str:
     """
     Gives the folder the ritual file is written to.
@@ -403,7 +442,8 @@ class RitualGenerator:
     LookupError
       The tree has no class of the name you set.
     """
-    return self.getDependencyTree().getHeaderReader(self.getClassName())
+    return self.getDependencyTree().getHeaderReader(
+        self.getClassName(), self.getPartName())
 
   def getFileStem(self) -> str:
     """
@@ -444,9 +484,8 @@ class RitualGenerator:
 
   def _createPlan(self, ) -> None:
     """Decides, for each function of the class, whether it is written."""
-    tree = self.getDependencyTree()
     className = self.getClassName()
-    record = tree.getClassRecord(className)
+    record = self._readRecord(className)
     #  Which functions are signals is read from the text of the header
     #  file: the compiler does not report it.
     signals = set()  # type: Set[str]
@@ -543,30 +582,41 @@ class RitualGenerator:
     return 'Cute%s' % self.getClassName().replace('::', '_')
 
   def _getOther(self, className: str) -> RitualGenerator:
-    """Gives a generator for another class of the same tree."""
+    """Gives a generator for another class of the same tree: the class
+    the name stands for, seen from the part of this one."""
     if className == self.getClassName():
+      return self
+    return self._getGenerator(self._keyOf(className))
+
+  def _getGenerator(self, classKey: Tuple[str, str]) -> RitualGenerator:
+    """Gives a generator for a class of the same tree by its key, as
+    ('QtCore', 'QObject'), made once for the tree."""
+    if classKey == (self.getPartName(), self.getClassName()):
       return self
     kept = self.getDependencyTree().getKept('other generators')
     try:
-      return kept[className]
+      return kept[classKey]
     except KeyError:
       other = type(self)()
       other.setDependencyTree(self.getDependencyTree())
-      other.setClassName(className)
+      other.setPartName(classKey[0])
+      other.setClassName(classKey[1])
       #  It only works out plans and never writes a file, so it needs
       #  no folder.
-      kept[className] = other
+      kept[classKey] = other
       return other
 
   def _readRecord(self, className: str) -> Record:
-    """Gives the record of a class as the tree has it, read once."""
+    """Gives the record of a class as the tree has it, read once: the
+    class the name stands for, seen from the part of this one."""
     tree = self.getDependencyTree()
     kept = tree.getKept('class records')
+    classKey = self._keyOf(className)
     try:
-      return kept[className]
+      return kept[classKey]
     except KeyError:
-      record = tree.getClassRecord(className)
-      kept[className] = record
+      record = tree.getClassRecord(classKey[1], classKey[0])
+      kept[classKey] = record
       return record
 
   def _findVirtuals(self) -> List[Record]:
@@ -586,7 +636,8 @@ class RitualGenerator:
       declared it.
     """
     tree, className = self.getDependencyTree(), self.getClassName()
-    chain = (className, *reversed(tree.getAncestors(className)))
+    ancestors = tree.getAncestors(className, self.getPartName())
+    chain = (className, *(name for _, name in reversed(ancestors)))
     groups = dict()  # type: Dict[Tuple[str, str], List[Record]]
     for owner in chain:
       record = self._readRecord(owner)
@@ -863,12 +914,18 @@ class RitualGenerator:
     owner, _, own = plain.rpartition('::')
     if not owner:
       return False
+    try:
+      ownerKey = self._keyOf(owner)
+    except LookupError:
+      #  Written in a namespace, as 'Qt::FocusPolicy', or in no class
+      #  the tree knows: nothing keeps it from being named.
+      return False
     kept = self.getDependencyTree().getKept('hidden types')
     try:
-      return kept[plain]
+      return kept[(ownerKey, own)]
     except KeyError:
       hidden = self._findHiddenType(owner, own)
-      kept[plain] = hidden
+      kept[(ownerKey, own)] = hidden
       return hidden
 
   def _findHiddenType(self, owner: str, own: str) -> bool:
@@ -1054,10 +1111,11 @@ class RitualGenerator:
     arguments = plan.get('arguments') or ()
     return any(a['passing'].get('kind') == 'map' for a in arguments)
 
-  def getListKinds(self) -> Dict[str, Record]:
+  def getListKinds(self) -> Dict[Tuple[str, str], Record]:
     """
     Gives every kind of list the functions of Qt take or give, as
-    '_findListKind' describes it, under its tag.
+    '_findListKind' describes it, under the part of the class it holds
+    and its tag, as ('QtCore', 'QUrl').
 
     Found for you by going through every class the tree knows, once
     for each tree. The class a kind holds writes the rituals of that
@@ -1070,20 +1128,20 @@ class RitualGenerator:
         kept['found'] = self._findListKinds()
       return kept['found']
 
-  def _findListKinds(self) -> Dict[str, Record]:
+  def _findListKinds(self) -> Dict[Tuple[str, str], Record]:
     """Does the going through the tree for 'getListKinds', which keeps
     the answer."""
     tree = self.getDependencyTree()
-    kinds = dict()  # type: Dict[str, Record]
-    aliases = self._getTypeTables()['aliases']
+    kinds = dict()  # type: Dict[Tuple[str, str], Record]
     wanted = ('CXXMethodDecl', 'CXXConstructorDecl')
     cute = tree.getCuteNames()
-    for className in tree.getClassNames():
-      if className not in cute:
+    for classKey in tree.getClasses():
+      if classKey not in cute:
         #  No function of Python hands its lists around.
         continue
-      other = self._getOther(className)
-      for member in other._readRecord(className).get('inner', ()):
+      other = self._getGenerator(classKey)
+      aliases = other._getTypeTables()['aliases']
+      for member in other._readRecord(classKey[1]).get('inner', ()):
         if member.get('kind') not in wanted:
           continue
         given = self._splitFunctionType(member['type']['qualType'])[0]
@@ -1102,32 +1160,39 @@ class RitualGenerator:
             #  the spelling out.
             continue
           spelled = other._spellOutside(cppType)
-          listed = other._findListKind(spelled)
-          if listed is not None:
-            kinds.setdefault(listed['tag'], listed)
-          mapped = other._findMapKind(spelled)
-          if mapped is not None:
-            kinds.setdefault(mapped['tag'], mapped)
+          for found in (
+              other._findListKind(spelled), other._findMapKind(spelled)):
+            if found is None:
+              continue
+            #  The kind is under the part of the class it holds, as
+            #  that class sees it: a list of QtGraphs' 'QBarSet *' is
+            #  another kind than one of QtCharts' 'QBarSet *'.
+            try:
+              holder = other._keyOf(found['holds'])[0]
+            except LookupError:
+              holder = ''
+            kinds.setdefault((holder, found['tag']), found)
     return kinds
 
   def getOwnListKinds(self) -> List[Record]:
     """Gives the kinds of list that hold the class, as 'QList<QUrl>'
     for QUrl and 'QList<QAction *>' for QAction: most classes none."""
-    className = self.getClassName()
+    className, partName = self.getClassName(), self.getPartName()
     return [
-        listed for listed in self.getListKinds().values()
+        listed for (holder, _), listed in self.getListKinds().items()
         if 'listType' in listed and listed['holds'] == className
-        and listed['crossing'] != 'text'
+        and holder == partName and listed['crossing'] != 'text'
     ]
 
   def getOwnMapKinds(self) -> List[Record]:
     """Gives the kinds of map whose values are of the class, as
     'QMap<int, QVariant>' for QVariant: most classes none. They are
     found in the same going through the tree as the lists."""
-    className = self.getClassName()
+    className, partName = self.getClassName(), self.getPartName()
     return [
-        mapped for mapped in self.getListKinds().values()
+        mapped for (holder, _), mapped in self.getListKinds().items()
         if 'mapType' in mapped and mapped['holds'] == className
+        and holder == partName
     ]
 
   def getMapNames(self, mapped: Record) -> List[str]:
@@ -1468,7 +1533,8 @@ class RitualGenerator:
   def _getHeading(self) -> str:
     """Says who wrote a file, from what, and that it is written anew."""
     headerReader = self.getHeaderReader()
-    headerPath = self.getDependencyTree().getHeaderPath(self.getClassName())
+    headerPath = self.getDependencyTree().getHeaderPath(
+        self.getClassName(), self.getPartName())
     relative = os.path.relpath(headerPath, headerReader.getQtHeaderFolder())
     infoSpec = """Written by dev_tooling.RitualGenerator from the records
     of %s, Qt %s. Changes made here are lost."""
@@ -1510,21 +1576,23 @@ class RitualGenerator:
       #  Qt's source stands in it. The private list of the part answers
       #  that, and is read before any '#if'.
       includeLines.append(privateLine)
+    partName = self.getPartName()
     for name in needed:
-      headerReader = tree.getHeaderReader(name)
-      lines = headerReader.getIncludeLines(tree.getHeaderPath(name))
+      headerReader = tree.getHeaderReader(name, partName)
+      lines = headerReader.getIncludeLines(
+          tree.getHeaderPath(name, partName))
       for line in lines.split('\n'):
         if line.strip() and line not in includeLines:
           includeLines.append(line)
     #  A function whose code lies in another header file than the one
     #  its class is declared in: that header file is pulled in as well.
-    ownPath = tree.getHeaderPath(className)
+    ownPath = tree.getHeaderPath(className, partName)
     for ritual in self.getWritten():
       ritualName = ritual['ritualName']
       for start in ('ritual_own', 'ritual'):
         if ritualName.startswith(start):
           break
-      codePath = tree.getDefinedPath(ritualName[len(start):])
+      codePath = tree.getDefinedPath(ritualName[len(start):], partName)
       if codePath is None or codePath == ownPath:
         continue
       for headerReader in tree.getHeaderReaders():
@@ -1572,7 +1640,6 @@ class RitualGenerator:
           self.__not_common_start__, *self.getSourceIncludes(),
           self.__not_common_end__))
     conditions = self.getFileConditions()
-    partName = tree.getPartName(className)
     #  A switch another part has, asked by an '#if' of the file, as
     #  'QT_CONFIG(http)' of QtNetwork in a file of QtHttpServer, is
     #  answered by the list of that part, pulled in first.
@@ -1620,9 +1687,9 @@ class RitualGenerator:
     """
     tree = self.getDependencyTree()
     className = self.getClassName()
-    conditions = self._findConditions(tree.getClassRecord(className))
+    conditions = self._findConditions(self._readRecord(className))
     installed = HeaderReader.getHeaderFolder().getInstallCondition(
-        tree.getHeaderPath(className))
+        tree.getHeaderPath(className, self.getPartName()))
     if installed:
       return (installed, *conditions)
     return conditions
@@ -1642,7 +1709,7 @@ class RitualGenerator:
     """
     folder = HeaderReader.getHeaderFolder()
     version = HeaderReader.getQtVersion()
-    partName = self.getDependencyTree().getPartName(self.getClassName())
+    partName = self.getPartName()
     lines = []  # type: List[str]
     for name in re.findall(r'QT_CONFIG\((\w+)\)', ' '.join(conditions)):
       owner = folder.getSwitchOwner(name)
@@ -1677,7 +1744,7 @@ class RitualGenerator:
     tree = self.getDependencyTree()
     className = self.getClassName()
     found = []  # type: List[str]
-    for member in tree.getClassRecord(className).get('inner', ()):
+    for member in self._readRecord(className).get('inner', ()):
       if not isinstance(member, dict) or member.get('name') != 'q_func':
         continue
       qualType = member.get('type', dict()).get('qualType', '')
@@ -1685,7 +1752,7 @@ class RitualGenerator:
       if match is None:
         continue
       name = match.group(1)
-      if name != className and name in tree.getClassNames():
+      if name != className and tree.hasClass(name, self.getPartName()):
         if name not in found:
           found.append(name)
     return (*found,)
@@ -1699,15 +1766,14 @@ class RitualGenerator:
     source stands in the file. Else ''.
     """
     tree = self.getDependencyTree()
-    className = self.getClassName()
-    headerReader = tree.getHeaderReader(className)
-    headerPath = tree.getHeaderPath(className)
+    className, partName = self.getClassName(), self.getPartName()
+    headerReader = tree.getHeaderReader(className, partName)
+    headerPath = tree.getHeaderPath(className, partName)
     apart = any(
         headerPath.startswith(folder)
         for folder in headerReader.getApartFolders())
     if not apart and not self.getSourceText():
       return ''
-    partName = tree.getPartName(className)
     if not HeaderFolder.getPrivateGlobalHeader(partName):
       #  A part with no such file of its own, as QtXml, has no private
       #  switches: its files ask those of QtCore.
@@ -1834,6 +1900,30 @@ class RitualGenerator:
     self.__overridable_functions__ = None
     self.__has_cute_class__ = None
 
+  def setPartName(self, partName: str) -> None:
+    """
+    Tells the generator which part of Qt the class is under, as
+    'QtGraphs' for its 'QBarSeries'. Every name the generator meets is
+    seen from that part, as 'DependencyTree' has it.
+
+    Required. Calling it again forgets what was decided before.
+
+    Raises
+    ------
+
+    TypeException
+      'partName' is not text.
+    """
+    if not isinstance(partName, str):
+      raise TypeException('partName', partName, str)
+    self.__part_name__ = partName
+    self.__written_rituals__ = None
+    self.__unwritten_functions__ = None
+    self.__overridable_functions__ = None
+    self.__has_cute_class__ = None
+    self.__type_tables__ = None
+    self.__known_names__ = None
+
   def setWorkFolder(self, workFolder: str) -> None:
     """
     Tells the generator where to write the ritual file.
@@ -1914,24 +2004,38 @@ class RitualGenerator:
     if self.__type_tables__ is None:
       if kwargs.get('_recursion', False):
         raise RecursionError
-      tree = self.getDependencyTree()
-      known = frozenset(tree.getClassNames())
+      #  Each name as seen from the part of the class: a class of
+      #  QtGraphs names QtGraphs' own 'QBarSeries'. Every class of a
+      #  part sees them alike, so they are kept for the part.
+      tree, partName = self.getDependencyTree(), self.getPartName()
+      kept = tree.getKept('type tables')
+      if partName in kept:
+        self.__type_tables__ = kept[partName]
+        return self._getTypeTables(_recursion=True)
+      cuteKeys, copyableKeys = tree.getCuteNames(), tree.getCopyableNames()
+      seen = {
+          name: tree.getClassKey(name, partName)
+          for name in {name for _, name in tree.getClasses()}}
+      textNames = (self.__text_name__, *self.__view_names__)
       cute = frozenset((
-          *tree.getCuteNames(), self.__text_name__, *self.__view_names__,
+          *(name for name, key in seen.items() if key in cuteKeys),
+          *textNames,
       ))
       enums = []  # type: List[str]
-      for enumName in tree.getEnumNames():
+      for enumName in sorted({name for _, name in tree.getEnumNames()}):
         owner = enumName.rpartition('::')[0]
-        if owner not in known or owner in cute:
+        if owner not in seen or owner in cute:
           enums.append(enumName)
       self.__type_tables__ = dict(
-          aliases=tree.getAliasTypes(),
+          aliases=tree.getAliasTypes(partName),
           enums=frozenset(enums),
-          classes=frozenset(name for name in known if name in cute),
-          enumTypes=tree.getEnumTypes(),
+          classes=frozenset(name for name in seen if name in cute),
+          enumTypes=tree.getEnumTypes(partName),
           copyable=frozenset(
-              name for name in tree.getCopyableNames() if name in cute),
+              name for name, key in seen.items()
+              if key in copyableKeys and name in cute),
       )
+      kept[partName] = self.__type_tables__
       return self._getTypeTables(_recursion=True)
     return self.__type_tables__
 
@@ -2256,8 +2360,9 @@ class RitualGenerator:
         raise RecursionError
       tree = self.getDependencyTree()
       self.__known_names__ = frozenset((
-          *tree.getClassNames(), *tree.getEnumNames(),
-          *tree.getAliasTypes(),
+          *(name for _, name in tree.getClasses()),
+          *(name for _, name in tree.getEnumNames()),
+          *tree.getAliasTypes(self.getPartName()),
       ))
       return self._getKnownNames(_recursion=True)
     return self.__known_names__
@@ -2288,8 +2393,7 @@ class RitualGenerator:
     """Gives the conditions of a function of the class that go beyond
     those of the class itself. The ones of the class stand around the
     whole ritual file; see 'getRitualText'."""
-    tree = self.getDependencyTree()
-    whole = self._findConditions(tree.getClassRecord(self.getClassName()))
+    whole = self._findConditions(self._readRecord(self.getClassName()))
     own = self._findConditions(member)
     if own[:len(whole)] == whole:
       return own[len(whole):]
@@ -2325,16 +2429,46 @@ class RitualGenerator:
   def getPrivateArguments(self) -> Tuple[str, ...]:
     """
     Gives the '-I' arguments by which the compiler finds the headers
-    Qt calls private, or none when no part of the tree reads those and
-    no source of Qt was provided.
+    Qt calls private for the compiles of the class, or none when no
+    part of the tree reads those and no source of Qt was provided.
+    They are those of the probe header its compiles start from; see
+    '_getProbePart'.
+    """
+    return self._getPrivateArguments(self._getProbePart())
+
+  def _getPrivateArguments(self, partName: str) -> Tuple[str, ...]:
+    """
+    Gives the '-I' arguments by which the compiler finds the headers
+    Qt calls private: those 'HeaderReader.getPrivateIncludeFolders'
+    gives the part of that name, or, for '', those of
+    'HeaderReader.getSharedIncludeFolders', in the order of the
+    alphabet. None when no part of the tree reads those and no source
+    of Qt was provided.
     """
     tree = self.getDependencyTree()
     headerReaders = tree.getHeaderReaders()
     if tree.getSourceReader() is None:
       if not any(reader.hasPrivate() for reader in headerReaders):
         return ()
-    folders = headerReaders[0].getPrivateIncludeFolders()
+    folders = HeaderReader.getSharedIncludeFolders()
+    for reader in headerReaders:
+      if partName and reader.getPartName() == partName:
+        folders = reader.getPrivateIncludeFolders()
     return (*('-I%s' % folder for folder in folders),)
+
+  def _getProbePart(self) -> str:
+    """
+    Gives the part whose folders the compiles of the class are told:
+    the part of the class where it has a probe header of its own; else
+    '', the folders in the order of the alphabet, which the one of
+    every part is made with. A precompiled header serves only a compile
+    told the same.
+    """
+    kept = self.getDependencyTree().getKept('probe header')
+    if 'path' not in kept:
+      self._makeProbeHeaders(kept)
+    partName = self.getPartName()
+    return partName if partName in kept['own'] else ''
 
   def getSourceText(self) -> str:
     """Gives the code taken from Qt's own source for the class, as C++
@@ -2377,7 +2511,7 @@ class RitualGenerator:
     ]
     whole = member.get('type', dict()).get('qualType', '')
     const = True if re.search(r'\)\s*const\b', whole) else False
-    partName = tree.getPartName(className)
+    partName = tree.getPartName(className, self.getPartName())
     found = [
         definition for definition
         in source.findDefinitions(partName, '%s::%s' % (className, name))
@@ -2407,15 +2541,17 @@ class RitualGenerator:
       return True
     return self._plainSymbol(symbol) in self._getDeclaredSymbols()
 
-  def _getProbeCommand(self) -> Tuple[str, ...]:
+  def _getProbeCommand(self, partName: str) -> Tuple[str, ...]:
     """Gives the start of the 'clang++' command of '_probeText', which
     the precompiled header of 'getProbeHeader' is made with as well: a
-    precompiled header serves only a compile told the same."""
+    precompiled header serves only a compile told the same. The folders
+    are those of the part of that name, or of the first part of the
+    tree for ''; see '_getPrivateArguments'."""
     return (
         'clang++', '-std=c++17', '-fPIC', '-O0', '-w',
         '-fno-access-control', '-ffunction-sections', '-ferror-limit=0',
         '-I%s' % HeaderReader.getQtHeaderFolder(),
-        *self.getPrivateArguments(),
+        *self._getPrivateArguments(partName),
     )
 
   def getProbeHeader(self) -> str:
@@ -2434,45 +2570,196 @@ class RitualGenerator:
     handing the tree to other processes, and they all start from the
     one file.
 
+    A part whose line the compiler blames for an error is left out,
+    and the header made again without it: Qt's QtGraphs refuses to be
+    in one compile with QtCharts or QtDataVisualization, since they
+    use the same class names. 'getLeftOutParts' gives those parts,
+    with what the compiler said. Each of them gets a header of its
+    own, of the part and the parts it needs, as Qt's own build has
+    them together, and the compiles of its classes start from that
+    one. So does each part of 'HeaderReader.getOwnOrderParts', whose
+    folders come in its own order, where the one of every part is made
+    with them in the order of the alphabet. A part whose own header the
+    compiler refuses has its classes written down as missed, and
+    'write' refuses them.
+
     Raises
     ------
 
     RuntimeError
-      The compiler refused to make it. The message holds what it said.
+      The compiler refused to make it, and blamed no line of a part.
+      The message holds what it said.
+
+    LookupError
+      The part of the class is left out, and the compiler refused its
+      own header; see 'getRefusedParts'.
     """
     kept = self.getDependencyTree().getKept('probe header')
-    if 'path' in kept:
-      return kept['path']
-    lines = []
-    headerReaders = self.getDependencyTree().getHeaderReaders()
+    if 'path' not in kept:
+      self._makeProbeHeaders(kept)
+    partName = self.getPartName()
+    if partName in kept['refused']:
+      infoSpec = """%s is not written: its part %s is left out of the
+      probe header, and the compiler refused its own one: %s"""
+      info = infoSpec % (
+          self.getClassName(), partName, kept['refused'][partName])
+      raise LookupError(' '.join(info.split()))
+    return kept['own'].get(partName, kept['path'])
+
+  def _makeProbeHeaders(self, kept: Dict[str, Any]) -> None:
+    """Makes the probe headers 'getProbeHeader' gives, and keeps them
+    with what the compiler said of the parts left out."""
+    tree = self.getDependencyTree()
+    lines = []  # type: List[Tuple[str, str]]
+    headerReaders = tree.getHeaderReaders()
+    held = dict()  # type: Dict[str, str]
     for headerReader in headerReaders:
       partName = headerReader.getPartName()
       partFolder = headerReader.getPartFolder()
       if os.path.isfile(os.path.join(partFolder, partName)):
-        lines.append('#include <%s/%s>' % (partName, partName))
+        held[partName] = '#include <%s/%s>' % (partName, partName)
+        lines.append((partName, held[partName]))
     folder = tempfile.mkdtemp(
         prefix='probe_header_', dir=headerReaders[0].getWorkFolder())
     Finalize(
         None, shutil.rmtree, args=(folder,),
         kwargs=dict(ignore_errors=True), exitpriority=0)
-    headerFile = os.path.join(folder, 'probe.h')
+    leftOut = dict()  # type: Dict[str, str]
+    while True:
+      said, blamed = self._compileProbeHeader(folder, 'probe', lines, '')
+      if said is None:
+        break
+      blamed = {number for number in blamed if number <= len(lines)}
+      if not blamed:
+        infoSpec = """The compiler refused to make the precompiled
+        header the settling compiles start from: %s"""
+        info = infoSpec % said[:800]
+        raise RuntimeError(' '.join(info.split()))
+      for number in sorted(blamed, reverse=True):
+        partName = lines.pop(number - 1)[0]
+        leftOut[partName] = said[:600]
+    own, refused = dict(), dict()  # type: Dict[str, str], Dict[str, str]
+    #  A part left out, and a part whose folders come in its own order,
+    #  as QtGraphs, whose 'private/qabstractseries_p.h' is its own and
+    #  not that of QtCharts; see 'HeaderReader.getOwnOrderParts'.
+    apart = [
+        *leftOut, *(
+            name for name in sorted(HeaderReader.getOwnOrderParts())
+            if name in held and name not in leftOut)]
+
+    def makeOwn(partName: str) -> Tuple[str, Optional[str]]:
+      """Makes the probe header of one part and every part it needs,
+      those first, as Qt's own build reads them for the part."""
+      needed, at = [partName], 0
+      while at < len(needed):
+        try:
+          needs = HeaderFolder.getPartNeeds(needed[at])
+        except LookupError:
+          needs = ()
+        needed.extend(need for need in needs if need not in needed)
+        at += 1
+      ownLines = [
+          (one, held[one]) for one in reversed(needed) if one in held]
+      said, _ = self._compileProbeHeader(
+          folder, 'probe_%s' % partName, ownLines, partName)
+      return partName, said
+
+    with ThreadPoolExecutor(os.cpu_count() or 1) as pool:
+      for partName, said in pool.map(makeOwn, apart):
+        if said is None:
+          own[partName] = os.path.join(folder, 'probe_%s.pch' % partName)
+        else:
+          refused[partName] = said[:600]
+    for partName, said in refused.items():
+      for className in tree[partName]:
+        tree.addMissedClass(
+            '%s::%s' % (partName, className),
+            'its part is left out of the probe header, and the compiler '
+            'refused its own one: %s' % said)
+    kept['left out'] = leftOut
+    kept['own'] = own
+    kept['refused'] = refused
+    kept['path'] = os.path.join(folder, 'probe.pch')
+
+  def _compileProbeHeader(
+      self,
+      folder: str,
+      stem: str,
+      lines: List[Tuple[str, str]],
+      partName: str,
+  ) -> Tuple[Optional[str], Set[int]]:
+    """Writes the lines into '<stem>.h' in the folder and makes
+    '<stem>.pch' of it, with the folders of the part of that name, or of
+    the first part of the tree for ''. Gives None when the compiler made
+    it; else what it said, and the numbers of the lines it blamed."""
+    headerFile = os.path.join(folder, '%s.h' % stem)
     with open(headerFile, 'w') as file:
-      file.write('%s\n' % '\n'.join(lines))
-    probeHeader = os.path.join(folder, 'probe.pch')
+      file.write('%s\n' % '\n'.join(line for _, line in lines))
     command = (
-        *self._getProbeCommand(), '-fpch-instantiate-templates',
-        '-x', 'c++-header', headerFile, '-o', probeHeader,
+        *self._getProbeCommand(partName), '-fpch-instantiate-templates',
+        '-x', 'c++-header', headerFile,
+        '-o', os.path.join(folder, '%s.pch' % stem),
     )
     done = subprocess.run(
         command, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
         universal_newlines=True)
-    if done.returncode:
-      infoSpec = """The compiler refused to make the precompiled header
-      the settling compiles start from: %s"""
-      info = infoSpec % ' '.join(done.stderr.split())[:800]
-      raise RuntimeError(' '.join(info.split()))
-    kept['path'] = probeHeader
-    return probeHeader
+    if not done.returncode:
+      return None, set()
+    said = ' '.join(done.stderr.split())
+    return said, self._findBlamedLines(done.stderr, '%s.h' % stem)
+
+  def getLeftOutParts(self) -> Dict[str, str]:
+    """
+    Gives the parts 'getProbeHeader' left out of the header of every
+    part, each with what the compiler said of it; an empty dict when it
+    left out none. Makes the probe headers when they are not made yet.
+    """
+    kept = self.getDependencyTree().getKept('probe header')
+    if 'path' not in kept:
+      self._makeProbeHeaders(kept)
+    return dict(kept['left out'])
+
+  def getRefusedParts(self) -> Dict[str, str]:
+    """
+    Gives the parts left out whose own probe header the compiler
+    refused as well, each with what it said: their classes are not
+    written. Makes the probe headers when they are not made yet.
+    """
+    kept = self.getDependencyTree().getKept('probe header')
+    if 'path' not in kept:
+      self._makeProbeHeaders(kept)
+    return dict(kept['refused'])
+
+  @staticmethod
+  def _findBlamedLines(said: str, fileName: str) -> Set[int]:
+    """
+    Gives the numbers of the lines of the file of that name that an
+    error the compiler printed stands under: the line the error is on,
+    or the line of the file the header holding the error was included
+    from. The lines a note or a warning stands under are not taken.
+
+    The compiler prints the files a header was included from only when
+    they are not those of the message before, so a message without
+    them stands under those of the message before.
+    """
+    blamed, chain = set(), set()  # type: Set[int], Set[int]
+    inStack = False
+    place = re.compile(r'(?:^|/)%s:(\d+):' % re.escape(fileName))
+    for line in said.splitlines():
+      stripped = line.strip()
+      if stripped.startswith(('In file included from', 'from ')):
+        if not inStack:
+          chain, inStack = set(), True
+        chain.update(int(number) for number in place.findall(stripped))
+        continue
+      inStack = False
+      if ': error: ' in stripped or ': fatal error: ' in stripped:
+        here = place.search(stripped.split(' ')[0])
+        if here:
+          blamed.add(int(here.group(1)))
+        else:
+          blamed.update(chain)
+    return blamed
 
   def _probeText(
       self,
@@ -2498,7 +2785,7 @@ class RitualGenerator:
       with open(probeFile, 'w') as file:
         file.write(text)
       command = (
-          *self._getProbeCommand(), '-c', '-include-pch',
+          *self._getProbeCommand(self._getProbePart()), '-c', '-include-pch',
           self.getProbeHeader(), probeFile, '-o', objectFile,
       )
       done = subprocess.run(
@@ -2647,7 +2934,7 @@ class RitualGenerator:
     if source is None:
       return
     className = self.getClassName()
-    record = tree.getClassRecord(className)
+    record = self._readRecord(className)
     chosen = dict()  # type: Dict[str, Record]
     for member in record.get('inner', ()):
       if member.get('kind') not in self.__function_kinds__:
@@ -2657,10 +2944,10 @@ class RitualGenerator:
       definition = self._findSourceCode(member)
       if definition is not None:
         chosen[member['mangledName']] = definition
-    headerReader = tree.getHeaderReader(className)
+    headerReader = self.getHeaderReader()
     private = False
     if headerReader.hasPrivate():
-      headerPath = tree.getHeaderPath(className)
+      headerPath = tree.getHeaderPath(className, self.getPartName())
       private = any(
           headerPath.startswith(folder)
           for folder in headerReader.getApartFolders())
@@ -2761,10 +3048,10 @@ class RitualGenerator:
           unknown = re.compile(
               r"(?:unknown type name|incomplete type|undeclared "
               r"identifier) '([A-Za-z_][\w:]*)'")
-          classNames = {*tree.getClassNames()}
           for said in refused.values():
             for name in unknown.findall(said):
-              if name in classNames and name != className and (
+              known = tree.hasClass(name, self.getPartName())
+              if known and name != className and (
                   name not in self.__pulled_first__):
                 self.__pulled_first__ = (*self.__pulled_first__, name)
                 changed = True
@@ -2936,10 +3223,13 @@ class RitualGenerator:
     inside = said[said.index('(') + 1:said.rindex(')')]
     count = len(source._splitArguments(inside))
     const = said.rstrip().endswith('const')
-    for headerReader in self.getDependencyTree().getHeaderReaders():
+    #  The parts in the order the class sees them: two parts may each
+    #  have the code of a function by one name.
+    tree = self.getDependencyTree()
+    for partName in tree.getPartOrder(self.getPartName()):
       found = [
           definition for definition
-          in source.findDefinitions(headerReader.getPartName(), name)
+          in source.findDefinitions(partName, name)
           if len(definition['arguments']) == count
           and definition['const'] == const
       ]
@@ -2959,21 +3249,20 @@ class RitualGenerator:
     only when the class is marked itself.
     """
     tree = self.getDependencyTree()
+    try:
+      classKey = self._keyOf(className)
+    except LookupError:
+      return False
     kept = tree.getKept('export marks')
     try:
-      return kept[className]
+      return kept[classKey]
     except KeyError:
       pass
-    marked = False
-    if className in self._getKnownNames():
-      try:
-        record = tree.getClassRecord(className)
-      except (ValueError, LookupError):
-        record = dict()
-      marked = any(
-          isinstance(child, dict) and child.get('kind') == 'VisibilityAttr'
-          for child in record.get('inner', ()))
-    kept[className] = marked
+    record = self._readRecord(className)
+    marked = any(
+        isinstance(child, dict) and child.get('kind') == 'VisibilityAttr'
+        for child in record.get('inner', ()))
+    kept[classKey] = marked
     return marked
 
   def _getMarkedSymbols(self) -> FrozenSet[str]:
@@ -3140,7 +3429,7 @@ class RitualGenerator:
     if not className or className not in self._getKnownNames():
       return markedSymbol
     try:
-      record = self.getDependencyTree().getClassRecord(className)
+      record = self._readRecord(className)
     except (ValueError, LookupError):
       return markedSymbol
     members = [
@@ -3244,10 +3533,9 @@ class RitualGenerator:
     source = tree.getSourceReader()
     if source is None:
       return True
-    className = self.getClassName()
+    className, partName = self.getClassName(), self.getPartName()
     name, kind = member.get('name', ''), member.get('kind', '')
-    partName = tree.getPartName(className)
-    for spelled in tree.getSpellings(className):
+    for spelled in tree.getSpellings(className, partName):
       last = spelled.rpartition('::')[2]
       if kind == 'CXXConstructorDecl':
         asked = '%s::%s' % (spelled, last)
@@ -3300,18 +3588,18 @@ class RitualGenerator:
     className = self.getClassName()
     scopes = self.__spelling_scopes__
     if scopes is None or scopes[0] != className:
-      classNames = {*tree.getClassNames()}
+      partName = self.getPartName()
       scopes, waiting = [], [className]  # type: List[str], List[str]
       while waiting:
         name = waiting.pop(0)
         if name in scopes:
           continue
         scopes.append(name)
-        for parent in tree.getParents(name):
+        for parent in tree.getParents(name, partName):
           parent = parent.split('<')[0].strip()
-          if parent in classNames and parent not in scopes:
+          if tree.hasClass(parent, partName) and parent not in scopes:
             waiting.append(parent)
-      for name in reversed(tree.getAncestors(className)):
+      for _, name in reversed(tree.getAncestors(className, partName)):
         if name not in scopes:
           scopes.append(name)
       self.__spelling_scopes__ = scopes
@@ -3390,10 +3678,9 @@ class RitualGenerator:
     not compile: the nodes of 'QQmlJS::AST' are built on
     'QQmlJS::Managed', whose 'operator new' takes a pool of memory.
     """
-    tree = self.getDependencyTree()
     for scope in self._getLookupOrder():
       try:
-        record = tree.getClassRecord(scope)
+        record = self._readRecord(scope)
       except (ValueError, LookupError):
         continue
       sizes = [
@@ -3630,9 +3917,9 @@ class RitualGenerator:
     of that class has to be handed another address than the object has.
     """
     tree, className = self.getDependencyTree(), self.getClassName()
-    known = tree.getClassNames()
-    parents = tree.getParents(className)
-    return (*(p for p in parents[1:] if p in known),)
+    partName = self.getPartName()
+    parents = tree.getParents(className, partName)
+    return (*(p for p in parents[1:] if tree.hasClass(p, partName)),)
 
   def _planCast(self, baseName: str) -> Record:
     """
@@ -3852,11 +4139,16 @@ class RitualGenerator:
     ------
 
     MissingVariable
-      One of the three setters has not been called.
+      One of the four setters has not been called.
 
     LookupError
-      The tree has no class of that name.
+      The tree has no class of that name, or the compiler refused to
+      read the part of the class for the probe compiles
+      ('getRefusedParts').
     """
+    #  A class whose part the compiler refuses to read for the probe
+    #  compiles is not written; see 'getProbeHeader'.
+    self.getProbeHeader()
     ritualFile = self.getRitualFile()
     with open(ritualFile, 'w') as file:
       file.write(self.getRitualText())

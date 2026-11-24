@@ -1,0 +1,57 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtVirtu",
+    "alKeyboard/6.12.0/QtVirtualKeyboard/private/inputmethod_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QtVirtualKeyboard11InputMethod10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard11InputMethod2trEPKcS2_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QtVirtualKeyboard11InputMethod6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK17QtVirtualKeyboard11InputMethod6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_take_QtVirtualKeyboard_InputMethod": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN17QtVirtualKeyboard11InputMethod12setInputModeERK7QStringN27QVirtualKeyboardInputEngine9InputModeE": [
+      "bool", "address", "text", "int"
+    ],
+    "ritual_own_ZN17QtVirtualKeyboard11InputMethod11setTextCaseEN27QVirtualKeyboardInputEngine8TextCaseE": [
+      "bool", "address", "int"
+    ],
+    "ritual_own_ZN17QtVirtualKeyboard11InputMethod8keyEventEN2Qt3KeyERK7QString6QFlagsINS1_16KeyboardModifierEE": [
+      "bool", "address", "int", "text", "int"
+    ],
+    "ritual_own_ZN17QtVirtualKeyboard11InputMethod22selectionListItemCountEN34QVirtualKeyboardSelectionListModel4TypeE": [
+      "int", "address", "int"
+    ],
+    "ritual_own_ZN17QtVirtualKeyboard11InputMethod17selectionListDataEN34QVirtualKeyboardSelectionListModel4TypeEiNS1_4RoleE": [
+      "address", "address", "int", "int", "int"
+    ],
+    "ritual_own_ZN17QtVirtualKeyboard11InputMethod25selectionListItemSelectedEN34QVirtualKeyboardSelectionListModel4TypeEi": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZN17QtVirtualKeyboard11InputMethod8traceEndEP21QVirtualKeyboardTrace": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN17QtVirtualKeyboard11InputMethod16clickPreeditTextEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_own_ZN17QtVirtualKeyboard11InputMethod5resetEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN17QtVirtualKeyboard11InputMethod6updateEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN17QtVirtualKeyboard11InputMethod14clearInputModeEv": [
+      "nothing", "address"
+    ]
+  }
+}

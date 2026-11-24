@@ -1,0 +1,50 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWebViewQuick/6.12.0/QtWebViewQuick/private/qquickwebview_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK13QQuickWebView10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QQuickWebView2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN13QQuickWebViewC1EP10QQuickItem": ["address", "address"],
+    "ritual_ZN13QQuickWebViewD1Ev": ["nothing", "address"],
+    "ritual_ZNK13QQuickWebView13httpUserAgentEv": ["text", "address"],
+    "ritual_ZN13QQuickWebView16setHttpUserAgentERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK13QQuickWebView3urlEv": ["address", "address"],
+    "ritual_ZN13QQuickWebView6setUrlERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QQuickWebView12loadProgressEv": ["int", "address"],
+    "ritual_ZNK13QQuickWebView5titleEv": ["text", "address"],
+    "ritual_ZNK13QQuickWebView9canGoBackEv": ["bool", "address"],
+    "ritual_ZNK13QQuickWebView9isLoadingEv": ["bool", "address"],
+    "ritual_ZNK13QQuickWebView12canGoForwardEv": ["bool", "address"],
+    "ritual_ZNK13QQuickWebView8settingsEv": ["address", "address"],
+    "ritual_ZN13QQuickWebView10classBeginEv": ["nothing", "address"],
+    "ritual_ZN13QQuickWebView6goBackEv": ["nothing", "address"],
+    "ritual_ZN13QQuickWebView9goForwardEv": ["nothing", "address"],
+    "ritual_ZN13QQuickWebView6reloadEv": ["nothing", "address"],
+    "ritual_ZN13QQuickWebView4stopEv": ["nothing", "address"],
+    "ritual_ZN13QQuickWebView8loadHtmlERK7QStringRK4QUrl": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZN13QQuickWebView13runJavaScriptERK7QStringRK8QJSValue": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZN13QQuickWebView9setCookieERK7QStringS2_S2_": [
+      "nothing", "address", "text", "text", "text"
+    ],
+    "ritual_ZN13QQuickWebView12deleteCookieERK7QStringS2_": [
+      "nothing", "address", "text", "text"
+    ],
+    "ritual_ZN13QQuickWebView16deleteAllCookiesEv": ["nothing", "address"],
+    "ritual_ZN13QQuickWebView16onLoadingChangedERK19QWebViewLoadingInfo": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QQuickWebView": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN13QQuickWebView10classBeginEv": ["nothing", "address"]
+  }
+}

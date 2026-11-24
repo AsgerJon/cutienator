@@ -1,0 +1,42 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWebView/6.12.0/QtWebView/private/qwebview_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15QWebViewPrivate10initializeEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QWebViewPrivate8settingsEv": ["address", "address"],
+    "ritual_ZNK15QWebViewPrivate13httpUserAgentEv": ["text", "address"],
+    "ritual_ZN15QWebViewPrivate16setHttpUserAgentERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN15QWebViewPrivate6setUrlERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QWebViewPrivate9canGoBackEv": ["bool", "address"],
+    "ritual_ZNK15QWebViewPrivate12canGoForwardEv": ["bool", "address"],
+    "ritual_ZNK15QWebViewPrivate5titleEv": ["text", "address"],
+    "ritual_ZNK15QWebViewPrivate3urlEv": ["address", "address"],
+    "ritual_ZNK15QWebViewPrivate12loadProgressEv": ["int", "address"],
+    "ritual_ZNK15QWebViewPrivate9isLoadingEv": ["bool", "address"],
+    "ritual_ZN15QWebViewPrivate6goBackEv": ["nothing", "address"],
+    "ritual_ZN15QWebViewPrivate9goForwardEv": ["nothing", "address"],
+    "ritual_ZN15QWebViewPrivate4stopEv": ["nothing", "address"],
+    "ritual_ZN15QWebViewPrivate6reloadEv": ["nothing", "address"],
+    "ritual_ZN15QWebViewPrivate8loadHtmlERK7QStringRK4QUrl": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZN15QWebViewPrivate9setCookieERK7QStringS2_S2_": [
+      "nothing", "address", "text", "text", "text"
+    ],
+    "ritual_ZN15QWebViewPrivate12deleteCookieERK7QStringS2_": [
+      "nothing", "address", "text", "text"
+    ],
+    "ritual_ZN15QWebViewPrivate16deleteAllCookiesEv": ["nothing", "address"],
+    "ritual_ZNK15QWebViewPrivate12nativeWindowEv": ["address", "address"],
+    "ritual_take_QWebViewPrivate": ["bool", "address", "chars", "address"]
+  }
+}

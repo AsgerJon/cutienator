@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtWebCh",
+    "annelQuick/6.12.0/QtWebChannelQuick/private/qqmlwebchannelattached",
+    "_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK22QQmlWebChannelAttached10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QQmlWebChannelAttached2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN22QQmlWebChannelAttached22qt_qmlMarker_anonymousEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQmlWebChannelAttachedC1EP7QObject": ["address", "address"],
+    "ritual_ZN22QQmlWebChannelAttachedD1Ev": ["nothing", "address"],
+    "ritual_ZNK22QQmlWebChannelAttached2idEv": ["text", "address"],
+    "ritual_ZN22QQmlWebChannelAttached5setIdERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_take_QQmlWebChannelAttached": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCanvasPainter/qcanvaslineargradient.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN21QCanvasLinearGradientC1Ev": ["address"],
+    "ritual_ZN21QCanvasLinearGradientC1Edddd": [
+      "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZN21QCanvasLinearGradientC1E7QPointFS0_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN21QCanvasLinearGradientC1ERKS_": ["address", "address"],
+    "ritual_ZN21QCanvasLinearGradientD1Ev": ["nothing", "address"],
+    "ritual_ZNK21QCanvasLinearGradient13startPositionEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QCanvasLinearGradient16setStartPositionEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN21QCanvasLinearGradient16setStartPositionE7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21QCanvasLinearGradient11endPositionEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QCanvasLinearGradient14setEndPositionEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN21QCanvasLinearGradient14setEndPositionE7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QCanvasLinearGradientC1ERK12QCanvasBrush": [
+      "address", "address"
+    ]
+  }
+}

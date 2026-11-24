@@ -1,0 +1,48 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DRender/6.12.0/Qt3DRender/private/skeleton_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN10Qt3DRender6Render8Skeleton18setSkeletonManagerEPNS0_15SkeletonManagerE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render8Skeleton15skeletonManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render8Skeleton15setJointManagerEPNS0_12JointManagerE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render8Skeleton12jointManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render8Skeleton6statusEv": ["int", "address"],
+    "ritual_ZNK10Qt3DRender6Render8Skeleton6sourceEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render8Skeleton8dataTypeEv": ["int", "address"],
+    "ritual_ZNK10Qt3DRender6Render8Skeleton12createJointsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render8Skeleton7setNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK10Qt3DRender6Render8Skeleton4nameEv": ["text", "address"],
+    "ritual_ZNK10Qt3DRender6Render8Skeleton10jointCountEv": [
+      "long long", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render8Skeleton11rootJointIdEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render8Skeleton12skeletonDataEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render8Skeleton12skeletonDataEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN10Qt3DRender6Render8Skeleton16syncFromFrontEndEPKN8Qt3DCore5QNodeEb": [
+      "nothing", "address", "address", "bool"
+    ]
+  }
+}

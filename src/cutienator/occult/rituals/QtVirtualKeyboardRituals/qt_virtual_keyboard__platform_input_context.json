@@ -1,0 +1,60 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtVirtu",
+    "alKeyboard/6.12.0/QtVirtualKeyboard/private/platforminputcontext_p",
+    ".h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QtVirtualKeyboard20PlatformInputContext10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard20PlatformInputContext2trEPKcS2_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_take_QtVirtualKeyboard_PlatformInputContext": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK17QtVirtualKeyboard20PlatformInputContext7isValidEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZN17QtVirtualKeyboard20PlatformInputContext5resetEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN17QtVirtualKeyboard20PlatformInputContext6commitEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN17QtVirtualKeyboard20PlatformInputContext6updateE6QFlagsIN2Qt16InputMethodQueryEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN17QtVirtualKeyboard20PlatformInputContext12invokeActionEN12QInputMethod6ActionEi": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZNK17QtVirtualKeyboard20PlatformInputContext12keyboardRectEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK17QtVirtualKeyboard20PlatformInputContext11isAnimatingEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZN17QtVirtualKeyboard20PlatformInputContext14showInputPanelEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN17QtVirtualKeyboard20PlatformInputContext14hideInputPanelEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZNK17QtVirtualKeyboard20PlatformInputContext19isInputPanelVisibleEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZNK17QtVirtualKeyboard20PlatformInputContext6localeEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK17QtVirtualKeyboard20PlatformInputContext14inputDirectionEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZN17QtVirtualKeyboard20PlatformInputContext14setFocusObjectEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN17QtVirtualKeyboard20PlatformInputContext11eventFilterEP7QObjectP6QEvent": [
+      "bool", "address", "address", "address"
+    ]
+  }
+}

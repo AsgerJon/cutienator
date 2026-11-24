@@ -1,0 +1,90 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDataVisualization/qheightmapsurfacedataproxy.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK26QHeightMapSurfaceDataProxy10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QHeightMapSurfaceDataProxy2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN26QHeightMapSurfaceDataProxyC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN26QHeightMapSurfaceDataProxyC1ERK6QImageP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN26QHeightMapSurfaceDataProxyC1ERK7QStringP7QObject": [
+      "address", "text", "address"
+    ],
+    "ritual_ZN26QHeightMapSurfaceDataProxyD1Ev": ["nothing", "address"],
+    "ritual_ZN26QHeightMapSurfaceDataProxy12setHeightMapERK6QImage": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK26QHeightMapSurfaceDataProxy9heightMapEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QHeightMapSurfaceDataProxy16setHeightMapFileERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK26QHeightMapSurfaceDataProxy13heightMapFileEv": [
+      "text", "address"
+    ],
+    "ritual_ZN26QHeightMapSurfaceDataProxy14setValueRangesEffff": [
+      "nothing", "address", "float", "float", "float", "float"
+    ],
+    "ritual_ZN26QHeightMapSurfaceDataProxy12setMinXValueEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK26QHeightMapSurfaceDataProxy9minXValueEv": [
+      "float", "address"
+    ],
+    "ritual_ZN26QHeightMapSurfaceDataProxy12setMaxXValueEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK26QHeightMapSurfaceDataProxy9maxXValueEv": [
+      "float", "address"
+    ],
+    "ritual_ZN26QHeightMapSurfaceDataProxy12setMinZValueEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK26QHeightMapSurfaceDataProxy9minZValueEv": [
+      "float", "address"
+    ],
+    "ritual_ZN26QHeightMapSurfaceDataProxy12setMaxZValueEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK26QHeightMapSurfaceDataProxy9maxZValueEv": [
+      "float", "address"
+    ],
+    "ritual_ZN26QHeightMapSurfaceDataProxy12setMinYValueEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK26QHeightMapSurfaceDataProxy9minYValueEv": [
+      "float", "address"
+    ],
+    "ritual_ZN26QHeightMapSurfaceDataProxy12setMaxYValueEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK26QHeightMapSurfaceDataProxy9maxYValueEv": [
+      "float", "address"
+    ],
+    "ritual_ZN26QHeightMapSurfaceDataProxy13setAutoScaleYEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK26QHeightMapSurfaceDataProxy10autoScaleYEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN26QHeightMapSurfaceDataProxyC1EP33QHeightMapSurfaceDataProxyPrivateP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN26QHeightMapSurfaceDataProxy4dptrEv": ["address", "address"],
+    "ritual_ZNK26QHeightMapSurfaceDataProxy5dptrcEv": ["address", "address"],
+    "ritual_take_QHeightMapSurfaceDataProxy": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

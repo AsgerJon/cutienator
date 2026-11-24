@@ -1,0 +1,41 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtDataV",
+    "isualization/6.12.0/QtDataVisualization/private/qscatter3dseries_p",
+    ".h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK23QScatter3DSeriesPrivate10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QScatter3DSeriesPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN23QScatter3DSeriesPrivate12setDataProxyEP18QAbstractDataProxy": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QScatter3DSeriesPrivate25connectControllerAndProxyEP20Abstract3DController": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QScatter3DSeriesPrivate15createItemLabelEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QScatter3DSeriesPrivate15setSelectedItemEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN23QScatter3DSeriesPrivate11setItemSizeEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN23QScatter3DSeriesPrivate4qptrEv": ["address", "address"],
+    "ritual_take_QScatter3DSeriesPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN23QScatter3DSeriesPrivate12setDataProxyEP18QAbstractDataProxy": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN23QScatter3DSeriesPrivate25connectControllerAndProxyEP20Abstract3DController": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN23QScatter3DSeriesPrivate15createItemLabelEv": [
+      "nothing", "address"
+    ]
+  }
+}

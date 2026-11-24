@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSensors/qsensormanager.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN14QSensorManager15registerBackendERK10QByteArrayS2_P21QSensorBackendFactory": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN14QSensorManager17unregisterBackendERK10QByteArrayS2_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QSensorManager19isBackendRegisteredERK10QByteArrayS2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN14QSensorManager13createBackendEP7QSensor": [
+      "address", "address"
+    ],
+    "ritual_ZN14QSensorManager17setDefaultBackendERK10QByteArrayS2_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QSensorManagerD1Ev": ["nothing", "address"]
+  }
+}

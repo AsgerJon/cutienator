@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtVirtu",
+    "alKeyboard/6.12.0/QtVirtualKeyboard/private/recursivemethodguard_p",
+    ".h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN17QtVirtualKeyboard20RecursiveMethodGuardC1ERb": [
+      "address", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard20RecursiveMethodGuardD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK17QtVirtualKeyboard20RecursiveMethodGuard6lockedEv": [
+      "bool", "address"
+    ]
+  }
+}

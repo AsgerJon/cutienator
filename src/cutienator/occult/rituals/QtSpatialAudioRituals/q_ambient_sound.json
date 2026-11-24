@@ -1,0 +1,30 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSpatialAudio/qambientsound.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK13QAmbientSound10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QAmbientSound2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN13QAmbientSoundC1EP12QAudioEngine": ["address", "address"],
+    "ritual_ZN13QAmbientSoundD1Ev": ["nothing", "address"],
+    "ritual_ZN13QAmbientSound9setSourceERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QAmbientSound6sourceEv": ["address", "address"],
+    "ritual_ZNK13QAmbientSound5loopsEv": ["int", "address"],
+    "ritual_ZN13QAmbientSound8setLoopsEi": ["nothing", "address", "int"],
+    "ritual_ZNK13QAmbientSound8autoPlayEv": ["bool", "address"],
+    "ritual_ZN13QAmbientSound11setAutoPlayEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN13QAmbientSound9setVolumeEf": ["nothing", "address", "float"],
+    "ritual_ZNK13QAmbientSound6volumeEv": ["float", "address"],
+    "ritual_ZNK13QAmbientSound6engineEv": ["address", "address"],
+    "ritual_ZN13QAmbientSound4playEv": ["nothing", "address"],
+    "ritual_ZN13QAmbientSound5pauseEv": ["nothing", "address"],
+    "ritual_ZN13QAmbientSound4stopEv": ["nothing", "address"],
+    "ritual_take_QAmbientSound": ["bool", "address", "chars", "address"]
+  }
+}

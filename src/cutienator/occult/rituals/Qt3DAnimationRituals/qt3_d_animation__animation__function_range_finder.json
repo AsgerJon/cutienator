@@ -1,0 +1,30 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of Qt3DAni",
+    "mation/6.12.0/Qt3DAnimation/private/functionrangefinder_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK13Qt3DAnimation9Animation19FunctionRangeFinder9rangeSizeEv": [
+      "int", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation19FunctionRangeFinder12setRangeSizeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK13Qt3DAnimation9Animation19FunctionRangeFinder11isAscendingEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation19FunctionRangeFinder12setAscendingEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK13Qt3DAnimation9Animation19FunctionRangeFinder20correlationThresholdEv": [
+      "int", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation19FunctionRangeFinder35updateAutomaticCorrelationThresholdEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13Qt3DAnimation9Animation19FunctionRangeFinderD1Ev": [
+      "nothing", "address"
+    ]
+  }
+}

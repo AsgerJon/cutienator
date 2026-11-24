@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtLabsS",
+    "haredImage/6.12.0/QtLabsSharedImage/private/qsharedimageprovider_p",
+    ".h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19SharedImageProviderC1Ev": ["address"],
+    "ritual_ZN19SharedImageProvider12requestImageERK7QStringP5QSizeRKS3_RK26QQuickImageProviderOptions": [
+      "address", "address", "text", "address", "address", "address"
+    ],
+    "ritual_take_SharedImageProvider": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN19SharedImageProvider12requestImageERK7QStringP5QSizeRKS3_RK26QQuickImageProviderOptions": [
+      "address", "address", "text", "address", "address", "address"
+    ]
+  }
+}

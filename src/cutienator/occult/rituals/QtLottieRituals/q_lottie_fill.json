@@ -1,0 +1,30 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLottie/6.12.0/QtLottie/private/qlottiefill_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11QLottieFillC1ERKS_": ["address", "address"],
+    "ritual_ZN11QLottieFillC1EP11QLottieBase": ["address", "address"],
+    "ritual_ZNK11QLottieFill5cloneEv": ["address", "address"],
+    "ritual_ZN11QLottieFill16updatePropertiesEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN11QLottieFill5parseERK11QJsonObject": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK11QLottieFill5colorEv": ["address", "address"],
+    "ritual_ZNK11QLottieFill7opacityEv": ["double", "address"],
+    "ritual_ZNK11QLottieFill8fillRuleEv": ["int", "address"],
+    "ritual_ZN11QLottieFillD1Ev": ["nothing", "address"],
+    "ritual_take_QLottieFill": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK11QLottieFill5cloneEv": ["address", "address"],
+    "ritual_own_ZN11QLottieFill16updatePropertiesEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN11QLottieFill5parseERK11QJsonObject": [
+      "int", "address", "address"
+    ]
+  }
+}

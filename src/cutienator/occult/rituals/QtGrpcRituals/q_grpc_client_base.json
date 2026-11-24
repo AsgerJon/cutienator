@@ -1,0 +1,26 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGrpc/qgrpcclientbase.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK15QGrpcClientBase10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QGrpcClientBase2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN15QGrpcClientBaseD1Ev": ["nothing", "address"],
+    "ritual_ZN15QGrpcClientBaseC1E13QLatin1StringP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN15QGrpcClientBase28setOperationResponseMetaTypeEP14QGrpcOperation9QMetaType": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QGrpcClientBase5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_take_QGrpcClientBase": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN15QGrpcClientBase5eventEP6QEvent": [
+      "bool", "address", "address"
+    ]
+  }
+}

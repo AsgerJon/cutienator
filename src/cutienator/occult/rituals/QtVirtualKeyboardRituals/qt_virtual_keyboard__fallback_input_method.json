@@ -1,0 +1,33 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtVirtu",
+    "alKeyboard/6.12.0/QtVirtualKeyboard/private/fallbackinputmethod_p.",
+    "h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QtVirtualKeyboard19FallbackInputMethod10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard19FallbackInputMethod2trEPKcS2_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_take_QtVirtualKeyboard_FallbackInputMethod": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN17QtVirtualKeyboard19FallbackInputMethod12setInputModeERK7QStringN27QVirtualKeyboardInputEngine9InputModeE": [
+      "bool", "address", "text", "int"
+    ],
+    "ritual_own_ZN17QtVirtualKeyboard19FallbackInputMethod11setTextCaseEN27QVirtualKeyboardInputEngine8TextCaseE": [
+      "bool", "address", "int"
+    ],
+    "ritual_own_ZN17QtVirtualKeyboard19FallbackInputMethod8keyEventEN2Qt3KeyERK7QString6QFlagsINS1_16KeyboardModifierEE": [
+      "bool", "address", "int", "text", "int"
+    ],
+    "ritual_own_ZN17QtVirtualKeyboard19FallbackInputMethod5resetEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN17QtVirtualKeyboard19FallbackInputMethod6updateEv": [
+      "nothing", "address"
+    ]
+  }
+}

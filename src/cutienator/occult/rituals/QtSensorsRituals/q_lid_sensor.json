@@ -1,0 +1,14 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSensors/qlidsensor.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK10QLidSensor10metaObjectEv": ["address", "address"],
+    "ritual_ZN10QLidSensor2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN10QLidSensorC1EP7QObject": ["address", "address"],
+    "ritual_ZN10QLidSensorD1Ev": ["nothing", "address"],
+    "ritual_ZNK10QLidSensor7readingEv": ["address", "address"],
+    "ritual_take_QLidSensor": ["bool", "address", "chars", "address"]
+  }
+}

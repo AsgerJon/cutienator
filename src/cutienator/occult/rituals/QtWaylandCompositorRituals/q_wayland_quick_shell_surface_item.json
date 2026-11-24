@@ -1,0 +1,58 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWaylandCompositor/qwaylandquickshellsurfaceitem.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK29QWaylandQuickShellSurfaceItem10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN29QWaylandQuickShellSurfaceItem2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN29QWaylandQuickShellSurfaceItem6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK29QWaylandQuickShellSurfaceItem6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN29QWaylandQuickShellSurfaceItemC1EP10QQuickItem": [
+      "address", "address"
+    ],
+    "ritual_ZN29QWaylandQuickShellSurfaceItemD1Ev": ["nothing", "address"],
+    "ritual_ZNK29QWaylandQuickShellSurfaceItem12shellSurfaceEv": [
+      "address", "address"
+    ],
+    "ritual_ZN29QWaylandQuickShellSurfaceItem15setShellSurfaceEP20QWaylandShellSurface": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK29QWaylandQuickShellSurfaceItem8moveItemEv": [
+      "address", "address"
+    ],
+    "ritual_ZN29QWaylandQuickShellSurfaceItem11setMoveItemEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN29QWaylandQuickShellSurfaceItem20autoCreatePopupItemsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN29QWaylandQuickShellSurfaceItem23setAutoCreatePopupItemsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK29QWaylandQuickShellSurfaceItem10staysOnTopEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN29QWaylandQuickShellSurfaceItem13setStaysOnTopEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK29QWaylandQuickShellSurfaceItem13staysOnBottomEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN29QWaylandQuickShellSurfaceItem16setStaysOnBottomEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_take_QWaylandQuickShellSurfaceItem": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

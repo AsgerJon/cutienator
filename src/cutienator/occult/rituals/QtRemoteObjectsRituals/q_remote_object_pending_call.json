@@ -1,0 +1,28 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtRemoteObjects/qremoteobjectpendingcall.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN24QRemoteObjectPendingCallC1Ev": ["address"],
+    "ritual_ZN24QRemoteObjectPendingCallC1ERKS_": ["address", "address"],
+    "ritual_ZN24QRemoteObjectPendingCallD1Ev": ["nothing", "address"],
+    "ritual_ZNK24QRemoteObjectPendingCall11returnValueEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK24QRemoteObjectPendingCall5errorEv": ["int", "address"],
+    "ritual_ZNK24QRemoteObjectPendingCall10isFinishedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN24QRemoteObjectPendingCall15waitForFinishedEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN24QRemoteObjectPendingCall17fromCompletedCallERK8QVariant": [
+      "address", "address"
+    ],
+    "ritual_ZN24QRemoteObjectPendingCallC1EP28QRemoteObjectPendingCallData": [
+      "address", "address"
+    ]
+  }
+}

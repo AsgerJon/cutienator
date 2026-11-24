@@ -1,0 +1,132 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtVirtu",
+    "alKeyboard/6.12.0/QtVirtualKeyboard/private/qvirtualkeyboardinputc",
+    "ontext_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK35QVirtualKeyboardInputContextPrivate10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN35QVirtualKeyboardInputContextPrivate2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN35QVirtualKeyboardInputContextPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK35QVirtualKeyboardInputContextPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN35QVirtualKeyboardInputContextPrivate24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN35QVirtualKeyboardInputContextPrivateC1EP28QVirtualKeyboardInputContext": [
+      "address", "address"
+    ],
+    "ritual_ZN35QVirtualKeyboardInputContextPrivate4initEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN35QVirtualKeyboardInputContextPrivateD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK35QVirtualKeyboardInputContextPrivate5focusEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN35QVirtualKeyboardInputContextPrivate8setFocusEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK35QVirtualKeyboardInputContextPrivate17keyboardRectangleEv": [
+      "address", "address"
+    ],
+    "ritual_ZN35QVirtualKeyboardInputContextPrivate20setKeyboardRectangleE6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK35QVirtualKeyboardInputContextPrivate16previewRectangleEv": [
+      "address", "address"
+    ],
+    "ritual_ZN35QVirtualKeyboardInputContextPrivate19setPreviewRectangleE6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK35QVirtualKeyboardInputContextPrivate14previewVisibleEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN35QVirtualKeyboardInputContextPrivate17setPreviewVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK35QVirtualKeyboardInputContextPrivate6localeEv": [
+      "text", "address"
+    ],
+    "ritual_ZN35QVirtualKeyboardInputContextPrivate9setLocaleERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK35QVirtualKeyboardInputContextPrivate9inputItemEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK35QVirtualKeyboardInputContextPrivate12shiftHandlerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK35QVirtualKeyboardInputContextPrivate6shadowEv": [
+      "address", "address"
+    ],
+    "ritual_ZN35QVirtualKeyboardInputContextPrivate19setKeyboardObserverEP24QVirtualKeyboardObserver": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN35QVirtualKeyboardInputContextPrivate10fileExistsERK4QUrl": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK35QVirtualKeyboardInputContextPrivate17hasEnterKeyActionEP7QObject": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN35QVirtualKeyboardInputContextPrivate18registerInputPanelEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK35QVirtualKeyboardInputContextPrivate8containsERK7QPointF": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK35QVirtualKeyboardInputContextPrivate19keyboardFunctionKeyEN17QtVirtualKeyboard16KeyboardFunctionE": [
+      "unsigned int", "address", "int"
+    ],
+    "ritual_ZN35QVirtualKeyboardInputContextPrivate14hideInputPanelEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN35QVirtualKeyboardInputContextPrivate22updateAvailableLocalesERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN35QVirtualKeyboardInputContextPrivate19forceCursorPositionEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN35QVirtualKeyboardInputContextPrivate18onInputItemChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN35QVirtualKeyboardInputContextPrivate20sendInputMethodEventEP17QInputMethodEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN35QVirtualKeyboardInputContextPrivate5resetEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN35QVirtualKeyboardInputContextPrivate6commitEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN35QVirtualKeyboardInputContextPrivate6updateE6QFlagsIN2Qt16InputMethodQueryEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN35QVirtualKeyboardInputContextPrivate12invokeActionEN12QInputMethod6ActionEi": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN35QVirtualKeyboardInputContextPrivate18maybeCloseOnReturnEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN35QVirtualKeyboardInputContextPrivate11filterEventEPK6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK35QVirtualKeyboardInputContextPrivate12isEmptyStateEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN35QVirtualKeyboardInputContextPrivate29updateSelectionControlVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_take_QVirtualKeyboardInputContextPrivate": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

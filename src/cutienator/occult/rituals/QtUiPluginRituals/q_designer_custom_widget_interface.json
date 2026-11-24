@@ -1,0 +1,71 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtUiPlugin/customwidget.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN30QDesignerCustomWidgetInterfaceD1Ev": ["nothing", "address"],
+    "ritual_ZNK30QDesignerCustomWidgetInterface4nameEv": ["text", "address"],
+    "ritual_ZNK30QDesignerCustomWidgetInterface5groupEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK30QDesignerCustomWidgetInterface7toolTipEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK30QDesignerCustomWidgetInterface9whatsThisEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK30QDesignerCustomWidgetInterface11includeFileEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK30QDesignerCustomWidgetInterface4iconEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK30QDesignerCustomWidgetInterface11isContainerEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN30QDesignerCustomWidgetInterface12createWidgetEP7QWidget": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK30QDesignerCustomWidgetInterface13isInitializedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN30QDesignerCustomWidgetInterface10initializeEP28QDesignerFormEditorInterface": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK30QDesignerCustomWidgetInterface6domXmlEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK30QDesignerCustomWidgetInterface12codeTemplateEv": [
+      "text", "address"
+    ],
+    "ritual_take_QDesignerCustomWidgetInterface": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK30QDesignerCustomWidgetInterface13isInitializedEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZN30QDesignerCustomWidgetInterface10initializeEP28QDesignerFormEditorInterface": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK30QDesignerCustomWidgetInterface6domXmlEv": [
+      "text", "address"
+    ],
+    "ritual_own_ZNK30QDesignerCustomWidgetInterface12codeTemplateEv": [
+      "text", "address"
+    ],
+    "ritual_list_make_QDesignerCustomWidgetInterface_ptr": ["address"],
+    "ritual_list_add_QDesignerCustomWidgetInterface_ptr": [
+      "nothing", "address", "address"
+    ],
+    "ritual_list_size_QDesignerCustomWidgetInterface_ptr": [
+      "long long", "address"
+    ],
+    "ritual_list_at_QDesignerCustomWidgetInterface_ptr": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_QDesignerCustomWidgetInterface_ptr": [
+      "nothing", "address"
+    ]
+  }
+}

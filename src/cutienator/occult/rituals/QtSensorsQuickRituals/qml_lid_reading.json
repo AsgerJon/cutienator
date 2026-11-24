@@ -1,0 +1,23 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSensorsQuick/6.12.0/QtSensorsQuick/private/qmllidsensor_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK13QmlLidReading10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QmlLidReading2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN13QmlLidReading24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13QmlLidReadingC1EP10QLidSensor": ["address", "address"],
+    "ritual_ZN13QmlLidReadingD1Ev": ["nothing", "address"],
+    "ritual_ZNK13QmlLidReading13backLidClosedEv": ["bool", "address"],
+    "ritual_ZNK13QmlLidReading14frontLidClosedEv": ["bool", "address"],
+    "ritual_ZNK13QmlLidReading7readingEv": ["address", "address"],
+    "ritual_ZN13QmlLidReading13readingUpdateEv": ["nothing", "address"],
+    "ritual_take_QmlLidReading": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK13QmlLidReading7readingEv": ["address", "address"],
+    "ritual_own_ZN13QmlLidReading13readingUpdateEv": ["nothing", "address"]
+  }
+}

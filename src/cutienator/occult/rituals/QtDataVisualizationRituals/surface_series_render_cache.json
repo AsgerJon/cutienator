@@ -1,0 +1,101 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtDataV",
+    "isualization/6.12.0/QtDataVisualization/private/surfaceseriesrende",
+    "rcache_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN24SurfaceSeriesRenderCacheD1Ev": ["nothing", "address"],
+    "ritual_ZN24SurfaceSeriesRenderCache8populateEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN24SurfaceSeriesRenderCache7cleanupEP13TextureHelper": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK24SurfaceSeriesRenderCache14surfaceVisibleEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK24SurfaceSeriesRenderCache18surfaceGridVisibleEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK24SurfaceSeriesRenderCache20isFlatShadingEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN24SurfaceSeriesRenderCache21setFlatShadingEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN24SurfaceSeriesRenderCache20setFlatChangeAllowedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN24SurfaceSeriesRenderCache13surfaceObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24SurfaceSeriesRenderCache18sliceSurfaceObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK24SurfaceSeriesRenderCache11sampleSpaceEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24SurfaceSeriesRenderCache14setSampleSpaceERK5QRect": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK24SurfaceSeriesRenderCache6seriesEv": ["address", "address"],
+    "ritual_ZNK24SurfaceSeriesRenderCache10renderableEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN24SurfaceSeriesRenderCache19setSelectionTextureEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN24SurfaceSeriesRenderCache19setSelectionIdRangeEjj": [
+      "nothing", "address", "unsigned int", "unsigned int"
+    ],
+    "ritual_ZNK24SurfaceSeriesRenderCache16selectionIdStartEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZNK24SurfaceSeriesRenderCache15isWithinIdRangeEj": [
+      "bool", "address", "unsigned int"
+    ],
+    "ritual_ZNK24SurfaceSeriesRenderCache17isFlatStatusDirtyEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN24SurfaceSeriesRenderCache18setFlatStatusDirtyEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN24SurfaceSeriesRenderCache12setMVPMatrixERK10QMatrix4x4": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24SurfaceSeriesRenderCache9MVPMatrixEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24SurfaceSeriesRenderCache24setSliceSelectionPointerEP16SelectionPointer": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK24SurfaceSeriesRenderCache21sliceSelectionPointerEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24SurfaceSeriesRenderCache23setMainSelectionPointerEP16SelectionPointer": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK24SurfaceSeriesRenderCache20mainSelectionPointerEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24SurfaceSeriesRenderCache23setSlicePointerActivityEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK24SurfaceSeriesRenderCache18slicePointerActiveEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN24SurfaceSeriesRenderCache22setMainPointerActivityEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK24SurfaceSeriesRenderCache17mainPointerActiveEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN24SurfaceSeriesRenderCache17setSurfaceTextureEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_take_SurfaceSeriesRenderCache": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

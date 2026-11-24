@@ -1,0 +1,113 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSerialPort/qserialport.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK11QSerialPort10metaObjectEv": ["address", "address"],
+    "ritual_ZN11QSerialPort2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN11QSerialPort6d_funcEv": ["address", "address"],
+    "ritual_ZNK11QSerialPort6d_funcEv": ["address", "address"],
+    "ritual_ZN11QSerialPortC1EP7QObject": ["address", "address"],
+    "ritual_ZN11QSerialPortC1ERK7QStringP7QObject": [
+      "address", "text", "address"
+    ],
+    "ritual_ZN11QSerialPortC1ERK15QSerialPortInfoP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN11QSerialPortD1Ev": ["nothing", "address"],
+    "ritual_ZN11QSerialPort11setPortNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK11QSerialPort8portNameEv": ["text", "address"],
+    "ritual_ZN11QSerialPort7setPortERK15QSerialPortInfo": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QSerialPort4openE6QFlagsIN13QIODeviceBase12OpenModeFlagEE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN11QSerialPort5closeEv": ["nothing", "address"],
+    "ritual_ZN11QSerialPort11setBaudRateEi6QFlagsINS_9DirectionEE": [
+      "bool", "address", "int", "int"
+    ],
+    "ritual_ZNK11QSerialPort8baudRateE6QFlagsINS_9DirectionEE": [
+      "int", "address", "int"
+    ],
+    "ritual_ZN11QSerialPort11setDataBitsENS_8DataBitsE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK11QSerialPort8dataBitsEv": ["int", "address"],
+    "ritual_ZN11QSerialPort9setParityENS_6ParityE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK11QSerialPort6parityEv": ["int", "address"],
+    "ritual_ZN11QSerialPort11setStopBitsENS_8StopBitsE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK11QSerialPort8stopBitsEv": ["int", "address"],
+    "ritual_ZN11QSerialPort14setFlowControlENS_11FlowControlE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK11QSerialPort11flowControlEv": ["int", "address"],
+    "ritual_ZN11QSerialPort20setDataTerminalReadyEb": [
+      "bool", "address", "bool"
+    ],
+    "ritual_ZN11QSerialPort19isDataTerminalReadyEv": ["bool", "address"],
+    "ritual_ZN11QSerialPort16setRequestToSendEb": [
+      "bool", "address", "bool"
+    ],
+    "ritual_ZN11QSerialPort15isRequestToSendEv": ["bool", "address"],
+    "ritual_ZN11QSerialPort13pinoutSignalsEv": ["int", "address"],
+    "ritual_ZN11QSerialPort5flushEv": ["bool", "address"],
+    "ritual_ZN11QSerialPort5clearE6QFlagsINS_9DirectionEE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK11QSerialPort5errorEv": ["int", "address"],
+    "ritual_ZN11QSerialPort10clearErrorEv": ["nothing", "address"],
+    "ritual_ZNK11QSerialPort14readBufferSizeEv": ["long long", "address"],
+    "ritual_ZN11QSerialPort17setReadBufferSizeEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZNK11QSerialPort15writeBufferSizeEv": ["long long", "address"],
+    "ritual_ZN11QSerialPort18setWriteBufferSizeEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZNK11QSerialPort12isSequentialEv": ["bool", "address"],
+    "ritual_ZNK11QSerialPort14bytesAvailableEv": ["long long", "address"],
+    "ritual_ZNK11QSerialPort12bytesToWriteEv": ["long long", "address"],
+    "ritual_ZNK11QSerialPort11canReadLineEv": ["bool", "address"],
+    "ritual_ZN11QSerialPort16waitForReadyReadEi": ["bool", "address", "int"],
+    "ritual_ZN11QSerialPort19waitForBytesWrittenEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN11QSerialPort15setBreakEnabledEb": ["bool", "address", "bool"],
+    "ritual_ZNK11QSerialPort14isBreakEnabledEv": ["bool", "address"],
+    "ritual_ZNK11QSerialPort23settingsRestoredOnCloseEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN11QSerialPort26setSettingsRestoredOnCloseEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK11QSerialPort6handleEv": ["int", "address"],
+    "ritual_ZN11QSerialPort9writeDataEPKcx": [
+      "long long", "address", "chars", "long long"
+    ],
+    "ritual_take_QSerialPort": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN11QSerialPort4openE6QFlagsIN13QIODeviceBase12OpenModeFlagEE": [
+      "bool", "address", "int"
+    ],
+    "ritual_own_ZN11QSerialPort5closeEv": ["nothing", "address"],
+    "ritual_own_ZNK11QSerialPort12isSequentialEv": ["bool", "address"],
+    "ritual_own_ZNK11QSerialPort14bytesAvailableEv": [
+      "long long", "address"
+    ],
+    "ritual_own_ZNK11QSerialPort12bytesToWriteEv": ["long long", "address"],
+    "ritual_own_ZNK11QSerialPort11canReadLineEv": ["bool", "address"],
+    "ritual_own_ZN11QSerialPort16waitForReadyReadEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_own_ZN11QSerialPort19waitForBytesWrittenEi": [
+      "bool", "address", "int"
+    ]
+  }
+}

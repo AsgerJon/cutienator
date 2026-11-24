@@ -1,0 +1,117 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DRender/6.12.0/Qt3DRender/private/nodemanagers_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK10Qt3DRender6Render12NodeManagers13cameraManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render12NodeManagers18renderNodesManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render12NodeManagers15materialManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render12NodeManagers18worldMatrixManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render12NodeManagers13shaderManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render12NodeManagers20shaderBuilderManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render12NodeManagers16techniqueManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render12NodeManagers13effectManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render12NodeManagers17renderPassManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render12NodeManagers14textureManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render12NodeManagers12layerManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render12NodeManagers20levelOfDetailManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render12NodeManagers16filterKeyManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render12NodeManagers17frameGraphManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render12NodeManagers16transformManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render12NodeManagers19renderTargetManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render12NodeManagers12sceneManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render12NodeManagers17attachmentManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render12NodeManagers16parameterManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render12NodeManagers17shaderDataManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render12NodeManagers19textureImageManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render12NodeManagers13bufferManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render12NodeManagers16attributeManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render12NodeManagers15geometryManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render12NodeManagers23geometryRendererManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render12NodeManagers19objectPickerManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render12NodeManagers16rayCasterManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render12NodeManagers12lightManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render12NodeManagers23environmentLightManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render12NodeManagers17computeJobManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render12NodeManagers18renderStateManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render12NodeManagers15armatureManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render12NodeManagers15skeletonManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render12NodeManagers12jointManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render12NodeManagers18shaderImageManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender6Render12NodeManagers19pickingProxyManagerEv": [
+      "address", "address"
+    ]
+  }
+}

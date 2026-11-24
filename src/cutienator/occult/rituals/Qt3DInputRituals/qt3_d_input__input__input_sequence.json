@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DInput/6.12.0/Qt3DInput/private/inputsequence_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK9Qt3DInput5Input13InputSequence7timeoutEv": [
+      "long long", "address"
+    ],
+    "ritual_ZNK9Qt3DInput5Input13InputSequence14buttonIntervalEv": [
+      "long long", "address"
+    ],
+    "ritual_ZNK9Qt3DInput5Input13InputSequence9startTimeEv": [
+      "long long", "address"
+    ]
+  }
+}

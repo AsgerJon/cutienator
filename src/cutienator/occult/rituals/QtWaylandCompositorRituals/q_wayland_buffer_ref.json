@@ -1,0 +1,36 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWaylandCompositor/qwaylandbufferref.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN17QWaylandBufferRefC1Ev": ["address"],
+    "ritual_ZN17QWaylandBufferRefC1ERKS_": ["address", "address"],
+    "ritual_ZN17QWaylandBufferRefD1Ev": ["nothing", "address"],
+    "ritual_ZNK17QWaylandBufferRef6isNullEv": ["bool", "address"],
+    "ritual_ZNK17QWaylandBufferRef9hasBufferEv": ["bool", "address"],
+    "ritual_ZNK17QWaylandBufferRef10hasContentEv": ["bool", "address"],
+    "ritual_ZNK17QWaylandBufferRef19hasProtectedContentEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK17QWaylandBufferRef11isDestroyedEv": ["bool", "address"],
+    "ritual_ZNK17QWaylandBufferRef4sizeEv": ["address", "address"],
+    "ritual_ZNK17QWaylandBufferRef6originEv": ["int", "address"],
+    "ritual_ZNK17QWaylandBufferRef10bufferTypeEv": ["int", "address"],
+    "ritual_ZNK17QWaylandBufferRef15bufferFormatEglEv": ["int", "address"],
+    "ritual_ZNK17QWaylandBufferRef14isSharedMemoryEv": ["bool", "address"],
+    "ritual_ZNK17QWaylandBufferRef5imageEv": ["address", "address"],
+    "ritual_ZNK17QWaylandBufferRef15toOpenGLTextureEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN17QWaylandBufferRef16lockNativeBufferEv": [
+      "unsigned long long", "address"
+    ],
+    "ritual_ZN17QWaylandBufferRef18unlockNativeBufferEy": [
+      "nothing", "address", "unsigned long long"
+    ],
+    "ritual_ZeqRK17QWaylandBufferRefS1_": ["bool", "address", "address"],
+    "ritual_ZneRK17QWaylandBufferRefS1_": ["bool", "address", "address"]
+  }
+}

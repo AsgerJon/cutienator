@@ -1,0 +1,14 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DSpatialAudio/6.12.0/QtQuick3DSpatialAudio/private/qquick3daudioe",
+    "ngine_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK19QQuick3DAudioEngine10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QQuick3DAudioEngineD1Ev": ["nothing", "address"],
+    "ritual_take_QQuick3DAudioEngine": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

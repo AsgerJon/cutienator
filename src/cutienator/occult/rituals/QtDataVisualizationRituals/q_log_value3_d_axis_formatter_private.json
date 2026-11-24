@@ -1,0 +1,28 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtDataV",
+    "isualization/6.12.0/QtDataVisualization/private/qlogvalue3daxisfor",
+    "matter_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK31QLogValue3DAxisFormatterPrivate10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN31QLogValue3DAxisFormatterPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN31QLogValue3DAxisFormatterPrivate11recalculateEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK31QLogValue3DAxisFormatterPrivate10positionAtEf": [
+      "float", "address", "float"
+    ],
+    "ritual_ZNK31QLogValue3DAxisFormatterPrivate7valueAtEf": [
+      "float", "address", "float"
+    ],
+    "ritual_ZN31QLogValue3DAxisFormatterPrivate4qptrEv": [
+      "address", "address"
+    ],
+    "ritual_take_QLogValue3DAxisFormatterPrivate": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

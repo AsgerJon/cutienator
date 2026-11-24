@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DRender/6.12.0/Qt3DRender/private/qtextureimage_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK10Qt3DRender24QImageTextureDataFunctor6statusEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK10Qt3DRender24QImageTextureDataFunctor2idEv": [
+      "long long", "address"
+    ],
+    "ritual_own_ZNK10Qt3DRender24QImageTextureDataFunctor2idEv": [
+      "long long", "address"
+    ]
+  }
+}

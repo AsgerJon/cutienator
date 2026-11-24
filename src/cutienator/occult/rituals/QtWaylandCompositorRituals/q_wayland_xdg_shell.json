@@ -1,0 +1,29 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWaylandCompositor/qwaylandxdgshell.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK16QWaylandXdgShell10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QWaylandXdgShell2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN16QWaylandXdgShellC1Ev": ["address"],
+    "ritual_ZN16QWaylandXdgShellC1EP18QWaylandCompositor": [
+      "address", "address"
+    ],
+    "ritual_ZN16QWaylandXdgShell10initializeEv": ["nothing", "address"],
+    "ritual_ZN16QWaylandXdgShell13interfaceNameEv": ["address"],
+    "ritual_ZN16QWaylandXdgShell4pingEP14QWaylandClient": [
+      "unsigned int", "address", "address"
+    ],
+    "ritual_ZN16QWaylandXdgShell17handleSeatChangedEP12QWaylandSeatS1_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN16QWaylandXdgShell18handleFocusChangedEP15QWaylandSurfaceS1_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN16QWaylandXdgShell10initializeEv": ["nothing", "address"]
+  }
+}

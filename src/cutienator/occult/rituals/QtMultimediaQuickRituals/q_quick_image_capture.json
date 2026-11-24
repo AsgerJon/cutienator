@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtMulti",
+    "mediaQuick/6.12.0/QtMultimediaQuick/private/qquickimagecapture_p.h",
+    ", Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18QQuickImageCapture10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QQuickImageCaptureD1Ev": ["nothing", "address"],
+    "ritual_ZNK18QQuickImageCapture7previewEv": ["text", "address"],
+    "ritual_ZNK18QQuickImageCapture10saveToFileERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QQuickImageCapture": ["bool", "address", "chars", "address"]
+  }
+}

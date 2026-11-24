@@ -1,0 +1,31 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSensors/qsensor.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK14QSensorReading10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QSensorReading2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN14QSensorReadingD1Ev": ["nothing", "address"],
+    "ritual_ZNK14QSensorReading9timestampEv": [
+      "unsigned long long", "address"
+    ],
+    "ritual_ZN14QSensorReading12setTimestampEy": [
+      "nothing", "address", "unsigned long long"
+    ],
+    "ritual_ZNK14QSensorReading10valueCountEv": ["int", "address"],
+    "ritual_ZNK14QSensorReading5valueEi": ["address", "address", "int"],
+    "ritual_ZN14QSensorReadingC1EP7QObjectP21QSensorReadingPrivate": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN14QSensorReading14copyValuesFromEPS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QSensorReading": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN14QSensorReading14copyValuesFromEPS_": [
+      "nothing", "address", "address"
+    ]
+  }
+}

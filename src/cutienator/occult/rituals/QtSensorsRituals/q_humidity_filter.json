@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSensors/qhumiditysensor.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN15QHumidityFilter6filterEP16QHumidityReading": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN15QHumidityFilter6filterEP14QSensorReading": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN15QHumidityFilter6filterEP14QSensorReading": [
+      "bool", "address", "address"
+    ]
+  }
+}

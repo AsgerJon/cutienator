@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DCore/qbackendnode.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN8Qt3DCore18QBackendNodeMapperD1Ev": ["nothing", "address"],
+    "ritual_ZNK8Qt3DCore18QBackendNodeMapper6createENS_7QNodeIdE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK8Qt3DCore18QBackendNodeMapper3getENS_7QNodeIdE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK8Qt3DCore18QBackendNodeMapper7destroyENS_7QNodeIdE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_Qt3DCore_QBackendNodeMapper": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

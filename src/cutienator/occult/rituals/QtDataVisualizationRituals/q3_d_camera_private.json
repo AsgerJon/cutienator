@@ -1,0 +1,32 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtDataV",
+    "isualization/6.12.0/QtDataVisualization/private/q3dcamera_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK16Q3DCameraPrivate10metaObjectEv": ["address", "address"],
+    "ritual_ZN16Q3DCameraPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN16Q3DCameraPrivate12setXRotationEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN16Q3DCameraPrivate12setYRotationEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK16Q3DCameraPrivate12minXRotationEv": ["float", "address"],
+    "ritual_ZNK16Q3DCameraPrivate12minYRotationEv": ["float", "address"],
+    "ritual_ZNK16Q3DCameraPrivate12maxXRotationEv": ["float", "address"],
+    "ritual_ZNK16Q3DCameraPrivate12maxYRotationEv": ["float", "address"],
+    "ritual_ZNK16Q3DCameraPrivate10viewMatrixEv": ["address", "address"],
+    "ritual_ZNK16Q3DCameraPrivate29isViewMatrixAutoUpdateEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN16Q3DCameraPrivate18setBaseOrientationERK9QVector3DS2_S2_": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK16Q3DCameraPrivate33calculatePositionRelativeToCameraERK9QVector3Dff": [
+      "address", "address", "address", "float", "float"
+    ],
+    "ritual_take_Q3DCameraPrivate": ["bool", "address", "chars", "address"]
+  }
+}

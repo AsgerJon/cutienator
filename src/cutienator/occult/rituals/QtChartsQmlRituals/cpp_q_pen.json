@@ -1,0 +1,13 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtChart",
+    "sQml/6.12.0/QtChartsQml/private/declarativeforeigntypes_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN7CppQPen20qt_qmlMarker_foreignEv": ["nothing", "address"],
+    "ritual_ZN7CppQPen21qt_qmlMarker_extendedEv": ["nothing", "address"],
+    "ritual_ZN7CppQPen22qt_qmlMarker_anonymousEv": ["nothing", "address"],
+    "ritual_ZN7CppQPenD1Ev": ["nothing", "address"]
+  }
+}

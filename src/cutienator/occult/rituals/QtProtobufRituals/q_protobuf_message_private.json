@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtProtobuf/6.12.0/QtProtobuf/private/qprotobufmessage_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN23QProtobufMessagePrivateC1Ev": ["address"],
+    "ritual_ZN23QProtobufMessagePrivateC1EPK11QMetaObjectPKN17QtProtobufPrivate25QProtobufPropertyOrderingE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN23QProtobufMessagePrivateC1ERKS_": ["address", "address"],
+    "ritual_ZN23QProtobufMessagePrivateD1Ev": ["nothing", "address"],
+    "ritual_ZNK23QProtobufMessagePrivate13propertyIndexE14QAnyStringView": [
+      "int", "address", "text"
+    ],
+    "ritual_ZN23QProtobufMessagePrivate17storeUnknownEntryEP16QProtobufMessage14QByteArrayViewi": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN23QProtobufMessagePrivate3getEP16QProtobufMessage": [
+      "address", "address"
+    ],
+    "ritual_ZN23QProtobufMessagePrivate3getEPK16QProtobufMessage": [
+      "address", "address"
+    ]
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSensorsQuick/6.12.0/QtSensorsQuick/private/qmlcompass_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QmlCompassReading10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QmlCompassReading2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QmlCompassReading24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QmlCompassReadingC1EP8QCompass": ["address", "address"],
+    "ritual_ZN17QmlCompassReadingD1Ev": ["nothing", "address"],
+    "ritual_ZNK17QmlCompassReading7azimuthEv": ["double", "address"],
+    "ritual_ZNK17QmlCompassReading16calibrationLevelEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK17QmlCompassReading7readingEv": ["address", "address"],
+    "ritual_ZN17QmlCompassReading13readingUpdateEv": ["nothing", "address"],
+    "ritual_take_QmlCompassReading": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK17QmlCompassReading7readingEv": ["address", "address"],
+    "ritual_own_ZN17QmlCompassReading13readingUpdateEv": [
+      "nothing", "address"
+    ]
+  }
+}

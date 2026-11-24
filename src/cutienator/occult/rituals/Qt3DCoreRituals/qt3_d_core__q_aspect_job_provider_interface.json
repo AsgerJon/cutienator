@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DCore/6.12.0/Qt3DCore/private/qaspectjobproviderinterface_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN8Qt3DCore27QAspectJobProviderInterfaceD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN8Qt3DCore27QAspectJobProviderInterface8jobsDoneEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN8Qt3DCore27QAspectJobProviderInterface9frameDoneEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_Qt3DCore_QAspectJobProviderInterface": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

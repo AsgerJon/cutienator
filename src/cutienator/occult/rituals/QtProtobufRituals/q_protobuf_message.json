@@ -1,0 +1,34 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtProtobuf/qprotobufmessage.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK16QProtobufMessage8propertyE14QAnyStringView": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN16QProtobufMessage11setPropertyE14QAnyStringViewRK8QVariant": [
+      "bool", "address", "text", "address"
+    ],
+    "ritual_ZNK16QProtobufMessage16unknownFieldDataEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK16QProtobufMessage9serializeEP27QAbstractProtobufSerializer": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN16QProtobufMessage11deserializeEP27QAbstractProtobufSerializer14QByteArrayView": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZNK16QProtobufMessage16propertyOrderingEv": [
+      "address", "address"
+    ],
+    "ritual_ZN16QProtobufMessageC1EPK11QMetaObjectPKN17QtProtobufPrivate25QProtobufPropertyOrderingE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN16QProtobufMessageD1Ev": ["nothing", "address"],
+    "ritual_ZNK16QProtobufMessage10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QProtobufMessage6d_funcEv": ["address", "address"],
+    "ritual_ZNK16QProtobufMessage6d_funcEv": ["address", "address"]
+  }
+}

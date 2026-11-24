@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtSpati",
+    "alAudio/6.12.0/QtSpatialAudio/private/qambisonicdecoder_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QAmbisonicDecoder14hasValidConfigEv": ["bool", "address"],
+    "ritual_ZNK17QAmbisonicDecoder14nInputChannelsEv": ["int", "address"],
+    "ritual_ZNK17QAmbisonicDecoder15nOutputChannelsEv": ["int", "address"],
+    "ritual_ZNK17QAmbisonicDecoder13outputSamplesEi": [
+      "int", "address", "int"
+    ]
+  }
+}

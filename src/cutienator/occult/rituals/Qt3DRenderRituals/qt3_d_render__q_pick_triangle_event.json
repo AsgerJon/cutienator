@@ -1,0 +1,34 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DRender/qpicktriangleevent.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK10Qt3DRender18QPickTriangleEvent10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender18QPickTriangleEvent2trEPKcS2_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DRender18QPickTriangleEventC1Ev": ["address"],
+    "ritual_ZN10Qt3DRender18QPickTriangleEventC1ERK7QPointFRK9QVector3DS6_fjjjj": [
+      "address", "address", "address", "address", "float", "unsigned int",
+      "unsigned int", "unsigned int", "unsigned int"
+    ],
+    "ritual_ZN10Qt3DRender18QPickTriangleEventC1ERK7QPointFRK9QVector3DS6_fjjjjNS_10QPickEvent7ButtonsEiiS6_": [
+      "address", "address", "address", "address", "float", "unsigned int",
+      "unsigned int", "unsigned int", "unsigned int", "int", "int", "int",
+      "address"
+    ],
+    "ritual_ZN10Qt3DRender18QPickTriangleEvent6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10Qt3DRender18QPickTriangleEvent6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_take_Qt3DRender_QPickTriangleEvent": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

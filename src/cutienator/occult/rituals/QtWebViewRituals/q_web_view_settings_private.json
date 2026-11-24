@@ -1,0 +1,13 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWebView/6.12.0/QtWebView/private/qwebview_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN23QWebViewSettingsPrivateD1Ev": ["nothing", "address"],
+    "ritual_take_QWebViewSettingsPrivate": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

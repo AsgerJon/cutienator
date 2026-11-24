@@ -1,0 +1,34 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtSenso",
+    "rsQuick/6.12.0/QtSensorsQuick/private/qmlambienttemperaturesensor_",
+    "p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK27QmlAmbientTemperatureSensor10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QmlAmbientTemperatureSensor2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN27QmlAmbientTemperatureSensorC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN27QmlAmbientTemperatureSensorD1Ev": ["nothing", "address"],
+    "ritual_ZNK27QmlAmbientTemperatureSensor6sensorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK27QmlAmbientTemperatureSensor13createReadingEv": [
+      "address", "address"
+    ],
+    "ritual_take_QmlAmbientTemperatureSensor": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK27QmlAmbientTemperatureSensor6sensorEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK27QmlAmbientTemperatureSensor13createReadingEv": [
+      "address", "address"
+    ]
+  }
+}

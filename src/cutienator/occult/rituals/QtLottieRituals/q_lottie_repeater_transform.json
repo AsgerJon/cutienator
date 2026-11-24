@@ -1,0 +1,45 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLottie/6.12.0/QtLottie/private/qlottierepeatertransform_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN24QLottieRepeaterTransformC1ERKS_": ["address", "address"],
+    "ritual_ZN24QLottieRepeaterTransformC1EP11QLottieBase": [
+      "address", "address"
+    ],
+    "ritual_ZNK24QLottieRepeaterTransform5cloneEv": ["address", "address"],
+    "ritual_ZN24QLottieRepeaterTransform5parseERK11QJsonObject": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN24QLottieRepeaterTransform16updatePropertiesEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK24QLottieRepeaterTransform12startOpacityEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK24QLottieRepeaterTransform10endOpacityEv": [
+      "double", "address"
+    ],
+    "ritual_ZN24QLottieRepeaterTransform16setInstanceCountEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK24QLottieRepeaterTransform17opacityAtInstanceEi": [
+      "double", "address", "int"
+    ],
+    "ritual_ZN24QLottieRepeaterTransformD1Ev": ["nothing", "address"],
+    "ritual_take_QLottieRepeaterTransform": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK24QLottieRepeaterTransform5cloneEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN24QLottieRepeaterTransform5parseERK11QJsonObject": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZN24QLottieRepeaterTransform16updatePropertiesEi": [
+      "nothing", "address", "int"
+    ]
+  }
+}

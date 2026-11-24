@@ -1,0 +1,45 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtVirtu",
+    "alKeyboard/6.12.0/QtVirtualKeyboard/private/abstractinputpanel_p.h",
+    ", Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QtVirtualKeyboard18AbstractInputPanel10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard18AbstractInputPanel2trEPKcS2_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QtVirtualKeyboard18AbstractInputPanel4showEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard18AbstractInputPanel4hideEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK17QtVirtualKeyboard18AbstractInputPanel9isVisibleEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard18AbstractInputPanel12setInputRectERK5QRect": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard18AbstractInputPanel10createViewEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard18AbstractInputPanel11destroyViewEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QtVirtualKeyboard_AbstractInputPanel": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN17QtVirtualKeyboard18AbstractInputPanel12setInputRectERK5QRect": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN17QtVirtualKeyboard18AbstractInputPanel10createViewEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN17QtVirtualKeyboard18AbstractInputPanel11destroyViewEv": [
+      "nothing", "address"
+    ]
+  }
+}

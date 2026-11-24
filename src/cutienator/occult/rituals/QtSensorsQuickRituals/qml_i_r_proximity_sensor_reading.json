@@ -1,0 +1,40 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtSenso",
+    "rsQuick/6.12.0/QtSensorsQuick/private/qmlirproximitysensor_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK27QmlIRProximitySensorReading10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QmlIRProximitySensorReading2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN27QmlIRProximitySensorReading24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QmlIRProximitySensorReadingC1EP18QIRProximitySensor": [
+      "address", "address"
+    ],
+    "ritual_ZN27QmlIRProximitySensorReadingD1Ev": ["nothing", "address"],
+    "ritual_ZNK27QmlIRProximitySensorReading11reflectanceEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK27QmlIRProximitySensorReading7readingEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QmlIRProximitySensorReading13readingUpdateEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QmlIRProximitySensorReading": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK27QmlIRProximitySensorReading7readingEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN27QmlIRProximitySensorReading13readingUpdateEv": [
+      "nothing", "address"
+    ]
+  }
+}

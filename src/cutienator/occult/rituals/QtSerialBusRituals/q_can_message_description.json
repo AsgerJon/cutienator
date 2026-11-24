@@ -1,0 +1,67 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSerialBus/qcanmessagedescription.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZN22QCanMessageDescriptionC1Ev": ["address"],
+    "ritual_ZN22QCanMessageDescriptionC1ERKS_": ["address", "address"],
+    "ritual_ZN22QCanMessageDescriptionD1Ev": ["nothing", "address"],
+    "ritual_ZNK22QCanMessageDescription7isValidEv": ["bool", "address"],
+    "ritual_ZNK22QCanMessageDescription8uniqueIdEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZN22QCanMessageDescription11setUniqueIdEN8QtCanBus8UniqueIdE": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZNK22QCanMessageDescription4nameEv": ["text", "address"],
+    "ritual_ZN22QCanMessageDescription7setNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK22QCanMessageDescription4sizeEv": [
+      "unsigned char", "address"
+    ],
+    "ritual_ZN22QCanMessageDescription7setSizeEh": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZNK22QCanMessageDescription11transmitterEv": ["text", "address"],
+    "ritual_ZN22QCanMessageDescription14setTransmitterERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK22QCanMessageDescription7commentEv": ["text", "address"],
+    "ritual_ZN22QCanMessageDescription10setCommentERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK22QCanMessageDescription18signalDescriptionsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK22QCanMessageDescription24signalDescriptionForNameERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN22QCanMessageDescription23clearSignalDescriptionsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QCanMessageDescription20addSignalDescriptionERK21QCanSignalDescription": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QCanMessageDescription21setSignalDescriptionsERK5QListI21QCanSignalDescriptionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_Zls6QDebugRK22QCanMessageDescription": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN22QCanMessageDescription14debugStreamingE6QDebugRKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_list_make_QCanMessageDescription": ["address"],
+    "ritual_list_add_QCanMessageDescription": [
+      "nothing", "address", "address"
+    ],
+    "ritual_list_size_QCanMessageDescription": ["long long", "address"],
+    "ritual_list_at_QCanMessageDescription": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_QCanMessageDescription": ["nothing", "address"]
+  }
+}

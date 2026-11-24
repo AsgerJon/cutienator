@@ -1,0 +1,59 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtChartsQml/6.12.0/QtChartsQml/private/declarativebarseries_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK20DeclarativeBarSeries10metaObjectEv": ["address", "address"],
+    "ritual_ZN20DeclarativeBarSeries2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN20DeclarativeBarSeriesC1EP10QQuickItem": [
+      "address", "address"
+    ],
+    "ritual_ZN20DeclarativeBarSeries5axisXEv": ["address", "address"],
+    "ritual_ZN20DeclarativeBarSeries8setAxisXEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20DeclarativeBarSeries5axisYEv": ["address", "address"],
+    "ritual_ZN20DeclarativeBarSeries8setAxisYEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20DeclarativeBarSeries8axisXTopEv": ["address", "address"],
+    "ritual_ZN20DeclarativeBarSeries11setAxisXTopEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20DeclarativeBarSeries10axisYRightEv": ["address", "address"],
+    "ritual_ZN20DeclarativeBarSeries13setAxisYRightEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20DeclarativeBarSeries2atEi": ["address", "address", "int"],
+    "ritual_ZN20DeclarativeBarSeries6appendE7QString5QListI8QVariantE": [
+      "address", "address", "text", "address"
+    ],
+    "ritual_ZN20DeclarativeBarSeries6insertEi7QString5QListI8QVariantE": [
+      "address", "address", "int", "text", "address"
+    ],
+    "ritual_ZN20DeclarativeBarSeries6removeEP7QBarSet": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN20DeclarativeBarSeries5clearEv": ["nothing", "address"],
+    "ritual_ZN20DeclarativeBarSeries10classBeginEv": ["nothing", "address"],
+    "ritual_ZN20DeclarativeBarSeries17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_cast_DeclarativeBarSeries_QQmlParserStatus": [
+      "address", "address"
+    ],
+    "ritual_take_DeclarativeBarSeries": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN20DeclarativeBarSeries10classBeginEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN20DeclarativeBarSeries17componentCompleteEv": [
+      "nothing", "address"
+    ]
+  }
+}

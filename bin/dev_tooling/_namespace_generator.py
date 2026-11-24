@@ -12,7 +12,7 @@ from worktoy.waitaminute import MissingVariable, TypeException
 from . import DependencyTree, HeaderReader, EnumGenerator
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import List, Optional, Tuple
+  from typing import Dict, List, Optional, Tuple
 
   Names = Tuple[str, ...]
 
@@ -76,12 +76,26 @@ class NamespaceGenerator:
     return self.__work_folder__
 
   def getEnumGenerator(self, enumName: str) -> EnumGenerator:
-    """Gives a generator for one enum, with the same tree and folder."""
+    """Gives a generator for one enum of the namespace, with the same
+    tree and folder."""
     generator = EnumGenerator()
     generator.setDependencyTree(self.getDependencyTree())
+    generator.setPartName(self._getEnumParts()[enumName])
     generator.setEnumName(enumName)
     generator.setWorkFolder(self.getWorkFolder())
     return generator
+
+  def _getEnumParts(self) -> Dict[str, str]:
+    """Gives the part of each enum Qt writes directly in the namespace,
+    under its full name."""
+    tree, namespaceName = self.getDependencyTree(), self.getNamespaceName()
+    found = dict()  # type: Dict[str, str]
+    for partName, enumName in tree.getEnumRecordNames():
+      record = tree.getEnumRecord(enumName, partName)
+      if record['insideClass'] or record['ownerName'] != namespaceName:
+        continue
+      found.setdefault(enumName, partName)
+    return found
 
   def getEnumNames(self) -> Names:
     """
@@ -95,12 +109,9 @@ class NamespaceGenerator:
     ValueError
       Qt writes no such enum in the namespace.
     """
-    tree, namespaceName = self.getDependencyTree(), self.getNamespaceName()
+    namespaceName = self.getNamespaceName()
     enumNames = []  # type: List[str]
-    for enumName in tree.getEnumRecordNames():
-      record = tree.getEnumRecord(enumName)
-      if record['insideClass'] or record['ownerName'] != namespaceName:
-        continue
+    for enumName in sorted(self._getEnumParts()):
       if self.getEnumGenerator(enumName).findRefusal() is None:
         enumNames.append(enumName)
     if not enumNames:
@@ -118,10 +129,10 @@ class NamespaceGenerator:
     ValueError
       The enums of the namespace lie in more than one part.
     """
-    tree = self.getDependencyTree()
+    enumParts = self._getEnumParts()
     partNames = set()
     for enumName in self.getEnumNames():
-      partNames.add(tree.getEnumRecord(enumName)['partName'])
+      partNames.add(enumParts[enumName])
     if len(partNames) > 1:
       infoSpec = """The enums of the namespace '%s' lie in more than one
       part of Qt: %s."""

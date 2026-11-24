@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DPhysics/6.12.0/QtQuick3DPhysics/private/qstaticrigidbody_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK16QStaticRigidBody10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QStaticRigidBody2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN16QStaticRigidBodyC1Ev": ["address"],
+    "ritual_take_QStaticRigidBody": ["bool", "address", "chars", "address"]
+  }
+}

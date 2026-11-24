@@ -1,0 +1,31 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DInput/qkeyevent.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK9Qt3DInput9QKeyEvent10metaObjectEv": ["address", "address"],
+    "ritual_ZN9Qt3DInput9QKeyEvent2trEPKcS2_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZNK9Qt3DInput9QKeyEvent3keyEv": ["int", "address"],
+    "ritual_ZNK9Qt3DInput9QKeyEvent4textEv": ["text", "address"],
+    "ritual_ZNK9Qt3DInput9QKeyEvent9modifiersEv": ["int", "address"],
+    "ritual_ZNK9Qt3DInput9QKeyEvent12isAutoRepeatEv": ["bool", "address"],
+    "ritual_ZNK9Qt3DInput9QKeyEvent5countEv": ["int", "address"],
+    "ritual_ZNK9Qt3DInput9QKeyEvent14nativeScanCodeEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZNK9Qt3DInput9QKeyEvent10isAcceptedEv": ["bool", "address"],
+    "ritual_ZN9Qt3DInput9QKeyEvent11setAcceptedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK9Qt3DInput9QKeyEvent4typeEv": ["int", "address"],
+    "ritual_ZNK9Qt3DInput9QKeyEvent7matchesEN12QKeySequence11StandardKeyE": [
+      "bool", "address", "int"
+    ],
+    "ritual_take_Qt3DInput_QKeyEvent": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

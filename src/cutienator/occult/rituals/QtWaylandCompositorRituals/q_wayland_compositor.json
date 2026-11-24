@@ -1,0 +1,114 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWaylandCompositor/qwaylandcompositor.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18QWaylandCompositor10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QWaylandCompositor2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18QWaylandCompositor24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QWaylandCompositorC1EP7QObject": ["address", "address"],
+    "ritual_ZN18QWaylandCompositorD1Ev": ["nothing", "address"],
+    "ritual_ZN18QWaylandCompositor6createEv": ["nothing", "address"],
+    "ritual_ZNK18QWaylandCompositor9isCreatedEv": ["bool", "address"],
+    "ritual_ZN18QWaylandCompositor13setSocketNameERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QWaylandCompositor10socketNameEv": ["address", "address"],
+    "ritual_ZN18QWaylandCompositor19addSocketDescriptorEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK18QWaylandCompositor7clientsEv": ["address", "address"],
+    "ritual_ZN18QWaylandCompositor23destroyClientForSurfaceEP15QWaylandSurface": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QWaylandCompositor13destroyClientEP14QWaylandClient": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QWaylandCompositor8surfacesEv": ["address", "address"],
+    "ritual_ZNK18QWaylandCompositor17surfacesForClientEP14QWaylandClient": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK18QWaylandCompositor9outputForEP7QWindow": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK18QWaylandCompositor13defaultOutputEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18QWaylandCompositor16setDefaultOutputEP14QWaylandOutput": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QWaylandCompositor7outputsEv": ["address", "address"],
+    "ritual_ZNK18QWaylandCompositor16currentTimeMsecsEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZN18QWaylandCompositor27setRetainedSelectionEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK18QWaylandCompositor24retainedSelectionEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN18QWaylandCompositor17overrideSelectionEPK9QMimeData": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QWaylandCompositor11defaultSeatEv": ["address", "address"],
+    "ritual_ZN18QWaylandCompositor7seatForEP11QInputEvent": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK18QWaylandCompositor31useHardwareIntegrationExtensionEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN18QWaylandCompositor34setUseHardwareIntegrationExtensionEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN18QWaylandCompositor11grabSurfaceEP22QWaylandSurfaceGrabberRK17QWaylandBufferRef": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN18QWaylandCompositor20processWaylandEventsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QWaylandCompositor23applicationStateChangedEN2Qt16ApplicationStateE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18QWaylandCompositor25retainedSelectionReceivedEP9QMimeData": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QWaylandCompositor10createSeatEv": ["address", "address"],
+    "ritual_ZN18QWaylandCompositor19createPointerDeviceEP12QWaylandSeat": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18QWaylandCompositor20createKeyboardDeviceEP12QWaylandSeat": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18QWaylandCompositor17createTouchDeviceEP12QWaylandSeat": [
+      "address", "address", "address"
+    ],
+    "ritual_take_QWaylandCompositor": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN18QWaylandCompositor6createEv": ["nothing", "address"],
+    "ritual_own_ZN18QWaylandCompositor11grabSurfaceEP22QWaylandSurfaceGrabberRK17QWaylandBufferRef": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN18QWaylandCompositor25retainedSelectionReceivedEP9QMimeData": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN18QWaylandCompositor10createSeatEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN18QWaylandCompositor19createPointerDeviceEP12QWaylandSeat": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN18QWaylandCompositor20createKeyboardDeviceEP12QWaylandSeat": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN18QWaylandCompositor17createTouchDeviceEP12QWaylandSeat": [
+      "address", "address", "address"
+    ]
+  }
+}

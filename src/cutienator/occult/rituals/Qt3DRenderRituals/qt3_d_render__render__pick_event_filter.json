@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "Qt3DRender/6.12.0/Qt3DRender/private/pickeventfilter_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK10Qt3DRender6Render15PickEventFilter10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10Qt3DRender6Render15PickEventFilter2trEPKcS3_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_take_Qt3DRender_Render_PickEventFilter": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}
